@@ -6,7 +6,8 @@ body = html.split("<!--BODY-->")[1].split("<!--/BODY-->")[0]
 head = re.search(r"<link rel=\"stylesheet\" href=\"https://fonts[^>]+>", html).group(0)
 def img(m):
     p = R / m.group(1)
-    return 'src="data:image/png;base64,' + base64.b64encode(p.read_bytes()).decode() + '"'
+    mime = "image/svg+xml" if p.suffix == ".svg" else "image/png"
+    return 'src="data:' + mime + ';base64,' + base64.b64encode(p.read_bytes()).decode() + '"'
 body = re.sub(r'src="(assets/[^"]+)"', img, body)
 data = {n: json.loads((R / "data" / f"{n}.json").read_text(encoding="utf-8")) for n in ("kenh", "series", "videos")}
 out = ("<title>Mark học AI</title>\n" + head + "\n<style>\n" + (R / "style.css").read_text(encoding="utf-8") + "\n</style>\n" + body +

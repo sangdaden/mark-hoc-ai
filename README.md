@@ -9,7 +9,7 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 - `data/videos.json`: danh sách video (số, chủ đề, tiêu đề, mô tả). Tạo bằng `python3 scripts/gom_video.py /mnt/project-files/videos`.
 - `data/series.json`: tên, mô tả, khoảng số và thuật ngữ của từng series. Đổi `sap_ra_mat` thành `false` khi series đã đăng.
 - `data/kenh.json`: link kênh và email liên hệ (để trống thì trang ẩn email).
-- `assets/`: logo, ảnh đại diện, ảnh chia sẻ (bảng màu "Trời xanh").
+- `assets/`: logo, ảnh đại diện, ảnh chia sẻ, mascot Mark và Bit (`mark-*.svg`, bản gốc ở `brand/mascot/chinh-thuc/`).
 
 ## Thêm video mới
 1. Chạy `python3 scripts/gom_video.py` để cập nhật `data/videos.json`.
