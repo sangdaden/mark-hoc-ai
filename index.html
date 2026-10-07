@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mark học AI</title>
+<meta name="description" content="Video ngắn giải thích AI bằng tiếng Việt dễ hiểu. Mỗi video một ý, kèm một việc bạn làm được ngay.">
+<meta property="og:title" content="Mark học AI">
+<meta property="og:description" content="Video ngắn giải thích AI bằng tiếng Việt dễ hiểu. Mỗi video một ý, kèm một việc bạn làm được ngay.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--BODY-->
+<header class="top">
+  <a class="brand" href="#">
+    <img src="assets/logo.png" alt="" width="40" height="40">
+    <span>Mark học <b>AI</b></span>
+  </a>
+  <nav class="top-links" aria-label="Kênh">
+    <a data-kenh="youtube" href="#">YouTube</a>
+    <a data-kenh="tiktok" href="#">TikTok</a>
+    <a data-kenh="facebook" href="#">Facebook</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Kênh video ngắn về AI, bằng tiếng Việt</p>
+      <h1>Hiểu AI trong một phút, <span class="hl">dùng được ngay</span> sau đó.</h1>
+      <p class="lead">Mỗi video giải thích một ý nền tảng của AI bằng lời dễ hiểu và hình động minh họa, rồi chỉ cho bạn một việc làm được liền. Thuật ngữ giữ nguyên tiếng Anh để bạn nhận ra khi gặp lại.</p>
+      <div class="cta">
+        <a class="btn btn-yt" data-kenh="youtube" href="#">Xem trên YouTube</a>
+        <a class="btn" data-kenh="tiktok" href="#">TikTok @markhocai</a>
+        <a class="btn" data-kenh="facebook" href="#">Facebook</a>
+      </div>
+      <p class="stats" id="stats"></p>
+    </div>
+    <div class="hero-card" aria-hidden="true">
+      <img src="assets/logo.png" alt="" width="160" height="160">
+      <div class="part-pill">Bên trong bộ não AI · Phần 1/8</div>
+      <p class="hero-card-line">AI không đọc chữ, nó đọc “mảnh”</p>
+      <div class="tokens"><span>Xin</span><span>chào</span><span>,</span><span> Mark</span><span> học</span><span> AI</span></div>
+    </div>
+  </section>
+
+  <section class="catalog" id="video">
+    <div class="catalog-head">
+      <h2>Tất cả video</h2>
+      <label class="search" for="tim">
+        <span class="sr">Tìm video</span>
+        <input id="tim" type="search" placeholder="Tìm: token, RAG, deepfake…" autocomplete="off">
+      </label>
+    </div>
+    <div class="chips" id="chips" role="tablist" aria-label="Lọc theo series"></div>
+    <div id="danh-sach"></div>
+    <p class="empty" id="rong" hidden>Không có video nào khớp. Thử từ khác, ví dụ “prompt” hoặc “MCP”.</p>
+  </section>
+
+  <section class="about" id="gioi-thieu">
+    <h2>Về kênh</h2>
+    <p>Mark học AI làm video cho người không chuyên: nhân viên văn phòng, giáo viên, học sinh, chủ cửa hàng. Mỗi video có hai bản: bản dọc cho TikTok, Reels, Shorts và bản ngang cho YouTube. Video theo series được đánh số “Phần X/N” để bạn biết mình đang ở đâu.</p>
+    <p class="contact" id="lien-he"></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="assets/logo.png" alt="" width="28" height="28">
+  <span>Mark học AI</span>
+  <span class="muted">© 2026</span>
+</footer>
+<!--/BODY-->
+<script src="app.js"></script>
+</body>
+</html>
