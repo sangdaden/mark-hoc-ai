@@ -1,7 +1,7 @@
 (async function () {
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
-    const r = await fetch("data/" + name + ".json");
+    const r = await fetch("data/" + name + ".json", { cache: "no-cache" });
     return r.json();
   }
   const [kenh, series, videos] = await Promise.all([load("kenh"), load("series"), load("videos")]);
