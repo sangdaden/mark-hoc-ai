@@ -73,4 +73,15 @@
     document.getElementById("rong").hidden = shown > 0;
   }
   render();
+
+  const lenDau = document.getElementById("len-dau");
+  const capNhatNut = () => { lenDau.hidden = window.scrollY < 600; };
+  window.addEventListener("scroll", capNhatNut, { passive: true });
+  capNhatNut();
+  lenDau.addEventListener("click", e => {
+    e.preventDefault();
+    const giam = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: giam ? "instant" : "smooth" });
+    document.querySelector(".brand").focus({ preventScroll: true });
+  });
 })();

@@ -24,7 +24,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
   margin: 0; padding-inline: 16px;
   background: linear-gradient(180deg, var(--bg), var(--bg2) 60%, var(--bg));
@@ -34,6 +34,7 @@ body {
 img { max-width: 100%; height: auto; }
 a { color: var(--blue); }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+[hidden] { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .muted { color: var(--muted); }
 
@@ -144,7 +145,17 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
 .foot-links a:hover { color: #FDE047; }
 .foot-copy { grid-column: 1 / -1; font: 500 13px var(--f-mono); color: rgba(255, 255, 255, .8); }
 
+/* Nút lên đầu trang: hiện khi đã kéo xuống quá phần đầu */
+.to-top { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+  display: inline-flex; align-items: center; gap: 6px; padding: 12px 16px 12px 14px; border-radius: 999px;
+  font: 700 14px/1 var(--f-body); color: #0F172A; background: #FACC15; text-decoration: none;
+  border: 2px solid #0F172A; box-shadow: 0 10px 24px -10px rgba(15, 23, 42, .55); transition: transform .15s; }
+.to-top:hover { transform: translateY(-2px); }
+.to-top:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
 @media (max-width: 760px) {
+  .to-top span { display: none; }
+  .to-top { padding: 12px; }
   .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 16px 32px; }
   .hero-art img { width: min(80%, 300px); }
   .about { grid-template-columns: 1fr; padding: 24px; }
