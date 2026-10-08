@@ -25,7 +25,7 @@ if "--lang" in sys.argv[1:]:
 CHON = CHON or "all"
 ROOT = pathlib.Path(THAM_SO[0] if THAM_SO else "/mnt/project-files/videos")
 R = pathlib.Path(__file__).resolve().parent.parent
-BASE = "https://sangdaden.github.io/mark-hoc-ai/"
+BASE = "https://markhocai.com/"
 SITE = "Mark học AI"
 PDF = "assets/50-prompt-mau.pdf"
 

@@ -23,7 +23,7 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 4. Commit và push lên `main`; GitHub Pages tự đăng lại.
 
 ## Gắn tên miền riêng
-Tạo file `CNAME` chứa tên miền (ví dụ `markhocai.com`), rồi trỏ DNS theo hướng dẫn của GitHub Pages.
+Trang chạy ở https://markhocai.com (file `CNAME`). Tên miền mua ở Namecheap, DNS trỏ về GitHub Pages: 4 bản ghi A cho `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) và CNAME `www` → `sangdaden.github.io`. Trong Settings → Pages của repo, ô Custom domain là `markhocai.com` và đã bật Enforce HTTPS. Đổi tên miền thì sửa cả `BASE` trong `scripts/tao_bai_viet.py`.
 
 ## Icon
 
