@@ -235,6 +235,7 @@ def trang(duong_dan, title, desc, band, main, p, hien_tai="", og_type="article",
 <link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
 {FONT}
 <link rel="stylesheet" href="{p}style.css?v=dev">
+<script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 {chr(10).join(ld(j) for j in jsonld)}
 </head>
 <body class="sub">
@@ -247,6 +248,8 @@ def trang(duong_dan, title, desc, band, main, p, hien_tai="", og_type="article",
 {main}
 {footer(p)}
 <script src="{p}len-dau.js?v=dev" defer></script>
+<script src="{p}cai-dat.js?v=dev" defer></script>
+<script src="{p}bit-tro-ly.js?v=dev" defer></script>
 {cuoi}</body>
 </html>
 """

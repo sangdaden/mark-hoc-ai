@@ -410,3 +410,44 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .q-fb { display: flex; gap: 12px; align-items: flex-start; }
 .q-fb .q-bit { flex: none; width: 44px; height: auto; }
 @media (max-width: 480px) { .q-head .q-bit { width: 46px; } }
+
+/* Bit trợ lý: góc trái dưới (nút Đầu trang ở góc phải) */
+.bit-tl { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px; pointer-events: none; }
+.bit-tl > * { pointer-events: auto; }
+.bit-nut { width: 72px; height: 80px; padding: 0; border: 0; background: none; cursor: pointer; animation: bit-bay 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 12px rgba(15, 23, 42, .25)); }
+.bit-nut img { width: 64px; height: auto; display: block; margin: 0 auto; }
+.bit-nut:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; border-radius: 16px; }
+.bit-nay .bit-nut { animation: bit-nay .7s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes bit-bay { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes bit-nay { 0% { transform: scale(.85); } 60% { transform: scale(1.12) rotate(-6deg); } 100% { transform: scale(1); } }
+.bit-noi { position: relative; max-width: min(250px, calc(100vw - 32px)); margin-left: 8px; padding: 12px 34px 12px 14px; border-radius: 16px 16px 16px 4px;
+  background: var(--panel); color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 10px 24px -12px rgba(15, 23, 42, .5);
+  font: 500 14px/1.45 var(--f-body); cursor: pointer; animation: bit-hien .25s ease-out; }
+.bit-noi p { margin: 0; }
+.bit-x { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border: 0; border-radius: 50%; background: none; color: var(--muted);
+  font: 700 18px/1 var(--f-body); cursor: pointer; }
+.bit-x:hover { background: var(--bg2); color: var(--ink); }
+.bit-menu { width: min(300px, calc(100vw - 24px)); padding: 16px; border-radius: 20px; background: var(--panel); color: var(--ink);
+  border: 2px solid var(--ink); box-shadow: 0 18px 40px -16px rgba(15, 23, 42, .55); animation: bit-hien .2s ease-out; }
+.bit-chao { margin: 0 0 8px; font: 800 17px/1.3 var(--f-display); }
+.bit-menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.bit-menu a { display: flex; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 12px; color: var(--ink); text-decoration: none; font: 600 14.5px/1.3 var(--f-body); }
+.bit-menu a:hover, .bit-menu a:focus-visible { background: var(--bg2); outline: none; }
+.bit-meo { margin-top: 10px; padding: 12px; border-radius: 14px; background: color-mix(in srgb, var(--yellow) 22%, var(--panel)); font-size: 14px; }
+.bit-meo b { font: 700 12px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; }
+.bit-meo p { margin: 6px 0 8px; line-height: 1.45; }
+.bit-meo-khac { border: 0; padding: 0; background: none; color: var(--blue); font: 600 13.5px/1 var(--f-body); cursor: pointer; }
+@keyframes bit-hien { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
+@media (max-width: 480px) { .bit-nut { width: 58px; height: 66px; } .bit-nut img { width: 50px; } }
+@media (prefers-reduced-motion: reduce) { .bit-nut, .bit-nay .bit-nut, .bit-noi, .bit-menu { animation: none; } }
+@media print { .bit-tl { display: none; } }
+
+/* Nút đổi giao diện sáng/tối trên thanh đầu mọi trang (cai-dat.js) */
+.top-tools { display: flex; gap: 8px; align-items: center; }
+.top-tools button, .top-tools a { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, .55); background: rgba(255, 255, 255, .14); color: #fff; font: 600 13.5px/1 var(--f-body);
+  text-decoration: none; cursor: pointer; }
+.top-tools button:hover, .top-tools a:hover { background: rgba(255, 255, 255, .26); }
+.top-tools button:focus-visible, .top-tools a:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
