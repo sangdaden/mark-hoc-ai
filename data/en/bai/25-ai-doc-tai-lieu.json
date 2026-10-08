@@ -1,0 +1,35 @@
+{
+ "meta": "Part 7 of \"Inside AI's brain\". AI was trained on a whole library of text, but it doesn't know your contracts, course books or company rules. This video explains RAG.",
+ "prompt": "Answer only from this document, and give the page number.",
+ "muc": [
+  {
+   "title": "Your own documents",
+   "text": "AI has read a whole library, but it has never read your contract, your course book or your company rules. Ask about them, and it can only guess."
+  },
+  {
+   "title": "Give it the document",
+   "text": "The fix is to give AI the document. For long documents, the system cuts them into many small chunks."
+  },
+  {
+   "title": "Chunks on the map of meaning",
+   "text": "Each chunk is placed on the map of meaning we met in part two. The chunk about the deposit sits in one place, the chunk about repairs sits in another."
+  },
+  {
+   "title": "Find the right chunk",
+   "text": "When you ask a question, your question is placed on the map too. The system picks the chunks closest to your question."
+  },
+  {
+   "title": "Read first, then answer",
+   "text": "Then AI reads those chunks before it answers. It relies on what's written instead of guessing, so it makes things up much less. This is called RAG."
+  },
+  {
+   "try": true,
+   "title": "Only use the document",
+   "text": "Upload a document, like your washing machine manual, then write: \"Answer only from this document, and give the page number.\" Remember to open that page to check, and don't upload papers with sensitive information."
+  },
+  {
+   "title": "Problems with many steps",
+   "text": "Now it has your documents, but what about hard problems with many steps? AI recently learned to think before it speaks. The last part explains."
+  }
+ ]
+}

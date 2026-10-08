@@ -1,0 +1,44 @@
+{
+ "meta": "An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn't always a better fit. A chatbot team keeps an eval set, a few hundred real questions, and runs a regression test first.",
+ "muc": [
+  {
+   "title": "Newer isn't always a better fit",
+   "text": "An AI company just released a new model, faster and cheaper. The bank's chatbot team wants to switch right away. Wait. Newer isn't always a better fit."
+  },
+  {
+   "chip": "EVAL SET",
+   "title": "The product's own test",
+   "text": "They already have a test set, called an eval set: a few hundred real customer questions with the answers they want, plus trick questions they've seen before."
+  },
+  {
+   "chip": "REGRESSION TEST",
+   "title": "Old and new take the test",
+   "text": "The new model has to redo the whole old test, and its score is compared with the model that's running now. This is called a regression test."
+  },
+  {
+   "chip": "LLM AS A JUDGE",
+   "title": "AI grades, people check",
+   "text": "Grading hundreds of answers by hand takes a long time, so they use an AI as the judge, called LLM as a judge, grading against clear criteria. Then people double-check the hard ones."
+  },
+  {
+   "chip": "SURPRISE",
+   "title": "Better overall, worse where it matters",
+   "text": "The results can be surprising: the new model does better on ninety questions, but worse on five about annual fees. Until those five are fixed, no switch."
+  },
+  {
+   "chip": "NOT JUST THE MODEL",
+   "title": "Change anything, test again",
+   "text": "It's not just switching models. Changing one word in the prompt or adding a document also means testing again. Unlike the benchmarks in the grading series, this eval set belongs to that product alone."
+  },
+  {
+   "try": true,
+   "title": "Five questions of your own",
+   "text": "When an AI app you use gets a new model, take five questions of your own, like in video 48. Ask both the old and new model, and compare before switching for good."
+  },
+  {
+   "chip": "NEXT",
+   "title": "When things go wrong, how do you trace it?",
+   "text": "The switch is done, and it's live. If something goes wrong, how do you trace it? Part six: logging and tracing."
+  }
+ ]
+}

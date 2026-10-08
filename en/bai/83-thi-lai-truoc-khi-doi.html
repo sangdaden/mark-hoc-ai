@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is evaluation? Why you test again before switching AI models | Mark học AI</title>
+<meta name="description" content="An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn&#x27;t always a better fit. A chatbot team keeps an eval set, a few hundred real questions, and runs a regression test first.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is evaluation? Why you test again before switching AI models | Mark học AI">
+<meta property="og:description" content="An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn&#x27;t always a better fit. A chatbot team keeps an eval set, a few hundred real questions, and runs a regression test first.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is evaluation? Why you test again before switching AI models","description":"An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn't always a better fit. A chatbot team keeps an eval set, a few hundred real questions, and runs a regression test first.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Behind the scenes of an AI system"},"about":[{"@type":"DefinedTerm","name":"Benchmark","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#benchmark"},{"@type":"DefinedTerm","name":"Eval set","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#eval-set"},{"@type":"DefinedTerm","name":"Evaluation","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#evaluation"},{"@type":"DefinedTerm","name":"LLM as a judge","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#llm-as-a-judge"},{"@type":"DefinedTerm","name":"Regression test","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#regression-test"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Behind the scenes of an AI system","item":"https://sangdaden.github.io/mark-hoc-ai/en/#hau-truong"},{"@type":"ListItem","position":3,"name":"What is evaluation? Why you test again before switching AI models","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/83-thi-lai-truoc-khi-doi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#83</span></nav>
+<p class="eyebrow">Video #83 · Behind the scenes of an AI system · Part 5/7</p>
+<h1>What is evaluation? Why you test again before switching AI models</h1>
+<p class="lead">An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn&#x27;t always a better fit.</p>
+<div class="cta"><a class="btn btn-yt" data-so="83" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Newer isn&#x27;t always a better fit</h2>
+<p>An AI company just released a new model, faster and cheaper. The bank&#x27;s chatbot team wants to switch right away. Wait. Newer isn&#x27;t always a better fit.</p>
+</section>
+<section>
+<p class="sec-chip">EVAL SET</p>
+<h2>The product&#x27;s own test</h2>
+<p>They already have a test set, called an eval set: a few hundred real customer questions with the answers they want, plus trick questions they&#x27;ve seen before.</p>
+</section>
+<section>
+<p class="sec-chip">REGRESSION TEST</p>
+<h2>Old and new take the test</h2>
+<p>The new model has to redo the whole old test, and its score is compared with the model that&#x27;s running now. This is called a regression test.</p>
+</section>
+<section>
+<p class="sec-chip">LLM AS A JUDGE</p>
+<h2>AI grades, people check</h2>
+<p>Grading hundreds of answers by hand takes a long time, so they use an AI as the judge, called LLM as a judge, grading against clear criteria. Then people double-check the hard ones.</p>
+</section>
+<section>
+<p class="sec-chip">SURPRISE</p>
+<h2>Better overall, worse where it matters</h2>
+<p>The results can be surprising: the new model does better on ninety questions, but worse on five about annual fees. Until those five are fixed, no switch.</p>
+</section>
+<section>
+<p class="sec-chip">NOT JUST THE MODEL</p>
+<h2>Change anything, test again</h2>
+<p>It&#x27;s not just switching models. Changing one word in the prompt or adding a document also means testing again. Unlike the benchmarks in the grading series, this eval set belongs to that product alone.</p>
+</section>
+<aside class="try" aria-labelledby="thu-83">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-83">Five questions of your own</h2>
+  <p>When an AI app you use gets a new model, take five questions of your own, like in video <a href="../bai/48-de-thi-cua-ban.html">48</a>. Ask both the old and new model, and compare before switching for good.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">When things go wrong, how do you trace it?</h2>
+<p>The switch is done, and it&#x27;s live. If something goes wrong, how do you trace it? Part six: logging and tracing.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Evaluation: test again before switching models</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="83" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#benchmark">Benchmark</a></li><li><a href="../tu-dien.html#eval-set">Eval set</a></li><li><a href="../tu-dien.html#evaluation">Evaluation</a></li><li><a href="../tu-dien.html#llm-as-a-judge">LLM as a judge</a></li><li><a href="../tu-dien.html#regression-test">Regression test</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Behind the scenes of an AI system</a> · Part 5/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/82-rao-chan-cong-ra.html"><span class="nav-dir">‹ Previous part</span><b>#82 · What are output guardrails? How chatbots check answers before sending</b></a><a class="nav-card next" href="../bai/84-hop-den-cua-ai.html"><span class="nav-dir">Next part ›</span><b>#84 · What are logging and tracing in AI systems? AI&#x27;s black box recorder</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

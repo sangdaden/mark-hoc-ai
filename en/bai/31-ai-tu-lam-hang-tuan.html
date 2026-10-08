@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to let AI do weekly tasks on its own with scheduled tasks | Mark học AI</title>
+<meta name="description" content="Part 5 of &quot;Your own AI assistant&quot;. Last time, your assistant looked things up for you, but it only works when you ask. Some tasks repeat every week. Scheduled tasks let AI do them on time.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/31-ai-tu-lam-hang-tuan.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/31-ai-tu-lam-hang-tuan.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to let AI do weekly tasks on its own with scheduled tasks | Mark học AI">
+<meta property="og:description" content="Part 5 of &quot;Your own AI assistant&quot;. Last time, your assistant looked things up for you, but it only works when you ask. Some tasks repeat every week. Scheduled tasks let AI do them on time.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to let AI do weekly tasks on its own with scheduled tasks","description":"Part 5 of \"Your own AI assistant\". Last time, your assistant looked things up for you, but it only works when you ask. Some tasks repeat every week. Scheduled tasks let AI do them on time.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Your own AI assistant"},"about":[{"@type":"DefinedTerm","name":"Scheduled task","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#scheduled-task"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Your own AI assistant","item":"https://sangdaden.github.io/mark-hoc-ai/en/#tro-ly-rieng"},{"@type":"ListItem","position":3,"name":"How to let AI do weekly tasks on its own with scheduled tasks","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/31-ai-tu-lam-hang-tuan.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#tro-ly-rieng">Your own AI assistant</a> › <span>#31</span></nav>
+<p class="eyebrow">Video #31 · Your own AI assistant · Part 5/6</p>
+<h1>How to let AI do weekly tasks on its own with scheduled tasks</h1>
+<p class="lead">Every week you type the same thing: plan meals, sum up the news, remind you of your kid&#x27;s schedule.</p>
+<div class="cta"><a class="btn btn-yt" data-so="31" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=%C4%90%E1%BB%83%20AI%20t%E1%BB%B1%20l%C3%A0m%20vi%E1%BB%87c%20l%E1%BA%B7p%20l%E1%BA%A1i" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>An assistant that only waits</h2>
+<p>Last time, your assistant looked things up in your documents. But it still only works when you ask.</p>
+</section>
+<section>
+<h2>Tasks that repeat every week</h2>
+<p>Some tasks are the same every week: planning meals, summing up the news, reminding you of your kid&#x27;s class schedule.</p>
+</section>
+<section>
+<h2>Scheduled tasks</h2>
+<p>Many chat apps now have scheduled tasks. You say it once: every Monday morning at seven, do this. AI remembers the schedule.</p>
+</section>
+<section>
+<h2>It runs on time</h2>
+<p>When the time comes, AI does the task and sends you a notification. You just open it and read.</p>
+</section>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which tasks should you hand over?</h2>
+<p>The best fit is reading, suggesting and summarizing. Don&#x27;t let AI handle money or send things on your behalf by itself.</p>
+</section>
+<aside class="try" aria-labelledby="thu-31">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-31">Schedule a Monday morning task</h2>
+  <p>Type &quot;Every Monday at 7 a.m., suggest a 7-day meal plan under $25&quot;, then check that AI confirms the schedule.</p>
+  <p class="try-prompt" id="prompt-31">Every Monday at 7 a.m., suggest a 7-day meal plan under $25</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-31" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How much access should AI get?</h2>
+<p>AI is most powerful when it can see your calendar and email. But how far should you let it in? The last part answers that.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Let AI handle repeat tasks</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="31" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=%C4%90%E1%BB%83%20AI%20t%E1%BB%B1%20l%C3%A0m%20vi%E1%BB%87c%20l%E1%BA%B7p%20l%E1%BA%A1i" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#scheduled-task">Scheduled task</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#tro-ly-rieng">Your own AI assistant</a> · Part 5/6</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/30-tro-ly-tra-cuu.html"><span class="nav-dir">‹ Previous part</span><b>#30 · How to ask AI about long documents and make it cite page numbers</b></a><a class="nav-card next" href="../bai/32-ai-vao-lich-email.html"><span class="nav-dir">Next part ›</span><b>#32 · Should you let AI into your calendar and email? 3 levels of safe access</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

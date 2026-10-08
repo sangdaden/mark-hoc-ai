@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How does AI learn? Weights, neurons and neural networks | Mark học AI</title>
+<meta name="description" content="When AI &quot;learns&quot;, what actually changes inside it? Take a small decision: go out for coffee this afternoon? Rain, a friend&#x27;s invite, money left: each one is a knob (a weight). Meet the artificial neuron.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How does AI learn? Weights, neurons and neural networks | Mark học AI">
+<meta property="og:description" content="When AI &quot;learns&quot;, what actually changes inside it? Take a small decision: go out for coffee this afternoon? Rain, a friend&#x27;s invite, money left: each one is a knob (a weight). Meet the artificial neuron.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How does AI learn? Weights, neurons and neural networks","description":"When AI \"learns\", what actually changes inside it? Take a small decision: go out for coffee this afternoon? Rain, a friend's invite, money left: each one is a knob (a weight). Meet the artificial neuron.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Neural network","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#mang-no-ron"},{"@type":"DefinedTerm","name":"Artificial neuron","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#no-ron-nhan-tao"},{"@type":"DefinedTerm","name":"Weights","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#trong-so"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"How does AI learn? Weights, neurons and neural networks","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/38-nut-van.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-hoc">How AI learns</a> › <span>#38</span></nav>
+<p class="eyebrow">Video #38 · How AI learns · Part 1/7</p>
+<h1>How does AI learn? Weights, neurons and neural networks</h1>
+<p class="lead">When AI &quot;learns&quot;, what actually changes inside it?</p>
+<div class="cta"><a class="btn btn-yt" data-so="38" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What does AI actually learn?</h2>
+<p>Everyone says AI is &quot;trained&quot;. But when AI learns, what actually changes inside it? The answer: billions of tiny knobs.</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Go out for coffee?</h2>
+<p>Picture a small decision: should I go out for coffee this afternoon? You think about three things: is it raining, did a friend invite you, and do you have money left?</p>
+</section>
+<section>
+<p class="sec-chip">WEIGHTS</p>
+<h2>One knob for each thing</h2>
+<p>Each thing has its own knob, called a weight. A friend&#x27;s invite pushes hard toward &quot;go&quot;, rain pulls the other way. Add them all up, and if it passes a threshold, you decide: go.</p>
+</section>
+<section>
+<p class="sec-chip">NEURON</p>
+<h2>An artificial neuron</h2>
+<p>That is an artificial neuron: it takes a few numbers, multiplies them by weights, adds them up, then decides. Surprisingly simple.</p>
+</section>
+<section>
+<p class="sec-chip">NEURAL NETWORK</p>
+<h2>Stacked into layers</h2>
+<p>Stack thousands of neurons into layers, each layer passing its results to the next, and you have a neural network. The first layer spots lines, the middle layers spot ears and eyes, and the last layer says: cat.</p>
+</section>
+<section>
+<p class="sec-chip">LEARNING</p>
+<h2>Learning means turning the knobs itself</h2>
+<p>Big chatbots have hundreds of billions of these knobs, and nobody turns them by hand. &quot;Learning&quot; means the machine turns each knob itself, a little at a time, until it gets the right answer.</p>
+</section>
+<aside class="try" aria-labelledby="thu-38">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-38">Watch the knobs turn themselves</h2>
+  <p>Want to see it for yourself? Open playground.tensorflow.org, press play, and watch the connecting lines get darker and lighter. Those are the knobs turning themselves.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PART 2</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob, which way?</h2>
+<p>But how does the machine know which knob to turn, and which way? First, it has to know how wrong it is. See you in part 2.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Billions of tiny knobs</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="38" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#mang-no-ron">Neural network</a></li><li><a href="../tu-dien.html#no-ron-nhan-tao">Artificial neuron</a></li><li><a href="../tu-dien.html#trong-so">Weights</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">How AI learns</a> · Part 1/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/37-ke-hoach-90-ngay.html"><span class="nav-dir">‹ Previous series: AI and your job</span><b>#37 · A 90-day plan to catch up with AI, 15 minutes a day</b></a><a class="nav-card next" href="../bai/39-ai-biet-minh-sai.html"><span class="nav-dir">Next part ›</span><b>#39 · What is loss? How AI knows how wrong it is</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

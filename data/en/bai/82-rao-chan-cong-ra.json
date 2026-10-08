@@ -1,0 +1,45 @@
+{
+ "meta": "AI has finished its answer, but it isn't sent yet: it has to pass output guardrails, the gate on the way out. Three checks: does it promise something the policy doesn't allow, does it leak or say anything harmful, does it cite sources.",
+ "prompt": "Where is this policy written? Please send me the link.",
+ "muc": [
+  {
+   "title": "Written, but not sent yet",
+   "text": "AI has finished writing its answer. But it isn't sent right away. It has to pass output guardrails, the gate on the way out."
+  },
+  {
+   "chip": "CHECK 1",
+   "title": "Is it making promises?",
+   "text": "Check one: does it promise something the policy doesn't allow? As in video 61, an airline had to pay because its chatbot made up a refund policy. Guardrails compare the answer with the policy documents, and strike any line without a source."
+  },
+  {
+   "chip": "CHECK 2",
+   "title": "Leaky, rude, dangerous",
+   "text": "Check two: does it leak someone else's information, or say anything rude or dangerous?"
+  },
+  {
+   "chip": "CHECK 3",
+   "title": "Citations",
+   "text": "Check three: does the answer have citations pointing to the right documents? With sources, customers can check for themselves."
+  },
+  {
+   "chip": "HUMAN IN THE LOOP",
+   "title": "A person clicks confirm",
+   "text": "For real actions, like unlocking a card or sending money, AI only gets things ready. The user has to click confirm, and sometimes a staff member has to approve too. This is called human in the loop."
+  },
+  {
+   "chip": "TWO GATES",
+   "title": "Like airport security",
+   "text": "Together, the two gates are like airport security: scan on the way in, check on the way out. If one gate misses something, the other can still catch it."
+  },
+  {
+   "try": true,
+   "title": "Ask for the link",
+   "text": "Next time a chatbot promises a refund or a discount, ask back: where is this policy written, send me the link. No link? Don't trust it yet."
+  },
+  {
+   "chip": "NEXT",
+   "title": "Will a new model break it?",
+   "text": "The guardrails are in place. But will switching to a new model break things? Part five: evaluation."
+  }
+ ]
+}

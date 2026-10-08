@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is AI&#x27;s thinking mode? When to turn on reasoning | Mark học AI</title>
+<meta name="description" content="The final part of &quot;Inside AI&#x27;s brain&quot;. Earlier parts showed AI answers by guessing word by word, and whatever comes out stays. For hard problems, that leads to mistakes. Meet reasoning models.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/26-ai-suy-nghi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/26-ai-suy-nghi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is AI&#x27;s thinking mode? When to turn on reasoning | Mark học AI">
+<meta property="og:description" content="The final part of &quot;Inside AI&#x27;s brain&quot;. Earlier parts showed AI answers by guessing word by word, and whatever comes out stays. For hard problems, that leads to mistakes. Meet reasoning models.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is AI's thinking mode? When to turn on reasoning","description":"The final part of \"Inside AI's brain\". Earlier parts showed AI answers by guessing word by word, and whatever comes out stays. For hard problems, that leads to mistakes. Meet reasoning models.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Inside AI's brain"},"about":[{"@type":"DefinedTerm","name":"Reasoning","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#reasoning"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Inside AI's brain","item":"https://sangdaden.github.io/mark-hoc-ai/en/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"What is AI's thinking mode? When to turn on reasoning","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/26-ai-suy-nghi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> › <span>#26</span></nav>
+<p class="eyebrow">Video #26 · Inside AI&#x27;s brain · Part 8/8</p>
+<h1>What is AI&#x27;s thinking mode? When to turn on reasoning</h1>
+<p class="lead">Normal AI guesses word by word, and whatever comes out stays, so it often gets hard problems wrong when it answers right away.</p>
+<div class="cta"><a class="btn btn-yt" data-so="26" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20bi%E1%BA%BFt%20%22ngh%C4%A9%22%20tr%C6%B0%E1%BB%9Bc%20khi%20n%C3%B3i" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Answering right away leads to mistakes</h2>
+<p>The last part. So far, AI answers by guessing word by word, and whatever comes out stays. For hard problems, answering right away leads to mistakes.</p>
+</section>
+<section>
+<h2>Scratch paper</h2>
+<p>Reasoning models are taught one more thing: write a draft first. Break the problem into steps, try one way, check it, fix mistakes, and only then give the answer.</p>
+</section>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Fast or careful?</h2>
+<p>The trade-off is that it&#x27;s slower and costs more. Simple questions don&#x27;t need it. But for math, planning and comparing many options, thinking mode is much better.</p>
+</section>
+<aside class="try" aria-labelledby="thu-26">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-26">Turn on thinking mode</h2>
+  <p>For hard questions, turn on thinking mode in your chat app. For simple ones, turn it off to save time.</p></div>
+</aside>
+<section>
+<h2>8 pieces of AI&#x27;s brain</h2>
+<p>And that&#x27;s the whole of AI&#x27;s brain. Cut text into pieces. Put meaning on a map. Pay attention to the right places. Read a whole library. Get taught how to answer by people. Draw each word. Read your documents. And think before speaking.</p>
+</section>
+<section>
+<h2>Next series</h2>
+<p>Now that you understand AI, it&#x27;s time to turn it into your own assistant. That&#x27;s the next series.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>AI that &quot;thinks&quot; before it speaks</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="26" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20bi%E1%BA%BFt%20%22ngh%C4%A9%22%20tr%C6%B0%E1%BB%9Bc%20khi%20n%C3%B3i" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#reasoning">Reasoning</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> · Part 8/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/25-ai-doc-tai-lieu.html"><span class="nav-dir">‹ Previous part</span><b>#25 · What is RAG? How to let AI read your own documents</b></a><a class="nav-card next" href="../bai/27-day-ai-biet-ban.html"><span class="nav-dir">Next series: Your own AI assistant ›</span><b>#27 · What are custom instructions? Teach AI who you are</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

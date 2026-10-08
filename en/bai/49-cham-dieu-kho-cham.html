@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How is AI tested for safety and honesty? Red teams and AI judges | Mark học AI</title>
+<meta name="description" content="Is AI honest? Is it safe? With no right-or-wrong answer key, here&#x27;s how people grade it: red teams play the bad guys to find holes, refusal tests, AI judges, and honesty checks.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How is AI tested for safety and honesty? Red teams and AI judges | Mark học AI">
+<meta property="og:description" content="Is AI honest? Is it safe? With no right-or-wrong answer key, here&#x27;s how people grade it: red teams play the bad guys to find holes, refusal tests, AI judges, and honesty checks.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How is AI tested for safety and honesty? Red teams and AI judges","description":"Is AI honest? Is it safe? With no right-or-wrong answer key, here's how people grade it: red teams play the bad guys to find holes, refusal tests, AI judges, and honesty checks.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI gets graded"},"about":[{"@type":"DefinedTerm","name":"LLM as a judge","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#llm-as-a-judge"},{"@type":"DefinedTerm","name":"Red team","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#red-team"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI gets graded","item":"https://sangdaden.github.io/mark-hoc-ai/en/#cham-diem"},{"@type":"ListItem","position":3,"name":"How is AI tested for safety and honesty? Red teams and AI judges","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/49-cham-dieu-kho-cham.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#cham-diem">How AI gets graded</a> › <span>#49</span></nav>
+<p class="eyebrow">Video #49 · How AI gets graded · Part 5/5</p>
+<h1>How is AI tested for safety and honesty? Red teams and AI judges</h1>
+<p class="lead">Is AI honest? Is it safe? With no right-or-wrong answer key, here&#x27;s how people grade it.</p>
+<div class="cta"><a class="btn btn-yt" data-so="49" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Ch%E1%BA%A5m%20nh%E1%BB%AFng%20%C4%91i%E1%BB%81u%20kh%C3%B3%20ch%E1%BA%A5m" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Grading what&#x27;s hard to grade</h2>
+<p>Last time, you wrote your own test for AI. But some things can&#x27;t be graded with an answer key: is AI honest, is it safe?</p>
+</section>
+<section>
+<p class="sec-chip">WAY 1</p>
+<h2>Red teams</h2>
+<p>The first way: a red team. They play the bad guys and try to trick AI into doing things it shouldn&#x27;t, so the holes get fixed early.</p>
+</section>
+<section>
+<p class="sec-chip">WAY 2</p>
+<h2>Refusal tests</h2>
+<p>The second way: thousands of dangerous requests, to see if AI knows to refuse. And the other way around: it shouldn&#x27;t refuse normal questions for no reason.</p>
+</section>
+<section>
+<p class="sec-chip">WAY 3</p>
+<h2>AI grading AI</h2>
+<p>The third way: use an AI as the judge, grading answers against a written list of criteria. It grades thousands of answers fast, but AI judges make mistakes too, so people need to double-check.</p>
+</section>
+<section>
+<p class="sec-chip">HONESTY</p>
+<h2>Knowing how to say &quot;I&#x27;m not sure&quot;</h2>
+<p>What about honesty? Testers also ask questions AI can hardly know the answer to. A good AI will say &quot;I&#x27;m not sure&quot; instead of making up a confident answer.</p>
+</section>
+<section>
+<p class="sec-chip">RECAP</p>
+<h2>5 parts in one picture</h2>
+<p>Looking back at all 5 parts: standard tests, the cramming trap, the voting arena, your own test, and the things that are hard to grade.</p>
+</section>
+<aside class="try" aria-labelledby="thu-49">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-49">Will AI admit it doesn&#x27;t know?</h2>
+  <p>Ask AI something you know the answer to for sure, like when the noodle shop on your corner opened. See whether it makes something up, or says &quot;I&#x27;m not sure&quot;. Prefer an AI that can say it doesn&#x27;t know.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEW SERIES</p>
+<h2>AI with many senses</h2>
+<p>AI doesn&#x27;t just read text anymore: it listens, talks, watches and even makes videos. How? See you in the new series: AI&#x27;s senses.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Grading what&#x27;s hard to grade</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="49" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Ch%E1%BA%A5m%20nh%E1%BB%AFng%20%C4%91i%E1%BB%81u%20kh%C3%B3%20ch%E1%BA%A5m" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#llm-as-a-judge">LLM as a judge</a></li><li><a href="../tu-dien.html#red-team">Red team</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#cham-diem">How AI gets graded</a> · Part 5/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/48-de-thi-cua-ban.html"><span class="nav-dir">‹ Previous part</span><b>#48 · How to find which AI fits your work: write your own test in 4 steps</b></a><a class="nav-card next" href="../bai/50-ai-nghe.html"><span class="nav-dir">Next series: AI&#x27;s senses ›</span><b>#50 · How does AI understand speech? Speech-to-text explained simply</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

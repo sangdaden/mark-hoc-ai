@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is backpropagation? Explained simply | Mark học AI</title>
+<meta name="description" content="AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix? Like a kitchen whose soup is too salty: the head chef traces back each step. That&#x27;s backpropagation.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is backpropagation? Explained simply | Mark học AI">
+<meta property="og:description" content="AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix? Like a kitchen whose soup is too salty: the head chef traces back each step. That&#x27;s backpropagation.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is backpropagation? Explained simply","description":"AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix? Like a kitchen whose soup is too salty: the head chef traces back each step. That's backpropagation.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Backpropagation","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#backpropagation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"What is backpropagation? Explained simply","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/41-truy-nguoc-loi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-hoc">How AI learns</a> › <span>#41</span></nav>
+<p class="eyebrow">Video #41 · How AI learns · Part 4/7</p>
+<h1>What is backpropagation? Explained simply</h1>
+<p class="lead">AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix?</p>
+<div class="cta"><a class="btn btn-yt" data-so="41" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob caused the mistake?</h2>
+<p>Last time: AI walks downhill in small steps to reduce the error. But with billions of knobs, how does it know which ones to turn, and by how much?</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>A bowl of noodle soup sent back</h2>
+<p>Picture a noodle soup kitchen with three cooks: one makes the broth, one cooks the noodles, one does the seasoning. A customer complains: the soup is too salty.</p>
+</section>
+<section>
+<p class="sec-chip">TRACING BACK</p>
+<h2>Trace back through each step</h2>
+<p>The head chef doesn&#x27;t scold the whole kitchen. He traces back from the bowl to each step. The heavy-handed seasoner has to change a lot, the noodle cook barely changes at all.</p>
+</section>
+<section>
+<p class="sec-chip">BACKPROPAGATION</p>
+<h2>The mistake flows backward</h2>
+<p>A neural network does exactly that. The mistake at the output is passed back through each layer, from the last layer to the first. This is called backpropagation.</p>
+</section>
+<section>
+<p class="sec-chip">SHARING THE BLAME</p>
+<h2>More blame, bigger fix</h2>
+<p>Connections that caused more of the mistake get turned more, those that caused less get turned less. In a single backward pass, the machine knows how to fix every knob at once.</p>
+</section>
+<section>
+<p class="sec-chip">WHY IT MATTERS</p>
+<h2>The foundation of AI</h2>
+<p>Backpropagation plus gradient descent is the foundation of modern AI. The chatbots you use today were all trained this way.</p>
+</section>
+<aside class="try" aria-labelledby="thu-41">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-41">Point to the exact mistake</h2>
+  <p>When AI gets something wrong, don&#x27;t just say &quot;that&#x27;s wrong&quot;. Point to the spot: &quot;paragraph 2 has the wrong numbers, fix that paragraph&quot;. AI doesn&#x27;t relearn during a chat, but pointing to the mistake helps it fix the right thing.</p>
+  <p class="try-prompt" id="prompt-41">Paragraph 2 has the wrong numbers. Please fix that paragraph.</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-41" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<p class="sec-chip">PART 5</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about a new kind of test?</h2>
+<p>Learning this way, a machine can get so good it memorizes all the practice questions. But what happens with a question it&#x27;s never seen? See you in part 5.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Tracing mistakes back</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="41" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#backpropagation">Backpropagation</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">How AI learns</a> · Part 4/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/40-xuong-nui-suong-mu.html"><span class="nav-dir">‹ Previous part</span><b>#40 · What is gradient descent? How AI reduces error, like walking down a foggy mountain</b></a><a class="nav-card next" href="../bai/42-hoc-vet-hoc-hieu.html"><span class="nav-dir">Next part ›</span><b>#42 · What is overfitting? When AI memorizes instead of understanding</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

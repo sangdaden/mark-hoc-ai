@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How do multi-agent systems work? Orchestrator, subagents and reviewer | Mark học AI</title>
+<meta name="description" content="An AI team splits roles just like a newsroom. The orchestrator (lead agent) takes the job, breaks it down and writes clear instructions for each subagent: what to find, where, and in what format.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/77-doi-ai-lam-viec.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/77-doi-ai-lam-viec.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How do multi-agent systems work? Orchestrator, subagents and reviewer | Mark học AI">
+<meta property="og:description" content="An AI team splits roles just like a newsroom. The orchestrator (lead agent) takes the job, breaks it down and writes clear instructions for each subagent: what to find, where, and in what format.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How do multi-agent systems work? Orchestrator, subagents and reviewer","description":"An AI team splits roles just like a newsroom. The orchestrator (lead agent) takes the job, breaks it down and writes clear instructions for each subagent: what to find, where, and in what format.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"From one AI to a whole team"},"about":[{"@type":"DefinedTerm","name":"A2A","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#a2a"},{"@type":"DefinedTerm","name":"Multi-agent","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#multi-agent"},{"@type":"DefinedTerm","name":"Orchestrator","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#orchestrator"},{"@type":"DefinedTerm","name":"Subagent","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#subagent"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"From one AI to a whole team","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"How do multi-agent systems work? Orchestrator, subagents and reviewer","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/77-doi-ai-lam-viec.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ca-doi-ai">From one AI to a whole team</a> › <span>#77</span></nav>
+<p class="eyebrow">Video #77 · From one AI to a whole team · Part 6/7</p>
+<h1>How do multi-agent systems work? Orchestrator, subagents and reviewer</h1>
+<p class="lead">An AI team splits roles just like a newsroom.</p>
+<div class="cta"><a class="btn btn-yt" data-so="77" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Like a newsroom</h2>
+<p>A newsroom has an editor-in-chief, reporters and proofreaders. Multi-agent splits roles the same way.</p>
+</section>
+<section>
+<p class="sec-chip">ORCHESTRATOR</p>
+<h2>Give clear assignments</h2>
+<p>The orchestrator takes the job from you, breaks it down, and writes clear instructions for each subagent: what to find, where, and in what format. Vague instructions mean subagents end up doing the same work twice.</p>
+</section>
+<section>
+<p class="sec-chip">SUBAGENT</p>
+<h2>Each worker has its own toolkit</h2>
+<p>The subagents are specialists. Each has exactly the tools it needs: one searches the web, one reads spreadsheets, one writes.</p>
+</section>
+<section>
+<p class="sec-chip">REVIEWER</p>
+<h2>Another pair of eyes</h2>
+<p>Add a critic agent, called a reviewer: it writes nothing, it just looks for mistakes, checks sources and points out gaps. Two different pairs of eyes catch errors one would miss.</p>
+</section>
+<section>
+<p class="sec-chip">PUTTING IT TOGETHER</p>
+<h2>One result for you</h2>
+<p>Finally, the orchestrator puts everything together into one result for you.</p>
+</section>
+<section>
+<p class="sec-chip">A SHARED LANGUAGE</p>
+<h2>MCP and A2A</h2>
+<p>Agents talking to each other need shared standards too. MCP lets agents plug into tools. And A2A, short for Agent to Agent, is the standard for one company&#x27;s agent to hand work to another company&#x27;s agent.</p>
+</section>
+<aside class="try" aria-labelledby="thu-77">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-77">Your own team of two</h2>
+  <p>Open two chat windows. Window one writes the article. Window two plays a tough critic. Pass the article back and forth twice, and you&#x27;ll see the later version is much better.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2>Teams get messy too</h2>
+<p>But every team gets messy sometimes. The last part: when multi-agent goes wrong.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>How multi-agent teams work</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="77" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#a2a">A2A</a></li><li><a href="../tu-dien.html#multi-agent">Multi-agent</a></li><li><a href="../tu-dien.html#orchestrator">Orchestrator</a></li><li><a href="../tu-dien.html#subagent">Subagent</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ca-doi-ai">From one AI to a whole team</a> · Part 6/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/76-vi-sao-can-nhieu-ai.html"><span class="nav-dir">‹ Previous part</span><b>#76 · What is multi-agent AI? Why several AIs work on one job</b></a><a class="nav-card next" href="../bai/78-khi-doi-ai-roi.html"><span class="nav-dir">Next part ›</span><b>#78 · When not to use multi-agent: 3 ways AI teams go wrong</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

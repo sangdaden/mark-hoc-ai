@@ -1,0 +1,35 @@
+{
+ "meta": "Part 3 of \"Inside AI's brain\". Last time, each word had a spot on the map of meaning. But a word's meaning also depends on the words around it. This video explains attention.",
+ "prompt": "Answer in plain English, under 100 words",
+ "muc": [
+  {
+   "title": "Meaning depends on nearby words",
+   "text": "Last time, each word had a spot on the map of meaning. But a word's meaning also depends on the words around it."
+  },
+  {
+   "title": "The \"it\" puzzle",
+   "text": "Read these two sentences. \"The cat didn't jump over the wall because it was too tired.\" And \"because it was too high\". You know right away that \"it\" is the cat in one and the wall in the other. How does AI know?"
+  },
+  {
+   "title": "Threads of attention",
+   "text": "The answer is the attention mechanism. Each word \"looks\" at every other word in the sentence and gives a score: which word matters most to me? Tired goes with cat, high goes with wall."
+  },
+  {
+   "title": "The whole sentence looks at itself",
+   "text": "Every word does this at the same time, repeated across dozens of layers. That's the heart of every chatbot today."
+  },
+  {
+   "title": "Important lines get buried in the middle",
+   "text": "But attention has limits too. When you send a long text, an important line stuck in the middle is easier to miss than one at the start or the end."
+  },
+  {
+   "try": true,
+   "title": "Main request: start and end",
+   "text": "Put your most important request at the start, and repeat it at the end. Split ideas with bullet points or headings, so AI sees everything clearly."
+  },
+  {
+   "title": "Who teaches this brain?",
+   "text": "The machine is built. But who teaches it so much? Part four has the answer."
+  }
+ ]
+}

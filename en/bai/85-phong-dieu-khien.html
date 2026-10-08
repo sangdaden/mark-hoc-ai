@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is AI system monitoring? Dashboards, alerts and drift | Mark học AI</title>
+<meta name="description" content="Ten at night, the on-call engineer&#x27;s phone buzzes: an alert from the monitoring system. The dashboard shows metrics: response speed, cost per hour, refusal rate, and how often customers are unhappy.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/85-phong-dieu-khien.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/85-phong-dieu-khien.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is AI system monitoring? Dashboards, alerts and drift | Mark học AI">
+<meta property="og:description" content="Ten at night, the on-call engineer&#x27;s phone buzzes: an alert from the monitoring system. The dashboard shows metrics: response speed, cost per hour, refusal rate, and how often customers are unhappy.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is AI system monitoring? Dashboards, alerts and drift","description":"Ten at night, the on-call engineer's phone buzzes: an alert from the monitoring system. The dashboard shows metrics: response speed, cost per hour, refusal rate, and how often customers are unhappy.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Behind the scenes of an AI system"},"about":[{"@type":"DefinedTerm","name":"Alert","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#alert"},{"@type":"DefinedTerm","name":"Dashboard","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#dashboard"},{"@type":"DefinedTerm","name":"Drift","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#drift"},{"@type":"DefinedTerm","name":"Eval set","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#eval-set"},{"@type":"DefinedTerm","name":"Feedback loop","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#feedback-loop"},{"@type":"DefinedTerm","name":"Monitoring","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#monitoring"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Behind the scenes of an AI system","item":"https://sangdaden.github.io/mark-hoc-ai/en/#hau-truong"},{"@type":"ListItem","position":3,"name":"What is AI system monitoring? Dashboards, alerts and drift","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/85-phong-dieu-khien.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#85</span></nav>
+<p class="eyebrow">Video #85 · Behind the scenes of an AI system · Part 7/7</p>
+<h1>What is AI system monitoring? Dashboards, alerts and drift</h1>
+<p class="lead">Ten at night, the on-call engineer&#x27;s phone buzzes: an alert from the monitoring system.</p>
+<div class="cta"><a class="btn btn-yt" data-so="85" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Ten at night</h2>
+<p>Ten at night, the on-call engineer&#x27;s phone buzzes. An alert from the monitoring system.</p>
+</section>
+<section>
+<p class="sec-chip">DASHBOARD</p>
+<h2>The tracking board</h2>
+<p>The dashboard shows numbers called metrics: response speed, cost per hour, refusal rate, and how often customers click &quot;not satisfied&quot;.</p>
+</section>
+<section>
+<p class="sec-chip">ALERT</p>
+<h2>Cross the line, the alarm rings</h2>
+<p>Each metric has a red line. When the needle crosses it, an alert rings, and the person on call takes a look right away.</p>
+</section>
+<section>
+<p class="sec-chip">TONIGHT</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What happened?</h2>
+<p>Tonight, the &quot;not satisfied&quot; rate tripled. The engineer opens the logs and follows the trace, as in part six. It turns out the bank just launched a new card, customers are asking about it, and the documents don&#x27;t cover it yet.</p>
+</section>
+<section>
+<p class="sec-chip">DRIFT</p>
+<h2>The world changes, the system stands still</h2>
+<p>That&#x27;s drift: the world changes, users ask new kinds of questions, but the system stays the same.</p>
+</section>
+<section>
+<p class="sec-chip">FEEDBACK LOOP</p>
+<h2>Incidents become test questions</h2>
+<p>After the fix, they add questions about the new card to the eval set. The loop closes, called a feedback loop: incidents become lessons, and lessons become test questions.</p>
+</section>
+<section>
+<p class="sec-chip">RECAP</p>
+<h2>The whole series in one picture</h2>
+<p>The whole series in one picture: cloud, input guardrails, output guardrails, evaluation, logging, monitoring. Every two-second answer has a whole assembly line behind it.</p>
+</section>
+<aside class="try" aria-labelledby="thu-85">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-85">Your own control room</h2>
+  <p>If you use AI at work, write down three answers it got wrong each week. That&#x27;s your own monitoring, and also your eval set for the next model switch. Thanks for following the whole series.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>Monitoring: AI&#x27;s control room</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="85" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#alert">Alert</a></li><li><a href="../tu-dien.html#dashboard">Dashboard</a></li><li><a href="../tu-dien.html#drift">Drift</a></li><li><a href="../tu-dien.html#eval-set">Eval set</a></li><li><a href="../tu-dien.html#feedback-loop">Feedback loop</a></li><li><a href="../tu-dien.html#monitoring">Monitoring</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Behind the scenes of an AI system</a> · Part 7/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/84-hop-den-cua-ai.html"><span class="nav-dir">‹ Previous part</span><b>#84 · What are logging and tracing in AI systems? AI&#x27;s black box recorder</b></a><a class="nav-card next" href="../bai/86-tap-khong-so-sai.html"><span class="nav-dir">Next series: Learning through simulation ›</span><b>#86 · What is simulation-based learning?</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

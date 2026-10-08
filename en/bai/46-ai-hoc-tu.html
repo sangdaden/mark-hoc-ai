@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is data contamination? When AI crams for benchmark tests | Mark học AI</title>
+<meta name="description" content="If AI saw the test before taking it, can you still trust its score? AI learns from billions of pages online, and AI tests are online too. When a test slips into the training data, that&#x27;s data contamination.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/46-ai-hoc-tu.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/46-ai-hoc-tu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is data contamination? When AI crams for benchmark tests | Mark học AI">
+<meta property="og:description" content="If AI saw the test before taking it, can you still trust its score? AI learns from billions of pages online, and AI tests are online too. When a test slips into the training data, that&#x27;s data contamination.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is data contamination? When AI crams for benchmark tests","description":"If AI saw the test before taking it, can you still trust its score? AI learns from billions of pages online, and AI tests are online too. When a test slips into the training data, that's data contamination.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI gets graded"},"about":[{"@type":"DefinedTerm","name":"Benchmark","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#benchmark"},{"@type":"DefinedTerm","name":"Data contamination","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#data-contamination"},{"@type":"DefinedTerm","name":"Goodhart's law","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#goodhart"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI gets graded","item":"https://sangdaden.github.io/mark-hoc-ai/en/#cham-diem"},{"@type":"ListItem","position":3,"name":"What is data contamination? When AI crams for benchmark tests","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/46-ai-hoc-tu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#cham-diem">How AI gets graded</a> › <span>#46</span></nav>
+<p class="eyebrow">Video #46 · How AI gets graded · Part 2/5</p>
+<h1>What is data contamination? When AI crams for benchmark tests</h1>
+<p class="lead">If AI saw the test before taking it, can you still trust its score?</p>
+<div class="cta"><a class="btn btn-yt" data-so="46" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Khi%20AI%20%22h%E1%BB%8Dc%20t%E1%BB%A7%22" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What if the test leaks?</h2>
+<p>Last time, AI took tests called benchmarks. But what if the test leaks ahead of time?</p>
+</section>
+<section>
+<p class="sec-chip">CRAMMING</p>
+<h2>Studying only the answers</h2>
+<p>You know the story: someone sees the test early and just memorizes the answers. Sky-high score, but stuck as soon as the test changes.</p>
+</section>
+<section>
+<p class="sec-chip">DATA CONTAMINATION</p>
+<h2>The test slips into the lessons</h2>
+<p>AI learns from billions of pages of text online. And AI tests are also posted publicly online. So the test slips into the training data without anyone noticing. This is called data contamination.</p>
+</section>
+<section>
+<p class="sec-chip">FAKE SCORES</p>
+<h2>Remembering, not understanding</h2>
+<p>AI has seen the test, so it gets answers right by remembering, not understanding. Change a few numbers in the questions, and the score can drop sharply.</p>
+</section>
+<section>
+<p class="sec-chip">GOODHART&#x27;S LAW</p>
+<h2>When a number becomes the goal</h2>
+<p>There&#x27;s a rule named after the economist Goodhart: when a number becomes the goal, it stops measuring well. If everyone races for scores, scores go up, but real skill may not.</p>
+</section>
+<section>
+<p class="sec-chip">NEW TESTS</p>
+<h2>New tests, hidden tests</h2>
+<p>That&#x27;s why people keep writing new tests after AI has finished learning. Some tests are even kept secret and never posted online, so AI can&#x27;t see them ahead of time.</p>
+</section>
+<aside class="try" aria-labelledby="thu-46">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-46">Don&#x27;t trust a single number</h2>
+  <p>Don&#x27;t choose an AI just because of one number in an ad. Look at several reviews, then try it on your own work for a few days.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PART 3</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Grading without a test?</h2>
+<p>So is there a way to grade AI without a test at all? See you in part 3.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>When AI &quot;crams&quot; for the test</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="46" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Khi%20AI%20%22h%E1%BB%8Dc%20t%E1%BB%A7%22" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#benchmark">Benchmark</a></li><li><a href="../tu-dien.html#data-contamination">Data contamination</a></li><li><a href="../tu-dien.html#goodhart">Goodhart&#x27;s law</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#cham-diem">How AI gets graded</a> · Part 2/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/45-bai-thi-cua-ai.html"><span class="nav-dir">‹ Previous part</span><b>#45 · What is an AI benchmark? What &quot;scored 90%&quot; really means</b></a><a class="nav-card next" href="../bai/47-dau-truong-ai.html"><span class="nav-dir">Next part ›</span><b>#47 · What is LMArena? Ranking AI with blind matches and Elo scores</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

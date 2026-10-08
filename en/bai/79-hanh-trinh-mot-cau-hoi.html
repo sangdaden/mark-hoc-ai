@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What happens when you send a question to a chatbot? Two seconds behind the scenes | Mark học AI</title>
+<meta name="description" content="You ask a bank&#x27;s chatbot: &quot;My card is locked, how do I unlock it?&quot; Two seconds later, there&#x27;s an answer. In those two seconds, your question goes through a whole assembly line: input guardrails, cloud, output guardrails and more.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/79-hanh-trinh-mot-cau-hoi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/79-hanh-trinh-mot-cau-hoi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What happens when you send a question to a chatbot? Two seconds behind the scenes | Mark học AI">
+<meta property="og:description" content="You ask a bank&#x27;s chatbot: &quot;My card is locked, how do I unlock it?&quot; Two seconds later, there&#x27;s an answer. In those two seconds, your question goes through a whole assembly line: input guardrails, cloud, output guardrails and more.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What happens when you send a question to a chatbot? Two seconds behind the scenes","description":"You ask a bank's chatbot: \"My card is locked, how do I unlock it?\" Two seconds later, there's an answer. In those two seconds, your question goes through a whole assembly line: input guardrails, cloud, output guardrails and more.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Behind the scenes of an AI system"},"about":[{"@type":"DefinedTerm","name":"Alert","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#alert"},{"@type":"DefinedTerm","name":"Cloud","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#cloud"},{"@type":"DefinedTerm","name":"Evaluation","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#evaluation"},{"@type":"DefinedTerm","name":"Guardrails","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#guardrails"},{"@type":"DefinedTerm","name":"Input guardrails","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#input-guardrails"},{"@type":"DefinedTerm","name":"Logging","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#logging"},{"@type":"DefinedTerm","name":"Monitoring","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#monitoring"},{"@type":"DefinedTerm","name":"Output guardrails","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#output-guardrails"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Behind the scenes of an AI system","item":"https://sangdaden.github.io/mark-hoc-ai/en/#hau-truong"},{"@type":"ListItem","position":3,"name":"What happens when you send a question to a chatbot? Two seconds behind the scenes","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/79-hanh-trinh-mot-cau-hoi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#79</span></nav>
+<p class="eyebrow">Video #79 · Behind the scenes of an AI system · Part 1/7</p>
+<h1>What happens when you send a question to a chatbot? Two seconds behind the scenes</h1>
+<p class="lead">You ask a bank&#x27;s chatbot: &quot;My card is locked, how do I unlock it?&quot; Two seconds later there&#x27;s an answer. In those two seconds, your question goes through a whole assembly line.</p>
+<div class="cta"><a class="btn btn-yt" data-so="79" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Two seconds</h2>
+<p>You ask a bank&#x27;s chatbot: my card is locked, how do I unlock it? Two seconds later, there&#x27;s an answer. In those two seconds, your question goes through a whole assembly line.</p>
+</section>
+<section>
+<p class="sec-chip">STATION 1</p>
+<h2>Input guardrails</h2>
+<p>The first station is input guardrails, the gate on the way in. Here, the system hides your card number, and blocks off-topic or malicious questions.</p>
+</section>
+<section>
+<p class="sec-chip">STATION 2</p>
+<h2>The cloud</h2>
+<p>Then your question flies up to the cloud, to a data center where thousands of chips run the AI model. The answer is written there, not on your phone.</p>
+</section>
+<section>
+<p class="sec-chip">STATION 3</p>
+<h2>Output guardrails</h2>
+<p>The answer doesn&#x27;t reach you right away. Output guardrails, the gate on the way out, check: does it promise something the policy doesn&#x27;t allow, does it leak someone else&#x27;s information? Real actions like unlocking a card wait for your confirmation.</p>
+</section>
+<section>
+<p class="sec-chip">STATION 4</p>
+<h2>Logging</h2>
+<p>Every step is logged, written into a record, like a plane&#x27;s black box. If something goes wrong, engineers can trace what happened.</p>
+</section>
+<section>
+<p class="sec-chip">STATION 5</p>
+<h2>Monitoring</h2>
+<p>And monitoring tracks speed, cost and the rate of wrong answers on a dashboard. If anything looks unusual, an alert goes off.</p>
+</section>
+<section>
+<p class="sec-chip">EVALUATION</p>
+<h2>Change anything, test again</h2>
+<p>And every time the model changes or the prompt is edited, the system must run an evaluation on the old test set, and only goes live once it passes.</p>
+</section>
+<aside class="try" aria-labelledby="thu-79">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-79">Knock on the front gate</h2>
+  <p>Next time you use a bank&#x27;s or a store&#x27;s chatbot, ask something off-topic, like help with a math problem. See how it says no. That&#x27;s input guardrails at work.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2>Six stations ahead</h2>
+<p>In the next six parts, we stop at each station. Starting with where AI really lives: the cloud.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Two seconds of a question</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="79" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#alert">Alert</a></li><li><a href="../tu-dien.html#cloud">Cloud</a></li><li><a href="../tu-dien.html#evaluation">Evaluation</a></li><li><a href="../tu-dien.html#guardrails">Guardrails</a></li><li><a href="../tu-dien.html#input-guardrails">Input guardrails</a></li><li><a href="../tu-dien.html#logging">Logging</a></li><li><a href="../tu-dien.html#monitoring">Monitoring</a></li><li><a href="../tu-dien.html#output-guardrails">Output guardrails</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Behind the scenes of an AI system</a> · Part 1/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/78-khi-doi-ai-roi.html"><span class="nav-dir">‹ Previous series: From one AI to a whole team</span><b>#78 · When not to use multi-agent: 3 ways AI teams go wrong</b></a><a class="nav-card next" href="../bai/80-ai-song-o-dau.html"><span class="nav-dir">Next part ›</span><b>#80 · Where does AI run? Cloud, data centers, APIs and on-device AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

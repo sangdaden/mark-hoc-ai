@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is RAG? How to let AI read your own documents | Mark học AI</title>
+<meta name="description" content="Part 7 of &quot;Inside AI&#x27;s brain&quot;. AI was trained on a whole library of text, but it doesn&#x27;t know your contracts, course books or company rules. This video explains RAG.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/25-ai-doc-tai-lieu.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/25-ai-doc-tai-lieu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is RAG? How to let AI read your own documents | Mark học AI">
+<meta property="og:description" content="Part 7 of &quot;Inside AI&#x27;s brain&quot;. AI was trained on a whole library of text, but it doesn&#x27;t know your contracts, course books or company rules. This video explains RAG.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is RAG? How to let AI read your own documents","description":"Part 7 of \"Inside AI's brain\". AI was trained on a whole library of text, but it doesn't know your contracts, course books or company rules. This video explains RAG.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Inside AI's brain"},"about":[{"@type":"DefinedTerm","name":"Embedding","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#embedding"},{"@type":"DefinedTerm","name":"RAG","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#rag"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Inside AI's brain","item":"https://sangdaden.github.io/mark-hoc-ai/en/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"What is RAG? How to let AI read your own documents","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/25-ai-doc-tai-lieu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> › <span>#25</span></nav>
+<p class="eyebrow">Video #25 · Inside AI&#x27;s brain · Part 7/8</p>
+<h1>What is RAG? How to let AI read your own documents</h1>
+<p class="lead">AI has read a whole library, but never your contract, course book or company rules, so it can only guess about them.</p>
+<div class="cta"><a class="btn btn-yt" data-so="25" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Cho%20AI%20%C4%91%E1%BB%8Dc%20t%C3%A0i%20li%E1%BB%87u%20c%E1%BB%A7a%20b%E1%BA%A1n" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Your own documents</h2>
+<p>AI has read a whole library, but it has never read your contract, your course book or your company rules. Ask about them, and it can only guess.</p>
+</section>
+<section>
+<h2>Give it the document</h2>
+<p>The fix is to give AI the document. For long documents, the system cuts them into many small chunks.</p>
+</section>
+<section>
+<h2>Chunks on the map of meaning</h2>
+<p>Each chunk is placed on the map of meaning we met in part two. The chunk about the deposit sits in one place, the chunk about repairs sits in another.</p>
+</section>
+<section>
+<h2>Find the right chunk</h2>
+<p>When you ask a question, your question is placed on the map too. The system picks the chunks closest to your question.</p>
+</section>
+<section>
+<h2>Read first, then answer</h2>
+<p>Then AI reads those chunks before it answers. It relies on what&#x27;s written instead of guessing, so it makes things up much less. This is called RAG.</p>
+</section>
+<aside class="try" aria-labelledby="thu-25">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-25">Only use the document</h2>
+  <p>Upload a document, like your washing machine manual, then write: &quot;Answer only from this document, and give the page number.&quot; Remember to open that page to check, and don&#x27;t upload papers with sensitive information.</p>
+  <p class="try-prompt" id="prompt-25">Answer only from this document, and give the page number.</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-25" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<h2>Problems with many steps</h2>
+<p>Now it has your documents, but what about hard problems with many steps? AI recently learned to think before it speaks. The last part explains.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Let AI read your documents</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="25" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Cho%20AI%20%C4%91%E1%BB%8Dc%20t%C3%A0i%20li%E1%BB%87u%20c%E1%BB%A7a%20b%E1%BA%A1n" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#embedding">Embedding</a></li><li><a href="../tu-dien.html#rag">RAG</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> · Part 7/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/24-hoi-2-lan.html"><span class="nav-dir">‹ Previous part</span><b>#24 · Why does AI give different answers to the same question? What temperature is</b></a><a class="nav-card next" href="../bai/26-ai-suy-nghi.html"><span class="nav-dir">Next part ›</span><b>#26 · What is AI&#x27;s thinking mode? When to turn on reasoning</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>
