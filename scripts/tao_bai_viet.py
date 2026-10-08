@@ -294,7 +294,11 @@ def tao_bai(v):
                        f'  <div><p class="try-label">Thử ngay</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, p, so)}</p>{khoi_prompt(so, prompt)}</div>\n</aside>')
             continue
         nhan = f'<p class="sec-chip">{esc(chip)}</p>\n' if chip else ""
-        h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
+        # Tiêu đề là câu hỏi: có Bit đứng cạnh (Sang góp ý 8/10)
+        if ten and ten.rstrip().endswith("?"):
+            h2 = f'<h2 class="h-hoi"><img src="{p}assets/bit-y-tuong.svg" alt="" width="44" height="53">{esc(ten)}</h2>\n'
+        else:
+            h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
         muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(thanh_doan(lines), p, so)}</p>\n</section>')
     if not co_thu and thu_mo_ta:
         muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
@@ -448,7 +452,7 @@ def tao_kiem_tra():
   function cauHoi() {
     var q = Q[i];
     capNhat(i + 1);
-    khung.innerHTML = '<p class="q-num">Câu ' + (i + 1) + '</p><h2 class="q-text" tabindex="-1">' + esc(q.cau) + '</h2>' +
+    khung.innerHTML = '<div class="q-head"><img class="q-bit" src="assets/bit-y-tuong.svg" alt="" width="64" height="77"><div><p class="q-num">Câu ' + (i + 1) + '</p><h2 class="q-text" tabindex="-1">' + esc(q.cau) + '</h2></div></div>' +
       '<div class="q-btns"><button class="q-btn" data-v="1">Đúng</button><button class="q-btn" data-v="0">Sai</button></div><div id="giai"></div>';
     khung.querySelector(".q-text").focus({ preventScroll: true });
   }
@@ -461,8 +465,8 @@ def tao_kiem_tra():
       else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
     });
     var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
-      " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div>' +
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><img class="q-bit" src="assets/' + (ok ? "bit-vui" : "bit-sai-roi") + '.svg" alt="" width="48" height="58"><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
+      " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div></div>' +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "Xem kết quả" : "Câu tiếp theo ›") + "</button>";
     i++;
     capNhat(i);

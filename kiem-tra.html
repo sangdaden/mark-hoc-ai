@@ -93,7 +93,7 @@
   function cauHoi() {
     var q = Q[i];
     capNhat(i + 1);
-    khung.innerHTML = '<p class="q-num">Câu ' + (i + 1) + '</p><h2 class="q-text" tabindex="-1">' + esc(q.cau) + '</h2>' +
+    khung.innerHTML = '<div class="q-head"><img class="q-bit" src="assets/bit-y-tuong.svg" alt="" width="64" height="77"><div><p class="q-num">Câu ' + (i + 1) + '</p><h2 class="q-text" tabindex="-1">' + esc(q.cau) + '</h2></div></div>' +
       '<div class="q-btns"><button class="q-btn" data-v="1">Đúng</button><button class="q-btn" data-v="0">Sai</button></div><div id="giai"></div>';
     khung.querySelector(".q-text").focus({ preventScroll: true });
   }
@@ -106,8 +106,8 @@
       else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
     });
     var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
-      " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div>' +
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><img class="q-bit" src="assets/' + (ok ? "bit-vui" : "bit-sai-roi") + '.svg" alt="" width="48" height="58"><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
+      " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div></div>' +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "Xem kết quả" : "Câu tiếp theo ›") + "</button>";
     i++;
     capNhat(i);

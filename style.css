@@ -401,3 +401,12 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .foot-copy a { color: #fff; }
 .foot-copy a:hover { color: #FDE047; }
 @media (max-width: 440px) { .sub .top-links .nav-yt { display: none; } }
+
+/* Bit đứng cạnh câu hỏi (tiêu đề bài viết, trang Kiểm tra) */
+.h-hoi { display: flex; align-items: center; gap: 10px; }
+.h-hoi img { flex: none; width: 40px; height: auto; }
+.q-head { display: flex; align-items: flex-start; gap: 14px; }
+.q-head .q-bit { flex: none; width: 60px; height: auto; margin-top: 4px; }
+.q-fb { display: flex; gap: 12px; align-items: flex-start; }
+.q-fb .q-bit { flex: none; width: 44px; height: auto; }
+@media (max-width: 480px) { .q-head .q-bit { width: 46px; } }
