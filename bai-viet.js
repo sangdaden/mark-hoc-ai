@@ -44,15 +44,15 @@
     var nguon = document.getElementById(b.dataset.chep);
     if (!nguon) return;
     b.hidden = false;
-    var goc = b.textContent, hen;
+    var goc = b.innerHTML, hen;
     b.addEventListener("click", function () {
       chep(nguon.textContent.trim()).then(function () {
-        b.textContent = EN ? "Copied ✓" : "Đã chép ✓";
+        b.innerHTML = goc.replace(/#i-copy/, "#i-check").replace(/<\/svg>[\s\S]*$/, "</svg>") + (EN ? "Copied" : "Đã chép");
       }, function () {
         b.textContent = EN ? "Couldn't copy, select the text to copy it" : "Chưa chép được, hãy bôi đen để chép";
       }).then(function () {
         clearTimeout(hen);
-        hen = setTimeout(function () { b.textContent = goc; }, 2000);
+        hen = setTimeout(function () { b.innerHTML = goc; }, 2000);
       });
     });
   });

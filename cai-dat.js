@@ -5,7 +5,9 @@
   const EN = document.documentElement.lang === "en";
   // Gốc trang web lấy từ đường dẫn của chính file này; bản tiếng Anh nằm ở <gốc>/en/ với cùng tên file
   const me = document.currentScript;
-  let doiNgu = "";
+  let doiNgu = "", icGoc = "";
+  try { icGoc = new URL(".", me ? me.src : location.href).href; } catch (e) {}
+  const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + icGoc + 'assets/icons.svg#i-' + n + '"/></svg>';
   try {
     const goc = new URL(".", me ? me.src : location.href);
     const duong = location.pathname;
@@ -18,7 +20,7 @@
   const hop = document.createElement("div");
   hop.className = "top-tools";
   hop.innerHTML = (doiNgu ? '<a class="nut-lang" lang="' + (EN ? "vi" : "en") + '" hreflang="' + (EN ? "vi" : "en") + '" href="' + doiNgu.replace(/"/g, "%22") + '" aria-label="' +
-    (EN ? "Chuyển sang tiếng Việt" : "Switch to English") + '">' + (EN ? "VI" : "EN") + "</a>" : "") +
+    (EN ? "Chuyển sang tiếng Việt" : "Switch to English") + '">' + ic("languages") + (EN ? "VI" : "EN") + "</a>" : "") +
     '<button type="button" class="nut-theme"></button>';
   top.appendChild(hop);
   const lang = hop.querySelector(".nut-lang");
@@ -30,7 +32,7 @@
   const nut = hop.querySelector(".nut-theme");
   const toi = () => (document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
   const ve = () => {
-    nut.innerHTML = toi() ? '<span aria-hidden="true">☀️</span>' + (EN ? "Light" : "Sáng") : '<span aria-hidden="true">🌙</span>' + (EN ? "Dark" : "Tối");
+    nut.innerHTML = toi() ? ic("sun") + (EN ? "Light" : "Sáng") : ic("moon") + (EN ? "Dark" : "Tối");
     nut.setAttribute("aria-label", EN ? (toi() ? "Switch to light theme" : "Switch to dark theme") : (toi() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"));
   };
   nut.addEventListener("click", () => {

@@ -24,3 +24,7 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 
 ## Gắn tên miền riêng
 Tạo file `CNAME` chứa tên miền (ví dụ `markhocai.com`), rồi trỏ DNS theo hướng dẫn của GitHub Pages.
+
+## Icon
+
+`assets/icons.svg` gom các icon cần dùng từ [Lucide](https://lucide.dev) v0.460.0 (giấy phép ISC). Dùng: `<svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-TEN"/></svg>`. Thêm icon mới: lấy file từ gói `lucide-static` rồi thêm một `<symbol id="i-TEN">`.
