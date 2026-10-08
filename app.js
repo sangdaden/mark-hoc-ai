@@ -4,7 +4,7 @@
     const r = await fetch("data/" + name + ".json", { cache: "no-cache" });
     return r.json();
   }
-  const [kenh, series, videos] = await Promise.all([load("kenh"), load("series"), load("videos")]);
+  const [kenh, series, videos, banDo] = await Promise.all([load("kenh"), load("series"), load("videos"), load("ban-do")]);
 
   document.querySelectorAll("[data-kenh]").forEach(a => {
     const url = kenh[a.dataset.kenh];
@@ -28,9 +28,34 @@
     return { ...s, items };
   }).filter(g => g.items.length);
 
+  const ytLink = v => kenh.youtube + "/search?query=" + encodeURIComponent(v.title);
+  const pad = n => String(n).padStart(2, "0");
+  const bySo = {};
+  groups.forEach(g => g.items.forEach(v => { bySo[v.so] = { v, g }; }));
+
+  // "Bắt đầu từ đây": 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99)
+  const startLink = (so, label) => {
+    const hit = bySo[so];
+    if (!hit) return "";
+    if (hit.g.sap_ra_mat) return '<span class="row-soon">Sắp ra mắt</span>';
+    return '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(hit.v) + '">' + label + " ›</a>";
+  };
+  document.getElementById("vung").innerHTML = banDo.vung.map((r, i) =>
+    '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">Mới toanh? Bắt đầu ở đây</span>' : "") + '<span class="region-emoji" aria-hidden="true">' + r.emoji + '</span><div><span class="region-num">Vùng ' + (i + 1) +
+    '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="region-list">' +
+    r.muc.map(m => {
+      const label = /[–,]/.test(m.nhan) ? "Xem phần 1" : "Xem video";
+      return '<li><span class="region-item"><b>' + esc(m.ten) + '</b><span class="region-range">' + esc(m.nhan) + "</span></span>" + startLink(m.so, label) + "</li>";
+    }).join("") + "</ul></li>").join("");
+  document.getElementById("lo-trinh").innerHTML = banDo.lo_trinh.map((b, i) =>
+    '<li class="step"><span class="step-num" aria-hidden="true">' + (i + 1) + '</span><div class="step-main"><p class="step-when">Bước ' + (i + 1) + " · " + esc(b.tuan) +
+    '</p><h4>' + esc(b.ten) + '</h4><p class="step-desc">' + esc(b.mo_ta) + '</p><p class="step-foot"><span class="region-range">' + esc(b.nhan) + "</span>" +
+    startLink(b.so, "Bắt đầu với #" + pad(b.so)) + "</p></div></li>").join("");
+
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const nSeries = groups.filter(g => !g.le).length;
-  document.getElementById("stats").textContent = total + " video · " + nSeries + " series · đăng 5 video mỗi ngày";
+  const sapRaMat = groups.filter(g => g.sap_ra_mat).reduce((n, g) => n + g.items.length, 0);
+  document.getElementById("stats").textContent = total + " video" + " · " + nSeries + " series · video mới mỗi ngày";
 
   const chips = document.getElementById("chips");
   let current = "tat-ca";
@@ -64,7 +89,7 @@
       const rows = items.map(v => {
         const link = g.sap_ra_mat
           ? '<span class="row-soon">Sắp ra mắt</span>'
-          : '<a class="row-link" target="_blank" rel="noopener" href="' + kenh.youtube + "/search?query=" + encodeURIComponent(v.title) + '">Xem ›</a>';
+          : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '">Xem ›</a>';
         return '<li class="row"><span class="num">#' + String(v.so).padStart(2, "0") + '</span><div class="row-main"><p class="row-title">' +
           (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + esc(v.title) + '</p><p class="row-desc">' + esc(v.desc) + "</p></div>" + link + "</li>";
       }).join("");
