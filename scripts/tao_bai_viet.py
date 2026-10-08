@@ -309,8 +309,9 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563EB">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png">
-<link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="{p}assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png?v=dev">
 {FONT}
 <link rel="stylesheet" href="{p}style.css?v=dev">
 <script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
