@@ -55,7 +55,7 @@
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const nSeries = groups.filter(g => !g.le).length;
   const sapRaMat = groups.filter(g => g.sap_ra_mat).reduce((n, g) => n + g.items.length, 0);
-  document.getElementById("stats").textContent = (total - sapRaMat) + " video đã đăng" + (sapRaMat ? " · " + sapRaMat + " sắp ra mắt" : "") + " · " + nSeries + " series · đăng 5 video mỗi ngày";
+  document.getElementById("stats").textContent = total + " video" + " · " + nSeries + " series · video mới mỗi ngày";
 
   const chips = document.getElementById("chips");
   let current = "tat-ca";
