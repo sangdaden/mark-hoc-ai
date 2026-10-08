@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm | Mark học AI</title>
+<meta name="description" content="AI không cố ý thiên vị, nhưng nó học lại đúng cái lệch có sẵn trong dữ liệu cũ. Một công ty lớn từng phải bỏ công cụ AI lọc hồ sơ vì nó chấm điểm thấp hồ sơ…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/118-ai-thien-vi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm | Mark học AI">
+<meta property="og:description" content="AI không cố ý thiên vị, nhưng nó học lại đúng cái lệch có sẵn trong dữ liệu cũ. Một công ty lớn từng phải bỏ công cụ AI lọc hồ sơ vì nó chấm điểm thấp hồ sơ…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm","description":"AI không cố ý thiên vị, nhưng nó học lại đúng cái lệch có sẵn trong dữ liệu cũ. Một công ty lớn từng phải bỏ công cụ AI lọc hồ sơ vì nó chấm điểm thấp hồ sơ…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Mặt trái của AI"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Mặt trái của AI","item":"https://sangdaden.github.io/mark-hoc-ai/#mat-trai-ai"},{"@type":"ListItem","position":3,"name":"AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm","item":"https://sangdaden.github.io/mark-hoc-ai/bai/118-ai-thien-vi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#mat-trai-ai">Mặt trái của AI</a> › <span>#118</span></nav>
+<p class="eyebrow">Video #118 · Mặt trái của AI · Phần 1/5</p>
+<h1>AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm</h1>
+<p class="lead">AI không cố ý thiên vị, nhưng nó học lại đúng cái lệch có sẵn trong dữ liệu cũ. Một công ty lớn từng phải bỏ công cụ AI lọc hồ sơ vì nó chấm điểm thấp hồ sơ của phụ nữ.</p>
+<div class="cta"><a class="btn btn-yt" data-so="118" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20c%C5%A9ng%20thi%C3%AAn%20v%E1%BB%8B%20%28bias%29" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Máy lọc hồ sơ thiên vị</h2>
+<p>Một công ty lớn từng làm công cụ AI lọc hồ sơ xin việc, rồi phải bỏ, vì nó chấm điểm thấp hồ sơ của phụ nữ.</p>
+</section>
+<section>
+<p class="sec-chip">BIAS</p>
+<h2>AI học từ dữ liệu cũ</h2>
+<p>Đó là bias, nghĩa là thiên kiến. AI học từ dữ liệu cũ, mà mười năm trước công ty đó tuyển phần lớn là nam. AI không cố ý thiên vị, nó chỉ học lại đúng cái lệch đã có sẵn trong dữ liệu.</p>
+</section>
+<section>
+<p class="sec-chip">Ở ĐÂU</p>
+<h2>Gặp ở nhiều nơi</h2>
+<p>Bias gặp ở nhiều nơi: bảo AI vẽ một giám đốc, nó hay vẽ đàn ông; hỏi về văn hóa nước mình, có khi nó trả lời theo góc nhìn nước ngoài.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH HỎI</p>
+<h2>Hỏi rõ để giảm thiên vị</h2>
+<p>Cách giảm: nói rõ điều bạn muốn, ví dụ vẽ nhóm người đủ giới tính, độ tuổi và vùng miền. Hoặc hỏi thêm: câu trả lời này có thể đang thiên về phía nào.</p>
+</section>
+<section>
+<p class="sec-chip">LƯU Ý</p>
+<h2>Quyết định về con người</h2>
+<p>Với việc quyết định về con người, như tuyển dụng hay cho vay, hãy để AI gợi ý, còn người thật xem lại và chịu trách nhiệm.</p>
+</section>
+<aside class="try" aria-labelledby="thu-118">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-118">Thử vẽ một nghề</h2>
+  <p>Bảo AI vẽ hay mô tả một bác sĩ, một kỹ sư, xem nó mặc định là ai, rồi thêm yêu cầu đa dạng và so sánh.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>AI cũng thiên vị (bias)</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" data-so="118" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20c%C5%A9ng%20thi%C3%AAn%20v%E1%BB%8B%20%28bias%29" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
+</div>
+</article>
+
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#mat-trai-ai">Mặt trái của AI</a> · Phần 1/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/117-mixture-of-experts.html"><span class="nav-dir">‹ Series trước: Từ điển AI 60 giây</span><b>#117 · Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh</b></a><a class="nav-card next" href="../bai/119-ban-quyen-ai.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#119 · Tranh AI vẽ có bản quyền không? Copyright cho hình do AI tạo</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<script src="../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

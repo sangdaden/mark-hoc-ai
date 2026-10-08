@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What are training and inference? Does AI learn from your questions? | Mark học AI</title>
+<meta name="description" content="Does AI learn something every time you ask it a question? No. Bit explains the two stages: training, when a model learns once at huge cost, and inference, when it answers you.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/129-inference-training.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/129-inference-training.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What are training and inference? Does AI learn from your questions? | Mark học AI">
+<meta property="og:description" content="Does AI learn something every time you ask it a question? No. Bit explains the two stages: training, when a model learns once at huge cost, and inference, when it answers you.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What are training and inference? Does AI learn from your questions?","description":"Does AI learn something every time you ask it a question? No. Bit explains the two stages: training, when a model learns once at huge cost, and inference, when it answers you.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI on your own computer"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"AI on your own computer","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-tren-may"},{"@type":"ListItem","position":3,"name":"What are training and inference? Does AI learn from your questions?","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/129-inference-training.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-tren-may">AI on your own computer</a> › <span>#129</span></nav>
+<p class="eyebrow">Video #129 · AI on your own computer · Part 1/3</p>
+<h1>What are training and inference? Does AI learn from your questions?</h1>
+<p class="lead">Does AI learn something every time you ask it a question? No. Bit explains the two stages of AI.</p>
+<div class="cta"><a class="btn btn-yt" data-so="129" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Training%20v%C3%A0%20inference%20kh%C3%A1c%20nhau%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI learn from my questions?</h2>
+<p>Mark thinks that every time he asks a question, AI learns a little more from it.</p>
+</section>
+<section>
+<p class="sec-chip">TRAINING</p>
+<h2>Training: learn once, at great cost</h2>
+<p>Bit explains: there are two stages. Training is when the model learns, running on tens of thousands of GPUs for months and costing a fortune. Once it&#x27;s done, the knowledge in the model is frozen.</p>
+</section>
+<section>
+<p class="sec-chip">INFERENCE</p>
+<h2>Inference: every time you ask</h2>
+<p>Inference is when the model uses that knowledge to answer you. Each question takes just a few seconds of computing, and the model doesn&#x27;t change itself.</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>Like school and then work</h2>
+<p>It&#x27;s like four years of university being training, and answering customers every day at work being inference.</p>
+</section>
+<section>
+<p class="sec-chip">REMEMBERING YOU</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So how does AI remember me?</h2>
+<p>AI remembers your name thanks to the Memory feature, notes sent along with each question, as in videos <a href="../bai/09-ai-quen.html">9</a> and <a href="../bai/27-day-ai-biet-ban.html">27</a>. The model isn&#x27;t learning again.</p>
+</section>
+<section>
+<p class="sec-chip">WHY IT MATTERS</p>
+<h2>It can run on your home computer</h2>
+<p>Knowing this shows you: training needs a whole data center, but inference for a small model can run right on your laptop.</p>
+</section>
+<aside class="try" aria-labelledby="thu-129">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-129">Ask AI about its knowledge cutoff</h2>
+  <p>Ask the AI you use how up to date its knowledge is. That&#x27;s exactly when its training ended.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>How training differs from inference</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="129" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Training%20v%C3%A0%20inference%20kh%C3%A1c%20nhau%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div>
+</div>
+</article>
+
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-tren-may">AI on your own computer</a> · Part 1/3</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/128-dung-giao-ai.html"><span class="nav-dir">‹ Previous series: AI for online sellers</span><b>#128 · Selling online: the jobs you shouldn&#x27;t hand to AI</b></a><a class="nav-card next" href="../bai/130-quantization.html"><span class="nav-dir">Next part ›</span><b>#130 · What is quantization? Shrinking an AI model to fit your laptop</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

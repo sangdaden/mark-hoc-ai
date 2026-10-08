@@ -1,0 +1,34 @@
+{
+ "meta": "You download an open model and the file is 16 GB, and your laptop runs out of memory? Bit explains quantization: rounding the numbers so the model gets about four times lighter.",
+ "muc": [
+  {
+   "title": "The model is too big",
+   "text": "Mark tries downloading an open model, like in video 114, but the file is 16 GB and his laptop runs out of memory."
+  },
+  {
+   "chip": "QUANTIZATION",
+   "title": "Rounding the numbers",
+   "text": "Bit explains: a model is billions of numbers. Quantization rounds those numbers so they take less space. Storing each number in 4 bits instead of 16 makes the model about four times lighter."
+  },
+  {
+   "chip": "EXAMPLE",
+   "title": "Like compressing a photo",
+   "text": "It's like compressing a photo when you send it in a chat: the file gets much smaller, but it looks almost the same."
+  },
+  {
+   "chip": "TRADE-OFF",
+   "title": "A little less accuracy",
+   "text": "In return, the model loses a bit of accuracy. 4 bits usually still works well, but squeeze it too hard and the answers get much worse."
+  },
+  {
+   "chip": "LABELS",
+   "title": "Reading the file names",
+   "text": "When you download a model, you'll see labels like Q4 or Q8. That's the number of bits after compression: the smaller the number, the lighter the file."
+  },
+  {
+   "try": true,
+   "title": "Compare two versions",
+   "text": "Go to an open model's page, compare the size of the Q4 and Q8 versions, and see which one fits your computer's RAM."
+  }
+ ]
+}

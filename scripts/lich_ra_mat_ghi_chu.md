@@ -12,3 +12,12 @@ File này ghép số video (chuỗi) với ngày ra mắt `YYYY-MM-DD`, ví dụ
 **Phải cập nhật file này mỗi khi lên lịch video mới** (hoặc dời lịch) trên Metricool. Nếu quên, video mới sẽ hiện link YouTube trước khi có video, và không xuất hiện trong dải "Hôm nay trên kênh".
 
 Lúc tạo file (08/10/2026), lịch có đủ 114 video trong `videos.json`, từ 06/10 đến 29/10/2026.
+
+Cập nhật 08/10/2026: thêm video 100 (tập đặc biệt, bản dọc 25/10) và 118–162 (29/10 đến 07/11/2026), lấy từ ngày bài TikTok dọc trên Metricool, khớp với `videos/ke-hoach-148-162/lich-dang-132-162.md`. Lịch có 160 video, từ 06/10 đến 07/11/2026.
+
+## Thêm video mới (từ 163 trở đi)
+1. `python3 scripts/gom_video.py /mnt/project-files/videos <số cuối>` (hoặc nâng số mặc định `DEN` trong script). Chỉ đưa lên video đã render và đã lên lịch.
+2. Đọc Metricool (chỉ đọc, `getScheduledPosts`, brand 7273613, múi giờ Asia/Ho_Chi_Minh, mỗi lần vài ngày), lấy ngày bài TikTok dọc của từng video, ghi vào file này (`"163": "YYYY-MM-DD"`). Đối chiếu với file `lich-dang-*.md` trong thư mục kế hoạch.
+3. Series mới: thêm vào `data/series.json` (id, ten, tu, den, mo_ta, tags) và `data/en/series.json`. Không cần `sap_ra_mat`: chip "Ra mắt dd/mm" và nhãn "Sắp ra mắt" chạy theo ngày ở đây.
+4. Tiêu đề SEO vào `data/bai-viet.json` và `data/en/bai-viet.json`; tên và mô tả tiếng Anh vào `data/en/videos.json`; bài dịch vào `data/en/bai/<số>-<slug>.json` (mỗi cảnh một mục, cảnh THỬ NGAY có `"try": true`, có prompt mẫu thì thêm `"prompt"`).
+5. `python3 scripts/tao_bai_viet.py /mnt/project-files/videos` để tạo lại bài viết hai thứ tiếng và `sitemap.xml`. Không có "CẢNH BÁO" là đủ bản dịch.
