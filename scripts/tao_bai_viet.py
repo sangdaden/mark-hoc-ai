@@ -279,7 +279,9 @@ def footer(p, q=None):
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
-            f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a></span>\n  </div>\n</footer>')
+            f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
+            + (f' · <a href="mailto:{esc(kenh["email"])}">{t("Liên hệ hợp tác: ", "Partnerships: ")}{esc(kenh["email"])}</a>' if kenh.get("email") else "")
+            + '</span>\n  </div>\n</footer>')
 
 def lien_ket_ngon_ngu(goc):
     """Thẻ hreflang: cùng một trang ở hai ngôn ngữ (đường dẫn giống hệt, bản Anh nằm trong en/)."""
