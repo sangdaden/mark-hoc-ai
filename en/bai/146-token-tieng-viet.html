@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is a token? Why Vietnamese uses more tokens than English | Mark học AI</title>
+<meta name="description" content="What is a token, and why does the same idea in Vietnamese usually use more tokens than English? It means higher API costs and a context window that fills up faster.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/146-token-tieng-viet.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/146-token-tieng-viet.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is a token? Why Vietnamese uses more tokens than English | Mark học AI">
+<meta property="og:description" content="What is a token, and why does the same idea in Vietnamese usually use more tokens than English? It means higher API costs and a context window that fills up faster.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is a token? Why Vietnamese uses more tokens than English","description":"What is a token, and why does the same idea in Vietnamese usually use more tokens than English? It means higher API costs and a context window that fills up faster.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI and Vietnamese"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"AI and Vietnamese","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-tieng-viet"},{"@type":"ListItem","position":3,"name":"What is a token? Why Vietnamese uses more tokens than English","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/146-token-tieng-viet.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-tieng-viet">AI and Vietnamese</a> › <span>#146</span></nav>
+<p class="eyebrow">Video #146 · AI and Vietnamese · Part 1/2</p>
+<h1>What is a token? Why Vietnamese uses more tokens than English</h1>
+<p class="lead">What is a token, and why does asking AI in Vietnamese usually use more tokens than English for the same idea? Mark and Bit explain in under a minute.</p>
+<div class="cta"><a class="btn btn-yt" data-so="146" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20ti%E1%BA%BFng%20Vi%E1%BB%87t%20t%E1%BB%91n%20nhi%E1%BB%81u%20token%20h%C6%A1n" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Vietnamese uses more tokens</h2>
+<p>The same idea written in Vietnamese usually uses more tokens than in English.</p>
+</section>
+<section>
+<p class="sec-chip">TOKEN</p>
+<h2>AI reads in pieces</h2>
+<p>AI doesn&#x27;t read word by word but piece by piece, and each piece is called a token, as video <a href="../bai/19-token.html">19</a> of the channel explained.</p>
+</section>
+<section>
+<p class="sec-chip">TONE MARKS</p>
+<h2>Words with tone marks get chopped up</h2>
+<p>Models learn far more English, so Vietnamese words with tone marks often get split into more, smaller pieces.</p>
+</section>
+<section>
+<p class="sec-chip">THE EFFECT</p>
+<h2>Costs more, remembers less</h2>
+<p>More tokens means using the API costs more, and long conversations fill the context window faster.</p>
+</section>
+<aside class="try" aria-labelledby="thu-146">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-146">Count some tokens</h2>
+  <p>Paste a Vietnamese paragraph and its English translation into a free token counter, and see which one has more.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>Why Vietnamese uses more tokens</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="146" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20ti%E1%BA%BFng%20Vi%E1%BB%87t%20t%E1%BB%91n%20nhi%E1%BB%81u%20token%20h%C6%A1n" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div>
+</div>
+</article>
+
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-tieng-viet">AI and Vietnamese</a> · Part 1/2</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/145-agi-con-xa-khong.html"><span class="nav-dir">‹ Previous series: What is AGI</span><b>#145 · When will AGI arrive? How far away is AGI?</b></a><a class="nav-card next" href="../bai/147-hoi-ai-bang-tieng-viet.html"><span class="nav-dir">Next part ›</span><b>#147 · How to ask AI in Vietnamese so it understands you</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

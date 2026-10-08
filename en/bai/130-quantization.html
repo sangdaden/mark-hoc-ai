@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is quantization? Shrinking an AI model to fit your laptop | Mark học AI</title>
+<meta name="description" content="You download an open model and the file is 16 GB, and your laptop runs out of memory? Bit explains quantization: rounding the numbers so the model gets about four times lighter.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/130-quantization.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/130-quantization.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is quantization? Shrinking an AI model to fit your laptop | Mark học AI">
+<meta property="og:description" content="You download an open model and the file is 16 GB, and your laptop runs out of memory? Bit explains quantization: rounding the numbers so the model gets about four times lighter.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is quantization? Shrinking an AI model to fit your laptop","description":"You download an open model and the file is 16 GB, and your laptop runs out of memory? Bit explains quantization: rounding the numbers so the model gets about four times lighter.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI on your own computer"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"AI on your own computer","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-tren-may"},{"@type":"ListItem","position":3,"name":"What is quantization? Shrinking an AI model to fit your laptop","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/130-quantization.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-tren-may">AI on your own computer</a> › <span>#130</span></nav>
+<p class="eyebrow">Video #130 · AI on your own computer · Part 2/3</p>
+<h1>What is quantization? Shrinking an AI model to fit your laptop</h1>
+<p class="lead">You download an open model and the file is 16 GB, and your laptop runs out of memory? Bit explains quantization.</p>
+<div class="cta"><a class="btn btn-yt" data-so="130" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Quantization%2C%20n%C3%A9n%20model%20cho%20v%E1%BB%ABa%20laptop" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>The model is too big</h2>
+<p>Mark tries downloading an open model, like in video <a href="../bai/114-open-source.html">114</a>, but the file is 16 GB and his laptop runs out of memory.</p>
+</section>
+<section>
+<p class="sec-chip">QUANTIZATION</p>
+<h2>Rounding the numbers</h2>
+<p>Bit explains: a model is billions of numbers. Quantization rounds those numbers so they take less space. Storing each number in 4 bits instead of 16 makes the model about four times lighter.</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>Like compressing a photo</h2>
+<p>It&#x27;s like compressing a photo when you send it in a chat: the file gets much smaller, but it looks almost the same.</p>
+</section>
+<section>
+<p class="sec-chip">TRADE-OFF</p>
+<h2>A little less accuracy</h2>
+<p>In return, the model loses a bit of accuracy. 4 bits usually still works well, but squeeze it too hard and the answers get much worse.</p>
+</section>
+<section>
+<p class="sec-chip">LABELS</p>
+<h2>Reading the file names</h2>
+<p>When you download a model, you&#x27;ll see labels like Q4 or Q8. That&#x27;s the number of bits after compression: the smaller the number, the lighter the file.</p>
+</section>
+<aside class="try" aria-labelledby="thu-130">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-130">Compare two versions</h2>
+  <p>Go to an open model&#x27;s page, compare the size of the Q4 and Q8 versions, and see which one fits your computer&#x27;s RAM.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>Quantization, shrinking a model to fit a laptop</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="130" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Quantization%2C%20n%C3%A9n%20model%20cho%20v%E1%BB%ABa%20laptop" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div>
+</div>
+</article>
+
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-tren-may">AI on your own computer</a> · Part 2/3</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/129-inference-training.html"><span class="nav-dir">‹ Previous part</span><b>#129 · What are training and inference? Does AI learn from your questions?</b></a><a class="nav-card next" href="../bai/131-ai-offline.html"><span class="nav-dir">Next part ›</span><b>#131 · How to run AI offline on your own computer</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

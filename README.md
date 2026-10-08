@@ -6,8 +6,8 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 
 ## Cấu trúc
 - `index.html`, `style.css`, `app.js`: trang chính.
-- `data/videos.json`: danh sách video (số, chủ đề, tiêu đề, mô tả). Tạo bằng `python3 scripts/gom_video.py /mnt/project-files/videos 117` (số cuối là video mới nhất đưa lên trang).
-- `data/series.json`: tên, mô tả, khoảng số và thuật ngữ của từng series. Đổi `sap_ra_mat` thành `false` khi series đã đăng.
+- `data/videos.json`: danh sách video (số, chủ đề, tiêu đề, mô tả). Tạo bằng `python3 scripts/gom_video.py /mnt/project-files/videos 162` (số cuối là video mới nhất đưa lên trang; mặc định 162). Từ video 132, tên video lấy từ `SERIES` và `NAME` trong `nguon/script.py`.
+- `data/series.json`: tên, mô tả, khoảng số và thuật ngữ của từng series. Chữ "Sắp ra mắt" giờ theo ngày trong `data/lich-ra-mat.json` (series mới không cần `sap_ra_mat`). `"le": true` là nhóm video lẻ (không tính là series), như tập đặc biệt #100.
 - `data/ban-do.json`: phần "Bắt đầu từ đây" (`#bat-dau`, link trong bio): 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99). Mỗi mục trỏ tới video đầu tiên bằng số `so`.
 - `data/kenh.json`: link kênh và email liên hệ (để trống thì trang ẩn email).
 - `bai/*.html`: một bài viết cho mỗi video (cho Google tìm thấy), `tu-dien.html` (Từ điển AI), `kiem-tra.html` (bài kiểm tra 10 câu) và `sitemap.xml`. Tạo bằng `python3 scripts/tao_bai_viet.py /mnt/project-files/videos` từ `nguon/script.py` và `tieu-de-mo-ta.md` của từng video. Đừng sửa tay các file này, sửa nguồn rồi chạy lại.
@@ -17,9 +17,9 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 - `assets/`: logo, ảnh đại diện, ảnh chia sẻ, mascot Mark và Bit (`mark-*.svg`, bản gốc ở `brand/mascot/chinh-thuc/`).
 
 ## Thêm video mới
-1. Chạy `python3 scripts/gom_video.py` để cập nhật `data/videos.json`.
+1. Chạy `python3 scripts/gom_video.py /mnt/project-files/videos <số cuối>` để cập nhật `data/videos.json`, và thêm ngày ra mắt vào `data/lich-ra-mat.json` (xem `scripts/lich_ra_mat_ghi_chu.md`).
 2. Nếu là series mới, thêm một mục vào `data/series.json`.
-3. Thêm tiêu đề SEO cho video mới vào `data/bai-viet.json` (và thuật ngữ mới vào `data/tu-dien.json`), rồi chạy `python3 scripts/tao_bai_viet.py`.
+3. Thêm tiêu đề SEO cho video mới vào `data/bai-viet.json` (và thuật ngữ mới vào `data/tu-dien.json`), bản dịch vào `data/en/` (`videos.json`, `series.json`, `bai-viet.json`, `bai/<số>-<slug>.json`), rồi chạy `python3 scripts/tao_bai_viet.py /mnt/project-files/videos`.
 4. Commit và push lên `main`; GitHub Pages tự đăng lại.
 
 ## Gắn tên miền riêng

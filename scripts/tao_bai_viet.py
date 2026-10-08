@@ -127,7 +127,8 @@ def doc_mo_ta(thu_muc):
             thu = bo_emoji(m.group(1))
     # Ưu tiên bản ngang (đoạn văn liền), không có thì lấy bản dọc
     buf = khoi[-1] if khoi else []
-    return cat_ngan(bo_emoji(" ".join(buf))), thu
+    # bỏ cả số trong emoji đánh số "1️⃣" (bo_emoji chỉ bỏ phần emoji, còn sót chữ số lạc trong mô tả)
+    return cat_ngan(bo_emoji(re.sub(r"[0-9#*]\ufe0f?\u20e3\s*", "", " ".join(buf)))), thu
 
 # Câu trong ngoặc kép ở dòng "Thử ngay" nhưng không phải câu lệnh gửi AI (tên tùy chọn, từ khóa tìm kiếm)
 KHONG_PHAI_PROMPT = {75, 77, 80}

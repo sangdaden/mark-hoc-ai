@@ -1,0 +1,29 @@
+{
+ "meta": "What is a token, and why does the same idea in Vietnamese usually use more tokens than English? It means higher API costs and a context window that fills up faster.",
+ "muc": [
+  {
+   "title": "Vietnamese uses more tokens",
+   "text": "The same idea written in Vietnamese usually uses more tokens than in English."
+  },
+  {
+   "chip": "TOKEN",
+   "title": "AI reads in pieces",
+   "text": "AI doesn't read word by word but piece by piece, and each piece is called a token, as video 19 of the channel explained."
+  },
+  {
+   "chip": "TONE MARKS",
+   "title": "Words with tone marks get chopped up",
+   "text": "Models learn far more English, so Vietnamese words with tone marks often get split into more, smaller pieces."
+  },
+  {
+   "chip": "THE EFFECT",
+   "title": "Costs more, remembers less",
+   "text": "More tokens means using the API costs more, and long conversations fill the context window faster."
+  },
+  {
+   "try": true,
+   "title": "Count some tokens",
+   "text": "Paste a Vietnamese paragraph and its English translation into a free token counter, and see which one has more."
+  }
+ ]
+}
