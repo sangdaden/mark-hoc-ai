@@ -155,7 +155,7 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
 .foot .brand img { background: #fff; padding: 3px; border-radius: 9px; }
 .foot .brand b { background: none; color: #FDE047; -webkit-text-fill-color: #FDE047; }
 .foot-line { margin: 0; color: rgba(255, 255, 255, .9); }
-.foot-links { display: flex; gap: 16px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .foot-links a { color: #fff; font-weight: 600; text-decoration: none; }
 .foot-links a:hover { color: #FDE047; }
 .foot-copy { grid-column: 1 / -1; font: 500 13px var(--f-mono); color: rgba(255, 255, 255, .8); }
