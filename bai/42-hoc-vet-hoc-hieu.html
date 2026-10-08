@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overfitting là gì? Khi AI học vẹt thay vì học hiểu | Mark học AI</title>
+<meta name="description" content="Vì sao AI có lúc giỏi bài quen mà hỏng bài lạ? Vì máy cũng có thể học vẹt Vặn núm quá kỹ cho khớp từng ví dụ luyện, máy thuộc lòng cả chi tiết vụn vặt. Gọi…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Overfitting là gì? Khi AI học vẹt thay vì học hiểu | Mark học AI">
+<meta property="og:description" content="Vì sao AI có lúc giỏi bài quen mà hỏng bài lạ? Vì máy cũng có thể học vẹt Vặn núm quá kỹ cho khớp từng ví dụ luyện, máy thuộc lòng cả chi tiết vụn vặt. Gọi…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Overfitting là gì? Khi AI học vẹt thay vì học hiểu","description":"Vì sao AI có lúc giỏi bài quen mà hỏng bài lạ? Vì máy cũng có thể học vẹt Vặn núm quá kỹ cho khớp từng ví dụ luyện, máy thuộc lòng cả chi tiết vụn vặt. Gọi…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI học như thế nào"},"about":[{"@type":"DefinedTerm","name":"Overfitting","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#overfitting"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI học như thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#ai-hoc"},{"@type":"ListItem","position":3,"name":"Overfitting là gì? Khi AI học vẹt thay vì học hiểu","item":"https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#42</span></nav>
+<p class="eyebrow">Video #42 · AI học như thế nào · Phần 5/7</p>
+<h1>Overfitting là gì? Khi AI học vẹt thay vì học hiểu</h1>
+<p class="lead">Vì sao AI có lúc giỏi bài quen mà hỏng bài lạ? Vì máy cũng có thể học vẹt.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%E1%BB%8Dc%20v%E1%BA%B9t%20v%C3%A0%20h%E1%BB%8Dc%20hi%E1%BB%83u" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Giỏi bài quen, hỏng bài lạ</h2>
+<p>Phần trước, AI truy ngược lỗi để vặn đúng núm. Nhưng vặn quá kỹ cũng có hại: máy có thể thuộc lòng đề mà không hiểu bài.</p>
+</section>
+<section>
+<p class="sec-chip">VÍ DỤ</p>
+<h2>Hai bạn ôn thi</h2>
+<p>Hình dung hai bạn ôn thi toán. An học thuộc đáp án của 100 bài mẫu. Bình thì học cách giải, dù còn sai vài bài.</p>
+</section>
+<section>
+<p class="sec-chip">ĐỀ MỚI</p>
+<h2>Lật đề thi ra</h2>
+<p>Hôm thi, đề chỉ đổi con số. An đứng hình, vì bài này chưa từng thuộc. Bình vẫn làm được, vì bạn ấy nắm cách làm, không nắm đáp án.</p>
+</section>
+<section>
+<p class="sec-chip">HỌC VẸT</p>
+<h2>Máy cũng học vẹt</h2>
+<p>Máy cũng vậy. Vặn núm quá kỹ cho khớp từng ví dụ luyện, nó nhớ cả chi tiết vụn vặt. Đó là quá khớp, tiếng Anh là overfitting: bài luyện đúng gần hết, gặp dữ liệu mới thì sai.</p>
+</section>
+<section>
+<p class="sec-chip">ĐỀ GIẤU KÍN</p>
+<h2>Luôn giữ một đề chưa thấy</h2>
+<p>Vì vậy, người huấn luyện luôn cất riêng một phần dữ liệu, máy không được nhìn lúc học. Học xong mới đem ra thi. Điểm trên đề lạ mới là điểm thật.</p>
+</section>
+<section>
+<p class="sec-chip">VÌ SAO</p>
+<h2>Quen thì trơn, lạ thì đoán</h2>
+<p>AI trò chuyện học từ lượng chữ khổng lồ, nên câu quen thuộc trên mạng nó trả lời rất trơn. Gặp tình huống lạ chưa ai viết ra, nó có thể đoán sai mà giọng vẫn tự tin.</p>
+</section>
+<aside class="try" aria-labelledby="thu-42">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-42">Thi AI bằng đề của bạn</h2>
+  <p>Trước khi giao việc quan trọng, hãy thi AI bằng đề của chính bạn: số liệu cửa hàng bạn, tình huống công ty bạn, không chỉ câu mẫu trên mạng.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN 6</p>
+<h2>Vì sao AI giỏi vọt lên?</h2>
+<p>Học hiểu thì tốt rồi. Nhưng vì sao mấy năm nay AI bỗng giỏi vọt lên? Hẹn bạn ở phần 6.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Học vẹt và học hiểu</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%E1%BB%8Dc%20v%E1%BA%B9t%20v%C3%A0%20h%E1%BB%8Dc%20hi%E1%BB%83u" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#overfitting">Overfitting</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">AI học như thế nào</a> · Phần 5/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/41-truy-nguoc-loi.html"><span class="nav-dir">‹ Phần trước</span><b>#41 · Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu</b></a><a class="nav-card next" href="../bai/43-cang-to-cang-gioi.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#43 · Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law)</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

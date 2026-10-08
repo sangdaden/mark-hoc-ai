@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Logging và tracing trong hệ thống AI là gì? Hộp đen của AI | Mark học AI</title>
+<meta name="description" content="Chatbot bảo phí chuyển tiền là 0 đồng, khách vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào? Mỗi câu hỏi để lại một dòng log (nhật ký): giờ, câu hỏi đã…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logging và tracing trong hệ thống AI là gì? Hộp đen của AI | Mark học AI">
+<meta property="og:description" content="Chatbot bảo phí chuyển tiền là 0 đồng, khách vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào? Mỗi câu hỏi để lại một dòng log (nhật ký): giờ, câu hỏi đã…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Logging và tracing trong hệ thống AI là gì? Hộp đen của AI","description":"Chatbot bảo phí chuyển tiền là 0 đồng, khách vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào? Mỗi câu hỏi để lại một dòng log (nhật ký): giờ, câu hỏi đã…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Hậu trường một hệ thống AI"},"about":[{"@type":"DefinedTerm","name":"Logging","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#logging"},{"@type":"DefinedTerm","name":"Observability","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#observability"},{"@type":"DefinedTerm","name":"Tracing","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#tracing"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Hậu trường một hệ thống AI","item":"https://sangdaden.github.io/mark-hoc-ai/#hau-truong"},{"@type":"ListItem","position":3,"name":"Logging và tracing trong hệ thống AI là gì? Hộp đen của AI","item":"https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#hau-truong">Hậu trường một hệ thống AI</a> › <span>#84</span></nav>
+<p class="eyebrow">Video #84 · Hậu trường một hệ thống AI · Phần 6/7</p>
+<h1>Logging và tracing trong hệ thống AI là gì? Hộp đen của AI</h1>
+<p class="lead">Chatbot bảo phí chuyển tiền là 0 đồng, khách vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào?</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Một lời phàn nàn</h2>
+<p>Một khách phàn nàn: chatbot bảo phí chuyển tiền là không đồng, nhưng tôi vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào?</p>
+</section>
+<section>
+<p class="sec-chip">LOGGING</p>
+<h2>Mỗi câu hỏi một dòng</h2>
+<p>Bằng log, tức nhật ký. Mỗi câu hỏi để lại một dòng log: giờ, câu hỏi đã che thông tin, câu trả lời, mất bao lâu, tốn bao nhiêu.</p>
+</section>
+<section>
+<p class="sec-chip">TRACING</p>
+<h2>Một sợi chỉ qua các bước</h2>
+<p>Nhưng một câu hỏi đi qua nhiều bước: cổng vào, tìm tài liệu, gọi mô hình, cổng ra. Trace nối các bước đó thành một sợi chỉ, để xem từng bước nhận gì, trả gì.</p>
+</section>
+<section>
+<p class="sec-chip">TÌM RA</p>
+<h2>Lỗi nằm ở đâu</h2>
+<p>Lần theo trace, họ thấy lỗi: bước tìm tài liệu đã lấy bảng phí cũ của năm ngoái. AI không bịa, nó đọc nhầm tài liệu. Sửa đúng chỗ đó, rồi thêm câu này vào eval set ở phần năm.</p>
+</section>
+<section>
+<p class="sec-chip">OBSERVABILITY</p>
+<h2>Nhìn rõ bên trong</h2>
+<p>Khả năng nhìn rõ bên trong hệ thống như vậy, dân kỹ thuật gọi là observability.</p>
+</section>
+<section>
+<p class="sec-chip">RIÊNG TƯ</p>
+<h2>Nhật ký cũng phải giữ kín</h2>
+<p>Nhưng log cũng chứa lời của khách. Nên phải che dữ liệu riêng, giới hạn người được xem, và xóa sau một thời gian.</p>
+</section>
+<aside class="try" aria-labelledby="thu-84">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-84">Nhật ký của chính bạn</h2>
+  <p>Xem log của chính bạn. Vào cài đặt của ứng dụng AI, tìm mục export data, tức xuất dữ liệu. Tải về xem nó lưu những gì, và xóa cái bạn không muốn giữ.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN SAU</p>
+<h2>Biết trước khi có chuyện</h2>
+<p>Lần lại khi có chuyện là tốt. Biết trước khi có chuyện còn tốt hơn. Phần cuối: monitoring.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Logging và tracing: hộp đen của AI</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#logging">Logging</a></li><li><a href="../tu-dien.html#observability">Observability</a></li><li><a href="../tu-dien.html#tracing">Tracing</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Hậu trường một hệ thống AI</a> · Phần 6/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/83-thi-lai-truoc-khi-doi.html"><span class="nav-dir">‹ Phần trước</span><b>#83 · Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI</b></a><a class="nav-card next" href="../bai/85-phong-dieu-khien.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#85 · Monitoring hệ thống AI là gì? Dashboard, alert và drift</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

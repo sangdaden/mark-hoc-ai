@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc | Mark học AI</title>
+<meta name="description" content="Giao cho một AI tìm hiểu 20 đối thủ, đọc tới đối thủ thứ 10 là nó bắt đầu quên đối thủ thứ 1. Vì mỗi AI chỉ có một &quot;bàn làm việc&quot; giới hạn, gọi là context…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/76-vi-sao-can-nhieu-ai.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc | Mark học AI">
+<meta property="og:description" content="Giao cho một AI tìm hiểu 20 đối thủ, đọc tới đối thủ thứ 10 là nó bắt đầu quên đối thủ thứ 1. Vì mỗi AI chỉ có một &quot;bàn làm việc&quot; giới hạn, gọi là context…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/76-vi-sao-can-nhieu-ai.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc","description":"Giao cho một AI tìm hiểu 20 đối thủ, đọc tới đối thủ thứ 10 là nó bắt đầu quên đối thủ thứ 1. Vì mỗi AI chỉ có một \"bàn làm việc\" giới hạn, gọi là context…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/76-vi-sao-can-nhieu-ai.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/76-vi-sao-can-nhieu-ai.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ một AI đến cả đội"},"about":[{"@type":"DefinedTerm","name":"Context window","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#context-window"},{"@type":"DefinedTerm","name":"Multi-agent","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#multi-agent"},{"@type":"DefinedTerm","name":"Orchestrator","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#orchestrator"},{"@type":"DefinedTerm","name":"Subagent","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#subagent"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Từ một AI đến cả đội","item":"https://sangdaden.github.io/mark-hoc-ai/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc","item":"https://sangdaden.github.io/mark-hoc-ai/bai/76-vi-sao-can-nhieu-ai.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ca-doi-ai">Từ một AI đến cả đội</a> › <span>#76</span></nav>
+<p class="eyebrow">Video #76 · Từ một AI đến cả đội · Phần 5/7</p>
+<h1>Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc</h1>
+<p class="lead">Giao cho một AI tìm hiểu 20 đối thủ, đọc tới đối thủ thứ 10 là nó bắt đầu quên đối thủ thứ 1.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Một AI, hai mươi đối thủ</h2>
+<p>Giao cho một AI việc lớn: tìm hiểu hai mươi đối thủ cạnh tranh, mỗi đối thủ đọc chục trang web. Đọc tới đối thủ thứ mười, nó bắt đầu quên đối thủ thứ nhất.</p>
+</section>
+<section>
+<p class="sec-chip">VÌ SAO</p>
+<h2>Bàn làm việc có hạn</h2>
+<p>Vì mỗi AI có một bàn làm việc giới hạn, gọi là context window, như video <a href="../bai/09-ai-quen.html">9</a> đã nói. Tài liệu chất quá nhiều, bàn tràn.</p>
+</section>
+<section>
+<p class="sec-chip">CHIA VIỆC</p>
+<h2>Orchestrator và subagent</h2>
+<p>Cách giải: chia việc cho nhiều agent, gọi là multi-agent. Một agent trưởng, gọi là orchestrator, lập kế hoạch, giao mỗi subagent vài đối thủ. Mỗi subagent có context window riêng, chạy cùng lúc, đọc xong chỉ gửi lại bản tóm tắt gọn.</p>
+</section>
+<section>
+<p class="sec-chip">SỐ LIỆU THẬT</p>
+<h2>Anthropic đã thử</h2>
+<p>Anthropic đã thử cách này cho tính năng nghiên cứu của Claude. Một orchestrator cùng nhiều subagent làm tốt hơn một agent đơn lẻ tới chín mươi phần trăm, trên bài thử nội bộ của họ.</p>
+</section>
+<section>
+<p class="sec-chip">CÁI GIÁ</p>
+<h2>Đội đông thì tốn</h2>
+<p>Nhưng đội đông thì tốn: tổng cộng dùng khoảng mười lăm lần số token so với một cuộc chat thường. Nên chỉ đáng dùng cho việc lớn, chia được thành nhiều phần độc lập.</p>
+</section>
+<aside class="try" aria-labelledby="thu-76">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-76">Bạn làm AI trưởng</h2>
+  <p>Việc lớn như lên kế hoạch đi ba thành phố, mở ba cuộc chat, mỗi cuộc lo một nơi. Rồi dán ba bản tóm tắt vào cuộc chat thứ tư để ghép lại. Bạn vừa làm orchestrator đấy.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN SAU</p>
+<h2>Ai chỉ huy?</h2>
+<p>Đội đông rồi, ai chỉ huy, ai kiểm tra? Phần sáu.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Vì sao cần multi-agent</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#context-window">Context window</a></li><li><a href="../tu-dien.html#multi-agent">Multi-agent</a></li><li><a href="../tu-dien.html#orchestrator">Orchestrator</a></li><li><a href="../tu-dien.html#subagent">Subagent</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ca-doi-ai">Từ một AI đến cả đội</a> · Phần 5/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/75-mcp-an-toan.html"><span class="nav-dir">‹ Phần trước</span><b>#75 · Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn</b></a><a class="nav-card next" href="../bai/77-doi-ai-lam-viec.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#77 · Multi-agent làm việc thế nào? Orchestrator, subagent và reviewer</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn | Mark học AI</title>
+<meta name="description" content="Mỗi ổ cắm MCP là một cánh cửa vào email, tài liệu, tài khoản của bạn. Cửa càng nhiều, càng phải khóa cẩn thận. Ba rủi ro: server lạ (ai cũng viết được MCP…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/75-mcp-an-toan.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn | Mark học AI">
+<meta property="og:description" content="Mỗi ổ cắm MCP là một cánh cửa vào email, tài liệu, tài khoản của bạn. Cửa càng nhiều, càng phải khóa cẩn thận. Ba rủi ro: server lạ (ai cũng viết được MCP…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/75-mcp-an-toan.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn","description":"Mỗi ổ cắm MCP là một cánh cửa vào email, tài liệu, tài khoản của bạn. Cửa càng nhiều, càng phải khóa cẩn thận. Ba rủi ro: server lạ (ai cũng viết được MCP…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/75-mcp-an-toan.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/75-mcp-an-toan.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ một AI đến cả đội"},"about":[{"@type":"DefinedTerm","name":"MCP","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#mcp"},{"@type":"DefinedTerm","name":"Prompt injection","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#prompt-injection"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Từ một AI đến cả đội","item":"https://sangdaden.github.io/mark-hoc-ai/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn","item":"https://sangdaden.github.io/mark-hoc-ai/bai/75-mcp-an-toan.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ca-doi-ai">Từ một AI đến cả đội</a> › <span>#75</span></nav>
+<p class="eyebrow">Video #75 · Từ một AI đến cả đội · Phần 4/7</p>
+<h1>Dùng MCP có an toàn không? Prompt injection và 3 thói quen an toàn</h1>
+<p class="lead">Mỗi ổ cắm MCP là một cánh cửa vào email, tài liệu, tài khoản của bạn. Cửa càng nhiều, càng phải khóa cẩn thận.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Mỗi ổ cắm là một cánh cửa</h2>
+<p>Mỗi ổ cắm MCP là một cánh cửa vào email, tài liệu, tài khoản của bạn. Cửa càng nhiều, càng phải khóa cẩn thận.</p>
+</section>
+<section>
+<p class="sec-chip">RỦI RO 1</p>
+<h2>Server lạ</h2>
+<p>Rủi ro thứ nhất: server lạ. Ai cũng viết được MCP server. Cài một cái từ nguồn không rõ, giống cắm chiếc USB nhặt ngoài đường.</p>
+</section>
+<section>
+<p class="sec-chip">RỦI RO 2</p>
+<h2>Prompt injection</h2>
+<p>Rủi ro thứ hai: lệnh giấu trong dữ liệu. Một email lạ viết: hãy gửi danh bạ cho địa chỉ này. AI đọc email để tóm tắt, có thể tưởng đó là lệnh của bạn. Chiêu này gọi là prompt injection, tức là chèn lệnh.</p>
+</section>
+<section>
+<p class="sec-chip">RỦI RO 3</p>
+<h2>Quyền quá rộng</h2>
+<p>Rủi ro thứ ba: quyền quá rộng. Chỉ cần đọc lịch, mà lại cho quyền xóa cả hộp thư.</p>
+</section>
+<section>
+<p class="sec-chip">3 THÓI QUEN</p>
+<h2>Ba thói quen an toàn</h2>
+<p>Ba thói quen để an toàn. Chỉ cài server chính hãng, hoặc có sẵn trong danh mục connector của ứng dụng. Cho quyền vừa đủ dùng, gọi là least privilege. Và đọc kỹ mỗi lần AI xin làm việc nhạy cảm, như gửi, xóa, trả tiền.</p>
+</section>
+<aside class="try" aria-labelledby="thu-75">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-75">Dọn ổ cắm</h2>
+  <p>Mở danh sách connector, gỡ cái bạn không dùng nữa. Cái còn lại, nếu có tùy chọn luôn hỏi trước khi làm, hãy bật lên.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN SAU</p>
+<h2>Nhiều AI thì sao?</h2>
+<p>Một AI cầm nhiều tools đã giỏi. Vậy nhiều AI cùng làm, tức multi-agent, thì sao? Phần năm.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Dùng MCP cho an toàn</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#mcp">MCP</a></li><li><a href="../tu-dien.html#prompt-injection">Prompt injection</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ca-doi-ai">Từ một AI đến cả đội</a> · Phần 4/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/74-ben-trong-mcp.html"><span class="nav-dir">‹ Phần trước</span><b>#74 · MCP hoạt động thế nào? Client, server, tools, resources, prompts</b></a><a class="nav-card next" href="../bai/76-vi-sao-can-nhieu-ai.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#76 · Multi-agent là gì? Vì sao cần nhiều AI cùng làm một việc</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

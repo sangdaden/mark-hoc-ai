@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin | Mark học AI</title>
+<meta name="description" content="Bạn hỏi AI ba cuốn sách hay, nó trả lời ngay, rất chắc chắn, nhưng một cuốn không hề tồn tại. Hiện tượng này gọi là ảo giác AI (hallucination). Video giải…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/08-ao-giac.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin | Mark học AI">
+<meta property="og:description" content="Bạn hỏi AI ba cuốn sách hay, nó trả lời ngay, rất chắc chắn, nhưng một cuốn không hề tồn tại. Hiện tượng này gọi là ảo giác AI (hallucination). Video giải…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/08-ao-giac.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin","description":"Bạn hỏi AI ba cuốn sách hay, nó trả lời ngay, rất chắc chắn, nhưng một cuốn không hề tồn tại. Hiện tượng này gọi là ảo giác AI (hallucination). Video giải…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/08-ao-giac.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/08-ao-giac.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Hallucination","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#hallucination"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin","item":"https://sangdaden.github.io/mark-hoc-ai/bai/08-ao-giac.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#08</span></nav>
+<p class="eyebrow">Video #08 · Khái niệm nền tảng</p>
+<h1>Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin</h1>
+<p class="lead">Hỏi AI 3 cuốn sách hay, nó trả lời ngay, rất chắc. Tìm thử thì một cuốn không hề tồn tại.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20%22%E1%BA%A3o%20gi%C3%A1c%22%2C%20v%C3%AC%20sao%20AI%20b%E1%BB%8Ba%20m%C3%A0%20v%E1%BA%ABn%20r%E1%BA%A5t%20t%E1%BB%B1%20tin%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Cuốn sách không tồn tại</h2>
+<p>Bạn hỏi AI ba cuốn sách hay. Nó trả lời ngay, rất chắc. Tìm thử thì một cuốn không hề tồn tại.</p>
+</section>
+<section>
+<h2>Hiện tượng có tên hẳn hoi</h2>
+<p>Hiện tượng này gọi là ảo giác AI: trả lời sai nhưng nghe như thật.</p>
+</section>
+<section>
+<h2>Vì sao lại bịa?</h2>
+<p>Nhớ video trước: AI đoán chữ tiếp theo nghe hợp lý nhất. Khi không biết, nó không dừng lại, mà vẫn đoán ra một cái tên nghe rất giống thật.</p>
+</section>
+<section>
+<h2>Hay gặp ở đâu</h2>
+<p>Dễ gặp nhất ở số liệu, tên sách, điều luật và đường link.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH 1</p>
+<h2>Cho phép AI nói &quot;không biết&quot;</h2>
+<p>Cách hạn chế: thêm câu &quot;nếu không chắc, hãy nói không biết&quot;.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH 2</p>
+<h2>Hỏi nguồn rồi tự kiểm tra</h2>
+<p>Và hỏi nguồn. Bấm vào kiểm tra. Link không mở được, đừng tin.</p>
+</section>
+<aside class="try" aria-labelledby="thu-8">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-8">Thêm hai câu này</h2>
+  <p>Lần tới hỏi số liệu hay thông tin quan trọng, thêm hai câu đó vào. AI là trợ lý giỏi, nhưng người kiểm tra cuối cùng là bạn.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>AI &quot;ảo giác&quot;, vì sao AI bịa mà vẫn rất tự tin?</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20%22%E1%BA%A3o%20gi%C3%A1c%22%2C%20v%C3%AC%20sao%20AI%20b%E1%BB%8Ba%20m%C3%A0%20v%E1%BA%ABn%20r%E1%BA%A5t%20t%E1%BB%B1%20tin%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#hallucination">Hallucination</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #08</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/07-chatbot-doan-chu.html"><span class="nav-dir">‹ Video trước</span><b>#07 · Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo</b></a><a class="nav-card next" href="../bai/09-ai-quen.html"><span class="nav-dir">Video tiếp theo ›</span><b>#09 · Vì sao AI quên khi chat dài? Context là gì và 2 mẹo khắc phục</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

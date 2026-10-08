@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Token là gì? Vì sao AI không đọc chữ như người | Mark học AI</title>
+<meta name="description" content="Mở đầu series 8 phần &quot;Bên trong bộ não AI&quot;. Phần 1 giải thích token: AI không đọc từng chữ cái như bạn, mà cắt câu thành các mảnh nhỏ, đổi mỗi mảnh thành một…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Token là gì? Vì sao AI không đọc chữ như người | Mark học AI">
+<meta property="og:description" content="Mở đầu series 8 phần &quot;Bên trong bộ não AI&quot;. Phần 1 giải thích token: AI không đọc từng chữ cái như bạn, mà cắt câu thành các mảnh nhỏ, đổi mỗi mảnh thành một…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Token là gì? Vì sao AI không đọc chữ như người","description":"Mở đầu series 8 phần \"Bên trong bộ não AI\". Phần 1 giải thích token: AI không đọc từng chữ cái như bạn, mà cắt câu thành các mảnh nhỏ, đổi mỗi mảnh thành một…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"Token","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#token"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://sangdaden.github.io/mark-hoc-ai/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Token là gì? Vì sao AI không đọc chữ như người","item":"https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#bo-nao-ai">Bên trong bộ não AI</a> › <span>#19</span></nav>
+<p class="eyebrow">Video #19 · Bên trong bộ não AI · Phần 1/8</p>
+<h1>Token là gì? Vì sao AI không đọc chữ như người</h1>
+<p class="lead">Bạn dùng AI mỗi ngày, nhưng bên trong nó thật ra đang làm gì? Series 8 phần này mở nắp bộ não AI.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20kh%C3%B4ng%20%C4%91%E1%BB%8Dc%20ch%E1%BB%AF%2C%20n%C3%B3%20%C4%91%E1%BB%8Dc%20%22m%E1%BA%A3nh%22" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Mở nắp bộ não AI</h2>
+<p>Bạn dùng AI mỗi ngày, nhưng bên trong nó thật ra đang làm gì? Series tám phần này mở nắp bộ não AI. Phần một: AI không đọc chữ như bạn.</p>
+</section>
+<section>
+<h2>Chiếc kéo cắt câu</h2>
+<p>Trước khi hiểu bất cứ điều gì, AI cắt câu của bạn thành từng mảnh nhỏ, gọi là token. Có mảnh là cả một từ, có mảnh chỉ là một phần của từ.</p>
+</section>
+<section>
+<h2>Mỗi mảnh thành một con số</h2>
+<p>Rồi mỗi mảnh được đổi thành một con số. Thứ AI thật sự nhìn thấy là một dãy số, không phải chữ cái.</p>
+</section>
+<section>
+<h2>Vì sao AI đếm chữ sai</h2>
+<p>Vì vậy AI hay đếm sai chữ cái. Nó không nhìn từng chữ, mà nhìn cả mảnh. Chữ cái nằm khuất bên trong mảnh nên dễ bị đếm sót.</p>
+</section>
+<section>
+<h2>Tiếng Việt tốn mảnh hơn</h2>
+<p>Tiếng Việt có dấu thường bị cắt vụn hơn tiếng Anh. Cùng một ý, câu tiếng Việt tốn nhiều mảnh hơn. Mà độ dài AI đọc được, và giá tiền khi dùng AI, đều tính bằng mảnh.</p>
+</section>
+<aside class="try" aria-labelledby="thu-19">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-19">Tách chữ rồi mới đếm</h2>
+  <p>Khi cần AI đếm chữ hay đảo chữ, bảo nó &quot;tách từng chữ ra rồi mới đếm&quot;. Và viết yêu cầu gọn, rõ, để AI tốn ít mảnh mà vẫn hiểu đủ.</p></div>
+</aside>
+<section>
+<h2>Con số thì hiểu nghĩa sao?</h2>
+<p>Nhưng nếu mỗi mảnh chỉ là một con số, làm sao AI biết &quot;mèo&quot; gần với &quot;chó&quot; hơn là &quot;xe tải&quot;? Phần hai sẽ trả lời.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>AI không đọc chữ, nó đọc &quot;mảnh&quot;</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20kh%C3%B4ng%20%C4%91%E1%BB%8Dc%20ch%E1%BB%AF%2C%20n%C3%B3%20%C4%91%E1%BB%8Dc%20%22m%E1%BA%A3nh%22" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#token">Token</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Bên trong bộ não AI</a> · Phần 1/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/18-chon-model.html"><span class="nav-dir">‹ Series trước: Khái niệm nền tảng</span><b>#18 · Nên chọn model AI nào? Haiku, Sonnet, Opus, Fable khác gì nhau</b></a><a class="nav-card next" href="../bai/20-ban-do-nghia.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#20 · Embedding là gì? AI hiểu nghĩa của từ bằng bản đồ nghĩa</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

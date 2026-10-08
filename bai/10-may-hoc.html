@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác | Mark học AI</title>
+<meta name="description" content="Hộp thư tự lọc thư rác bằng cách nào? Câu trả lời là máy học (machine learning): thay vì viết luật bằng tay, ta đưa cho máy hàng nghìn ví dụ đã dán nhãn và…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/10-may-hoc.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác | Mark học AI">
+<meta property="og:description" content="Hộp thư tự lọc thư rác bằng cách nào? Câu trả lời là máy học (machine learning): thay vì viết luật bằng tay, ta đưa cho máy hàng nghìn ví dụ đã dán nhãn và…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/10-may-hoc.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác","description":"Hộp thư tự lọc thư rác bằng cách nào? Câu trả lời là máy học (machine learning): thay vì viết luật bằng tay, ta đưa cho máy hàng nghìn ví dụ đã dán nhãn và…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/10-may-hoc.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/10-may-hoc.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Few-shot","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#few-shot"},{"@type":"DefinedTerm","name":"Machine learning","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#machine-learning"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác","item":"https://sangdaden.github.io/mark-hoc-ai/bai/10-may-hoc.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#10</span></nav>
+<p class="eyebrow">Video #10 · Khái niệm nền tảng</p>
+<h1>Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác</h1>
+<p class="lead">Hộp thư của bạn tự biết thư nào là rác. Không ai ngồi viết luật cho nó, mà nó học từ hàng nghìn ví dụ.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=M%C3%A1y%20h%E1%BB%8Dc%20l%C3%A0%20g%C3%AC%3F%20M%C3%A1y%20t%E1%BB%B1%20h%E1%BB%8Dc%20t%E1%BB%AB%20v%C3%AD%20d%E1%BB%A5" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Máy học là gì?</h2>
+<p>Hộp thư của bạn tự biết thư nào là rác. Ai đã dạy nó?</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH CŨ</p>
+<h2>Viết luật bằng tay</h2>
+<p>Cách cũ là viết luật bằng tay: có chữ &quot;trúng thưởng&quot; thì là rác. Nhưng kẻ gửi rác chỉ cần đổi cách viết là lọt.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH MỚI</p>
+<h2>Đưa cho máy thật nhiều ví dụ</h2>
+<p>Máy học làm khác: không viết luật, mà đưa cho máy hàng nghìn ví dụ đã dán nhãn, đâu là rác, đâu là thư thường.</p>
+</section>
+<section>
+<h2>Máy tự rút ra quy luật</h2>
+<p>Máy tự tìm ra dấu hiệu: nhiều dấu chấm than, người gửi lạ, giục bấm link. Không ai phải viết những luật đó.</p>
+</section>
+<section>
+<p class="sec-chip">QUANH BẠN</p>
+<h2>Máy học ở khắp nơi</h2>
+<p>Điện thoại nhận ra mặt bạn, trợ lý ảo hiểu giọng nói, ứng dụng gợi ý phim, tất cả đều học từ ví dụ như vậy.</p>
+</section>
+<section>
+<h2>Bạn cũng dạy AI bằng ví dụ được</h2>
+<p>Chatbot cũng vậy. Thay vì giải thích dài dòng bạn muốn kiểu gì, hãy đưa cho nó vài ví dụ.</p>
+</section>
+<aside class="try" aria-labelledby="thu-10">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-10">Đưa mẫu, xin thêm</h2>
+  <p>Dán hai, ba mẫu bạn thích, rồi gõ &quot;viết thêm theo đúng kiểu này&quot;. Kết quả sẽ giống ý bạn hơn hẳn.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Máy học là gì? Máy tự học từ ví dụ</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=M%C3%A1y%20h%E1%BB%8Dc%20l%C3%A0%20g%C3%AC%3F%20M%C3%A1y%20t%E1%BB%B1%20h%E1%BB%8Dc%20t%E1%BB%AB%20v%C3%AD%20d%E1%BB%A5" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#few-shot">Few-shot</a></li><li><a href="../tu-dien.html#machine-learning">Machine learning</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #10</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/09-ai-quen.html"><span class="nav-dir">‹ Video trước</span><b>#09 · Vì sao AI quên khi chat dài? Context là gì và 2 mẹo khắc phục</b></a><a class="nav-card next" href="../bai/11-thuat-toan-goi-y.html"><span class="nav-dir">Video tiếp theo ›</span><b>#11 · Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

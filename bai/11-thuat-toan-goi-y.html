@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn | Mark học AI</title>
+<meta name="description" content="Xem hết một clip nấu ăn, thế là cả bảng tin toàn món ăn. Ứng dụng ghi lại những gì, vì sao chỉ cần xem lâu là đủ, và máy học đoán clip tiếp theo cho bạn ra…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/11-thuat-toan-goi-y.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn | Mark học AI">
+<meta property="og:description" content="Xem hết một clip nấu ăn, thế là cả bảng tin toàn món ăn. Ứng dụng ghi lại những gì, vì sao chỉ cần xem lâu là đủ, và máy học đoán clip tiếp theo cho bạn ra…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/11-thuat-toan-goi-y.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn","description":"Xem hết một clip nấu ăn, thế là cả bảng tin toàn món ăn. Ứng dụng ghi lại những gì, vì sao chỉ cần xem lâu là đủ, và máy học đoán clip tiếp theo cho bạn ra…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/11-thuat-toan-goi-y.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/11-thuat-toan-goi-y.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Machine learning","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#machine-learning"},{"@type":"DefinedTerm","name":"Thuật toán gợi ý","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#thuat-toan-goi-y"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn","item":"https://sangdaden.github.io/mark-hoc-ai/bai/11-thuat-toan-goi-y.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#11</span></nav>
+<p class="eyebrow">Video #11 · Khái niệm nền tảng</p>
+<h1>Thuật toán gợi ý của TikTok hoạt động thế nào? Vì sao nó hiểu bạn</h1>
+<p class="lead">Lỡ xem hết một clip nấu ăn, thế là cả bảng tin toàn món ăn. Sao nó biết bạn thích?</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20TikTok%20%22hi%E1%BB%83u%22%20b%E1%BA%A1n%3F%20Thu%E1%BA%ADt%20to%C3%A1n%20g%E1%BB%A3i%20%C3%BD" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Vì sao TikTok “hiểu” bạn?</h2>
+<p>Lỡ xem hết một clip nấu ăn, thế là cả bảng tin toàn món ăn. Sao nó biết bạn thích?</p>
+</section>
+<section>
+<h2>Mỗi giây đều được ghi lại</h2>
+<p>Ứng dụng ghi lại mọi thứ: bạn xem bao lâu, có xem lại không, có thả tim, chia sẻ, hay lướt qua ngay.</p>
+</section>
+<section>
+<h2>Dừng lại là tín hiệu mạnh</h2>
+<p>Tín hiệu mạnh nhất thường là thời gian bạn dừng lại. Không cần bấm thích, chỉ cần xem lâu là đủ.</p>
+</section>
+<section>
+<h2>Người giống bạn thích gì?</h2>
+<p>Rồi nó xem những người có gu giống bạn còn thích gì, và đưa những clip đó tới bạn.</p>
+</section>
+<section>
+<p class="sec-chip">MÁY HỌC</p>
+<h2>Đây cũng là máy học</h2>
+<p>Đây chính là máy học: từ hàng tỷ lượt xem, máy học cách đoán clip nào sẽ giữ chân bạn lâu nhất.</p>
+</section>
+<section>
+<h2>Vòng lặp gợi ý</h2>
+<p>Xem càng nhiều, nó gợi ý càng nhiều. Bảng tin có thể bị bó vào một vài chủ đề mà bạn không hề chọn.</p>
+</section>
+<aside class="try" aria-labelledby="thu-11">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-11">Lấy lại bảng tin bổ ích</h2>
+  <p>Muốn bảng tin bổ ích hơn, bấm &quot;không quan tâm&quot; với clip không muốn thấy, chủ động tìm chủ đề bạn muốn học, và xem trọn những clip đó. Vài ngày sau, bảng tin sẽ đổi.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Vì sao TikTok &quot;hiểu&quot; bạn? Thuật toán gợi ý</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20TikTok%20%22hi%E1%BB%83u%22%20b%E1%BA%A1n%3F%20Thu%E1%BA%ADt%20to%C3%A1n%20g%E1%BB%A3i%20%C3%BD" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#machine-learning">Machine learning</a></li><li><a href="../tu-dien.html#thuat-toan-goi-y">Thuật toán gợi ý</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #11</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/10-may-hoc.html"><span class="nav-dir">‹ Video trước</span><b>#10 · Máy học (machine learning) là gì? Giải thích qua bộ lọc thư rác</b></a><a class="nav-card next" href="../bai/12-ai-ve-tranh.html"><span class="nav-dir">Video tiếp theo ›</span><b>#12 · AI vẽ tranh thế nào? Công thức 4 ý để có ảnh đẹp</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

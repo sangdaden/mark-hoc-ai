@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu | Mark học AI</title>
+<meta name="description" content="AI có hàng tỷ núm, lỗi chỉ hiện ra ở cuối. Làm sao biết núm nào phải sửa? Như bếp phở bị khách chê mặn: bếp trưởng lần ngược từng khâu, người nêm mặn tay sửa…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu | Mark học AI">
+<meta property="og:description" content="AI có hàng tỷ núm, lỗi chỉ hiện ra ở cuối. Làm sao biết núm nào phải sửa? Như bếp phở bị khách chê mặn: bếp trưởng lần ngược từng khâu, người nêm mặn tay sửa…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu","description":"AI có hàng tỷ núm, lỗi chỉ hiện ra ở cuối. Làm sao biết núm nào phải sửa? Như bếp phở bị khách chê mặn: bếp trưởng lần ngược từng khâu, người nêm mặn tay sửa…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI học như thế nào"},"about":[{"@type":"DefinedTerm","name":"Backpropagation","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#backpropagation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI học như thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#ai-hoc"},{"@type":"ListItem","position":3,"name":"Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu","item":"https://sangdaden.github.io/mark-hoc-ai/bai/41-truy-nguoc-loi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#41</span></nav>
+<p class="eyebrow">Video #41 · AI học như thế nào · Phần 4/7</p>
+<h1>Backpropagation (lan truyền ngược) là gì? Giải thích dễ hiểu</h1>
+<p class="lead">AI có hàng tỷ núm, lỗi chỉ hiện ra ở cuối. Làm sao biết núm nào phải sửa?</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Núm nào gây ra lỗi?</h2>
+<p>Phần trước: AI xuống dốc từng bước nhỏ để giảm sai số. Nhưng với hàng tỷ núm, làm sao biết núm nào cần vặn, vặn bao nhiêu?</p>
+</section>
+<section>
+<p class="sec-chip">VÍ DỤ</p>
+<h2>Tô phở bị chê</h2>
+<p>Hình dung một bếp phở có ba người: nấu nước dùng, trụng bánh, và nêm nếm. Khách gọi lại: tô phở mặn quá.</p>
+</section>
+<section>
+<p class="sec-chip">TRUY NGƯỢC</p>
+<h2>Lần ngược từng khâu</h2>
+<p>Bếp trưởng không mắng cả bếp. Ông lần ngược từ tô phở về từng khâu. Người nêm mặn tay phải sửa nhiều, người trụng bánh gần như giữ nguyên.</p>
+</section>
+<section>
+<p class="sec-chip">LAN TRUYỀN NGƯỢC</p>
+<h2>Lỗi chảy ngược</h2>
+<p>Mạng nơ-ron làm y như vậy. Lỗi ở đầu ra được chia ngược về từng lớp, từ lớp cuối về lớp đầu. Cách này gọi là lan truyền ngược.</p>
+</section>
+<section>
+<p class="sec-chip">CHIA LỖI</p>
+<h2>Góp sai nhiều, sửa nhiều</h2>
+<p>Đường nối nào góp phần gây sai nhiều thì bị vặn nhiều, góp ít thì vặn ít. Chỉ một lượt tính ngược, máy biết cách sửa cho mọi núm cùng lúc.</p>
+</section>
+<section>
+<p class="sec-chip">QUAN TRỌNG</p>
+<h2>Nền móng của AI</h2>
+<p>Lan truyền ngược kết hợp xuống dốc là nền móng của AI hiện đại. Các chatbot bạn dùng hôm nay đều được dạy theo cách này.</p>
+</section>
+<aside class="try" aria-labelledby="thu-41">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-41">Chỉ đúng chỗ sai</h2>
+  <p>Khi AI trả lời sai, đừng chỉ nói &quot;sai rồi&quot;. Hãy chỉ đúng chỗ: &quot;đoạn 2 nhầm số liệu, sửa lại đoạn đó&quot;. AI không học lại khi trò chuyện, nhưng chỉ rõ chỗ sai giúp nó sửa trúng ngay.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN 5</p>
+<h2>Gặp đề lạ thì sao?</h2>
+<p>Học kiểu này, máy có thể giỏi tới mức thuộc lòng cả đề luyện. Nhưng gặp đề lạ thì sao? Hẹn bạn ở phần 5.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Truy ngược lỗi</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#backpropagation">Backpropagation</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">AI học như thế nào</a> · Phần 4/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/40-xuong-nui-suong-mu.html"><span class="nav-dir">‹ Phần trước</span><b>#40 · Gradient descent là gì? AI giảm sai số như xuống núi trong sương mù</b></a><a class="nav-card next" href="../bai/42-hoc-vet-hoc-hieu.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#42 · Overfitting là gì? Khi AI học vẹt thay vì học hiểu</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

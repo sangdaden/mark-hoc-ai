@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh | Mark học AI</title>
+<meta name="description" content="Model mới có rất nhiều tham số mà vẫn chạy nhanh? Bí quyết là Mixture of Experts (MoE): Model được chia thành nhiều chuyên gia nhỏ, cùng một bộ phận điều…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh | Mark học AI">
+<meta property="og:description" content="Model mới có rất nhiều tham số mà vẫn chạy nhanh? Bí quyết là Mixture of Experts (MoE): Model được chia thành nhiều chuyên gia nhỏ, cùng một bộ phận điều…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh","description":"Model mới có rất nhiều tham số mà vẫn chạy nhanh? Bí quyết là Mixture of Experts (MoE): Model được chia thành nhiều chuyên gia nhỏ, cùng một bộ phận điều…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ điển AI 60 giây"},"about":[{"@type":"DefinedTerm","name":"Mixture of Experts","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#mixture-of-experts"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Từ điển AI 60 giây","item":"https://sangdaden.github.io/mark-hoc-ai/#tu-dien-ai"},{"@type":"ListItem","position":3,"name":"Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh","item":"https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#tu-dien-ai">Từ điển AI 60 giây</a> › <span>#117</span></nav>
+<p class="eyebrow">Video #117 · Từ điển AI 60 giây · Phần 5/5</p>
+<h1>Mixture of Experts (MoE) là gì? Vì sao model to mà vẫn nhanh</h1>
+<p class="lead">Model mới có rất nhiều tham số mà vẫn chạy nhanh? Bí quyết là Mixture of Experts (MoE):</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>To mà vẫn nhanh?</h2>
+<p>Mark đọc thông số một model Mixture of Experts, thấy rất nhiều tham số mà vẫn chạy nhanh, và muốn biết vì sao.</p>
+</section>
+<section>
+<p class="sec-chip">MoE</p>
+<h2>Một đội chuyên gia</h2>
+<p>Bit giải thích: Mixture of Experts, viết tắt MoE, chia model thành nhiều chuyên gia nhỏ, cùng một bộ phận điều phối gọi là router.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH CHẠY</p>
+<h2>Mỗi lần gọi vài người</h2>
+<p>Mỗi token đi vào, router chỉ gọi vài chuyên gia phù hợp nhất, còn những chuyên gia khác thì nghỉ.</p>
+</section>
+<section>
+<p class="sec-chip">LỢI</p>
+<h2>Kho to, chạy nhẹ</h2>
+<p>Nhờ vậy, model có kho kiến thức rất lớn, nhưng mỗi lần chỉ chạy một phần nhỏ, nên vẫn nhanh và rẻ.</p>
+</section>
+<section>
+<p class="sec-chip">HIỂU ĐÚNG</p>
+<h2>Không chia theo môn</h2>
+<p>Lưu ý: các chuyên gia không chia rạch ròi kiểu toán, văn, sử. Chúng tự phân công khi học, theo những cách con người khó đặt tên.</p>
+</section>
+<section>
+<p class="sec-chip">GHI NHỚ</p>
+<h2>Gặp chữ này thì hiểu</h2>
+<p>Gặp chữ này, hiểu là: model lớn, nhưng mỗi lần chỉ dùng vài chuyên gia, nên nhanh. Nhiều model mạnh hiện nay chạy theo cách này.</p>
+</section>
+<aside class="try" aria-labelledby="thu-117">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-117">Làm ngay hôm nay</h2>
+  <p>Lần tới đọc thông số một model mới, tìm chữ &quot;MoE&quot; hoặc &quot;active parameters&quot; (số tham số chạy mỗi lần). Giờ bạn đã biết nó nghĩa là gì.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Mixture of Experts (MoE) là gì?</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#mixture-of-experts">Mixture of Experts</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#tu-dien-ai">Từ điển AI 60 giây</a> · Phần 5/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/116-synthetic-data.html"><span class="nav-dir">‹ Phần trước</span><b>#116 · Synthetic data là gì? Khi AI tự tạo dữ liệu để dạy AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

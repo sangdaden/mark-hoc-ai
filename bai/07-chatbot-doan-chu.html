@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo | Mark học AI</title>
+<meta name="description" content="Chatbot AI trả lời trôi chảy như người thật. Nhưng nó có &quot;hiểu&quot; bạn không? Thật ra nó đang làm một việc rất giống bàn phím điện thoại gợi ý từ: đoán chữ tiếp…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo | Mark học AI">
+<meta property="og:description" content="Chatbot AI trả lời trôi chảy như người thật. Nhưng nó có &quot;hiểu&quot; bạn không? Thật ra nó đang làm một việc rất giống bàn phím điện thoại gợi ý từ: đoán chữ tiếp…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo","description":"Chatbot AI trả lời trôi chảy như người thật. Nhưng nó có \"hiểu\" bạn không? Thật ra nó đang làm một việc rất giống bàn phím điện thoại gợi ý từ: đoán chữ tiếp…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Chain of thought","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#chain-of-thought"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#pretraining"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo","item":"https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#07</span></nav>
+<p class="eyebrow">Video #07 · Khái niệm nền tảng</p>
+<h1>Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo</h1>
+<p class="lead">AI trả lời trôi chảy như người thật, nhưng bên trong nó làm một việc đơn giản đến bất ngờ: đoán chữ tiếp theo, giống bàn phím điện thoại gợi ý từ.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Chatbot%20AI%20th%E1%BA%ADt%20ra%20%C4%91ang%20l%C3%A0m%20g%C3%AC%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>AI có &quot;hiểu&quot; bạn không?</h2>
+<p>AI trả lời trôi chảy như người thật. Nhưng bên trong, nó đang làm một việc đơn giản đến bất ngờ.</p>
+</section>
+<section>
+<h2>Giống bàn phím gợi ý từ</h2>
+<p>Bạn đã thấy bàn phím điện thoại gợi ý chữ tiếp theo. Gõ &quot;chúc mừng sinh&quot;, nó đoán ngay chữ &quot;nhật&quot;.</p>
+</section>
+<section>
+<h2>Chatbot là bàn phím gợi ý siêu to</h2>
+<p>Chatbot AI cũng đoán chữ tiếp theo, chỉ là được luyện trên lượng chữ khổng lồ, nhiều hơn một người đọc cả nghìn đời.</p>
+</section>
+<section>
+<h2>Từng chữ một</h2>
+<p>Khi bạn hỏi, nó chọn chữ hợp nhất, nối vào, rồi đoán chữ tiếp, cứ thế cho đến hết câu trả lời.</p>
+</section>
+<section>
+<h2>Vì sao đoán chữ mà giỏi vậy?</h2>
+<p>Muốn đoán đúng, nó phải học được ngữ pháp, kiến thức và cả cách lập luận. Nên câu trả lời mới hay như vậy.</p>
+</section>
+<section>
+<h2>Hệ quả cần nhớ</h2>
+<p>Nhưng nhớ: nó đoán thứ nghe hợp lý nhất, không phải lúc nào cũng là sự thật.</p>
+</section>
+<aside class="try" aria-labelledby="thu-7">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-7">Hãy giải thích từng bước</h2>
+  <p>Với câu hỏi khó, thêm câu &quot;hãy giải thích từng bước&quot;. Viết ra từng bước giúp AI đoán chuẩn hơn, và bạn dễ kiểm tra hơn.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Chatbot AI thật ra đang làm gì?</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Chatbot%20AI%20th%E1%BA%ADt%20ra%20%C4%91ang%20l%C3%A0m%20g%C3%AC%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#chain-of-thought">Chain of thought</a></li><li><a href="../tu-dien.html#pretraining">Pretraining</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #07</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/06-adaptive-learning-p2.html"><span class="nav-dir">‹ Video trước</span><b>#06 · Học với AI sao cho hiểu? 4 cách để AI dạy đúng trình độ của bạn</b></a><a class="nav-card next" href="../bai/08-ao-giac.html"><span class="nav-dir">Video tiếp theo ›</span><b>#08 · Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>
