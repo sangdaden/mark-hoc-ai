@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mô hình ra quyết định là gì? Jev và OpenAI Decisions API | Mark học AI</title>
+<meta name="description" content="Rất nhiều việc chỉ cần AI chọn một trong vài đáp án có sẵn: email này là hoàn tiền, đổi hàng hay hỏi giá? Mô hình ra quyết định làm đúng việc đó: nhận câu…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/17-mo-hinh-quyet-dinh.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mô hình ra quyết định là gì? Jev và OpenAI Decisions API | Mark học AI">
+<meta property="og:description" content="Rất nhiều việc chỉ cần AI chọn một trong vài đáp án có sẵn: email này là hoàn tiền, đổi hàng hay hỏi giá? Mô hình ra quyết định làm đúng việc đó: nhận câu…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/17-mo-hinh-quyet-dinh.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Mô hình ra quyết định là gì? Jev và OpenAI Decisions API","description":"Rất nhiều việc chỉ cần AI chọn một trong vài đáp án có sẵn: email này là hoàn tiền, đổi hàng hay hỏi giá? Mô hình ra quyết định làm đúng việc đó: nhận câu…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/17-mo-hinh-quyet-dinh.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/17-mo-hinh-quyet-dinh.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"Mô hình ra quyết định là gì? Jev và OpenAI Decisions API","item":"https://sangdaden.github.io/mark-hoc-ai/bai/17-mo-hinh-quyet-dinh.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#17</span></nav>
+<p class="eyebrow">Video #17 · Khái niệm nền tảng</p>
+<h1>Mô hình ra quyết định là gì? Jev và OpenAI Decisions API</h1>
+<p class="lead">Bạn chỉ cần AI trả lời một chữ, nó lại viết cả đoạn văn: vừa chậm vừa tốn tiền.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Jev%20v%C3%A0%20OpenAI%20Decisions%20API%2C%20AI%20ch%E1%BB%89%20ch%E1%BB%8Dn%20kh%C3%B4ng%20vi%E1%BA%BFt" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Hỏi một chữ, nhận một bài văn</h2>
+<p>Bạn chỉ cần AI trả lời một chữ, nhưng nó lại viết cả một đoạn văn. Vừa chậm, vừa tốn tiền.</p>
+</section>
+<section>
+<h2>Phần mềm chỉ cần một lựa chọn</h2>
+<p>Rất nhiều việc chỉ cần AI chọn một trong vài đáp án có sẵn. Hoàn tiền, đổi hàng, hay hỏi giá?</p>
+</section>
+<section>
+<h2>Mô hình ra quyết định</h2>
+<p>Đó là mô hình ra quyết định. Bạn đưa câu hỏi, đưa danh sách đáp án, nó chỉ chọn một, kèm mức độ chắc chắn.</p>
+</section>
+<section>
+<p class="sec-chip">15/9/2026</p>
+<h2>Jev mở đường</h2>
+<p>Giữa tháng 9 năm 2026, công ty TypeSafe ra mắt Jev, một mô hình chỉ làm đúng việc này, rất nhanh và rất rẻ.</p>
+</section>
+<section>
+<p class="sec-chip">29/9/2026</p>
+<h2>OpenAI vào cuộc</h2>
+<p>Hai tuần sau, OpenAI giới thiệu Decisions API. Theo OpenAI, nó chọn đáp án trong khoảng 0,15 giây, nhanh hơn gần mười lần một câu trả lời thường.</p>
+</section>
+<section>
+<h2>Vì sao quan trọng?</h2>
+<p>AI agent phải ra hàng trăm quyết định nhỏ mỗi ngày. Mỗi quyết định nhanh hơn thì cả hệ thống nhanh hơn, rẻ hơn.</p>
+</section>
+<aside class="try" aria-labelledby="thu-17">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-17">Bắt AI chỉ chọn một</h2>
+  <p>Khi cần AI phân loại, hãy đưa sẵn danh sách đáp án và bảo nó chỉ trả lời đúng một đáp án. Câu trả lời gọn, dễ dùng, đúng cách các mô hình ra quyết định làm việc.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Jev và OpenAI Decisions API, AI chỉ chọn không viết</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Jev%20v%C3%A0%20OpenAI%20Decisions%20API%2C%20AI%20ch%E1%BB%89%20ch%E1%BB%8Dn%20kh%C3%B4ng%20vi%E1%BA%BFt" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #17</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/16-ai-agent.html"><span class="nav-dir">‹ Video trước</span><b>#16 · AI agent là gì? Khi AI tự làm việc thay bạn qua nhiều bước</b></a><a class="nav-card next" href="../bai/18-chon-model.html"><span class="nav-dir">Video tiếp theo ›</span><b>#18 · Nên chọn model AI nào? Haiku, Sonnet, Opus, Fable khác gì nhau</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

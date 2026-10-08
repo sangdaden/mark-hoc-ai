@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law) | Mark học AI</title>
+<meta name="description" content="Vì sao mấy năm nay AI bỗng giỏi vọt lên? Bí mật nằm ở ba thanh trượt Kéo cùng lúc số núm vặn, lượng dữ liệu và sức tính (chip đồ họa GPU), sai số giảm khá…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/43-cang-to-cang-gioi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law) | Mark học AI">
+<meta property="og:description" content="Vì sao mấy năm nay AI bỗng giỏi vọt lên? Bí mật nằm ở ba thanh trượt Kéo cùng lúc số núm vặn, lượng dữ liệu và sức tính (chip đồ họa GPU), sai số giảm khá…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/43-cang-to-cang-gioi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law)","description":"Vì sao mấy năm nay AI bỗng giỏi vọt lên? Bí mật nằm ở ba thanh trượt Kéo cùng lúc số núm vặn, lượng dữ liệu và sức tính (chip đồ họa GPU), sai số giảm khá…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/43-cang-to-cang-gioi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/43-cang-to-cang-gioi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI học như thế nào"},"about":[{"@type":"DefinedTerm","name":"Data center","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#data-center"},{"@type":"DefinedTerm","name":"GPU","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#gpu"},{"@type":"DefinedTerm","name":"Model","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#model"},{"@type":"DefinedTerm","name":"Scaling law","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#scaling-law"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI học như thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#ai-hoc"},{"@type":"ListItem","position":3,"name":"Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law)","item":"https://sangdaden.github.io/mark-hoc-ai/bai/43-cang-to-cang-gioi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#43</span></nav>
+<p class="eyebrow">Video #43 · AI học như thế nào · Phần 6/7</p>
+<h1>Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law)</h1>
+<p class="lead">Vì sao mấy năm nay AI bỗng giỏi vọt lên? Bí mật nằm ở ba thanh trượt.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20c%C3%A0ng%20to%20c%C3%A0ng%20gi%E1%BB%8Fi" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>AI bỗng giỏi vọt lên</h2>
+<p>Phần trước: máy phải học hiểu, đừng học vẹt. Vậy vì sao mấy năm nay AI bỗng giỏi vọt lên? Bí mật: to hơn.</p>
+</section>
+<section>
+<p class="sec-chip">BA THANH TRƯỢT</p>
+<h2>Ba thứ được kéo lên</h2>
+<p>Hình dung ba thanh trượt. Thanh một: số núm vặn trong mạng. Thanh hai: lượng dữ liệu để học. Thanh ba: sức tính, tức số chip đồ họa, gọi tắt là GPU.</p>
+</section>
+<section>
+<p class="sec-chip">QUY LUẬT QUY MÔ</p>
+<h2>Kéo lên, sai số đi xuống</h2>
+<p>Người ta thấy: kéo cả ba lên cùng nhau, sai số giảm khá đều đặn. Gọi là quy luật quy mô. Nhờ nó, người ta đoán trước phần nào: to thêm thì giỏi thêm chừng nào.</p>
+</section>
+<section>
+<p class="sec-chip">CÂN ĐỐI</p>
+<h2>Phải kéo cân đối</h2>
+<p>Nhưng phải kéo cân đối. Núm nhiều mà dữ liệu ít, giống bộ não lớn chỉ có một cuốn sách để đọc. Dữ liệu nhiều mà núm ít, giống thư viện lớn mà trí nhớ nhỏ.</p>
+</section>
+<section>
+<p class="sec-chip">CUỘC ĐUA</p>
+<h2>Đua xây trung tâm dữ liệu</h2>
+<p>Vì thế các công ty lớn đua nhau xây trung tâm dữ liệu chứa hàng chục nghìn chip, tốn rất nhiều điện. Cũng vì thế, bản lớn thường chậm hơn, đắt hơn bản nhỏ.</p>
+</section>
+<section>
+<p class="sec-chip">GIỚI HẠN</p>
+<h2>To hơn, không phải phép màu</h2>
+<p>Muốn giỏi thêm một bậc phải tốn gấp nhiều lần, mà sai số chỉ giảm thêm chút ít. Nên ngoài làm to, người ta còn tìm cách dạy khéo hơn.</p>
+</section>
+<aside class="try" aria-labelledby="thu-43">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-43">Việc nhỏ, dùng bản nhỏ</h2>
+  <p>Vậy bạn không cần lúc nào cũng dùng bản lớn nhất. Dịch một đoạn, tóm tắt email: bản nhỏ làm nhanh mà đủ tốt. Cách chọn có ở video <a href="../bai/18-chon-model.html">18</a>.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN 7</p>
+<h2>Có ai hiểu bên trong?</h2>
+<p>To như vậy, có ai thực sự hiểu bên trong nó đang nghĩ gì không? Hẹn bạn ở phần 7, phần cuối.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Vì sao càng to càng giỏi</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20c%C3%A0ng%20to%20c%C3%A0ng%20gi%E1%BB%8Fi" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#data-center">Data center</a></li><li><a href="../tu-dien.html#gpu">GPU</a></li><li><a href="../tu-dien.html#model">Model</a></li><li><a href="../tu-dien.html#scaling-law">Scaling law</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">AI học như thế nào</a> · Phần 6/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/42-hoc-vet-hoc-hieu.html"><span class="nav-dir">‹ Phần trước</span><b>#42 · Overfitting là gì? Khi AI học vẹt thay vì học hiểu</b></a><a class="nav-card next" href="../bai/44-nhin-vao-hop-den.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#44 · Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

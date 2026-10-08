@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì | Mark học AI</title>
+<meta name="description" content="Phần 6 của loạt &quot;Bên trong bộ não AI&quot;. Ở phần trước, AI học cách trả lời như một trợ lý. Nhưng vì sao hỏi cùng một câu hai lần lại ra hai câu trả lời khác…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/24-hoi-2-lan.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì | Mark học AI">
+<meta property="og:description" content="Phần 6 của loạt &quot;Bên trong bộ não AI&quot;. Ở phần trước, AI học cách trả lời như một trợ lý. Nhưng vì sao hỏi cùng một câu hai lần lại ra hai câu trả lời khác…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/24-hoi-2-lan.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì","description":"Phần 6 của loạt \"Bên trong bộ não AI\". Ở phần trước, AI học cách trả lời như một trợ lý. Nhưng vì sao hỏi cùng một câu hai lần lại ra hai câu trả lời khác…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/24-hoi-2-lan.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/24-hoi-2-lan.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"Temperature","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#temperature"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://sangdaden.github.io/mark-hoc-ai/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì","item":"https://sangdaden.github.io/mark-hoc-ai/bai/24-hoi-2-lan.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#bo-nao-ai">Bên trong bộ não AI</a> › <span>#24</span></nav>
+<p class="eyebrow">Video #24 · Bên trong bộ não AI · Phần 6/8</p>
+<h1>Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì</h1>
+<p class="lead">Hỏi AI cùng một câu hai lần mà nhận hai câu trả lời khác nhau? Không phải lỗi đâu.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20h%E1%BB%8Fi%202%20l%E1%BA%A7n%20ra%202%20%C4%91%C3%A1p%20%C3%A1n%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Hỏi 2 lần, ra 2 đáp án?</h2>
+<p>Phần trước, AI học cách trả lời như một trợ lý. Nhưng hỏi cùng một câu hai lần, bạn lại nhận hai câu trả lời khác nhau. Vì sao?</p>
+</section>
+<section>
+<h2>Chấm điểm cả trăm khả năng</h2>
+<p>Nhớ lại: AI đoán mảnh chữ tiếp theo. Nhưng nó không chỉ đoán một chữ, mà chấm điểm cả trăm khả năng. Cà phê 40%, trà sữa 25%, và cứ thế.</p>
+</section>
+<section>
+<h2>Vòng quay may mắn</h2>
+<p>Rồi nó bốc thăm theo tỉ lệ đó, giống một vòng quay may mắn mà ô lớn dễ trúng hơn. Lần này trúng cà phê, lần sau có khi là trà sữa.</p>
+</section>
+<section>
+<h2>Núm vặn &quot;nhiệt độ&quot;</h2>
+<p>Mức may rủi này có một núm vặn, gọi là nhiệt độ. Nhiệt độ thấp: chắc chắn, gần như lần nào cũng giống nhau. Nhiệt độ cao: bay bổng, sáng tạo, nhưng dễ lạc đề.</p>
+</section>
+<section>
+<h2>Mỗi chữ một lần bốc thăm</h2>
+<p>Mỗi chữ là một lần bốc thăm. Chỉ cần khác một chữ ở đầu, cả câu trả lời phía sau rẽ sang hướng khác.</p>
+</section>
+<aside class="try" aria-labelledby="thu-24">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-24">Sáng tạo hay chính xác?</h2>
+  <p>Việc sáng tạo như đặt tên, viết slogan, bấm tạo lại ba lần rồi chọn ý hay nhất. Việc cần chính xác như tính toán, bảo AI nêu cách làm từng bước và tự kiểm tra lại.</p></div>
+</aside>
+<section>
+<h2>Tài liệu của riêng bạn</h2>
+<p>AI đoán giỏi đến mấy cũng không biết hợp đồng hay tài liệu của riêng bạn. Trừ khi bạn đưa cho nó đọc. Phần bảy sẽ chỉ cách.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Vì sao hỏi 2 lần ra 2 đáp án?</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=V%C3%AC%20sao%20h%E1%BB%8Fi%202%20l%E1%BA%A7n%20ra%202%20%C4%91%C3%A1p%20%C3%A1n%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#temperature">Temperature</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Bên trong bộ não AI</a> · Phần 6/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/23-con-vet-thanh-tro-ly.html"><span class="nav-dir">‹ Phần trước</span><b>#23 · Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý</b></a><a class="nav-card next" href="../bai/25-ai-doc-tai-lieu.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#25 · RAG là gì? Cách cho AI đọc tài liệu của riêng bạn</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

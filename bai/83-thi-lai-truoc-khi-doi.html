@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI | Mark học AI</title>
+<meta name="description" content="Hãng AI ra model mới, nhanh hơn, rẻ hơn. Đổi ngay được không? Khoan: mới hơn chưa chắc đã hợp hơn Đội làm chatbot có sẵn một eval set (bộ đề riêng): vài trăm…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI | Mark học AI">
+<meta property="og:description" content="Hãng AI ra model mới, nhanh hơn, rẻ hơn. Đổi ngay được không? Khoan: mới hơn chưa chắc đã hợp hơn Đội làm chatbot có sẵn một eval set (bộ đề riêng): vài trăm…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI","description":"Hãng AI ra model mới, nhanh hơn, rẻ hơn. Đổi ngay được không? Khoan: mới hơn chưa chắc đã hợp hơn Đội làm chatbot có sẵn một eval set (bộ đề riêng): vài trăm…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Hậu trường một hệ thống AI"},"about":[{"@type":"DefinedTerm","name":"Benchmark","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#benchmark"},{"@type":"DefinedTerm","name":"Eval set","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#eval-set"},{"@type":"DefinedTerm","name":"Evaluation","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#evaluation"},{"@type":"DefinedTerm","name":"LLM as a judge","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#llm-as-a-judge"},{"@type":"DefinedTerm","name":"Regression test","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#regression-test"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Hậu trường một hệ thống AI","item":"https://sangdaden.github.io/mark-hoc-ai/#hau-truong"},{"@type":"ListItem","position":3,"name":"Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI","item":"https://sangdaden.github.io/mark-hoc-ai/bai/83-thi-lai-truoc-khi-doi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#hau-truong">Hậu trường một hệ thống AI</a> › <span>#83</span></nav>
+<p class="eyebrow">Video #83 · Hậu trường một hệ thống AI · Phần 5/7</p>
+<h1>Evaluation là gì? Vì sao phải thi lại trước khi đổi model AI</h1>
+<p class="lead">Hãng AI ra model mới, nhanh hơn, rẻ hơn. Đổi ngay được không? Khoan: mới hơn chưa chắc đã hợp hơn.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Mới hơn chưa chắc hợp hơn</h2>
+<p>Hãng AI vừa ra model mới, nhanh hơn, rẻ hơn. Đội làm chatbot ngân hàng muốn đổi ngay. Khoan. Mới hơn chưa chắc đã hợp hơn.</p>
+</section>
+<section>
+<p class="sec-chip">EVAL SET</p>
+<h2>Đề thi riêng của sản phẩm</h2>
+<p>Họ có sẵn một bộ đề, gọi là eval set: vài trăm câu hỏi thật của khách, kèm câu trả lời mong muốn, và cả những câu dụ dỗ từng gặp.</p>
+</section>
+<section>
+<p class="sec-chip">REGRESSION TEST</p>
+<h2>Cũ và mới cùng làm bài</h2>
+<p>Model mới phải làm lại toàn bộ đề cũ, rồi chấm điểm so với model đang chạy. Việc này gọi là regression test.</p>
+</section>
+<section>
+<p class="sec-chip">LLM AS A JUDGE</p>
+<h2>AI chấm, người kiểm</h2>
+<p>Chấm vài trăm câu bằng tay thì lâu, nên họ dùng một AI làm giám khảo, gọi là LLM as a judge, chấm theo tiêu chí rõ ràng, rồi người kiểm lại những câu khó.</p>
+</section>
+<section>
+<p class="sec-chip">BẤT NGỜ</p>
+<h2>Giỏi hơn, nhưng tụt chỗ quan trọng</h2>
+<p>Kết quả có khi bất ngờ: model mới giỏi hơn chín mươi câu, nhưng tụt ở năm câu về phí thường niên. Chưa sửa xong năm câu đó, thì chưa đổi.</p>
+</section>
+<section>
+<p class="sec-chip">KHÔNG CHỈ MODEL</p>
+<h2>Sửa gì cũng thi lại</h2>
+<p>Không chỉ đổi model. Sửa một chữ trong prompt, thêm một tài liệu, cũng phải thi lại. Khác với benchmark ở series chấm điểm, eval set này là của riêng sản phẩm đó.</p>
+</section>
+<aside class="try" aria-labelledby="thu-83">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-83">Năm câu đề riêng</h2>
+  <p>Khi ứng dụng AI bạn dùng ra model mới, lấy năm câu đề riêng như video <a href="../bai/48-de-thi-cua-ban.html">48</a>. Hỏi cả model cũ và mới, so kết quả rồi mới đổi hẳn.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN SAU</p>
+<h2>Có chuyện thì lần lại bằng gì</h2>
+<p>Đổi xong, chạy thật rồi. Có chuyện thì lần lại bằng gì? Phần sáu: logging và tracing.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Evaluation: thi lại trước khi đổi model</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#benchmark">Benchmark</a></li><li><a href="../tu-dien.html#eval-set">Eval set</a></li><li><a href="../tu-dien.html#evaluation">Evaluation</a></li><li><a href="../tu-dien.html#llm-as-a-judge">LLM as a judge</a></li><li><a href="../tu-dien.html#regression-test">Regression test</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Hậu trường một hệ thống AI</a> · Phần 5/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/82-rao-chan-cong-ra.html"><span class="nav-dir">‹ Phần trước</span><b>#82 · Output guardrails là gì? Chatbot kiểm tra câu trả lời trước khi gửi</b></a><a class="nav-card next" href="../bai/84-hop-den-cua-ai.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#84 · Logging và tracing trong hệ thống AI là gì? Hộp đen của AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

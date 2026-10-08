@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Distillation trong AI là gì? Model lớn dạy model nhỏ | Mark học AI</title>
+<meta name="description" content="Sao có model nhỏ xíu, chạy cả trên điện thoại, mà vẫn khá giỏi? Một bí quyết là distillation (chưng cất): Model lớn làm thầy, trả lời thật nhiều câu hỏi.…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Distillation trong AI là gì? Model lớn dạy model nhỏ | Mark học AI">
+<meta property="og:description" content="Sao có model nhỏ xíu, chạy cả trên điện thoại, mà vẫn khá giỏi? Một bí quyết là distillation (chưng cất): Model lớn làm thầy, trả lời thật nhiều câu hỏi.…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Distillation trong AI là gì? Model lớn dạy model nhỏ","description":"Sao có model nhỏ xíu, chạy cả trên điện thoại, mà vẫn khá giỏi? Một bí quyết là distillation (chưng cất): Model lớn làm thầy, trả lời thật nhiều câu hỏi.…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ điển AI 60 giây"},"about":[{"@type":"DefinedTerm","name":"Distillation","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#distillation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Từ điển AI 60 giây","item":"https://sangdaden.github.io/mark-hoc-ai/#tu-dien-ai"},{"@type":"ListItem","position":3,"name":"Distillation trong AI là gì? Model lớn dạy model nhỏ","item":"https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#tu-dien-ai">Từ điển AI 60 giây</a> › <span>#115</span></nav>
+<p class="eyebrow">Video #115 · Từ điển AI 60 giây · Phần 3/5</p>
+<h1>Distillation trong AI là gì? Model lớn dạy model nhỏ</h1>
+<p class="lead">Sao có model nhỏ xíu, chạy cả trên điện thoại, mà vẫn khá giỏi? Một bí quyết là distillation (chưng cất):</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Nhỏ mà giỏi?</h2>
+<p>Mark thắc mắc vì sao có model nhỏ xíu, chạy cả trên điện thoại, mà vẫn khá giỏi.</p>
+</section>
+<section>
+<p class="sec-chip">DISTILLATION</p>
+<h2>Thầy lớn dạy trò nhỏ</h2>
+<p>Một bí quyết là distillation, chưng cất. Model lớn làm thầy, trả lời thật nhiều câu hỏi. Model nhỏ làm trò, học theo cách thầy trả lời.</p>
+</section>
+<section>
+<p class="sec-chip">VÌ SAO</p>
+<h2>Học cả độ phân vân</h2>
+<p>Trò không chỉ học đáp án đúng, mà học cả mức thầy phân vân giữa các đáp án. Thông tin đó giúp trò học nhanh hơn nhiều.</p>
+</section>
+<section>
+<p class="sec-chip">KẾT QUẢ</p>
+<h2>Nhỏ, nhanh, rẻ</h2>
+<p>Kết quả là model nhỏ, nhanh và rẻ, giữ được phần lớn độ giỏi của thầy, nhất là ở những việc nó được dạy.</p>
+</section>
+<section>
+<p class="sec-chip">GHI NHỚ</p>
+<h2>Gặp chữ này thì hiểu</h2>
+<p>Gặp chữ này, hiểu là: model nhỏ học lại từ model lớn. Đó là lý do có các bản mini nhanh mà rẻ, như video <a href="../bai/18-chon-model.html">18</a>.</p>
+</section>
+<aside class="try" aria-labelledby="thu-115">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-115">Làm ngay hôm nay</h2>
+  <p>Lần tới chọn model trong ứng dụng AI, thử bản mini hoặc bản nhanh cho việc nhỏ như tóm tắt, viết lại câu. So xem kết quả có khác nhiều không.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Distillation: model lớn dạy model nhỏ</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#distillation">Distillation</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#tu-dien-ai">Từ điển AI 60 giây</a> · Phần 3/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/114-open-source.html"><span class="nav-dir">‹ Phần trước</span><b>#114 · Open-source và open-weight AI là gì? Khác nhau thế nào</b></a><a class="nav-card next" href="../bai/116-synthetic-data.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#116 · Synthetic data là gì? Khi AI tự tạo dữ liệu để dạy AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

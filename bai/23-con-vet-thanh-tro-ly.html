@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý | Mark học AI</title>
+<meta name="description" content="Ở phần 4, AI đọc cả thư viện. Nhưng lúc đó nó chỉ biết nói tiếp câu như một con vẹt, chưa biết trả lời bạn. Phần 5 giải thích bước biến &quot;con vẹt&quot; thành trợ…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/23-con-vet-thanh-tro-ly.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý | Mark học AI">
+<meta property="og:description" content="Ở phần 4, AI đọc cả thư viện. Nhưng lúc đó nó chỉ biết nói tiếp câu như một con vẹt, chưa biết trả lời bạn. Phần 5 giải thích bước biến &quot;con vẹt&quot; thành trợ…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/23-con-vet-thanh-tro-ly.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý","description":"Ở phần 4, AI đọc cả thư viện. Nhưng lúc đó nó chỉ biết nói tiếp câu như một con vẹt, chưa biết trả lời bạn. Phần 5 giải thích bước biến \"con vẹt\" thành trợ…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/23-con-vet-thanh-tro-ly.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/23-con-vet-thanh-tro-ly.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"RLHF","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#rlhf"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://sangdaden.github.io/mark-hoc-ai/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý","item":"https://sangdaden.github.io/mark-hoc-ai/bai/23-con-vet-thanh-tro-ly.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#bo-nao-ai">Bên trong bộ não AI</a> › <span>#23</span></nav>
+<p class="eyebrow">Video #23 · Bên trong bộ não AI · Phần 5/8</p>
+<h1>Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý</h1>
+<p class="lead">Đọc cả thư viện xong, AI vẫn chỉ là một &quot;con vẹt&quot;: hỏi cách ngủ ngon, nó có thể viết tiếp thành cả danh sách câu hỏi khác.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=T%E1%BB%AB%20%22con%20v%E1%BA%B9t%22%20th%C3%A0nh%20tr%E1%BB%A3%20l%C3%BD" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Con vẹt chỉ biết nói tiếp</h2>
+<p>Phần trước, AI đọc cả thư viện. Nhưng lúc đó nó giống con vẹt: chỉ biết nói tiếp câu, chứ chưa biết trả lời bạn.</p>
+</section>
+<section>
+<h2>Hỏi một đằng, nói một nẻo</h2>
+<p>Hỏi nó cách ngủ ngon, nó có thể viết tiếp thành một danh sách câu hỏi khác, vì trên mạng các câu hỏi hay đứng cạnh nhau như vậy.</p>
+</section>
+<section>
+<h2>Học từ hội thoại mẫu</h2>
+<p>Bước tiếp theo, con người viết hàng loạt đoạn hội thoại mẫu: hỏi thế này thì trả lời thế kia. AI học theo, và bắt đầu trả lời đúng câu được hỏi.</p>
+</section>
+<section>
+<h2>Con người chấm điểm</h2>
+<p>Rồi AI viết vài câu trả lời khác nhau, con người chấm cái nào tốt hơn. Câu hữu ích, lịch sự, trung thực được thưởng. Câu bịa đặt hay nguy hiểm bị trừ điểm.</p>
+</section>
+<section>
+<h2>Vì sao AI biết từ chối</h2>
+<p>Đây cũng là lúc AI học cách từ chối việc xấu, và học giọng điệu nhã nhặn mà bạn thấy hằng ngày.</p>
+</section>
+<aside class="try" aria-labelledby="thu-23">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-23">Dạy AI hiểu bạn</h2>
+  <p>Vào phần cá nhân hóa, viết ba dòng: bạn là ai, muốn trả lời dài hay ngắn, xưng hô thế nào. Câu trả lời hay thì bấm thích, dở thì bấm không thích và nói lý do.</p></div>
+</aside>
+<section>
+<h2>Hỏi hai lần, hai đáp án?</h2>
+<p>Nhưng sao cùng một câu hỏi, hỏi hai lần lại ra hai câu trả lời khác nhau? Phần sáu sẽ trả lời.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Từ &quot;con vẹt&quot; thành trợ lý</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=T%E1%BB%AB%20%22con%20v%E1%BA%B9t%22%20th%C3%A0nh%20tr%E1%BB%A3%20l%C3%BD" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#rlhf">RLHF</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Bên trong bộ não AI</a> · Phần 5/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/22-ai-doc-gi.html"><span class="nav-dir">‹ Phần trước</span><b>#22 · AI học từ đâu? Huấn luyện và ngày khóa sổ kiến thức của AI</b></a><a class="nav-card next" href="../bai/24-hoi-2-lan.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#24 · Vì sao hỏi AI 2 lần ra 2 đáp án khác nhau? Temperature là gì</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

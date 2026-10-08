@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI học như thế nào? Trọng số, nơ-ron và mạng nơ-ron | Mark học AI</title>
+<meta name="description" content="Khi AI &quot;học&quot;, bên trong nó thực sự thay đổi cái gì? Một quyết định nhỏ: chiều nay có đi cà phê không? Trời mưa, bạn rủ, còn tiền: mỗi điều một núm vặn (trọng…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI học như thế nào? Trọng số, nơ-ron và mạng nơ-ron | Mark học AI">
+<meta property="og:description" content="Khi AI &quot;học&quot;, bên trong nó thực sự thay đổi cái gì? Một quyết định nhỏ: chiều nay có đi cà phê không? Trời mưa, bạn rủ, còn tiền: mỗi điều một núm vặn (trọng…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI học như thế nào? Trọng số, nơ-ron và mạng nơ-ron","description":"Khi AI \"học\", bên trong nó thực sự thay đổi cái gì? Một quyết định nhỏ: chiều nay có đi cà phê không? Trời mưa, bạn rủ, còn tiền: mỗi điều một núm vặn (trọng…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI học như thế nào"},"about":[{"@type":"DefinedTerm","name":"Mạng nơ-ron","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#mang-no-ron"},{"@type":"DefinedTerm","name":"Nơ-ron nhân tạo","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#no-ron-nhan-tao"},{"@type":"DefinedTerm","name":"Trọng số","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#trong-so"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI học như thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#ai-hoc"},{"@type":"ListItem","position":3,"name":"AI học như thế nào? Trọng số, nơ-ron và mạng nơ-ron","item":"https://sangdaden.github.io/mark-hoc-ai/bai/38-nut-van.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#38</span></nav>
+<p class="eyebrow">Video #38 · AI học như thế nào · Phần 1/7</p>
+<h1>AI học như thế nào? Trọng số, nơ-ron và mạng nơ-ron</h1>
+<p class="lead">Khi AI &quot;học&quot;, bên trong nó thực sự thay đổi cái gì?</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>AI học là học gì?</h2>
+<p>Ai cũng nói AI được &quot;huấn luyện&quot;. Nhưng khi AI học, bên trong nó thực sự thay đổi cái gì? Câu trả lời: hàng tỷ chiếc núm vặn nhỏ.</p>
+</section>
+<section>
+<p class="sec-chip">VÍ DỤ</p>
+<h2>Đi cà phê không?</h2>
+<p>Hình dung một quyết định nhỏ: chiều nay có đi cà phê không? Bạn xét ba điều: trời có mưa không, có bạn rủ không, và còn tiền không.</p>
+</section>
+<section>
+<p class="sec-chip">TRỌNG SỐ</p>
+<h2>Mỗi điều một núm vặn</h2>
+<p>Mỗi điều có một núm vặn riêng, gọi là trọng số. Bạn rủ thì đẩy mạnh về phía &quot;đi&quot;, trời mưa thì kéo ngược lại. Cộng tất cả lại, vượt ngưỡng thì quyết định: đi.</p>
+</section>
+<section>
+<p class="sec-chip">NƠ-RON</p>
+<h2>Một nơ-ron nhân tạo</h2>
+<p>Đó chính là một nơ-ron nhân tạo: nhận vài con số, nhân với trọng số, cộng lại, rồi quyết định. Đơn giản tới bất ngờ.</p>
+</section>
+<section>
+<p class="sec-chip">MẠNG NƠ-RON</p>
+<h2>Xếp thành nhiều lớp</h2>
+<p>Xếp hàng nghìn nơ-ron thành nhiều lớp, lớp trước chuyền kết quả cho lớp sau, ta có một mạng nơ-ron. Lớp đầu nhận ra nét, lớp giữa nhận ra tai, mắt, lớp cuối nhận ra: con mèo.</p>
+</section>
+<section>
+<p class="sec-chip">HỌC</p>
+<h2>Học là tự vặn núm</h2>
+<p>Những chatbot lớn có tới hàng trăm tỷ núm như vậy, và không ai vặn bằng tay. &quot;Học&quot; nghĩa là máy tự vặn từng núm, mỗi lần một chút, cho tới khi trả lời đúng.</p>
+</section>
+<aside class="try" aria-labelledby="thu-38">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-38">Xem các núm tự vặn</h2>
+  <p>Muốn tận mắt xem? Mở trang playground.tensorflow.org, bấm nút chạy, rồi nhìn các đường nối đậm nhạt dần. Đó chính là những chiếc núm đang tự vặn.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PHẦN 2</p>
+<h2>Vặn núm nào, hướng nào?</h2>
+<p>Nhưng máy biết vặn núm nào, theo hướng nào? Trước hết, nó phải biết mình đang sai bao nhiêu. Hẹn bạn ở phần 2.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Hàng tỷ chiếc núm vặn</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#mang-no-ron">Mạng nơ-ron</a></li><li><a href="../tu-dien.html#no-ron-nhan-tao">Nơ-ron nhân tạo</a></li><li><a href="../tu-dien.html#trong-so">Trọng số</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">AI học như thế nào</a> · Phần 1/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/37-ke-hoach-90-ngay.html"><span class="nav-dir">‹ Series trước: AI và nghề của bạn</span><b>#37 · Kế hoạch 90 ngày bắt kịp AI, mỗi ngày 15 phút</b></a><a class="nav-card next" href="../bai/39-ai-biet-minh-sai.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#39 · Loss (sai số) là gì? Cách AI biết mình sai bao nhiêu</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong | Mark học AI</title>
+<meta name="description" content="Phần cuối: có ai thực sự hiểu bên trong AI đang nghĩ gì không? Nhà nghiên cứu đã tìm ra những &quot;khái niệm&quot; bên trong mạng, ví dụ một nhóm sáng lên mỗi khi…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/44-nhin-vao-hop-den.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong | Mark học AI">
+<meta property="og:description" content="Phần cuối: có ai thực sự hiểu bên trong AI đang nghĩ gì không? Nhà nghiên cứu đã tìm ra những &quot;khái niệm&quot; bên trong mạng, ví dụ một nhóm sáng lên mỗi khi…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/44-nhin-vao-hop-den.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong","description":"Phần cuối: có ai thực sự hiểu bên trong AI đang nghĩ gì không? Nhà nghiên cứu đã tìm ra những \"khái niệm\" bên trong mạng, ví dụ một nhóm sáng lên mỗi khi…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/44-nhin-vao-hop-den.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/44-nhin-vao-hop-den.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI học như thế nào"},"about":[{"@type":"DefinedTerm","name":"Interpretability","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#interpretability"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI học như thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#ai-hoc"},{"@type":"ListItem","position":3,"name":"Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong","item":"https://sangdaden.github.io/mark-hoc-ai/bai/44-nhin-vao-hop-den.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#44</span></nav>
+<p class="eyebrow">Video #44 · AI học như thế nào · Phần 7/7</p>
+<h1>Vì sao AI là hộp đen? Diễn giải mô hình nhìn vào bên trong</h1>
+<p class="lead">Phần cuối: có ai thực sự hiểu bên trong AI đang nghĩ gì không?</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Nh%C3%ACn%20v%C3%A0o%20h%E1%BB%99p%20%C4%91en" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Bên trong nghĩ gì?</h2>
+<p>Phần trước: càng to, AI càng giỏi. Nhưng hàng tỷ núm tự vặn. Có ai hiểu bên trong nó nghĩ gì không?</p>
+</section>
+<section>
+<p class="sec-chip">HỘP ĐEN</p>
+<h2>Một chiếc hộp đen</h2>
+<p>Người ta gọi AI là hộp đen: câu hỏi vào, câu trả lời ra, ở giữa chỉ là hàng tỷ con số. Ngành diễn giải mô hình đang rọi đèn vào chiếc hộp đó.</p>
+</section>
+<section>
+<p class="sec-chip">KHÁI NIỆM</p>
+<h2>Tìm thấy khái niệm</h2>
+<p>Nhà nghiên cứu tìm ra nhóm nơ-ron cùng sáng khi gặp một khái niệm. Ví dụ, có nhóm sáng lên khi nhắc tới cầu Cổng Vàng, bằng nhiều thứ tiếng hay qua ảnh.</p>
+</section>
+<section>
+<p class="sec-chip">VẶN THỬ</p>
+<h2>Vặn khái niệm lên</h2>
+<p>Họ còn vặn được. Vặn mạnh nhóm này, AI nói gì cũng lái về cây cầu, còn tự nhận là cây cầu. Vậy bên trong có khái niệm ta đọc được, không chỉ là con số vô nghĩa.</p>
+</section>
+<section>
+<p class="sec-chip">CÒN XA</p>
+<h2>Mới rọi được một góc</h2>
+<p>Nhưng đèn pin mới rọi được một góc nhỏ. Phần lớn bên trong vẫn chưa ai hiểu hết. Hiểu nó là một cách để AI an toàn, đáng tin hơn.</p>
+</section>
+<aside class="try" aria-labelledby="thu-44">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-44">Hỏi vì sao, nhưng vẫn kiểm</h2>
+  <p>Hỏi AI &quot;vì sao bạn trả lời vậy?&quot; vẫn có ích để soi lại lập luận. Nhưng lời giải thích đó chưa chắc là lý do thật. Việc quan trọng, tự kiểm chứng.</p></div>
+</aside>
+<section>
+<p class="sec-chip">TỔNG KẾT</p>
+<h2>Bảy phần trong một hình</h2>
+<p>Nhìn lại cả series: núm vặn, đo sai số, xuống dốc, truy ngược lỗi, học hiểu không học vẹt, làm to cho giỏi, và rọi đèn vào hộp đen.</p>
+</section>
+<section>
+<p class="sec-chip">SERIES MỚI</p>
+<h2>AI được chấm điểm thế nào</h2>
+<p>Học xong rồi. Nhưng làm sao biết AI giỏi tới đâu? Hẹn bạn ở series mới: AI được chấm điểm thế nào. Mới xem? Bắt đầu từ phần 1.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Nhìn vào hộp đen</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Nh%C3%ACn%20v%C3%A0o%20h%E1%BB%99p%20%C4%91en" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#interpretability">Interpretability</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">AI học như thế nào</a> · Phần 7/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/43-cang-to-cang-gioi.html"><span class="nav-dir">‹ Phần trước</span><b>#43 · Vì sao AI càng to càng giỏi? Quy luật quy mô (scaling law)</b></a><a class="nav-card next" href="../bai/45-bai-thi-cua-ai.html"><span class="nav-dir">Series tiếp theo: AI được chấm điểm thế nào ›</span><b>#45 · Benchmark AI là gì? AI đạt 90% nghĩa là sao</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

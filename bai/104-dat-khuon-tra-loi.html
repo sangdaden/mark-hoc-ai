@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cách bắt AI trả lời bằng bảng, checklist, JSON (output format) | Mark học AI</title>
+<meta name="description" content="Nhờ AI so sánh 3 gói cước, nhận về 5 đoạn văn dài, đọc xong vẫn chưa biết chọn gói nào? Hãy nói rõ khuôn trả lời: Output format: &quot;Trả lời bằng bảng: Gói |…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/104-dat-khuon-tra-loi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cách bắt AI trả lời bằng bảng, checklist, JSON (output format) | Mark học AI">
+<meta property="og:description" content="Nhờ AI so sánh 3 gói cước, nhận về 5 đoạn văn dài, đọc xong vẫn chưa biết chọn gói nào? Hãy nói rõ khuôn trả lời: Output format: &quot;Trả lời bằng bảng: Gói |…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/104-dat-khuon-tra-loi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cách bắt AI trả lời bằng bảng, checklist, JSON (output format)","description":"Nhờ AI so sánh 3 gói cước, nhận về 5 đoạn văn dài, đọc xong vẫn chưa biết chọn gói nào? Hãy nói rõ khuôn trả lời: Output format: \"Trả lời bằng bảng: Gói |…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/104-dat-khuon-tra-loi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/104-dat-khuon-tra-loi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Hỏi AI cho ra kết quả"},"about":[{"@type":"DefinedTerm","name":"Output format","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#output-format"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Hỏi AI cho ra kết quả","item":"https://sangdaden.github.io/mark-hoc-ai/#hoi-ai-ra-ket-qua"},{"@type":"ListItem","position":3,"name":"Cách bắt AI trả lời bằng bảng, checklist, JSON (output format)","item":"https://sangdaden.github.io/mark-hoc-ai/bai/104-dat-khuon-tra-loi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#hoi-ai-ra-ket-qua">Hỏi AI cho ra kết quả</a> › <span>#104</span></nav>
+<p class="eyebrow">Video #104 · Hỏi AI cho ra kết quả · Phần 4/7</p>
+<h1>Cách bắt AI trả lời bằng bảng, checklist, JSON (output format)</h1>
+<p class="lead">Nhờ AI so sánh 3 gói cước, nhận về 5 đoạn văn dài, đọc xong vẫn chưa biết chọn gói nào? Hãy nói rõ khuôn trả lời:</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Đọc mỏi mắt</h2>
+<p>Mark nhờ AI so sánh ba gói cước điện thoại, nhận về năm đoạn văn dài, đọc xong vẫn chưa biết chọn gói nào.</p>
+</section>
+<section>
+<p class="sec-chip">OUTPUT FORMAT</p>
+<h2>Nói rõ khuôn trả lời</h2>
+<p>Bit nói: hãy chỉ định output format, tức khuôn trả lời. Thêm: trả lời bằng bảng, các cột là tên gói, giá, data, hợp với ai. Một cái bảng, nhìn là chọn được.</p>
+</section>
+<section>
+<p class="sec-chip">CÁC KHUÔN</p>
+<h2>Mỗi việc một khuôn</h2>
+<p>Mỗi việc một khuôn: so sánh thì dùng bảng, việc cần làm thì checklist, tóm tắt thì ba gạch đầu dòng, gửi đi thì một email có sẵn tiêu đề.</p>
+</section>
+<section>
+<p class="sec-chip">ĐỘ DÀI</p>
+<h2>Đặt giới hạn</h2>
+<p>Thêm giới hạn độ dài: dưới một trăm chữ, hay đọc trong ba mươi giây. AI sẽ tự bỏ phần thừa.</p>
+</section>
+<section>
+<p class="sec-chip">JSON</p>
+<h2>Khi đưa sang máy khác</h2>
+<p>Nếu kết quả còn đi tiếp vào bảng tính hay ứng dụng khác, xin định dạng JSON hoặc CSV, dán vào là dùng được.</p>
+</section>
+<section>
+<p class="sec-chip">MẸO</p>
+<h2>Đưa sẵn khung trống</h2>
+<p>Mẹo mạnh nhất: dán sẵn một khung trống để AI điền vào, giống ví dụ mẫu ở phần một.</p>
+</section>
+<aside class="try" aria-labelledby="thu-104">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-104">So sánh bằng bảng</h2>
+  <p>Lần tới cần so sánh hai món đồ định mua, bảo AI trả lời bằng bảng, thêm một dòng kết luận nên chọn cái nào.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Bắt AI trả lời đúng khuôn (output format)</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#output-format">Output format</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#hoi-ai-ra-ket-qua">Hỏi AI cho ra kết quả</a> · Phần 4/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/103-nghi-tung-buoc.html"><span class="nav-dir">‹ Phần trước</span><b>#103 · Chain of thought là gì? Bảo AI nghĩ từng bước</b></a><a class="nav-card next" href="../bai/105-chia-nho-viec.html"><span class="nav-dir">Phần tiếp theo ›</span><b>#105 · Prompt chaining là gì? Chia việc lớn thành chuỗi prompt nhỏ</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

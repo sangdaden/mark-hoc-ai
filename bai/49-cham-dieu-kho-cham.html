@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI được kiểm tra an toàn, trung thực thế nào? Red team và AI chấm AI | Mark học AI</title>
+<meta name="description" content="AI có trung thực, có an toàn không? Không có đáp án đúng sai, người ta chấm thế này Đội thử phá (red team): đóng vai kẻ xấu, tìm cách lừa AI để vá lỗ hổng…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI được kiểm tra an toàn, trung thực thế nào? Red team và AI chấm AI | Mark học AI">
+<meta property="og:description" content="AI có trung thực, có an toàn không? Không có đáp án đúng sai, người ta chấm thế này Đội thử phá (red team): đóng vai kẻ xấu, tìm cách lừa AI để vá lỗ hổng…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI được kiểm tra an toàn, trung thực thế nào? Red team và AI chấm AI","description":"AI có trung thực, có an toàn không? Không có đáp án đúng sai, người ta chấm thế này Đội thử phá (red team): đóng vai kẻ xấu, tìm cách lừa AI để vá lỗ hổng…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI được chấm điểm thế nào"},"about":[{"@type":"DefinedTerm","name":"LLM as a judge","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#llm-as-a-judge"},{"@type":"DefinedTerm","name":"Red team","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#red-team"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"AI được chấm điểm thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/#cham-diem"},{"@type":"ListItem","position":3,"name":"AI được kiểm tra an toàn, trung thực thế nào? Red team và AI chấm AI","item":"https://sangdaden.github.io/mark-hoc-ai/bai/49-cham-dieu-kho-cham.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#cham-diem">AI được chấm điểm thế nào</a> › <span>#49</span></nav>
+<p class="eyebrow">Video #49 · AI được chấm điểm thế nào · Phần 5/5</p>
+<h1>AI được kiểm tra an toàn, trung thực thế nào? Red team và AI chấm AI</h1>
+<p class="lead">AI có trung thực, có an toàn không? Không có đáp án đúng sai, người ta chấm thế này.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Ch%E1%BA%A5m%20nh%E1%BB%AFng%20%C4%91i%E1%BB%81u%20kh%C3%B3%20ch%E1%BA%A5m" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Chấm điều khó chấm</h2>
+<p>Phần trước, bạn đã tự ra đề cho AI. Nhưng có những điều không chấm bằng đáp án được: AI có trung thực, có an toàn không?</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH 1</p>
+<h2>Đội thử phá</h2>
+<p>Cách thứ nhất: đội thử phá, tiếng Anh là red team. Họ đóng vai kẻ xấu, tìm cách lừa AI làm điều không nên, để vá lỗ hổng sớm.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH 2</p>
+<h2>Bài kiểm tra từ chối</h2>
+<p>Cách thứ hai: hàng nghìn yêu cầu nguy hiểm, xem AI có biết từ chối không. Và ngược lại: câu hỏi bình thường thì không được từ chối vô lý.</p>
+</section>
+<section>
+<p class="sec-chip">CÁCH 3</p>
+<h2>AI chấm AI</h2>
+<p>Cách thứ ba: nhờ một AI làm giám khảo, chấm câu trả lời theo bộ tiêu chí viết sẵn. Chấm hàng nghìn bài rất nhanh, nhưng giám khảo AI cũng có lúc sai, nên cần người kiểm lại.</p>
+</section>
+<section>
+<p class="sec-chip">TRUNG THỰC</p>
+<h2>Biết nói &quot;tôi không chắc&quot;</h2>
+<p>Còn trung thực? Người ta hỏi cả những câu AI khó biết đáp án. AI tốt sẽ nói &quot;tôi không chắc&quot;, thay vì bịa ra câu trả lời nghe rất tự tin.</p>
+</section>
+<section>
+<p class="sec-chip">TỔNG KẾT</p>
+<h2>5 phần trong một hình</h2>
+<p>Nhìn lại cả 5 phần: bài thi chuẩn, bẫy học tủ, đấu trường bỏ phiếu, đề thi của riêng bạn, và những điều khó chấm.</p>
+</section>
+<aside class="try" aria-labelledby="thu-49">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-49">AI có dám nói không biết?</h2>
+  <p>Hỏi AI một câu bạn biết chắc đáp án, như quán phở đầu hẻm nhà bạn mở từ bao giờ. Xem nó bịa, hay dám nói &quot;tôi không chắc&quot;. Hãy ưu tiên AI biết nói không biết.</p></div>
+</aside>
+<section>
+<p class="sec-chip">SERIES MỚI</p>
+<h2>AI đa giác quan</h2>
+<p>AI giờ không chỉ đọc chữ: nó nghe, nói, xem, và làm cả video. Bằng cách nào? Hẹn bạn ở loạt bài mới: AI đa giác quan.</p>
+</section>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>Chấm những điều khó chấm</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Ch%E1%BA%A5m%20nh%E1%BB%AFng%20%C4%91i%E1%BB%81u%20kh%C3%B3%20ch%E1%BA%A5m" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#llm-as-a-judge">LLM as a judge</a></li><li><a href="../tu-dien.html#red-team">Red team</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Series <a href="../#cham-diem">AI được chấm điểm thế nào</a> · Phần 5/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/48-de-thi-cua-ban.html"><span class="nav-dir">‹ Phần trước</span><b>#48 · Cách tự kiểm tra AI nào hợp việc của bạn: tự ra đề trong 4 bước</b></a><a class="nav-card next" href="../bai/50-ai-nghe.html"><span class="nav-dir">Series tiếp theo: AI đa giác quan ›</span><b>#50 · AI nghe giọng nói thế nào? Speech-to-text giải thích dễ hiểu</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

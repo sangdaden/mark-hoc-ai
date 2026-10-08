@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào | Mark học AI</title>
+<meta name="description" content="Vì sao xe tự lái vẫn thấy rõ người đi bộ giữa đêm tối? Câu trả lời là LiDAR, công nghệ đo khoảng cách bằng ánh sáng. Video giải thích trọn vẹn trong khoảng 1…">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào | Mark học AI">
+<meta property="og:description" content="Vì sao xe tự lái vẫn thấy rõ người đi bộ giữa đêm tối? Câu trả lời là LiDAR, công nghệ đo khoảng cách bằng ánh sáng. Video giải thích trọn vẹn trong khoảng 1…">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào","description":"Vì sao xe tự lái vẫn thấy rõ người đi bộ giữa đêm tối? Câu trả lời là LiDAR, công nghệ đo khoảng cách bằng ánh sáng. Video giải thích trọn vẹn trong khoảng 1…","inLanguage":"vi","url":"https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"LiDAR","url":"https://sangdaden.github.io/mark-hoc-ai/tu-dien.html#lidar"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://sangdaden.github.io/mark-hoc-ai/#nen-tang"},{"@type":"ListItem","position":3,"name":"LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào","item":"https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="../#bat-dau">Bắt đầu từ đây</a>
+    <a href="../tu-dien.html">Từ điển AI</a>
+    <a href="../kiem-tra.html">Kiểm tra</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#nen-tang">Khái niệm nền tảng</a> › <span>#05</span></nav>
+<p class="eyebrow">Video #05 · Khái niệm nền tảng</p>
+<h1>LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào</h1>
+<p class="lead">Giữa đêm tối, xe tự lái vẫn &quot;thấy&quot; rõ người đi bộ phía trước. Bí mật là LiDAR: đo khoảng cách bằng ánh sáng.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=LiDAR%20ho%E1%BA%A1t%20%C4%91%E1%BB%99ng%20th%E1%BA%BF%20n%C3%A0o%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>LiDAR hoạt động thế nào?</h2>
+<p>Giữa đêm tối, xe tự lái vẫn thấy rõ người đi bộ phía trước. Bí mật nằm ở một công nghệ tên là LiDAR.</p>
+</section>
+<section>
+<h2>Đo khoảng cách bằng ánh sáng</h2>
+<p>LiDAR nghĩa là đo khoảng cách bằng ánh sáng. Giống dơi nghe tiếng vang, nhưng dùng tia laser thay cho tiếng kêu.</p>
+</section>
+<section>
+<p class="sec-chip">BƯỚC 1/3</p>
+<h2>Phát chớp laser</h2>
+<p>Bước một: máy phát ra một chớp laser cực ngắn, mắt thường không thấy. Chớp sáng bay đi, chạm vào vật, rồi dội ngược về máy.</p>
+</section>
+<section>
+<p class="sec-chip">BƯỚC 2/3</p>
+<h2>Bấm giờ đi và về</h2>
+<p>Bước hai: máy bấm giờ, từ lúc phát đến lúc nhận lại. Ánh sáng nhanh đến mức đi 15 mét rồi quay về chỉ mất một phần mười triệu giây.</p>
+</section>
+<section>
+<p class="sec-chip">BƯỚC 3/3</p>
+<h2>Tính khoảng cách</h2>
+<p>Bước ba: tính khoảng cách. Nhân thời gian với tốc độ ánh sáng, rồi chia đôi, vì tia sáng đã đi cả lượt đi lẫn lượt về.</p>
+</section>
+<section>
+<h2>Hàng triệu chấm</h2>
+<p>Máy lặp lại việc này hàng trăm nghìn lần mỗi giây, quét ra mọi hướng. Mỗi lần đo là một chấm, ghép lại thành bản đồ ba chiều gọi là đám mây điểm.</p>
+</section>
+<section>
+<p class="sec-chip">AI VÀO VIỆC</p>
+<h2>AI đọc đám mây điểm</h2>
+<p>Rồi AI đọc các chấm đó để biết đâu là người, đâu là xe, cách bao xa. Nhờ vậy, xe biết lúc nào cần phanh.</p>
+</section>
+<section>
+<p class="sec-chip">QUANH BẠN</p>
+<h2>LiDAR ở quanh bạn</h2>
+<p>LiDAR còn có trong robot hút bụi, máy bay vẽ bản đồ, và iPhone bản Pro.</p>
+</section>
+<aside class="try" aria-labelledby="thu-5">
+  <img src="../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Thử ngay</p>
+  <h2 id="thu-5">Đo chiều cao bằng điện thoại</h2>
+  <p>Muốn thử? Mở ứng dụng Đo trên iPhone bản Pro, rồi hướng vào một người. Máy sẽ tự hiện chiều cao của họ.</p></div>
+</aside>
+<div class="post-end">
+<p>Đây là bài viết từ video <b>LiDAR hoạt động thế nào?</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.</p>
+<div class="cta"><a class="btn btn-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=LiDAR%20ho%E1%BA%A1t%20%C4%91%E1%BB%99ng%20th%E1%BA%BF%20n%C3%A0o%3F" target="_blank" rel="noopener">▶ Xem video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Thuật ngữ trong bài</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#lidar">LiDAR</a></li></ul>
+<p class="related-more">Xem giải thích từng chữ trong <a href="../tu-dien.html">Từ điển AI</a>.</p>
+</section>
+<nav class="series-nav" aria-label="Trong series">
+<p class="series-nav-head">Video lẻ <a href="../#nen-tang">Khái niệm nền tảng</a> · #05</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/04-adaptive-learning.html"><span class="nav-dir">‹ Video trước</span><b>#04 · Adaptive learning là gì? Biến AI thành gia sư riêng cho bạn</b></a><a class="nav-card next" href="../bai/06-adaptive-learning-p2.html"><span class="nav-dir">Video tiếp theo ›</span><b>#06 · Học với AI sao cho hiểu? 4 cách để AI dạy đúng trình độ của bạn</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>10 câu đúng hay sai, có giải thích ngay.</span></a>
+<a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">Từ điển AI</a> · <a href="../kiem-tra.html">Bạn hiểu AI tới đâu?</a></span>
+  </div>
+</footer>
+</body>
+</html>

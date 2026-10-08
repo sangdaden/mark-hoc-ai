@@ -30,6 +30,8 @@
 
   const ytLink = v => kenh.youtube + "/search?query=" + encodeURIComponent(v.title);
   const pad = n => String(n).padStart(2, "0");
+  // Mỗi video có một bài viết tĩnh (scripts/tao_bai_viet.py) để Google tìm thấy
+  const baiLink = v => "bai/" + pad(v.so) + "-" + v.slug + ".html";
   const bySo = {};
   groups.forEach(g => g.items.forEach(v => { bySo[v.so] = { v, g }; }));
 
@@ -37,8 +39,7 @@
   const startLink = (so, label) => {
     const hit = bySo[so];
     if (!hit) return "";
-    if (hit.g.sap_ra_mat) return '<span class="row-soon">Sắp ra mắt</span>';
-    return '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(hit.v) + '">' + label + " ›</a>";
+    return '<a class="row-link" href="' + baiLink(hit.v) + '">' + label + " ›</a>";
   };
   document.getElementById("vung").innerHTML = banDo.vung.map((r, i) =>
     '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">Mới toanh? Bắt đầu ở đây</span>' : "") + '<span class="region-emoji" aria-hidden="true">' + r.emoji + '</span><div><span class="region-num">Vùng ' + (i + 1) +
@@ -62,6 +63,10 @@
   try { current = localStorage.getItem("mhai-series") || current; } catch (e) {}
   const chipData = [{ id: "tat-ca", ten: "Tất cả", n: total }].concat(groups.map(g => ({ id: g.id, ten: g.ten, n: g.items.length })));
   if (!chipData.some(c => c.id === current)) current = "tat-ca";
+  // Link từ bài viết về series (#id-series): hiện đúng series đó
+  const hashId = decodeURIComponent(location.hash.slice(1));
+  const tuHash = groups.some(g => g.id === hashId);
+  if (tuHash) current = "tat-ca";
   chips.innerHTML = chipData.map(c => '<button class="chip" role="tab" id="chip-' + c.id + '" data-id="' + c.id + '">' + esc(c.ten) + "<small>" + c.n + "</small></button>").join("");
   chips.addEventListener("click", e => {
     const b = e.target.closest(".chip"); if (!b) return;
@@ -89,15 +94,20 @@
       const rows = items.map(v => {
         const link = g.sap_ra_mat
           ? '<span class="row-soon">Sắp ra mắt</span>'
-          : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '">Xem ›</a>';
-        return '<li class="row"><span class="num">#' + String(v.so).padStart(2, "0") + '</span><div class="row-main"><p class="row-title">' +
-          (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + esc(v.title) + '</p><p class="row-desc">' + esc(v.desc) + "</p></div>" + link + "</li>";
+          : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="Xem video #' + pad(v.so) + ' trên YouTube">▶ YouTube</a>';
+        return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
+          (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
+          '</p><a class="row-read" href="' + baiLink(v) + '">Đọc bài viết ›</a></div>' + link + "</li>";
       }).join("");
       return '<section class="series" id="' + g.id + '">' + head + '<ol class="list">' + rows + "</ol></section>";
     }).join("");
     document.getElementById("rong").hidden = shown > 0;
   }
   render();
+  if (tuHash) {
+    const el = document.getElementById(hashId);
+    if (el) el.scrollIntoView();
+  }
 
   const lenDau = document.getElementById("len-dau");
   const capNhatNut = () => { lenDau.hidden = window.scrollY < 600; };
