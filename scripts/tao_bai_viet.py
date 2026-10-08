@@ -273,7 +273,7 @@ def header(p, hien_tai="", q=None):
 def footer(p, q=None):
     q = p if q is None else q
     links = "".join(f'\n      <a href="{esc(kenh[k])}" target="_blank" rel="noopener">{ten}</a>' for k, ten in
-                    (("youtube", "YouTube"), ("tiktok", "TikTok"), ("instagram", "Instagram"), ("facebook", "Facebook")) if kenh.get(k))
+                    (("youtube", "YouTube"), ("tiktok", "TikTok"), ("instagram", "Instagram"), ("facebook", "Facebook"), ("discord", "Discord")) if kenh.get(k))
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
