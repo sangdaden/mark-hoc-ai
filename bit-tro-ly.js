@@ -42,30 +42,31 @@
     "Số liệu quan trọng: luôn xin AI nguồn để tự kiểm tra."
   ];
   const menu = EN ? [
-    ["🧭", "New here? Follow the path", nha + "#bat-dau"],
-    ["📖", "Look it up in the AI glossary", nha + "tu-dien.html"],
-    ["✅", "Quiz: how well do you know AI?", nha + "kiem-tra.html"],
-    ["🎁", "Download 50 sample prompts (PDF, in Vietnamese)", goc + "assets/50-prompt-mau.pdf"],
-    ["🎬", "See the video list", nha + "#video"]
+    ["compass", "New here? Follow the path", nha + "#bat-dau"],
+    ["book-open", "Look it up in the AI glossary", nha + "tu-dien.html"],
+    ["circle-check-big", "Quiz: how well do you know AI?", nha + "kiem-tra.html"],
+    ["gift", "Download 50 sample prompts (PDF, in Vietnamese)", goc + "assets/50-prompt-mau.pdf"],
+    ["clapperboard", "See the video list", nha + "#video"]
   ] : [
-    ["🧭", "Mới bắt đầu? Đi theo lộ trình", goc + "#bat-dau"],
-    ["📖", "Tra Từ điển AI", goc + "tu-dien.html"],
-    ["✅", "Kiểm tra: bạn hiểu AI tới đâu?", goc + "kiem-tra.html"],
-    ["🎁", "Tải 50 prompt mẫu (PDF)", goc + "assets/50-prompt-mau.pdf"],
-    ["🎬", "Xem danh sách video", goc + "#video"]
+    ["compass", "Mới bắt đầu? Đi theo lộ trình", goc + "#bat-dau"],
+    ["book-open", "Tra Từ điển AI", goc + "tu-dien.html"],
+    ["circle-check-big", "Kiểm tra: bạn hiểu AI tới đâu?", goc + "kiem-tra.html"],
+    ["gift", "Tải 50 prompt mẫu (PDF)", goc + "assets/50-prompt-mau.pdf"],
+    ["clapperboard", "Xem danh sách video", goc + "#video"]
   ];
   const T = EN ? { tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant" }
     : { tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit" };
 
+  const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const hop = document.createElement("div");
   hop.className = "bit-tl";
   hop.innerHTML =
-    '<div class="bit-noi" role="status" aria-live="polite" hidden><p></p><button class="bit-x" type="button" aria-label="' + T.tat + '">×</button></div>' +
+    '<div class="bit-noi" role="status" aria-live="polite" hidden><p></p><button class="bit-x" type="button" aria-label="' + T.tat + '">' + ic("x") + '</button></div>' +
     '<div class="bit-menu" id="bit-menu" role="dialog" aria-label="' + T.hoi + '" hidden>' +
     '<p class="bit-chao">' + T.chao + '</p><ul>' +
-    menu.map(m => '<li><a href="' + m[2] + '"' + (/\.pdf$/.test(m[2]) ? " download" : "") + '><span aria-hidden="true">' + m[0] + "</span>" + esc(m[1]) + "</a></li>").join("") +
-    '</ul><div class="bit-meo"><b>' + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div></div>' +
+    menu.map(m => '<li><a href="' + m[2] + '"' + (/\.pdf$/.test(m[2]) ? " download" : "") + '>' + ic(m[0]) + esc(m[1]) + "</a></li>").join("") +
+    '</ul><div class="bit-meo"><b>' + ic("lightbulb") + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div></div>' +
     '<button class="bit-nut" type="button" aria-label="' + T.mo + '" aria-expanded="false" aria-controls="bit-menu"><img src="' + hinh("vui") + '" alt="" width="64" height="77"></button>';
   document.body.appendChild(hop);
 

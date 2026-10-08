@@ -457,3 +457,18 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .band .lang-note { color: rgba(255, 255, 255, .88); }
 .hero .lang-note { margin: 16px 0 0; }
 .catalog-note { margin: 10px 0 0; }
+
+/* Icon Lucide (assets/icons.svg) thay emoji, nét đồng bộ */
+.ic { width: 1.15em; height: 1.15em; flex: none; vertical-align: -.2em; }
+.btn .ic, .row-link .ic, .top-tools .ic { margin-right: 6px; }
+.btn { gap: 0; }
+.row-link { display: inline-flex; align-items: center; }
+.region-emoji { color: var(--blue); }
+.region-emoji .ic { width: 24px; height: 24px; }
+.bit-menu a .ic { width: 20px; height: 20px; color: var(--blue); }
+.bit-meo b { display: inline-flex; align-items: center; gap: 6px; }
+.bit-meo b .ic { width: 16px; height: 16px; }
+.bit-x { display: grid; place-items: center; }
+.bit-x .ic { width: 16px; height: 16px; }
+.top-tools .ic { width: 16px; height: 16px; margin-right: 0; }
+.top-tools button, .top-tools a { gap: 6px; }

@@ -256,6 +256,9 @@ FONT = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="
 def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
 
+def ic(p, n):
+    return f'<svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-{n}"/></svg>'
+
 def header(p, hien_tai="", q=None):
     # p: đường về thư mục gốc (assets, style, js); q: đường về trang chủ của ngôn ngữ đang tạo (bản Việt: q = p)
     q = p if q is None else q
@@ -335,19 +338,19 @@ def yt_link(v):
     return kenh["youtube"] + "/search?query=" + quote(tieu_de, safe="")
 
 # data-so + data-kenh: bai-viet.js đổi nút thành link kênh và ghi "Video ra mắt dd/mm" khi video chưa tới ngày
-def nut_video(v, g):
+def nut_video(v, g, p):
     gan = f'data-so="{v["so"]}" data-kenh="{esc(kenh["youtube"])}"'
     if g.get("sap_ra_mat"):
         return (f'<a class="btn btn-yt" {gan} href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">{t("Theo dõi kênh YouTube", "Follow on YouTube")}</a>'
                 f'<span class="soon-note">{t("Video này sắp ra mắt", "Coming soon")}</span>')
-    return f'<a class="btn btn-yt" {gan} href="{esc(yt_link(v))}" target="_blank" rel="noopener">{t("▶ Xem video", "▶ Watch video")}</a>'
+    return f'<a class="btn btn-yt" {gan} href="{esc(yt_link(v))}" target="_blank" rel="noopener">{ic(p, "play")}{t("Xem video", "Watch video")}</a>'
 
-def khoi_prompt(so, prompt):
+def khoi_prompt(so, prompt, p):
     """Prompt mẫu + nút chép (ẩn sẵn, bai-viet.js mở ra khi chạy được)."""
     if not prompt:
         return ""
     return (f'\n  <p class="try-prompt" id="prompt-{so}">{esc(prompt)}</p>'
-            f'\n  <button class="btn copy-btn" type="button" data-chep="prompt-{so}" hidden>{t("Sao chép prompt", "Copy prompt")}</button>')
+            f'\n  <button class="btn copy-btn" type="button" data-chep="prompt-{so}" hidden>{ic(p, "copy")}{t("Sao chép prompt", "Copy prompt")}</button>')
 
 # ---------- bài viết ----------
 def noi_dung_vi(v):
@@ -390,7 +393,7 @@ def tao_bai(v):
         if s.get("try"):
             co_thu = True
             muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
-                       f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, q, so)}</p>{khoi_prompt(so, prompt)}</div>\n</aside>')
+                       f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
             continue
         nhan = f'<p class="sec-chip">{esc(chip)}</p>\n' if chip else ""
         # Tiêu đề là câu hỏi: có Bit đứng cạnh (Sang góp ý 8/10)
@@ -402,7 +405,7 @@ def tao_bai(v):
     if not co_thu and thu_mo_ta:
         muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
                    f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{t("Làm ngay hôm nay", "Do it today")}</h2>\n'
-                   f'  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), q, so)}</p>{khoi_prompt(so, prompt)}</div>\n</aside>')
+                   f'  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
 
     # điều hướng series: phần trước/sau; hết series thì nối sang series kề bên
     i = thu_tu.index(v)
@@ -431,13 +434,13 @@ def tao_bai(v):
     ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')  # video của kênh nói tiếng Việt
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › <span>#{so:02d}</span></nav>\n'
             f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}</p>\n'
-            f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g)}{ghi_chu}</div>')
+            f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g, p)}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(tieu_de)}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
     main = (f'<main class="doc">\n<article class="post">\n' + "\n".join(muc) +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g)}</div>\n</div>\n</article>\n'
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("10 câu đúng hay sai, có giải thích ngay.", "10 true-or-false questions, explained right away.")}</span></a>\n'

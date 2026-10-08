@@ -2,6 +2,7 @@
   // Trang tiếng Anh (en/index.html) dùng chung file này: dữ liệu ở ../data, bản dịch ở ../data/en
   const EN = document.documentElement.lang === "en";
   const goc = EN ? "../" : "";
+  const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const S = EN ? {
     hopTac: "Partnerships or feedback: ", gopY: "Feedback or partnerships: message the channel's Facebook page.",
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
@@ -84,7 +85,7 @@
     return '<a class="row-link" href="' + baiLink(hit.v) + '">' + label + " ›</a>";
   };
   document.getElementById("vung").innerHTML = banDo.vung.map((r, i) =>
-    '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji" aria-hidden="true">' + r.emoji + '</span><div><span class="region-num">' + S.vung + (i + 1) +
+    '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji">' + ic(r.icon) + '</span><div><span class="region-num">' + S.vung + (i + 1) +
     '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="region-list">' +
     r.muc.map(m => {
       const label = /[–,]/.test(m.nhan) ? S.xemPhan1 : S.xemVideo;
@@ -139,7 +140,7 @@
           ? '<span class="row-soon">' + S.raMat + ngayThang(lich[v.so]) + "</span>"
           : !lich[v.so] && g.sap_ra_mat
           ? '<span class="row-soon">' + S.sapRa + '</span>'
-          : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="' + S.xemYt(pad(v.so)) + '">▶ YouTube</a>';
+          : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="' + S.xemYt(pad(v.so)) + '">' + ic("play") + "YouTube</a>";
         return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
           (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
           '</p><a class="row-read" href="' + baiLink(v) + '">' + S.docBai + '</a></div>' + link + "</li>";
