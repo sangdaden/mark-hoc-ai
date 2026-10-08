@@ -15,6 +15,8 @@ Lúc tạo file (08/10/2026), lịch có đủ 114 video trong `videos.json`, t�
 
 Cập nhật 08/10/2026: thêm video 100 (tập đặc biệt, bản dọc 25/10) và 118–162 (29/10 đến 07/11/2026), lấy từ ngày bài TikTok dọc trên Metricool, khớp với `videos/ke-hoach-148-162/lich-dang-132-162.md`. Lịch có 160 video, từ 06/10 đến 07/11/2026.
 
+Cập nhật 09/10/2026 (giờ VN): thêm video 01, 02 (series "Nhập môn AI", làm lại), bản dọc 01 đăng 9/10 00:40 và 02 đăng 9/10 07:00 trên TikTok/FB/IG (chưa có YouTube Shorts).
+
 ## Thêm video mới (từ 163 trở đi)
 1. `python3 scripts/gom_video.py /mnt/project-files/videos <số cuối>` (hoặc nâng số mặc định `DEN` trong script). Chỉ đưa lên video đã render và đã lên lịch.
 2. Đọc Metricool (chỉ đọc, `getScheduledPosts`, brand 7273613, múi giờ Asia/Ho_Chi_Minh, mỗi lần vài ngày), lấy ngày bài TikTok dọc của từng video, ghi vào file này (`"163": "YYYY-MM-DD"`). Đối chiếu với file `lich-dang-*.md` trong thư mục kế hoạch.
