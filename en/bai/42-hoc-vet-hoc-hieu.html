@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is overfitting? When AI memorizes instead of understanding | Mark học AI</title>
+<meta name="description" content="Why is AI sometimes great with familiar tasks but bad with new ones? Because machines can memorize too. Turn the knobs too carefully to fit every training example, and it learns tiny details. That&#x27;s overfitting.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/42-hoc-vet-hoc-hieu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is overfitting? When AI memorizes instead of understanding | Mark học AI">
+<meta property="og:description" content="Why is AI sometimes great with familiar tasks but bad with new ones? Because machines can memorize too. Turn the knobs too carefully to fit every training example, and it learns tiny details. That&#x27;s overfitting.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is overfitting? When AI memorizes instead of understanding","description":"Why is AI sometimes great with familiar tasks but bad with new ones? Because machines can memorize too. Turn the knobs too carefully to fit every training example, and it learns tiny details. That's overfitting.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Overfitting","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#overfitting"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"What is overfitting? When AI memorizes instead of understanding","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/42-hoc-vet-hoc-hieu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-hoc">How AI learns</a> › <span>#42</span></nav>
+<p class="eyebrow">Video #42 · How AI learns · Part 5/7</p>
+<h1>What is overfitting? When AI memorizes instead of understanding</h1>
+<p class="lead">Why is AI sometimes great with familiar tasks but bad with new ones? Because machines can memorize too.</p>
+<div class="cta"><a class="btn btn-yt" data-so="42" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%E1%BB%8Dc%20v%E1%BA%B9t%20v%C3%A0%20h%E1%BB%8Dc%20hi%E1%BB%83u" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Great on familiar work, bad on new work</h2>
+<p>Last time, AI traced its mistakes back to turn the right knobs. But turning them too carefully can hurt: the machine can memorize the test without understanding the lesson.</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>Two students studying for a test</h2>
+<p>Picture two students studying for a math test. An memorizes the answers to 100 practice problems. Binh learns how to solve them, even though he still gets a few wrong.</p>
+</section>
+<section>
+<p class="sec-chip">NEW TEST</p>
+<h2>Turn over the test</h2>
+<p>On test day, only the numbers change. An freezes, because he never memorized this one. Binh can still do it, because he knows the method, not the answers.</p>
+</section>
+<section>
+<p class="sec-chip">MEMORIZING</p>
+<h2>Machines memorize too</h2>
+<p>Machines do the same. Turn the knobs too carefully to fit every training example, and it memorizes even tiny details. That&#x27;s called overfitting: nearly perfect on practice, wrong on new data.</p>
+</section>
+<section>
+<p class="sec-chip">HIDDEN TEST</p>
+<h2>Always keep an unseen test</h2>
+<p>That&#x27;s why trainers always set aside part of the data that the machine never sees while learning. Only after learning is it tested on that. The score on unseen questions is the real score.</p>
+</section>
+<section>
+<p class="sec-chip">WHY</p>
+<h2>Familiar is smooth, new is a guess</h2>
+<p>Chat AI learns from a huge amount of text, so it answers common questions very smoothly. In a new situation nobody has written about, it may guess wrong and still sound confident.</p>
+</section>
+<aside class="try" aria-labelledby="thu-42">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-42">Test AI with your own questions</h2>
+  <p>Before you hand AI an important task, test it with your own questions: your shop&#x27;s numbers, your company&#x27;s situations, not just sample questions from the internet.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PART 6</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Why did AI suddenly get so good?</h2>
+<p>Learning to understand is good. But why has AI suddenly gotten so much better in the last few years? See you in part 6.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Memorizing vs. understanding</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="42" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=H%E1%BB%8Dc%20v%E1%BA%B9t%20v%C3%A0%20h%E1%BB%8Dc%20hi%E1%BB%83u" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#overfitting">Overfitting</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">How AI learns</a> · Part 5/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/41-truy-nguoc-loi.html"><span class="nav-dir">‹ Previous part</span><b>#41 · What is backpropagation? Explained simply</b></a><a class="nav-card next" href="../bai/43-cang-to-cang-gioi.html"><span class="nav-dir">Next part ›</span><b>#43 · Why do bigger AI models get smarter? Scaling laws explained</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

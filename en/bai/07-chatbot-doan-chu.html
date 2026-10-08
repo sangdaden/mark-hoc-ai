@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How do AI chatbots work? They guess the next word | Mark học AI</title>
+<meta name="description" content="AI chatbots answer as smoothly as a real person. But do they &quot;understand&quot; you? What they really do is a lot like your phone keyboard suggesting words: guessing the next word.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/07-chatbot-doan-chu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How do AI chatbots work? They guess the next word | Mark học AI">
+<meta property="og:description" content="AI chatbots answer as smoothly as a real person. But do they &quot;understand&quot; you? What they really do is a lot like your phone keyboard suggesting words: guessing the next word.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How do AI chatbots work? They guess the next word","description":"AI chatbots answer as smoothly as a real person. But do they \"understand\" you? What they really do is a lot like your phone keyboard suggesting words: guessing the next word.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Core ideas"},"about":[{"@type":"DefinedTerm","name":"Chain of thought","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#chain-of-thought"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#pretraining"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Core ideas","item":"https://sangdaden.github.io/mark-hoc-ai/en/#nen-tang"},{"@type":"ListItem","position":3,"name":"How do AI chatbots work? They guess the next word","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/07-chatbot-doan-chu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#nen-tang">Core ideas</a> › <span>#07</span></nav>
+<p class="eyebrow">Video #07 · Core ideas</p>
+<h1>How do AI chatbots work? They guess the next word</h1>
+<p class="lead">AI answers as smoothly as a real person, but inside it does something surprisingly simple: it guesses the next word, like your phone keyboard.</p>
+<div class="cta"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Chatbot%20AI%20th%E1%BA%ADt%20ra%20%C4%91ang%20l%C3%A0m%20g%C3%AC%3F" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI &quot;understand&quot; you?</h2>
+<p>AI answers as smoothly as a real person. But inside, it&#x27;s doing something surprisingly simple.</p>
+</section>
+<section>
+<h2>Like your keyboard&#x27;s word suggestions</h2>
+<p>You&#x27;ve seen your phone keyboard suggest the next word. Type &quot;happy&quot;, and it guesses &quot;birthday&quot; right away.</p>
+</section>
+<section>
+<h2>A chatbot is a giant suggestion keyboard</h2>
+<p>An AI chatbot also guesses the next word. It&#x27;s just been trained on a huge amount of text, more than one person could read in a thousand lifetimes.</p>
+</section>
+<section>
+<h2>One word at a time</h2>
+<p>When you ask something, it picks the best-fitting word, adds it, then guesses the next one, again and again until the answer is done.</p>
+</section>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How can guessing words be so good?</h2>
+<p>To guess well, it has to learn grammar, facts and even how to reason. That&#x27;s why its answers sound so good.</p>
+</section>
+<section>
+<h2>What to remember</h2>
+<p>But remember: it guesses what sounds most likely, and that&#x27;s not always the truth.</p>
+</section>
+<aside class="try" aria-labelledby="thu-7">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-7">Explain step by step</h2>
+  <p>For hard questions, add &quot;explain step by step&quot;. Writing out each step helps AI guess more accurately, and makes it easier for you to check.</p>
+  <p class="try-prompt" id="prompt-7">Explain step by step</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-7" hidden>Copy prompt</button></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>What is an AI chatbot really doing?</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=Chatbot%20AI%20th%E1%BA%ADt%20ra%20%C4%91ang%20l%C3%A0m%20g%C3%AC%3F" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#chain-of-thought">Chain of thought</a></li><li><a href="../tu-dien.html#pretraining">Pretraining</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Standalone videos <a href="../#nen-tang">Core ideas</a> · #07</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/06-adaptive-learning-p2.html"><span class="nav-dir">‹ Previous video</span><b>#06 · How to learn with AI: 4 ways to make AI teach at your level</b></a><a class="nav-card next" href="../bai/08-ao-giac.html"><span class="nav-dir">Next video ›</span><b>#08 · What is AI hallucination? Why AI makes things up and still sounds confident</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

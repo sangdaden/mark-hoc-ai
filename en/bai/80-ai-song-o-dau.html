@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where does AI run? Cloud, data centers, APIs and on-device AI | Mark học AI</title>
+<meta name="description" content="You type a question on your phone, but the AI isn&#x27;t inside your phone. It lives very far away. Big AI models run in data centers full of GPUs, reached through an API. Plus: regions, autoscaling and on-device AI.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/80-ai-song-o-dau.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/80-ai-song-o-dau.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Where does AI run? Cloud, data centers, APIs and on-device AI | Mark học AI">
+<meta property="og:description" content="You type a question on your phone, but the AI isn&#x27;t inside your phone. It lives very far away. Big AI models run in data centers full of GPUs, reached through an API. Plus: regions, autoscaling and on-device AI.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Where does AI run? Cloud, data centers, APIs and on-device AI","description":"You type a question on your phone, but the AI isn't inside your phone. It lives very far away. Big AI models run in data centers full of GPUs, reached through an API. Plus: regions, autoscaling and on-device AI.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Behind the scenes of an AI system"},"about":[{"@type":"DefinedTerm","name":"API","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#api"},{"@type":"DefinedTerm","name":"Autoscaling","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#autoscaling"},{"@type":"DefinedTerm","name":"Cloud","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#cloud"},{"@type":"DefinedTerm","name":"Data center","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#data-center"},{"@type":"DefinedTerm","name":"GPU","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#gpu"},{"@type":"DefinedTerm","name":"On-device AI","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#on-device-ai"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Behind the scenes of an AI system","item":"https://sangdaden.github.io/mark-hoc-ai/en/#hau-truong"},{"@type":"ListItem","position":3,"name":"Where does AI run? Cloud, data centers, APIs and on-device AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/80-ai-song-o-dau.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#80</span></nav>
+<p class="eyebrow">Video #80 · Behind the scenes of an AI system · Part 2/7</p>
+<h1>Where does AI run? Cloud, data centers, APIs and on-device AI</h1>
+<p class="lead">You type a question on your phone, but the AI isn&#x27;t inside your phone. It lives very far away.</p>
+<div class="cta"><a class="btn btn-yt" data-so="80" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>AI is very far away</h2>
+<p>You type a question on your phone, but the AI isn&#x27;t inside your phone. It&#x27;s very far away.</p>
+</section>
+<section>
+<p class="sec-chip">DATA CENTER</p>
+<h2>AI&#x27;s building</h2>
+<p>Big AI models run in data centers: buildings full of server racks with GPUs, a special kind of chip. They use as much power as a whole neighborhood, and need constant cooling.</p>
+</section>
+<section>
+<p class="sec-chip">API</p>
+<h2>A door called an API</h2>
+<p>Apps send your question over the internet to that building, through a door called an API, and get the answer back. Most AI apps don&#x27;t run their own models. They rent them through this door, as video <a href="../bai/56-mo-hinh-chi-la-dong-co.html">56</a> explained.</p>
+</section>
+<section>
+<p class="sec-chip">REGION</p>
+<h2>Which country your data is in</h2>
+<p>Which region the data center is in, meaning which country, matters too. Banks and hospitals often have to choose where their data lives because of regulations.</p>
+</section>
+<section>
+<p class="sec-chip">PEAK HOURS</p>
+<h2>Overloaded, try again later</h2>
+<p>At peak hours, millions of people ask at once. The system turns on more machines by itself, called autoscaling. If it can&#x27;t keep up, you see the familiar message: overloaded, try again later.</p>
+</section>
+<section>
+<p class="sec-chip">ON-DEVICE</p>
+<h2>AI right on your phone</h2>
+<p>There are also small models that run right on your phone, called on-device AI. No internet needed, your data never leaves the device, but they&#x27;re less smart. Many new phones use both: light tasks on the phone, hard ones sent to the cloud.</p>
+</section>
+<aside class="try" aria-labelledby="thu-80">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-80">Check the status page</h2>
+  <p>Next time AI is slow or shows an error, don&#x27;t ask ten times. Search the app&#x27;s name plus the word status, open the company&#x27;s status page, and see if there&#x27;s an outage.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2>The door needs a guard</h2>
+<p>With AI that far away, the door needs a guard. Part three: input guardrails.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Cloud: where AI lives</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="80" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#api">API</a></li><li><a href="../tu-dien.html#autoscaling">Autoscaling</a></li><li><a href="../tu-dien.html#cloud">Cloud</a></li><li><a href="../tu-dien.html#data-center">Data center</a></li><li><a href="../tu-dien.html#gpu">GPU</a></li><li><a href="../tu-dien.html#on-device-ai">On-device AI</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Behind the scenes of an AI system</a> · Part 2/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/79-hanh-trinh-mot-cau-hoi.html"><span class="nav-dir">‹ Previous part</span><b>#79 · What happens when you send a question to a chatbot? Two seconds behind the scenes</b></a><a class="nav-card next" href="../bai/81-rao-chan-cong-vao.html"><span class="nav-dir">Next part ›</span><b>#81 · What are input guardrails? A chatbot&#x27;s gate on the way in</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

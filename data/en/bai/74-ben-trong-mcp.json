@@ -1,0 +1,39 @@
+{
+ "meta": "You type one sentence: \"Sum up yesterday's meeting notes in Drive, then schedule a follow-up on Friday.\" That sentence goes through two MCP sockets. What's inside? An MCP connection has a client and a server.",
+ "muc": [
+  {
+   "title": "One sentence, two sockets",
+   "text": "You type: sum up yesterday's meeting notes in Drive, then schedule a follow-up meeting on Friday. That sentence goes through two MCP sockets. Let's open them up."
+  },
+  {
+   "chip": "TWO SIDES",
+   "title": "Client and server",
+   "text": "An MCP connection has two sides. One side is the MCP client, inside the AI app you're chatting in. The other side is each tool's MCP server: one for Drive, one for the calendar."
+  },
+  {
+   "chip": "THREE KINDS OF THINGS",
+   "title": "Tools, resources, prompts",
+   "text": "Each server offers three kinds of things. Tools to do things, like creating an appointment. Resources to read, like files. And prompts, ready-made prompt templates."
+  },
+  {
+   "chip": "HELLO",
+   "title": "What have you got?",
+   "text": "When they first connect, the client asks: what have you got? The server sends back a list of tools, with a description of each. AI reads that list, like the tool board on the wall in part one."
+  },
+  {
+   "chip": "RUNNING",
+   "title": "One step at a time",
+   "text": "Then AI goes step by step: it sends a tool call to the Drive server to read the notes, sums them up, then sends a tool call to the calendar server to create the meeting. Creating an event changes your data, so the app asks you first."
+  },
+  {
+   "try": true,
+   "title": "One task, two tools",
+   "text": "Turn on a ready-made connector like Drive or a calendar. Give AI a task that needs both at once, and watch it call each one in turn."
+  },
+  {
+   "chip": "NEXT",
+   "title": "What if you install anything?",
+   "text": "Every server opens a door into your data. What if you install just anything? Part four: using MCP safely."
+  }
+ ]
+}

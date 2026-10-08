@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is loss? How AI knows how wrong it is | Mark học AI</title>
+<meta name="description" content="To learn, AI has to know how wrong it is. Like throwing darts: the distance to the bullseye is a number that measures the miss. That number is called the error, or the loss function.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/39-ai-biet-minh-sai.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/39-ai-biet-minh-sai.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is loss? How AI knows how wrong it is | Mark học AI">
+<meta property="og:description" content="To learn, AI has to know how wrong it is. Like throwing darts: the distance to the bullseye is a number that measures the miss. That number is called the error, or the loss function.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is loss? How AI knows how wrong it is","description":"To learn, AI has to know how wrong it is. Like throwing darts: the distance to the bullseye is a number that measures the miss. That number is called the error, or the loss function.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Loss","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#loss"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"What is loss? How AI knows how wrong it is","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/39-ai-biet-minh-sai.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ai-hoc">How AI learns</a> › <span>#39</span></nav>
+<p class="eyebrow">Video #39 · How AI learns · Part 2/7</p>
+<h1>What is loss? How AI knows how wrong it is</h1>
+<p class="lead">To learn, AI has to know how wrong it is. Like darts: the distance to the bullseye is a number that measures the miss.</p>
+<div class="cta"><a class="btn btn-yt" data-so="39" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20bi%E1%BA%BFt%20m%C3%ACnh%20sai%20bao%20nhi%C3%AAu" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How wrong?</h2>
+<p>Last time: AI learns by turning billions of knobs. But to turn them the right way, the machine has to know how wrong it is. So how is &quot;wrong&quot; measured?</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>Throwing darts</h2>
+<p>Picture throwing darts at a target. Hitting the bullseye is right. The farther you miss, the more wrong you are. The distance to the bullseye is a number that measures the miss.</p>
+</section>
+<section>
+<p class="sec-chip">LOSS</p>
+<h2>A number that measures being wrong</h2>
+<p>AI works the same way. The machine gives an answer and compares it with the right one. How far off it is becomes a number, called the error, or the loss function.</p>
+</section>
+<section>
+<p class="sec-chip">EXAMPLE</p>
+<h2>A photo of a cat</h2>
+<p>Show the machine a photo of a cat. It says: 70% dog. The loss is very big. Next time it says: 90% cat. The loss is much smaller.</p>
+</section>
+<section>
+<p class="sec-chip">THE GOAL</p>
+<h2>Push the number down</h2>
+<p>The whole learning process aims at one thing: push this error number as low as possible. Every time it turns the knobs, the machine checks whether the loss went up or down.</p>
+</section>
+<section>
+<p class="sec-chip">CAREFUL</p>
+<h2>You get what you measure</h2>
+<p>But the machine only optimizes exactly what&#x27;s measured, nothing more. If essays are graded only by length, it will learn to write long, not better.</p>
+</section>
+<aside class="try" aria-labelledby="thu-39">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-39">Say clearly what good means</h2>
+  <p>When you ask AI for something, you&#x27;re giving it a measuring stick too. Don&#x27;t just say &quot;write it better&quot;. Say exactly: under 100 words, friendly tone, end with an invitation. The clearer the criteria, the closer AI gets.</p>
+  <p class="try-prompt" id="prompt-39">Under 100 words, friendly tone, end with an invitation</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-39" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<p class="sec-chip">PART 3</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which way to fix it?</h2>
+<p>Now it knows it&#x27;s wrong. But with billions of knobs, which way should it turn them? The answer is like walking down a mountain in the fog. See you in part 3.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>How AI knows how wrong it is</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="39" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20bi%E1%BA%BFt%20m%C3%ACnh%20sai%20bao%20nhi%C3%AAu" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#loss">Loss</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ai-hoc">How AI learns</a> · Part 2/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/38-nut-van.html"><span class="nav-dir">‹ Previous part</span><b>#38 · How does AI learn? Weights, neurons and neural networks</b></a><a class="nav-card next" href="../bai/40-xuong-nui-suong-mu.html"><span class="nav-dir">Next part ›</span><b>#40 · What is gradient descent? How AI reduces error, like walking down a foggy mountain</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

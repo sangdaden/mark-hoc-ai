@@ -1,0 +1,45 @@
+{
+ "meta": "AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix? Like a kitchen whose soup is too salty: the head chef traces back each step. That's backpropagation.",
+ "prompt": "Paragraph 2 has the wrong numbers. Please fix that paragraph.",
+ "muc": [
+  {
+   "title": "Which knob caused the mistake?",
+   "text": "Last time: AI walks downhill in small steps to reduce the error. But with billions of knobs, how does it know which ones to turn, and by how much?"
+  },
+  {
+   "chip": "EXAMPLE",
+   "title": "A bowl of noodle soup sent back",
+   "text": "Picture a noodle soup kitchen with three cooks: one makes the broth, one cooks the noodles, one does the seasoning. A customer complains: the soup is too salty."
+  },
+  {
+   "chip": "TRACING BACK",
+   "title": "Trace back through each step",
+   "text": "The head chef doesn't scold the whole kitchen. He traces back from the bowl to each step. The heavy-handed seasoner has to change a lot, the noodle cook barely changes at all."
+  },
+  {
+   "chip": "BACKPROPAGATION",
+   "title": "The mistake flows backward",
+   "text": "A neural network does exactly that. The mistake at the output is passed back through each layer, from the last layer to the first. This is called backpropagation."
+  },
+  {
+   "chip": "SHARING THE BLAME",
+   "title": "More blame, bigger fix",
+   "text": "Connections that caused more of the mistake get turned more, those that caused less get turned less. In a single backward pass, the machine knows how to fix every knob at once."
+  },
+  {
+   "chip": "WHY IT MATTERS",
+   "title": "The foundation of AI",
+   "text": "Backpropagation plus gradient descent is the foundation of modern AI. The chatbots you use today were all trained this way."
+  },
+  {
+   "try": true,
+   "title": "Point to the exact mistake",
+   "text": "When AI gets something wrong, don't just say \"that's wrong\". Point to the spot: \"paragraph 2 has the wrong numbers, fix that paragraph\". AI doesn't relearn during a chat, but pointing to the mistake helps it fix the right thing."
+  },
+  {
+   "chip": "PART 5",
+   "title": "What about a new kind of test?",
+   "text": "Learning this way, a machine can get so good it memorizes all the practice questions. But what happens with a question it's never seen? See you in part 5."
+  }
+ ]
+}

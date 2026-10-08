@@ -1,0 +1,49 @@
+{
+ "meta": "You ask a bank's chatbot: \"My card is locked, how do I unlock it?\" Two seconds later, there's an answer. In those two seconds, your question goes through a whole assembly line: input guardrails, cloud, output guardrails and more.",
+ "muc": [
+  {
+   "title": "Two seconds",
+   "text": "You ask a bank's chatbot: my card is locked, how do I unlock it? Two seconds later, there's an answer. In those two seconds, your question goes through a whole assembly line."
+  },
+  {
+   "chip": "STATION 1",
+   "title": "Input guardrails",
+   "text": "The first station is input guardrails, the gate on the way in. Here, the system hides your card number, and blocks off-topic or malicious questions."
+  },
+  {
+   "chip": "STATION 2",
+   "title": "The cloud",
+   "text": "Then your question flies up to the cloud, to a data center where thousands of chips run the AI model. The answer is written there, not on your phone."
+  },
+  {
+   "chip": "STATION 3",
+   "title": "Output guardrails",
+   "text": "The answer doesn't reach you right away. Output guardrails, the gate on the way out, check: does it promise something the policy doesn't allow, does it leak someone else's information? Real actions like unlocking a card wait for your confirmation."
+  },
+  {
+   "chip": "STATION 4",
+   "title": "Logging",
+   "text": "Every step is logged, written into a record, like a plane's black box. If something goes wrong, engineers can trace what happened."
+  },
+  {
+   "chip": "STATION 5",
+   "title": "Monitoring",
+   "text": "And monitoring tracks speed, cost and the rate of wrong answers on a dashboard. If anything looks unusual, an alert goes off."
+  },
+  {
+   "chip": "EVALUATION",
+   "title": "Change anything, test again",
+   "text": "And every time the model changes or the prompt is edited, the system must run an evaluation on the old test set, and only goes live once it passes."
+  },
+  {
+   "try": true,
+   "title": "Knock on the front gate",
+   "text": "Next time you use a bank's or a store's chatbot, ask something off-topic, like help with a math problem. See how it says no. That's input guardrails at work."
+  },
+  {
+   "chip": "NEXT",
+   "title": "Six stations ahead",
+   "text": "In the next six parts, we stop at each station. Starting with where AI really lives: the cloud."
+  }
+ ]
+}

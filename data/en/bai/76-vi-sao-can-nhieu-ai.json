@@ -1,0 +1,39 @@
+{
+ "meta": "Ask one AI to research 20 competitors, and by number 10 it starts forgetting number 1. Because each AI has a limited \"desk\", called the context window. Multi-agent splits the job among several AIs.",
+ "muc": [
+  {
+   "title": "One AI, twenty competitors",
+   "text": "Give one AI a big job: research twenty competitors, reading a dozen web pages for each. By competitor number ten, it starts forgetting competitor number one."
+  },
+  {
+   "chip": "WHY",
+   "title": "The desk has a limit",
+   "text": "Because each AI has a limited desk, called the context window, as video 9 explained. Pile on too many documents, and the desk overflows."
+  },
+  {
+   "chip": "SPLITTING THE WORK",
+   "title": "Orchestrator and subagents",
+   "text": "The fix: split the work among many agents, called multi-agent. A lead agent, called the orchestrator, makes a plan and gives each subagent a few competitors. Each subagent has its own context window, they run at the same time, and when they're done they only send back a short summary."
+  },
+  {
+   "chip": "REAL NUMBERS",
+   "title": "Anthropic tried it",
+   "text": "Anthropic tried this for Claude's research feature. An orchestrator with several subagents did up to ninety percent better than a single agent, on their internal test."
+  },
+  {
+   "chip": "THE COST",
+   "title": "A big team is expensive",
+   "text": "But a big team is expensive: in total it uses about fifteen times the tokens of a normal chat. So it's only worth it for big jobs that can be split into independent parts."
+  },
+  {
+   "try": true,
+   "title": "You be the lead AI",
+   "text": "For a big job like planning a trip to three cities, open three chats, one for each place. Then paste the three summaries into a fourth chat to put it all together. You just acted as the orchestrator."
+  },
+  {
+   "chip": "NEXT",
+   "title": "Who's in charge?",
+   "text": "Now there's a team. Who's in charge, and who checks the work? Part six."
+  }
+ ]
+}

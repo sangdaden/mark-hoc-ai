@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is tool calling? How AI uses tools | Mark học AI</title>
+<meta name="description" content="AI has no window and no phone. So how does it know if it will rain tomorrow? The secret: AI doesn&#x27;t press buttons itself. It just writes a &quot;request slip&quot;, called a tool call, and the app does the rest.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/72-ai-cam-cong-cu.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/72-ai-cam-cong-cu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is tool calling? How AI uses tools | Mark học AI">
+<meta property="og:description" content="AI has no window and no phone. So how does it know if it will rain tomorrow? The secret: AI doesn&#x27;t press buttons itself. It just writes a &quot;request slip&quot;, called a tool call, and the app does the rest.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is tool calling? How AI uses tools","description":"AI has no window and no phone. So how does it know if it will rain tomorrow? The secret: AI doesn't press buttons itself. It just writes a \"request slip\", called a tool call, and the app does the rest.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"From one AI to a whole team"},"about":[{"@type":"DefinedTerm","name":"AI agent","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#ai-agent"},{"@type":"DefinedTerm","name":"Tool calling","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#tool-calling"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"From one AI to a whole team","item":"https://sangdaden.github.io/mark-hoc-ai/en/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"What is tool calling? How AI uses tools","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/72-ai-cam-cong-cu.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#ca-doi-ai">From one AI to a whole team</a> › <span>#72</span></nav>
+<p class="eyebrow">Video #72 · From one AI to a whole team · Part 1/7</p>
+<h1>What is tool calling? How AI uses tools</h1>
+<p class="lead">AI has no window and no phone. So how does it know if it will rain in Da Lat tomorrow?</p>
+<div class="cta"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>AI has no window</h2>
+<p>You ask AI whether it will rain in Da Lat tomorrow, and it answers right away, with the temperature too. But AI has no window and no phone. So where did that come from?</p>
+</section>
+<section>
+<p class="sec-chip">THE SECRET</p>
+<h2>AI can only write</h2>
+<p>The secret: AI doesn&#x27;t press any buttons itself. It can only write text. So when it needs outside information, it writes a request slip, called a tool call.</p>
+</section>
+<section>
+<p class="sec-chip">REQUEST SLIP</p>
+<h2>The slip makes a round trip</h2>
+<p>The slip says: use the weather tool, place Da Lat, tomorrow. The app reads the slip, asks a weather service, then hands the result back to AI.</p>
+</section>
+<section>
+<p class="sec-chip">TOOL CALLING</p>
+<h2>Only then does it answer</h2>
+<p>With the result in hand, AI writes its answer to you. That whole loop is called tool calling: AI calling a tool.</p>
+</section>
+<section>
+<p class="sec-chip">THE LIST</p>
+<h2>A tool board on the wall</h2>
+<p>Each tool is one line of description: its name, what it does, what information it needs. AI reads that list to know when to use which one. Web search, checking a calendar, doing math: they all work this way.</p>
+</section>
+<section>
+<p class="sec-chip">DOES AI DECIDE?</p>
+<h2>The app holds the power</h2>
+<p>Because AI only writes slips, the power to act stays with the app. If a slip asks to send email or pay money, a good app stops and asks you first.</p>
+</section>
+<aside class="try" aria-labelledby="thu-72">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-72">Catch the slip in action</h2>
+  <p>Ask AI about something happening today, like this morning&#x27;s gold price. Watch for the small &quot;searching&quot; text. That&#x27;s the moment it sends a request slip.</p>
+  <p class="try-prompt" id="prompt-72">What&#x27;s the price of gold this morning?</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-72" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2>A hundred kinds of slips</h2>
+<p>But every app uses its own kind of slip. To connect AI to a hundred tools, do you have to build it a hundred times? Part two: a shared port called MCP.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Tool calling: how AI uses tools</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#ai-agent">AI agent</a></li><li><a href="../tu-dien.html#tool-calling">Tool calling</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#ca-doi-ai">From one AI to a whole team</a> · Part 1/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/71-claude-science.html"><span class="nav-dir">‹ Previous series: The Claude toolbox</span><b>#71 · What is Claude Science? A lab with an AI assistant</b></a><a class="nav-card next" href="../bai/73-mcp-cong-chung.html"><span class="nav-dir">Next part ›</span><b>#73 · What is MCP? Model Context Protocol, a shared port for AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

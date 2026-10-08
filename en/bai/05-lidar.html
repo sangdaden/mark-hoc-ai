@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is LiDAR? How self-driving cars measure distance with light | Mark học AI</title>
+<meta name="description" content="How does a self-driving car see a person walking in the dark? The answer is LiDAR, a technology that measures distance with light. Explained simply in about a minute.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/05-lidar.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is LiDAR? How self-driving cars measure distance with light | Mark học AI">
+<meta property="og:description" content="How does a self-driving car see a person walking in the dark? The answer is LiDAR, a technology that measures distance with light. Explained simply in about a minute.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is LiDAR? How self-driving cars measure distance with light","description":"How does a self-driving car see a person walking in the dark? The answer is LiDAR, a technology that measures distance with light. Explained simply in about a minute.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Core ideas"},"about":[{"@type":"DefinedTerm","name":"LiDAR","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#lidar"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Core ideas","item":"https://sangdaden.github.io/mark-hoc-ai/en/#nen-tang"},{"@type":"ListItem","position":3,"name":"What is LiDAR? How self-driving cars measure distance with light","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/05-lidar.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#nen-tang">Core ideas</a> › <span>#05</span></nav>
+<p class="eyebrow">Video #05 · Core ideas</p>
+<h1>What is LiDAR? How self-driving cars measure distance with light</h1>
+<p class="lead">In the dark of night, a self-driving car can still &quot;see&quot; a person walking ahead. The secret is LiDAR: measuring distance with light.</p>
+<div class="cta"><a class="btn btn-yt" data-so="5" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=LiDAR%20ho%E1%BA%A1t%20%C4%91%E1%BB%99ng%20th%E1%BA%BF%20n%C3%A0o%3F" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How does LiDAR work?</h2>
+<p>In the dark of night, a self-driving car can still clearly see a person walking ahead. The secret is a technology called LiDAR.</p>
+</section>
+<section>
+<h2>Measuring distance with light</h2>
+<p>LiDAR means measuring distance with light. It&#x27;s like a bat listening for echoes, but it uses laser pulses instead of sound.</p>
+</section>
+<section>
+<p class="sec-chip">STEP 1/3</p>
+<h2>Send a laser flash</h2>
+<p>Step one: the device sends out a very short laser flash that your eyes can&#x27;t see. The flash flies out, hits an object and bounces back.</p>
+</section>
+<section>
+<p class="sec-chip">STEP 2/3</p>
+<h2>Time the trip there and back</h2>
+<p>Step two: the device times how long it takes, from sending to receiving. Light is so fast that going 15 meters and back takes only one ten-millionth of a second.</p>
+</section>
+<section>
+<p class="sec-chip">STEP 3/3</p>
+<h2>Work out the distance</h2>
+<p>Step three: work out the distance. Multiply the time by the speed of light, then divide by two, because the light went there and came back.</p>
+</section>
+<section>
+<h2>Millions of dots</h2>
+<p>The device does this hundreds of thousands of times per second, in every direction. Each measurement is one dot. Together they make a 3D map called a point cloud.</p>
+</section>
+<section>
+<p class="sec-chip">AI AT WORK</p>
+<h2>AI reads the point cloud</h2>
+<p>Then AI reads those dots to tell what is a person, what is a car, and how far away they are. That&#x27;s how the car knows when to brake.</p>
+</section>
+<section>
+<p class="sec-chip">AROUND YOU</p>
+<h2>LiDAR is all around you</h2>
+<p>LiDAR is also in robot vacuums, mapping drones and the Pro iPhones.</p>
+</section>
+<aside class="try" aria-labelledby="thu-5">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-5">Measure height with your phone</h2>
+  <p>Want to try it? Open the Measure app on a Pro iPhone and point it at a person. It will show their height on its own.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>How does LiDAR work?</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="5" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=LiDAR%20ho%E1%BA%A1t%20%C4%91%E1%BB%99ng%20th%E1%BA%BF%20n%C3%A0o%3F" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#lidar">LiDAR</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Standalone videos <a href="../#nen-tang">Core ideas</a> · #05</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/04-adaptive-learning.html"><span class="nav-dir">‹ Previous video</span><b>#04 · What is adaptive learning? Turn AI into your own private tutor</b></a><a class="nav-card next" href="../bai/06-adaptive-learning-p2.html"><span class="nav-dir">Next video ›</span><b>#06 · How to learn with AI: 4 ways to make AI teach at your level</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

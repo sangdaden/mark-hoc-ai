@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is Mixture of Experts (MoE)? Why big models can still be fast | Mark học AI</title>
+<meta name="description" content="New models have huge numbers of parameters but still run fast? The secret is Mixture of Experts (MoE): the model is split into many small experts, plus a router that calls only a few for each token.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/117-mixture-of-experts.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is Mixture of Experts (MoE)? Why big models can still be fast | Mark học AI">
+<meta property="og:description" content="New models have huge numbers of parameters but still run fast? The secret is Mixture of Experts (MoE): the model is split into many small experts, plus a router that calls only a few for each token.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is Mixture of Experts (MoE)? Why big models can still be fast","description":"New models have huge numbers of parameters but still run fast? The secret is Mixture of Experts (MoE): the model is split into many small experts, plus a router that calls only a few for each token.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"60-second AI glossary"},"about":[{"@type":"DefinedTerm","name":"Mixture of Experts","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#mixture-of-experts"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"60-second AI glossary","item":"https://sangdaden.github.io/mark-hoc-ai/en/#tu-dien-ai"},{"@type":"ListItem","position":3,"name":"What is Mixture of Experts (MoE)? Why big models can still be fast","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/117-mixture-of-experts.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#tu-dien-ai">60-second AI glossary</a> › <span>#117</span></nav>
+<p class="eyebrow">Video #117 · 60-second AI glossary · Part 5/5</p>
+<h1>What is Mixture of Experts (MoE)? Why big models can still be fast</h1>
+<p class="lead">New models have huge numbers of parameters but still run fast? The secret is Mixture of Experts (MoE).</p>
+<div class="cta"><a class="btn btn-yt" data-so="117" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Big but still fast?</h2>
+<p>Mark reads the specs of a Mixture of Experts model: a huge number of parameters, yet it still runs fast. He wants to know why.</p>
+</section>
+<section>
+<p class="sec-chip">MoE</p>
+<h2>A team of experts</h2>
+<p>Bit explains: Mixture of Experts, MoE for short, splits a model into many small experts, plus a coordinator called the router.</p>
+</section>
+<section>
+<p class="sec-chip">HOW IT RUNS</p>
+<h2>Only a few are called each time</h2>
+<p>For each token that comes in, the router calls only the few best-fitting experts, and the others rest.</p>
+</section>
+<section>
+<p class="sec-chip">THE BENEFIT</p>
+<h2>A big store, a light load</h2>
+<p>That way, the model has a huge store of knowledge, but only runs a small part each time, so it stays fast and cheap.</p>
+</section>
+<section>
+<p class="sec-chip">GETTING IT RIGHT</p>
+<h2>Not split by school subject</h2>
+<p>Note: the experts aren&#x27;t neatly split into math, literature or history. They divide the work themselves while learning, in ways people find hard to name.</p>
+</section>
+<section>
+<p class="sec-chip">REMEMBER</p>
+<h2>When you see this word</h2>
+<p>When you see this word, think: a big model that only uses a few experts at a time, so it&#x27;s fast. Many powerful models today work this way.</p>
+</section>
+<aside class="try" aria-labelledby="thu-117">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-117">Do it today</h2>
+  <p>Next time you read the specs of a new model, look for &quot;MoE&quot; or &quot;active parameters&quot; (the parameters used each time). Now you know what they mean.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>What is Mixture of Experts (MoE)?</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="117" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#mixture-of-experts">Mixture of Experts</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#tu-dien-ai">60-second AI glossary</a> · Part 5/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/116-synthetic-data.html"><span class="nav-dir">‹ Previous part</span><b>#116 · What is synthetic data? When AI makes data to teach AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

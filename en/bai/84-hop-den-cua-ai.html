@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What are logging and tracing in AI systems? AI&#x27;s black box recorder | Mark học AI</title>
+<meta name="description" content="The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it? Every question leaves a line in the log: the time, the question with details hidden, the answer, time and cost.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/84-hop-den-cua-ai.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What are logging and tracing in AI systems? AI&#x27;s black box recorder | Mark học AI">
+<meta property="og:description" content="The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it? Every question leaves a line in the log: the time, the question with details hidden, the answer, time and cost.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What are logging and tracing in AI systems? AI's black box recorder","description":"The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it? Every question leaves a line in the log: the time, the question with details hidden, the answer, time and cost.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Behind the scenes of an AI system"},"about":[{"@type":"DefinedTerm","name":"Logging","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#logging"},{"@type":"DefinedTerm","name":"Observability","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#observability"},{"@type":"DefinedTerm","name":"Tracing","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#tracing"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Behind the scenes of an AI system","item":"https://sangdaden.github.io/mark-hoc-ai/en/#hau-truong"},{"@type":"ListItem","position":3,"name":"What are logging and tracing in AI systems? AI's black box recorder","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/84-hop-den-cua-ai.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#84</span></nav>
+<p class="eyebrow">Video #84 · Behind the scenes of an AI system · Part 6/7</p>
+<h1>What are logging and tracing in AI systems? AI&#x27;s black box recorder</h1>
+<p class="lead">The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it?</p>
+<div class="cta"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>A complaint</h2>
+<p>A customer complains: the chatbot said transfers were free, but I was still charged. How does the tech team trace what happened?</p>
+</section>
+<section>
+<p class="sec-chip">LOGGING</p>
+<h2>One line per question</h2>
+<p>With logs, a written record. Every question leaves a line in the log: the time, the question with private details hidden, the answer, how long it took and how much it cost.</p>
+</section>
+<section>
+<p class="sec-chip">TRACING</p>
+<h2>One thread through every step</h2>
+<p>But one question goes through many steps: the gate in, finding documents, calling the model, the gate out. A trace ties those steps into one thread, so you can see what each step received and returned.</p>
+</section>
+<section>
+<p class="sec-chip">FOUND IT</p>
+<h2>Where the mistake was</h2>
+<p>Following the trace, they found the problem: the document search step pulled last year&#x27;s old fee table. AI didn&#x27;t make it up, it read the wrong document. They fix that exact spot, then add this question to the eval set from part five.</p>
+</section>
+<section>
+<p class="sec-chip">OBSERVABILITY</p>
+<h2>Seeing clearly inside</h2>
+<p>Being able to see clearly inside a system like this is what engineers call observability.</p>
+</section>
+<section>
+<p class="sec-chip">PRIVACY</p>
+<h2>Logs must be kept private too</h2>
+<p>But logs also contain what customers said. So private data has to be hidden, only some people can view them, and they&#x27;re deleted after a while.</p>
+</section>
+<aside class="try" aria-labelledby="thu-84">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-84">Your own log</h2>
+  <p>Look at your own log. Go to your AI app&#x27;s settings and find export data. Download it, see what&#x27;s stored, and delete what you don&#x27;t want kept.</p></div>
+</aside>
+<section>
+<p class="sec-chip">NEXT</p>
+<h2>Knowing before things go wrong</h2>
+<p>Tracing problems after the fact is good. Knowing before they happen is even better. The last part: monitoring.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>Logging and tracing: AI&#x27;s black box</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#logging">Logging</a></li><li><a href="../tu-dien.html#observability">Observability</a></li><li><a href="../tu-dien.html#tracing">Tracing</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#hau-truong">Behind the scenes of an AI system</a> · Part 6/7</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/83-thi-lai-truoc-khi-doi.html"><span class="nav-dir">‹ Previous part</span><b>#83 · What is evaluation? Why you test again before switching AI models</b></a><a class="nav-card next" href="../bai/85-phong-dieu-khien.html"><span class="nav-dir">Next part ›</span><b>#85 · What is AI system monitoring? Dashboards, alerts and drift</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

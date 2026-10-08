@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where does AI learn from? Training and AI&#x27;s knowledge cutoff date | Mark học AI</title>
+<meta name="description" content="Part 4 of &quot;Inside AI&#x27;s brain&quot;. In part 3 we built the machine: pieces, the map of meaning, attention. But a new machine knows nothing. This video shows what AI reads and how it learns.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/22-ai-doc-gi.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/22-ai-doc-gi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Where does AI learn from? Training and AI&#x27;s knowledge cutoff date | Mark học AI">
+<meta property="og:description" content="Part 4 of &quot;Inside AI&#x27;s brain&quot;. In part 3 we built the machine: pieces, the map of meaning, attention. But a new machine knows nothing. This video shows what AI reads and how it learns.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Where does AI learn from? Training and AI's knowledge cutoff date","description":"Part 4 of \"Inside AI's brain\". In part 3 we built the machine: pieces, the map of meaning, attention. But a new machine knows nothing. This video shows what AI reads and how it learns.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Inside AI's brain"},"about":[{"@type":"DefinedTerm","name":"Knowledge cutoff","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#knowledge-cutoff"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#pretraining"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Inside AI's brain","item":"https://sangdaden.github.io/mark-hoc-ai/en/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Where does AI learn from? Training and AI's knowledge cutoff date","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/22-ai-doc-gi.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> › <span>#22</span></nav>
+<p class="eyebrow">Video #22 · Inside AI&#x27;s brain · Part 4/8</p>
+<h1>Where does AI learn from? Training and AI&#x27;s knowledge cutoff date</h1>
+<p class="lead">When AI&#x27;s brain is first built, it knows nothing. Then it&#x27;s given a huge amount of text to read: web pages, books, articles, even computer code.</p>
+<div class="cta"><a class="btn btn-yt" data-so="22" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20%C4%91%C3%A3%20%22%C4%91%E1%BB%8Dc%22%20g%C3%AC%20%C4%91%E1%BB%83%20th%C3%B4ng%20minh%3F" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>A brain just put together</h2>
+<p>We have the machine: cutting into pieces, the map of meaning, attention. But when it&#x27;s just built, it knows nothing at all.</p>
+</section>
+<section>
+<h2>Reading a whole library</h2>
+<p>Then people let it read. A huge amount of text: web pages, books, articles, even computer code. More than one person could read in a thousand lifetimes.</p>
+</section>
+<section>
+<h2>Learning by guessing words</h2>
+<p>The way it learns is simple: hide the next word and make it guess. If it&#x27;s wrong, it adjusts a little. Repeat billions of times, and it picks up grammar, facts and even how to reason.</p>
+</section>
+<section>
+<h2>The cutoff date</h2>
+<p>But the reading has to stop on a certain day, called the cutoff date. AI knows nothing about what happened after that day.</p>
+</section>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about the latest news?</h2>
+<p>So if you ask about today&#x27;s gold price, a new law or this week&#x27;s news, AI may answer with old information, and still sound very sure.</p>
+</section>
+<aside class="try" aria-labelledby="thu-22">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-22">Ask for the cutoff date</h2>
+  <p>Ask AI &quot;how up to date is your knowledge?&quot;. For news, prices and new rules, turn on web search or paste a source for AI to read.</p>
+  <p class="try-prompt" id="prompt-22">How up to date is your knowledge?</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-22" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<h2>It can only continue sentences</h2>
+<p>After reading the whole library, AI only knows how to continue a sentence, not how to answer questions. So how did it become a polite assistant? Part five has the answer.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>What did AI &quot;read&quot; to get smart?</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="22" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20%C4%91%C3%A3%20%22%C4%91%E1%BB%8Dc%22%20g%C3%AC%20%C4%91%E1%BB%83%20th%C3%B4ng%20minh%3F" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#knowledge-cutoff">Knowledge cutoff</a></li><li><a href="../tu-dien.html#pretraining">Pretraining</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> · Part 4/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/21-attention.html"><span class="nav-dir">‹ Previous part</span><b>#21 · What is attention in AI? Where AI focuses when it reads</b></a><a class="nav-card next" href="../bai/23-con-vet-thanh-tro-ly.html"><span class="nav-dir">Next part ›</span><b>#23 · How do chatbots learn to answer and say no? From parrot to assistant</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

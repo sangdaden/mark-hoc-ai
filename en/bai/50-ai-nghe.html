@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How does AI understand speech? Speech-to-text explained simply | Mark học AI</title>
+<meta name="description" content="AI doesn&#x27;t just read text anymore. It can hear you too. But how does a machine &quot;listen&quot;? To a machine, a voice is a list of numbers measuring how the air vibrates. It turns sound into a picture called a spectrogram.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/50-ai-nghe.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/50-ai-nghe.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How does AI understand speech? Speech-to-text explained simply | Mark học AI">
+<meta property="og:description" content="AI doesn&#x27;t just read text anymore. It can hear you too. But how does a machine &quot;listen&quot;? To a machine, a voice is a list of numbers measuring how the air vibrates. It turns sound into a picture called a spectrogram.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How does AI understand speech? Speech-to-text explained simply","description":"AI doesn't just read text anymore. It can hear you too. But how does a machine \"listen\"? To a machine, a voice is a list of numbers measuring how the air vibrates. It turns sound into a picture called a spectrogram.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI's senses"},"about":[{"@type":"DefinedTerm","name":"Speech-to-text","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#speech-to-text"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"AI's senses","item":"https://sangdaden.github.io/mark-hoc-ai/en/#da-giac-quan"},{"@type":"ListItem","position":3,"name":"How does AI understand speech? Speech-to-text explained simply","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/50-ai-nghe.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#da-giac-quan">AI&#x27;s senses</a> › <span>#50</span></nav>
+<p class="eyebrow">Video #50 · AI&#x27;s senses · Part 1/6</p>
+<h1>How does AI understand speech? Speech-to-text explained simply</h1>
+<p class="lead">AI doesn&#x27;t just read text anymore. It can hear you too. But how does a machine &quot;listen&quot;?</p>
+<div class="cta"><a class="btn btn-yt" data-so="50" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20nghe%20b%E1%BA%A1n%20n%C3%B3i%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How does AI hear you?</h2>
+<p>AI doesn&#x27;t just read text anymore. It can also hear you talk. You speak into your phone, and the words appear right away. But how does a machine listen?</p>
+</section>
+<section>
+<p class="sec-chip">SOUND WAVES</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What is a voice to a machine?</h2>
+<p>To a machine, a voice is just a list of numbers: how the air vibrates, measured tens of thousands of times per second. Looking at those numbers, it&#x27;s hard to tell what you said.</p>
+</section>
+<section>
+<p class="sec-chip">SPECTROGRAM</p>
+<h2>Turning sound into a picture</h2>
+<p>So the machine slices the sound very thin and splits each slice into low and high sounds. Line the slices up, and you get a picture called a spectrogram: bright spots are where there&#x27;s sound.</p>
+</section>
+<section>
+<p class="sec-chip">READING THE PICTURE</p>
+<h2>Reading the picture into words</h2>
+<p>Each sound has its own shape: an &quot;ah&quot; is a few horizontal bars, a &quot;sss&quot; is a blur up high. A model that has heard hundreds of thousands of hours of recordings reads those shapes into words, using the meaning of the sentence too.</p>
+</section>
+<section>
+<p class="sec-chip">WHY IT GETS IT WRONG</p>
+<h2>Noise and people talking over each other</h2>
+<p>Anything that smudges the picture makes AI mishear. Coffee shop noise blurs the shapes of words. When two people talk at once, their shapes pile on top of each other.</p>
+</section>
+<section>
+<p class="sec-chip">NAMES</p>
+<h2>Names are easy to get wrong</h2>
+<p>AI rarely sees unusual names, so it often guesses a common word instead. A coworker named Leigh might turn into &quot;lay&quot;. So always double-check names and numbers.</p>
+</section>
+<aside class="try" aria-labelledby="thu-50">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-50">Transcribe a meeting</h2>
+  <p>At your next meeting, ask permission, then record it with your phone close to the speaker. Afterwards, ask AI to transcribe it and sum up the 5 main points and the to-dos.</p></div>
+</aside>
+<section>
+<p class="sec-chip">PART 2</p>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">It can listen. Can it talk?</h2>
+<p>AI can listen now. What about talking? How does a machine read text in a voice that sounds human? See you in part 2.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>How AI hears you</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="50" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20nghe%20b%E1%BA%A1n%20n%C3%B3i%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#speech-to-text">Speech-to-text</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#da-giac-quan">AI&#x27;s senses</a> · Part 1/6</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/49-cham-dieu-kho-cham.html"><span class="nav-dir">‹ Previous series: How AI gets graded</span><b>#49 · How is AI tested for safety and honesty? Red teams and AI judges</b></a><a class="nav-card next" href="../bai/51-ai-noi.html"><span class="nav-dir">Next part ›</span><b>#51 · How does AI turn text into speech? Text-to-speech and voice cloning</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

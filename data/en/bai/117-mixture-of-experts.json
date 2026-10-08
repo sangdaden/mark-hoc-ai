@@ -1,0 +1,35 @@
+{
+ "meta": "New models have huge numbers of parameters but still run fast? The secret is Mixture of Experts (MoE): the model is split into many small experts, plus a router that calls only a few for each token.",
+ "thu": "Next time you read the specs of a new model, look for \"MoE\" or \"active parameters\" (the parameters used each time). Now you know what they mean.",
+ "muc": [
+  {
+   "title": "Big but still fast?",
+   "text": "Mark reads the specs of a Mixture of Experts model: a huge number of parameters, yet it still runs fast. He wants to know why."
+  },
+  {
+   "chip": "MoE",
+   "title": "A team of experts",
+   "text": "Bit explains: Mixture of Experts, MoE for short, splits a model into many small experts, plus a coordinator called the router."
+  },
+  {
+   "chip": "HOW IT RUNS",
+   "title": "Only a few are called each time",
+   "text": "For each token that comes in, the router calls only the few best-fitting experts, and the others rest."
+  },
+  {
+   "chip": "THE BENEFIT",
+   "title": "A big store, a light load",
+   "text": "That way, the model has a huge store of knowledge, but only runs a small part each time, so it stays fast and cheap."
+  },
+  {
+   "chip": "GETTING IT RIGHT",
+   "title": "Not split by school subject",
+   "text": "Note: the experts aren't neatly split into math, literature or history. They divide the work themselves while learning, in ways people find hard to name."
+  },
+  {
+   "chip": "REMEMBER",
+   "title": "When you see this word",
+   "text": "When you see this word, think: a big model that only uses a few experts at a time, so it's fast. Many powerful models today work this way."
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is distillation in AI? A big model teaches a small one | Mark học AI</title>
+<meta name="description" content="Why are some tiny models, small enough to run on a phone, still pretty smart? One secret is distillation: a big model is the teacher, answering lots of questions, and a small model learns from it.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/115-distillation.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is distillation in AI? A big model teaches a small one | Mark học AI">
+<meta property="og:description" content="Why are some tiny models, small enough to run on a phone, still pretty smart? One secret is distillation: a big model is the teacher, answering lots of questions, and a small model learns from it.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is distillation in AI? A big model teaches a small one","description":"Why are some tiny models, small enough to run on a phone, still pretty smart? One secret is distillation: a big model is the teacher, answering lots of questions, and a small model learns from it.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"60-second AI glossary"},"about":[{"@type":"DefinedTerm","name":"Distillation","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#distillation"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"60-second AI glossary","item":"https://sangdaden.github.io/mark-hoc-ai/en/#tu-dien-ai"},{"@type":"ListItem","position":3,"name":"What is distillation in AI? A big model teaches a small one","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/115-distillation.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#tu-dien-ai">60-second AI glossary</a> › <span>#115</span></nav>
+<p class="eyebrow">Video #115 · 60-second AI glossary · Part 3/5</p>
+<h1>What is distillation in AI? A big model teaches a small one</h1>
+<p class="lead">Why are some tiny models, small enough to run on a phone, still pretty smart? One secret is distillation.</p>
+<div class="cta"><a class="btn btn-yt" data-so="115" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Small but smart?</h2>
+<p>Mark wonders why some tiny models, small enough to run on a phone, are still pretty smart.</p>
+</section>
+<section>
+<p class="sec-chip">DISTILLATION</p>
+<h2>A big teacher, a small student</h2>
+<p>One secret is distillation. A big model is the teacher, answering lots and lots of questions. A small model is the student, learning from how the teacher answers.</p>
+</section>
+<section>
+<p class="sec-chip">WHY</p>
+<h2>Learning the hesitation too</h2>
+<p>The student doesn&#x27;t just learn the right answer. It also learns how much the teacher hesitated between answers. That information helps the student learn much faster.</p>
+</section>
+<section>
+<p class="sec-chip">THE RESULT</p>
+<h2>Small, fast, cheap</h2>
+<p>The result is a small, fast, cheap model that keeps most of the teacher&#x27;s skill, especially at the tasks it was taught.</p>
+</section>
+<section>
+<p class="sec-chip">REMEMBER</p>
+<h2>When you see this word</h2>
+<p>When you see this word, think: a small model learning from a big one. That&#x27;s why there are fast, cheap mini versions, as in video <a href="../bai/18-chon-model.html">18</a>.</p>
+</section>
+<aside class="try" aria-labelledby="thu-115">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-115">Do it today</h2>
+  <p>Next time you pick a model in an AI app, try the mini or fast version for small tasks like summarizing or rewriting a sentence. Compare and see whether the results differ much.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>Distillation: a big model teaches a small one</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="115" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#distillation">Distillation</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#tu-dien-ai">60-second AI glossary</a> · Part 3/5</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/114-open-source.html"><span class="nav-dir">‹ Previous part</span><b>#114 · What are open-source and open-weight AI? How they differ</b></a><a class="nav-card next" href="../bai/116-synthetic-data.html"><span class="nav-dir">Next part ›</span><b>#116 · What is synthetic data? When AI makes data to teach AI</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

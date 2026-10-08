@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What is a token? Why AI doesn&#x27;t read words the way people do | Mark học AI</title>
+<meta name="description" content="The start of the 8-part series &quot;Inside AI&#x27;s brain&quot;. Part 1 explains tokens: AI doesn&#x27;t read letter by letter like you. It cuts sentences into small pieces and turns each one into a number.">
+<link rel="canonical" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html">
+<link rel="alternate" hreflang="vi" href="https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html">
+<link rel="alternate" hreflang="en" href="https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html">
+<link rel="alternate" hreflang="x-default" href="https://sangdaden.github.io/mark-hoc-ai/bai/19-token.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is a token? Why AI doesn&#x27;t read words the way people do | Mark học AI">
+<meta property="og:description" content="The start of the 8-part series &quot;Inside AI&#x27;s brain&quot;. Part 1 explains tokens: AI doesn&#x27;t read letter by letter like you. It cuts sentences into small pieces and turns each one into a number.">
+<meta property="og:url" content="https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html">
+<meta property="og:image" content="https://sangdaden.github.io/mark-hoc-ai/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is a token? Why AI doesn't read words the way people do","description":"The start of the 8-part series \"Inside AI's brain\". Part 1 explains tokens: AI doesn't read letter by letter like you. It cuts sentences into small pieces and turns each one into a number.","inLanguage":"en","url":"https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html","mainEntityOfPage":"https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html","image":["https://sangdaden.github.io/mark-hoc-ai/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://sangdaden.github.io/mark-hoc-ai/","logo":{"@type":"ImageObject","url":"https://sangdaden.github.io/mark-hoc-ai/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Inside AI's brain"},"about":[{"@type":"DefinedTerm","name":"Token","url":"https://sangdaden.github.io/mark-hoc-ai/en/tu-dien.html#token"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://sangdaden.github.io/mark-hoc-ai/en/"},{"@type":"ListItem","position":2,"name":"Inside AI's brain","item":"https://sangdaden.github.io/mark-hoc-ai/en/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"What is a token? Why AI doesn't read words the way people do","item":"https://sangdaden.github.io/mark-hoc-ai/en/bai/19-token.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a class="nav-yt" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> › <span>#19</span></nav>
+<p class="eyebrow">Video #19 · Inside AI&#x27;s brain · Part 1/8</p>
+<h1>What is a token? Why AI doesn&#x27;t read words the way people do</h1>
+<p class="lead">You use AI every day, but what is it really doing inside? This 8-part series opens up AI&#x27;s brain.</p>
+<div class="cta"><a class="btn btn-yt" data-so="19" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20kh%C3%B4ng%20%C4%91%E1%BB%8Dc%20ch%E1%BB%AF%2C%20n%C3%B3%20%C4%91%E1%BB%8Dc%20%22m%E1%BA%A3nh%22" target="_blank" rel="noopener">▶ Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<section>
+<h2>Opening up AI&#x27;s brain</h2>
+<p>You use AI every day, but what is it really doing inside? This eight-part series opens up AI&#x27;s brain. Part one: AI doesn&#x27;t read words the way you do.</p>
+</section>
+<section>
+<h2>Scissors that cut sentences</h2>
+<p>Before it understands anything, AI cuts your sentence into small pieces called tokens. Some pieces are a whole word, some are just part of a word.</p>
+</section>
+<section>
+<h2>Each piece becomes a number</h2>
+<p>Then each piece is turned into a number. What AI actually sees is a list of numbers, not letters.</p>
+</section>
+<section>
+<h2>Why AI miscounts letters</h2>
+<p>That&#x27;s why AI often miscounts letters. It doesn&#x27;t look at each letter, it looks at whole pieces. Letters hidden inside a piece are easy to miss.</p>
+</section>
+<section>
+<h2>Some languages take more pieces</h2>
+<p>Languages with accents, like Vietnamese, often get cut into smaller bits than English. The same idea takes more pieces. And how much AI can read, and how much you pay, are both counted in pieces.</p>
+</section>
+<aside class="try" aria-labelledby="thu-19">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-19">Split the letters, then count</h2>
+  <p>When you need AI to count or rearrange letters, tell it to &quot;split the word into single letters first, then count&quot;. And keep your requests short and clear, so AI uses fewer pieces but still gets the full idea.</p>
+  <p class="try-prompt" id="prompt-19">Split the word into single letters first, then count</p>
+  <button class="btn copy-btn" type="button" data-chep="prompt-19" hidden>Copy prompt</button></div>
+</aside>
+<section>
+<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So how do numbers carry meaning?</h2>
+<p>But if each piece is just a number, how does AI know &quot;cat&quot; is closer to &quot;dog&quot; than to &quot;truck&quot;? Part two has the answer.</p>
+</section>
+<div class="post-end">
+<p>This article is based on the video <b>AI doesn&#x27;t read words, it reads &quot;pieces&quot;</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="19" data-kenh="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w/search?query=AI%20kh%C3%B4ng%20%C4%91%E1%BB%8Dc%20ch%E1%BB%AF%2C%20n%C3%B3%20%C4%91%E1%BB%8Dc%20%22m%E1%BA%A3nh%22" target="_blank" rel="noopener">▶ Watch video</a></div>
+</div>
+</article>
+<section class="related" aria-labelledby="tu-lq">
+<h2 id="tu-lq">Terms in this article</h2>
+<ul class="term-chips"><li><a href="../tu-dien.html#token">Token</a></li></ul>
+<p class="related-more">See each term explained in the <a href="../tu-dien.html">AI glossary</a>.</p>
+</section>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <a href="../#bo-nao-ai">Inside AI&#x27;s brain</a> · Part 1/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/18-chon-model.html"><span class="nav-dir">‹ Previous series: Core ideas</span><b>#18 · Which AI model should you choose? Haiku, Sonnet, Opus and Fable compared</b></a><a class="nav-card next" href="../bai/20-ban-do-nghia.html"><span class="nav-dir">Next part ›</span><b>#20 · What is an embedding? How AI understands word meaning with a map</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>10 true-or-false questions, explained right away.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a href="https://www.youtube.com/channel/UC4zKObwjl5Pv_Fxlm8orl4w" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/1360313330497528" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>

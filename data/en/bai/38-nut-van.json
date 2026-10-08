@@ -1,0 +1,44 @@
+{
+ "meta": "When AI \"learns\", what actually changes inside it? Take a small decision: go out for coffee this afternoon? Rain, a friend's invite, money left: each one is a knob (a weight). Meet the artificial neuron.",
+ "muc": [
+  {
+   "title": "What does AI actually learn?",
+   "text": "Everyone says AI is \"trained\". But when AI learns, what actually changes inside it? The answer: billions of tiny knobs."
+  },
+  {
+   "chip": "EXAMPLE",
+   "title": "Go out for coffee?",
+   "text": "Picture a small decision: should I go out for coffee this afternoon? You think about three things: is it raining, did a friend invite you, and do you have money left?"
+  },
+  {
+   "chip": "WEIGHTS",
+   "title": "One knob for each thing",
+   "text": "Each thing has its own knob, called a weight. A friend's invite pushes hard toward \"go\", rain pulls the other way. Add them all up, and if it passes a threshold, you decide: go."
+  },
+  {
+   "chip": "NEURON",
+   "title": "An artificial neuron",
+   "text": "That is an artificial neuron: it takes a few numbers, multiplies them by weights, adds them up, then decides. Surprisingly simple."
+  },
+  {
+   "chip": "NEURAL NETWORK",
+   "title": "Stacked into layers",
+   "text": "Stack thousands of neurons into layers, each layer passing its results to the next, and you have a neural network. The first layer spots lines, the middle layers spot ears and eyes, and the last layer says: cat."
+  },
+  {
+   "chip": "LEARNING",
+   "title": "Learning means turning the knobs itself",
+   "text": "Big chatbots have hundreds of billions of these knobs, and nobody turns them by hand. \"Learning\" means the machine turns each knob itself, a little at a time, until it gets the right answer."
+  },
+  {
+   "try": true,
+   "title": "Watch the knobs turn themselves",
+   "text": "Want to see it for yourself? Open playground.tensorflow.org, press play, and watch the connecting lines get darker and lighter. Those are the knobs turning themselves."
+  },
+  {
+   "chip": "PART 2",
+   "title": "Which knob, which way?",
+   "text": "But how does the machine know which knob to turn, and which way? First, it has to know how wrong it is. See you in part 2."
+  }
+ ]
+}

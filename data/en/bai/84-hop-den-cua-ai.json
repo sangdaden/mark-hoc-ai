@@ -1,0 +1,44 @@
+{
+ "meta": "The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it? Every question leaves a line in the log: the time, the question with details hidden, the answer, time and cost.",
+ "muc": [
+  {
+   "title": "A complaint",
+   "text": "A customer complains: the chatbot said transfers were free, but I was still charged. How does the tech team trace what happened?"
+  },
+  {
+   "chip": "LOGGING",
+   "title": "One line per question",
+   "text": "With logs, a written record. Every question leaves a line in the log: the time, the question with private details hidden, the answer, how long it took and how much it cost."
+  },
+  {
+   "chip": "TRACING",
+   "title": "One thread through every step",
+   "text": "But one question goes through many steps: the gate in, finding documents, calling the model, the gate out. A trace ties those steps into one thread, so you can see what each step received and returned."
+  },
+  {
+   "chip": "FOUND IT",
+   "title": "Where the mistake was",
+   "text": "Following the trace, they found the problem: the document search step pulled last year's old fee table. AI didn't make it up, it read the wrong document. They fix that exact spot, then add this question to the eval set from part five."
+  },
+  {
+   "chip": "OBSERVABILITY",
+   "title": "Seeing clearly inside",
+   "text": "Being able to see clearly inside a system like this is what engineers call observability."
+  },
+  {
+   "chip": "PRIVACY",
+   "title": "Logs must be kept private too",
+   "text": "But logs also contain what customers said. So private data has to be hidden, only some people can view them, and they're deleted after a while."
+  },
+  {
+   "try": true,
+   "title": "Your own log",
+   "text": "Look at your own log. Go to your AI app's settings and find export data. Download it, see what's stored, and delete what you don't want kept."
+  },
+  {
+   "chip": "NEXT",
+   "title": "Knowing before things go wrong",
+   "text": "Tracing problems after the fact is good. Knowing before they happen is even better. The last part: monitoring."
+  }
+ ]
+}
