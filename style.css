@@ -57,6 +57,10 @@ h1 { margin: 0; font: 800 clamp(34px, 5.4vw, 58px)/1.14 var(--f-display); letter
   color: var(--ink); background: var(--panel); border: 1.5px solid var(--edge); transition: transform .15s, border-color .15s; }
 .btn:hover { border-color: var(--blue); transform: translateY(-1px); }
 .btn-yt { background: var(--grad); color: var(--on); border-color: transparent; }
+.socials { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin: 20px 0 0; font: 500 15px/1.4 var(--f-body); }
+.socials span { color: rgba(255, 255, 255, .85); }
+.socials a { color: #fff; font-weight: 600; text-underline-offset: 4px; text-decoration-color: rgba(255, 255, 255, .5); }
+.socials a:hover { color: #FDE047; text-decoration-color: currentColor; }
 .stats { margin: 22px 0 0; font: 500 14px/1.4 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* Dải đầu trang phủ màu logo, Mark và Bit đứng bên phải */
@@ -137,6 +141,9 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
   .today { flex-direction: column; align-items: stretch; }
   .today-list { flex-direction: column; }
 }
+.xem-them { display: block; width: calc(100% - 48px); margin: 0 24px 18px; padding: 12px; border-radius: 14px; cursor: pointer;
+  font: 600 15px/1.2 var(--f-body); color: var(--blue); background: color-mix(in srgb, var(--sky) 10%, var(--panel)); border: 1.5px dashed color-mix(in srgb, var(--blue) 35%, var(--edge)); }
+.xem-them:hover { border-style: solid; border-color: var(--blue); }
 .empty { color: var(--muted); padding-block: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .empty img { width: 120px; }
 .empty p { margin: 0; max-width: 40ch; }
@@ -212,16 +219,18 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
 .step-foot { margin: auto 0 0; padding-top: 6px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 
 /* Nút lên đầu trang: hiện khi đã kéo xuống quá phần đầu */
-.to-top { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20;
-  display: inline-flex; align-items: center; gap: 6px; padding: 12px 16px 12px 14px; border-radius: 999px;
+.to-top { position: fixed; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px); bottom: calc(100px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px; border-radius: 999px;
   font: 700 14px/1 var(--f-body); color: #0F172A; background: #FACC15; text-decoration: none;
   border: 2px solid #0F172A; box-shadow: 0 10px 24px -10px rgba(15, 23, 42, .55); transition: transform .15s; }
+.to-top span { display: none; }
 .to-top:hover { transform: translateY(-2px); }
+/* Nút Đầu trang tròn, đứng ngay trên Bit; tạm ẩn khi Bit đang nói hoặc mở menu (bit-tro-ly.js) */
+.bit-dang-noi .to-top { visibility: hidden; }
 .to-top:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
 @media (max-width: 760px) {
-  .to-top span { display: none; }
-  .to-top { padding: 12px; }
+  .to-top { padding: 10px; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 7px); bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
   .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 16px 32px; }
   .hero-art img { width: min(80%, 300px); }
   .about { grid-template-columns: 1fr; padding: 24px; }
@@ -400,7 +409,6 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 }
 .foot-copy a { color: #fff; }
 .foot-copy a:hover { color: #FDE047; }
-@media (max-width: 440px) { .sub .top-links .nav-yt { display: none; } }
 
 /* Bit đứng cạnh câu hỏi (tiêu đề bài viết, trang Kiểm tra) */
 .h-hoi { display: flex; align-items: center; gap: 10px; }
@@ -411,9 +419,9 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .q-fb .q-bit { flex: none; width: 44px; height: auto; }
 @media (max-width: 480px) { .q-head .q-bit { width: 46px; } }
 
-/* Bit trợ lý: góc trái dưới (nút Đầu trang ở góc phải) */
-.bit-tl { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 8px; pointer-events: none; }
+/* Bit trợ lý: góc phải dưới; nút Đầu trang đứng ngay bên trái Bit */
+.bit-tl { position: fixed; right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px; pointer-events: none; }
 .bit-tl > * { pointer-events: auto; }
 .bit-nut { width: 72px; height: 80px; padding: 0; border: 0; background: none; cursor: pointer; animation: bit-bay 3.2s ease-in-out infinite;
   filter: drop-shadow(0 8px 12px rgba(15, 23, 42, .25)); }
@@ -422,7 +430,7 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .bit-nay .bit-nut { animation: bit-nay .7s cubic-bezier(.3, 1.6, .5, 1); }
 @keyframes bit-bay { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes bit-nay { 0% { transform: scale(.85); } 60% { transform: scale(1.12) rotate(-6deg); } 100% { transform: scale(1); } }
-.bit-noi { position: relative; max-width: min(250px, calc(100vw - 32px)); margin-left: 8px; padding: 12px 34px 12px 14px; border-radius: 16px 16px 16px 4px;
+.bit-noi { position: relative; max-width: min(250px, calc(100vw - 32px)); margin-right: 8px; padding: 12px 34px 12px 14px; border-radius: 16px 16px 4px 16px;
   background: var(--panel); color: var(--ink); border: 2px solid var(--ink); box-shadow: 0 10px 24px -12px rgba(15, 23, 42, .5);
   font: 500 14px/1.45 var(--f-body); cursor: pointer; animation: bit-hien .25s ease-out; }
 .bit-noi p { margin: 0; }
@@ -441,6 +449,9 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .bit-meo-khac { border: 0; padding: 0; background: none; color: var(--blue); font: 600 13.5px/1 var(--f-body); cursor: pointer; }
 @keyframes bit-hien { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
 @media (max-width: 480px) { .bit-nut { width: 58px; height: 66px; } .bit-nut img { width: 50px; } }
+/* Điện thoại: đang kéo xuống thì Bit lùi vào góc, mờ đi (bit-tro-ly.js) */
+.bit-nut { transition: opacity .25s, scale .25s; }
+.bit-lui .bit-nut { opacity: .35; scale: .8; translate: 0 8px; }
 @media (prefers-reduced-motion: reduce) { .bit-nut, .bit-nay .bit-nut, .bit-noi, .bit-menu { animation: none; } }
 @media print { .bit-tl { display: none; } }
 
@@ -472,3 +483,20 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .bit-x .ic { width: 16px; height: 16px; }
 .top-tools .ic { width: 16px; height: 16px; margin-right: 0; }
 .top-tools button, .top-tools a { gap: 6px; }
+
+/* Nút Menu: chỉ hiện trên điện thoại, gom các link trang để đầu trang gọn một hàng (cai-dat.js) */
+.nut-menu { display: none !important; }
+@media (max-width: 760px) {
+  .top { row-gap: 10px; padding-block: 14px; }
+  .top-tools { margin-left: auto; }
+  .top-tools .nhan { display: none; }
+  .top-tools button, .top-tools a { padding: 0 10px; }
+  .nut-menu { display: inline-flex !important; }
+  .top .top-links { display: none; order: 3; width: 100%; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px;
+    background: rgba(15, 23, 42, .24); }
+  .top.mo-menu .top-links { display: flex; }
+  .band .top-links a { padding: 11px 12px; border-radius: 10px; font-size: 16px; }
+  .band .top-links a:hover { background: rgba(255, 255, 255, .12); }
+  .band .top-links a.nav-start { margin: 0 0 4px; align-self: flex-start; }
+  .xem-them { width: calc(100% - 32px); margin-inline: 16px; }
+}

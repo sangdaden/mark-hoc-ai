@@ -1,4 +1,4 @@
-// Bit trợ lý: bay lơ lửng ở góc trái dưới, thỉnh thoảng nói gợi ý, bấm vào mở menu (Sang góp ý 8/10)
+// Bit trợ lý: bay lơ lửng ở góc phải dưới (chỗ người dùng quen tìm trợ giúp, ngón cái dễ chạm; Sang chọn 8/10), thỉnh thoảng nói gợi ý, bấm vào mở menu (Sang góp ý 8/10)
 (function () {
   const me = document.currentScript;
   const goc = me ? me.src.replace(/bit-tro-ly\.js.*$/, "") : "";
@@ -81,18 +81,23 @@
     if (!bang.hidden || nho.get("im")) return;
     noiChu.textContent = cau;
     noi.hidden = false;
+    hop.classList.remove("bit-lui");
+    dangNoi();
     doiMat("y-tuong");
     hop.classList.add("bit-nay");
     setTimeout(() => hop.classList.remove("bit-nay"), 700);
     clearTimeout(henGio);
     henGio = setTimeout(anNoi, 9000);
   }
-  function anNoi() { noi.hidden = true; if (bang.hidden) doiMat("vui"); }
+  // Bóng thoại / menu mọc lên trên Bit, đúng chỗ nút Đầu trang: lúc đó tạm ẩn nút ấy
+  function dangNoi() { document.body.classList.toggle("bit-dang-noi", !noi.hidden || !bang.hidden); }
+  function anNoi() { noi.hidden = true; if (bang.hidden) doiMat("vui"); dangNoi(); }
   function moMenu(mo) {
     bang.hidden = !mo;
     nut.setAttribute("aria-expanded", mo);
     if (mo) { anNoi(); meoMoi(); doiMat("giai-thich"); const a = bang.querySelector("a"); if (a) a.focus({ preventScroll: true }); }
     else doiMat("vui");
+    dangNoi();
   }
 
   nut.addEventListener("click", () => moMenu(bang.hidden));
@@ -103,12 +108,28 @@
   nut.addEventListener("mouseenter", () => { if (bang.hidden && noi.hidden) doiMat("nhay-mat"); });
   nut.addEventListener("mouseleave", () => { if (bang.hidden && noi.hidden) doiMat("vui"); });
 
-  // Lần 1 sau 6 giây, lần 2 khi đã kéo xuống được nửa trang
+  // Lần 1 sau 6 giây, lần 2 khi đã kéo xuống được nửa trang.
+  // Điện thoại: lần 1 đợi tới khi đã kéo qua phần đầu trang để bóng thoại không che các nút ở hero
+  const dt = matchMedia("(max-width: 760px)");
+  const quaDau = () => !dt.matches || scrollY > innerHeight * 0.6;
   const noiLan = () => { if (soLanNoi < loi.length) noiCau(loi[soLanNoi++]); };
-  setTimeout(noiLan, 6000);
+  let du6s = false;
+  setTimeout(() => { du6s = true; if (quaDau()) noiLan(); }, 6000);
   const khiCuon = () => {
+    if (soLanNoi === 0) { if (du6s && quaDau()) noiLan(); return; }
     const h = document.documentElement.scrollHeight - innerHeight;
     if (soLanNoi === 1 && h > 0 && scrollY / h > 0.5) { noiLan(); removeEventListener("scroll", khiCuon); }
   };
   addEventListener("scroll", khiCuon, { passive: true });
+
+  // Điện thoại: đang kéo xuống thì Bit mờ và nhỏ lại cho đỡ che chữ, dừng hoặc kéo lên thì hiện lại
+  let yTruoc = scrollY, henHien = 0;
+  addEventListener("scroll", () => {
+    const y = scrollY;
+    if (dt.matches && y > yTruoc + 4 && bang.hidden && noi.hidden) hop.classList.add("bit-lui");
+    else if (y < yTruoc) hop.classList.remove("bit-lui");
+    yTruoc = y;
+    clearTimeout(henHien);
+    henHien = setTimeout(() => hop.classList.remove("bit-lui"), 700);
+  }, { passive: true });
 })();
