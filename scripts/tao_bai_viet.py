@@ -246,6 +246,7 @@ def trang(duong_dan, title, desc, band, main, p, hien_tai="", og_type="article",
 </div>
 {main}
 {footer(p)}
+<script src="{p}len-dau.js?v=dev" defer></script>
 {cuoi}</body>
 </html>
 """
