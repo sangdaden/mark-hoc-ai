@@ -72,7 +72,8 @@
 
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const nSeries = groups.filter(g => !g.le).length;
-  const sapRaMat = groups.filter(g => g.sap_ra_mat).reduce((n, g) => n + g.items.length, 0);
+  // Series "Sắp ra mắt": theo ngày ra mắt nếu đủ ngày, không thì theo cờ sap_ra_mat
+  const sapRa = g => g.items.every(v => lich[v.so]) ? g.items.every(v => chuaRa(v.so)) : !!g.sap_ra_mat;
   document.getElementById("stats").textContent = total + " video" + " · " + nSeries + " series · video mới mỗi ngày";
 
   const chips = document.getElementById("chips");
@@ -105,13 +106,13 @@
       if (!items.length) return "";
       shown += items.length;
       const range = "#" + String(g.items[0].so).padStart(2, "0") + "–" + String(g.items[g.items.length - 1].so).padStart(2, "0");
-      const head = '<div class="series-head"><h3>' + esc(g.ten) + (g.sap_ra_mat ? '<span class="soon">Sắp ra mắt</span>' : "") +
+      const head = '<div class="series-head"><h3>' + esc(g.ten) + (sapRa(g) ? '<span class="soon">Sắp ra mắt</span>' : "") +
         '</h3><span class="series-range">' + (g.le ? g.items.length + " video lẻ" : g.items.length + " phần") + " · " + range + "</span>" +
         '<p class="series-desc">' + esc(g.mo_ta) + '</p><div class="tags">' + g.tags.map(t => "<span>" + esc(t) + "</span>").join("") + "</div></div>";
       const rows = items.map(v => {
         const link = chuaRa(v.so)
           ? '<span class="row-soon">Ra mắt ' + ngayThang(lich[v.so]) + "</span>"
-          : g.sap_ra_mat
+          : !lich[v.so] && g.sap_ra_mat
           ? '<span class="row-soon">Sắp ra mắt</span>'
           : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="Xem video #' + pad(v.so) + ' trên YouTube">▶ YouTube</a>';
         return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
