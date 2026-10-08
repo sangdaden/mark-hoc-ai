@@ -8,13 +8,13 @@
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
     tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
-    raMat: "Out ", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›"
+    raMat: "Out ", xemThem: n => "Show all " + n + " videos", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›"
   } : {
     hopTac: "Hợp tác hoặc góp ý: ", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
     tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
-    raMat: "Ra mắt ", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›"
+    raMat: "Ra mắt ", xemThem: n => "Xem cả " + n + " video", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›"
   };
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
@@ -111,6 +111,8 @@
   const hashId = decodeURIComponent(location.hash.slice(1));
   const tuHash = groups.some(g => g.id === hashId);
   if (tuHash) current = "tat-ca";
+  // Xem "Tất cả": mỗi series chỉ hiện 3 video đầu để trang khỏi quá dài; tìm kiếm hoặc chọn một series thì hiện đủ
+  const HIEN = 3, moRong = new Set(tuHash ? [hashId] : []);
   chips.innerHTML = chipData.map(c => '<button class="chip" role="tab" id="chip-' + c.id + '" data-id="' + c.id + '">' + esc(c.ten) + "<small>" + c.n + "</small></button>").join("");
   chips.addEventListener("click", e => {
     const b = e.target.closest(".chip"); if (!b) return;
@@ -122,6 +124,15 @@
   const box = document.getElementById("danh-sach");
   const input = document.getElementById("tim");
   input.addEventListener("input", render);
+  box.addEventListener("click", e => {
+    const b = e.target.closest(".xem-them"); if (!b) return;
+    moRong.add(b.dataset.id);
+    render();
+    // Đưa con trỏ bàn phím tới video đầu tiên vừa hiện thêm
+    const moi = box.querySelectorAll("#ds-" + CSS.escape(b.dataset.id) + " .row")[HIEN];
+    const a = moi && moi.querySelector(".row-title a");
+    if (a) a.focus({ preventScroll: true });
+  });
 
   function render() {
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
@@ -131,11 +142,12 @@
       const items = g.items.filter(v => !q || q.split(/\s+/).every(w => v.key.includes(w)));
       if (!items.length) return "";
       shown += items.length;
+      const gon = !q && current === "tat-ca" && !moRong.has(g.id) && items.length > HIEN + 1;
       const range = "#" + String(g.items[0].so).padStart(2, "0") + "–" + String(g.items[g.items.length - 1].so).padStart(2, "0");
       const head = '<div class="series-head"><h3>' + esc(g.ten) + (sapRa(g) ? '<span class="soon">' + S.sapRa + '</span>' : "") +
         '</h3><span class="series-range">' + (g.le ? S.le(g.items.length) : S.phan(g.items.length)) + " · " + range + "</span>" +
         '<p class="series-desc">' + esc(g.mo_ta) + '</p><div class="tags">' + g.tags.map(t => "<span>" + esc(t) + "</span>").join("") + "</div></div>";
-      const rows = items.map(v => {
+      const rows = (gon ? items.slice(0, HIEN) : items).map(v => {
         const link = chuaRa(v.so)
           ? '<span class="row-soon">' + S.raMat + ngayThang(lich[v.so]) + "</span>"
           : !lich[v.so] && g.sap_ra_mat
@@ -145,7 +157,8 @@
           (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
           '</p><a class="row-read" href="' + baiLink(v) + '">' + S.docBai + '</a></div>' + link + "</li>";
       }).join("");
-      return '<section class="series" id="' + g.id + '">' + head + '<ol class="list">' + rows + "</ol></section>";
+      const them = gon ? '<button type="button" class="xem-them" data-id="' + g.id + '" aria-controls="ds-' + g.id + '">' + S.xemThem(items.length) + " ▾</button>" : "";
+      return '<section class="series" id="' + g.id + '">' + head + '<ol class="list" id="ds-' + g.id + '">' + rows + "</ol>" + them + "</section>";
     }).join("");
     document.getElementById("rong").hidden = shown > 0;
   }

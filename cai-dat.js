@@ -21,8 +21,21 @@
   hop.className = "top-tools";
   hop.innerHTML = (doiNgu ? '<a class="nut-lang" lang="' + (EN ? "vi" : "en") + '" hreflang="' + (EN ? "vi" : "en") + '" href="' + doiNgu.replace(/"/g, "%22") + '" aria-label="' +
     (EN ? "Chuyển sang tiếng Việt" : "Switch to English") + '">' + ic("languages") + (EN ? "VI" : "EN") + "</a>" : "") +
-    '<button type="button" class="nut-theme"></button>';
+    '<button type="button" class="nut-theme"></button>' +
+    '<button type="button" class="nut-menu" aria-expanded="false">' + ic("menu") + '<span class="nhan">Menu</span></button>';
   top.appendChild(hop);
+
+  // Điện thoại: các link trang gom vào nút Menu cho đầu trang gọn một hàng (máy tính vẫn hiện đủ)
+  const nav = top.querySelector(".top-links"), nutMenu = hop.querySelector(".nut-menu");
+  if (nav) {
+    nav.id = nav.id || "menu-trang";
+    nutMenu.setAttribute("aria-controls", nav.id);
+    nutMenu.setAttribute("aria-label", EN ? "Open the menu" : "Mở menu");
+    const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); };
+    nutMenu.addEventListener("click", () => dongMo(!top.classList.contains("mo-menu")));
+    nav.addEventListener("click", e => { if (e.target.closest("a")) dongMo(false); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && top.classList.contains("mo-menu")) { dongMo(false); nutMenu.focus(); } });
+  } else nutMenu.remove();
   const lang = hop.querySelector(".nut-lang");
   if (lang) lang.addEventListener("click", () => {
     // Bắt kịp #mục đang xem (có thể đổi sau khi trang tải) và ghi nhớ lựa chọn; không tự chuyển trang
@@ -32,7 +45,7 @@
   const nut = hop.querySelector(".nut-theme");
   const toi = () => (document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
   const ve = () => {
-    nut.innerHTML = toi() ? ic("sun") + (EN ? "Light" : "Sáng") : ic("moon") + (EN ? "Dark" : "Tối");
+    nut.innerHTML = toi() ? ic("sun") + '<span class="nhan">' + (EN ? "Light" : "Sáng") + "</span>" : ic("moon") + '<span class="nhan">' + (EN ? "Dark" : "Tối") + "</span>";
     nut.setAttribute("aria-label", EN ? (toi() ? "Switch to light theme" : "Switch to dark theme") : (toi() ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"));
   };
   nut.addEventListener("click", () => {
