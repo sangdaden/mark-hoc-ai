@@ -9,7 +9,7 @@ def img(m):
     mime = "image/svg+xml" if p.suffix == ".svg" else "image/png"
     return 'src="data:' + mime + ';base64,' + base64.b64encode(p.read_bytes()).decode() + '"'
 body = re.sub(r'src="(assets/[^"]+)"', img, body)
-data = {n: json.loads((R / "data" / f"{n}.json").read_text(encoding="utf-8")) for n in ("kenh", "series", "videos")}
+data = {n: json.loads((R / "data" / f"{n}.json").read_text(encoding="utf-8")) for n in ("kenh", "series", "videos", "lich-ra-mat")}
 out = ("<title>Mark học AI</title>\n" + head + "\n<style>\n" + (R / "style.css").read_text(encoding="utf-8") + "\n</style>\n" + body +
        "\n<script>window.__DATA = " + json.dumps(data, ensure_ascii=False) + ";</script>\n<script>\n" + (R / "app.js").read_text(encoding="utf-8") + "\n</script>\n")
 pathlib.Path(sys.argv[1]).write_text(out, encoding="utf-8")

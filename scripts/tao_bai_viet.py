@@ -110,6 +110,34 @@ def doc_mo_ta(thu_muc):
     buf = khoi[-1] if khoi else []
     return cat_ngan(bo_emoji(" ".join(buf))), thu
 
+# Câu trong ngoặc kép ở dòng "Thử ngay" nhưng không phải câu lệnh gửi AI (tên tùy chọn, từ khóa tìm kiếm)
+KHONG_PHAI_PROMPT = {75, 77, 80}
+
+def doc_prompt(thu_muc, so):
+    """Prompt mẫu để nút "Sao chép prompt" chép: dòng sau "...chép dùng ngay:" trong tieu-de-mo-ta.md,
+    không có thì các câu trong ngoặc kép (từ 5 chữ) ở dòng "Thử ngay"/"Áp dụng ngay". Không có gì thì trả về chuỗi rỗng."""
+    if so in KHONG_PHAI_PROMPT:
+        return ""
+    lines = [l.strip() for l in (thu_muc / "tieu-de-mo-ta.md").read_text(encoding="utf-8").splitlines()]
+    for i, l in enumerate(lines):
+        if re.search(r"chép dùng ngay:\s*$", l):
+            sau = next((n for n in lines[i + 1:] if n), "")
+            if sau:
+                return sau
+    cau = []
+    for i, l in enumerate(lines):
+        moc = next((m for m in ("Thử ngay", "Áp dụng ngay") if m in l), None)
+        if not moc:
+            continue
+        for q in re.findall(r'["“]([^"“”]+)["”]', l.split(moc, 1)[1]):
+            q = q.strip()
+            if len(q.split()) >= 5 and q not in cau:
+                cau.append(q)
+        if cau:
+            break
+    # nhiều câu ngắn thì nối bằng dấu chấm cho thành một prompt
+    return " ".join(q if q[-1] in ".?!" or len(cau) == 1 else q + "." for q in cau)
+
 nhom = []
 for s in series:
     items = [v for v in videos if s["tu"] <= v["so"] <= s["den"]]
@@ -228,11 +256,20 @@ def yt_link(v):
     tieu_de, _ = tach_tieu_de(v)
     return kenh["youtube"] + "/search?query=" + quote(tieu_de, safe="")
 
+# data-so + data-kenh: bai-viet.js đổi nút thành link kênh và ghi "Video ra mắt dd/mm" khi video chưa tới ngày
 def nut_video(v, g):
+    gan = f'data-so="{v["so"]}" data-kenh="{esc(kenh["youtube"])}"'
     if g.get("sap_ra_mat"):
-        return (f'<a class="btn btn-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">Theo dõi kênh YouTube</a>'
+        return (f'<a class="btn btn-yt" {gan} href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">Theo dõi kênh YouTube</a>'
                 '<span class="soon-note">Video này sắp ra mắt</span>')
-    return f'<a class="btn btn-yt" href="{esc(yt_link(v))}" target="_blank" rel="noopener">▶ Xem video</a>'
+    return f'<a class="btn btn-yt" {gan} href="{esc(yt_link(v))}" target="_blank" rel="noopener">▶ Xem video</a>'
+
+def khoi_prompt(so, prompt):
+    """Prompt mẫu + nút chép (ẩn sẵn, bai-viet.js mở ra khi chạy được)."""
+    if not prompt:
+        return ""
+    return (f'\n  <p class="try-prompt" id="prompt-{so}">{esc(prompt)}</p>'
+            f'\n  <button class="btn copy-btn" type="button" data-chep="prompt-{so}" hidden>Sao chép prompt</button>')
 
 # ---------- bài viết ----------
 def tao_bai(v):
@@ -240,6 +277,7 @@ def tao_bai(v):
     thu_muc = ROOT / ten_file(v)
     canh = doc_canh(thu_muc)
     meta, thu_mo_ta = doc_mo_ta(thu_muc)
+    prompt = doc_prompt(thu_muc, so)
     tieu_de, phan = tach_tieu_de(v)
     h1 = seo[str(so)]
     p = "../"
@@ -252,14 +290,14 @@ def tao_bai(v):
             co_thu = True
             doan = thanh_doan([bo_tien_to_thu(lines[0])] + lines[1:]) if lines else ""
             muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
-                       f'  <div><p class="try-label">Thử ngay</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, p, so)}</p></div>\n</aside>')
+                       f'  <div><p class="try-label">Thử ngay</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, p, so)}</p>{khoi_prompt(so, prompt)}</div>\n</aside>')
             continue
         nhan = f'<p class="sec-chip">{esc(chip)}</p>\n' if chip else ""
         h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
         muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(thanh_doan(lines), p, so)}</p>\n</section>')
     if not co_thu and thu_mo_ta:
         muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
-                   f'  <div><p class="try-label">Thử ngay</p>\n  <h2 id="thu-{so}">Làm ngay hôm nay</h2>\n  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), p, so)}</p></div>\n</aside>')
+                   f'  <div><p class="try-label">Thử ngay</p>\n  <h2 id="thu-{so}">Làm ngay hôm nay</h2>\n  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), p, so)}</p>{khoi_prompt(so, prompt)}</div>\n</aside>')
 
     # điều hướng series: phần trước/sau; hết series thì nối sang series kề bên
     i = thu_tu.index(v)
@@ -306,7 +344,8 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 2, "name": g["ten"], "item": BASE + "#" + g["id"]},
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
-    return duong, trang(duong, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld)
+    return duong, trang(duong, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld,
+                         cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
 # ---------- từ điển ----------
 def tao_tu_dien():

@@ -4,7 +4,15 @@
     const r = await fetch("data/" + name + ".json", { cache: "no-cache" });
     return r.json();
   }
-  const [kenh, series, videos, banDo] = await Promise.all([load("kenh"), load("series"), load("videos"), load("ban-do")]);
+  // Lịch ra mắt (số video -> YYYY-MM-DD); thiếu file thì coi như video nào cũng đã ra
+  const [kenh, series, videos, banDo, lich] = await Promise.all([load("kenh"), load("series"), load("videos"), load("ban-do"),
+    load("lich-ra-mat").catch(() => ({}))]);
+  // Hôm nay theo giờ Việt Nam; ?hom-nay=YYYY-MM-DD để thử
+  const homNayQ = new URLSearchParams(location.search).get("hom-nay");
+  const homNay = /^\d{4}-\d{2}-\d{2}$/.test(homNayQ || "") ? homNayQ
+    : new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
+  const chuaRa = so => !!lich[so] && lich[so] > homNay;
+  const ngayThang = d => d.slice(8, 10) + "/" + d.slice(5, 7);
 
   document.querySelectorAll("[data-kenh]").forEach(a => {
     const url = kenh[a.dataset.kenh];
@@ -34,6 +42,15 @@
   const baiLink = v => "bai/" + pad(v.so) + "-" + v.slug + ".html";
   const bySo = {};
   groups.forEach(g => g.items.forEach(v => { bySo[v.so] = { v, g }; }));
+
+  // Dải "Hôm nay trên kênh": video có ngày ra mắt đúng hôm nay; không có thì ẩn
+  const homNayV = Object.values(bySo).filter(x => lich[x.v.so] === homNay).map(x => x.v).sort((a, b) => a.so - b.so);
+  const dai = document.getElementById("hom-nay");
+  if (dai && homNayV.length) {
+    dai.innerHTML = '<p class="today-head">Hôm nay trên kênh <span>' + ngayThang(homNay) + '</span></p><ul class="today-list">' +
+      homNayV.map(v => '<li><a href="' + baiLink(v) + '"><span class="num">#' + pad(v.so) + "</span>" + esc(v.title) + "</a></li>").join("") + "</ul>";
+    dai.hidden = false;
+  }
 
   // "Bắt đầu từ đây": 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99)
   const startLink = (so, label) => {
@@ -92,7 +109,9 @@
         '</h3><span class="series-range">' + (g.le ? g.items.length + " video lẻ" : g.items.length + " phần") + " · " + range + "</span>" +
         '<p class="series-desc">' + esc(g.mo_ta) + '</p><div class="tags">' + g.tags.map(t => "<span>" + esc(t) + "</span>").join("") + "</div></div>";
       const rows = items.map(v => {
-        const link = g.sap_ra_mat
+        const link = chuaRa(v.so)
+          ? '<span class="row-soon">Ra mắt ' + ngayThang(lich[v.so]) + "</span>"
+          : g.sap_ra_mat
           ? '<span class="row-soon">Sắp ra mắt</span>'
           : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="Xem video #' + pad(v.so) + ' trên YouTube">▶ YouTube</a>';
         return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
