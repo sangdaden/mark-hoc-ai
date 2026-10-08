@@ -3,13 +3,13 @@ import json, re, sys, pathlib
 
 ROOT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "/mnt/project-files/videos")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data" / "videos.json"
-SKIP = {"01", "02"}  # 01/02 bản cũ
+SKIP = {"01-claude-lam-video", "02-lidar"}  # bản thử đầu tiên 6/10 (đã làm lại thành 01-ai-la-gi, 02-bat-dau-dung-ai)
 DEN = int(sys.argv[2]) if len(sys.argv) > 2 else 162  # số video cuối được đưa lên trang (video mới: nâng số này, xem scripts/lich_ra_mat_ghi_chu.md)
 
 out = []
 for d in sorted(ROOT.iterdir()):
     m = re.match(r"(\d+)-(.+)", d.name)
-    if not m or m.group(1) in SKIP or int(m.group(1)) > DEN:
+    if not m or d.name in SKIP or int(m.group(1)) > DEN:
         continue
     f = next(iter(sorted(d.rglob("tieu-de-mo-ta.md"))), None)
     if not f:
