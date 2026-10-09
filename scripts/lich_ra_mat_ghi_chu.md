@@ -17,9 +17,11 @@ Cập nhật 08/10/2026: thêm video 100 (tập đặc biệt, bản dọc 25/10
 
 Cập nhật 09/10/2026 (giờ VN): thêm video 01, 02 (series "Nhập môn AI", làm lại), bản dọc 01 đăng 9/10 00:40 và 02 đăng 9/10 07:00 trên TikTok/FB/IG (chưa có YouTube Shorts).
 
+Cập nhật 09/10/2026: thêm video 163–300 (137 video thường và tập đặc biệt #300; #200 ra 17/11). Ngày lấy tự động từ `/mnt/project-files/videos/so-cai.json` (trường `lich`, ngày sớm nhất của bản dọc hoặc ngang trên các nền tảng, bỏ "video dài" và "clip mẹo"), do `gom_video.py` ghi thêm vào file này; ngày đã có thì giữ nguyên. Lịch chạy tới 10/12/2026. Bỏ qua thư mục 301/302 (đã có trang lam-theo), `01-claude-lam-video`, `02-lidar` và các thư mục `*-ban-hoi-bit-tra-loi`.
+
 ## Thêm video mới (từ 163 trở đi)
 1. `python3 scripts/gom_video.py /mnt/project-files/videos <số cuối>` (hoặc nâng số mặc định `DEN` trong script). Chỉ đưa lên video đã render và đã lên lịch.
-2. Đọc Metricool (chỉ đọc, `getScheduledPosts`, brand 7273613, múi giờ Asia/Ho_Chi_Minh, mỗi lần vài ngày), lấy ngày bài TikTok dọc của từng video, ghi vào file này (`"163": "YYYY-MM-DD"`). Đối chiếu với file `lich-dang-*.md` trong thư mục kế hoạch.
+2. `gom_video.py` tự điền ngày còn thiếu từ `so-cai.json`. Muốn đối chiếu thì đọc Metricool (chỉ đọc, `getScheduledPosts`, brand 7273613, múi giờ Asia/Ho_Chi_Minh, mỗi lần vài ngày), lấy ngày bài TikTok dọc của từng video, ghi vào file này (`"163": "YYYY-MM-DD"`). Đối chiếu với file `lich-dang-*.md` trong thư mục kế hoạch.
 3. Series mới: thêm vào `data/series.json` (id, ten, tu, den, mo_ta, tags) và `data/en/series.json`. Không cần `sap_ra_mat`: chip "Ra mắt dd/mm" và nhãn "Sắp ra mắt" chạy theo ngày ở đây.
 4. Tiêu đề SEO vào `data/bai-viet.json` và `data/en/bai-viet.json`; tên và mô tả tiếng Anh vào `data/en/videos.json`; bài dịch vào `data/en/bai/<số>-<slug>.json` (mỗi cảnh một mục, cảnh THỬ NGAY có `"try": true`, có prompt mẫu thì thêm `"prompt"`).
 5. `python3 scripts/tao_bai_viet.py /mnt/project-files/videos` để tạo lại bài viết hai thứ tiếng và `sitemap.xml`. Không có "CẢNH BÁO" là đủ bản dịch.
