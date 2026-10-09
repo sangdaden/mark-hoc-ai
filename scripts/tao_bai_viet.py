@@ -291,7 +291,7 @@ def nut_nen_tang(k, p, cls="nt"):
 def footer(p, q=None):
     q = p if q is None else q
     links = "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
-    return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>\n'
+    return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
@@ -491,7 +491,7 @@ def tao_bai(v):
         chip, ten, doan = s.get("chip", ""), s.get("title", ""), s.get("text", "")
         if s.get("try"):
             co_thu = True
-            muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
+            muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">\n'
                        f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
             continue
         nhan = f'<p class="sec-chip">{esc(chip)}</p>\n' if chip else ""
@@ -502,7 +502,7 @@ def tao_bai(v):
             h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
         muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(doan, q, so)}</p>{anh_canh(v, i_muc, ten, p)}\n</section>')
     if not co_thu and thu_mo_ta:
-        muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
+        muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">\n'
                    f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{t("Làm ngay hôm nay", "Do it today")}</h2>\n'
                    f'  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
 
@@ -911,7 +911,7 @@ def tao_lo_trinh():
 {chr(10).join(the)}
 </ol>
 <section class="cert" id="chung-nhan" aria-labelledby="cn-h">
-<div class="cert-head"><img src="{p}assets/mark-a-ra-the.svg" alt="" width="130" height="123"><div>
+<div class="cert-head"><img src="{p}assets/mark-a-ra-the.svg" alt="" width="130" height="123" loading="lazy"><div>
 <p class="eyebrow">{t("Phần thưởng cuối lộ trình", "Your reward")}</p>
 <h2 id="cn-h">{t("Giấy chứng nhận", "Certificate")}</h2>
 <p id="cn-khoa">{t(f"Hoàn thành đủ {len(ngay)} ngày để mở khóa giấy chứng nhận có tên bạn.", f"Finish all {len(ngay)} days to unlock a certificate with your name.")}</p>
@@ -983,7 +983,7 @@ def tao_hop_tac():
     nen_tang = [(k, t("Discord (cộng đồng)", "Discord (community)") if k == "discord" else ten) for k, ten in NEN_TANG.items() if kenh.get(k)]
     the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
                      f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></span></a></li>' for k, ten in nen_tang)
-    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo.png" alt="" width="40" height="40"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
+    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo.png" alt="" width="40" height="40" loading="lazy"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
     hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
                   t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
                  (t("Review công cụ", "Tool review"),
