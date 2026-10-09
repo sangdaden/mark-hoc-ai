@@ -35,6 +35,7 @@ def load(name):
 
 kenh, series, videos = load("kenh"), load("series"), load("videos")
 seo = load("bai-viet")["tieu_de_seo"]
+seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
 kiem_tra = load("kiem-tra")["cau_hoi"]
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
@@ -435,6 +436,46 @@ def anh_canh(v, i, ten, p):
                     f'alt="{esc(ten)}"><figcaption>{t("Cảnh trong video", "From the video")} #{v["so"]:02d}: {esc(ten)}</figcaption></figure>')
     return ""
 
+# ---------- logo công cụ trong bài (chỉ video mới, số >= VIDEO_MOI_TU) ----------
+# Theo brand/quy-tac-dung-thuong-hieu.md: logo chỉ ở bài nói về đúng sản phẩm đó, giữ nguyên file gốc (assets/cong-cu/
+# chép nguyên từ brand/icon-dich-vu), nhỏ hơn logo kênh, không ở bài chuyện tiêu cực; có dòng miễn trừ ở cuối bài.
+CONG_CU = [  # (file, tên hiện, mẫu tìm trong tiêu đề và nội dung tiếng Việt)
+    ("chatgpt", "ChatGPT", r"\bChatGPT\b"), ("claude", "Claude", r"\bClaude\b"), ("gemini", "Gemini", r"\bGemini\b"),
+    ("gmail", "Gmail", r"\bGmail\b"), ("drive", "Google Drive", r"\bGoogle Drive\b"), ("calendar", "Google Calendar", r"\bGoogle Calendar\b|\bLịch Google\b"),
+    ("colab", "Google Colab", r"\bColab\b"), ("chrome", "Chrome", r"\bChrome\b"), ("google", "Google", r"\bGoogle\b(?! (?:Drive|Calendar|Colab|Docs|Sheets))"),
+    ("excel", "Excel", r"\bExcel\b"), ("word", "Word", r"\b(?:Microsoft Word|file Word|tệp Word|bản Word)\b"), ("powerpoint", "PowerPoint", r"\bPowerPoint\b"),
+    ("python", "Python", r"\bPython\b"), ("pandas", "pandas", r"\bpandas\b"), ("scikit-learn", "scikit-learn", r"\bscikit-learn\b"), ("pdf", "PDF", r"\bPDF\b"),
+]
+TIEU_CUC = re.compile(r"lừa đảo|lừa|deepfake|giả giọng|giả mạo|sự cố|bê bối|rò rỉ|lộ dữ liệu|tấn công|hack|scam", re.I)
+_cong_cu = {}
+
+def cong_cu_trong_bai(v):
+    """Các công cụ bài này nói tới: tên có trong tiêu đề, hoặc được nhắc ít nhất 2 lần trong bài. Chuyện tiêu cực: không logo."""
+    so = v["so"]
+    if so < VIDEO_MOI_TU:
+        return []
+    if so not in _cong_cu:
+        muc = noi_dung_vi(v)[0]
+        tieu_de = CHU_DE_VI.get(so, "") + " " + seo_vi.get(str(so), "")
+        noi_dung = " ".join(m.get("title", "") + " " + m.get("text", "") for m in muc)
+        if TIEU_CUC.search(tieu_de + " " + noi_dung) or nhom_cua[so]["id"] in SERIES_TIEU_CUC:
+            _cong_cu[so] = []
+        else:
+            _cong_cu[so] = [(f, ten) for f, ten, mau in CONG_CU
+                            if re.search(mau, tieu_de) or len(re.findall(mau, noi_dung)) >= 2]
+    return _cong_cu[so]
+
+SERIES_TIEU_CUC = {"dung-de-ai-lua", "mat-trai-ai", "an-toan-so-2"}
+
+def khoi_cong_cu(v, p):
+    ds = cong_cu_trong_bai(v)
+    if not ds:
+        return "", ""
+    the = "".join(f'<li><img src="{p}assets/cong-cu/{f}.svg" alt="" width="22" height="22" loading="lazy" decoding="async">{esc(ten)}</li>' for f, ten in ds)
+    dau = f'<div class="post-tools"><p>{t("Công cụ trong bài", "Tools in this article")}</p><ul>{the}</ul></div>\n'
+    cuoi = (f'<p class="post-mien-tru">{t("Tên và logo sản phẩm thuộc về các công ty sở hữu, chỉ dùng để minh họa trong nội dung giáo dục. Mark học AI không liên kết hay được tài trợ bởi các công ty này.", "Product names and logos belong to their respective owners and are used only to illustrate educational content. Mark học AI is not affiliated with or sponsored by these companies.")}</p>\n')
+    return dau, cuoi
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -497,8 +538,9 @@ def tao_bai(v):
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
-    main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + "\n".join(muc) +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n</div>\n</article>\n'
+    cc_dau, cc_cuoi = khoi_cong_cu(v, p)
+    main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + "\n".join(muc) +
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("10 câu đúng hay sai, có giải thích ngay.", "10 true-or-false questions, explained right away.")}</span></a>\n'

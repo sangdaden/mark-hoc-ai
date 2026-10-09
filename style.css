@@ -789,3 +789,12 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 }
 .series-head .soon { display: inline-block; white-space: nowrap; }
 @media (max-width: 760px) { .series-head .soon { margin-left: 6px; } }
+
+/* Logo công cụ trong bài (chỉ video mới; brand/quy-tac-dung-thuong-hieu.md): ô trắng bo góc, nhỏ hơn logo kênh, kèm dòng miễn trừ cuối bài */
+.post-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 18px 0 4px; font-size: .88rem; color: var(--muted); }
+.post-tools p { margin: 0; font: 600 12px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; }
+.post-tools ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.post-tools li { display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px 4px 4px; border-radius: 999px; border: 1px solid var(--edge);
+  background: var(--panel); color: var(--ink); font-weight: 600; font-size: .86rem; }
+.post-tools img { width: 22px; height: 22px; padding: 3px; box-sizing: content-box; background: #fff; border-radius: 7px; }
+.post-end .post-mien-tru { margin: 18px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
