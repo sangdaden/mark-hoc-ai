@@ -272,12 +272,19 @@ def header(p, hien_tai="", q=None):
             f'    {a(q + "lo-trinh-7-ngay.html", t("Lộ trình 7 ngày", "7-day path"), "lo-trinh")}\n'
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
             f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
-            f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">YouTube</a>\n  </nav>\n</header>')
+            f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>\n  </nav>\n</header>')
+
+# Biểu tượng nền tảng (assets/nen-tang.svg, Simple Icons CC0): link kênh dạng icon tròn, có nhãn cho trình đọc màn hình
+NEN_TANG = {"youtube": "YouTube", "tiktok": "TikTok", "facebook": "Facebook", "instagram": "Instagram", "threads": "Threads", "discord": "Discord"}
+def nut_nen_tang(k, p, cls="nt"):
+    ten = NEN_TANG[k]
+    nhan = t("Vào cộng đồng Discord của Mark học AI", "Join the Mark học AI Discord community") if k == "discord" else t(f"Mark học AI trên {ten}", f"Mark học AI on {ten}")
+    return (f'<a class="{cls} nt-{k}" href="{esc(kenh[k])}" target="_blank" rel="noopener" aria-label="{nhan}" title="{ten}">'
+            f'<svg aria-hidden="true"><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></a>')
 
 def footer(p, q=None):
     q = p if q is None else q
-    links = "".join(f'\n      <a href="{esc(kenh[k])}" target="_blank" rel="noopener">{ten}</a>' for k, ten in
-                    (("youtube", "YouTube"), ("tiktok", "TikTok"), ("instagram", "Instagram"), ("facebook", "Facebook"), ("discord", "Discord")) if kenh.get(k))
+    links = "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
@@ -857,8 +864,8 @@ def tao_hop_tac():
     email = kenh.get("email", "")
     tieu_de_mail = quote(t("Hợp tác với Mark học AI", "Partnership with Mark học AI"))
     nut_mail = (f'<a class="btn btn-yt" href="mailto:{esc(email)}?subject={tieu_de_mail}">{ic(p, "mail")}{esc(email)}</a>' if email else "")
-    desc = t(f"Media kit kênh Mark học AI: video giải thích AI bằng tiếng Việt cho người không chuyên trên YouTube, TikTok, Facebook, Instagram. Định dạng, nền tảng, hình thức hợp tác và liên hệ.",
-             f"Media kit for Mark học AI: Vietnamese AI explainer videos for non-experts on YouTube, TikTok, Facebook and Instagram. Formats, platforms, partnership options and contact.")
+    desc = t(f"Media kit kênh Mark học AI: video giải thích AI bằng tiếng Việt cho người không chuyên trên YouTube, TikTok, Facebook, Instagram, Threads. Định dạng, nền tảng, hình thức hợp tác và liên hệ.",
+             f"Media kit for Mark học AI: Vietnamese AI explainer videos for non-experts on YouTube, TikTok, Facebook, Instagram and Threads. Formats, platforms, partnership options and contact.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Media kit · dành cho nhãn hàng và đối tác", "Media kit · for brands and partners")}</p>\n'
             f'<h1>{t("Hợp tác cùng Mark học AI", "Work with Mark học AI")}</h1>\n'
             f'<p class="lead">{t("Kênh giải thích AI bằng tiếng Việt cho người không chuyên. Nếu sản phẩm của bạn giúp người Việt dùng AI tốt hơn, an toàn hơn, mình cùng làm một nội dung thật sự hữu ích cho người xem.", "A channel that explains AI in Vietnamese for non-experts. If your product helps Vietnamese people use AI better and more safely, let us make something genuinely useful for viewers together.")}</p>\n'
@@ -885,9 +892,10 @@ def tao_hop_tac():
                  ("file-text", t("Bài viết trên web", "Website articles"), "markhocai.com",
                   t("Mỗi video có một bài viết tiếng Việt và tiếng Anh, có Từ điển AI và bài kiểm tra, để Google tìm thấy lâu dài.", "Every video has an article in Vietnamese and English, plus a glossary and a quiz, so it stays findable on Google."))]
     the_dd = "".join(f'<li class="fmt"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p class="fmt-where">{esc(b)}</p><p>{esc(c)}</p></div></li>' for i, a, b, c in dinh_dang)
-    nen_tang = [(k, ten) for k, ten in (("youtube", "YouTube"), ("tiktok", "TikTok"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("discord", t("Discord (cộng đồng)", "Discord (community)"))) if kenh.get(k)]
-    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></a></li>' for k, ten in nen_tang)
-    the_nt += f'<li><a class="plat" href="{BASE}"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></a></li>'
+    nen_tang = [(k, t("Discord (cộng đồng)", "Discord (community)") if k == "discord" else ten) for k, ten in NEN_TANG.items() if kenh.get(k)]
+    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
+                     f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></span></a></li>' for k, ten in nen_tang)
+    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo.png" alt="" width="40" height="40"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
     hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
                   t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
                  (t("Review công cụ", "Tool review"),

@@ -31,3 +31,5 @@ Trang chạy ở https://markhocai.com (file `CNAME`). Tên miền mua ở Namec
 ## Icon
 
 `assets/icons.svg` gom các icon cần dùng từ [Lucide](https://lucide.dev) v0.460.0 (giấy phép ISC). Dùng: `<svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-TEN"/></svg>`. Thêm icon mới: lấy file từ gói `lucide-static` rồi thêm một `<symbol id="i-TEN">`.
+
+`assets/nen-tang.svg` gom biểu tượng YouTube, TikTok, Facebook, Instagram, Threads, Discord từ [Simple Icons](https://simpleicons.org) v13.21.0 (CC0), tô đúng màu hãng trên ô tròn trắng (`.nt`, `.nt-<tên>` trong `style.css`). Chỉ dùng làm link tới kênh của Mark học AI; link lấy từ `data/kenh.json`.
