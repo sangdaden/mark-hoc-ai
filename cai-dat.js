@@ -1,3 +1,36 @@
+// Có bản mới thì báo: mỗi lần đăng, máy chủ ghi mã phiên bản vào phien-ban.json (pages.yml); trang đang mở so với mã của chính nó
+// khi người xem quay lại tab và mỗi 5 phút, khác thì hiện thanh "Tải lại" để khỏi phải bấm Cmd+R
+(function () {
+  const me = document.currentScript;
+  const m = me && /[?&]v=([^&#]+)/.exec(me.src);
+  if (!m || m[1] === "dev") return; // xem trên máy (chưa đăng) thì bỏ qua
+  const EN = document.documentElement.lang === "en";
+  let url = "", daBao = false, lanCuoi = 0;
+  try { url = new URL("phien-ban.json", me.src).href; } catch (e) { return; }
+  const bao = () => {
+    if (daBao) return;
+    daBao = true;
+    const t = document.createElement("div");
+    t.className = "ban-moi";
+    t.setAttribute("role", "status");
+    t.innerHTML = "<span>" + (EN ? "This page has been updated." : "Trang vừa có bản mới.") + "</span>" +
+      '<button type="button" class="ban-moi-tai">' + (EN ? "Reload" : "Tải lại") + "</button>" +
+      '<button type="button" class="ban-moi-dong" aria-label="' + (EN ? "Dismiss" : "Đóng") + '">×</button>';
+    t.querySelector(".ban-moi-tai").addEventListener("click", () => location.reload());
+    t.querySelector(".ban-moi-dong").addEventListener("click", () => t.remove());
+    document.body.appendChild(t);
+  };
+  const kiem = () => {
+    if (daBao || document.hidden || Date.now() - lanCuoi < 60000) return;
+    lanCuoi = Date.now();
+    fetch(url + "?t=" + lanCuoi, { cache: "no-store" }).then(r => r.ok ? r.json() : null)
+      .then(d => { if (d && d.v && d.v !== m[1]) bao(); }).catch(() => {});
+  };
+  document.addEventListener("visibilitychange", kiem);
+  setInterval(kiem, 300000);
+  setTimeout(kiem, 5000);
+})();
+
 // Thanh đầu mọi trang: link đổi ngôn ngữ (Tiếng Việt / English) và nút đổi giao diện sáng/tối, lưu trên máy người xem (đọc sớm ở <head> để không nháy)
 (function () {
   const top = document.querySelector(".top");

@@ -347,6 +347,7 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 {footer(p, q)}
 <script src="{p}len-dau.js?v=dev" defer></script>
 <script src="{p}cai-dat.js?v=dev" defer></script>
+<script src="{p}cuon-hien.js?v=dev" defer></script>
 <script src="{p}bit-tro-ly.js?v=dev" defer></script>
 {cuoi}</body>
 </html>
