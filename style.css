@@ -223,18 +223,20 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
 .step-foot { margin: auto 0 0; padding-top: 6px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 
 /* Nút lên đầu trang: hiện khi đã kéo xuống quá phần đầu */
-.to-top { position: fixed; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px); bottom: calc(100px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+/* Cùng hàng dưới cùng với Bit, ngay bên trái Bit (Bit rộng 72px, cách 8px), canh giữa theo chiều cao Bit (80px) */
+.to-top { position: fixed; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 80px); bottom: calc(28px + env(safe-area-inset-bottom, 0px)); z-index: 20;
   display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px; border-radius: 999px;
   font: 700 14px/1 var(--f-body); color: #0F172A; background: #FACC15; text-decoration: none;
   border: 2px solid #0F172A; box-shadow: 0 10px 24px -10px rgba(15, 23, 42, .55); transition: transform .15s; }
 .to-top span { display: none; }
 .to-top:hover { transform: translateY(-2px); }
-/* Nút Đầu trang tròn, đứng ngay trên Bit; tạm ẩn khi Bit đang nói hoặc mở menu (bit-tro-ly.js) */
-.bit-dang-noi .to-top { visibility: hidden; }
+/* Bóng thoại và menu của Bit mọc lên phía trên Bit (từ 100px trở lên), còn nút Đầu trang nằm thấp hơn ở hàng dưới cùng,
+   nên Bit đang nói hay mở menu thì nút vẫn hiện và bấm được. Trang không có Bit thì nút về sát góc phải. */
+body:not(:has(.bit-tl)) .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px); }
 .to-top:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
 @media (max-width: 760px) {
-  .to-top { padding: 10px; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 7px); bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+  .to-top { padding: 10px; bottom: calc(29px + env(safe-area-inset-bottom, 0px)); }
   .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 16px 32px; }
   .hero-art img { width: min(80%, 300px); }
   .about { grid-template-columns: 1fr; padding: 24px; }
@@ -452,7 +454,9 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .bit-meo p { margin: 6px 0 8px; line-height: 1.45; }
 .bit-meo-khac { border: 0; padding: 0; background: none; color: var(--blue); font: 600 13.5px/1 var(--f-body); cursor: pointer; }
 @keyframes bit-hien { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
-@media (max-width: 480px) { .bit-nut { width: 58px; height: 66px; } .bit-nut img { width: 50px; } }
+@media (max-width: 480px) { .bit-nut { width: 58px; height: 66px; } .bit-nut img { width: 50px; }
+  /* Bit nhỏ lại (58x66): nút Đầu trang vẫn sát bên trái Bit, canh giữa theo chiều cao */
+  .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 64px); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); } }
 /* Điện thoại: đang kéo xuống thì Bit lùi vào góc, mờ đi (bit-tro-ly.js) */
 .bit-nut { transition: opacity .25s, scale .25s; }
 .bit-lui .bit-nut { opacity: .35; scale: .8; translate: 0 8px; }

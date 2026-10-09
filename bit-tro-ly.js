@@ -112,7 +112,7 @@
     clearTimeout(henGio);
     henGio = setTimeout(anNoi, 9000);
   }
-  // Bóng thoại / menu mọc lên trên Bit, đúng chỗ nút Đầu trang: lúc đó tạm ẩn nút ấy
+  // Bóng thoại / menu mọc lên trên Bit; nút Đầu trang ở hàng dưới bên trái Bit nên không bị che (style.css)
   function dangNoi() { document.body.classList.toggle("bit-dang-noi", !noi.hidden || !bang.hidden); }
   function anNoi() { noi.hidden = true; if (bang.hidden) doiMat("vui"); dangNoi(); }
   function moMenu(mo) {
