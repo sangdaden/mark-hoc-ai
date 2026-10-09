@@ -1,6 +1,6 @@
 """Tạo các trang tĩnh cho SEO: một bài viết cho mỗi video (bai/*.html), Từ điển AI (tu-dien.html),
 bài kiểm tra "Bạn hiểu AI tới đâu?" (kiem-tra.html), sách miễn phí (sach.html), Lộ trình 7 ngày (lo-trinh-7-ngay.html),
-trang hợp tác (hop-tac.html), bản tiếng Anh của tất cả (en/...) và sitemap.xml.
+trang hợp tác (hop-tac.html), trang làm theo video (lam-theo.html), bản tiếng Anh của tất cả (en/...) và sitemap.xml.
 
 Chạy lại mỗi khi có video mới (sau scripts/gom_video.py) hoặc khi sửa data/bai-viet.json, data/tu-dien.json, data/kiem-tra.json
 hay bản dịch trong data/en/:
@@ -938,6 +938,45 @@ def tao_hop_tac():
                                        desc, band, main, p, hien_tai="hop-tac", og_type="website", q="")
 
 # ---------- chạy ----------
+# ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
+def tao_lam_theo():
+    p = t("", "../")
+    D = load("lam-theo")
+    L = LG
+    khoi = []
+    for v in D["video"]:
+        nut = [f'<a class="btn btn-yt" href="{p}{D["file_mau"]}" download>{ic(p, "download")}{t("Tải file mẫu", "Download the sample file")} <small class="btn-sub">Excel · {t("dữ liệu giả", "fake data")}</small></a>']
+        if v["so"] == 302:
+            nut.append(f'<a class="btn" href="{esc(D["colab"])}" target="_blank" rel="noopener">{ic(p, "play")}{t("Mở trong Google Colab", "Open in Google Colab")}</a>')
+            nut.append(f'<a class="btn" href="{p}{D["notebook"]}" download>{ic(p, "download")}{t("Tải notebook", "Download the notebook")} <small class="btn-sub">.ipynb</small></a>')
+        buoc = "".join(f"<li>{esc(b[L])}</li>" for b in v["buoc"])
+        pr = "".join(f'<div class="lt-prompt"><h4>{esc(x["nhan"][L])}</h4><p class="try-prompt" id="prompt-{v["so"]}-{i}">{esc(x[L])}</p>'
+                     f'<button class="btn copy-btn" type="button" data-chep="prompt-{v["so"]}-{i}" hidden>{ic(p, "copy")}{t("Sao chép prompt", "Copy prompt")}</button></div>'
+                     for i, x in enumerate(v["prompt"]))
+        khoi.append(f"""<section class="book-sec" id="{v["id"]}" aria-labelledby="{v["id"]}-h">
+<p class="sec-chip">Video {v["so"]}</p>
+<h2 id="{v["id"]}-h">{esc(v["ten"][L])}</h2>
+<p class="book-sub">{esc(v["mo_ta"][L])}</p>
+<div class="cta lt-cta">{"".join(nut)}</div>
+<ol class="lt-steps">{buoc}</ol>
+{pr}
+</section>""")
+    desc = t("Tải file mẫu sổ bán hàng, notebook Google Colab và chép các prompt trong video hướng dẫn phân tích dữ liệu và machine learning của kênh Mark học AI.",
+             "Download the sample sales log and the Google Colab notebook, and copy the prompts from Mark học AI's data analysis and machine learning tutorials.")
+    band = (f'<p class="eyebrow">{t("Làm theo video", "Follow along")}</p>\n'
+            f'<h1>{t("File mẫu và prompt để làm theo video", "Sample files and prompts to follow along")}</h1>\n'
+            f'<p class="lead">{t("Mọi thứ cần để tự làm lại các video hướng dẫn chuyên sâu: file Excel mẫu (dữ liệu giả), notebook chạy được, và các prompt chép là dùng.", "Everything you need to redo the in-depth tutorials yourself: a sample Excel file (fake data), a working notebook, and prompts ready to copy.")}</p>\n'
+            + t("", '<p class="lead book-lang"><b>Note:</b> the videos, sample file and notebook are in Vietnamese.</p>\n'))
+    main = f"""<main class="book">
+{chr(10).join(khoi)}
+<aside class="next-steps">
+<a class="next-step" href="sach.html"><b>{t("Sách miễn phí", "Free ebook")}</b><span>{t("Cả kênh gom lại thành một cuốn sách PDF.", "The whole channel in one PDF book.")}</span></a>
+<a class="next-step" href="tu-dien.html"><b>{t("Từ điển AI", "AI glossary")}</b><span>{t("Tra nhanh data cleaning, overfitting, data leakage…", "Look up data cleaning, overfitting, data leakage…")}</span></a>
+</aside>
+</main>"""
+    return GOC + "lam-theo.html", trang("lam-theo.html", t(f"File mẫu và prompt làm theo video | {SITE}", f"Sample files and prompts to follow along | {SITE}"),
+                                        desc, band, main, p, og_type="website", cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', q="")
+
 def chay():
     def ghi(duong, noi_dung):
         f = R / duong
@@ -953,13 +992,13 @@ def chay():
                 f.unlink()
         for v in thu_tu:
             ghi(*tao_bai(v))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_lam_theo):
             ghi(*ham())
-        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html")
+        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, lam-theo.html")
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
     uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
