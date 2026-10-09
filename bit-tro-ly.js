@@ -6,7 +6,7 @@
   const nha = goc + (EN ? "en/" : ""); // trang chủ của ngôn ngữ đang xem
   const hinh = ten => goc + "assets/bit-" + ten + ".svg";
   const duong = location.pathname;
-  const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : "chu";
+  const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : "chu";
   const nho = {
     get(k) { try { return sessionStorage.getItem("bit-" + k); } catch (e) { return null; } },
     set(k, v) { try { sessionStorage.setItem("bit-" + k, v); } catch (e) {} }
@@ -17,12 +17,18 @@
     chu: ["Hi, I'm Bit 👋 New to AI? Click me!", "There are 50 free sample prompts. Click me to download them."],
     bai: ["There's a \"Try it now\" tip at the end. Try it right away so it sticks!", "Found a strange word? I can look it up in the AI glossary."],
     "tu-dien": ["Type the word you want into the search box, like \"token\".", "Got the words? Now try the 10-question quiz!"],
-    "kiem-tra": ["True or false? Go with your gut, I'll explain right away.", "When you finish, I'll suggest which videos to watch next."]
+    "kiem-tra": ["True or false? Go with your gut, I'll explain right away.", "When you finish, I'll suggest which videos to watch next."],
+    "lo-trinh": ["One day at a time: 3 videos, 1 task, 1 question. You've got this!", "Finish all 7 days and I'll help you make a certificate."],
+    sach: ["The book is free, no email needed. Just click download!", "Tap a chapter to see what's inside."],
+    "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."]
   } : {
     chu: ["Chào bạn, mình là Bit 👋 Mới học AI? Bấm vào mình nhé!", "Có 50 prompt mẫu miễn phí đó, bấm mình để tải."],
     bai: ["Cuối bài có mẹo \"Thử ngay\", thử luôn cho nhớ nhé!", "Gặp chữ lạ? Mình tra Từ điển AI giúp bạn."],
     "tu-dien": ["Gõ chữ cần tra vào ô tìm kiếm, ví dụ \"token\".", "Hiểu chữ rồi thì thử bài kiểm tra 10 câu nhé!"],
-    "kiem-tra": ["Đúng hay sai? Cứ chọn theo cảm giác, mình giải thích ngay.", "Làm xong, mình gợi ý video nên xem tiếp."]
+    "kiem-tra": ["Đúng hay sai? Cứ chọn theo cảm giác, mình giải thích ngay.", "Làm xong, mình gợi ý video nên xem tiếp."],
+    "lo-trinh": ["Mỗi ngày một chút: 3 video, 1 việc, 1 câu hỏi. Bạn làm được mà!", "Xong đủ 7 ngày, mình giúp bạn tạo giấy chứng nhận."],
+    sach: ["Sách miễn phí, không cần email. Bấm tải là xong!", "Bấm vào từng chương để xem bên trong có gì."],
+    "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."]
   })[trang];
   const meo = EN ? [
     "Add \"If you're not sure, say you don't know\" so AI makes up less.",
@@ -43,15 +49,19 @@
   ];
   const menu = EN ? [
     ["compass", "New here? Follow the path", nha + "#bat-dau"],
+    ["award", "7-day path with a certificate", nha + "lo-trinh-7-ngay.html"],
     ["book-open", "Look it up in the AI glossary", nha + "tu-dien.html"],
     ["circle-check-big", "Quiz: how well do you know AI?", nha + "kiem-tra.html"],
     ["gift", "Download 50 sample prompts (PDF, in Vietnamese)", goc + "assets/50-prompt-mau.pdf"],
+    ["download", "Free ebook (in Vietnamese)", nha + "sach.html"],
     ["clapperboard", "See the video list", nha + "#video"]
   ] : [
     ["compass", "Mới bắt đầu? Đi theo lộ trình", goc + "#bat-dau"],
+    ["award", "Lộ trình 7 ngày, có chứng nhận", goc + "lo-trinh-7-ngay.html"],
     ["book-open", "Tra Từ điển AI", goc + "tu-dien.html"],
     ["circle-check-big", "Kiểm tra: bạn hiểu AI tới đâu?", goc + "kiem-tra.html"],
     ["gift", "Tải 50 prompt mẫu (PDF)", goc + "assets/50-prompt-mau.pdf"],
+    ["download", "Sách Mark học AI miễn phí", goc + "sach.html"],
     ["clapperboard", "Xem danh sách video", goc + "#video"]
   ];
   const T = EN ? { tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant" }
