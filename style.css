@@ -857,3 +857,8 @@ html:has(.series-hop[open]) { overflow: hidden; }
 .ban-moi-tai { padding: 6px 14px; border: 0; border-radius: 999px; background: var(--blue); color: var(--on); font: inherit; font-weight: 600; cursor: pointer; }
 .ban-moi-dong { width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 1.2rem; cursor: pointer; }
 .ban-moi-dong:hover { background: var(--bg2); }
+
+/* Cuộn tới đâu hiện tới đó (cuon-hien.js) */
+.cuon-hien .cho-hien { transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+.cuon-hien .cho-hien:not(.da-hien) { opacity: 0; transform: translateY(28px); }
+@media print { .cuon-hien .cho-hien:not(.da-hien) { opacity: 1; transform: none; } }
