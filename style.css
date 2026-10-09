@@ -742,3 +742,15 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .post-still img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 4; border-radius: 16px; border: 1.5px solid var(--edge);
   background: var(--bg2); box-shadow: 0 14px 28px -20px rgba(15, 23, 42, .55); }
 .post-still figcaption { margin-top: 8px; font-size: .86rem; line-height: 1.45; color: var(--muted); text-align: center; }
+
+/* Trình phát YouTube kiểu "lite": ảnh bìa + nút phát, bấm mới tải iframe youtube-nocookie (bai-viet.js). Chỉ video mới. */
+.yt-lite { position: relative; }
+.yt-lite .yt-play { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, .25)); }
+.yt-lite .yt-play svg { width: 76px; height: 54px; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .35)); transition: transform .15s; }
+.yt-lite .yt-nen { fill: #212121; fill-opacity: .82; transition: fill .15s, fill-opacity .15s; }
+.yt-lite .yt-play:hover .yt-nen, .yt-lite .yt-play:focus-visible .yt-nen { fill: #f00; fill-opacity: 1; }
+.yt-lite .yt-play:hover svg { transform: scale(1.06); }
+.yt-lite .yt-play:focus-visible { outline: 3px solid var(--yellow); outline-offset: -6px; }
+.yt-lite iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.post-xem { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 6px; font-size: .9rem; color: var(--muted); }
+.post-xem span { margin-right: 2px; }

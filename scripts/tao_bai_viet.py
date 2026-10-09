@@ -40,6 +40,7 @@ kiem_tra = load("kiem-tra")["cau_hoi"]
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
+YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 esc = lambda s: html.escape(s or "", quote=True)
 
@@ -401,12 +402,30 @@ def ten_video(v):
     return tach_tieu_de(v)[0]
 
 def anh_dau_bai(v, p):
-    """Ảnh bìa đầu bài (chỉ video có trong data/anh.json): 640 cho điện thoại, 1280 cho máy tính."""
-    a = ANH.get(str(v["so"]))
-    if not a or not a.get("bia"):
+    """Đầu bài của video mới (số >= VIDEO_MOI_TU):
+    - có mã YouTube (data/youtube-id.json, scripts/cap_nhat_youtube.py): ảnh bìa + nút phát, bấm mới tải trình phát
+      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm;
+    - chưa có mã: ảnh bìa (data/anh.json) kèm biểu tượng các nền tảng để xem video.
+    Video 01-302 không có gì ở đây (giữ như cũ)."""
+    a, yt = ANH.get(str(v["so"])), YT_ID.get(str(v["so"]))
+    ten = esc(ten_video(v))
+    if a and a.get("bia"):
+        anh = (f'<img src="{p}{a["bia"]}" srcset="{p}{a["the"]} 640w, {p}{a["bia"]} 1280w" sizes="(max-width: 800px) 100vw, 696px" '
+               f'width="1280" height="720" alt="{ten}" decoding="async" fetchpriority="high">')
+    elif yt:
+        anh = (f'<img src="https://i.ytimg.com/vi/{yt["id"]}/hqdefault.jpg" width="480" height="360" alt="{ten}" decoding="async" '
+               f'fetchpriority="high">')
+    else:
         return ""
-    return (f'<figure class="post-cover"><img src="{p}{a["bia"]}" srcset="{p}{a["the"]} 640w, {p}{a["bia"]} 1280w" '
-            f'sizes="(max-width: 800px) 100vw, 696px" width="1280" height="720" alt="{esc(ten_video(v))}" decoding="async" fetchpriority="high"></figure>\n')
+    if yt:
+        url = f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
+        return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
+                f'<a class="yt-play" href="{url}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
+                f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
+                f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+    xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
+    return (f'<figure class="post-cover">{anh}</figure>\n'
+            f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n')
 
 def anh_canh(v, i, ten, p):
     """Khung hình trong video đặt dưới đoạn giải thích của mục i (chỉ video mới có trong data/anh.json)."""
