@@ -925,6 +925,8 @@ def tao_lo_trinh():
 <p class="cert-cheer" id="cn-loi-khen" hidden>{t("Giỏi lắm! 7 ngày, 21 video, 7 việc làm thật. Đăng ảnh lên và rủ một người bạn cùng học tuần này nhé, học có bạn thì nhớ lâu hơn.", "Well done! 7 days, 21 videos, 7 real tasks. Post your certificate and invite a friend to start this week. Learning with a friend makes it stick.")}</p>
 <p class="share-msg" id="bao" role="status"></p>
 </div>
+<figure class="cert-mau" id="cn-mau"><canvas id="cn-mau-canvas" width="1600" height="1131" role="img" aria-label="{t("Giấy chứng nhận mẫu", "Sample certificate")}"></canvas>
+<figcaption id="cn-mau-chu" aria-live="polite">{t("Bản mẫu: xong cả 7 ngày là có tên bạn.", "Sample: finish all 7 days and it shows your name.")}</figcaption></figure>
 <canvas id="cn-canvas" width="1600" height="1131" hidden></canvas>
 </section>
 <aside class="next-steps">

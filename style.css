@@ -798,3 +798,10 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
   background: var(--panel); color: var(--ink); font-weight: 600; font-size: .86rem; }
 .post-tools img { width: 22px; height: 22px; padding: 3px; box-sizing: content-box; background: #fff; border-radius: 7px; }
 .post-end .post-mien-tru { margin: 18px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
+
+/* Giấy chứng nhận xem trước (lo-trinh.js vẽ bằng canvas): bản mẫu có chữ MẪU, xong 7 ngày thì đổi theo tên đang gõ */
+.cert-mau { margin: 20px 0 0; }
+.cert-mau canvas { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 1131; border-radius: 14px; background: var(--bg2);
+  box-shadow: 0 22px 40px -24px rgba(15, 23, 42, .55); }
+.cert:not(.is-open) .cert-mau canvas { opacity: .92; }
+.cert-mau figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }

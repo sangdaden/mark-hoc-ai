@@ -71,6 +71,7 @@
     const batDau = document.getElementById("nut-bat-dau"), sau = days.find(d => !nho.xong.includes(+d.dataset.ngay));
     if (batDau && so) { batDau.href = sau ? "#" + sau.id : "#chung-nhan"; batDau.textContent = sau ? S.tiep(sau.dataset.ngay) : S.hetNgay; }
     document.querySelectorAll(".day-tiep").forEach(a => { a.href = sau ? "#" + sau.id : "#chung-nhan"; a.textContent = sau ? S.tiep(sau.dataset.ngay) : S.hetNgay; });
+    document.dispatchEvent(new Event("lo-trinh-doi"));  // giấy chứng nhận xem trước vẽ lại
   }
 
   // Mark chuyển động khi trả lời (assets/mascot); người bật "giảm chuyển động" thấy ảnh đứng yên
@@ -134,7 +135,12 @@
     return "Ngày " + String(d.getDate()).padStart(2, "0") + " tháng " + String(d.getMonth() + 1).padStart(2, "0") + " năm " + d.getFullYear();
   };
 
-  async function ve(ten) {
+  // Ảnh dùng chung cho mọi lần vẽ (xem trước vẽ lại mỗi lần gõ tên)
+  let anhChung = null;
+  const taiAnhChung = () => anhChung || (anhChung = Promise.all([taiAnh(goc + "assets/logo.png"), taiSvg(goc + "assets/mark-va-bit.svg", 540, 510)]));
+
+  // ve(tên, canvas, mẫu): mẫu = true thì in chữ "MẪU"/"SAMPLE" mờ chéo qua giấy
+  async function ve(ten, canvas, mau) {
     const W = canvas.width, H = canvas.height, c = canvas.getContext("2d");
     const C = { blue: "#2563EB", sky: "#0EA5E9", mint: "#06D6A0", yellow: "#FACC15", ink: "#0F172A", muted: "#475569", edge: "#BFDBFE", bg: "#EFF6FF" };
     const T = EN ? {
@@ -154,7 +160,7 @@
         await document.fonts.ready;
       } catch (e) {}
     }
-    const [logo, markBit] = await Promise.all([taiAnh(goc + "assets/logo.png"), taiSvg(goc + "assets/mark-va-bit.svg", 540, 510)]);
+    const [logo, markBit] = await taiAnhChung();
     const F = (w, s, f) => w + " " + s + "px " + (f || '"Be Vietnam Pro", "Inter", system-ui, sans-serif');
     const FI = (w, s) => F(w, s, '"Inter", system-ui, sans-serif');
 
@@ -225,8 +231,39 @@
     c.font = F(800, 64); c.fillStyle = C.ink; c.textAlign = "center"; c.fillText("7", W - 200, 312);
     c.font = F(800, 24); c.fillText(EN ? "DAYS" : "NGÀY", W - 200, 368);
 
+    // Bản mẫu: chữ mờ chéo, để không ai lấy bản mẫu làm giấy thật
+    if (mau) {
+      c.save(); c.translate(W / 2, H / 2); c.rotate(-Math.PI / 9);
+      c.font = F(800, 260); c.textAlign = "center"; c.textBaseline = "middle";
+      c.fillStyle = "rgba(37, 99, 235, .09)"; c.fillText(EN ? "SAMPLE" : "MẪU", 0, 0);
+      c.lineWidth = 3; c.strokeStyle = "rgba(37, 99, 235, .16)"; c.strokeText(EN ? "SAMPLE" : "MẪU", 0, 0);
+      c.restore();
+    }
+
     return new Promise(ok => canvas.toBlob(b => ok(b), "image/png"));
   }
+
+  // Xem trước: chưa xong 7 ngày thì là bản mẫu "Tên của bạn" có chữ MẪU; xong rồi thì đổi theo tên đang gõ (chưa cần bấm tạo)
+  const mauCanvas = document.getElementById("cn-mau-canvas"), mauChu = document.getElementById("cn-mau-chu");
+  const TEN_MAU = EN ? "Your name" : "Tên của bạn";
+  let henVe = 0, luotVe = 0;
+  function veXemTruoc() {
+    if (!mauCanvas) return;
+    const du = nho.xong.length >= D.so_ngay, ten = input.value.replace(/\s+/g, " ").trim();
+    const laMau = !du || !ten, lan = ++luotVe;
+    clearTimeout(henVe);
+    henVe = setTimeout(async () => {
+      if (lan !== luotVe) return;
+      await ve(laMau ? TEN_MAU : ten, mauCanvas, laMau);
+      mauCanvas.setAttribute("aria-label", laMau ? (EN ? "Sample certificate with the name \"Your name\"" : "Giấy chứng nhận mẫu với tên \"Tên của bạn\"") : S.anh(ten));
+      if (mauChu) mauChu.textContent = !du ? (EN ? "Sample: finish all 7 days and it shows your name." : "Bản mẫu: xong cả 7 ngày là có tên bạn.")
+        : laMau ? (EN ? "Type your name above to see it on the certificate." : "Gõ tên ở trên để thấy tên bạn trên giấy.")
+        : (EN ? "Preview. Press \"Make my certificate\" to download it." : "Xem trước. Bấm \"Tạo giấy chứng nhận\" để tải về.");
+    }, lan === 1 ? 0 : 160);
+  }
+  input.addEventListener("input", veXemTruoc);
+  veXemTruoc();
+  document.addEventListener("lo-trinh-doi", veXemTruoc);
 
   nutTao.addEventListener("click", async () => {
     const ten = input.value.replace(/\s+/g, " ").trim();
@@ -237,12 +274,12 @@
     const nhanCu = nutTao.innerHTML;
     nutTao.textContent = S.dangVe;
     try {
-      const blob = await ve(ten);
+      const blob = await ve(ten, canvas, false);
       if (urlCu) URL.revokeObjectURL(urlCu);
       urlCu = blob ? URL.createObjectURL(blob) : canvas.toDataURL("image/png");
       anh.src = urlCu; anh.alt = S.anh(ten);
       tai.href = urlCu;
-      document.getElementById("cn-xem").hidden = false;
+      // ảnh PNG vừa tạo giống hệt bản xem trước ngay dưới, nên không hiện thêm ảnh thứ hai (cn-xem giữ ẩn)
       document.getElementById("cn-nut").hidden = false;
       document.getElementById("cn-loi-khen").hidden = false;
       document.getElementById("chung-nhan").dataset.daTao = "1";
