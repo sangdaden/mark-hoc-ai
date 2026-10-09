@@ -408,6 +408,14 @@ def anh_dau_bai(v, p):
     return (f'<figure class="post-cover"><img src="{p}{a["bia"]}" srcset="{p}{a["the"]} 640w, {p}{a["bia"]} 1280w" '
             f'sizes="(max-width: 800px) 100vw, 696px" width="1280" height="720" alt="{esc(ten_video(v))}" decoding="async" fetchpriority="high"></figure>\n')
 
+def anh_canh(v, i, ten, p):
+    """Khung hình trong video đặt dưới đoạn giải thích của mục i (chỉ video mới có trong data/anh.json)."""
+    for c in ANH.get(str(v["so"]), {}).get("canh", []):
+        if c.get("muc") == i:
+            return (f'\n<figure class="post-still"><img src="{p}{c["anh"]}" width="720" height="576" loading="lazy" decoding="async" '
+                    f'alt="{esc(ten)}"><figcaption>{t("Cảnh trong video", "From the video")} #{v["so"]:02d}: {esc(ten)}</figcaption></figure>')
+    return ""
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -419,7 +427,7 @@ def tao_bai(v):
     thu_nhan = t("Thử ngay", "Try it now")
 
     muc, co_thu = [], False
-    for s in muc_nd:
+    for i_muc, s in enumerate(muc_nd):
         chip, ten, doan = s.get("chip", ""), s.get("title", ""), s.get("text", "")
         if s.get("try"):
             co_thu = True
@@ -432,7 +440,7 @@ def tao_bai(v):
             h2 = f'<h2 class="h-hoi"><img src="{p}assets/bit-y-tuong.svg" alt="" width="44" height="53">{esc(ten)}</h2>\n'
         else:
             h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
-        muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(doan, q, so)}</p>\n</section>')
+        muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(doan, q, so)}</p>{anh_canh(v, i_muc, ten, p)}\n</section>')
     if not co_thu and thu_mo_ta:
         muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
                    f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{t("Làm ngay hôm nay", "Do it today")}</h2>\n'
