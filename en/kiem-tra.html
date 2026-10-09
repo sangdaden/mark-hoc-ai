@@ -117,7 +117,7 @@
       else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
     });
     var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><img class="q-bit" src="../assets/' + (ok ? "bit-vui" : "bit-sai-roi") + '.svg" alt="" width="48" height="58"><div><p class="q-verdict">' + (ok ? "Correct!" : "Not quite.") +
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="../assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '-tinh.webp"><img src="../assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '.webp" alt="" width="' + (ok ? 114 : 94) + '" height="150"></picture><div><p class="q-verdict">' + (ok ? "Correct!" : "Not quite.") +
       " This statement is " + (q.dung ? "true" : "a misconception") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Read more: ' + q.video.map(link).join(", ") + '</p></div></div>' +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "See results" : "Next question ›") + "</button>";
     i++;

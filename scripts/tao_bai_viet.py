@@ -587,6 +587,7 @@ KIEM_TRA_JS_EN = [
     ('"Câu " + soHien + "/" + Q.length : "Kết quả"', '"Question " + soHien + "/" + Q.length : "Results"'),
     ('"Đúng " + dung', '"Correct " + dung'),
     ('src="assets/', 'src="../assets/'),
+    ('srcset="assets/', 'srcset="../assets/'),
     ('<p class="q-num">Câu \' + (i + 1)', '<p class="q-num">Question \' + (i + 1)'),
     ('data-v="1">Đúng</button>', 'data-v="1">True</button>'),
     ('data-v="0">Sai</button>', 'data-v="0">False</button>'),
@@ -671,7 +672,7 @@ def tao_kiem_tra():
       else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
     });
     var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><img class="q-bit" src="assets/' + (ok ? "bit-vui" : "bit-sai-roi") + '.svg" alt="" width="48" height="58"><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '-tinh.webp"><img src="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '.webp" alt="" width="' + (ok ? 114 : 94) + '" height="150"></picture><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
       " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div></div>' +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "Xem kết quả" : "Câu tiếp theo ›") + "</button>";
     i++;

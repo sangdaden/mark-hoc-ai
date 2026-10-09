@@ -4,7 +4,9 @@
   const goc = me ? me.src.replace(/bit-tro-ly\.js.*$/, "") : "";
   const EN = document.documentElement.lang === "en";
   const nha = goc + (EN ? "en/" : ""); // trang chủ của ngôn ngữ đang xem
-  const hinh = ten => goc + "assets/bit-" + ten + ".svg";
+  // "dang-noi": Bit chuyển động lúc nói (assets/mascot, scripts/tao_mascot.py); bật "giảm chuyển động" thì dùng ảnh đứng yên
+  const giamCD = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hinh = ten => ten === "dang-noi" ? goc + "assets/mascot/bit-dang-noi" + (giamCD ? "-tinh" : "") + ".webp" : goc + "assets/bit-" + ten + ".svg";
   const duong = location.pathname;
   const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : "chu";
   const nho = {
@@ -104,7 +106,7 @@
     noi.hidden = false;
     hop.classList.remove("bit-lui");
     dangNoi();
-    doiMat("y-tuong");
+    doiMat("dang-noi");
     hop.classList.add("bit-nay");
     setTimeout(() => hop.classList.remove("bit-nay"), 700);
     clearTimeout(henGio);

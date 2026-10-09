@@ -73,6 +73,9 @@
     document.querySelectorAll(".day-tiep").forEach(a => { a.href = sau ? "#" + sau.id : "#chung-nhan"; a.textContent = sau ? S.tiep(sau.dataset.ngay) : S.hetNgay; });
   }
 
+  // Mark chuyển động khi trả lời (assets/mascot); người bật "giảm chuyển động" thấy ảnh đứng yên
+  const mascot = (ten, w) => '<picture class="fb-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="' + goc + "assets/mascot/" + ten +
+    '-tinh.webp"><img src="' + goc + "assets/mascot/" + ten + '.webp" alt="" width="' + w + '" height="150"></picture>';
   days.forEach(li => {
     const quiz = li.querySelector(".day-quiz"), dung = +quiz.dataset.dung, n = +li.dataset.ngay;
     const fb = li.querySelector(".day-fb"), nut = li.querySelector(".day-xong");
@@ -82,13 +85,13 @@
       const i = +b.dataset.i;
       if (i === dung) {
         quiz.querySelectorAll(".day-opt").forEach((x, j) => { x.disabled = true; x.classList.toggle("is-right", j === dung); x.classList.remove("is-wrong"); });
-        fb.textContent = S.dung; fb.className = "day-fb ok";
+        fb.innerHTML = mascot("mark-chien-thang", 114) + "<span>" + S.dung + "</span>"; fb.className = "day-fb ok co-hinh";
         li.querySelector(".day-why").hidden = false;
         nut.disabled = false;
         nut.focus({ preventScroll: true });
       } else {
         b.classList.add("is-wrong"); b.disabled = true;
-        fb.textContent = S.sai; fb.className = "day-fb no";
+        fb.innerHTML = mascot("mark-dau-dau", 94) + "<span>" + S.sai + "</span>"; fb.className = "day-fb no co-hinh";
       }
     });
     nut.addEventListener("click", () => {

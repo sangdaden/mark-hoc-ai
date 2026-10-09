@@ -754,3 +754,22 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .yt-lite iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .post-xem { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 6px; font-size: .9rem; color: var(--muted); }
 .post-xem span { margin-right: 2px; }
+
+/* Mark và Bit chuyển động (assets/mascot, scripts/tao_mascot.py). Người bật "giảm chuyển động" thấy ảnh đứng yên qua <source media>. */
+.q-fb .q-mascot { width: auto; }
+.q-mascot img, .fb-mascot img { display: block; width: auto; height: 76px; }
+.day-fb.co-hinh { display: flex; align-items: center; gap: 10px; }
+.fb-mascot { flex: none; }
+.fb-mascot img { height: 64px; }
+.empty .mascot-dong img { width: auto; height: 130px; }
+.book-promo-cover { position: relative; display: block; }
+.book-promo-cover .promo-mascot { position: absolute; right: -12px; bottom: -16px; pointer-events: none; }
+.book-promo-cover .promo-mascot img { display: block; width: auto; height: 100px; border-radius: 0; box-shadow: none; transform: none; }
+.path-course-mascot img { display: block; width: auto; height: 76px; }
+@media (max-width: 760px) {
+  .q-mascot img { height: 60px; }
+  .book-promo-cover .promo-mascot { right: -8px; bottom: -12px; }
+  .book-promo-cover .promo-mascot img { height: 54px; }
+  .path-course-mascot { align-self: start; }
+  .path-course-mascot img { height: 62px; }
+}
