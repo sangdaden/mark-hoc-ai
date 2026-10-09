@@ -4,13 +4,13 @@
   const goc = EN ? "../" : "";
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const S = EN ? {
-    hopTac: "Partnerships, sponsorships or feedback? Email us:", gopY: "Feedback or partnerships: message the channel's Facebook page.",
+    hopTac: "Partnerships, sponsorships or feedback? Email us:", mediaKit: "Media kit ›", gopY: "Feedback or partnerships: message the channel's Facebook page.",
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
     tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", xemThem: n => "Show all " + n + " videos", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›"
   } : {
-    hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
+    hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
     tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
@@ -44,7 +44,7 @@
     if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; } else a.hidden = true;
   });
   const lienHe = document.getElementById("lien-he");
-  if (kenh.email) lienHe.innerHTML = '<b>' + S.hopTac + '</b><a class="btn btn-mail" href="mailto:' + kenh.email + '">' + ic("mail") + kenh.email + "</a>";
+  if (kenh.email) lienHe.innerHTML = '<b>' + S.hopTac + '</b><a class="btn btn-mail" href="mailto:' + kenh.email + '">' + ic("mail") + kenh.email + '</a><a class="btn" href="hop-tac.html">' + S.mediaKit + "</a>";
   else lienHe.textContent = S.gopY;
 
   const norm = s => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase();

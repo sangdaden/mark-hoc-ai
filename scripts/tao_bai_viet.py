@@ -1,5 +1,6 @@
 """Tạo các trang tĩnh cho SEO: một bài viết cho mỗi video (bai/*.html), Từ điển AI (tu-dien.html),
-bài kiểm tra "Bạn hiểu AI tới đâu?" (kiem-tra.html), bản tiếng Anh của cả ba (en/...) và sitemap.xml.
+bài kiểm tra "Bạn hiểu AI tới đâu?" (kiem-tra.html), sách miễn phí (sach.html), Lộ trình 7 ngày (lo-trinh-7-ngay.html),
+trang hợp tác (hop-tac.html), bản tiếng Anh của tất cả (en/...) và sitemap.xml.
 
 Chạy lại mỗi khi có video mới (sau scripts/gom_video.py) hoặc khi sửa data/bai-viet.json, data/tu-dien.json, data/kiem-tra.json
 hay bản dịch trong data/en/:
@@ -268,7 +269,9 @@ def header(p, hien_tai="", q=None):
         return f'<a class="{cls}" href="{href}"{cur}>{ten}</a>' if cls else f'<a href="{href}"{cur}>{ten}</a>'
     return (f'<header class="top">\n  <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>\n'
             f'  <nav class="top-links" aria-label="{t("Trang", "Pages")}">\n    {a((q or "./") + "#bat-dau", t("Bắt đầu từ đây", "Start here"), "bat-dau", "nav-start")}\n'
+            f'    {a(q + "lo-trinh-7-ngay.html", t("Lộ trình 7 ngày", "7-day path"), "lo-trinh")}\n'
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
+            f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
             f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">YouTube</a>\n  </nav>\n</header>')
 
 def footer(p, q=None):
@@ -280,7 +283,8 @@ def footer(p, q=None):
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
-            + (f' · <a href="mailto:{esc(kenh["email"])}">{t("Liên hệ hợp tác: ", "Partnerships: ")}{esc(kenh["email"])}</a>' if kenh.get("email") else "")
+            f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
+            + (f' · <a href="mailto:{esc(kenh["email"])}">{esc(kenh["email"])}</a>' if kenh.get("email") else "")
             + '</span>\n  </div>\n</footer>')
 
 def lien_ket_ngon_ngu(goc):
@@ -688,6 +692,251 @@ def tao_kiem_tra():
     return GOC + "kiem-tra.html", trang("kiem-tra.html", t(f"Bạn hiểu AI tới đâu? Kiểm tra 10 câu đúng sai về AI | {SITE}", f"How well do you know AI? A 10-question true-or-false quiz | {SITE}"),
                                         desc, band, main, p, hien_tai="kiem-tra", og_type="website", jsonld=jsonld, cuoi=js, q="")
 
+# ---------- ebook (sach.html) ----------
+def tao_sach():
+    p = t("", "../")
+    S = json.loads((R / "data" / "sach.json").read_text(encoding="utf-8"))
+    ten_en = json.loads((R / "data" / "en" / "sach.json").read_text(encoding="utf-8"))["chuong"] if LG == "en" else None
+    pdf = p + S["pdf"]
+    mb = (f'{S["dung_luong_mb"]:.1f}'.replace(".", ",") if LG == "vi" else f'{S["dung_luong_mb"]:.1f}') + " MB"
+    so_muc = sum(len(c["muc"]) for c in S["chuong"])
+    nut_tai = (f'<a class="btn btn-yt" href="{pdf}" download="mark-hoc-ai-ebook.pdf" type="application/pdf">{ic(p, "download")}'
+               f'{t("Tải sách miễn phí", "Download the free ebook")} <small class="btn-sub">PDF · {mb}</small></a>')
+    desc = t(f"Tải miễn phí ebook Mark học AI: {S['so_trang']} trang PDF, 20 chương giải thích AI bằng tiếng Việt dễ hiểu, từ prompt, ảo giác, an toàn số tới dùng AI trong việc thật. Không cần đăng ký.",
+             f"Download the free Mark học AI ebook: a {S['so_trang']}-page PDF with 20 chapters explaining AI in plain words, from prompts and hallucinations to online safety and AI at work. Written in Vietnamese. No sign-up.")
+    band = (f'<div class="head-row book-head"><div>\n<p class="eyebrow">{t(f"Ebook miễn phí · PDF · {S["so_trang"]} trang", f"Free ebook · PDF · {S["so_trang"]} pages")}</p>\n'
+            f'<h1>{t("Sách Mark học AI: hiểu AI dễ như trò chuyện", "The Mark học AI book: understand AI as easily as chatting")}</h1>\n'
+            f'<p class="lead">{t(f"Cả kênh gom lại thành một cuốn sách: 20 chương, {so_muc} mục, viết cho người không rành kỹ thuật. Đọc trên điện thoại, máy tính hay in ra đều được.", f"The whole channel in one book: 20 chapters and {so_muc} sections, written for people who are not tech experts. Read it on your phone, your computer, or print it.")}</p>\n'
+            + t("", '<p class="lead book-lang"><b>Note:</b> the book is written in Vietnamese. The English articles on this site cover the same ideas, video by video.</p>\n')
+            + f'<div class="cta">{nut_tai}<a class="btn" href="#muc-luc">{t("Xem mục lục", "See the chapters")}</a></div>\n'
+            f'<p class="book-free">{ic(p, "check")}{t("Không cần đăng ký, không cần email. Bấm là tải.", "No sign-up, no email. Just click and download.")}</p>\n'
+            f'</div><picture class="book-cover"><source srcset="{p}assets/sach/bia.webp" type="image/webp">'
+            f'<img src="{p}assets/sach/bia.jpg" alt="{t("Bìa sách Mark học AI: Mark vẫy tay chào cùng robot Bit", "Cover of the Mark học AI book: Mark waving hello with Bit the robot")}" width="560" height="794"></picture></div>')
+    diem = [("book-open", t("20 chương, đi từ dễ tới khó", "20 chapters, from easy to advanced"),
+             t("Bắt đầu từ AI là gì, rồi prompt, bên trong bộ não AI, agent, an toàn số, tới AI trong nghề và đời sống.", "From what AI is, to prompts, the inside of an AI brain, agents, online safety, and AI at work and at home.")),
+            ("sparkles", t("Khung \"Gõ cho AI\" và \"Thử ngay\"", "\"Type this to AI\" and \"Try it now\" boxes"),
+             t("Mỗi chương có prompt mẫu chép là dùng được, và một việc nhỏ để làm liền.", "Each chapter has sample prompts you can copy, and a small task to do right away.")),
+            ("clapperboard", t("Mỗi mục ghi số video", "Every section lists its video"),
+             t(f"Đọc chỗ nào chưa rõ thì mở đúng video đó xem lại. Cả sách gom {S['so_video']} video của kênh.", f"Not clear? Open that exact video. The book collects {S['so_video']} of the channel's videos (in Vietnamese).")),
+            ("lightbulb", t("Mark hỏi, Bit giải thích", "Mark asks, Bit explains"),
+             t("Giọng văn như trò chuyện, thuật ngữ giữ tiếng Anh, cuối sách có bảng thuật ngữ để tra.", "A chatty style, AI terms kept in English, and a glossary at the end."))]
+    the_diem = "".join(f'<li class="feat"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p>{esc(b)}</p></div></li>' for i, a, b in diem)
+    if LG == "en":
+        chuong = "".join(f'<li class="chap chap-flat"><span class="chap-no">{c["so"]}</span><span class="chap-name">{esc(ten_en[i])}</span>'
+                         f'<span class="chap-meta">p. {c["trang"]} · {len(c["muc"])} sections</span></li>' for i, c in enumerate(S["chuong"]))
+    else:
+        chuong = "".join(f'<li class="chap"><details><summary><span class="chap-no">{c["so"]}</span><span class="chap-name">{esc(c["ten"])}</span>'
+                         f'<span class="chap-meta">trang {c["trang"]} · {len(c["muc"])} mục</span></summary>'
+                         f'<ul class="chap-items">' + "".join(f"<li>{esc(m)}</li>" for m in c["muc"]) + "</ul></details></li>" for c in S["chuong"])
+    cuoi_sach = t(f'Phần cuối: {esc(S["phan_cuoi"])}.', "At the end: a glossary of AI terms and a list of all the videos.")
+    main = f"""<main class="book">
+<section class="book-sec" aria-labelledby="co-gi">
+<h2 id="co-gi">{t("Trong sách có gì?", "What's inside?")}</h2>
+<ul class="feats">{the_diem}</ul>
+</section>
+<section class="book-sec" aria-labelledby="xem-truoc">
+<h2 id="xem-truoc">{t("Xem trước vài trang", "A peek inside")}</h2>
+<div class="peek">
+<figure><img src="{p}assets/sach/trang-mo-chuong.webp" alt="{t("Hai trang mở đầu chương 19, Sáng tạo với AI: Mark hỏi, kèm khung Gõ cho AI", "Two pages opening chapter 19, Getting creative with AI, with Mark's question and a prompt box")}" width="1200" height="847" loading="lazy"><figcaption>{t("Mở đầu một chương: Mark đặt câu hỏi, sách trả lời bằng lời dễ hiểu.", "A chapter opening: Mark asks, the book answers in plain words.")}</figcaption></figure>
+<figure><img src="{p}assets/sach/trang-trong.webp" alt="{t("Hai trang bên trong sách với lời nhắc của Bit và khung Thử ngay", "Two inside pages with a tip from Bit and a Try it now box")}" width="1200" height="847" loading="lazy"><figcaption>{t("Trang bên trong: lời nhắc của Bit và khung \"Thử ngay\".", "Inside pages: a tip from Bit and a \"Try it now\" box.")}</figcaption></figure>
+</div>
+</section>
+<section class="book-sec" id="muc-luc" aria-labelledby="muc-luc-h">
+<h2 id="muc-luc-h">{t("Mục lục 20 chương", "The 20 chapters")}</h2>
+<p class="book-sub">{t("Bấm vào một chương để xem các mục bên trong.", "Chapter titles translated from Vietnamese.")}</p>
+<ol class="chaps">{chuong}</ol>
+<p class="book-sub">{cuoi_sach}</p>
+</section>
+<aside class="pdf-card book-end">
+<div><b>{t("Tải về, đọc lúc nào cũng được", "Download it and read anytime")}</b><span>{t(f"PDF {S['so_trang']} trang khổ {S['kho']}, {mb}. Miễn phí, cứ chia sẻ cho người thân và bạn bè.", f"{S['so_trang']}-page {S['kho']} PDF, {mb}, in Vietnamese. Free to share with family and friends.")}</span></div>
+{nut_tai}
+</aside>
+<aside class="next-steps">
+<a class="next-step" href="lo-trinh-7-ngay.html"><b>{t("Lộ trình 7 ngày", "The 7-day path")}</b><span>{t("Mỗi ngày 3 video và 1 câu hỏi, xong nhận giấy chứng nhận.", "3 videos and 1 question a day, with a certificate at the end.")}</span></a>
+<a class="next-step" href="tu-dien.html"><b>{t("Từ điển AI", "AI glossary")}</b><span>{t("Tra nhanh token, RAG, MCP… mỗi chữ một dòng tiếng Việt.", "Look up token, RAG, MCP… one plain line per term.")}</span></a>
+</aside>
+</main>"""
+    jsonld = [{"@context": "https://schema.org", "@type": "Book", "name": "Mark học AI", "inLanguage": "vi", "bookFormat": "https://schema.org/EBook",
+               "numberOfPages": S["so_trang"], "isAccessibleForFree": True, "url": BASE + GOC + "sach.html", "image": BASE + "assets/sach/bia.jpg",
+               "description": desc, "author": TO_CHUC, "publisher": TO_CHUC}]
+    return GOC + "sach.html", trang("sach.html", t(f"Tải sách Mark học AI miễn phí (PDF {S['so_trang']} trang) | {SITE}", f"Free Mark học AI ebook (PDF, {S['so_trang']} pages) | {SITE}"),
+                                    desc, band, main, p, hien_tai="sach", og_type="website", jsonld=jsonld, q="")
+
+# ---------- lộ trình 7 ngày (lo-trinh-7-ngay.html) ----------
+def tao_lo_trinh():
+    p = t("", "../")
+    goc_vi = json.loads((R / "data" / "lo-trinh-7-ngay.json").read_text(encoding="utf-8"))["ngay"]
+    ngay = goc_vi
+    if LG == "en":
+        en = json.loads((R / "data" / "en" / "lo-trinh-7-ngay.json").read_text(encoding="utf-8"))["ngay"]
+        ngay = [{**a, **b, "cau_hoi": {**a["cau_hoi"], **b["cau_hoi"]}} for a, b in zip(goc_vi, en)]
+    so_video = sum(len(d["video"]) for d in ngay)
+    desc = t(f"Khóa học AI miễn phí 7 ngày cho người mới: mỗi ngày 3 video ngắn, 1 việc thực hành 10 phút và 1 câu hỏi. Hoàn thành cả 7 ngày để nhận giấy chứng nhận Mark học AI cơ bản.",
+             f"A free 7-day AI course for beginners: each day has 3 short videos, a 10-minute task and 1 question. Finish all 7 days to get your Mark học AI basics certificate.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("7 ngày · mỗi ngày khoảng 15 phút · miễn phí", "7 days · about 15 minutes a day · free")}</p>\n'
+            f'<h1>{t("Lộ trình 7 ngày: Mark học AI cơ bản", "The 7-day path: Mark học AI basics")}</h1>\n'
+            f'<p class="lead">{t(f"Mỗi ngày 3 video ngắn, 1 việc làm thử 10 phút và 1 câu hỏi nhỏ. Xong cả 7 ngày, bạn tự in giấy chứng nhận có tên mình.", f"Each day: 3 short videos, a 10-minute task and 1 small question. Finish all 7 days and make a certificate with your name on it.")}</p>\n'
+            + t("", '<p class="lead book-lang">The videos are in Vietnamese; each one links to a full English article.</p>\n')
+            + f'<div class="cta"><a class="btn btn-yt" href="#ngay-1" id="nut-bat-dau">{t("Bắt đầu ngày 1", "Start day 1")} ›</a><a class="btn" href="#chung-nhan">{ic(p, "award")}{t("Giấy chứng nhận", "Certificate")}</a></div>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-chao.svg" alt="{t("Mark vẫy tay chào", "Mark waving hello")}" width="180" height="170"></div>')
+    the = []
+    for i, d in enumerate(ngay, 1):
+        vids = "".join(
+            f'<li><a href="bai/{ten_file(co_bai[n])}.html"><span class="num">#{n:02d}</span><span class="dv-t">{esc(tach_tieu_de(co_bai[n])[0])}</span></a></li>'
+            for n in d["video"])
+        q = d["cau_hoi"]
+        opts = "".join(f'<button type="button" class="day-opt" data-i="{j}"><span class="opt-k">{"ABCD"[j]}</span><span>{esc(o)}</span></button>'
+                       for j, o in enumerate(q["lua_chon"]))
+        the.append(f'''<li class="day" id="ngay-{i}" data-ngay="{i}">
+<div class="day-head"><span class="day-num">{t("Ngày", "Day")}<b>{i}</b></span><div class="day-title"><h2>{esc(d["ten"])}</h2><p class="day-goal">{esc(d["muc_tieu"])}</p></div><span class="day-tag" hidden>{ic(p, "check")}{t("Đã xong", "Done")}</span></div>
+<div class="day-body">
+<div class="day-col">
+<h3 class="day-h">{t("3 video hôm nay", "Today's 3 videos")}</h3>
+<ol class="day-videos">{vids}</ol>
+<div class="day-task"><p class="try-label">{t("Việc 10 phút", "10-minute task")}</p><p>{esc(d["viec"])}</p></div>
+</div>
+<div class="day-quiz" data-dung="{q["dung"]}">
+<h3 class="day-h">{t("Câu hỏi của ngày", "Question of the day")}</h3>
+<p class="day-q" id="cau-{i}">{esc(q["cau"])}</p>
+<div class="day-opts" role="group" aria-labelledby="cau-{i}">{opts}</div>
+<div class="day-fb" role="status" aria-live="polite"></div>
+<p class="day-why" hidden>{esc(q["giai_thich"])}</p>
+<div class="day-act"><button type="button" class="btn btn-yt day-xong" disabled>{ic(p, "check")}{t(f"Đánh dấu xong ngày {i}", f"Mark day {i} done")}</button><button type="button" class="day-lai" hidden>{t("Học lại ngày này", "Redo this day")}</button></div>
+</div>
+</div>
+</li>''')
+    url = BASE + GOC + "lo-trinh-7-ngay.html"
+    du_lieu = json.dumps({"url": url, "so_video": so_video, "so_ngay": len(ngay), "goc": p}, ensure_ascii=False).replace("</", "<\\/")
+    main = f"""<main class="course">
+<section class="course-bar" aria-label="{t("Tiến độ", "Progress")}">
+<div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></div>
+<div class="bar" aria-hidden="true"><i id="thanh"></i></div>
+<p class="course-note">{t("Tiến độ lưu ngay trên trình duyệt này, không cần tài khoản. Học theo thứ tự nào cũng được, nhưng đi từ ngày 1 là dễ nhất.", "Your progress is saved in this browser, no account needed. Any order works, but day 1 first is easiest.")}</p>
+<noscript><p class="course-note">{t("Bật JavaScript để chấm câu hỏi, lưu tiến độ và tạo giấy chứng nhận. Các video vẫn xem được bình thường.", "Turn on JavaScript to check answers, save progress and make the certificate. The videos still work without it.")}</p></noscript>
+</section>
+<ol class="days">
+{chr(10).join(the)}
+</ol>
+<section class="cert" id="chung-nhan" aria-labelledby="cn-h">
+<div class="cert-head"><img src="{p}assets/mark-a-ra-the.svg" alt="" width="130" height="123"><div>
+<p class="eyebrow">{t("Phần thưởng cuối lộ trình", "Your reward")}</p>
+<h2 id="cn-h">{t("Giấy chứng nhận", "Certificate")}</h2>
+<p id="cn-khoa">{t(f"Hoàn thành đủ {len(ngay)} ngày để mở khóa giấy chứng nhận có tên bạn.", f"Finish all {len(ngay)} days to unlock a certificate with your name.")}</p>
+</div></div>
+<div class="cert-form" id="cn-form" hidden>
+<label for="ten-hv">{t("Tên của bạn (in trên giấy chứng nhận)", "Your name (printed on the certificate)")}</label>
+<div class="cert-row"><input id="ten-hv" type="text" maxlength="40" autocomplete="name" placeholder="{t("Ví dụ: Nguyễn Thị Lan", "e.g. Alex Nguyen")}"><button type="button" class="btn btn-yt" id="tao-cn">{ic(p, "award")}{t("Tạo giấy chứng nhận", "Make my certificate")}</button></div>
+<p class="cert-err" id="cn-loi" role="alert"></p>
+<figure class="cert-preview" id="cn-xem" hidden><img id="cn-anh" alt="" width="1600" height="1131"></figure>
+<div class="q-actions" id="cn-nut" hidden><a class="btn btn-yt" id="tai-cn" href="#" download="{t("chung-nhan-mark-hoc-ai.png", "mark-hoc-ai-certificate.png")}">{ic(p, "download")}{t("Tải ảnh PNG", "Download PNG")}</a><button type="button" class="btn" id="chia-se">{ic(p, "share-2")}{t("Chia sẻ", "Share")}</button></div>
+<p class="cert-cheer" id="cn-loi-khen" hidden>{t("Giỏi lắm! 7 ngày, 21 video, 7 việc làm thật. Đăng ảnh lên và rủ một người bạn cùng học tuần này nhé, học có bạn thì nhớ lâu hơn.", "Well done! 7 days, 21 videos, 7 real tasks. Post your certificate and invite a friend to start this week. Learning with a friend makes it stick.")}</p>
+<p class="share-msg" id="bao" role="status"></p>
+</div>
+<canvas id="cn-canvas" width="1600" height="1131" hidden></canvas>
+</section>
+<aside class="next-steps">
+<a class="next-step" href="./#bat-dau"><b>{t("Đi tiếp: lộ trình 4 tuần", "Next: the 4-week path")}</b><span>{t("Bản đồ 7 vùng và lộ trình dài hơn ở trang chủ.", "The 7-area map and a longer path on the home page.")}</span></a>
+<a class="next-step" href="sach.html"><b>{t("Sách miễn phí", "Free ebook")}</b><span>{t("Cả kênh gom thành một cuốn PDF, đọc lại lúc nào cũng được.", "The whole channel in one PDF (in Vietnamese).")}</span></a>
+</aside>
+</main>"""
+    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}lo-trinh.js?v=dev" defer></script>\n'
+    jsonld = [{"@context": "https://schema.org", "@type": "Course", "name": t("Lộ trình 7 ngày: Mark học AI cơ bản", "The 7-day path: Mark học AI basics"), "url": url, "inLanguage": LG,
+               "description": desc, "provider": TO_CHUC, "isAccessibleForFree": True, "educationalLevel": "beginner",
+               "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT15M"},
+               "offers": {"@type": "Offer", "price": 0, "priceCurrency": "VND", "category": "Free"}}]
+    return GOC + "lo-trinh-7-ngay.html", trang("lo-trinh-7-ngay.html", t(f"Lộ trình 7 ngày học AI cho người mới, có giấy chứng nhận | {SITE}", f"7-day AI course for beginners, with a certificate | {SITE}"),
+                                                desc, band, main, p, hien_tai="lo-trinh", og_type="website", jsonld=jsonld, cuoi=js, q="")
+
+# ---------- hợp tác (hop-tac.html) ----------
+def tao_hop_tac():
+    p = t("", "../")
+    so_video = len(thu_tu)
+    so_series = len([g for g in nhom if not g.get("le")])
+    so_tu = len(tu_dien)
+    S = json.loads((R / "data" / "sach.json").read_text(encoding="utf-8"))
+    email = kenh.get("email", "")
+    tieu_de_mail = quote(t("Hợp tác với Mark học AI", "Partnership with Mark học AI"))
+    nut_mail = (f'<a class="btn btn-yt" href="mailto:{esc(email)}?subject={tieu_de_mail}">{ic(p, "mail")}{esc(email)}</a>' if email else "")
+    desc = t(f"Media kit kênh Mark học AI: video giải thích AI bằng tiếng Việt cho người không chuyên trên YouTube, TikTok, Facebook, Instagram. Định dạng, nền tảng, hình thức hợp tác và liên hệ.",
+             f"Media kit for Mark học AI: Vietnamese AI explainer videos for non-experts on YouTube, TikTok, Facebook and Instagram. Formats, platforms, partnership options and contact.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Media kit · dành cho nhãn hàng và đối tác", "Media kit · for brands and partners")}</p>\n'
+            f'<h1>{t("Hợp tác cùng Mark học AI", "Work with Mark học AI")}</h1>\n'
+            f'<p class="lead">{t("Kênh giải thích AI bằng tiếng Việt cho người không chuyên. Nếu sản phẩm của bạn giúp người Việt dùng AI tốt hơn, an toàn hơn, mình cùng làm một nội dung thật sự hữu ích cho người xem.", "A channel that explains AI in Vietnamese for non-experts. If your product helps Vietnamese people use AI better and more safely, let us make something genuinely useful for viewers together.")}</p>\n'
+            f'<div class="cta">{nut_mail}<a class="btn" href="#hinh-thuc">{t("Các hình thức hợp tác", "Ways to work together")}</a></div>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-va-bit.svg" alt="{t("Mark và robot Bit", "Mark and Bit the robot")}" width="200" height="189"></div>')
+    doi_tuong = [("briefcase", t("Dân văn phòng", "Office workers"), t("Email, Excel, báo cáo, họp hành: muốn AI làm nhanh hơn mà không sai.", "Email, spreadsheets, reports, meetings: they want AI to speed things up without mistakes.")),
+                 ("graduation-cap", t("Giáo viên, học sinh, sinh viên", "Teachers and students"), t("Soạn bài, ôn thi, học ngoại ngữ, dùng AI mà không đạo văn.", "Lesson plans, exam prep, languages, using AI without plagiarism.")),
+                 ("wrench", t("Chủ tiệm, người bán hàng online", "Shop owners and online sellers"), t("Mô tả sản phẩm, trả lời khách, livestream, sổ sách.", "Product descriptions, customer replies, livestreams, bookkeeping.")),
+                 ("users", t("Phụ huynh và gia đình", "Parents and families"), t("Con dùng AI làm bài tập, ông bà tránh lừa đảo giả giọng.", "Kids using AI for homework, grandparents avoiding voice-clone scams."))]
+    the_dt = "".join(f'<li class="feat"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p>{esc(b)}</p></div></li>' for i, a, b in doi_tuong)
+    so = [(str(so_video), t("video giải thích AI, mỗi ngày thêm video mới", "AI explainer videos, with new ones every day")),
+          (str(so_series), t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
+          (str(so_tu), t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
+          (str(S["so_trang"]), t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
+    the_so = "".join(f'<li class="stat"><b>{a}</b><span>{esc(b)}</span></li>' for a, b in so)
+    dinh_dang = [("smartphone", t("Video dọc ngắn (9:16)", "Short vertical video (9:16)"), "TikTok · YouTube Shorts · Facebook Reels · Instagram Reels",
+                  t("Khoảng một phút, một ý, có phụ đề tiếng Việt. Mark hỏi, Bit giải thích bằng hình động, cuối video là một việc làm thử ngay.", "About a minute, one idea, Vietnamese subtitles. Mark asks, Bit explains with animation, and each video ends with something to try.")),
+                 ("monitor", t("Video YouTube dạng dài (16:9)", "Long-form YouTube video (16:9)"), "YouTube",
+                  t("Bản ngang để đi sâu một chủ đề hoặc gom cả series, cho người xem trên máy tính và TV.", "Horizontal version to go deeper on a topic or tie a whole series together, for viewers on computers and TVs.")),
+                 ("images", t("Carousel ảnh", "Image carousels"), "Instagram · Facebook",
+                  t("Bộ 7 slide tóm tắt một video: lưu lại để xem sau, dễ chia sẻ.", "A 7-slide summary of a video: easy to save and share.")),
+                 ("message-circle", t("Bài Threads hằng ngày", "Daily Threads posts"), "Threads",
+                  t("Bài ngắn mỗi ngày kèm ảnh thẻ prompt mẫu, chép là dùng được.", "A short daily post with a sample-prompt card people can copy.")),
+                 ("file-text", t("Bài viết trên web", "Website articles"), "markhocai.com",
+                  t("Mỗi video có một bài viết tiếng Việt và tiếng Anh, có Từ điển AI và bài kiểm tra, để Google tìm thấy lâu dài.", "Every video has an article in Vietnamese and English, plus a glossary and a quiz, so it stays findable on Google."))]
+    the_dd = "".join(f'<li class="fmt"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p class="fmt-where">{esc(b)}</p><p>{esc(c)}</p></div></li>' for i, a, b, c in dinh_dang)
+    nen_tang = [(k, ten) for k, ten in (("youtube", "YouTube"), ("tiktok", "TikTok"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("discord", t("Discord (cộng đồng)", "Discord (community)"))) if kenh.get(k)]
+    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></a></li>' for k, ten in nen_tang)
+    the_nt += f'<li><a class="plat" href="{BASE}"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></a></li>'
+    hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
+                  t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
+                 (t("Review công cụ", "Tool review"),
+                  t("Mark dùng thử thật trong việc hằng ngày, nói cả điểm mạnh lẫn điểm còn yếu và ai nên hoặc không nên dùng. Nhãn hàng góp ý thông tin cho đúng, kênh giữ quyền kết luận.", "Mark actually uses the tool in everyday tasks and covers strengths, weaknesses, and who should or should not use it. You can correct facts; the channel keeps the final verdict.")),
+                 (t("Gói nhiều định dạng", "Multi-format package"),
+                  t("Một chủ đề, nhiều nơi: video dọc, bản ngang YouTube, carousel, bài Threads và bài viết trên web.", "One topic, many places: vertical video, a YouTube version, a carousel, a Threads post and a website article."))]
+    the_ht = "".join(f'<li class="way"><span class="way-no">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></li>' for i, (a, b) in enumerate(hinh_thuc, 1))
+    nguyen_tac = [t("Chỉ nhận sản phẩm kênh đã dùng thử và thấy có ích thật cho người xem.", "We only take on products we have tried and find genuinely useful for viewers."),
+                  t("Ghi rõ \"Có tài trợ\" hoặc \"Hợp tác quảng cáo\" ngay trong video và ở dòng đầu mô tả.", "\"Sponsored\" or \"Paid partnership\" is stated clearly in the video and at the top of the description."),
+                  t("Video không tài trợ có nhắc tới sản phẩm thì ghi rõ kênh không liên kết hay được tài trợ bởi hãng đó.", "Unsponsored videos that mention a product say clearly that the channel is not affiliated with or sponsored by that company."),
+                  t("Không dùng chữ \"đối tác chính thức\", không đặt logo hãng cạnh logo kênh kiểu đồng thương hiệu, không sửa logo của hãng.", "No \"official partner\" wording, no co-branded logo lockups, and no altering a brand's logo."),
+                  t("Không nhận nội dung hứa hẹn quá sự thật, đầu tư, vay tiền, cờ bạc hay bất cứ thứ gì có thể hại người xem.", "No exaggerated claims, investment, lending, gambling, or anything that could harm viewers.")]
+    the_nt2 = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in nguyen_tac)
+    main = f"""<main class="kit">
+<section class="book-sec" aria-labelledby="cho-ai">
+<h2 id="cho-ai">{t("Kênh dành cho ai?", "Who is the channel for?")}</h2>
+<p class="book-sub">{t("Người Việt không làm kỹ thuật nhưng muốn dùng AI cho việc thật. Mỗi video một ý, lời dễ hiểu, thuật ngữ giữ tiếng Anh để người xem nhận ra khi gặp lại.", "Vietnamese people who don't work in tech but want to use AI for real tasks. One idea per video, plain words, AI terms kept in English so viewers recognize them later.")}</p>
+<ul class="feats">{the_dt}</ul>
+</section>
+<section class="book-sec" aria-labelledby="con-so">
+<h2 id="con-so">{t("Nội dung bằng con số", "Content in numbers")}</h2>
+<ul class="stats-grid">{the_so}</ul>
+<p class="kit-note">{ic(p, "mail")}<span>{t("Số người theo dõi, lượt xem và tỉ lệ tương tác của từng nền tảng: kênh gửi bản số liệu mới nhất khi bạn liên hệ.", "Followers, views and engagement for each platform: we send the latest figures when you get in touch.")}</span></p>
+</section>
+<section class="book-sec" aria-labelledby="dinh-dang">
+<h2 id="dinh-dang">{t("Định dạng nội dung", "Formats")}</h2>
+<ul class="fmts">{the_dd}</ul>
+</section>
+<section class="book-sec" aria-labelledby="nen-tang">
+<h2 id="nen-tang">{t("Nền tảng", "Platforms")}</h2>
+<ul class="plats">{the_nt}</ul>
+</section>
+<section class="book-sec" id="hinh-thuc" aria-labelledby="hinh-thuc-h">
+<h2 id="hinh-thuc-h">{t("Các hình thức hợp tác", "Ways to work together")}</h2>
+<ol class="ways">{the_ht}</ol>
+<div class="rules">
+<h3>{t("Nguyên tắc của kênh", "Our ground rules")}</h3>
+<p>{t("Người xem tin kênh vì kênh nói thật. Mọi hợp tác đều theo mấy điều này:", "Viewers trust the channel because it tells the truth. Every partnership follows these rules:")}</p>
+<ul>{the_nt2}</ul>
+</div>
+</section>
+<aside class="pdf-card kit-contact">
+<div><b>{t("Liên hệ hợp tác", "Get in touch")}</b><span>{t("Gửi kèm tên sản phẩm, mục tiêu, thời gian dự kiến và ngân sách (nếu có). Kênh trả lời trong vài ngày làm việc.", "Include your product, goals, timing and budget (if any). We reply within a few working days.")}</span></div>
+{nut_mail}
+</aside>
+</main>"""
+    return GOC + "hop-tac.html", trang("hop-tac.html", t(f"Hợp tác và tài trợ: media kit kênh Mark học AI | {SITE}", f"Partnerships and sponsorship: Mark học AI media kit | {SITE}"),
+                                       desc, band, main, p, hien_tai="hop-tac", og_type="website", q="")
+
 # ---------- chạy ----------
 def chay():
     def ghi(duong, noi_dung):
@@ -704,14 +953,14 @@ def chay():
                 f.unlink()
         for v in thu_tu:
             ghi(*tao_bai(v))
-        for ham in (tao_tu_dien, tao_kiem_tra):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac):
             ghi(*ham())
-        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html")
+        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html")
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
