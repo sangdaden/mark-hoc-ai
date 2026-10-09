@@ -22,9 +22,10 @@
     return r.json();
   }
   // Lịch ra mắt (số video -> YYYY-MM-DD); thiếu file thì coi như video nào cũng đã ra
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  // anh.json: ảnh bìa của video mới (scripts/tao_anh.py); video không có ảnh giữ thẻ chữ như cũ
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
-    EN ? load("en/series") : null, EN ? load("en/videos") : null]);
+    EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({}))]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -153,7 +154,10 @@
           : !lich[v.so] && g.sap_ra_mat
           ? '<span class="row-soon">' + S.sapRa + '</span>'
           : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="' + S.xemYt(pad(v.so)) + '">' + ic("play") + "YouTube</a>";
-        return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
+        const a = anh[v.so];
+        const hinh = a && a.the ? '<a class="row-thumb" href="' + baiLink(v) + '" tabindex="-1"><img src="' + goc + a.the + '" alt="' + esc(v.title) +
+          '" width="640" height="360" loading="lazy" decoding="async"></a>' : "";
+        return '<li class="row' + (hinh ? " co-anh" : "") + '"><span class="num">#' + pad(v.so) + "</span>" + hinh + '<div class="row-main"><p class="row-title">' +
           (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
           '</p><a class="row-read" href="' + baiLink(v) + '">' + S.docBai + '</a></div>' + link + "</li>";
       }).join("");

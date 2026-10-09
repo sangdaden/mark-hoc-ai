@@ -37,6 +37,10 @@ kenh, series, videos = load("kenh"), load("series"), load("videos")
 seo = load("bai-viet")["tieu_de_seo"]
 tu_dien = load("tu-dien")["thuat_ngu"]
 kiem_tra = load("kiem-tra")["cau_hoi"]
+# Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
+from video_moi import VIDEO_MOI_TU
+# Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
+ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 esc = lambda s: html.escape(s or "", quote=True)
 
 # Ngôn ngữ đang tạo: "vi" (gốc, ở thư mục gốc) hoặc "en" (ở en/). t("chữ Việt", "English") chọn theo ngôn ngữ đó.
@@ -132,7 +136,7 @@ def doc_mo_ta(thu_muc):
     return cat_ngan(bo_emoji(re.sub(r"[0-9#*]\ufe0f?\u20e3\s*", "", " ".join(buf)))), thu
 
 # Câu trong ngoặc kép ở dòng "Thử ngay" nhưng không phải câu lệnh gửi AI (tên tùy chọn, từ khóa tìm kiếm)
-KHONG_PHAI_PROMPT = {75, 77, 80}
+KHONG_PHAI_PROMPT = {75, 77, 80, 200}
 
 def doc_prompt(thu_muc, so):
     """Prompt mẫu để nút "Sao chép prompt" chép: dòng sau "...chép dùng ngay:" trong tieu-de-mo-ta.md,
@@ -299,7 +303,7 @@ def lien_ket_ngon_ngu(goc):
     return (f'<link rel="alternate" hreflang="vi" href="{BASE}{goc}">\n<link rel="alternate" hreflang="en" href="{BASE}en/{goc}">\n'
             f'<link rel="alternate" hreflang="x-default" href="{BASE}{goc}">')
 
-def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None):
+def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None):
     # goc: đường dẫn trang không kèm tiền tố ngôn ngữ (vd. "bai/03-prompt.html"); trang thật nằm ở GOC + goc
     url = BASE + GOC + goc
     return f"""<!doctype html>
@@ -317,9 +321,9 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}assets/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="{BASE}{anh or "assets/og.png"}">
+<meta property="og:image:width" content="{1280 if anh else 1200}">
+<meta property="og:image:height" content="{720 if anh else 630}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563EB">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
@@ -392,6 +396,18 @@ def noi_dung_en(v):
            for m in d.get("muc", [])]
     return muc, d.get("meta", ""), d.get("thu", ""), d.get("prompt", "")
 
+def ten_video(v):
+    """Tên video để làm chữ thay ảnh (alt): tên ngắn trong chu_de, bỏ phần series."""
+    return tach_tieu_de(v)[0]
+
+def anh_dau_bai(v, p):
+    """Ảnh bìa đầu bài (chỉ video có trong data/anh.json): 640 cho điện thoại, 1280 cho máy tính."""
+    a = ANH.get(str(v["so"]))
+    if not a or not a.get("bia"):
+        return ""
+    return (f'<figure class="post-cover"><img src="{p}{a["bia"]}" srcset="{p}{a["the"]} 640w, {p}{a["bia"]} 1280w" '
+            f'sizes="(max-width: 800px) 100vw, 696px" width="1280" height="720" alt="{esc(ten_video(v))}" decoding="async" fetchpriority="high"></figure>\n')
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -454,7 +470,7 @@ def tao_bai(v):
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
-    main = (f'<main class="doc">\n<article class="post">\n' + "\n".join(muc) +
+    main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + "\n".join(muc) +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
@@ -463,7 +479,7 @@ def tao_bai(v):
     url = BASE + GOC + goc
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": h1[:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + "assets/og.png"], "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + ANH.get(str(so), {}).get("bia", "assets/og.png")], "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": g["ten"]},
          **({"about": [{"@type": "DefinedTerm", "name": x["thuat_ngu"], "url": BASE + GOC + "tu-dien.html#" + x["id"]} for x in lien_quan]} if lien_quan else {})},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -472,7 +488,7 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=ANH.get(str(so), {}).get("bia"))
 
 # ---------- từ điển ----------
 def tao_tu_dien():

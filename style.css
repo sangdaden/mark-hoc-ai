@@ -721,3 +721,18 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .bit-kenh .nt { width: 36px; height: 36px; }
 .bit-kenh .nt svg { width: 19px; height: 19px; }
 .bit-menu .bit-kenh a.nt { padding: 0; border-radius: 50%; display: inline-grid; background: #fff; }
+
+/* Ảnh bìa video mới (data/anh.json, scripts/tao_anh.py): thẻ trong danh sách và đầu bài viết. Video cũ giữ thẻ chữ. */
+.row.co-anh { grid-template-columns: 52px 208px minmax(0, 1fr) auto; }
+.row-thumb { display: block; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--edge); background: var(--bg2); aspect-ratio: 16 / 9;
+  box-shadow: 0 10px 22px -16px rgba(15, 23, 42, .6); transition: transform .15s, border-color .15s; }
+.row-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.row-thumb:hover { transform: translateY(-1px); border-color: var(--blue); }
+.post-cover { margin: -30px -32px 0; border-radius: 22px 22px 0 0; overflow: hidden; background: var(--bg2); aspect-ratio: 16 / 9; }
+.post-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) {
+  .row.co-anh { grid-template-columns: 48px minmax(0, 1fr); }
+  .row.co-anh .row-thumb { grid-column: 2; max-width: 360px; }
+  .row.co-anh .row-main { grid-column: 2; }
+  .post-cover { margin: -22px -18px 0; border-radius: 18px 18px 0 0; }
+}
