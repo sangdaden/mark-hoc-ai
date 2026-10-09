@@ -19,6 +19,9 @@ như cũ (Sang chốt 9/10/2026), kể cả khi truyền --tu nhỏ hơn: script
   3. không tìm được thì chia đều thời lượng (bỏ 1 s đầu và phần outro ở cuối)
 Danh sách ảnh ghi vào data/anh.json (scripts/tao_bai_viet.py và app.js đọc file này):
   {"<số>": {"the", "bia", "nguon", "canh": [{"muc": <chỉ số mục trong bài>, "anh": <đường dẫn>, "moc": "moc|lang|deu"}]}}.
+Ảnh bìa series (mọi series, không theo ngưỡng video mới): assets/anh/series/<id>.webp 480x270 cho đầu series và
+<id>-nho.webp 96x54 cho nút chọn series; nguồn là thumbnail bản ngang trọn bộ (videos/ke-hoach-*/<tên>_tron-bo_ngang-16x9_thumbnail.png),
+không có thì thumbnail ngang (hoặc dọc) của phần 1, không có nữa thì ảnh mẫu. Danh sách ở data/series-bia.json.
 Script chỉ đọc thư mục video, không ghi vào đó.
 """
 import ast, io, json, pathlib, re, subprocess, sys
@@ -119,7 +122,7 @@ def xuong_dong(d, chu, font, rong):
 
 
 _NEN = None
-def anh_mau(v):
+def anh_mau(v, nhan=None):
     """Ảnh mẫu khi video chưa có thumbnail: nền màu logo, số video, tên video, Mark và Bit."""
     global _NEN
     W, H = 1280, 720
@@ -136,8 +139,9 @@ def anh_mau(v):
     f = ImageFont.truetype(FONT_DAM, 64)
     dong = xuong_dong(d, ten, f, 640)[:4]
     y = max(270, 390 - len(dong) * 40)
-    d.rounded_rectangle((60, y - 92, 60 + d.textlength(f"#{v['so']}", font=ImageFont.truetype(FONT_VUA, 34)) + 44, y - 36), 28, fill=(250, 204, 21))
-    d.text((82, y - 64), f"#{v['so']}", font=ImageFont.truetype(FONT_VUA, 34), fill=(15, 23, 42), anchor="lm")
+    nhan = nhan or f"#{v['so']}"
+    d.rounded_rectangle((60, y - 92, 60 + d.textlength(nhan, font=ImageFont.truetype(FONT_VUA, 34)) + 44, y - 36), 28, fill=(250, 204, 21))
+    d.text((82, y - 64), nhan, font=ImageFont.truetype(FONT_VUA, 34), fill=(15, 23, 42), anchor="lm")
     for i, l in enumerate(dong):
         d.text((60, y + i * 80), l, font=f, fill="white")
     mb = BRAND / "mascot" / "chinh-thuc" / "mark-va-bit.png"
@@ -177,6 +181,66 @@ def anh_bia():
         ds[str(v["so"])] = muc
         dem[nguon] += 1
     return ds, dem
+
+
+# ---------- ảnh bìa series (toàn trang, mọi series) ----------
+# Series -> tên bản ngang trọn bộ trong videos/ke-hoach-*/<tên>_tron-bo_ngang-16x9_thumbnail.png.
+# Series không có ở đây thì tự dò theo tên series đổi ra không dấu; không có bản trọn bộ thì lấy thumbnail ngang của phần 1.
+TRON_BO = {
+    "nen-tang": "tuyen-tap-07-11", "tro-ly-rieng": "tro-ly-ai-rieng", "hau-truong": "hau-truong-he-thong-ai",
+    "thu-thach-7-ngay": "thu-thach-7-ngay", "suc-khoe": "ai-va-suc-khoe", "anh-thiet-ke": "anh-va-thiet-ke",
+    "giong-van": "viet-voi-ai-giong-ban", "kiem-chung": "kiem-chung-thong-tin", "cha-me-con-nho": "cha-me-va-con-nho",
+    "viec-nha": "viec-nha-va-mua-sam", "video-ngan": "lam-noi-dung-video-ngan", "don-tu": "don-tu-va-thu-tu",
+    "chu-tiem": "chu-tiem-tuyen-giu-nguoi", "tong-on-101-199": "tong-on-101-199", "tong-on-201-299": "tong-on-201-299",
+}
+DS_SERIES = R / "data" / "series-bia.json"
+OUT_SERIES = R / "assets" / "anh" / "series"
+
+
+def khong_dau(chu):
+    import unicodedata
+    chu = unicodedata.normalize("NFD", chu.replace("đ", "d").replace("Đ", "D"))
+    return re.sub(r"[^a-z0-9]+", "-", "".join(c for c in chu if unicodedata.category(c) != "Mn").lower()).strip("-")
+
+
+def bia_series():
+    """Ảnh bìa từng series: data/series-bia.json {"<id>": {"bia": 480x270, "nho": 96x54, "nguon": "tron-bo|phan-1|phan-1-doc|mau"}}."""
+    tron_bo = {pathlib.Path(f).name[:-len("_tron-bo_ngang-16x9_thumbnail.png")]: f
+               for f in ROOT.glob("ke-hoach-*/*_tron-bo_ngang-16x9_thumbnail.png")}
+    thu_muc = {}
+    for d in sorted(ROOT.iterdir()):
+        m = re.match(r"(\d+)-", d.name)
+        if m and d.name not in SKIP and not d.name.endswith("-ban-hoi-bit-tra-loi"):
+            thu_muc.setdefault(int(m.group(1)), d)
+    ds = json.loads(DS_SERIES.read_text(encoding="utf-8")) if DS_SERIES.exists() else {}
+    dem = {"tron-bo": 0, "phan-1": 0, "phan-1-doc": 0, "mau": 0, "bo-qua": 0}
+    for g in json.loads((R / "data" / "series.json").read_text(encoding="utf-8")):
+        sid = g["id"]
+        bia, nho = OUT_SERIES / f"{sid}.webp", OUT_SERIES / f"{sid}-nho.webp"
+        if sid in ds and bia.exists() and nho.exists() and not LAM_LAI:
+            dem["bo-qua"] += 1
+            continue
+        ten = TRON_BO.get(sid) or (khong_dau(g["ten"]) if khong_dau(g["ten"]) in tron_bo else None)
+        d = thu_muc.get(g["tu"])
+        if ten and ten in tron_bo:
+            im, nguon = Image.open(tron_bo[ten]), "tron-bo"
+        elif d and (d / f"{d.name}_thumbnail_ngang-16x9.png").exists():
+            im, nguon = Image.open(d / f"{d.name}_thumbnail_ngang-16x9.png"), "phan-1"
+        elif d and (d / f"{d.name}_thumbnail_doc-9x16.png").exists():
+            im, nguon = tu_anh_doc(d / f"{d.name}_thumbnail_doc-9x16.png"), "phan-1-doc"
+        else:  # series cũ chưa có thumbnail nào: ảnh mẫu (nền màu logo, tên series, số phần, Mark và Bit)
+            so_phan = g["den"] - g["tu"] + 1
+            im, nguon = anh_mau({"so": g["tu"], "chu_de": g["ten"]}, "Tập đặc biệt" if g.get("le") else f"{so_phan} phần"), "mau"
+        im = im.convert("RGB")
+        W, H = im.size; h = round(W * 9 / 16)
+        if h < H:
+            im = im.crop((0, (H - h) // 2, W, (H - h) // 2 + h))
+        luu(im, bia, 480, 66)
+        luu(im.resize((96, 54), Image.LANCZOS), nho, 96, 70)
+        ds[sid] = {"bia": f"assets/anh/series/{sid}.webp", "nho": f"assets/anh/series/{sid}-nho.webp", "nguon": nguon}
+        dem[nguon] += 1
+    DS_SERIES.write_text(json.dumps(ds, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return dem
 
 
 # ---------- ảnh cảnh trong bài ----------
@@ -275,3 +339,4 @@ if __name__ == "__main__":
     print("ảnh bìa video:", dem)
     print("ảnh cảnh trong bài:", anh_canh(ds))
     ghi(ds)
+    print("ảnh bìa series:", bia_series())
