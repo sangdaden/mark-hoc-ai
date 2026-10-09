@@ -43,7 +43,7 @@ OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print(len(out), "video ->", OUT)
 
 # Lịch ra mắt: điền ngày còn thiếu trong data/lich-ra-mat.json từ sổ cái (videos/so-cai/so-cai.json, trường "lich"):
-# ngày sớm nhất video lên bất kỳ mạng nào (bản dọc, clip hoặc bản ngang). Ngày đã có trong file thì giữ nguyên.
+# ngày sớm nhất video lên bất kỳ mạng nào (bản dọc, clip hoặc bản ngang). Ngày đã qua thì giữ nguyên; ngày tương lai đi theo sổ cái.
 SO_CAI = ROOT / "so-cai" / "so-cai.json"
 LICH = OUT.parent / "lich-ra-mat.json"
 if SO_CAI.exists():
@@ -57,7 +57,14 @@ if SO_CAI.exists():
             som[x["so"]] = min(ngay + ([som[x["so"]]] if x["so"] in som else []))
     lich = json.loads(LICH.read_text(encoding="utf-8")) if LICH.exists() else {}
     them = {str(v["so"]): som[v["so"]] for v in out if str(v["so"]) not in lich and v["so"] in som}
+    # Video chưa lên sóng: theo ngày trong sổ cái (lịch Metricool có thể bị dời); video đã lên thì giữ ngày cũ
+    import datetime
+    hom_nay = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d")
+    doi = {k: som[int(k)] for k, d in lich.items() if int(k) in som and som[int(k)] != d and d > hom_nay and som[int(k)] > hom_nay}
     lich.update(them)
+    lich.update(doi)
+    if doi:
+        print("lịch ra mắt: dời", len(doi), "ngày:", ", ".join(f"{k}->{d}" for k, d in doi.items()))
     LICH.write_text(json.dumps(dict(sorted(lich.items(), key=lambda kv: int(kv[0]))), ensure_ascii=False), encoding="utf-8")
     thieu = [v["so"] for v in out if str(v["so"]) not in lich]
     print("lịch ra mắt: thêm", len(them), "ngày" + (", chưa có ngày: " + ", ".join(map(str, thieu)) if thieu else ""))
