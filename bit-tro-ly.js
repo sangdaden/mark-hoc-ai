@@ -85,7 +85,7 @@
 
   // Hàng biểu tượng nền tảng cuối menu (link lấy từ data/kenh.json, icon ở assets/nen-tang.svg)
   const TEN_NT = { youtube: "YouTube", tiktok: "TikTok", facebook: "Facebook", instagram: "Instagram", threads: "Threads", discord: "Discord" };
-  fetch(goc + "data/kenh.json").then(r => r.json()).then(k => {
+  fetch(goc + "data/kenh.json", { cache: "no-cache" }).then(r => r.json()).then(k => {
     const o = hop.querySelector(".bit-kenh");
     o.insertAdjacentHTML("beforeend", Object.keys(TEN_NT).filter(n => k[n]).map(n =>
       '<a class="nt nt-' + n + '" href="' + esc(k[n]) + '" target="_blank" rel="noopener" title="' + TEN_NT[n] + '" aria-label="' + (n === "discord" ? T.dc : T.tren + TEN_NT[n]) +
