@@ -1,0 +1,51 @@
+{
+ "_ghi_chu": "Trang lam-theo.html: file mẫu, notebook và prompt của các video hướng dẫn chuyên sâu (301, 302). Mỗi chữ có bản vi và en. File tải nằm ở assets/lam-theo/.",
+ "file_mau": "assets/lam-theo/so-ban-hang-mau.xlsx",
+ "notebook": "assets/lam-theo/du-doan-ban-hang.ipynb",
+ "colab": "https://colab.research.google.com/github/sangdaden/mark-hoc-ai/blob/main/assets/lam-theo/du-doan-ban-hang.ipynb",
+ "video": [
+  {
+   "so": 301,
+   "id": "phan-tich-so-ban-hang",
+   "ten": {"vi": "Phân tích sổ bán hàng với AI, từ A đến Z", "en": "Analyzing a sales log with AI, from A to Z"},
+   "mo_ta": {"vi": "Dì của Mark có file Excel 7.341 dòng ghi suốt 3 tháng ở tiệm trà sữa. Mark dùng một AI biết chạy code để trả lời ba câu: món nào lãi nhất, món nào đang đi xuống, có nên mở bán buổi sáng. Không cần biết lập trình, chỉ cần chép prompt dưới đây.",
+             "en": "Mark's aunt has a 7,341-row Excel log from 3 months at her bubble tea shop. Mark uses an AI that can run code to answer three questions: which drink earns the most, which one is slipping, and whether to open in the morning. No coding needed, just copy the prompts below."},
+   "buoc": [
+    {"vi": "Chọn một AI biết chạy code (code interpreter), như ChatGPT, Gemini hay Claude.", "en": "Pick an AI that can run code (a code interpreter), such as ChatGPT, Gemini or Claude."},
+    {"vi": "Xóa số điện thoại và thông tin khách trước khi tải file lên. File mẫu là dữ liệu giả nên dùng thoải mái.", "en": "Delete phone numbers and customer details before uploading. The sample file is fake data, so use it freely."},
+    {"vi": "Tải file lên và dán lần lượt các prompt bên dưới, đọc kỹ câu trả lời trước khi đi tiếp.", "en": "Upload the file and paste the prompts below one by one, reading each answer before moving on."}
+   ],
+   "prompt": [
+    {"nhan": {"vi": "Prompt đầu tiên: bắt AI kể lại file", "en": "First prompt: make the AI describe the file"},
+     "vi": "Đây là sổ bán hàng 3 tháng của một tiệm trà sữa. Chưa phân tích vội. Hãy mô tả file: có những cột nào, bao nhiêu dòng, mỗi cột chứa gì, và liệt kê những chỗ trông bất thường.",
+     "en": "This is a bubble tea shop's 3-month sales log. Don't analyze yet. Describe the file: which columns it has, how many rows, what each column holds, and list anything that looks unusual."},
+    {"nhan": {"vi": "Kiểm tra: bắt AI cho xem cách tính", "en": "Check: make the AI show its working"},
+     "vi": "Tổng doanh thu bạn tính là bao nhiêu và tính từ những dòng nào? Cho tôi xem cách tính.",
+     "en": "What total revenue did you get, and which rows did you add up? Show me how you calculated it."},
+    {"nhan": {"vi": "Từ con số đến quyết định", "en": "From numbers to decisions"},
+     "vi": "Dựa trên kết quả đã kiểm tra, đề xuất tối đa 3 việc tiệm nên làm tháng sau. Mỗi việc ghi lý do bằng số và điều gì trong dữ liệu chưa đủ để chắc chắn.",
+     "en": "Based on the checked results, suggest at most 3 things the shop should do next month. Give each one a reason in numbers, and say what the data can't tell us for sure."},
+    {"nhan": {"vi": "Prompt template 5 bước: dùng lại mỗi tháng", "en": "5-step prompt template: reuse it every month"},
+     "vi": "Bạn là trợ lý phân tích dữ liệu. File đính kèm là sổ bán hàng [tháng/năm] của [tên tiệm]. Làm lần lượt 5 bước, xong bước nào báo kết quả bước đó rồi mới làm bước sau.\n1. Mô tả file: các cột, số dòng, mỗi cột chứa gì, và những chỗ trông bất thường. Chưa phân tích vội.\n2. Dọn dữ liệu: gộp các cách ghi khác nhau của cùng một món, đổi đơn giá về con số, đưa ngày tháng về một định dạng, bỏ dòng trống và các dòng tổng tự ghi. Liệt kê mọi thay đổi thành bảng để tôi kiểm tra.\n3. Trả lời các câu hỏi đo được: [món nào có tổng lãi gộp cao nhất, dùng giá vốn tôi gửi kèm]; [món nào giảm số ly nhiều nhất qua từng tháng]; [trung bình mỗi ngày bán bao nhiêu ly trong khung 7-10 giờ sáng, tách ngày thường và cuối tuần]. Vẽ loại biểu đồ hợp với từng câu.\n4. Tự kiểm tra tổng doanh thu bằng hai cách khác nhau và cho tôi xem cách tính. Nếu hai cách lệch nhau, dừng lại và báo tôi.\n5. Viết một trang tóm tắt: tối đa 3 việc nên làm tháng sau, mỗi việc kèm lý do bằng số và mức độ chắc chắn, ghi rõ điều gì dữ liệu chưa đủ để kết luận.",
+     "en": "You are a data analysis assistant. The attached file is [shop name]'s sales log for [month/year]. Work through 5 steps in order, reporting the result of each step before starting the next.\n1. Describe the file: its columns, row count, what each column holds, and anything that looks unusual. Don't analyze yet.\n2. Clean the data: merge different spellings of the same item, turn every price into a number, use one date format, and drop empty rows and any hand-typed total rows. List every change in a table so I can check it.\n3. Answer the measurable questions: [which item has the highest total gross profit, using the cost sheet I attached]; [which item lost the most cups month over month]; [the average cups sold per day between 7 and 10 am, weekdays and weekends separately]. Draw the chart type that suits each question.\n4. Check the total revenue two different ways and show me the working. If the two results differ, stop and tell me.\n5. Write a one-page summary: at most 3 things to do next month, each with a reason in numbers and a confidence level, and say clearly what the data can't settle."}
+   ]
+  },
+  {
+   "so": 302,
+   "id": "du-doan-ban-hang",
+   "ten": {"vi": "Dự đoán ngày mai bán bao nhiêu ly: model machine learning đầu tiên bằng Python", "en": "Predicting tomorrow's sales: your first machine learning model in Python"},
+   "mo_ta": {"vi": "Tầng hai của video 301: dùng chính file mẫu đó để viết model dự đoán số ly ngày mai trong Google Colab. Notebook dưới đây chạy được từ đầu đến cuối, mọi con số trong video lấy từ đúng notebook này.",
+             "en": "The next level after video 301: use the same sample file to build a model that predicts tomorrow's cups in Google Colab. The notebook below runs from top to bottom, and every number in the video comes from it."},
+   "buoc": [
+    {"vi": "Bấm \"Mở trong Google Colab\" (cần tài khoản Google, miễn phí, không cài gì).", "en": "Click \"Open in Google Colab\" (needs a free Google account, nothing to install)."},
+    {"vi": "Chạy lần lượt từng ô bằng Shift + Enter. Ô đầu tiên tự tải file mẫu về, hoặc bạn tải file lên bằng biểu tượng thư mục bên trái.", "en": "Run each cell in turn with Shift + Enter. The first cell downloads the sample file for you, or upload it with the folder icon on the left."},
+    {"vi": "Đọc từng khối code trước khi chạy. Chỗ nào chưa hiểu, nhờ AI giải thích từng dòng bằng tiếng Việt.", "en": "Read each block of code before running it. If something is unclear, ask an AI to explain it line by line."}
+   ],
+   "prompt": [
+    {"nhan": {"vi": "Nhờ AI giải thích code", "en": "Ask an AI to explain code"},
+     "vi": "Giải thích từng dòng của đoạn code Python dưới đây bằng tiếng Việt dễ hiểu, cho người mới học. Dòng nào có thể gây sai kết quả thì chỉ ra.\n[dán đoạn code vào đây]",
+     "en": "Explain each line of the Python code below in plain language for a beginner. Point out any line that could make the results wrong.\n[paste the code here]"}
+   ]
+  }
+ ]
+}

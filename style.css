@@ -687,3 +687,13 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 }
 @media (max-width: 760px) { .path-course-ic { align-self: start; width: 42px; height: 42px; } }
 @media (max-width: 480px) { .btn-sub { display: none; } }
+
+/* Trang làm theo video (lam-theo.html) */
+.lt-cta { margin-top: 18px; align-items: center; }
+.lt-steps { margin: 20px 0 0; padding-left: 22px; max-width: 68ch; line-height: 1.6; }
+.lt-steps li + li { margin-top: 6px; }
+.lt-prompt { margin-top: 22px; padding: 18px 20px; border-radius: 18px; background: #FEF9C3; color: #0F172A; border: 2px solid #0F172A; box-shadow: 5px 5px 0 #0F172A; }
+.lt-prompt h4 { margin: 0; font: 700 16px/1.3 var(--f-body); }
+.lt-prompt .try-prompt { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: #fff; border: 1.5px dashed #0F172A;
+  font: 500 15px/1.6 var(--f-mono); overflow-wrap: anywhere; white-space: pre-line; }
+@media (max-width: 600px) { .lt-prompt { padding: 16px 14px; box-shadow: 3px 3px 0 #0F172A; } }
