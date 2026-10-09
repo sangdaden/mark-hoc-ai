@@ -6,7 +6,7 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 
 ## Cấu trúc
 - `index.html`, `style.css`, `app.js`: trang chính.
-- `data/videos.json`: danh sách video (số, chủ đề, tiêu đề, mô tả). Tạo bằng `python3 scripts/gom_video.py /mnt/project-files/videos 162` (số cuối là video mới nhất đưa lên trang; mặc định 162). Từ video 132, tên video lấy từ `SERIES` và `NAME` trong `nguon/script.py`.
+- `data/videos.json`: danh sách video (số, chủ đề, tiêu đề, mô tả). Tạo bằng `python3 scripts/gom_video.py /mnt/project-files/videos 300` (số cuối là video mới nhất đưa lên trang; mặc định 300). Script cũng điền ngày ra mắt còn thiếu vào `data/lich-ra-mat.json` từ `so-cai.json`. Từ video 132, tên video lấy từ `SERIES` và `NAME` trong `nguon/script.py`.
 - `data/series.json`: tên, mô tả, khoảng số và thuật ngữ của từng series. Chữ "Sắp ra mắt" giờ theo ngày trong `data/lich-ra-mat.json` (series mới không cần `sap_ra_mat`). `"le": true` là nhóm video lẻ (không tính là series), như tập đặc biệt #100.
 - `data/ban-do.json`: phần "Bắt đầu từ đây" (`#bat-dau`, link trong bio): 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99). Mỗi mục trỏ tới video đầu tiên bằng số `so`.
 - `data/kenh.json`: link kênh và email liên hệ (để trống thì trang ẩn email).
@@ -31,3 +31,20 @@ Trang chạy ở https://markhocai.com (file `CNAME`). Tên miền mua ở Namec
 ## Icon
 
 `assets/icons.svg` gom các icon cần dùng từ [Lucide](https://lucide.dev) v0.460.0 (giấy phép ISC). Dùng: `<svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-TEN"/></svg>`. Thêm icon mới: lấy file từ gói `lucide-static` rồi thêm một `<symbol id="i-TEN">`.
+
+`assets/nen-tang.svg` gom biểu tượng YouTube, TikTok, Facebook, Instagram, Threads, Discord từ [Simple Icons](https://simpleicons.org) v13.21.0 (CC0), tô đúng màu hãng trên ô tròn trắng (`.nt`, `.nt-<tên>` trong `style.css`). Chỉ dùng làm link tới kênh của Mark học AI; link lấy từ `data/kenh.json`.
+
+## Ảnh của video mới (từ video 303)
+`python3 scripts/tao_anh.py /mnt/project-files/videos` tạo ảnh WebP vào `assets/anh/` và ghi danh sách vào `data/anh.json`: ảnh bìa video (thẻ 640 px trong danh sách, 1280 px đầu bài viết) lấy từ `<tên>_thumbnail_ngang-16x9.png`; không có thì dùng ảnh dọc đặt trên nền mờ, không có nữa thì tự vẽ ảnh mẫu có Mark và Bit. Script cũng cắt 2-3 khung hình minh họa từ video (mỗi ảnh ở gần cuối một cảnh giải thích, mốc cảnh lấy từ `_moc.json` hoặc khoảng lặng giữa các cảnh trong tiếng) đặt dưới đoạn giải thích tương ứng trong bài, kèm chú thích. Chạy lại bao nhiêu lần cũng được (ảnh đã có thì bỏ qua, `--lam-lai` để tạo lại). Chỉ làm cho video có số từ `VIDEO_MOI_TU` trong `scripts/video_moi.py` (hiện là 303); video 01–302 cố ý không có ảnh riêng (Sang chốt 9/10/2026), trang giữ thẻ chữ như cũ, nên lúc này `data/anh.json` còn rỗng. Chạy trước `scripts/tao_bai_viet.py`.
+
+## Logo công cụ trong bài (video mới, từ 303)
+`scripts/tao_bai_viet.py` dò tên công cụ (ChatGPT, Claude, Gemini, Gmail, Excel, Python... bảng `CONG_CU`) trong tiêu đề và nội dung bài tiếng Việt: công cụ có trong tiêu đề hoặc được nhắc từ 2 lần thì hiện ô "Công cụ trong bài" với logo trong `assets/cong-cu/` (chép nguyên từ `brand/icon-dich-vu/`, không sửa), cuối bài có dòng miễn trừ. Bài chuyện tiêu cực (lừa đảo, deepfake, sự cố...) không có logo. Theo `brand/quy-tac-dung-thuong-hieu.md`. Chỉ cho video từ `VIDEO_MOI_TU`.
+
+## Ảnh bìa series
+Cũng do `scripts/tao_anh.py` tạo (mọi series, không theo ngưỡng video mới): `assets/anh/series/<id>.webp` (480x270, đầu series) và `<id>-nho.webp` (96x54, nút chọn series), danh sách ở `data/series-bia.json`. Nguồn: thumbnail bản ngang trọn bộ trong `videos/ke-hoach-*/` (bảng `TRON_BO` trong script nối series với tên file khi tên không khớp), không có thì thumbnail phần 1, không có nữa thì ảnh mẫu có tên series. Series mới có bản trọn bộ: chạy lại script với `--lam-lai` hoặc xóa ảnh cũ của series đó.
+
+## Mark và Bit chuyển động
+`python3 scripts/tao_mascot.py` lấy 8 trong 16 khung của từng trạng thái ở `brand/mascot/chinh-thuc/trang-thai/dong/<tên>/`, ghi WebP động nhỏ (cao 150 px, 16-37 KB) và một ảnh đứng yên vào `assets/mascot/`. Dùng ở: câu trả lời bài kiểm tra và câu hỏi Lộ trình 7 ngày (đúng, chưa đúng), tìm không ra video, khung sách và khung Lộ trình trên trang chủ, Bit lúc đang nói. Người bật "giảm chuyển động" thấy ảnh đứng yên (`<source media="(prefers-reduced-motion: reduce)">`).
+
+## Trình phát YouTube trong bài (video mới, từ 303)
+`python3 scripts/cap_nhat_youtube.py` (chạy mỗi tuần, sau khi cập nhật sổ cái) đọc `videos/so-cai/so-cai.json`, lấy mã các bài YouTube đã đăng (`PUBLISHED`, `publicUrl`), ưu tiên video dài rồi tới Short, ghi `data/youtube-id.json` cho video từ `VIDEO_MOI_TU`. Bài có mã thì đầu bài là ảnh bìa có nút phát, bấm mới tải trình phát `youtube-nocookie.com` (`bai-viet.js`); chưa có mã thì ảnh bìa kèm biểu tượng các nền tảng. Thử giao diện: `--thu 303=<mã 11 ký tự>` (đừng dùng khi đăng thật). Chạy xong thì chạy `scripts/tao_bai_viet.py`.

@@ -1,0 +1,73 @@
+{
+ "meta": "Video number 200! Mark asks AI an everyday question: is it cold in Hanoi tomorrow, and what should I pack? The answer comes 2 seconds later. This episode…",
+ "muc": [
+  {
+   "title": "2 seconds become 10 minutes",
+   "text": "You type a question, press Enter, and two seconds later AI answers. This is our two-hundredth special episode, and we'll slow those two seconds down into ten minutes to see what happens inside. Mark's question is very ordinary: is it cold in Hanoi tomorrow, and what should he pack? The moment his finger hits Enter, the clock starts."
+  },
+  {
+   "chip": "STAGE 1",
+   "title": "The question doesn't travel alone",
+   "text": "Stage one, the question doesn't travel alone: before sending, the app packs in the earlier messages of the chat, plus a hidden instruction called the system prompt, written by the app makers, which you never see. All of it together is the context. Remember the desk in video 9: AI only knows what's on the desk, and can't see anything off it."
+  },
+  {
+   "chip": "STAGE 2",
+   "title": "Up to the cloud: API, data center",
+   "text": "Stage two, up to the cloud: the envelope flies across the internet, through a door called an API, to a data center, buildings full of servers with GPUs, chips built for AI math. At the entrance there are input guardrails that check the question for anything dangerous or sensitive. Mark's weather question passes easily."
+  },
+  {
+   "chip": "STAGE 3",
+   "title": "Cutting it up: tokens",
+   "text": "Stage three, cutting it up: AI doesn't read words the way we do, so the question is cut into small pieces called tokens. Some are whole words, some are half a word or a punctuation mark. Vietnamese, with its accent marks, is usually cut into more pieces than English, so the same idea costs more tokens. Each piece gets a number, like a page number in a very thick dictionary."
+  },
+  {
+   "chip": "STAGE 4",
+   "title": "The map of meaning: embeddings",
+   "text": "Stage four, placing them on a map of meaning: each token is turned into a long list of numbers called an embedding. It works like coordinates on a giant map where words with similar meanings sit close together. On that map, cold sits next to jacket and scarf, and Hanoi sits near Hoan Kiem Lake, the Old Quarter and autumn. That's how AI grasps meaning, not just the letters."
+  },
+  {
+   "chip": "STAGE 5",
+   "title": "The pieces look at each other: attention",
+   "text": "Stage five, the pieces look at each other: this is the most important part, called attention. Each token looks at all the other tokens to find which ones matter most to it. The word for pack in the question pays strong attention to Hanoi and cold, so AI understands Mark needs clothes for a cold trip, not goods to sell. This looking happens again across dozens of layers, each one understanding a bit more. Billions of multiplications run in parallel on GPUs, all in a fraction of a second."
+  },
+  {
+   "chip": "STAGE 6",
+   "title": "A thinking draft",
+   "text": "Stage six, a thinking draft: many models today are reasoning models that write a draft before answering. The draft is very honest: the question needs tomorrow's weather, but the model's knowledge stops when its training ended, so it doesn't know."
+  },
+  {
+   "chip": "STAGE 7",
+   "title": "Picking up a tool: tool calling",
+   "text": "Stage seven, picking up a tool: instead of guessing, AI writes a special request: call the weather tool, place Hanoi, tomorrow. This is called tool calling. Interestingly, AI doesn't run the tool itself: an outside system reads the request, calls the weather service and puts the result on the desk: a cold front tomorrow, 16 to 24 degrees, maybe light rain in the afternoon. Now there's real data on the desk, which is also why AI with search answers questions about today far better than AI without it."
+  },
+  {
+   "chip": "STAGE 8",
+   "title": "Guessing the first word",
+   "text": "Stage eight, guessing the first word: only now does AI start answering, and it answers by guessing. It scores tens of thousands of tokens that could start the reply. \"Yes\" gets forty percent, \"Tomorrow\" thirty, \"According\" fifteen. Then it picks one by those odds, like spinning a prize wheel with big and small slices. This randomness is set by the temperature. Because of this draw, asking the same question twice can give two different answers."
+  },
+  {
+   "chip": "STAGE 9",
+   "title": "Repeating word by word",
+   "text": "Stage nine is repetition until the answer is done. The wheel stops on \"Yes\", that word is added to the end, and the whole sequence, now one piece longer, runs through all the attention layers again to guess the next piece. Mark's answer is about eighty tokens long, so the whole line runs about eighty times. Each word is sent to the phone as soon as it's ready, called streaming, which is why the answer appears word by word as if someone were typing."
+  },
+  {
+   "chip": "STAGE 10",
+   "title": "The exit, and where it can go wrong",
+   "text": "Stage ten, the exit: before reaching you, the answer passes output guardrails that block harmful content or leaked information. But guardrails can't check whether it's true. Without the weather tool, AI would still guess a sentence that sounds very sure, just not based on real data. That's hallucination, and it comes from the very same word-guessing step."
+  },
+  {
+   "chip": "2.00 SECONDS",
+   "title": "Back in your hands",
+   "text": "The clock stops at two seconds, and the screen shows the answer: a cold front reaches Hanoi tomorrow, it'll be chilly with maybe light rain in the afternoon, so bring a jacket, a scarf and a folding umbrella. Those two seconds held a context envelope, a trip to a data center, a few dozen tokens, dozens of attention layers, one tool call and about eighty word guesses. Every one of those costs electricity and money, which is why free apps usually limit how many messages you can send."
+  },
+  {
+   "try": true,
+   "title": "3 things you can do right away",
+   "text": "Now that you understand the press of Enter, here are three things you can do right away. One: put enough information on the desk. AI only knows what's in the context, so say who you are, what you need and what result you want. Two: for anything about today, like prices, weather or news, turn on search or check it yourself, because AI without tools only guesses from old memory. Three: if you don't like the answer, ask again or rephrase, because each time is a new draw. If a chat gets too long, start a new one to clear the desk."
+  },
+  {
+   "title": "200 videos in one press of Enter",
+   "text": "The channel's two hundred videos, wrapped up, are this one press of Enter: from tokens and the map of meaning to attention, tool calling and hallucination. Thank you for learning with Mark and Bit for two hundred episodes. Every stage today has its own video."
+  }
+ ]
+}

@@ -35,8 +35,14 @@ def load(name):
 
 kenh, series, videos = load("kenh"), load("series"), load("videos")
 seo = load("bai-viet")["tieu_de_seo"]
+seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
 kiem_tra = load("kiem-tra")["cau_hoi"]
+# Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
+from video_moi import VIDEO_MOI_TU
+# Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
+YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
+ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 esc = lambda s: html.escape(s or "", quote=True)
 
 # Ngôn ngữ đang tạo: "vi" (gốc, ở thư mục gốc) hoặc "en" (ở en/). t("chữ Việt", "English") chọn theo ngôn ngữ đó.
@@ -132,7 +138,7 @@ def doc_mo_ta(thu_muc):
     return cat_ngan(bo_emoji(re.sub(r"[0-9#*]\ufe0f?\u20e3\s*", "", " ".join(buf)))), thu
 
 # Câu trong ngoặc kép ở dòng "Thử ngay" nhưng không phải câu lệnh gửi AI (tên tùy chọn, từ khóa tìm kiếm)
-KHONG_PHAI_PROMPT = {75, 77, 80}
+KHONG_PHAI_PROMPT = {75, 77, 80, 200}
 
 def doc_prompt(thu_muc, so):
     """Prompt mẫu để nút "Sao chép prompt" chép: dòng sau "...chép dùng ngay:" trong tieu-de-mo-ta.md,
@@ -272,13 +278,20 @@ def header(p, hien_tai="", q=None):
             f'    {a(q + "lo-trinh-7-ngay.html", t("Lộ trình 7 ngày", "7-day path"), "lo-trinh")}\n'
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
             f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
-            f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener">YouTube</a>\n  </nav>\n</header>')
+            f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>\n  </nav>\n</header>')
+
+# Biểu tượng nền tảng (assets/nen-tang.svg, Simple Icons CC0): link kênh dạng icon tròn, có nhãn cho trình đọc màn hình
+NEN_TANG = {"youtube": "YouTube", "tiktok": "TikTok", "facebook": "Facebook", "instagram": "Instagram", "threads": "Threads", "discord": "Discord"}
+def nut_nen_tang(k, p, cls="nt"):
+    ten = NEN_TANG[k]
+    nhan = t("Vào cộng đồng Discord của Mark học AI", "Join the Mark học AI Discord community") if k == "discord" else t(f"Mark học AI trên {ten}", f"Mark học AI on {ten}")
+    return (f'<a class="{cls} nt-{k}" href="{esc(kenh[k])}" target="_blank" rel="noopener" aria-label="{nhan}" title="{ten}">'
+            f'<svg aria-hidden="true"><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></a>')
 
 def footer(p, q=None):
     q = p if q is None else q
-    links = "".join(f'\n      <a href="{esc(kenh[k])}" target="_blank" rel="noopener">{ten}</a>' for k, ten in
-                    (("youtube", "YouTube"), ("tiktok", "TikTok"), ("instagram", "Instagram"), ("facebook", "Facebook"), ("discord", "Discord")) if kenh.get(k))
-    return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36"><span>Mark học <b>AI</b></span></a>\n'
+    links = "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
+    return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
@@ -292,7 +305,7 @@ def lien_ket_ngon_ngu(goc):
     return (f'<link rel="alternate" hreflang="vi" href="{BASE}{goc}">\n<link rel="alternate" hreflang="en" href="{BASE}en/{goc}">\n'
             f'<link rel="alternate" hreflang="x-default" href="{BASE}{goc}">')
 
-def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None):
+def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None):
     # goc: đường dẫn trang không kèm tiền tố ngôn ngữ (vd. "bai/03-prompt.html"); trang thật nằm ở GOC + goc
     url = BASE + GOC + goc
     return f"""<!doctype html>
@@ -310,9 +323,9 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}assets/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="{BASE}{anh or "assets/og.png"}">
+<meta property="og:image:width" content="{1280 if anh else 1200}">
+<meta property="og:image:height" content="{720 if anh else 630}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563EB">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
@@ -385,6 +398,84 @@ def noi_dung_en(v):
            for m in d.get("muc", [])]
     return muc, d.get("meta", ""), d.get("thu", ""), d.get("prompt", "")
 
+def ten_video(v):
+    """Tên video để làm chữ thay ảnh (alt): tên ngắn trong chu_de, bỏ phần series."""
+    return tach_tieu_de(v)[0]
+
+def anh_dau_bai(v, p):
+    """Đầu bài của video mới (số >= VIDEO_MOI_TU):
+    - có mã YouTube (data/youtube-id.json, scripts/cap_nhat_youtube.py): ảnh bìa + nút phát, bấm mới tải trình phát
+      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm;
+    - chưa có mã: ảnh bìa (data/anh.json) kèm biểu tượng các nền tảng để xem video.
+    Video 01-302 không có gì ở đây (giữ như cũ)."""
+    a, yt = ANH.get(str(v["so"])), YT_ID.get(str(v["so"]))
+    ten = esc(ten_video(v))
+    if a and a.get("bia"):
+        anh = (f'<img src="{p}{a["bia"]}" srcset="{p}{a["the"]} 640w, {p}{a["bia"]} 1280w" sizes="(max-width: 800px) 100vw, 696px" '
+               f'width="1280" height="720" alt="{ten}" decoding="async" fetchpriority="high">')
+    elif yt:
+        anh = (f'<img src="https://i.ytimg.com/vi/{yt["id"]}/hqdefault.jpg" width="480" height="360" alt="{ten}" decoding="async" '
+               f'fetchpriority="high">')
+    else:
+        return ""
+    if yt:
+        url = f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
+        return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
+                f'<a class="yt-play" href="{url}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
+                f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
+                f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+    xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
+    return (f'<figure class="post-cover">{anh}</figure>\n'
+            f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n')
+
+def anh_canh(v, i, ten, p):
+    """Khung hình trong video đặt dưới đoạn giải thích của mục i (chỉ video mới có trong data/anh.json)."""
+    for c in ANH.get(str(v["so"]), {}).get("canh", []):
+        if c.get("muc") == i:
+            return (f'\n<figure class="post-still"><img src="{p}{c["anh"]}" width="720" height="576" loading="lazy" decoding="async" '
+                    f'alt="{esc(ten)}"><figcaption>{t("Cảnh trong video", "From the video")} #{v["so"]:02d}: {esc(ten)}</figcaption></figure>')
+    return ""
+
+# ---------- logo công cụ trong bài (chỉ video mới, số >= VIDEO_MOI_TU) ----------
+# Theo brand/quy-tac-dung-thuong-hieu.md: logo chỉ ở bài nói về đúng sản phẩm đó, giữ nguyên file gốc (assets/cong-cu/
+# chép nguyên từ brand/icon-dich-vu), nhỏ hơn logo kênh, không ở bài chuyện tiêu cực; có dòng miễn trừ ở cuối bài.
+CONG_CU = [  # (file, tên hiện, mẫu tìm trong tiêu đề và nội dung tiếng Việt)
+    ("chatgpt", "ChatGPT", r"\bChatGPT\b"), ("claude", "Claude", r"\bClaude\b"), ("gemini", "Gemini", r"\bGemini\b"),
+    ("gmail", "Gmail", r"\bGmail\b"), ("drive", "Google Drive", r"\bGoogle Drive\b"), ("calendar", "Google Calendar", r"\bGoogle Calendar\b|\bLịch Google\b"),
+    ("colab", "Google Colab", r"\bColab\b"), ("chrome", "Chrome", r"\bChrome\b"), ("google", "Google", r"\bGoogle\b(?! (?:Drive|Calendar|Colab|Docs|Sheets))"),
+    ("excel", "Excel", r"\bExcel\b"), ("word", "Word", r"\b(?:Microsoft Word|file Word|tệp Word|bản Word)\b"), ("powerpoint", "PowerPoint", r"\bPowerPoint\b"),
+    ("python", "Python", r"\bPython\b"), ("pandas", "pandas", r"\bpandas\b"), ("scikit-learn", "scikit-learn", r"\bscikit-learn\b"), ("pdf", "PDF", r"\bPDF\b"),
+]
+TIEU_CUC = re.compile(r"lừa đảo|lừa|deepfake|giả giọng|giả mạo|sự cố|bê bối|rò rỉ|lộ dữ liệu|tấn công|hack|scam", re.I)
+_cong_cu = {}
+
+def cong_cu_trong_bai(v):
+    """Các công cụ bài này nói tới: tên có trong tiêu đề, hoặc được nhắc ít nhất 2 lần trong bài. Chuyện tiêu cực: không logo."""
+    so = v["so"]
+    if so < VIDEO_MOI_TU:
+        return []
+    if so not in _cong_cu:
+        muc = noi_dung_vi(v)[0]
+        tieu_de = CHU_DE_VI.get(so, "") + " " + seo_vi.get(str(so), "")
+        noi_dung = " ".join(m.get("title", "") + " " + m.get("text", "") for m in muc)
+        if TIEU_CUC.search(tieu_de + " " + noi_dung) or nhom_cua[so]["id"] in SERIES_TIEU_CUC:
+            _cong_cu[so] = []
+        else:
+            _cong_cu[so] = [(f, ten) for f, ten, mau in CONG_CU
+                            if re.search(mau, tieu_de) or len(re.findall(mau, noi_dung)) >= 2]
+    return _cong_cu[so]
+
+SERIES_TIEU_CUC = {"dung-de-ai-lua", "mat-trai-ai", "an-toan-so-2"}
+
+def khoi_cong_cu(v, p):
+    ds = cong_cu_trong_bai(v)
+    if not ds:
+        return "", ""
+    the = "".join(f'<li><img src="{p}assets/cong-cu/{f}.svg" alt="" width="22" height="22" loading="lazy" decoding="async">{esc(ten)}</li>' for f, ten in ds)
+    dau = f'<div class="post-tools"><p>{t("Công cụ trong bài", "Tools in this article")}</p><ul>{the}</ul></div>\n'
+    cuoi = (f'<p class="post-mien-tru">{t("Tên và logo sản phẩm thuộc về các công ty sở hữu, chỉ dùng để minh họa trong nội dung giáo dục. Mark học AI không liên kết hay được tài trợ bởi các công ty này.", "Product names and logos belong to their respective owners and are used only to illustrate educational content. Mark học AI is not affiliated with or sponsored by these companies.")}</p>\n')
+    return dau, cuoi
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -396,11 +487,11 @@ def tao_bai(v):
     thu_nhan = t("Thử ngay", "Try it now")
 
     muc, co_thu = [], False
-    for s in muc_nd:
+    for i_muc, s in enumerate(muc_nd):
         chip, ten, doan = s.get("chip", ""), s.get("title", ""), s.get("text", "")
         if s.get("try"):
             co_thu = True
-            muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
+            muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">\n'
                        f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{esc(ten)}</h2>\n  <p>{gan_link_video(doan, q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
             continue
         nhan = f'<p class="sec-chip">{esc(chip)}</p>\n' if chip else ""
@@ -409,9 +500,9 @@ def tao_bai(v):
             h2 = f'<h2 class="h-hoi"><img src="{p}assets/bit-y-tuong.svg" alt="" width="44" height="53">{esc(ten)}</h2>\n'
         else:
             h2 = f"<h2>{esc(ten)}</h2>\n" if ten else ""
-        muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(doan, q, so)}</p>\n</section>')
+        muc.append(f'<section>\n{nhan}{h2}<p>{gan_link_video(doan, q, so)}</p>{anh_canh(v, i_muc, ten, p)}\n</section>')
     if not co_thu and thu_mo_ta:
-        muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91">\n'
+        muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">\n'
                    f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{t("Làm ngay hôm nay", "Do it today")}</h2>\n'
                    f'  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
 
@@ -447,8 +538,9 @@ def tao_bai(v):
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
-    main = (f'<main class="doc">\n<article class="post">\n' + "\n".join(muc) +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n</div>\n</article>\n'
+    cc_dau, cc_cuoi = khoi_cong_cu(v, p)
+    main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + "\n".join(muc) +
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("10 câu đúng hay sai, có giải thích ngay.", "10 true-or-false questions, explained right away.")}</span></a>\n'
@@ -456,7 +548,7 @@ def tao_bai(v):
     url = BASE + GOC + goc
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": h1[:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + "assets/og.png"], "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + ANH.get(str(so), {}).get("bia", "assets/og.png")], "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": g["ten"]},
          **({"about": [{"@type": "DefinedTerm", "name": x["thuat_ngu"], "url": BASE + GOC + "tu-dien.html#" + x["id"]} for x in lien_quan]} if lien_quan else {})},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -465,7 +557,7 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=ANH.get(str(so), {}).get("bia"))
 
 # ---------- từ điển ----------
 def tao_tu_dien():
@@ -537,6 +629,7 @@ KIEM_TRA_JS_EN = [
     ('"Câu " + soHien + "/" + Q.length : "Kết quả"', '"Question " + soHien + "/" + Q.length : "Results"'),
     ('"Đúng " + dung', '"Correct " + dung'),
     ('src="assets/', 'src="../assets/'),
+    ('srcset="assets/', 'srcset="../assets/'),
     ('<p class="q-num">Câu \' + (i + 1)', '<p class="q-num">Question \' + (i + 1)'),
     ('data-v="1">Đúng</button>', 'data-v="1">True</button>'),
     ('data-v="0">Sai</button>', 'data-v="0">False</button>'),
@@ -621,7 +714,7 @@ def tao_kiem_tra():
       else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
     });
     var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><img class="q-bit" src="assets/' + (ok ? "bit-vui" : "bit-sai-roi") + '.svg" alt="" width="48" height="58"><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '-tinh.webp"><img src="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '.webp" alt="" width="' + (ok ? 114 : 94) + '" height="150"></picture><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
       " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div></div>' +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "Xem kết quả" : "Câu tiếp theo ›") + "</button>";
     i++;
@@ -818,7 +911,7 @@ def tao_lo_trinh():
 {chr(10).join(the)}
 </ol>
 <section class="cert" id="chung-nhan" aria-labelledby="cn-h">
-<div class="cert-head"><img src="{p}assets/mark-a-ra-the.svg" alt="" width="130" height="123"><div>
+<div class="cert-head"><img src="{p}assets/mark-a-ra-the.svg" alt="" width="130" height="123" loading="lazy"><div>
 <p class="eyebrow">{t("Phần thưởng cuối lộ trình", "Your reward")}</p>
 <h2 id="cn-h">{t("Giấy chứng nhận", "Certificate")}</h2>
 <p id="cn-khoa">{t(f"Hoàn thành đủ {len(ngay)} ngày để mở khóa giấy chứng nhận có tên bạn.", f"Finish all {len(ngay)} days to unlock a certificate with your name.")}</p>
@@ -832,6 +925,8 @@ def tao_lo_trinh():
 <p class="cert-cheer" id="cn-loi-khen" hidden>{t("Giỏi lắm! 7 ngày, 21 video, 7 việc làm thật. Đăng ảnh lên và rủ một người bạn cùng học tuần này nhé, học có bạn thì nhớ lâu hơn.", "Well done! 7 days, 21 videos, 7 real tasks. Post your certificate and invite a friend to start this week. Learning with a friend makes it stick.")}</p>
 <p class="share-msg" id="bao" role="status"></p>
 </div>
+<figure class="cert-mau" id="cn-mau"><canvas id="cn-mau-canvas" width="1600" height="1131" role="img" aria-label="{t("Giấy chứng nhận mẫu", "Sample certificate")}"></canvas>
+<figcaption id="cn-mau-chu" aria-live="polite">{t("Bản mẫu: xong cả 7 ngày là có tên bạn.", "Sample: finish all 7 days and it shows your name.")}</figcaption></figure>
 <canvas id="cn-canvas" width="1600" height="1131" hidden></canvas>
 </section>
 <aside class="next-steps">
@@ -857,8 +952,8 @@ def tao_hop_tac():
     email = kenh.get("email", "")
     tieu_de_mail = quote(t("Hợp tác với Mark học AI", "Partnership with Mark học AI"))
     nut_mail = (f'<a class="btn btn-yt" href="mailto:{esc(email)}?subject={tieu_de_mail}">{ic(p, "mail")}{esc(email)}</a>' if email else "")
-    desc = t(f"Media kit kênh Mark học AI: video giải thích AI bằng tiếng Việt cho người không chuyên trên YouTube, TikTok, Facebook, Instagram. Định dạng, nền tảng, hình thức hợp tác và liên hệ.",
-             f"Media kit for Mark học AI: Vietnamese AI explainer videos for non-experts on YouTube, TikTok, Facebook and Instagram. Formats, platforms, partnership options and contact.")
+    desc = t(f"Media kit kênh Mark học AI: video giải thích AI bằng tiếng Việt cho người không chuyên trên YouTube, TikTok, Facebook, Instagram, Threads. Định dạng, nền tảng, hình thức hợp tác và liên hệ.",
+             f"Media kit for Mark học AI: Vietnamese AI explainer videos for non-experts on YouTube, TikTok, Facebook, Instagram and Threads. Formats, platforms, partnership options and contact.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Media kit · dành cho nhãn hàng và đối tác", "Media kit · for brands and partners")}</p>\n'
             f'<h1>{t("Hợp tác cùng Mark học AI", "Work with Mark học AI")}</h1>\n'
             f'<p class="lead">{t("Kênh giải thích AI bằng tiếng Việt cho người không chuyên. Nếu sản phẩm của bạn giúp người Việt dùng AI tốt hơn, an toàn hơn, mình cùng làm một nội dung thật sự hữu ích cho người xem.", "A channel that explains AI in Vietnamese for non-experts. If your product helps Vietnamese people use AI better and more safely, let us make something genuinely useful for viewers together.")}</p>\n'
@@ -885,9 +980,10 @@ def tao_hop_tac():
                  ("file-text", t("Bài viết trên web", "Website articles"), "markhocai.com",
                   t("Mỗi video có một bài viết tiếng Việt và tiếng Anh, có Từ điển AI và bài kiểm tra, để Google tìm thấy lâu dài.", "Every video has an article in Vietnamese and English, plus a glossary and a quiz, so it stays findable on Google."))]
     the_dd = "".join(f'<li class="fmt"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p class="fmt-where">{esc(b)}</p><p>{esc(c)}</p></div></li>' for i, a, b, c in dinh_dang)
-    nen_tang = [(k, ten) for k, ten in (("youtube", "YouTube"), ("tiktok", "TikTok"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("discord", t("Discord (cộng đồng)", "Discord (community)"))) if kenh.get(k)]
-    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></a></li>' for k, ten in nen_tang)
-    the_nt += f'<li><a class="plat" href="{BASE}"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></a></li>'
+    nen_tang = [(k, t("Discord (cộng đồng)", "Discord (community)") if k == "discord" else ten) for k, ten in NEN_TANG.items() if kenh.get(k)]
+    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
+                     f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></span></a></li>' for k, ten in nen_tang)
+    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo.png" alt="" width="40" height="40" loading="lazy"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
     hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
                   t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
                  (t("Review công cụ", "Tool review"),

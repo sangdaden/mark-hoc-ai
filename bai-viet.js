@@ -1,4 +1,4 @@
-// Trang bài viết: nút YouTube theo lịch ra mắt + nút "Sao chép prompt"
+// Trang bài viết: nút YouTube theo lịch ra mắt + trình phát YouTube kiểu "lite" + nút "Sao chép prompt"
 (function () {
   var EN = document.documentElement.lang === "en";
   var THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -26,6 +26,25 @@
       note.textContent = EN ? "Video out " + THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : "Video ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7);
     });
   }).catch(function () {});
+
+  // Trình phát YouTube (chỉ video mới có data/youtube-id.json): bấm ảnh bìa mới tải iframe youtube-nocookie.
+  // Không chạy được JS thì nút phát vẫn là link mở YouTube.
+  document.querySelectorAll(".yt-lite[data-yt]").forEach(function (fig) {
+    var nut = fig.querySelector(".yt-play");
+    if (!nut) return;
+    nut.addEventListener("click", function (e) {
+      e.preventDefault();
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(fig.dataset.yt) + "?autoplay=1&rel=0&playsinline=1";
+      f.title = fig.dataset.tieuDe || "YouTube";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      f.allowFullscreen = true;
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+      fig.appendChild(f);
+      nut.remove();
+      f.focus();
+    });
+  });
 
   // Chép prompt: clipboard API, không được thì dùng textarea + execCommand
   function chep(text) {

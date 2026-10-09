@@ -4,12 +4,13 @@ import json, re, sys, pathlib
 ROOT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "/mnt/project-files/videos")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "data" / "videos.json"
 SKIP = {"01-claude-lam-video", "02-lidar"}  # bản thử đầu tiên 6/10 (đã làm lại thành 01-ai-la-gi, 02-bat-dau-dung-ai)
-DEN = int(sys.argv[2]) if len(sys.argv) > 2 else 162  # số video cuối được đưa lên trang (video mới: nâng số này, xem scripts/lich_ra_mat_ghi_chu.md)
+DEN = int(sys.argv[2]) if len(sys.argv) > 2 else 300  # số video cuối được đưa lên trang (video mới: nâng số này, xem scripts/lich_ra_mat_ghi_chu.md)
 
 out = []
 for d in sorted(ROOT.iterdir()):
     m = re.match(r"(\d+)-(.+)", d.name)
-    if not m or d.name in SKIP or int(m.group(1)) > DEN:
+    # *-ban-hoi-bit-tra-loi: thư mục hỏi đáp phụ của tập đặc biệt (200, 300), không phải video riêng
+    if not m or d.name in SKIP or d.name.endswith("-ban-hoi-bit-tra-loi") or int(m.group(1)) > DEN:
         continue
     f = next(iter(sorted(d.rglob("tieu-de-mo-ta.md"))), None)
     if not f:
@@ -40,3 +41,23 @@ out.sort(key=lambda v: v["so"])
 OUT.parent.mkdir(exist_ok=True)
 OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print(len(out), "video ->", OUT)
+
+# Lịch ra mắt: điền ngày còn thiếu trong data/lich-ra-mat.json từ sổ cái (videos/so-cai/so-cai.json, trường "lich"):
+# ngày sớm nhất video lên bất kỳ mạng nào (bản dọc, clip hoặc bản ngang). Ngày đã có trong file thì giữ nguyên.
+SO_CAI = ROOT / "so-cai" / "so-cai.json"
+LICH = OUT.parent / "lich-ra-mat.json"
+if SO_CAI.exists():
+    so_cai = json.loads(SO_CAI.read_text(encoding="utf-8"))
+    som = {}
+    for x in so_cai.get("video", []):
+        if not x.get("so") or x.get("thu_muc") in SKIP or x.get("loai") in ("video dài", "clip mẹo"):
+            continue
+        ngay = [g[:10] for ds in (x.get("lich") or {}).values() for g in ds if g]
+        if ngay:
+            som[x["so"]] = min(ngay + ([som[x["so"]]] if x["so"] in som else []))
+    lich = json.loads(LICH.read_text(encoding="utf-8")) if LICH.exists() else {}
+    them = {str(v["so"]): som[v["so"]] for v in out if str(v["so"]) not in lich and v["so"] in som}
+    lich.update(them)
+    LICH.write_text(json.dumps(dict(sorted(lich.items(), key=lambda kv: int(kv[0]))), ensure_ascii=False), encoding="utf-8")
+    thieu = [v["so"] for v in out if str(v["so"]) not in lich]
+    print("lịch ra mắt: thêm", len(them), "ngày" + (", chưa có ngày: " + ", ".join(map(str, thieu)) if thieu else ""))

@@ -4,7 +4,9 @@
   const goc = me ? me.src.replace(/bit-tro-ly\.js.*$/, "") : "";
   const EN = document.documentElement.lang === "en";
   const nha = goc + (EN ? "en/" : ""); // trang chủ của ngôn ngữ đang xem
-  const hinh = ten => goc + "assets/bit-" + ten + ".svg";
+  // "dang-noi": Bit chuyển động lúc nói (assets/mascot, scripts/tao_mascot.py); bật "giảm chuyển động" thì dùng ảnh đứng yên
+  const giamCD = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hinh = ten => ten === "dang-noi" ? goc + "assets/mascot/bit-dang-noi" + (giamCD ? "-tinh" : "") + ".webp" : goc + "assets/bit-" + ten + ".svg";
   const duong = location.pathname;
   const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : "chu";
   const nho = {
@@ -64,8 +66,8 @@
     ["download", "Sách Mark học AI miễn phí", goc + "sach.html"],
     ["clapperboard", "Xem danh sách video", goc + "#video"]
   ];
-  const T = EN ? { tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant" }
-    : { tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit" };
+  const T = EN ? { tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant", kenh: "Follow Mark & Bit", tren: "Mark học AI on ", dc: "Join the Mark học AI Discord community" }
+    : { tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit", kenh: "Theo dõi Mark và Bit", tren: "Mark học AI trên ", dc: "Vào cộng đồng Discord của Mark học AI" };
 
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -76,9 +78,20 @@
     '<div class="bit-menu" id="bit-menu" role="dialog" aria-label="' + T.hoi + '" hidden>' +
     '<p class="bit-chao">' + T.chao + '</p><ul>' +
     menu.map(m => '<li><a href="' + m[2] + '"' + (/\.pdf$/.test(m[2]) ? " download" : "") + '>' + ic(m[0]) + esc(m[1]) + "</a></li>").join("") +
-    '</ul><div class="bit-meo"><b>' + ic("lightbulb") + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div></div>' +
+    '</ul><div class="bit-meo"><b>' + ic("lightbulb") + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div>' +
+    '<div class="bit-kenh" hidden><b>' + T.kenh + "</b></div></div>" +
     '<button class="bit-nut" type="button" aria-label="' + T.mo + '" aria-expanded="false" aria-controls="bit-menu"><img src="' + hinh("vui") + '" alt="" width="64" height="77"></button>';
   document.body.appendChild(hop);
+
+  // Hàng biểu tượng nền tảng cuối menu (link lấy từ data/kenh.json, icon ở assets/nen-tang.svg)
+  const TEN_NT = { youtube: "YouTube", tiktok: "TikTok", facebook: "Facebook", instagram: "Instagram", threads: "Threads", discord: "Discord" };
+  fetch(goc + "data/kenh.json").then(r => r.json()).then(k => {
+    const o = hop.querySelector(".bit-kenh");
+    o.insertAdjacentHTML("beforeend", Object.keys(TEN_NT).filter(n => k[n]).map(n =>
+      '<a class="nt nt-' + n + '" href="' + esc(k[n]) + '" target="_blank" rel="noopener" title="' + TEN_NT[n] + '" aria-label="' + (n === "discord" ? T.dc : T.tren + TEN_NT[n]) +
+      '"><svg aria-hidden="true"><use href="' + goc + 'assets/nen-tang.svg#nt-' + n + '"/></svg></a>').join(""));
+    o.hidden = false;
+  }).catch(() => {});
 
   const nut = hop.querySelector(".bit-nut"), anh = nut.querySelector("img");
   const noi = hop.querySelector(".bit-noi"), noiChu = noi.querySelector("p");
@@ -93,13 +106,13 @@
     noi.hidden = false;
     hop.classList.remove("bit-lui");
     dangNoi();
-    doiMat("y-tuong");
+    doiMat("dang-noi");
     hop.classList.add("bit-nay");
     setTimeout(() => hop.classList.remove("bit-nay"), 700);
     clearTimeout(henGio);
     henGio = setTimeout(anNoi, 9000);
   }
-  // Bóng thoại / menu mọc lên trên Bit, đúng chỗ nút Đầu trang: lúc đó tạm ẩn nút ấy
+  // Bóng thoại / menu mọc lên trên Bit; nút Đầu trang ở hàng dưới bên trái Bit nên không bị che (style.css)
   function dangNoi() { document.body.classList.toggle("bit-dang-noi", !noi.hidden || !bang.hidden); }
   function anNoi() { noi.hidden = true; if (bang.hidden) doiMat("vui"); dangNoi(); }
   function moMenu(mo) {

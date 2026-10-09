@@ -22,9 +22,11 @@
     return r.json();
   }
   // Lịch ra mắt (số video -> YYYY-MM-DD); thiếu file thì coi như video nào cũng đã ra
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  // anh.json: ảnh bìa của video mới (scripts/tao_anh.py); video không có ảnh giữ thẻ chữ như cũ
+  // series-bia.json: ảnh bìa từng series (scripts/tao_anh.py) cho đầu series và nút chọn series
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
-    EN ? load("en/series") : null, EN ? load("en/videos") : null]);
+    EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({}))]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -113,7 +115,8 @@
   if (tuHash) current = "tat-ca";
   // Xem "Tất cả": mỗi series chỉ hiện 3 video đầu để trang khỏi quá dài; tìm kiếm hoặc chọn một series thì hiện đủ
   const HIEN = 3, moRong = new Set(tuHash ? [hashId] : []);
-  chips.innerHTML = chipData.map(c => '<button class="chip" role="tab" id="chip-' + c.id + '" data-id="' + c.id + '">' + esc(c.ten) + "<small>" + c.n + "</small></button>").join("");
+  const biaNho = id => biaSeries[id] ? '<img class="chip-bia" src="' + goc + biaSeries[id].nho + '" alt="" width="96" height="54" loading="lazy" decoding="async">' : "";
+  chips.innerHTML = chipData.map(c => '<button class="chip' + (biaSeries[c.id] ? " co-bia" : "") + '" role="tab" id="chip-' + c.id + '" data-id="' + c.id + '">' + biaNho(c.id) + esc(c.ten) + "<small>" + c.n + "</small></button>").join("");
   chips.addEventListener("click", e => {
     const b = e.target.closest(".chip"); if (!b) return;
     current = b.dataset.id;
@@ -144,7 +147,8 @@
       shown += items.length;
       const gon = !q && current === "tat-ca" && !moRong.has(g.id) && items.length > HIEN + 1;
       const range = "#" + String(g.items[0].so).padStart(2, "0") + "–" + String(g.items[g.items.length - 1].so).padStart(2, "0");
-      const head = '<div class="series-head"><h3>' + esc(g.ten) + (sapRa(g) ? '<span class="soon">' + S.sapRa + '</span>' : "") +
+      const bia = biaSeries[g.id];
+      const head = '<div class="series-head' + (bia ? " co-bia" : "") + '">' + (bia ? '<img class="series-bia" src="' + goc + bia.bia + '" alt="" width="480" height="270" loading="lazy" decoding="async">' : "") + '<h3>' + esc(g.ten) + (sapRa(g) ? '<span class="soon">' + S.sapRa + '</span>' : "") +
         '</h3><span class="series-range">' + (g.le ? S.le(g.items.length) : S.phan(g.items.length)) + " · " + range + "</span>" +
         '<p class="series-desc">' + esc(g.mo_ta) + '</p><div class="tags">' + g.tags.map(t => "<span>" + esc(t) + "</span>").join("") + "</div></div>";
       const rows = (gon ? items.slice(0, HIEN) : items).map(v => {
@@ -153,7 +157,10 @@
           : !lich[v.so] && g.sap_ra_mat
           ? '<span class="row-soon">' + S.sapRa + '</span>'
           : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="' + S.xemYt(pad(v.so)) + '">' + ic("play") + "YouTube</a>";
-        return '<li class="row"><span class="num">#' + pad(v.so) + '</span><div class="row-main"><p class="row-title">' +
+        const a = anh[v.so];
+        const hinh = a && a.the ? '<a class="row-thumb" href="' + baiLink(v) + '" tabindex="-1"><img src="' + goc + a.the + '" alt="' + esc(v.title) +
+          '" width="640" height="360" loading="lazy" decoding="async"></a>' : "";
+        return '<li class="row' + (hinh ? " co-anh" : "") + '"><span class="num">#' + pad(v.so) + "</span>" + hinh + '<div class="row-main"><p class="row-title">' +
           (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
           '</p><a class="row-read" href="' + baiLink(v) + '">' + S.docBai + '</a></div>' + link + "</li>";
       }).join("");
