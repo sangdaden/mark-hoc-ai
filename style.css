@@ -231,10 +231,14 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
    nên Bit đang nói hay mở menu thì nút vẫn hiện và bấm được. Trang không có Bit thì nút về sát góc phải. */
 body:not(:has(.bit-tl)) .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px); }
 .to-top:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
-/* Nút Lướt xuống (len-dau.js): cùng hàng, ngay bên trái nút Đầu trang (nút rộng 48px, cách 8px); nút Đầu trang đang ẩn thì đứng vào chỗ của nó */
-.xuong-nhanh { --lui: 56px; cursor: pointer; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 80px + var(--lui)); }
-#len-dau[hidden] + .xuong-nhanh { --lui: 0px; }
-body:not(:has(.bit-tl)) .xuong-nhanh { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px + var(--lui)); }
+/* Nút Lướt xuống (len-dau.js) xếp dọc với nút Đầu trang, cùng cột bên trái Bit: Đầu trang ở trên, Lướt xuống ở dưới.
+   Khi cả hai cùng hiện, hai nút nhỏ lại (40px, cách 6px) để cả cột thấp hơn 100px, không chạm bóng thoại và menu của Bit.
+   Chỉ một nút hiện thì nút đó đứng đúng chỗ cũ của nút Đầu trang. */
+.xuong-nhanh { cursor: pointer; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])), #len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) { padding: 9px; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])) svg, #len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) svg { width: 18px; height: 18px; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])) { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+#len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
 
 @media (max-width: 760px) {
   .to-top { padding: 10px; bottom: calc(29px + env(safe-area-inset-bottom, 0px)); }
@@ -457,8 +461,7 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 @keyframes bit-hien { from { opacity: 0; transform: translateY(8px) scale(.96); } to { opacity: 1; transform: none; } }
 @media (max-width: 480px) { .bit-nut { width: 58px; height: 66px; } .bit-nut img { width: 50px; }
   /* Bit nhỏ lại (58x66): nút Đầu trang vẫn sát bên trái Bit, canh giữa theo chiều cao */
-  .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 64px); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); }
-  .xuong-nhanh { --lui: 54px; right: calc(max(12px, env(safe-area-inset-right, 0px)) + 64px + var(--lui)); } }
+  .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 64px); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); } }
 /* Điện thoại: đang kéo xuống thì Bit lùi vào góc, mờ đi (bit-tro-ly.js) */
 .bit-nut { transition: opacity .25s, scale .25s; }
 .bit-lui .bit-nut { opacity: .35; scale: .8; translate: 0 8px; }
