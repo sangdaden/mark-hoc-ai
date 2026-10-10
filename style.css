@@ -231,6 +231,14 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
    nên Bit đang nói hay mở menu thì nút vẫn hiện và bấm được. Trang không có Bit thì nút về sát góc phải. */
 body:not(:has(.bit-tl)) .to-top { right: calc(max(12px, env(safe-area-inset-right, 0px)) + 12px); }
 .to-top:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+/* Nút Lướt xuống (len-dau.js) xếp dọc với nút Đầu trang, cùng cột bên trái Bit: Đầu trang ở trên, Lướt xuống ở dưới.
+   Khi cả hai cùng hiện, hai nút nhỏ lại (40px, cách 6px) để cả cột thấp hơn 100px, không chạm bóng thoại và menu của Bit.
+   Chỉ một nút hiện thì nút đó đứng đúng chỗ cũ của nút Đầu trang. */
+.xuong-nhanh { cursor: pointer; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])), #len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) { padding: 9px; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])) svg, #len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) svg { width: 18px; height: 18px; }
+#len-dau:not([hidden]):has(+ .xuong-nhanh:not([hidden])) { bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+#len-dau:not([hidden]) + .xuong-nhanh:not([hidden]) { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
 
 @media (max-width: 760px) {
   .to-top { padding: 10px; bottom: calc(29px + env(safe-area-inset-bottom, 0px)); }
@@ -814,6 +822,20 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
   .sc-meta { font-size: 11.5px; }
   .sc-foot .soon { padding: 5px 8px; font-size: 11px; }
 }
+/* Nhãn gây chú ý (app.js): Nổi bật, Xem nhiều, Mới; trên ảnh bìa thẻ series thì nằm góc trên bên phải */
+.hh { display: inline-flex; align-items: center; gap: 4px; font: 800 11.5px/1 var(--f-body); letter-spacing: .02em; text-transform: uppercase;
+  padding: 5px 9px; border-radius: 999px; white-space: nowrap; vertical-align: 2px; margin-left: 8px; }
+.hh .ic { width: 13px; height: 13px; stroke-width: 2.6; }
+.hh-hot { background: #F97316; color: #fff; }
+.hh-chon { background: #FACC15; color: #0F172A; }
+.hh-moi { background: #06D6A0; color: #0F172A; }
+.sc-cover { position: relative; }
+.sc-hh { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.sc-hh .hh { margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
+@media (prefers-reduced-motion: no-preference) { .sc-hh .hh-hot { animation: hh-nhay 2.4s ease-in-out infinite; } }
+@keyframes hh-nhay { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+.xem-them { display: flex; margin: 24px auto 0; cursor: pointer; }
+@media (max-width: 760px) { .sc-hh { top: 6px; right: 6px; gap: 4px; } .sc-hh .hh { font-size: 10px; padding: 4px 7px; } }
 html:has(.series-hop[open]) { overflow: hidden; }
 .series-hop { width: min(880px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 0; border-radius: 22px;
   background: var(--panel); color: var(--ink); overflow: hidden; box-shadow: 0 30px 70px -20px rgba(15, 23, 42, .6); }
