@@ -68,3 +68,18 @@ if SO_CAI.exists():
     LICH.write_text(json.dumps(dict(sorted(lich.items(), key=lambda kv: int(kv[0]))), ensure_ascii=False), encoding="utf-8")
     thieu = [v["so"] for v in out if str(v["so"]) not in lich]
     print("lịch ra mắt: thêm", len(them), "ngày" + (", chưa có ngày: " + ", ".join(map(str, thieu)) if thieu else ""))
+
+# Nhãn "Xem nhiều" trên trang (data/noi-bat.json, "pho_bien"): 5 video có tổng lượt xem cao nhất trong sổ cái (bản dọc + clip,
+# mọi mạng; không tính video dài), chỉ lấy video từ 300 lượt xem. "noi_bat" là danh sách Sang chọn tay, script giữ nguyên.
+NOI_BAT = OUT.parent / "noi-bat.json"
+if SO_CAI.exists():
+    import collections
+    xem = collections.Counter()
+    for x in so_cai.get("video", []):
+        if x.get("so") and x.get("thu_muc") not in SKIP and x.get("loai") != "video dài":
+            xem[x["so"]] += x.get("tong_xem") or 0
+    co = {v["so"] for v in out}
+    pho_bien = [so for so, n in xem.most_common() if n >= 300 and so in co][:5]
+    cu = json.loads(NOI_BAT.read_text(encoding="utf-8")) if NOI_BAT.exists() else {}
+    NOI_BAT.write_text(json.dumps({"pho_bien": pho_bien, "noi_bat": cu.get("noi_bat", [])}, ensure_ascii=False), encoding="utf-8")
+    print("xem nhiều:", ", ".join(f"#{so} ({xem[so]})" for so in pho_bien) or "chưa có")

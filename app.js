@@ -8,13 +8,15 @@
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
     tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
-    raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›"
+    raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
+    hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)"
   } : {
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
     tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
-    raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›"
+    raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
+    hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")"
   };
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
@@ -24,9 +26,11 @@
   // Lịch ra mắt (số video -> YYYY-MM-DD); thiếu file thì coi như video nào cũng đã ra
   // anh.json: ảnh bìa của video mới (scripts/tao_anh.py); video không có ảnh giữ thẻ chữ như cũ
   // series-bia.json: ảnh bìa từng series (scripts/tao_anh.py) cho đầu series và nút chọn series
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  // noi-bat.json: pho_bien = video được xem nhiều nhất (scripts/gom_video.py tính từ sổ cái), noi_bat = video Sang chọn tay
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
-    EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({}))]);
+    EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({})),
+    load("noi-bat").catch(() => ({}))]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -38,6 +42,16 @@
   const homNay = /^\d{4}-\d{2}-\d{2}$/.test(homNayQ || "") ? homNayQ
     : new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
   const chuaRa = so => !!lich[so] && lich[so] > homNay;
+  // Nhãn gây chú ý: Xem nhiều (pho_bien), Nổi bật (noi_bat), Mới (ra mắt trong 7 ngày gần nhất)
+  const truoc7 = new Date(Date.parse(homNay) - 6 * 864e5).toISOString().slice(0, 10);
+  const hot = new Set(noiBat.pho_bien || []), chon = new Set(noiBat.noi_bat || []);
+  const moi = so => !!lich[so] && lich[so] <= homNay && lich[so] >= truoc7;
+  const nhanHtml = (dsSo, the) => {
+    const co = f => dsSo.some(f);
+    return (co(so => chon.has(so)) ? '<span class="hh hh-chon">' + ic("star") + S.noiBat + "</span>" : "") +
+      (co(so => hot.has(so)) ? '<span class="hh hh-hot">' + ic("flame") + S.hot + "</span>" : "") +
+      (co(moi) ? '<span class="hh hh-moi">' + S.moi + "</span>" : "");
+  };
   const THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const ngayThang = d => EN ? THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : d.slice(8, 10) + "/" + d.slice(5, 7);
 
@@ -142,7 +156,7 @@
     const hinh = a && a.the ? '<a class="row-thumb" href="' + baiLink(v) + '" tabindex="-1"><img src="' + goc + a.the + '" alt="' + esc(v.title) +
       '" width="640" height="360" loading="lazy" decoding="async"></a>' : "";
     return '<li class="row' + (hinh ? " co-anh" : "") + '"><span class="num">#' + pad(v.so) + "</span>" + hinh + '<div class="row-main"><p class="row-title">' +
-      (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a></p><p class="row-desc">' + esc(v.desc) +
+      (v.part ? '<span class="row-part">' + v.part + "</span>" : "") + '<a href="' + baiLink(v) + '">' + esc(v.title) + '</a>' + nhanHtml([v.so]) + '</p><p class="row-desc">' + esc(v.desc) +
       '</p><a class="row-read" href="' + baiLink(v) + '">' + S.docBai + '</a></div>' + link + "</li>";
   };
   // Một series dạng danh sách: đầu thẻ (ảnh bìa, tên, mô tả, thẻ) + các video. Dùng cho kết quả tìm/lọc và hộp mở series
@@ -156,18 +170,33 @@
   };
   // Xem "Tất cả" (không tìm): lưới ảnh bìa, mỗi thẻ là link #id-series mở hộp danh sách video của series đó
   const theHtml = g => {
-    const bia = biaSeries[g.id];
-    return '<li><a class="series-card" id="the-' + g.id + '" href="#' + g.id + '"><span class="sc-cover">' +
+    const bia = biaSeries[g.id], nhan = nhanHtml(g.items.map(v => v.so));
+    return '<li><a class="series-card" id="the-' + g.id + '" href="#' + g.id + '"><span class="sc-cover">' + (nhan ? '<span class="sc-hh">' + nhan + "</span>" : "") +
       (bia ? '<img src="' + goc + bia.bia + '" alt="" width="480" height="270" loading="lazy" decoding="async">' : "") +
       '</span><span class="sc-body"><span class="sc-title">' + esc(g.ten) + '</span><span class="sc-foot"><span class="sc-meta">' + demPhan(g) + "</span>" +
       (sapRa(g) ? '<span class="soon">' + S.sapRa + "</span>" : "") + "</span></span></a></li>";
   };
 
+  let soThe = 0;
   function render() {
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
     const q = norm(input.value.trim());
     if (!q && current === "tat-ca") {
-      box.innerHTML = '<p class="grid-note">' + S.goiY + '</p><ul class="series-grid">' + groups.map(theHtml).join("") + "</ul>";
+      // Lưới hiện trước 3 hàng thẻ, nút "Xem thêm" mở tiếp từng 3 hàng (3 cột trên máy tính, 2 cột trên điện thoại)
+      const hang = matchMedia("(max-width: 760px)").matches ? 2 : 3;
+      if (!soThe) soThe = hang * 3;
+      const con = groups.length - soThe;
+      box.innerHTML = '<p class="grid-note">' + S.goiY + '</p><ul class="series-grid">' + groups.slice(0, soThe).map(theHtml).join("") + "</ul>" +
+        (con > 0 ? '<button type="button" class="btn xem-them">' + S.xemThem(con) + "</button>" : "");
+      const nut = box.querySelector(".xem-them");
+      if (nut) nut.addEventListener("click", () => {
+        const dau = soThe;
+        soThe += hang * 3;
+        render();
+        // Đưa tiêu điểm tới thẻ mới đầu tiên để người dùng bàn phím đi tiếp được
+        const the = box.querySelectorAll(".series-card")[dau];
+        if (the) the.focus({ preventScroll: true });
+      });
       document.getElementById("rong").hidden = true;
       return;
     }
@@ -218,6 +247,10 @@
     else if (hop.open) hop.close();
   });
   const dau = hashSeries();
+  if (dau && !document.getElementById("the-" + dau)) {
+    soThe = groups.findIndex(g => g.id === dau) + 1;
+    render();
+  }
   if (dau) {
     const the = document.getElementById("the-" + dau);
     if (the) the.scrollIntoView({ block: "center", behavior: "instant" });
