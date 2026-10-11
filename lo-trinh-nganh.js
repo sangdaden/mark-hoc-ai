@@ -22,13 +22,19 @@
   const docChon = () => { try { return JSON.parse(nho.get(KHOA_NGANH) || "null"); } catch (e) { return null; } };
   const linkChon = c => "lo-trinh-nganh.html?" + (c.ai ? "ai=" + encodeURIComponent(c.ai) : "nghe=" + encodeURIComponent(c.nghe));
 
-  // Khớp chữ người xem gõ: từ khóa nghề ngách, từ khóa của ngành có sẵn, rồi tên video
+  // Khớp chữ người xem gõ với từ khóa (data/lo-trinh-nganh.json, viết có dấu). Gõ có dấu thì so có dấu, để "thuê xe" không dính "thuế";
+  // gõ không dấu thì so không dấu. Khớp trọn từ, hoặc chữ gõ là phần đầu của từ khóa (gõ "giáo" ra "giáo viên").
+  const thuong = s => (s || "").normalize("NFC").toLowerCase().replace(/[^\p{L}\p{N}&+/]+/gu, " ").trim();
   function timNghe(D, chu) {
-    const q = norm(chu);
-    const co = k => { const t = norm(k); return t && (q === t || (" " + q + " ").includes(" " + t + " ") || (q.length >= 4 && t.startsWith(q))); };
+    const f = /[^\x00-\x7f]/.test(thuong(chu)) ? thuong : norm;
+    const q = f(chu);
+    const co = k => { const t = f(k); return !!t && (q === t || (" " + q + " ").includes(" " + t + " ") || (q.length >= 4 && t.startsWith(q))); };
+    const dung = k => f(k) === q;
     const ngach = D.ngach.filter(n => n.tu_khoa.some(co));
     const nganh = Object.keys(D.nganh).filter(id => D.nganh[id].tu_khoa.some(co) || co(D.nganh[id].ngan));
-    return { q, ngach, nganh };
+    // Gõ đúng tên một ngành có sẵn (ví dụ "giáo viên", "data analyst"): đưa thẳng lộ trình đó
+    const trung = Object.keys(D.nganh).filter(id => D.nganh[id].tu_khoa.some(dung) || dung(D.nganh[id].ngan));
+    return { q: norm(chu), ngach, nganh, trung };
   }
 
   // Ô chọn "Bạn là ai?" dùng chung cho hộp chào ở trang chủ và đầu trang lộ trình
@@ -55,7 +61,7 @@
       if (!chu) return;
       const t = timNghe(D, chu);
       // Gõ đúng tên một ngành có sẵn (ví dụ "giáo viên", "data analyst") thì đưa thẳng lộ trình đó
-      khiChon(!t.ngach.length && t.nganh.length === 1 ? { ai: t.nganh[0] } : { nghe: chu });
+      khiChon(!t.ngach.length && t.trung.length === 1 ? { ai: t.trung[0] } : { nghe: chu });
     });
   }
 
@@ -185,24 +191,35 @@
         veLoTrinh(n.ten, n.chao, "", n.buoc);
       } else if (c && c.nghe) {
         const t = timNghe(D, c.nghe);
-        const dung = [...new Set(t.ngach.flatMap(n => n.so))];
-        // Không có từ khóa nghề ngách: tìm thẳng trong tên và mô tả video
-        if (!dung.length && t.q.length >= 3) {
-          videos.filter(v => norm(v.chu_de + " " + v.mo_ta).includes(t.q)).slice(0, 6).forEach(v => dung.push(v.so));
-        }
-        const ganId = (t.ngach[0] && t.ngach[0].gan) || t.nganh[0] || "van-phong";
+        const sat = [...new Set(t.ngach.flatMap(n => n.so))];
+        // Không có nghề ngách khớp: tìm trọn từ trong tên và mô tả video (chỉ để gợi thêm, không gọi là "sát nghề")
+        const nhac = sat.length || t.q.length < 4 ? [] : videos.filter(v => (" " + norm(v.chu_de + " " + v.mo_ta) + " ").includes(" " + t.q + " ")).slice(0, 6).map(v => v.so);
+        const ganId = t.nganh[0] || (t.ngach[0] && t.ngach[0].gan) || "";
         const gan = D.nganh[ganId];
-        const buoc = [{ ten: "Nền tảng cho mọi nghề", mo_ta: "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI.", so: [3, 8, 15] }];
-        if (dung.length) buoc.push({ ten: "Video sát nghề của bạn", mo_ta: "Những video kênh làm riêng cho nghề gần với “" + c.nghe + "”.", so: dung });
-        const daCo = new Set(buoc.flatMap(dsSo));
-        gan.buoc.forEach(b => {
-          if (b.nhanh || b.so.some(s => !daCo.has(s))) { buoc.push(b.so ? Object.assign({}, b, { so: b.so.filter(s => !daCo.has(s)) }) : b); dsSo(b).forEach(s => daCo.add(s)); }
-        });
         const mail = kenh.email ? ' <a href="mailto:' + kenh.email + "?subject=" + encodeURIComponent("Gợi ý video cho nghề " + c.nghe) + '">Gợi ý chủ đề cho kênh ›</a>' : "";
-        const ghi = '<p class="ltn-ghi-chu">' + (dung.length ? "Mình ghép video sát nghề của bạn với lộ trình gần nhất: <b>" + esc(gan.ngan) + "</b>."
-          : "Kênh chưa có video riêng cho nghề “" + esc(c.nghe) + "”, nên mình đưa lộ trình gần nhất: <b>" + esc(gan.ngan) + "</b>. Muốn kênh làm video cho nghề này?" + mail) + "</p>";
+        const nen = { ten: "Nền tảng cho mọi nghề", mo_ta: "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI.", so: [3, 8, 15] };
+        const buoc = [nen];
+        if (sat.length) buoc.push({ ten: "Video sát nghề của bạn", mo_ta: "Những video kênh làm riêng cho nghề gần với “" + c.nghe + "”.", so: sat });
+        if (nhac.length) buoc.push({ ten: "Video có nhắc tới “" + c.nghe + "”", mo_ta: "Kênh chưa có video riêng cho nghề này, nhưng các video dưới đây có nói tới.", so: nhac });
+        let chao, ghi;
+        if (gan) {
+          const daCo = new Set(buoc.flatMap(dsSo));
+          gan.buoc.forEach(b => {
+            if (b.nhanh || b.so.some(s => !daCo.has(s))) { buoc.push(b.so ? Object.assign({}, b, { so: b.so.filter(s => !daCo.has(s)) }) : b); dsSo(b).forEach(s => daCo.add(s)); }
+          });
+          chao = sat.length ? "Mình tìm được " + sat.length + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình " + gan.ngan + "." : "Kênh chưa có video riêng cho nghề này, nhưng nó gần với nhóm " + gan.ngan + ", nên mình dùng lộ trình đó.";
+          ghi = '<p class="ltn-ghi-chu">Các bước sau phần video riêng lấy từ lộ trình <b>' + esc(gan.ngan) + "</b>." + (sat.length ? "" : " Muốn kênh làm video cho nghề “" + esc(c.nghe) + "”?" + mail) + "</p>";
+        } else {
+          // Không biết nghề này gần nhóm nào: lộ trình chung, nghề nào cũng dùng được, không đoán bừa
+          buoc.push({ ten: "Giấy tờ, email và kế hoạch", mo_ta: "Những việc nghề nào cũng có: email dài, đơn từ, kế hoạch tuần, giấy tờ khó đọc.", so: [173, 286, 164, 165] },
+            { ten: "Dựng trợ lý riêng cho nghề của bạn", mo_ta: "Dạy AI biết bạn làm nghề gì, lưu câu lệnh hay dùng và để AI tự làm việc lặp lại.", so: [27, 28, 31] },
+            { ten: "AI và nghề của bạn", mo_ta: "Việc nào AI nhận trước, kỹ năng nào giữ giá, và kế hoạch 90 ngày.", so: [33, 34, 35, 37] });
+          chao = sat.length ? "Mình tìm được " + sat.length + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình chung nghề nào cũng dùng được."
+            : "Kênh chưa có video riêng cho nghề “" + c.nghe + "”. Đây là lộ trình chung, nghề nào cũng dùng được.";
+          ghi = '<p class="ltn-ghi-chu">Muốn kênh làm video cho nghề này?' + mail + "</p>";
+        }
         document.title = "Lộ trình cho nghề " + c.nghe + " | Mark học AI";
-        veLoTrinh("Nghề của bạn: " + c.nghe, dung.length ? "Mình tìm được " + dung.length + " video sát nghề của bạn. Đi theo các bước dưới đây nhé." : "Nghề nào cũng dùng được AI cho giấy tờ, email và lên kế hoạch. Mình bắt đầu từ những việc đó nhé.", ghi, buoc);
+        veLoTrinh("Nghề của bạn: " + c.nghe, chao, ghi, buoc);
       } else {
         kq.hidden = true;
         return;

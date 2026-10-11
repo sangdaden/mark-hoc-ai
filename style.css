@@ -979,3 +979,28 @@ html:has(.chao-hop[open]) { overflow: hidden; }
   .chao-dau img { width: 64px; }
   .chao-dau h2 { font-size: 23px; }
 }
+
+/* Menu thả xuống "Lộ trình" ở đầu trang (<details class="nav-drop">, cai-dat.js): gom hai trang lộ trình để nút EN và Sáng/Tối không bị đẩy xuống hàng dưới */
+.nav-drop { position: relative; }
+.nav-drop > summary { display: inline-flex; align-items: center; gap: 4px; list-style: none; cursor: pointer; color: var(--muted); font-weight: 500; font-size: 15px; border-radius: 8px; }
+.nav-drop > summary::-webkit-details-marker { display: none; }
+.band .nav-drop > summary { color: #fff; }
+.band .nav-drop > summary:hover, .band .nav-drop[open] > summary { color: #FDE047; }
+.band .nav-drop > summary.is-cur { color: #FDE047; text-decoration: underline; text-underline-offset: 5px; }
+.nav-drop > summary:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
+.nav-drop-mui { transition: transform .15s ease; }
+.nav-drop[open] .nav-drop-mui { transform: rotate(180deg); }
+.nav-drop-ds { position: absolute; top: calc(100% + 12px); left: -14px; z-index: 30; display: flex; flex-direction: column; gap: 2px; min-width: 210px; padding: 6px;
+  background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; box-shadow: 0 18px 40px -16px rgba(15, 23, 42, .45); }
+.band .top-links .nav-drop-ds a { display: block; padding: 10px 12px; border-radius: 10px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.band .top-links .nav-drop-ds a:hover { background: var(--bg2); color: var(--blue); }
+.band .top-links .nav-drop-ds a[aria-current="page"] { color: var(--blue); font-weight: 700; text-decoration: none; }
+@media (prefers-reduced-motion: reduce) { .nav-drop-mui { transition: none; } }
+@media (max-width: 760px) {
+  .nav-drop > summary { display: flex; padding: 11px 12px; font-size: 16px; border-radius: 10px; }
+  .band .nav-drop > summary:hover { background: rgba(255, 255, 255, .12); }
+  .nav-drop-ds { position: static; min-width: 0; padding: 0 0 4px 14px; background: transparent; border: 0; box-shadow: none; }
+  .band .top-links .nav-drop-ds a { color: #fff; font-size: 16px; padding: 10px 12px; }
+  .band .top-links .nav-drop-ds a:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+  .band .top-links .nav-drop-ds a[aria-current="page"] { color: #FDE047; }
+}

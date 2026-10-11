@@ -58,6 +58,29 @@
     '<button type="button" class="nut-menu" aria-expanded="false">' + ic("menu") + '<span class="nhan">Menu</span></button>';
   top.appendChild(hop);
 
+  // Menu "Lộ trình ▾" gom Lộ trình theo ngành và Lộ trình 7 ngày cho đầu trang khỏi tràn hàng (Sang 11/10/2026).
+  // index.html và lo-trinh-nganh.html viết sẵn <details class="nav-drop">; các trang khác (bài viết, từ điển...) được ghép ở đây. Bản tiếng Anh chưa có trang theo ngành nên giữ nguyên.
+  const navTrang = top.querySelector(".top-links");
+  const a7 = navTrang && !EN && navTrang.querySelector('a[href$="lo-trinh-7-ngay.html"]');
+  if (a7 && !a7.closest(".nav-drop")) {
+    const truoc = a7.getAttribute("href").replace(/lo-trinh-7-ngay\.html$/, "");
+    const d = document.createElement("details");
+    d.className = "nav-drop";
+    d.innerHTML = "<summary" + (a7.hasAttribute("aria-current") ? ' class="is-cur"' : "") + '>Lộ trình<svg class="nav-drop-mui" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>' +
+      '<div class="nav-drop-ds"><a href="' + truoc + 'lo-trinh-nganh.html">Lộ trình theo ngành</a></div>';
+    a7.replaceWith(d);
+    d.querySelector(".nav-drop-ds").appendChild(a7);
+  }
+  // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
+  const dsDrop = top.querySelectorAll(".nav-drop");
+  if (dsDrop.length) {
+    document.addEventListener("click", e => dsDrop.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }));
+    document.addEventListener("keydown", e => {
+      if (e.key !== "Escape") return;
+      dsDrop.forEach(d => { if (d.open) { d.open = false; d.querySelector("summary").focus(); } });
+    });
+  }
+
   // Điện thoại: các link trang gom vào nút Menu cho đầu trang gọn một hàng (máy tính vẫn hiện đủ)
   const nav = top.querySelector(".top-links"), nutMenu = hop.querySelector(".nut-menu");
   if (nav) {

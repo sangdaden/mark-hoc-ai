@@ -1,5 +1,5 @@
 {
- "_ghi_chu": "Lộ trình theo ngành (lo-trinh-nganh.html, lo-trinh-nganh.js). 'so' là số video trong data/videos.json (1-300), 301/302 là bài Làm theo, 303-376 lấy tên và ngày từ data/video-nhanh.json (scripts/tao_video_nhanh.py). 'nhanh' trong một bước = cả series nhánh đó. 'ngach' ghép chữ người xem gõ (bỏ dấu) với video sát nghề; 'gan' là lộ trình gần nhất để đi tiếp.",
+ "_ghi_chu": "Lộ trình theo ngành (lo-trinh-nganh.html, lo-trinh-nganh.js). 'so' là số video trong data/videos.json (1-300), 301/302 là bài Làm theo, 303-376 lấy tên và ngày từ data/video-nhanh.json (scripts/tao_video_nhanh.py). 'nhanh' trong một bước = cả series nhánh đó. 'ngach' ghép chữ người xem gõ (bỏ dấu) với video sát nghề; 'gan' là lộ trình gần nhất để đi tiếp (để trống thì dùng lộ trình chung cho mọi nghề). Từ khóa viết có dấu: người xem gõ có dấu thì so có dấu (\"thuê\" khác \"thuế\"), gõ không dấu thì so không dấu.",
  "nhom": [
   {"ten": "Dùng AI cho việc của bạn", "ds": ["moi-bat-dau", "van-phong", "giao-vien", "hoc-sinh", "gia-dinh", "ban-hang", "tim-viec", "noi-dung", "hieu-sau"]},
   {"ten": "Theo ngành dữ liệu và công nghệ", "ds": ["da", "ds", "de", "devops", "cloud", "ml", "dl", "robotics"]}
@@ -17,9 +17,11 @@
  },
  "nganh": {
   "moi-bat-dau": {
-   "ten": "Mình mới bắt đầu với AI", "ngan": "Người mới", "icon": "compass",
+   "ten": "Mình mới bắt đầu với AI",
+   "ngan": "Người mới",
+   "icon": "compass",
    "chao": "Chào bạn mới! Mình đi từ chỗ dễ nhất: AI là gì, dùng thử lần đầu, rồi tới mấy cái bẫy cần tránh.",
-   "tu_khoa": ["moi", "nguoi moi", "chua biet", "bat dau", "khong biet gi", "huu tri", "nghi huu", "nguoi lon tuoi"],
+   "tu_khoa": ["người mới", "mới bắt đầu", "chưa biết gì", "không biết gì", "hưu trí", "nghỉ hưu", "người lớn tuổi"],
    "buoc": [
     {"ten": "Hiểu AI là gì", "mo_ta": "Hai video mở màn, rồi xem AI thật ra đang đoán chữ thế nào.", "so": [1, 2, 7]},
     {"ten": "Biết AI hay sai ở đâu", "mo_ta": "AI bịa mà vẫn tự tin, AI quên khi chat dài, và những thứ đừng dán vào AI.", "so": [8, 9, 15]},
@@ -29,9 +31,11 @@
    ]
   },
   "van-phong": {
-   "ten": "Mình làm văn phòng", "ngan": "Dân văn phòng", "icon": "briefcase",
+   "ten": "Mình làm văn phòng",
+   "ngan": "Dân văn phòng",
+   "icon": "briefcase",
    "chao": "Dân văn phòng thì AI gánh được nhiều việc nhất: Excel, email, họp, báo cáo. Đi theo thứ tự này nhé.",
-   "tu_khoa": ["van phong", "nhan vien", "hanh chinh", "nhan su", "hr", "thu ky", "tro ly", "ke toan", "excel", "bao cao", "quan ly", "truong phong", "marketing", "sale", "kinh doanh", "ngan hang", "bao hiem", "luat", "phap che"],
+   "tu_khoa": ["văn phòng", "nhân viên văn phòng", "hành chính", "nhân sự", "thư ký", "trợ lý", "excel", "báo cáo", "quản lý", "trưởng phòng", "marketing", "sales", "kinh doanh", "ngân hàng", "bảo hiểm", "bán bảo hiểm"],
    "buoc": [
     {"ten": "Nền tảng trong 10 phút", "mo_ta": "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI.", "so": [3, 8, 15]},
     {"ten": "Việc hằng ngày", "mo_ta": "Công thức Excel bằng lời, tóm tắt cuộc họp, slide từ dàn ý, email dài và dịch tài liệu.", "so": [170, 171, 172, 173, 174]},
@@ -41,9 +45,11 @@
    ]
   },
   "giao-vien": {
-   "ten": "Mình là giáo viên", "ngan": "Giáo viên", "icon": "graduation-cap",
+   "ten": "Mình là giáo viên",
+   "ngan": "Giáo viên",
+   "icon": "graduation-cap",
    "chao": "Thầy cô ơi, AI làm nháp giáo án, đề và nhận xét rất nhanh, còn thầy cô giữ phần quyết định. Mình gợi ý thế này.",
-   "tu_khoa": ["giao vien", "co giao", "thay giao", "giang vien", "day hoc", "truong hoc", "mam non", "tieu hoc", "trung hoc", "dao tao", "trainer"],
+   "tu_khoa": ["giáo viên", "cô giáo", "thầy giáo", "giảng viên", "dạy học", "mầm non", "tiểu học", "đào tạo", "trainer"],
    "buoc": [
     {"ten": "Nền tảng", "mo_ta": "Prompt 4 mảnh và vì sao phải kiểm lại mọi thứ AI viết.", "so": [3, 8]},
     {"ten": "AI cho giáo viên", "mo_ta": "Giáo án, đề nhiều mức, nhận xét bài, lớp nhiều trình độ, công cụ phát hiện bài làm bằng AI.", "so": [148, 149, 150, 151, 152]},
@@ -53,9 +59,11 @@
    ]
   },
   "hoc-sinh": {
-   "ten": "Mình là học sinh, sinh viên", "ngan": "Học sinh, sinh viên", "icon": "book-open",
+   "ten": "Mình là học sinh, sinh viên",
+   "ngan": "Học sinh, sinh viên",
+   "icon": "book-open",
    "chao": "Dùng AI để học thật chứ không phải chép bài. Đây là lộ trình cho bạn.",
-   "tu_khoa": ["hoc sinh", "sinh vien", "on thi", "thi dai hoc", "luan van", "tieu luan", "du hoc", "ielts", "toeic"],
+   "tu_khoa": ["học sinh", "sinh viên", "ôn thi", "thi đại học", "luận văn", "tiểu luận", "du học", "ielts", "toeic"],
    "buoc": [
     {"ten": "Nền tảng", "mo_ta": "AI đoán chữ, AI bịa, và prompt 4 mảnh.", "so": [7, 8, 3]},
     {"ten": "Học với AI đúng cách", "mo_ta": "Đọc tài liệu dài, luyện thi vấn đáp, viết tiểu luận không đạo văn, luyện nói ngoại ngữ.", "so": [153, 154, 155, 156]},
@@ -65,9 +73,11 @@
    ]
   },
   "gia-dinh": {
-   "ten": "Mình là cha mẹ, lo cho gia đình", "ngan": "Cha mẹ, gia đình", "icon": "users",
+   "ten": "Mình là cha mẹ, lo cho gia đình",
+   "ngan": "Cha mẹ, gia đình",
+   "icon": "users",
    "chao": "Cả nhà dùng AI vui mà vẫn an toàn: con học bài, ông bà tránh lừa đảo, việc nhà nhẹ hơn.",
-   "tu_khoa": ["cha me", "bo me", "phu huynh", "noi tro", "gia dinh", "con nho", "me bim", "ong ba"],
+   "tu_khoa": ["cha mẹ", "bố mẹ", "phụ huynh", "nội trợ", "gia đình", "con nhỏ", "mẹ bỉm", "bỉm sữa", "ông bà"],
    "buoc": [
     {"ten": "Hiểu đủ để dạy con", "mo_ta": "AI là gì, AI bịa ở đâu và không dán gì vào AI.", "so": [1, 8, 15]},
     {"ten": "Con dùng AI học bài", "mo_ta": "Con làm bài tập với AI, dạy con kiểm tra lại, bốn quy tắc trong nhà.", "so": [140, 141, 143]},
@@ -77,9 +87,11 @@
    ]
   },
   "ban-hang": {
-   "ten": "Mình bán hàng, làm chủ tiệm", "ngan": "Bán hàng, chủ tiệm", "icon": "smartphone",
+   "ten": "Mình bán hàng, làm chủ tiệm",
+   "ngan": "Bán hàng, chủ tiệm",
+   "icon": "smartphone",
    "chao": "Chủ tiệm bận lắm, nên mình chọn những video làm ra tiền hoặc tiết kiệm giờ trước.",
-   "tu_khoa": ["ban hang", "ban online", "shop", "chu tiem", "chu quan", "kinh doanh", "ho kinh doanh", "shopee", "tiktok shop", "livestream", "cua hang", "startup", "khoi nghiep"],
+   "tu_khoa": ["bán hàng", "bán online", "bán hàng online", "shop", "chủ tiệm", "chủ quán", "chủ shop", "hộ kinh doanh", "shopee", "tiktok shop", "livestream", "cửa hàng", "khởi nghiệp", "startup"],
    "buoc": [
     {"ten": "Nền tảng", "mo_ta": "Prompt 4 mảnh và dữ liệu khách nào không được dán vào AI.", "so": [3, 15]},
     {"ten": "Bán hàng online với AI", "mo_ta": "Mô tả sản phẩm, ảnh, kịch bản livestream, trả lời tin nhắn và đọc đánh giá.", "so": [123, 124, 125, 126, 127, 128]},
@@ -89,9 +101,11 @@
    ]
   },
   "tim-viec": {
-   "ten": "Mình đang tìm việc, muốn đổi nghề", "ngan": "Tìm việc, đổi nghề", "icon": "file-text",
+   "ten": "Mình đang tìm việc, muốn đổi nghề",
+   "ngan": "Tìm việc, đổi nghề",
+   "icon": "file-text",
    "chao": "AI đổi cách làm của nhiều nghề. Mình chỉ bạn việc nào AI nhận trước, kỹ năng nào giữ giá và cách xin việc thời AI.",
-   "tu_khoa": ["tim viec", "xin viec", "doi nghe", "chuyen nghe", "that nghiep", "moi ra truong", "phong van", "cv"],
+   "tu_khoa": ["tìm việc", "xin việc", "đổi nghề", "chuyển nghề", "thất nghiệp", "mới ra trường", "phỏng vấn", "cv"],
    "buoc": [
     {"ten": "AI và nghề của bạn", "mo_ta": "AI thay việc chứ không thay nghề, việc nào AI nhận trước, kỹ năng giữ giá.", "so": [33, 34, 35]},
     {"ten": "Kế hoạch bắt kịp", "mo_ta": "Xin việc thời AI và kế hoạch 90 ngày.", "so": [36, 37]},
@@ -101,9 +115,11 @@
    ]
   },
   "noi-dung": {
-   "ten": "Mình làm nội dung, thiết kế", "ngan": "Nội dung, thiết kế", "icon": "clapperboard",
+   "ten": "Mình làm nội dung, thiết kế",
+   "ngan": "Nội dung, thiết kế",
+   "icon": "clapperboard",
    "chao": "Người làm nội dung dùng AI để đi nhanh hơn mà vẫn giữ giọng riêng. Lộ trình của bạn đây.",
-   "tu_khoa": ["noi dung", "content", "creator", "youtuber", "tiktoker", "thiet ke", "designer", "chup anh", "nhiep anh", "video", "dung phim", "copywriter", "viet bai", "blogger", "kol"],
+   "tu_khoa": ["nội dung", "content", "content creator", "creator", "youtuber", "tiktoker", "thiết kế", "designer", "ux designer", "ui designer", "dựng phim", "editor", "copywriter", "viết bài", "blogger", "kol", "nhà văn", "người viết"],
    "buoc": [
     {"ten": "Viết mà vẫn là giọng bạn", "mo_ta": "Dạy AI giọng văn của bạn, viết bài đăng, thư cảm ơn và sửa chính tả.", "so": [193, 194, 195, 196]},
     {"ten": "Video ngắn với AI", "mo_ta": "Ý tưởng, kịch bản 30 giây, tiêu đề, phụ đề, lịch đăng và đọc số liệu kênh.", "so": [260, 261, 262, 263, 264, 265]},
@@ -113,9 +129,11 @@
    ]
   },
   "hieu-sau": {
-   "ten": "Mình muốn hiểu sâu AI chạy thế nào", "ngan": "Hiểu sâu về AI", "icon": "brain",
+   "ten": "Mình muốn hiểu sâu AI chạy thế nào",
+   "ngan": "Hiểu sâu về AI",
+   "icon": "brain",
    "chao": "Bạn tò mò bên trong? Mình mở từng lớp: token, attention, AI học từ lỗi, rồi tới hệ thống phía sau.",
-   "tu_khoa": ["lap trinh", "developer", "ky su", "it", "cong nghe thong tin", "khoa hoc may tinh", "ai engineer", "nghien cuu"],
+   "tu_khoa": ["lập trình", "lập trình viên", "developer", "dev", "kỹ sư phần mềm", "kỹ sư ai", "ai engineer", "it", "công nghệ thông tin", "khoa học máy tính", "nghiên cứu ai"],
    "buoc": [
     {"ten": "Bên trong bộ não AI", "mo_ta": "Token, embedding, attention, pretraining, RLHF, temperature, RAG, reasoning.", "so": [19, 20, 21, 22, 23, 24, 25, 26]},
     {"ten": "AI học như thế nào", "mo_ta": "Núm vặn, loss, gradient descent, backpropagation, overfitting, scaling.", "so": [38, 39, 40, 41, 42, 43, 44]},
@@ -125,9 +143,11 @@
    ]
   },
   "da": {
-   "ten": "Mình muốn làm Data Analyst", "ngan": "Data Analysis", "nhanh": "da",
+   "ten": "Mình muốn làm Data Analyst",
+   "ngan": "Data Analysis",
+   "nhanh": "da",
    "chao": "Data Analysis bắt đầu từ Excel. Cả series dùng chung một file bán trà sữa thật, bạn tải về làm theo từng phần.",
-   "tu_khoa": ["data analyst", "data analysis", "phan tich du lieu", "phan tich", "excel", "power bi", "bao cao so lieu", "bi", "dashboard"],
+   "tu_khoa": ["data analyst", "data analysis", "phân tích dữ liệu", "chuyên viên phân tích", "power bi", "bi", "dashboard"],
    "buoc": [
     {"ten": "Khởi động với AI", "mo_ta": "Prompt 4 mảnh và nhờ AI viết công thức Excel bằng lời.", "so": [3, 170]},
     {"ten": "Làm theo một ca thật", "mo_ta": "Phân tích sổ bán hàng 9 bước, kèm file mẫu.", "so": [301]},
@@ -137,9 +157,11 @@
    ]
   },
   "ds": {
-   "ten": "Mình muốn làm Data Scientist", "ngan": "Data Science", "nhanh": "ds",
+   "ten": "Mình muốn làm Data Scientist",
+   "ngan": "Data Science",
+   "nhanh": "ds",
    "chao": "Data Science là đoán trước bằng dữ liệu, và đo xem mình đoán giỏi tới đâu. Đi từ Python đến dự báo thật nhé.",
-   "tu_khoa": ["data scientist", "data science", "khoa hoc du lieu", "du bao", "thong ke", "python", "pandas", "jupyter"],
+   "tu_khoa": ["data scientist", "data science", "khoa học dữ liệu", "dự báo", "thống kê", "python", "pandas", "jupyter"],
    "buoc": [
     {"ten": "Máy học là gì", "mo_ta": "Máy tự học từ ví dụ, và overfitting là gì.", "so": [10, 241]},
     {"ten": "Model đầu tiên với Python", "mo_ta": "Bài làm theo: dự đoán ngày mai bán bao nhiêu ly.", "so": [302]},
@@ -150,9 +172,11 @@
    ]
   },
   "de": {
-   "ten": "Mình muốn làm Data Engineer", "ngan": "Data Engineering", "nhanh": "de",
+   "ten": "Mình muốn làm Data Engineer",
+   "ngan": "Data Engineering",
+   "nhanh": "de",
    "chao": "Data Engineer làm đường ống cho dữ liệu chảy đều mỗi đêm. Bạn sẽ đi từ 183 file CSV tới một database tự chạy.",
-   "tu_khoa": ["data engineer", "data engineering", "ky su du lieu", "etl", "pipeline", "sql", "database", "co so du lieu", "data warehouse"],
+   "tu_khoa": ["data engineer", "data engineering", "kỹ sư dữ liệu", "etl", "pipeline", "sql", "database", "cơ sở dữ liệu", "data warehouse"],
    "buoc": [
     {"ten": "AI đọc tài liệu của bạn", "mo_ta": "RAG là gì: vì sao AI cần dữ liệu sạch và luôn mới.", "so": [25]},
     {"ten": "Biết dữ liệu nói gì", "mo_ta": "Hai phần đầu series Data Analysis: đọc và làm sạch file.", "so": [303, 304]},
@@ -162,9 +186,11 @@
    ]
   },
   "devops": {
-   "ten": "Mình muốn làm DevOps", "ngan": "DevOps", "nhanh": "devops",
+   "ten": "Mình muốn làm DevOps",
+   "ngan": "DevOps",
+   "nhanh": "devops",
    "chao": "DevOps là làm cho code chạy ổn ngoài chiếc laptop của bạn. Mình đi từ git tới cảnh báo và rollback.",
-   "tu_khoa": ["devops", "sre", "van hanh", "he thong", "sysadmin", "git", "docker", "ci cd", "kubernetes", "linux", "server", "may chu"],
+   "tu_khoa": ["devops", "sre", "vận hành hệ thống", "sysadmin", "quản trị hệ thống", "git", "docker", "ci/cd", "kubernetes", "linux", "server", "máy chủ"],
    "buoc": [
     {"ten": "AI viết code cùng bạn", "mo_ta": "Claude Code cho người không biết code, và cách báo lỗi cho AI.", "so": [70, 138]},
     {"ten": "Biết pipeline mình sẽ chăm", "mo_ta": "Phần đầu series Data Engineering.", "so": [319]},
@@ -174,9 +200,11 @@
    ]
   },
   "cloud": {
-   "ten": "Mình muốn làm Cloud", "ngan": "Cloud", "nhanh": "cloud",
+   "ten": "Mình muốn làm Cloud",
+   "ngan": "Cloud",
+   "nhanh": "cloud",
    "chao": "Cloud là thuê máy và dịch vụ theo giờ. Series dùng AWS, chạy trên bản giả lập nên chưa tốn đồng nào.",
-   "tu_khoa": ["cloud", "dien toan dam may", "aws", "azure", "google cloud", "gcp", "serverless"],
+   "tu_khoa": ["cloud", "điện toán đám mây", "aws", "azure", "google cloud", "gcp", "serverless"],
    "buoc": [
     {"ten": "AI sống ở đâu", "mo_ta": "Cloud trong một hệ thống AI, và mỗi câu hỏi tốn bao nhiêu tiền.", "so": [80, 60]},
     {"ten": "Đóng gói trước khi lên mây", "mo_ta": "Docker và deploy trong series DevOps.", "so": [331, 333]},
@@ -185,9 +213,11 @@
    ]
   },
   "ml": {
-   "ten": "Mình muốn học Machine Learning", "ngan": "Machine Learning", "nhanh": "ml",
+   "ten": "Mình muốn học Machine Learning",
+   "ngan": "Machine Learning",
+   "nhanh": "ml",
    "chao": "Machine Learning là dạy máy học từ ví dụ. Bài toán của series: đoán khách nào sắp bỏ quán, làm bằng scikit-learn.",
-   "tu_khoa": ["machine learning", "may hoc", "hoc may", "scikit", "sklearn", "phan loai", "mo hinh du doan", "ml engineer"],
+   "tu_khoa": ["machine learning", "máy học", "học máy", "scikit-learn", "sklearn", "ml engineer"],
    "buoc": [
     {"ten": "Máy học từ ví dụ", "mo_ta": "Máy học là gì, thuật toán gợi ý, overfitting.", "so": [10, 11, 241]},
     {"ten": "AI học như thế nào", "mo_ta": "Loss, gradient descent và học vẹt với học hiểu.", "so": [39, 40, 42]},
@@ -197,9 +227,11 @@
    ]
   },
   "dl": {
-   "ten": "Mình muốn học Deep Learning", "ngan": "Deep Learning", "nhanh": "dl",
+   "ten": "Mình muốn học Deep Learning",
+   "ngan": "Deep Learning",
+   "nhanh": "dl",
    "chao": "Deep Learning là mạng nơ-ron nhiều lớp, thứ chạy bên dưới các AI bây giờ. Bạn sẽ dạy camera nhận ra 6 loại ly bằng PyTorch.",
-   "tu_khoa": ["deep learning", "hoc sau", "mang no ron", "neural network", "pytorch", "tensorflow", "computer vision", "thi giac may tinh", "nhan dien anh"],
+   "tu_khoa": ["deep learning", "học sâu", "mạng nơ-ron", "neural network", "pytorch", "tensorflow", "computer vision", "thị giác máy tính", "nhận diện ảnh"],
    "buoc": [
     {"ten": "AI nhìn và đọc thế nào", "mo_ta": "AI nhìn ảnh, token và embedding.", "so": [13, 19, 20]},
     {"ten": "AI học như thế nào", "mo_ta": "Cả series 7 phần: từ núm vặn tới nhìn vào hộp đen.", "so": [38, 39, 40, 41, 42, 43, 44]},
@@ -208,9 +240,11 @@
    ]
   },
   "robotics": {
-   "ten": "Mình muốn học Robotics", "ngan": "Robotics", "nhanh": "robotics",
+   "ten": "Mình muốn học Robotics",
+   "ngan": "Robotics",
+   "nhanh": "robotics",
    "chao": "Robotics là AI bước ra đời thật. Bạn sẽ dựng một robot ảo bưng trà sữa bằng Python, từ cảm biến tới tìm đường.",
-   "tu_khoa": ["robot", "robotics", "tu dong hoa", "co dien tu", "ros", "drone", "xe tu lai", "iot", "nhung", "arduino"],
+   "tu_khoa": ["robot", "robotics", "tự động hóa", "cơ điện tử", "ros", "drone", "xe tự lái", "iot", "nhúng", "arduino"],
    "buoc": [
     {"ten": "Robot nhìn thế giới", "mo_ta": "LiDAR hoạt động thế nào, robot hình người và xe tự lái.", "so": [5, 132, 133]},
     {"ten": "Học qua mô phỏng", "mo_ta": "Tập trong thế giới ảo trước khi ra đời thật.", "so": [86, 90]},
@@ -220,36 +254,36 @@
   }
  },
  "ngach": [
-  {"tu_khoa": ["ca phe", "cafe", "nha hang", "quan an", "quan nuoc", "tra sua", "f&b", "dau bep", "bep"], "so": [157, 276, 277], "gan": "ban-hang"},
-  {"tu_khoa": ["tom", "thuy san", "nuoi ca", "ao nuoi"], "so": [158, 135], "gan": "ban-hang"},
-  {"tu_khoa": ["bat dong san", "moi gioi", "nha dat", "sale bds"], "so": [159], "gan": "ban-hang"},
-  {"tu_khoa": ["huong dan vien", "du lich", "tour", "lu hanh"], "so": [160, 179, 180, 181], "gan": "ban-hang"},
-  {"tu_khoa": ["ke toan", "thue", "tai chinh", "kiem toan"], "so": [161, 216, 170], "gan": "van-phong"},
-  {"tu_khoa": ["dien lanh", "may lanh", "tho dien", "sua dien"], "so": [162], "gan": "ban-hang"},
-  {"tu_khoa": ["toc", "nail", "spa", "tham my", "lam dep", "salon"], "so": [187], "gan": "ban-hang"},
-  {"tu_khoa": ["sau rieng", "nha vuon", "nong dan", "nong nghiep", "trong trot", "lam vuon", "cay trong"], "so": [188, 135], "gan": "ban-hang"},
-  {"tu_khoa": ["tai xe", "grab", "be", "giao hang", "shipper", "xe om"], "so": [189], "gan": "ban-hang"},
-  {"tu_khoa": ["tiem may", "tho may", "may mac", "thoi trang"], "so": [190], "gan": "ban-hang"},
-  {"tu_khoa": ["nha thuoc", "duoc si", "duoc"], "so": [191, 177], "gan": "ban-hang"},
-  {"tu_khoa": ["tho xay", "xay dung", "sua nha", "noi that", "kien truc"], "so": [192], "gan": "ban-hang"},
-  {"tu_khoa": ["homestay", "nha nghi", "airbnb", "cho thue phong"], "so": [217], "gan": "ban-hang"},
-  {"tu_khoa": ["tiem banh", "lam banh", "banh ngot"], "so": [218], "gan": "ban-hang"},
-  {"tu_khoa": ["gym", "huan luyen vien", "pt", "the hinh", "yoga", "the thao"], "so": [219, 175], "gan": "ban-hang"},
-  {"tu_khoa": ["sua dien thoai", "dien thoai", "sua laptop", "sua may tinh"], "so": [220], "gan": "ban-hang"},
-  {"tu_khoa": ["studio", "chup anh", "nhiep anh", "anh cuoi"], "so": [221, 183, 186], "gan": "noi-dung"},
-  {"tu_khoa": ["gia su", "day kem", "trung tam"], "so": [222, 151], "gan": "giao-vien"},
-  {"tu_khoa": ["sua xe", "xe may", "o to", "gara", "garage"], "so": [254], "gan": "ban-hang"},
-  {"tu_khoa": ["tiec cuoi", "cuoi", "su kien", "event", "wedding"], "so": [255, 185], "gan": "ban-hang"},
-  {"tu_khoa": ["tap hoa", "bach hoa", "sieu thi mini"], "so": [256], "gan": "ban-hang"},
-  {"tu_khoa": ["khach san", "le tan", "resort"], "so": [257, 217], "gan": "ban-hang"},
-  {"tu_khoa": ["cham soc khach hang", "cskh", "tong dai", "call center", "customer service"], "so": [258, 126], "gan": "van-phong"},
-  {"tu_khoa": ["freelancer", "freelance", "tu do", "thiet ke do hoa"], "so": [259, 184], "gan": "noi-dung"},
-  {"tu_khoa": ["bac si", "y ta", "dieu duong", "benh vien", "y te", "suc khoe"], "so": [134, 177, 223], "gan": "van-phong"},
-  {"tu_khoa": ["luat su", "luat", "phap ly", "cong chung", "hop dong"], "so": [289, 250, 212], "gan": "van-phong"},
-  {"tu_khoa": ["nha may", "san xuat", "cong nhan", "xuong"], "so": [135, 132], "gan": "van-phong"},
-  {"tu_khoa": ["bao chi", "nha bao", "phong vien", "bien tap"], "so": [223, 224, 225, 281], "gan": "noi-dung"},
-  {"tu_khoa": ["dich thuat", "phien dich", "bien dich", "ngon ngu"], "so": [174, 207, 146, 147], "gan": "van-phong"},
-  {"tu_khoa": ["tuyen dung", "nhan su", "hr"], "so": [291, 292, 293], "gan": "van-phong"},
-  {"tu_khoa": ["thu cung", "thu y", "pet"], "so": [253], "gan": "gia-dinh"}
+  {"tu_khoa": ["cà phê", "cafe", "coffee", "nhà hàng", "quán ăn", "quán nước", "trà sữa", "f&b", "đầu bếp", "phụ bếp"], "so": [157, 276, 277], "gan": "ban-hang"},
+  {"tu_khoa": ["nuôi tôm", "tôm", "thủy sản", "nuôi cá", "ao nuôi"], "so": [158, 135], "gan": "ban-hang"},
+  {"tu_khoa": ["bất động sản", "môi giới", "nhà đất", "bđs"], "so": [159], "gan": "ban-hang"},
+  {"tu_khoa": ["hướng dẫn viên", "du lịch", "tour", "lữ hành"], "so": [160, 179, 180, 181], "gan": "ban-hang"},
+  {"tu_khoa": ["kế toán", "kế toán trưởng", "thuế", "kiểm toán", "tài chính", "tư vấn tài chính"], "so": [161, 216, 170], "gan": "van-phong"},
+  {"tu_khoa": ["điện lạnh", "máy lạnh", "thợ điện", "sửa điện", "điện nước"], "so": [162], "gan": "ban-hang"},
+  {"tu_khoa": ["tóc", "tiệm tóc", "nail", "spa", "thẩm mỹ", "làm đẹp", "salon", "barber"], "so": [187], "gan": "ban-hang"},
+  {"tu_khoa": ["sầu riêng", "nhà vườn", "nông dân", "nông nghiệp", "trồng trọt", "làm vườn", "cây trồng"], "so": [188, 135], "gan": "ban-hang"},
+  {"tu_khoa": ["tài xế", "grab", "xe ôm", "giao hàng", "shipper", "xe công nghệ"], "so": [189], "gan": "ban-hang"},
+  {"tu_khoa": ["tiệm may", "thợ may", "may mặc", "thời trang"], "so": [190], "gan": "ban-hang"},
+  {"tu_khoa": ["nhà thuốc", "dược sĩ", "dược"], "so": [191, 177], "gan": "ban-hang"},
+  {"tu_khoa": ["thợ xây", "xây dựng", "sửa nhà", "nội thất", "kiến trúc", "kiến trúc sư"], "so": [192], "gan": "ban-hang"},
+  {"tu_khoa": ["homestay", "nhà nghỉ", "airbnb", "cho thuê phòng"], "so": [217], "gan": "ban-hang"},
+  {"tu_khoa": ["tiệm bánh", "làm bánh", "bánh ngọt"], "so": [218], "gan": "ban-hang"},
+  {"tu_khoa": ["gym", "huấn luyện viên", "pt", "thể hình", "yoga", "thể thao"], "so": [219, 175], "gan": "ban-hang"},
+  {"tu_khoa": ["sửa điện thoại", "điện thoại", "sửa laptop", "sửa máy tính"], "so": [220], "gan": "ban-hang"},
+  {"tu_khoa": ["studio", "chụp ảnh", "nhiếp ảnh", "ảnh cưới", "thợ ảnh", "photographer"], "so": [221, 183, 186], "gan": "noi-dung"},
+  {"tu_khoa": ["gia sư", "dạy kèm", "trung tâm", "trung tâm tiếng anh"], "so": [222, 151], "gan": "giao-vien"},
+  {"tu_khoa": ["sửa xe", "xe máy", "ô tô", "gara", "garage"], "so": [254], "gan": "ban-hang"},
+  {"tu_khoa": ["tiệc cưới", "đám cưới", "wedding", "sự kiện", "event"], "so": [255, 185], "gan": "ban-hang"},
+  {"tu_khoa": ["tạp hóa", "bách hóa", "siêu thị mini"], "so": [256], "gan": "ban-hang"},
+  {"tu_khoa": ["khách sạn", "lễ tân", "resort"], "so": [257, 217], "gan": "ban-hang"},
+  {"tu_khoa": ["chăm sóc khách hàng", "cskh", "tổng đài", "call center", "customer service"], "so": [258, 126], "gan": "van-phong"},
+  {"tu_khoa": ["freelancer", "freelance", "làm tự do", "thiết kế đồ họa", "graphic designer"], "so": [259, 184], "gan": "noi-dung"},
+  {"tu_khoa": ["bác sĩ", "y tá", "điều dưỡng", "bệnh viện", "y tế", "phòng khám"], "so": [134, 177, 223], "gan": ""},
+  {"tu_khoa": ["luật sư", "luật", "pháp lý", "pháp chế", "công chứng"], "so": [289, 250, 212], "gan": ""},
+  {"tu_khoa": ["nhà máy", "sản xuất", "công nhân", "xưởng"], "so": [135, 132], "gan": ""},
+  {"tu_khoa": ["báo chí", "nhà báo", "phóng viên", "biên tập viên"], "so": [223, 224, 225, 281], "gan": "noi-dung"},
+  {"tu_khoa": ["dịch thuật", "phiên dịch", "biên dịch", "thông dịch", "thông dịch viên"], "so": [174, 207, 146, 147], "gan": "van-phong"},
+  {"tu_khoa": ["tuyển dụng", "recruiter"], "so": [291, 292, 293], "gan": "van-phong"},
+  {"tu_khoa": ["thú cưng", "thú y", "pet"], "so": [253], "gan": "gia-dinh"}
  ]
 }
