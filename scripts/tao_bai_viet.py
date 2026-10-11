@@ -311,6 +311,7 @@ def footer(p, q=None):
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
+            f' · <a href="{q}ung-ho.html">{t("Ủng hộ kênh", "Support us")}</a>'
             + (f' · <a href="mailto:{esc(kenh["email"])}">{esc(kenh["email"])}</a>' if kenh.get("email") else "")
             + '</span>\n  </div>\n</footer>')
 
@@ -1011,8 +1012,8 @@ def chay():
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "ung-ho.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "ung-ho.html": "0.4"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
