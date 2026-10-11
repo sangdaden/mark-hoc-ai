@@ -25,3 +25,5 @@ Cập nhật 09/10/2026: thêm video 163–300 (137 video thường và tập đ
 3. Series mới: thêm vào `data/series.json` (id, ten, tu, den, mo_ta, tags) và `data/en/series.json`. Không cần `sap_ra_mat`: chip "Ra mắt dd/mm" và nhãn "Sắp ra mắt" chạy theo ngày ở đây.
 4. Tiêu đề SEO vào `data/bai-viet.json` và `data/en/bai-viet.json`; tên và mô tả tiếng Anh vào `data/en/videos.json`; bài dịch vào `data/en/bai/<số>-<slug>.json` (mỗi cảnh một mục, cảnh THỬ NGAY có `"try": true`, có prompt mẫu thì thêm `"prompt"`).
 5. `python3 scripts/tao_bai_viet.py /mnt/project-files/videos` để tạo lại bài viết hai thứ tiếng và `sitemap.xml`. Không có "CẢNH BÁO" là đủ bản dịch.
+
+Cập nhật 11/10/2026: lịch đăng giảm còn 2 video dọc mỗi ngày (10:00 và 18:00), theo đề xuất Sang duyệt ngày 10/10. Ngày mới lấy từ `/mnt/project-files/videos/lich-dang-moi/ke-hoach-doi-lich.json` (do `lap_lich_moi.py` tạo, ghép số video qua uuid bài Metricool trong `so-cai.json`). Video 300 giờ ra mắt 25/02/2027; các video nhánh 303–334 (chưa có trong file này) kéo tới 21/03/2027.
