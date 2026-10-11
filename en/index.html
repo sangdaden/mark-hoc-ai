@@ -36,7 +36,13 @@
   </a>
   <nav class="top-links" aria-label="Channel">
     <a class="nav-start" href="#bat-dau">Start here</a>
-    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <details class="nav-drop">
+      <summary>Learning paths<svg class="nav-drop-mui" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="nav-drop-ds">
+        <a href="lo-trinh-nganh.html">Path by field</a>
+        <a href="lo-trinh-7-ngay.html">7-day path</a>
+      </div>
+    </details>
     <a href="tu-dien.html">AI glossary</a>
     <a href="kiem-tra.html">Quiz</a>
     <a href="sach.html">Free ebook</a>
@@ -52,6 +58,7 @@
       <div class="cta">
         <a class="btn btn-yt" data-kenh="youtube" href="#">Watch on YouTube</a>
         <a class="btn" href="#bat-dau">Start here</a>
+        <a class="btn" href="lo-trinh-nganh.html" data-mo-chao>Path by field</a>
       </div>
       <p class="socials"><span>Also on</span>
         <a class="nt nt-tiktok" data-kenh="tiktok" href="#" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
@@ -82,6 +89,7 @@
         <p class="start-lead">No need to go in number order. The channel is split into 7 areas: pick the one you need most, watch part 1, then keep going.</p>
       </div>
     </div>
+    <div class="cua-ban" id="cua-ban" hidden></div>
     <ol class="regions" id="vung"></ol>
 
     <div class="path">
@@ -162,5 +170,6 @@
 <script src="../cai-dat.js?v=dev" defer></script>
 <script src="../cuon-hien.js?v=dev" defer></script>
 <script src="../bit-tro-ly.js?v=dev" defer></script>
+<script src="../lo-trinh-nganh.js?v=dev" defer></script>
 </body>
 </html>

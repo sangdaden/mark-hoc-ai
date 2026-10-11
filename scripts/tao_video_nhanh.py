@@ -12,7 +12,7 @@ TU, DEN = 303, 376
 
 def bo_emoji(s):
     s = re.sub(r"\s*#Shorts?\b", "", s)
-    return re.sub(r"[\s\U0001F000-\U0001FAFF☀-➿️]+$", "", s).strip()
+    return re.sub(r"[\s\U0001F000-\U0001FAFF⌀-⏿☀-➿️]+$", "", s).strip()
 
 ten = {}
 for f in sorted((GOC / "nhanh-ngoai-ai").glob("kich-ban-*.md")):
@@ -43,5 +43,10 @@ ra = {str(so): {"ten": ten[so], **({"ngay": ngay[so]} if so in ngay else {})} fo
 RA.write_text("{\n" + ",\n".join(json.dumps(k) + ": " + json.dumps(v, ensure_ascii=False) for k, v in ra.items()) + "\n}\n", encoding="utf-8")
 print(f"Ghi {len(ra)} video vào {RA.name}, {len(ngay)} video có ngày ra mắt")
 thieu = [so for so in range(TU, DEN + 1) if so not in ten]
+# Bản tiếng Anh (en/lo-trinh-nganh.html) dùng data/en/video-nhanh.json, dịch tay; trang nào cũng phải đủ hai thứ tiếng
+EN = RA.parent / "en" / "video-nhanh.json"
+thieu_en = [so for so in ra if so not in (json.loads(EN.read_text(encoding="utf-8")) if EN.exists() else {})]
+if thieu_en:
+    print("CẢNH BÁO: data/en/video-nhanh.json thiếu tên tiếng Anh cho", thieu_en)
 if thieu:
     print("CẢNH BÁO: thiếu tên video", thieu)
