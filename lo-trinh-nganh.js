@@ -20,7 +20,7 @@
     tiep: "Continue ›", doi: "Change my choice", raMat: d => "Out " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) + ", " + d.slice(0, 4),
     lamTheo: "Walkthrough", sapRa: "Coming soon", danhDau: "Mark as watched", daXemSo: so => "Watched video " + so,
     buoc: "Step ", series: (t, n) => " · series " + t + ", " + n + " parts", choBan: "Your path", note: "Tick the box next to each video once you've watched it. Progress is saved in this browser.",
-    chep: "Copy link to this path", khac: "Pick another field ›", daChep: "Link copied. Paste it into a message to share.", chepTay: "Copy this link to share: ",
+    chep: "Copy link to this path", khac: "Pick another field ›", ktNganh: "Take the field quiz", ccNganh: "Field certificate", ghiCc: "Tick off every video and pass the field quiz to get a field certificate with your name.", daChep: "Link copied. Paste it into a message to share.", chepTay: "Copy this link to share: ",
     dem: (a, b) => "Watched " + a + "/" + b + " videos", tieuDe: t => "Path: " + t + " | Mark học AI", tieuDeNghe: t => "Path for " + t + " | Mark học AI",
     mailChuDe: n => "Video idea for " + n, goiY: "Suggest a topic ›",
     nen: ["Basics for every job", "The 4-part prompt, where AI makes things up, and what data you must never paste into AI."],
@@ -42,7 +42,7 @@
     tiep: "Xem tiếp ›", doi: "Đổi lựa chọn", raMat: d => "Ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4),
     lamTheo: "Bài làm theo", sapRa: "Sắp ra mắt", danhDau: "Đánh dấu đã xem", daXemSo: so => "Đã xem video " + so,
     buoc: "Bước ", series: (t, n) => " · series " + t + ", " + n + " phần", choBan: "Lộ trình cho bạn", note: "Bấm ô vuông cạnh mỗi video để đánh dấu đã xem. Tiến độ lưu ngay trên trình duyệt này.",
-    chep: "Chép link lộ trình", khac: "Chọn ngành khác ›", daChep: "Đã chép link. Dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để chia sẻ: ",
+    chep: "Chép link lộ trình", khac: "Chọn ngành khác ›", ktNganh: "Làm bài kiểm tra ngành", ccNganh: "Chứng chỉ chuyên ngành", ghiCc: "Đánh dấu xem hết video và đạt bài kiểm tra ngành là nhận chứng chỉ chuyên ngành có tên bạn.", daChep: "Đã chép link. Dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để chia sẻ: ",
     dem: (a, b) => "Đã xem " + a + "/" + b + " video", tieuDe: t => "Lộ trình " + t + " | Mark học AI", tieuDeNghe: t => "Lộ trình cho nghề " + t + " | Mark học AI",
     mailChuDe: n => "Gợi ý video cho nghề " + n, goiY: "Gợi ý chủ đề cho kênh ›",
     nen: ["Nền tảng cho mọi nghề", "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI."],
@@ -219,11 +219,12 @@
         (nh ? esc(S.series(nh.ten, nh.den - nh.tu + 1)) : "") + '</p><h3>' + tag + esc(b.ten) + '</h3><p class="step-desc">' + esc(b.mo_ta) +
         '</p><ol class="ltn-vs">' + dsSo(b).map(dongVideo).join("") + "</ol></div></li>";
     }
-    function veLoTrinh(tieuDe, chao, ghiChu, buoc) {
+    function veLoTrinh(tieuDe, chao, ghiChu, buoc, nhanhId) {
       const tatCa = [...new Set(buoc.flatMap(dsSo))];
       kq.innerHTML = '<div class="ltn-dau"><img src="' + goc + 'assets/mark-a-ra-the.svg" alt="" width="110" height="104"><div class="ltn-bong"><p class="eyebrow">' + S.choBan + '</p><h2 id="ltn-ten">' + esc(tieuDe) +
         '</h2><p>' + esc(chao) + "</p>" + (ghiChu || "") + '</div></div><div class="ltn-tien"><b id="ltn-dem"></b><div class="bar" aria-hidden="true"><i id="ltn-thanh"></i></div>' +
         '<p class="course-note">' + S.note + '</p></div><ol class="ltn-buocs">' + buoc.map(buocHtml).join("") + "</ol>" +
+        (nhanhId ? '<div class="ltn-cc">' + ic("award") + '<p>' + S.ghiCc + '</p><p class="ltn-cc-nut"><a class="btn btn-yt" href="kiem-tra.html?bo=' + nhanhId + '">' + S.ktNganh + '</a><a class="btn" href="chung-chi.html">' + S.ccNganh + "</a></p></div>" : "") +
         '<div class="ltn-cuoi"><button type="button" class="btn" id="ltn-chia-se">' + ic("copy") + S.chep + '</button><a class="btn" href="#ltn-chon">' + S.khac + '</a></div><p class="ltn-chep" id="ltn-chep" role="status"></p>';
       const dem = () => {
         const n = tatCa.filter(s => daXem.has(s)).length;
@@ -254,7 +255,7 @@
       if (c && c.ai && D.nganh[c.ai]) {
         const n = D.nganh[c.ai];
         document.title = S.tieuDe(n.ngan);
-        veLoTrinh(n.ten, n.chao, "", n.buoc);
+        veLoTrinh(n.ten, n.chao, "", n.buoc, n.nhanh);
       } else if (c && c.nghe) {
         const t = timNghe(D, c.nghe);
         const sat = [...new Set(t.ngach.flatMap(n => n.so))];

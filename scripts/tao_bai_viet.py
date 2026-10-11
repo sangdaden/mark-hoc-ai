@@ -2,7 +2,7 @@
 bài kiểm tra "Bạn hiểu AI tới đâu?" (kiem-tra.html), sách miễn phí (sach.html), Lộ trình 7 ngày (lo-trinh-7-ngay.html),
 trang hợp tác (hop-tac.html), trang làm theo video (lam-theo.html), bản tiếng Anh của tất cả (en/...) và sitemap.xml.
 
-Chạy lại mỗi khi có video mới (sau scripts/gom_video.py) hoặc khi sửa data/bai-viet.json, data/tu-dien.json, data/kiem-tra.json
+Chạy lại mỗi khi có video mới (sau scripts/gom_video.py) hoặc khi sửa data/bai-viet.json, data/tu-dien.json, data/bo-kiem-tra.json
 hay bản dịch trong data/en/:
     python3 scripts/tao_bai_viet.py /mnt/project-files/videos            # cả tiếng Việt lẫn tiếng Anh
     python3 scripts/tao_bai_viet.py --lang en                            # chỉ bản tiếng Anh (không cần thư mục video)
@@ -12,7 +12,7 @@ cảnh THỬ NGAY thành hộp "Thử ngay") và tieu-de-mo-ta.md (mô tả cho 
 
 Bản tiếng Anh (en/): bài dịch nằm ở data/en/bai/<số>-<slug>.json (meta, prompt, thu, muc: chip/title/text/try),
 tên series ở data/en/series.json, tên và mô tả video ở data/en/videos.json, tiêu đề SEO ở data/en/bai-viet.json,
-từ điển ở data/en/tu-dien.json, câu hỏi kiểm tra ở data/en/kiem-tra.json. Bài nào chưa dịch thì tạm dùng bản tiếng Việt (có cảnh báo).
+từ điển ở data/en/tu-dien.json, câu hỏi kiểm tra ở data/en/bo-kiem-tra.json. Bài nào chưa dịch thì tạm dùng bản tiếng Việt (có cảnh báo).
 """
 import ast, html, json, pathlib, re, sys, unicodedata
 from urllib.parse import quote
@@ -37,7 +37,7 @@ kenh, series, videos = load("kenh"), load("series"), load("videos")
 seo = load("bai-viet")["tieu_de_seo"]
 seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
-kiem_tra = load("kiem-tra")["cau_hoi"]
+kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
@@ -168,12 +168,26 @@ def doc_prompt(thu_muc, so):
 VI = {"series": series, "videos": videos, "seo": seo, "tu_dien": tu_dien, "kiem_tra": kiem_tra}
 VIDEO_VI = {v["so"]: v for v in videos}  # tìm video trên YouTube luôn bằng tiêu đề tiếng Việt
 
+def ghep_kiem_tra_en(kt_en):
+    """Bản dịch bộ câu hỏi: cùng id, cùng thứ tự câu và lựa chọn; đáp án, video lấy từ bản Việt. Thiếu hay lệch là dừng (web luôn đủ hai thứ tiếng)."""
+    en = {b["id"]: b for b in kt_en["bo"]}
+    bo = []
+    for b in kiem_tra["bo"]:
+        e = en.get(b["id"])
+        assert e and len(e["cau_hoi"]) == len(b["cau_hoi"]), f"data/en/bo-kiem-tra.json thiếu hoặc lệch số câu của bộ {b['id']}"
+        cau = []
+        for c, x in zip(b["cau_hoi"], e["cau_hoi"]):
+            assert len(x.get("lua_chon", [])) == len(c.get("lua_chon", [])), f"bộ {b['id']}: lựa chọn tiếng Anh lệch với câu: {c['cau']}"
+            cau.append({**c, **{k: x[k] for k in ("cau", "lua_chon", "giai_thich") if k in x}})
+        bo.append({**b, "ten": e["ten"], "mo_ta": e["mo_ta"], "cau_hoi": cau})
+    return {**kiem_tra, "nhom": kt_en["nhom"], "bo": bo}
+
 def du_lieu_en():
     """Ghép bản dịch trong data/en/ vào cấu trúc gốc (số, slug, khoảng series, số video của thuật ngữ lấy từ bản tiếng Việt)."""
     d = R / "data" / "en"
     ld_en = lambda n: json.loads((d / f"{n}.json").read_text(encoding="utf-8"))
     s_en, v_en, seo_en = ld_en("series"), ld_en("videos"), ld_en("bai-viet")["tieu_de_seo"]
-    td_en, kt_en = ld_en("tu-dien")["thuat_ngu"], ld_en("kiem-tra")["cau_hoi"]
+    td_en, kt_en = ld_en("tu-dien")["thuat_ngu"], ld_en("bo-kiem-tra")
     thieu = [str(v["so"]) for v in videos if str(v["so"]) not in v_en or str(v["so"]) not in seo_en]
     if thieu:
         print("CẢNH BÁO: chưa dịch tiêu đề/mô tả video:", ", ".join(thieu))
@@ -184,7 +198,7 @@ def du_lieu_en():
         "tu_dien": [{**x, "thuat_ngu": td_en.get(x["id"], {}).get("thuat_ngu", x["thuat_ngu"]),
                      "tieng_viet": td_en.get(x["id"], {}).get("ten_khac", ""),
                      "giai_thich": td_en.get(x["id"], {}).get("giai_thich", x["giai_thich"])} for x in tu_dien],
-        "kiem_tra": [{**c, **(kt_en[i] if i < len(kt_en) else {})} for i, c in enumerate(kiem_tra)],
+        "kiem_tra": ghep_kiem_tra_en(kt_en),
     }
 
 def dat_ngon_ngu(lg):
@@ -544,7 +558,7 @@ def tao_bai(v):
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
-            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("10 câu đúng hay sai, có giải thích ngay.", "10 true-or-false questions, explained right away.")}</span></a>\n'
+            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận chứng chỉ.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
     jsonld = [
@@ -625,165 +639,67 @@ def tao_tu_dien():
                                        desc, band, main, p, hien_tai="tu-dien", og_type="website", jsonld=jsonld, cuoi=js, q="")
 
 # ---------- bài kiểm tra ----------
-# Chữ trong phần JS của bài kiểm tra, bản tiếng Anh (thay đúng từng chuỗi của bản tiếng Việt)
-KIEM_TRA_JS_EN = [
-    ('"Câu " + soHien + "/" + Q.length : "Kết quả"', '"Question " + soHien + "/" + Q.length : "Results"'),
-    ('"Đúng " + dung', '"Correct " + dung'),
-    ('src="assets/', 'src="../assets/'),
-    ('srcset="assets/', 'srcset="../assets/'),
-    ('<p class="q-num">Câu \' + (i + 1)', '<p class="q-num">Question \' + (i + 1)'),
-    ('data-v="1">Đúng</button>', 'data-v="1">True</button>'),
-    ('data-v="0">Sai</button>', 'data-v="0">False</button>'),
-    ('(ok ? "Chính xác!" : "Chưa đúng.")', '(ok ? "Correct!" : "Not quite.")'),
-    ('" Câu này " + (q.dung ? "đúng" : "là hiểu lầm")', '" This statement is " + (q.dung ? "true" : "a misconception")'),
-    ('<p class="q-more">Xem thêm: ', '<p class="q-more">Read more: '),
-    ('"Xem kết quả" : "Câu tiếp theo ›"', '"See results" : "Next question ›"'),
-    ('"Xuất sắc! Bạn không dính hiểu lầm nào. Rủ bạn bè làm thử xem họ được mấy điểm."',
-     '"Excellent! You didn\'t fall for a single misconception. Invite your friends and see how they do."'),
-    ('"Rất tốt! Bạn hiểu AI hơn phần lớn mọi người. Xem lại vài video bên dưới là đủ 10/10."',
-     '"Great job! You understand AI better than most people. Read a few of the articles below to reach 10/10."'),
-    ('"Khá ổn. Vài hiểu lầm vẫn còn, mấy video bên dưới sẽ gỡ giúp bạn."',
-     '"Not bad. A few misconceptions are still there, and the articles below will clear them up."'),
-    ('"Không sao, ai cũng từng nghĩ vậy. Bắt đầu với các video bên dưới, mỗi video chỉ khoảng một phút."',
-     '"No worries, everyone has thought this at some point. Start with the articles below. Each one takes about a minute."'),
-    ('"Nên xem tiếp" : "Đi tiếp cùng kênh"', '"Read next" : "Keep going with the channel"'),
-    ('<p class="q-num">Kết quả</p>', '<p class="q-num">Results</p>'),
-    ("' câu đúng</h2>", "' correct</h2>"),
-    ('id="chia-se">Chia sẻ kết quả</button>', 'id="chia-se">Share your score</button>'),
-    ('id="lam-lai">Làm lại</button>', 'id="lam-lai">Try again</button>'),
-    ('href="tu-dien.html">Từ điển AI</a>', 'href="tu-dien.html">AI glossary</a>'),
-    ('"Mình được " + d + "/" + Q.length + " câu trong bài kiểm tra \\"Bạn hiểu AI tới đâu?\\" của Mark học AI. Bạn được mấy câu?"',
-     '"I got " + d + "/" + Q.length + " on the \\"How well do you know AI?\\" quiz from Mark học AI. How many can you get?"'),
-    ('"Đã chép link, dán vào tin nhắn để gửi bạn bè."', '"Link copied. Paste it into a message to send to your friends."'),
-    ('title: "Bạn hiểu AI tới đâu?"', 'title: "How well do you know AI?"'),
-    ('"Chép link này để gửi bạn bè: "', '"Copy this link to send to your friends: "'),
-]
+# Nhiều bộ câu hỏi (data/bo-kiem-tra.json, bản dịch data/en/bo-kiem-tra.json): bộ cơ bản theo chủ đề và một bộ cho mỗi ngành.
+# Câu "dung-sai" (đúng hay sai) hoặc "chon" (4 lựa chọn, dap_an là vị trí đáp án). Chấm, xáo câu, lưu điểm cao nhất và mở khóa chứng chỉ: kiem-tra.js, chung-chi.js.
+NHANH_KT = json.loads((R / "data" / "lo-trinh-nganh.json").read_text(encoding="utf-8"))["nhanh"]
+
+def video_kt(n):
+    """Link cho một video trong câu hỏi: bài viết nếu có, video nhánh (303 trở đi) thì trỏ về lộ trình ngành."""
+    if n in co_bai:
+        return {"so": n, "url": f"bai/{ten_file(co_bai[n])}.html", "ten": seo[str(n)]}
+    vn = json.loads((R / "data" / "video-nhanh.json").read_text(encoding="utf-8"))
+    vn_en = json.loads((R / "data" / "en" / "video-nhanh.json").read_text(encoding="utf-8")) if LG == "en" else {}
+    nh = next(k for k, x in NHANH_KT.items() if x["tu"] <= n <= x["den"])
+    ten = re.sub(r"^.*?· (?:Phần|Part) \d+/\d+:\s*", "", vn_en.get(str(n)) or vn[str(n)]["ten"])
+    return {"so": n, "url": f"lo-trinh-nganh.html?ai={nh}", "ten": ten}
+
+def dap_an_kt(c):
+    return c["lua_chon"][c["dap_an"]] if c["loai"] == "chon" else (t("Đúng", "True") if c["dung"] else t("Sai", "False"))
 
 def tao_kiem_tra():
     p = t("", "../")
-    cau = []
-    for c in kiem_tra:
-        cau.append({"cau": c["cau"], "dung": c["dung"], "giai_thich": c["giai_thich"],
-                    "video": [{"so": n, "url": f"bai/{ten_file(co_bai[n])}.html", "ten": seo[str(n)]} for n in c["video"]]})
-    du_lieu = json.dumps({"cau_hoi": cau, "url": BASE + GOC + "kiem-tra.html",
-                          "goi_y_gioi": [{"so": n, "url": f"bai/{ten_file(co_bai[n])}.html", "ten": seo[str(n)]} for n in (97, 99)]},
-                         ensure_ascii=False).replace("</", "<\\/")
-    desc = t("Bài kiểm tra 10 câu đúng hay sai về AI: AI có hiểu như người, có tự tra mạng, có nhớ hết lời bạn nói? Trả lời từng câu, xem giải thích ngay, biết nên xem video nào.",
-             "A 10-question true-or-false quiz about AI: does AI understand like a person, search the web every time, remember everything you say? Answer each one, see the explanation right away, and find out what to read next.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("10 câu · khoảng 2 phút", "10 questions · about 2 minutes")}</p>\n<h1>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</h1>\n'
-            f'<p class="lead">{t("Mười câu nói về AI mà ai cũng từng nghe. Câu nào đúng, câu nào là hiểu lầm? Chọn từng câu, xem giải thích ngay, cuối bài biết nên xem video nào tiếp.", "Ten things about AI that everyone has heard. Which are true, and which are misconceptions? Answer each one, see the explanation right away, and at the end find out what to read next.")}</p>\n'
+    bo = kiem_tra["bo"]
+    so_cau = sum(len(b["cau_hoi"]) for b in bo)
+    du_lieu = json.dumps({"url": BASE + GOC + "kiem-tra.html", "dat": kiem_tra["dat"],
+                          "bo": [{**{k: b[k] for k in ("id", "ten", "mo_ta", "nhom") if k in b},
+                                  **({"nhanh": b["nhanh"], "nhan": NHANH_KT[b["nhanh"]]["nhan"], "mau": NHANH_KT[b["nhanh"]]["mau"]} if b.get("nhanh") else {}),
+                                  "cau_hoi": [{**c, "video": [video_kt(n) for n in c["video"]]} for c in b["cau_hoi"]]} for b in bo],
+                          "goi_y_gioi": [video_kt(n) for n in (97, 99)]},
+                         ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    desc = t(f"{len(bo)} bộ câu hỏi kiểm tra kiến thức AI ({so_cau} câu): hiểu lầm về AI, viết prompt, dùng AI an toàn, AI trong công việc và 8 ngành dữ liệu, công nghệ. Có giải thích ngay, đạt 80% nhận chứng chỉ có tên bạn.",
+             f"{len(bo)} AI quizzes ({so_cau} questions): AI misconceptions, prompting, staying safe, AI at work and 8 data and tech fields. Explanations right away, and score 80% to get a certificate with your name.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"{len(bo)} bộ câu hỏi · đạt 80% nhận chứng chỉ", f"{len(bo)} quizzes · score 80% for a certificate")}</p>\n<h1>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</h1>\n'
+            f'<p class="lead">{t("Chọn một bộ câu hỏi, trả lời từng câu và xem giải thích ngay. Câu hỏi đổi thứ tự mỗi lần làm. Đạt từ 80% là mở khóa chứng chỉ có tên bạn.", "Pick a quiz, answer each question and see the explanation right away. The order changes every time. Score 80% or more to unlock a certificate with your name.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="{t("Mark đang thắc mắc", "Mark wondering")}" width="180" height="170"></div>')
-    static = "\n".join(f'<li><p><b>{esc(c["cau"])}</b></p><p>{t("Đúng", "True") if c["dung"] else t("Sai", "False")}. {esc(c["giai_thich"])}</p></li>' for c in kiem_tra)
-    nguon = t(f'Câu hỏi lấy từ video <a href="{link_bai(98, "")}">#98 · 10 hiểu lầm phổ biến về AI</a>.',
-              f'These questions come from <a href="{link_bai(98, "")}">#98 · 10 common misconceptions about AI</a>.')
+
+    def the(b):
+        nh = NHANH_KT.get(b.get("nhanh", ""))
+        tag = (f'<span class="ltn-tag" style="--a:{nh["mau"][0]};--b:{nh["mau"][1]}' + (f';--c:{nh["chu"]}' if nh.get("chu") else "") + f'">{esc(nh["nhan"])}</span>') if nh else ""
+        return (f'<li><a class="kt-the" href="?bo={b["id"]}" data-bo="{b["id"]}"><b>{tag}{esc(b["ten"])}</b><span>{esc(b["mo_ta"])}</span>'
+                f'<small class="kt-the-chan"><span>{t(f"{len(b["cau_hoi"])} câu", f"{len(b["cau_hoi"])} questions")}</span><span class="kt-diem" data-diem="{b["id"]}"></span></small></a></li>')
+    nhom = "".join(f'<h3 class="kt-nhom">{esc(n["ten"])}</h3><ul class="kt-ds">' + "".join(the(b) for b in bo if b["nhom"] == n["id"]) + "</ul>" for n in kiem_tra["nhom"])
+    dau = bo[0]
+    static = "\n".join(f'<li><p><b>{esc(c["cau"])}</b></p><p>{esc(dap_an_kt(c))}. {esc(c["giai_thich"])}</p></li>' for c in dau["cau_hoi"])
     main = f"""<main class="quiz-wrap">
-<section class="quiz" id="quiz" aria-live="polite">
-  <div class="quiz-top"><span id="tien-do">{t("Câu 1/10", "Question 1/10")}</span><span class="quiz-score" id="diem-tam">{t("Đúng 0", "Correct 0")}</span></div>
-  <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
-  <div id="khung">
-    <noscript><p>{t("Trang này cần JavaScript để chấm điểm. Đáp án cả 10 câu:", "This page needs JavaScript to score your answers. Answers to all 10 questions:")}</p><ol class="quiz-static">{static}</ol></noscript>
-  </div>
+<section class="kt-bo" id="kt-bo" aria-labelledby="kt-bo-h">
+  <div class="kt-bo-dau"><h2 id="kt-bo-h">{t("Chọn bộ câu hỏi", "Pick a quiz")}</h2><a class="btn" href="chung-chi.html">{ic(p, "award")}{t("Chứng chỉ của bạn", "Your certificates")}</a></div>
+  {nhom}
+  <noscript><p>{t(f"Trang này cần JavaScript để chấm điểm. Đáp án bộ “{esc(dau['ten'])}”:", f"This page needs JavaScript to score your answers. Answers to “{esc(dau['ten'])}”:")}</p><ol class="quiz-static">{static}</ol></noscript>
 </section>
-<p class="quiz-src">{nguon}</p>
+<section class="quiz" id="quiz" aria-live="polite" hidden>
+  <p class="kt-ten-bo"><b id="kt-ten-bo"></b><button type="button" class="kt-doi" id="kt-doi">{t("Đổi bộ khác", "Pick another quiz")}</button></p>
+  <div class="quiz-top"><span id="tien-do"></span><span class="quiz-score" id="diem-tam"></span></div>
+  <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
+  <div id="khung"></div>
+</section>
 </main>"""
-    js = """<script type="application/json" id="du-lieu">""" + du_lieu + """</script>
-<script>
-(function () {
-  var D = JSON.parse(document.getElementById("du-lieu").textContent);
-  var Q = D.cau_hoi, i = 0, dung = 0, sai = [];
-  var khung = document.getElementById("khung"), tienDo = document.getElementById("tien-do"), diemTam = document.getElementById("diem-tam"), thanh = document.getElementById("thanh");
-  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
-  var link = function (v) { return '<a href="' + v.url + '">#' + String(v.so).padStart(2, "0") + " · " + esc(v.ten) + "</a>"; };
-  function capNhat(soHien) {
-    tienDo.textContent = soHien ? "Câu " + soHien + "/" + Q.length : "Kết quả";
-    diemTam.textContent = "Đúng " + dung;
-    thanh.style.width = (Math.min(i, Q.length) / Q.length * 100) + "%";
-  }
-  function cauHoi() {
-    var q = Q[i];
-    capNhat(i + 1);
-    khung.innerHTML = '<div class="q-head"><img class="q-bit" src="assets/bit-y-tuong.svg" alt="" width="64" height="77"><div><p class="q-num">Câu ' + (i + 1) + '</p><h2 class="q-text" tabindex="-1">' + esc(q.cau) + '</h2></div></div>' +
-      '<div class="q-btns"><button class="q-btn" data-v="1">Đúng</button><button class="q-btn" data-v="0">Sai</button></div><div id="giai"></div>';
-    khung.querySelector(".q-text").focus({ preventScroll: true });
-  }
-  function tra(v) {
-    var q = Q[i], ok = (v === "1") === q.dung;
-    if (ok) dung++; else sai.push(q);
-    khung.querySelectorAll(".q-btn").forEach(function (b) {
-      b.disabled = true;
-      if ((b.getAttribute("data-v") === "1") === q.dung) b.classList.add("is-right");
-      else if (b.getAttribute("data-v") === v) b.classList.add("is-wrong");
-    });
-    var cuoi = i === Q.length - 1;
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '-tinh.webp"><img src="assets/mascot/' + (ok ? "mark-chien-thang" : "mark-dau-dau") + '.webp" alt="" width="' + (ok ? 114 : 94) + '" height="150"></picture><div><p class="q-verdict">' + (ok ? "Chính xác!" : "Chưa đúng.") +
-      " Câu này " + (q.dung ? "đúng" : "là hiểu lầm") + '.</p><p>' + esc(q.giai_thich) + '</p><p class="q-more">Xem thêm: ' + q.video.map(link).join(", ") + '</p></div></div>' +
-      '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? "Xem kết quả" : "Câu tiếp theo ›") + "</button>";
-    i++;
-    capNhat(i);
-    var tiep = document.getElementById("tiep");
-    tiep.addEventListener("click", function () { if (i < Q.length) cauHoi(); else ketQua(); });
-    tiep.focus({ preventScroll: true });
-    tiep.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  }
-  function ketQua() {
-    capNhat();
-    var loi = dung === Q.length ? "Xuất sắc! Bạn không dính hiểu lầm nào. Rủ bạn bè làm thử xem họ được mấy điểm."
-      : dung >= 8 ? "Rất tốt! Bạn hiểu AI hơn phần lớn mọi người. Xem lại vài video bên dưới là đủ 10/10."
-      : dung >= 5 ? "Khá ổn. Vài hiểu lầm vẫn còn, mấy video bên dưới sẽ gỡ giúp bạn."
-      : "Không sao, ai cũng từng nghĩ vậy. Bắt đầu với các video bên dưới, mỗi video chỉ khoảng một phút.";
-    var goiY = [], daCo = {};
-    (sai.length ? sai : []).forEach(function (q) { q.video.forEach(function (v) { if (!daCo[v.so]) { daCo[v.so] = 1; goiY.push(v); } }); });
-    if (!goiY.length) goiY = D.goi_y_gioi;
-    var tieuDe = sai.length ? "Nên xem tiếp" : "Đi tiếp cùng kênh";
-    khung.innerHTML = '<div class="result"><img src="assets/mark-a-ra-the.svg" alt="" width="140" height="132"><div>' +
-      '<p class="q-num">Kết quả</p><h2 class="score" tabindex="-1">' + dung + "/" + Q.length + ' câu đúng</h2><p>' + loi + "</p></div></div>" +
-      '<h3 class="rec-h">' + tieuDe + '</h3><ul class="rec">' + goiY.map(function (v) { return "<li>" + link(v) + "</li>"; }).join("") + "</ul>" +
-      '<div class="q-actions"><button class="btn btn-yt" id="chia-se">Chia sẻ kết quả</button><button class="btn" id="lam-lai">Làm lại</button>' +
-      '<a class="btn" href="tu-dien.html">Từ điển AI</a></div><p class="share-msg" id="bao" role="status"></p>';
-    khung.querySelector(".score").focus({ preventScroll: true });
-    document.getElementById("lam-lai").addEventListener("click", function () { i = 0; dung = 0; sai = []; cauHoi(); });
-    document.getElementById("chia-se").addEventListener("click", function () { chiaSe(dung); });
-  }
-  function chiaSe(d) {
-    var text = "Mình được " + d + "/" + Q.length + " câu trong bài kiểm tra \\"Bạn hiểu AI tới đâu?\\" của Mark học AI. Bạn được mấy câu?";
-    var bao = document.getElementById("bao");
-    var chep = function () {
-      var all = text + " " + D.url;
-      var xong = function () { bao.textContent = "Đã chép link, dán vào tin nhắn để gửi bạn bè."; };
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(all).then(xong, function () { thuCu(all, xong); });
-      } else thuCu(all, xong);
-    };
-    if (navigator.share) {
-      navigator.share({ title: "Bạn hiểu AI tới đâu?", text: text, url: D.url }).catch(function (e) { if (!e || e.name !== "AbortError") chep(); });
-    } else chep();
-  }
-  function thuCu(all, xong) {
-    var t = document.createElement("textarea");
-    t.value = all; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
-    document.body.appendChild(t); t.select();
-    var ok = false;
-    try { ok = document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(t);
-    if (ok) xong(); else document.getElementById("bao").textContent = "Chép link này để gửi bạn bè: " + all;
-  }
-  khung.addEventListener("click", function (e) {
-    var b = e.target.closest(".q-btn");
-    if (b && !b.disabled) tra(b.getAttribute("data-v"));
-  });
-  cauHoi();
-})();
-</script>
-"""
-    if LG == "en":
-        for a, b in KIEM_TRA_JS_EN:
-            assert a in js, "Không thấy chuỗi cần dịch trong JS kiểm tra: " + a
-            js = js.replace(a, b)
-    jsonld = [{"@context": "https://schema.org", "@type": "Quiz", "name": t("Bạn hiểu AI tới đâu?", "How well do you know AI?"), "url": BASE + GOC + "kiem-tra.html", "inLanguage": LG,
-               "description": desc, "publisher": TO_CHUC, "educationalLevel": "beginner",
-               "hasPart": [{"@type": "Question", "eduQuestionType": "True/False", "text": c["cau"],
-                            "acceptedAnswer": {"@type": "Answer", "text": (t("Đúng. ", "True. ") if c["dung"] else t("Sai. ", "False. ")) + c["giai_thich"]}} for c in kiem_tra]}]
-    return GOC + "kiem-tra.html", trang("kiem-tra.html", t(f"Bạn hiểu AI tới đâu? Kiểm tra 10 câu đúng sai về AI | {SITE}", f"How well do you know AI? A 10-question true-or-false quiz | {SITE}"),
+    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}chung-chi.js?v=dev" defer></script>\n<script src="{p}kiem-tra.js?v=dev" defer></script>\n'
+    jsonld = [{"@context": "https://schema.org", "@type": "Quiz", "name": b["ten"], "url": BASE + GOC + "kiem-tra.html?bo=" + b["id"], "inLanguage": LG,
+               "description": b["mo_ta"], "publisher": TO_CHUC, "educationalLevel": "beginner",
+               "hasPart": [{"@type": "Question", "eduQuestionType": "True/False" if c["loai"] == "dung-sai" else "Multiple choice", "text": c["cau"],
+                            **({"suggestedAnswer": [{"@type": "Answer", "text": x} for i, x in enumerate(c["lua_chon"]) if i != c["dap_an"]]} if c["loai"] == "chon" else {}),
+                            "acceptedAnswer": {"@type": "Answer", "text": dap_an_kt(c) + ". " + c["giai_thich"]}} for c in b["cau_hoi"]]} for b in bo]
+    return GOC + "kiem-tra.html", trang("kiem-tra.html", t(f"Bạn hiểu AI tới đâu? {len(bo)} bộ câu hỏi kiểm tra AI, có chứng chỉ | {SITE}", f"How well do you know AI? {len(bo)} AI quizzes with certificates | {SITE}"),
                                         desc, band, main, p, hien_tai="kiem-tra", og_type="website", jsonld=jsonld, cuoi=js, q="")
 
 # ---------- ebook (sach.html) ----------
@@ -1103,6 +1019,8 @@ def chay():
             sitemap.append(f"  <url><loc>{BASE}{tien_to}{d}</loc><priority>{uu_tien.get(d, '0.6')}</priority></url>")
         # Lộ trình theo ngành viết tay (lo-trinh-nganh.html và en/lo-trinh-nganh.html), không do script này tạo
         sitemap.append(f"  <url><loc>{BASE}{tien_to}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
+        # Trang Chứng chỉ (chung-chi.html, en/chung-chi.html) cũng viết tay
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-chi.html</loc><priority>0.6</priority></url>")
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
     print("sitemap.xml:", len(sitemap) - 3, "trang")

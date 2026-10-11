@@ -19,7 +19,7 @@
     chu: ["Hi, I'm Bit 👋 New to AI? Click me!", "There are 50 free sample prompts. Click me to download them."],
     bai: ["There's a \"Try it now\" tip at the end. Try it right away so it sticks!", "Found a strange word? I can look it up in the AI glossary."],
     "tu-dien": ["Type the word you want into the search box, like \"token\".", "Got the words? Now try the 10-question quiz!"],
-    "kiem-tra": ["True or false? Go with your gut, I'll explain right away.", "When you finish, I'll suggest which videos to watch next."],
+    "kiem-tra": ["Pick a quiz and go with your gut. I'll explain each answer right away.", "Score 80% and you unlock a certificate with your name."],
     "lo-trinh": ["One day at a time: 3 videos, 1 task, 1 question. You've got this!", "Finish all 7 days and I'll help you make a certificate."],
     sach: ["The book is free, no email needed. Just click download!", "Tap a chapter to see what's inside."],
     "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."]
@@ -27,7 +27,7 @@
     chu: ["Chào bạn, mình là Bit 👋 Mới học AI? Bấm vào mình nhé!", "Có 50 prompt mẫu miễn phí đó, bấm mình để tải."],
     bai: ["Cuối bài có mẹo \"Thử ngay\", thử luôn cho nhớ nhé!", "Gặp chữ lạ? Mình tra Từ điển AI giúp bạn."],
     "tu-dien": ["Gõ chữ cần tra vào ô tìm kiếm, ví dụ \"token\".", "Hiểu chữ rồi thì thử bài kiểm tra 10 câu nhé!"],
-    "kiem-tra": ["Đúng hay sai? Cứ chọn theo cảm giác, mình giải thích ngay.", "Làm xong, mình gợi ý video nên xem tiếp."],
+    "kiem-tra": ["Chọn một bộ câu hỏi, cứ trả lời theo cảm giác, mình giải thích ngay.", "Đạt 80% là mở khóa chứng chỉ có tên bạn."],
     "lo-trinh": ["Mỗi ngày một chút: 3 video, 1 việc, 1 câu hỏi. Bạn làm được mà!", "Xong đủ 7 ngày, mình giúp bạn tạo giấy chứng nhận."],
     sach: ["Sách miễn phí, không cần email. Bấm tải là xong!", "Bấm vào từng chương để xem bên trong có gì."],
     "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."]
