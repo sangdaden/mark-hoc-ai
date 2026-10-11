@@ -1101,8 +1101,8 @@ def chay():
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
             sitemap.append(f"  <url><loc>{BASE}{tien_to}{d}</loc><priority>{uu_tien.get(d, '0.6')}</priority></url>")
-        if not tien_to:  # Lộ trình theo ngành (lo-trinh-nganh.html, viết tay) mới có bản tiếng Việt
-            sitemap.append(f"  <url><loc>{BASE}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
+        # Lộ trình theo ngành viết tay (lo-trinh-nganh.html và en/lo-trinh-nganh.html), không do script này tạo
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
     print("sitemap.xml:", len(sitemap) - 3, "trang")

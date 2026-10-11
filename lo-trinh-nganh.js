@@ -10,13 +10,78 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
     del(k) { try { localStorage.removeItem(k); } catch (e) {} }
   };
-  const ic = n => '<svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-' + n + '"/></svg>';
+  // Bản tiếng Anh (en/index.html, en/lo-trinh-nganh.html) dùng chung file này: chữ trong S, nội dung dịch ở data/en/lo-trinh-nganh.json và data/en/video-nhanh.json
+  const EN = document.documentElement.lang === "en";
+  const goc = EN ? "../" : "";
+  const S = EN ? {
+    nghePH: "Your job or field", ngheNhan: "Not listed? Type your job, for example “hairdresser”, “accountant”, “shrimp farmer”.", xem: "See my path ›",
+    dong: "Close", chao1: "Hi, I'm Mark!", chao2: "Who are you?", chao3: "Pick one and I'll line up a learning path and videos that fit you. No sign-up needed. Videos are in Vietnamese; every article is in English.",
+    khamPha: "I just want to explore the channel ›", nghe: n => "Job “" + n + "”", cuaBan: t => "Your path: " + t, cuaBan2: "Pick up the steps and the videos you've ticked.",
+    tiep: "Continue ›", doi: "Change my choice", raMat: d => "Out " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) + ", " + d.slice(0, 4),
+    lamTheo: "Walkthrough", sapRa: "Coming soon", danhDau: "Mark as watched", daXemSo: so => "Watched video " + so,
+    buoc: "Step ", series: (t, n) => " · series " + t + ", " + n + " parts", choBan: "Your path", note: "Tick the box next to each video once you've watched it. Progress is saved in this browser.",
+    chep: "Copy link to this path", khac: "Pick another field ›", daChep: "Link copied. Paste it into a message to share.", chepTay: "Copy this link to share: ",
+    dem: (a, b) => "Watched " + a + "/" + b + " videos", tieuDe: t => "Path: " + t + " | Mark học AI", tieuDeNghe: t => "Path for " + t + " | Mark học AI",
+    mailChuDe: n => "Video idea for " + n, goiY: "Suggest a topic ›",
+    nen: ["Basics for every job", "The 4-part prompt, where AI makes things up, and what data you must never paste into AI."],
+    sat: ["Videos close to your job", n => "Videos the channel made for jobs close to “" + n + "”."],
+    nhac: [n => "Videos that mention “" + n + "”", "The channel has no video just for this job yet, but these videos talk about it."],
+    chaoSat: (k, g) => "I found " + k + (k === 1 ? " video" : " videos") + " close to your job, then the path for " + g + " continues from there.",
+    chaoGan: g => "The channel has no video just for this job yet, but it's close to " + g + ", so I'm using that path.",
+    ghiGan: g => "The steps after the job videos come from the path for <b>" + g + "</b>.", muon: n => " Want the channel to make videos for “" + n + "”?",
+    chung: [["Paperwork, email and planning", "What every job has: long emails, letters and forms, weekly plans, hard-to-read papers."],
+      ["Build an assistant for your job", "Teach AI what you do, save the prompts you reuse and let AI handle repeat work."],
+      ["AI and your job", "Which tasks AI takes first, which skills keep their value, and a 90-day plan."]],
+    chaoChungSat: k => "I found " + k + (k === 1 ? " video" : " videos") + " close to your job, followed by a general path that works for any job.",
+    chaoChung: n => "The channel has no video just for “" + n + "” yet. Here's a general path that works for any job.",
+    muon2: "Want the channel to make videos for this job?", ngheCuaBan: n => "Your job: " + n
+  } : {
+    nghePH: "Nghề hoặc ngành của bạn", ngheNhan: "Nghề của bạn không có ở trên? Gõ vào đây, ví dụ “tiệm tóc”, “kế toán”, “nuôi tôm”.", xem: "Xem lộ trình ›",
+    dong: "Đóng", chao1: "Chào bạn, mình là Mark!", chao2: "Bạn là ai?", chao3: "Chọn một ô, mình đưa lộ trình và video hợp với bạn. Không cần đăng ký.",
+    khamPha: "Mình chỉ muốn tự khám phá kênh ›", nghe: n => "Nghề “" + n + "”", cuaBan: t => "Lộ trình của bạn: " + t, cuaBan2: "Xem tiếp các bước và video đã đánh dấu.",
+    tiep: "Xem tiếp ›", doi: "Đổi lựa chọn", raMat: d => "Ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4),
+    lamTheo: "Bài làm theo", sapRa: "Sắp ra mắt", danhDau: "Đánh dấu đã xem", daXemSo: so => "Đã xem video " + so,
+    buoc: "Bước ", series: (t, n) => " · series " + t + ", " + n + " phần", choBan: "Lộ trình cho bạn", note: "Bấm ô vuông cạnh mỗi video để đánh dấu đã xem. Tiến độ lưu ngay trên trình duyệt này.",
+    chep: "Chép link lộ trình", khac: "Chọn ngành khác ›", daChep: "Đã chép link. Dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để chia sẻ: ",
+    dem: (a, b) => "Đã xem " + a + "/" + b + " video", tieuDe: t => "Lộ trình " + t + " | Mark học AI", tieuDeNghe: t => "Lộ trình cho nghề " + t + " | Mark học AI",
+    mailChuDe: n => "Gợi ý video cho nghề " + n, goiY: "Gợi ý chủ đề cho kênh ›",
+    nen: ["Nền tảng cho mọi nghề", "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI."],
+    sat: ["Video sát nghề của bạn", n => "Những video kênh làm riêng cho nghề gần với “" + n + "”."],
+    nhac: [n => "Video có nhắc tới “" + n + "”", "Kênh chưa có video riêng cho nghề này, nhưng các video dưới đây có nói tới."],
+    chaoSat: (k, g) => "Mình tìm được " + k + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình " + g + ".",
+    chaoGan: g => "Kênh chưa có video riêng cho nghề này, nhưng nó gần với nhóm " + g + ", nên mình dùng lộ trình đó.",
+    ghiGan: g => "Các bước sau phần video riêng lấy từ lộ trình <b>" + g + "</b>.", muon: n => " Muốn kênh làm video cho nghề “" + n + "”?",
+    chung: [["Giấy tờ, email và kế hoạch", "Những việc nghề nào cũng có: email dài, đơn từ, kế hoạch tuần, giấy tờ khó đọc."],
+      ["Dựng trợ lý riêng cho nghề của bạn", "Dạy AI biết bạn làm nghề gì, lưu câu lệnh hay dùng và để AI tự làm việc lặp lại."],
+      ["AI và nghề của bạn", "Việc nào AI nhận trước, kỹ năng nào giữ giá, và kế hoạch 90 ngày."]],
+    chaoChungSat: k => "Mình tìm được " + k + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình chung nghề nào cũng dùng được.",
+    chaoChung: n => "Kênh chưa có video riêng cho nghề “" + n + "”. Đây là lộ trình chung, nghề nào cũng dùng được.",
+    muon2: "Muốn kênh làm video cho nghề này?", ngheCuaBan: n => "Nghề của bạn: " + n
+  };
+  const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const norm = s => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase().replace(/[^a-z0-9&+]+/g, " ").trim();
-  const load = name => fetch("data/" + name + ".json", { cache: "no-cache" }).then(r => r.json());
+  const load = name => fetch(goc + "data/" + name + ".json", { cache: "no-cache" }).then(r => r.json());
+  // Dữ liệu lộ trình: bản Việt, bản Anh thì phủ chữ dịch lên (cùng id, cùng thứ tự bước), từ khóa Anh cộng thêm vào từ khóa Việt
+  async function loadD() {
+    const D = await load("lo-trinh-nganh");
+    if (!EN) return D;
+    const T = await load("en/lo-trinh-nganh");
+    D.nhom.forEach((g, i) => { g.ten = T.nhom[i] || g.ten; });
+    Object.keys(T.nhanh || {}).forEach(id => { if (D.nhanh[id]) D.nhanh[id].ten = T.nhanh[id]; });
+    Object.keys(D.nganh).forEach(id => {
+      const n = D.nganh[id], t = T.nganh[id];
+      if (!t) return;
+      Object.assign(n, { ten: t.ten, ngan: t.ngan, chao: t.chao, tu_khoa: t.tu_khoa.concat(n.tu_khoa) });
+      n.buoc.forEach((b, i) => { if (t.buoc[i]) Object.assign(b, t.buoc[i]); });
+    });
+    D.ngach.forEach((n, i) => { n.tu_khoa = (T.ngach[i] || []).concat(n.tu_khoa); });
+    return D;
+  }
   const pad = n => String(n).padStart(2, "0");
   const LAM_THEO = { 301: "lam-theo.html#phan-tich-so-ban-hang", 302: "lam-theo.html#du-doan-ban-hang" };
-  const LAM_THEO_TEN = { 301: "Phân tích sổ bán hàng với AI từ A đến Z: 9 bước, kèm file mẫu", 302: "Dự đoán ngày mai bán bao nhiêu ly: model machine learning đầu tiên với Python" };
+  const LAM_THEO_TEN = EN ? { 301: "Analyze your sales book with AI from A to Z: 9 steps, with a sample file", 302: "Predict how many cups you'll sell tomorrow: a first machine learning model in Python" }
+    : { 301: "Phân tích sổ bán hàng với AI từ A đến Z: 9 bước, kèm file mẫu", 302: "Dự đoán ngày mai bán bao nhiêu ly: model machine learning đầu tiên với Python" };
 
   // Đã chọn gì: {ai: id} hoặc {nghe: "chữ đã gõ"}
   const docChon = () => { try { return JSON.parse(nho.get(KHOA_NGANH) || "null"); } catch (e) { return null; } };
@@ -45,9 +110,9 @@
       return '<li><button type="button" class="ltn-nut' + (dangChon === id ? " is-on" : "") + '" data-ai="' + id + '"' + (dangChon === id ? ' aria-pressed="true"' : "") + ">" + dau + "<span>" + esc(n.ngan) + "</span></button></li>";
     };
     return D.nhom.map(g => '<p class="ltn-nhom">' + esc(g.ten) + '</p><ul class="ltn-nuts">' + g.ds.map(nut).join("") + "</ul>").join("") +
-      '<form class="ltn-nghe" autocomplete="off"><label for="ltn-o-nghe">Nghề của bạn không có ở trên? Gõ vào đây, ví dụ “tiệm tóc”, “kế toán”, “nuôi tôm”.</label>' +
-      '<div class="ltn-nghe-row"><input id="ltn-o-nghe" name="nghe" type="text" maxlength="60" placeholder="Nghề hoặc ngành của bạn" required>' +
-      '<button class="btn btn-yt" type="submit">Xem lộ trình ›</button></div></form>';
+      '<form class="ltn-nghe" autocomplete="off"><label for="ltn-o-nghe">' + S.ngheNhan + '</label>' +
+      '<div class="ltn-nghe-row"><input id="ltn-o-nghe" name="nghe" type="text" maxlength="60" placeholder="' + S.nghePH + '" required>' +
+      '<button class="btn btn-yt" type="submit">' + S.xem + '</button></div></form>';
   }
   function ganChon(goc, D, khiChon) {
     goc.addEventListener("click", e => {
@@ -67,16 +132,16 @@
 
   // ===== Trang chủ: hộp chào lần đầu và dải "Lộ trình của bạn" =====
   async function trangChu() {
-    const D = await load("lo-trinh-nganh");
+    const D = await loadD();
     const chon = docChon();
     const hop = document.createElement("dialog");
     hop.className = "chao-hop";
     hop.setAttribute("aria-labelledby", "chao-ten");
-    hop.innerHTML = '<button type="button" class="hop-dong" aria-label="Đóng"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>' +
-      '<div class="chao-in"><div class="chao-dau"><img src="assets/mark-chao.svg" alt="" width="96" height="91"><div><p class="eyebrow">Chào bạn, mình là Mark!</p>' +
-      '<h2 id="chao-ten">Bạn là ai?</h2><p>Chọn một ô, mình đưa lộ trình và video hợp với bạn. Không cần đăng ký.</p></div></div>' +
+    hop.innerHTML = '<button type="button" class="hop-dong" aria-label="' + S.dong + '"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>' +
+      '<div class="chao-in"><div class="chao-dau"><img src="' + goc + 'assets/mark-chao.svg" alt="" width="96" height="91"><div><p class="eyebrow">' + S.chao1 + '</p>' +
+      '<h2 id="chao-ten">' + S.chao2 + '</h2><p>' + S.chao3 + '</p></div></div>' +
       oChon(D, chon && chon.ai) +
-      '<button type="button" class="chao-kham-pha" data-kham-pha>Mình chỉ muốn tự khám phá kênh ›</button></div>';
+      '<button type="button" class="chao-kham-pha" data-kham-pha>' + S.khamPha + '</button></div>';
     document.body.appendChild(hop);
     const dong = () => { nho.set(KHOA_CHAO, "1"); if (hop.open) hop.close(); };
     ganChon(hop, D, c => { nho.set(KHOA_CHAO, "1"); nho.set(KHOA_NGANH, JSON.stringify(c)); location.href = linkChon(c); });
@@ -94,9 +159,9 @@
     // Đã chọn trước đó: dải nhắc trong "Bắt đầu từ đây"
     const dai = document.getElementById("cua-ban");
     if (dai && chon && (chon.nghe || D.nganh[chon.ai])) {
-      const ten = chon.ai ? D.nganh[chon.ai].ngan : "Nghề “" + chon.nghe + "”";
-      dai.innerHTML = '<span class="cua-ban-text"><b>Lộ trình của bạn: ' + esc(ten) + '</b><span>Xem tiếp các bước và video đã đánh dấu.</span></span>' +
-        '<a class="btn btn-yt" href="' + linkChon(chon) + '">Xem tiếp ›</a><button type="button" class="btn" data-mo-chao-2>Đổi lựa chọn</button>';
+      const ten = chon.ai ? D.nganh[chon.ai].ngan : S.nghe(chon.nghe);
+      dai.innerHTML = '<span class="cua-ban-text"><b>' + esc(S.cuaBan(ten)) + '</b><span>' + S.cuaBan2 + '</span></span>' +
+        '<a class="btn btn-yt" href="' + linkChon(chon) + '">' + S.tiep + '</a><button type="button" class="btn" data-mo-chao-2>' + S.doi + '</button>';
       dai.hidden = false;
       dai.querySelector("[data-mo-chao-2]").addEventListener("click", () => hop.showModal());
     }
@@ -105,13 +170,14 @@
   }
 
   // ===== Trang lộ trình =====
-  async function trangLoTrinh(goc) {
-    const [D, videos, nhanhV, lich, kenh] = await Promise.all([load("lo-trinh-nganh"), load("videos"), load("video-nhanh").catch(() => ({})),
-      load("lich-ra-mat").catch(() => ({})), load("kenh").catch(() => ({}))]);
+  async function trangLoTrinh() {
+    const [D, videosVi, nhanhV, lich, kenh, videosEn, nhanhEn] = await Promise.all([loadD(), load("videos"), load("video-nhanh").catch(() => ({})),
+      load("lich-ra-mat").catch(() => ({})), load("kenh").catch(() => ({})), EN ? load("en/videos") : null, EN ? load("en/video-nhanh").catch(() => ({})) : null]);
+    // Bản Anh: tên và mô tả video lấy từ data/en/videos.json (bài viết en/bai/ cùng tên file)
+    const videos = EN ? videosVi.map(v => Object.assign({}, v, videosEn[v.so] || {})) : videosVi;
     const bySo = {};
     videos.forEach(v => { bySo[v.so] = v; });
     const homNay = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
-    const ngayVN = d => d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4);
     let daXem = new Set();
     try { daXem = new Set(JSON.parse(nho.get(KHOA_XEM) || "[]")); } catch (e) {}
 
@@ -122,22 +188,22 @@
       let ten, link = "", ghi = "";
       if (bySo[so]) {
         const v = bySo[so];
-        ten = v.chu_de.replace(/^.*?\((?:Phần \d+\/\d+)\):\s*/, "");
+        ten = v.chu_de.replace(/^.*?\((?:Phần|Part) \d+\/\d+\):\s*/, "");
         link = "bai/" + pad(so) + "-" + v.slug + ".html";
-        if (lich[so] && lich[so] > homNay) ghi = "Ra mắt " + ngayVN(lich[so]);
+        if (lich[so] && lich[so] > homNay) ghi = S.raMat(lich[so]);
       } else if (LAM_THEO[so]) {
-        ten = LAM_THEO_TEN[so]; link = LAM_THEO[so]; ghi = "Bài làm theo";
+        ten = LAM_THEO_TEN[so]; link = LAM_THEO[so]; ghi = S.lamTheo;
       } else if (nhanhV[so]) {
         const n = nhanhV[so];
-        ten = n.ten.replace(/^.*?· Phần \d+\/\d+:\s*/, "");
+        ten = ((EN && nhanhEn[so]) || n.ten).replace(/^.*?· (?:Phần|Part) \d+\/\d+:\s*/, "");
         if (n.ngay && n.ngay <= homNay && kenh.youtube) link = kenh.youtube + "/search?query=" + encodeURIComponent(n.ten);
-        else ghi = n.ngay ? "Ra mắt " + ngayVN(n.ngay) : "Sắp ra mắt";
+        else ghi = n.ngay ? S.raMat(n.ngay) : S.sapRa;
       } else return "";
       const ngoai = link.startsWith("http");
       const tenHtml = link ? '<a href="' + link + '"' + (ngoai ? ' target="_blank" rel="noopener"' : "") + ">" + esc(ten) + "</a>" : "<span>" + esc(ten) + "</span>";
-      return '<li class="ltn-v' + (daXem.has(so) ? " is-xem" : "") + '"><label class="ltn-xem" title="Đánh dấu đã xem"><input type="checkbox" data-so="' + so + '"' + (daXem.has(so) ? " checked" : "") +
-        '><span class="sr">Đã xem video ' + so + "</span></label>" + '<span class="num">#' + pad(so) + '</span><span class="ltn-v-ten">' + tenHtml +
-        (ghi ? '<em class="ltn-ghi' + (ghi === "Bài làm theo" ? " is-lam" : "") + '">' + esc(ghi) + "</em>" : "") + "</span></li>";
+      return '<li class="ltn-v' + (daXem.has(so) ? " is-xem" : "") + '"><label class="ltn-xem" title="' + S.danhDau + '"><input type="checkbox" data-so="' + so + '"' + (daXem.has(so) ? " checked" : "") +
+        '><span class="sr">' + S.daXemSo(so) + "</span></label>" + '<span class="num">#' + pad(so) + '</span><span class="ltn-v-ten">' + tenHtml +
+        (ghi ? '<em class="ltn-ghi' + (ghi === S.lamTheo ? " is-lam" : "") + '">' + esc(ghi) + "</em>" : "") + "</span></li>";
     }
     function dsSo(b) {
       if (b.so) return b.so;
@@ -149,19 +215,19 @@
     function buocHtml(b, i) {
       const nh = b.nhanh && D.nhanh[b.nhanh];
       const tag = nh ? '<span class="ltn-tag" style="--a:' + nh.mau[0] + ";--b:" + nh.mau[1] + (nh.chu ? ";--c:" + nh.chu : "") + '">' + esc(nh.nhan) + "</span>" : "";
-      return '<li class="ltn-buoc"><span class="step-num" aria-hidden="true">' + (i + 1) + '</span><div class="ltn-buoc-in"><p class="step-when">Bước ' + (i + 1) +
-        (nh ? " · series " + esc(nh.ten) + ", " + (nh.den - nh.tu + 1) + " phần" : "") + '</p><h3>' + tag + esc(b.ten) + '</h3><p class="step-desc">' + esc(b.mo_ta) +
+      return '<li class="ltn-buoc"><span class="step-num" aria-hidden="true">' + (i + 1) + '</span><div class="ltn-buoc-in"><p class="step-when">' + S.buoc + (i + 1) +
+        (nh ? esc(S.series(nh.ten, nh.den - nh.tu + 1)) : "") + '</p><h3>' + tag + esc(b.ten) + '</h3><p class="step-desc">' + esc(b.mo_ta) +
         '</p><ol class="ltn-vs">' + dsSo(b).map(dongVideo).join("") + "</ol></div></li>";
     }
     function veLoTrinh(tieuDe, chao, ghiChu, buoc) {
       const tatCa = [...new Set(buoc.flatMap(dsSo))];
-      kq.innerHTML = '<div class="ltn-dau"><img src="assets/mark-a-ra-the.svg" alt="" width="110" height="104"><div class="ltn-bong"><p class="eyebrow">Lộ trình cho bạn</p><h2 id="ltn-ten">' + esc(tieuDe) +
+      kq.innerHTML = '<div class="ltn-dau"><img src="' + goc + 'assets/mark-a-ra-the.svg" alt="" width="110" height="104"><div class="ltn-bong"><p class="eyebrow">' + S.choBan + '</p><h2 id="ltn-ten">' + esc(tieuDe) +
         '</h2><p>' + esc(chao) + "</p>" + (ghiChu || "") + '</div></div><div class="ltn-tien"><b id="ltn-dem"></b><div class="bar" aria-hidden="true"><i id="ltn-thanh"></i></div>' +
-        '<p class="course-note">Bấm ô vuông cạnh mỗi video để đánh dấu đã xem. Tiến độ lưu ngay trên trình duyệt này.</p></div><ol class="ltn-buocs">' + buoc.map(buocHtml).join("") + "</ol>" +
-        '<div class="ltn-cuoi"><button type="button" class="btn" id="ltn-chia-se">' + ic("copy") + 'Chép link lộ trình</button><a class="btn" href="#ltn-chon">Chọn ngành khác ›</a></div><p class="ltn-chep" id="ltn-chep" role="status"></p>';
+        '<p class="course-note">' + S.note + '</p></div><ol class="ltn-buocs">' + buoc.map(buocHtml).join("") + "</ol>" +
+        '<div class="ltn-cuoi"><button type="button" class="btn" id="ltn-chia-se">' + ic("copy") + S.chep + '</button><a class="btn" href="#ltn-chon">' + S.khac + '</a></div><p class="ltn-chep" id="ltn-chep" role="status"></p>';
       const dem = () => {
         const n = tatCa.filter(s => daXem.has(s)).length;
-        document.getElementById("ltn-dem").textContent = "Đã xem " + n + "/" + tatCa.length + " video";
+        document.getElementById("ltn-dem").textContent = S.dem(n, tatCa.length);
         document.getElementById("ltn-thanh").style.width = (tatCa.length ? 100 * n / tatCa.length : 0) + "%";
       };
       dem();
@@ -177,8 +243,8 @@
       document.getElementById("ltn-chia-se").onclick = async () => {
         const url = location.href.split("#")[0];
         const bao = document.getElementById("ltn-chep");
-        try { await navigator.clipboard.writeText(url); bao.textContent = "Đã chép link. Dán vào tin nhắn để gửi bạn bè."; }
-        catch (e) { bao.textContent = "Chép link này để chia sẻ: " + url; }
+        try { await navigator.clipboard.writeText(url); bao.textContent = S.daChep; }
+        catch (e) { bao.textContent = S.chepTay + url; }
       };
       kq.hidden = false;
     }
@@ -187,7 +253,7 @@
       oChonEl.innerHTML = oChon(D, c && c.ai);
       if (c && c.ai && D.nganh[c.ai]) {
         const n = D.nganh[c.ai];
-        document.title = "Lộ trình " + n.ngan + " | Mark học AI";
+        document.title = S.tieuDe(n.ngan);
         veLoTrinh(n.ten, n.chao, "", n.buoc);
       } else if (c && c.nghe) {
         const t = timNghe(D, c.nghe);
@@ -196,30 +262,27 @@
         const nhac = sat.length || t.q.length < 4 ? [] : videos.filter(v => (" " + norm(v.chu_de + " " + v.mo_ta) + " ").includes(" " + t.q + " ")).slice(0, 6).map(v => v.so);
         const ganId = t.nganh[0] || (t.ngach[0] && t.ngach[0].gan) || "";
         const gan = D.nganh[ganId];
-        const mail = kenh.email ? ' <a href="mailto:' + kenh.email + "?subject=" + encodeURIComponent("Gợi ý video cho nghề " + c.nghe) + '">Gợi ý chủ đề cho kênh ›</a>' : "";
-        const nen = { ten: "Nền tảng cho mọi nghề", mo_ta: "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI.", so: [3, 8, 15] };
+        const mail = kenh.email ? ' <a href="mailto:' + kenh.email + "?subject=" + encodeURIComponent(S.mailChuDe(c.nghe)) + '">' + S.goiY + '</a>' : "";
+        const nen = { ten: S.nen[0], mo_ta: S.nen[1], so: [3, 8, 15] };
         const buoc = [nen];
-        if (sat.length) buoc.push({ ten: "Video sát nghề của bạn", mo_ta: "Những video kênh làm riêng cho nghề gần với “" + c.nghe + "”.", so: sat });
-        if (nhac.length) buoc.push({ ten: "Video có nhắc tới “" + c.nghe + "”", mo_ta: "Kênh chưa có video riêng cho nghề này, nhưng các video dưới đây có nói tới.", so: nhac });
+        if (sat.length) buoc.push({ ten: S.sat[0], mo_ta: S.sat[1](c.nghe), so: sat });
+        if (nhac.length) buoc.push({ ten: S.nhac[0](c.nghe), mo_ta: S.nhac[1], so: nhac });
         let chao, ghi;
         if (gan) {
           const daCo = new Set(buoc.flatMap(dsSo));
           gan.buoc.forEach(b => {
             if (b.nhanh || b.so.some(s => !daCo.has(s))) { buoc.push(b.so ? Object.assign({}, b, { so: b.so.filter(s => !daCo.has(s)) }) : b); dsSo(b).forEach(s => daCo.add(s)); }
           });
-          chao = sat.length ? "Mình tìm được " + sat.length + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình " + gan.ngan + "." : "Kênh chưa có video riêng cho nghề này, nhưng nó gần với nhóm " + gan.ngan + ", nên mình dùng lộ trình đó.";
-          ghi = '<p class="ltn-ghi-chu">Các bước sau phần video riêng lấy từ lộ trình <b>' + esc(gan.ngan) + "</b>." + (sat.length ? "" : " Muốn kênh làm video cho nghề “" + esc(c.nghe) + "”?" + mail) + "</p>";
+          chao = sat.length ? S.chaoSat(sat.length, gan.ngan) : S.chaoGan(gan.ngan);
+          ghi = '<p class="ltn-ghi-chu">' + S.ghiGan(esc(gan.ngan)) + (sat.length ? "" : esc(S.muon(c.nghe)) + mail) + "</p>";
         } else {
           // Không biết nghề này gần nhóm nào: lộ trình chung, nghề nào cũng dùng được, không đoán bừa
-          buoc.push({ ten: "Giấy tờ, email và kế hoạch", mo_ta: "Những việc nghề nào cũng có: email dài, đơn từ, kế hoạch tuần, giấy tờ khó đọc.", so: [173, 286, 164, 165] },
-            { ten: "Dựng trợ lý riêng cho nghề của bạn", mo_ta: "Dạy AI biết bạn làm nghề gì, lưu câu lệnh hay dùng và để AI tự làm việc lặp lại.", so: [27, 28, 31] },
-            { ten: "AI và nghề của bạn", mo_ta: "Việc nào AI nhận trước, kỹ năng nào giữ giá, và kế hoạch 90 ngày.", so: [33, 34, 35, 37] });
-          chao = sat.length ? "Mình tìm được " + sat.length + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình chung nghề nào cũng dùng được."
-            : "Kênh chưa có video riêng cho nghề “" + c.nghe + "”. Đây là lộ trình chung, nghề nào cũng dùng được.";
-          ghi = '<p class="ltn-ghi-chu">Muốn kênh làm video cho nghề này?' + mail + "</p>";
+          [[173, 286, 164, 165], [27, 28, 31], [33, 34, 35, 37]].forEach((so, i) => buoc.push({ ten: S.chung[i][0], mo_ta: S.chung[i][1], so }));
+          chao = sat.length ? S.chaoChungSat(sat.length) : S.chaoChung(c.nghe);
+          ghi = '<p class="ltn-ghi-chu">' + S.muon2 + mail + "</p>";
         }
-        document.title = "Lộ trình cho nghề " + c.nghe + " | Mark học AI";
-        veLoTrinh("Nghề của bạn: " + c.nghe, chao, ghi, buoc);
+        document.title = S.tieuDeNghe(c.nghe);
+        veLoTrinh(S.ngheCuaBan(c.nghe), chao, ghi, buoc);
       } else {
         kq.hidden = true;
         return;
@@ -244,6 +307,6 @@
     hien(c, false);
   }
 
-  const goc = document.getElementById("ltn");
-  (goc ? trangLoTrinh(goc) : trangChu()).catch(e => console.error("lo-trinh-nganh", e));
+  const trang = document.getElementById("ltn");
+  (trang ? trangLoTrinh(trang) : trangChu()).catch(e => console.error("lo-trinh-nganh", e));
 })();
