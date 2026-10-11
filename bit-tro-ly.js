@@ -66,8 +66,10 @@
     ["download", "Sách Mark học AI miễn phí", goc + "sach.html"],
     ["clapperboard", "Xem danh sách video", goc + "#video"]
   ];
-  const T = EN ? { tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant", kenh: "Follow Mark & Bit", tren: "Mark học AI on ", dc: "Join the Mark học AI Discord community" }
-    : { tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit", kenh: "Theo dõi Mark và Bit", tren: "Mark học AI trên ", dc: "Vào cộng đồng Discord của Mark học AI" };
+  // Ô hỏi nhanh đầu menu: gõ câu hỏi, Enter là mở trang Hỏi Bit (hoi-bit.html) với câu đó
+  const hoiUrl = (EN ? nha : goc) + "hoi-bit.html";
+  const T = EN ? { hoiBit: "Ask Bit about any video…", hoiNut: "Ask", tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant", kenh: "Follow Mark & Bit", tren: "Mark học AI on ", dc: "Join the Mark học AI Discord community" }
+    : { hoiBit: "Hỏi Bit về nội dung video…", hoiNut: "Hỏi", tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit", kenh: "Theo dõi Mark và Bit", tren: "Mark học AI trên ", dc: "Vào cộng đồng Discord của Mark học AI" };
 
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -76,7 +78,9 @@
   hop.innerHTML =
     '<div class="bit-noi" role="status" aria-live="polite" hidden><p></p><button class="bit-x" type="button" aria-label="' + T.tat + '">' + ic("x") + '</button></div>' +
     '<div class="bit-menu" id="bit-menu" role="dialog" aria-label="' + T.hoi + '" hidden>' +
-    '<p class="bit-chao">' + T.chao + '</p><ul>' +
+    '<p class="bit-chao">' + T.chao + '</p>' +
+    '<form class="bit-hoi" action="' + hoiUrl + '" role="search"><input name="q" type="search" placeholder="' + T.hoiBit + '" aria-label="' + T.hoiBit + '" autocomplete="off" enterkeyhint="search">' +
+    '<button type="submit">' + T.hoiNut + '</button></form><ul>' +
     menu.map(m => '<li><a href="' + m[2] + '"' + (/\.pdf$/.test(m[2]) ? " download" : "") + '>' + ic(m[0]) + esc(m[1]) + "</a></li>").join("") +
     '</ul><div class="bit-meo"><b>' + ic("lightbulb") + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div>' +
     '<div class="bit-kenh" hidden><b>' + T.kenh + "</b></div></div>" +

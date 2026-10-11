@@ -3,7 +3,7 @@ bài kiểm tra "Bạn hiểu AI tới đâu?" (kiem-tra.html), sách miễn ph�
 trang hợp tác (hop-tac.html), trang làm theo video (lam-theo.html), bản tiếng Anh của tất cả (en/...) và sitemap.xml.
 
 Chạy lại mỗi khi có video mới (sau scripts/gom_video.py) hoặc khi sửa data/bai-viet.json, data/tu-dien.json, data/bo-kiem-tra.json
-hay bản dịch trong data/en/:
+hay bản dịch trong data/en/ (xong thì chạy tiếp scripts/tao_hoi_dap.py để trang Hỏi Bit có nội dung mới):
     python3 scripts/tao_bai_viet.py /mnt/project-files/videos            # cả tiếng Việt lẫn tiếng Anh
     python3 scripts/tao_bai_viet.py --lang en                            # chỉ bản tiếng Anh (không cần thư mục video)
 
@@ -1019,6 +1019,7 @@ def chay():
             sitemap.append(f"  <url><loc>{BASE}{tien_to}{d}</loc><priority>{uu_tien.get(d, '0.6')}</priority></url>")
         # Lộ trình theo ngành viết tay (lo-trinh-nganh.html và en/lo-trinh-nganh.html), không do script này tạo
         sitemap.append(f"  <url><loc>{BASE}{tien_to}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}hoi-bit.html</loc><priority>0.8</priority></url>")  # Hỏi Bit viết tay, dữ liệu từ scripts/tao_hoi_dap.py
         # Trang Chứng chỉ (chung-chi.html, en/chung-chi.html) cũng viết tay
         sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-chi.html</loc><priority>0.6</priority></url>")
     sitemap.append("</urlset>")

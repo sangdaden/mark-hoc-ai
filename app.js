@@ -9,14 +9,16 @@
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
     tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
-    hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)"
+    hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
+    hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›"
   } : {
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
     tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
-    hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")"
+    hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
+    hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›"
   };
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
@@ -178,9 +180,15 @@
   };
 
   let soThe = 0;
+  // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
+  const hoiBit = document.getElementById("hb-goi");
   function render() {
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
     const q = norm(input.value.trim());
+    if (hoiBit) {
+      hoiBit.hidden = !q;
+      if (q) { hoiBit.href = "hoi-bit.html?q=" + encodeURIComponent(input.value.trim()); hoiBit.textContent = S.hoiBit(input.value.trim()); }
+    }
     if (!q && current === "tat-ca") {
       // Lưới hiện trước 3 hàng thẻ, nút "Xem thêm" mở tiếp từng 3 hàng (3 cột trên máy tính, 2 cột trên điện thoại)
       const hang = matchMedia("(max-width: 760px)").matches ? 2 : 3;
