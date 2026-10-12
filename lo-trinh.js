@@ -232,11 +232,21 @@
     c.font = F(800, 24); c.fillText(EN ? "DAYS" : "NGÀY", W - 200, 368);
 
     // Bản mẫu: chữ mờ chéo, để không ai lấy bản mẫu làm giấy thật
+    // Bản mẫu để xám hẳn: nhìn là biết chưa mở khóa, bản thật mới có màu
+    function xam() {
+      const anh = c.getImageData(0, 0, W, H), p = anh.data;
+      for (let i = 0; i < p.length; i += 4) {
+        const y = Math.round(0.299 * p[i] + 0.587 * p[i + 1] + 0.114 * p[i + 2]);
+        p[i] = p[i + 1] = p[i + 2] = y;
+      }
+      c.putImageData(anh, 0, 0);
+    }
     if (mau) {
+      xam();
       c.save(); c.translate(W / 2, H / 2); c.rotate(-Math.PI / 9);
       c.font = F(800, 260); c.textAlign = "center"; c.textBaseline = "middle";
-      c.fillStyle = "rgba(37, 99, 235, .09)"; c.fillText(EN ? "SAMPLE" : "MẪU", 0, 0);
-      c.lineWidth = 3; c.strokeStyle = "rgba(37, 99, 235, .16)"; c.strokeText(EN ? "SAMPLE" : "MẪU", 0, 0);
+      c.fillStyle = "rgba(15, 23, 42, .07)"; c.fillText(EN ? "SAMPLE" : "MẪU", 0, 0);
+      c.lineWidth = 3; c.strokeStyle = "rgba(15, 23, 42, .14)"; c.strokeText(EN ? "SAMPLE" : "MẪU", 0, 0);
       c.restore();
     }
 
