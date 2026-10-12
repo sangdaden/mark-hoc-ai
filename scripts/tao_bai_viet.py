@@ -559,7 +559,7 @@ def tao_bai(v):
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
-            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận chứng chỉ.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
+            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
     jsonld = [
@@ -641,7 +641,7 @@ def tao_tu_dien():
 
 # ---------- bài kiểm tra ----------
 # Nhiều bộ câu hỏi (data/bo-kiem-tra.json, bản dịch data/en/bo-kiem-tra.json): bộ cơ bản theo chủ đề và một bộ cho mỗi ngành.
-# Câu "dung-sai" (đúng hay sai) hoặc "chon" (4 lựa chọn, dap_an là vị trí đáp án). Chấm, xáo câu, lưu điểm cao nhất và mở khóa chứng chỉ: kiem-tra.js, chung-chi.js.
+# Câu "dung-sai" (đúng hay sai) hoặc "chon" (4 lựa chọn, dap_an là vị trí đáp án). Chấm, xáo câu, lưu điểm cao nhất và mở khóa chứng nhận: kiem-tra.js, chung-nhan.js.
 NHANH_KT = json.loads((R / "data" / "lo-trinh-nganh.json").read_text(encoding="utf-8"))["nhanh"]
 
 def video_kt(n):
@@ -667,10 +667,10 @@ def tao_kiem_tra():
                                   "cau_hoi": [{**c, "video": [video_kt(n) for n in c["video"]]} for c in b["cau_hoi"]]} for b in bo],
                           "goi_y_gioi": [video_kt(n) for n in (97, 99)]},
                          ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    desc = t(f"{len(bo)} bộ câu hỏi kiểm tra kiến thức AI ({so_cau} câu): hiểu lầm về AI, viết prompt, dùng AI an toàn, AI trong công việc và 8 ngành dữ liệu, công nghệ. Có giải thích ngay, đạt 80% nhận chứng chỉ có tên bạn.",
+    desc = t(f"{len(bo)} bộ câu hỏi kiểm tra kiến thức AI ({so_cau} câu): hiểu lầm về AI, viết prompt, dùng AI an toàn, AI trong công việc và 8 ngành dữ liệu, công nghệ. Có giải thích ngay, đạt 80% nhận giấy chứng nhận có tên bạn.",
              f"{len(bo)} AI quizzes ({so_cau} questions): AI misconceptions, prompting, staying safe, AI at work and 8 data and tech fields. Explanations right away, and score 80% to get a certificate with your name.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"{len(bo)} bộ câu hỏi · đạt 80% nhận chứng chỉ", f"{len(bo)} quizzes · score 80% for a certificate")}</p>\n<h1>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</h1>\n'
-            f'<p class="lead">{t("Chọn một bộ câu hỏi, trả lời từng câu và xem giải thích ngay. Câu hỏi đổi thứ tự mỗi lần làm. Đạt từ 80% là mở khóa chứng chỉ có tên bạn.", "Pick a quiz, answer each question and see the explanation right away. The order changes every time. Score 80% or more to unlock a certificate with your name.")}</p>\n'
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"{len(bo)} bộ câu hỏi · đạt 80% nhận giấy chứng nhận", f"{len(bo)} quizzes · score 80% for a certificate")}</p>\n<h1>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</h1>\n'
+            f'<p class="lead">{t("Chọn một bộ câu hỏi, trả lời từng câu và xem giải thích ngay. Câu hỏi đổi thứ tự mỗi lần làm. Đạt từ 80% là mở khóa giấy chứng nhận có tên bạn.", "Pick a quiz, answer each question and see the explanation right away. The order changes every time. Score 80% or more to unlock a certificate with your name.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="{t("Mark đang thắc mắc", "Mark wondering")}" width="180" height="170"></div>')
 
     def the(b):
@@ -683,7 +683,7 @@ def tao_kiem_tra():
     static = "\n".join(f'<li><p><b>{esc(c["cau"])}</b></p><p>{esc(dap_an_kt(c))}. {esc(c["giai_thich"])}</p></li>' for c in dau["cau_hoi"])
     main = f"""<main class="quiz-wrap">
 <section class="kt-bo" id="kt-bo" aria-labelledby="kt-bo-h">
-  <div class="kt-bo-dau"><h2 id="kt-bo-h">{t("Chọn bộ câu hỏi", "Pick a quiz")}</h2><a class="btn" href="chung-chi.html">{ic(p, "award")}{t("Chứng chỉ của bạn", "Your certificates")}</a></div>
+  <div class="kt-bo-dau"><h2 id="kt-bo-h">{t("Chọn bộ câu hỏi", "Pick a quiz")}</h2><a class="btn" href="chung-nhan.html">{ic(p, "award")}{t("Giấy chứng nhận của bạn", "Your certificates")}</a></div>
   {nhom}
   <noscript><p>{t(f"Trang này cần JavaScript để chấm điểm. Đáp án bộ “{esc(dau['ten'])}”:", f"This page needs JavaScript to score your answers. Answers to “{esc(dau['ten'])}”:")}</p><ol class="quiz-static">{static}</ol></noscript>
 </section>
@@ -694,13 +694,13 @@ def tao_kiem_tra():
   <div id="khung"></div>
 </section>
 </main>"""
-    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}chung-chi.js?v=dev" defer></script>\n<script src="{p}kiem-tra.js?v=dev" defer></script>\n'
+    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}chung-nhan.js?v=dev" defer></script>\n<script src="{p}kiem-tra.js?v=dev" defer></script>\n'
     jsonld = [{"@context": "https://schema.org", "@type": "Quiz", "name": b["ten"], "url": BASE + GOC + "kiem-tra.html?bo=" + b["id"], "inLanguage": LG,
                "description": b["mo_ta"], "publisher": TO_CHUC, "educationalLevel": "beginner",
                "hasPart": [{"@type": "Question", "eduQuestionType": "True/False" if c["loai"] == "dung-sai" else "Multiple choice", "text": c["cau"],
                             **({"suggestedAnswer": [{"@type": "Answer", "text": x} for i, x in enumerate(c["lua_chon"]) if i != c["dap_an"]]} if c["loai"] == "chon" else {}),
                             "acceptedAnswer": {"@type": "Answer", "text": dap_an_kt(c) + ". " + c["giai_thich"]}} for c in b["cau_hoi"]]} for b in bo]
-    return GOC + "kiem-tra.html", trang("kiem-tra.html", t(f"Bạn hiểu AI tới đâu? {len(bo)} bộ câu hỏi kiểm tra AI, có chứng chỉ | {SITE}", f"How well do you know AI? {len(bo)} AI quizzes with certificates | {SITE}"),
+    return GOC + "kiem-tra.html", trang("kiem-tra.html", t(f"Bạn hiểu AI tới đâu? {len(bo)} bộ câu hỏi kiểm tra AI, có giấy chứng nhận | {SITE}", f"How well do you know AI? {len(bo)} AI quizzes with certificates | {SITE}"),
                                         desc, band, main, p, hien_tai="kiem-tra", og_type="website", jsonld=jsonld, cuoi=js, q="")
 
 # ---------- ebook (sach.html) ----------
@@ -1021,8 +1021,8 @@ def chay():
         # Lộ trình theo ngành viết tay (lo-trinh-nganh.html và en/lo-trinh-nganh.html), không do script này tạo
         sitemap.append(f"  <url><loc>{BASE}{tien_to}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
         sitemap.append(f"  <url><loc>{BASE}{tien_to}hoi-bit.html</loc><priority>0.8</priority></url>")  # Hỏi Bit viết tay, dữ liệu từ scripts/tao_hoi_dap.py
-        # Trang Chứng chỉ (chung-chi.html, en/chung-chi.html) cũng viết tay
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-chi.html</loc><priority>0.6</priority></url>")
+        # Trang Chứng nhận (chung-nhan.html, en/chung-nhan.html) cũng viết tay
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-nhan.html</loc><priority>0.6</priority></url>")
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
     print("sitemap.xml:", len(sitemap) - 3, "trang")

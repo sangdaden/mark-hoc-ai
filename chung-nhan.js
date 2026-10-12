@@ -1,8 +1,8 @@
-// Chứng chỉ Mark học AI (dùng chung cho kiem-tra.html và chung-chi.html, cả bản en/).
-// - Lưu điểm cao nhất từng bộ câu hỏi trên máy người học (mhai-kiem-tra), xét mở khóa từng dạng chứng chỉ.
-// - Vẽ chứng chỉ PNG bằng <canvas>, kèm mã xác minh tính từ nội dung (tên, loại, ngày, điểm).
-// - Trang chung-chi.html: danh sách chứng chỉ, tạo, tải PNG, in ra PDF, thêm vào LinkedIn, mở link xác minh (?xm=...).
-// Chứng chỉ do người học tự tạo trên máy để ghi nhận việc học, không phải bằng cấp chính thức; trang ghi rõ điều này.
+// Chứng nhận Mark học AI (dùng chung cho kiem-tra.html và chung-nhan.html, cả bản en/).
+// - Lưu điểm cao nhất từng bộ câu hỏi trên máy người học (mhai-kiem-tra), xét mở khóa từng dạng chứng nhận.
+// - Vẽ chứng nhận PNG bằng <canvas>, kèm mã xác minh tính từ nội dung (tên, loại, ngày, điểm).
+// - Trang chung-nhan.html: danh sách chứng nhận, tạo, tải PNG, in ra PDF, thêm vào LinkedIn, mở link xác minh (?xm=...).
+// Chứng nhận do người học tự tạo trên máy để ghi nhận việc học, không phải bằng cấp chính thức; trang ghi rõ điều này.
 // Các dạng: "chu-de.<bộ>" (đạt 80% một bộ câu hỏi), "nganh.<ngành>" (đạt bộ ngành + đánh dấu xem hết lộ trình ngành),
 // "toan-dien" (đạt cả 4 bộ kiến thức chung + xong Lộ trình 7 ngày). Giấy chứng nhận Lộ trình 7 ngày vẫn tạo ở lo-trinh-7-ngay.html (lo-trinh.js).
 window.MHAI_CC = (function () {
@@ -16,7 +16,7 @@ window.MHAI_CC = (function () {
   const homNay = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
   const ketQua = () => nho.get(KHOA_KT) || {};
   const datBo = r => !!r && r.tong > 0 && r.dung / r.tong >= DAT - 1e-9;
-  // Giữ lần làm tốt nhất; "dat" là ngày đầu tiên đạt 80% (ngày in trên chứng chỉ chủ đề)
+  // Giữ lần làm tốt nhất; "dat" là ngày đầu tiên đạt 80% (ngày in trên chứng nhận chủ đề)
   function ghiDiem(id, dung, tong) {
     const kq = ketQua(), cu = kq[id], moi = { dung, tong, ngay: homNay() };
     const r = !cu || dung / tong > cu.dung / cu.tong ? moi : cu;
@@ -44,10 +44,10 @@ window.MHAI_CC = (function () {
     } catch (e) { return null; }
   }
 
-  // ---------- Chữ trên chứng chỉ ----------
+  // ---------- Chữ trên chứng nhận ----------
   const T = EN ? {
-    nhan: { "chu-de": "TOPIC CERTIFICATE", nganh: "FIELD CERTIFICATE", "toan-dien": "ALL-ROUND CERTIFICATE" },
-    ten: { "chu-de": "Topic certificate", nganh: "Field certificate", "toan-dien": "All-round certificate" },
+    nhan: { "chu-de": "CERTIFICATE OF COMPLETION · TOPIC", nganh: "CERTIFICATE OF COMPLETION · FIELD", "toan-dien": "CERTIFICATE OF COMPLETION · ALL-ROUND" },
+    ten: { "chu-de": "Topic Certificate of Completion", nganh: "Field Certificate of Completion", "toan-dien": "All-round Certificate of Completion" },
     toanDien: "Mark học AI all-round", trao: "This certifies that",
     mo: {
       "chu-de": (t, s) => "has passed the “" + t + "” quiz with " + s + " correct answers.",
@@ -58,8 +58,8 @@ window.MHAI_CC = (function () {
     ky: "Mark & Bit · Mark học AI", ngay: "Date", dongHanh: "Your AI learning buddies", ma: "Verification code", mau: "SAMPLE",
     ngayIn: iso => new Date(iso + "T12:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
   } : {
-    nhan: { "chu-de": "CHỨNG CHỈ CHỦ ĐỀ", nganh: "CHỨNG CHỈ CHUYÊN NGÀNH", "toan-dien": "CHỨNG CHỈ TOÀN DIỆN" },
-    ten: { "chu-de": "Chứng chỉ chủ đề", nganh: "Chứng chỉ chuyên ngành", "toan-dien": "Chứng chỉ toàn diện" },
+    nhan: { "chu-de": "GIẤY CHỨNG NHẬN · CHỦ ĐỀ", nganh: "GIẤY CHỨNG NHẬN · CHUYÊN NGÀNH", "toan-dien": "GIẤY CHỨNG NHẬN · TOÀN DIỆN" },
+    ten: { "chu-de": "Giấy chứng nhận chủ đề", nganh: "Giấy chứng nhận chuyên ngành", "toan-dien": "Giấy chứng nhận toàn diện" },
     toanDien: "Mark học AI toàn diện", trao: "Chứng nhận bạn",
     mo: {
       "chu-de": (t, s) => "đã vượt qua bài kiểm tra “" + t + "” với " + s + " câu đúng.",
@@ -102,7 +102,7 @@ window.MHAI_CC = (function () {
     const tron = (x, y, w, h, r) => { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); };
     const vua = (txt, w0, s0, smin, font) => { let s = s0; c.font = font(s); while (c.measureText(txt).width > w0 && s > smin) { s -= 2; c.font = font(s); } return s; };
 
-    // Khung dải màu của dạng chứng chỉ, giấy trắng bên trong; chứng chỉ xuất sắc / toàn diện có viền vàng
+    // Khung dải màu của dạng chứng nhận, giấy trắng bên trong; chứng nhận xuất sắc / toàn diện có viền vàng
     c.clearRect(0, 0, W, H);
     const g = c.createLinearGradient(0, 0, W, H);
     g.addColorStop(0, o.mau[0]); g.addColorStop(1, o.mau[1]);
@@ -153,7 +153,7 @@ window.MHAI_CC = (function () {
     c.fillText(T.ngay, 340, yKy + 34);
     c.fillText(T.dongHanh, 840, yKy + 34);
     c.font = F(500, 22, '"JetBrains Mono", ui-monospace, monospace'); c.fillStyle = C.muted;
-    c.fillText(T.ma + " " + o.ma + " · markhocai.com/" + (EN ? "en/" : "") + "chung-chi.html", cx, 1018, 980);
+    c.fillText(T.ma + " " + o.ma + " · markhocai.com/" + (EN ? "en/" : "") + "chung-nhan.html", cx, 1018, 980);
 
     if (markBit) c.drawImage(markBit, W - 430, H - 470, 380, 359);
     // Huy hiệu tròn: vàng cho xuất sắc / ngành / toàn diện, trắng viền màu cho mức đạt
@@ -178,37 +178,39 @@ window.MHAI_CC = (function () {
   document.addEventListener("DOMContentLoaded", () => { if (document.getElementById("cc")) trangChungChi(API); });
   return API;
 
-  // ---------- Trang chung-chi.html ----------
+  // ---------- Trang chung-nhan.html ----------
   async function trangChungChi(A) {
     const S = EN ? {
       tenNhan: "Name on your certificates", tenGoi: "Your name", moKhoa: "Unlocked", chuaMo: "Locked",
       kt: (d, n) => "Quiz: best " + d + "/" + n, ktChua: "Quiz: not taken yet", ktCan: (k, n) => "need " + k + "/" + n,
       lt: (x, m) => "Learning path: " + x + "/" + m + " videos ticked off", lt7: (x, m) => "7-day path: " + x + "/" + m + " days",
       tao: "Make certificate", lamBai: "Take the quiz", moLt: "Open the path", mo7: "Open the 7-day path",
-      nhom: [["toan", "All-round certificate", "The big one: finish the 7-day path and pass all 4 general quizzes."],
-        ["nganh", "Field certificates", "Pass the field quiz and tick off every video in that field's learning path."],
-        ["chu-de", "Topic certificates", "Score 80% or more on any quiz. A perfect score gets the gold badge."],
-        ["bay", "7-day path certificate", "Finish all 7 days of the beginner path. You make this one on the 7-day path page."]],
+      nhom: [["toan", "All-round Certificate of Completion", "The big one: finish the 7-day path and pass all 4 general quizzes."],
+        ["nganh", "Field Certificates of Completion", "Pass the field quiz and tick off every video in that field's learning path."],
+        ["chu-de", "Topic Certificates of Completion", "Score 80% or more on any quiz. A perfect score gets the gold badge."],
+        ["bay", "7-day path Certificate of Completion", "Finish all 7 days of the beginner path. You make this one on the 7-day path page."]],
       bay: "Completed Mark học AI basics", taiPng: "Download PNG", inPdf: "Print or save as PDF", linkedin: "Add to LinkedIn", chepXm: "Copy verification link",
       canTen: "Type your name first, then press the button again.", daChep: "Verification link copied.", chepTay: "Copy this link: ",
       xmTot: (n, ngay) => "This link matches a certificate made on markhocai.com for " + n + " on " + ngay + ". Check that the code on the certificate is the same as the one below.",
       xmLoi: "This verification link is broken or incomplete. Ask the person to copy it again from their certificate page.",
-      xmMa: "Verification code: ", anh: (l, n) => l + " for " + n, dong: "Close", xem: "Preview",
+      xmMa: "Verification code: ", anh: (l, n) => l + " for " + n, dong: "Close", xem: "Preview", mau: "Sample: ",
+      mauChu: "Sample. Unlock it to get your name on it and download it.", goTen: "Type your name above to see it on the certificate.", xemTruoc: "Preview. Press “Download PNG” to save it.",
       cauHoi: n => n + " questions", lienQuan: "Field quiz"
     } : {
-      tenNhan: "Tên in trên chứng chỉ", tenGoi: "Tên của bạn", moKhoa: "Đã mở khóa", chuaMo: "Chưa mở khóa",
+      tenNhan: "Tên in trên chứng nhận", tenGoi: "Tên của bạn", moKhoa: "Đã mở khóa", chuaMo: "Chưa mở khóa",
       kt: (d, n) => "Bài kiểm tra: cao nhất " + d + "/" + n, ktChua: "Bài kiểm tra: chưa làm", ktCan: (k, n) => "cần " + k + "/" + n,
       lt: (x, m) => "Lộ trình: đã xem " + x + "/" + m + " video", lt7: (x, m) => "Lộ trình 7 ngày: " + x + "/" + m + " ngày",
-      tao: "Tạo chứng chỉ", lamBai: "Làm bài kiểm tra", moLt: "Mở lộ trình", mo7: "Mở Lộ trình 7 ngày",
-      nhom: [["toan", "Chứng chỉ toàn diện", "Chứng chỉ lớn nhất: xong Lộ trình 7 ngày và đạt cả 4 bài kiểm tra kiến thức chung."],
-        ["nganh", "Chứng chỉ chuyên ngành", "Đạt bài kiểm tra ngành và đánh dấu xem hết các video trong lộ trình ngành đó."],
-        ["chu-de", "Chứng chỉ chủ đề", "Đạt từ 80% một bộ câu hỏi bất kỳ. Đúng hết thì có huy hiệu vàng Xuất sắc."],
+      tao: "Tạo giấy chứng nhận", lamBai: "Làm bài kiểm tra", moLt: "Mở lộ trình", mo7: "Mở Lộ trình 7 ngày",
+      nhom: [["toan", "Giấy chứng nhận toàn diện", "Giấy chứng nhận lớn nhất: xong Lộ trình 7 ngày và đạt cả 4 bài kiểm tra kiến thức chung."],
+        ["nganh", "Giấy chứng nhận chuyên ngành", "Đạt bài kiểm tra ngành và đánh dấu xem hết các video trong lộ trình ngành đó."],
+        ["chu-de", "Giấy chứng nhận chủ đề", "Đạt từ 80% một bộ câu hỏi bất kỳ. Đúng hết thì có huy hiệu vàng Xuất sắc."],
         ["bay", "Giấy chứng nhận Lộ trình 7 ngày", "Xong cả 7 ngày của lộ trình cho người mới. Giấy này tạo ngay ở trang Lộ trình 7 ngày."]],
       bay: "Hoàn thành Mark học AI cơ bản", taiPng: "Tải ảnh PNG", inPdf: "In hoặc lưu PDF", linkedin: "Thêm vào LinkedIn", chepXm: "Chép link xác minh",
       canTen: "Bạn gõ tên trước rồi bấm lại nhé.", daChep: "Đã chép link xác minh.", chepTay: "Chép link này: ",
-      xmTot: (n, ngay) => "Link này khớp với một chứng chỉ tạo trên markhocai.com cho " + n + ", " + ngay.toLowerCase() + ". Bạn so mã trên giấy với mã bên dưới, trùng là đúng giấy này.",
-      xmLoi: "Link xác minh bị hỏng hoặc thiếu. Nhờ người gửi chép lại link từ trang chứng chỉ của họ.",
-      xmMa: "Mã xác minh: ", anh: (l, n) => l + " của " + n, dong: "Đóng", xem: "Xem trước",
+      xmTot: (n, ngay) => "Link này khớp với một giấy chứng nhận tạo trên markhocai.com cho " + n + ", " + ngay.toLowerCase() + ". Bạn so mã trên giấy với mã bên dưới, trùng là đúng giấy này.",
+      xmLoi: "Link xác minh bị hỏng hoặc thiếu. Nhờ người gửi chép lại link từ trang giấy chứng nhận của họ.",
+      xmMa: "Mã xác minh: ", anh: (l, n) => l + " của " + n, dong: "Đóng", xem: "Xem trước", mau: "Bản mẫu: ",
+      mauChu: "Bản mẫu. Mở khóa giấy này là có tên bạn và tải về được.", goTen: "Gõ tên ở trên để thấy tên bạn trên giấy.", xemTruoc: "Xem trước. Bấm “Tải ảnh PNG” để lưu về máy.",
       cauHoi: n => n + " câu", lienQuan: "Bài kiểm tra ngành"
     };
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -225,7 +227,7 @@ window.MHAI_CC = (function () {
       return [...set];
     };
 
-    // Trạng thái mọi chứng chỉ, tính lại mỗi lần vẽ (người học có thể làm bài ở tab khác)
+    // Trạng thái mọi chứng nhận, tính lại mỗi lần vẽ (người học có thể làm bài ở tab khác)
     function trangThai() {
       const kq = A.ketQua(), xem = new Set(A.nho.get(A.KHOA_XEM) || []), lt7 = A.nho.get(A.KHOA_7) || {}, so7 = (lt7.xong || []).length;
       const moCu = A.nho.get(A.KHOA_MO) || {};
@@ -241,7 +243,7 @@ window.MHAI_CC = (function () {
       const okCoBan = coBan.filter(b => A.datBo(kq[b.id])).length;
       ds.push({ key: "toan-dien", loai: "toan-dien", okCoBan, so7, mo: okCoBan === coBan.length && so7 >= 7 });
       ds.push({ key: "bay", loai: "bay", so7, mo: so7 >= 7 });
-      // Ngày cấp chứng chỉ ngành / toàn diện: ngày đầu tiên trang này thấy đủ điều kiện, giữ nguyên về sau
+      // Ngày cấp chứng nhận ngành / toàn diện: ngày đầu tiên trang này thấy đủ điều kiện, giữ nguyên về sau
       let doi = false;
       ds.forEach(d => { if (d.mo && (d.loai === "nganh" || d.loai === "toan-dien") && !moCu[d.key]) { moCu[d.key] = A.homNay(); doi = true; } });
       if (doi) A.nho.set(A.KHOA_MO, moCu);
@@ -249,7 +251,7 @@ window.MHAI_CC = (function () {
       return ds;
     }
 
-    // Nội dung in trên giấy cho một chứng chỉ đã mở khóa (hoặc bản mẫu)
+    // Nội dung in trên giấy cho một chứng nhận đã mở khóa (hoặc bản mẫu)
     function noiDung(d, ten) {
       if (d.loai === "chu-de") {
         const s = d.r.dung + "/" + d.r.tong, gioi = d.r.dung === d.r.tong, nh = d.bo.nhanh && LT.nhanh[d.bo.nhanh];
@@ -276,7 +278,7 @@ window.MHAI_CC = (function () {
       if (p.l === "toan-dien") return noiDung({ loai: "toan-dien", ngay: p.d }, p.n);
       return null;
     }
-    const urlXm = p => "https://markhocai.com/" + (EN ? "en/" : "") + "chung-chi.html?xm=" + A.maHoa(p);
+    const urlXm = p => "https://markhocai.com/" + (EN ? "en/" : "") + "chung-nhan.html?xm=" + A.maHoa(p);
 
     const goc0 = document.getElementById("cc");
     const inTen = document.getElementById("cc-ten");
@@ -311,44 +313,56 @@ window.MHAI_CC = (function () {
         tieuDe = S.bay; dongs = [S.lt7(Math.min(d.so7, 7), 7) + (d.so7 >= 7 ? " ✓" : "")];
         nut = '<a class="btn' + (d.mo ? " btn-yt" : "") + '" href="lo-trinh-7-ngay.html' + (d.mo ? "#chung-nhan" : "") + '">' + (d.mo ? S.tao : S.mo7) + "</a>";
       }
+      if (!d.mo && d.loai !== "bay") nut = '<button type="button" class="btn" data-tao="' + d.key + '">' + S.xem + "</button>" + nut;
       return '<li class="cc-the' + (d.mo ? " is-mo" : "") + '">' + tt + "<h3>" + tag + esc(tieuDe) + '</h3><ul class="cc-dk">' + dongs.map(x => "<li>" + x + "</li>").join("") + '</ul><p class="cc-nut">' + nut + "</p></li>";
     }
     function veDs() {
       const ds = trangThai();
       ds0.innerHTML = S.nhom.map(([k, ten, mo]) => {
         const muc = ds.filter(d => (k === "toan" ? d.loai === "toan-dien" : k === "bay" ? d.loai === "bay" : d.loai === k));
-        // Chứng chỉ đã mở khóa lên đầu nhóm
+        // Chứng nhận đã mở khóa lên đầu nhóm
         muc.sort((a, b) => (b.mo ? 1 : 0) - (a.mo ? 1 : 0));
         return '<section class="cc-nhom"><h2>' + esc(ten) + "</h2><p>" + esc(mo) + '</p><ul class="cc-luoi' + (muc.length === 1 ? " is-mot" : "") + '">' + muc.map(the).join("") + "</ul></section>";
       }).join("");
       return ds;
     }
 
-    // ----- Tạo chứng chỉ -----
+    // ----- Tạo chứng nhận -----
     const hop = document.getElementById("cc-tao"), cv = document.getElementById("cc-canvas"), loiEl = document.getElementById("cc-loi"), baoEl = document.getElementById("cc-bao");
+    const mauChu = document.getElementById("cc-mau-chu"), nuts = document.querySelector(".cc-nuts");
     let dangTao = null, henVe = 0, luot = 0, blobUrl = "";
+    // Chứng nhận chưa mở khóa vẫn xem trước được: bản mẫu điểm tối đa, chữ MẪU mờ, không có nút tải
+    function banMau(d) {
+      const n = d.bo ? d.bo.cau_hoi.length : 0;
+      return Object.assign({}, d, { r: d.r && A.datBo(d.r) ? d.r : { dung: n, tong: n }, ngay: A.homNay() });
+    }
     function veTao() {
-      const d = dangTao, ten = tenHien(), lan = ++luot;
+      const d = dangTao.mo ? dangTao : banMau(dangTao), ten = tenHien(), lan = ++luot;
+      mauChu.textContent = !dangTao.mo ? S.mauChu : !ten ? S.goTen : S.xemTruoc;
       clearTimeout(henVe);
       henVe = setTimeout(async () => {
         if (lan !== luot) return;
         const nd = noiDung(d, ten || S.tenGoi);
-        await A.ve(cv, Object.assign({ ten: ten || S.tenGoi, ngay: d.ngay, ma: A.maCua(nd.p), mauBan: !ten }, nd));
-        cv.setAttribute("aria-label", S.anh(A.T.ten[nd.loai] + ": " + nd.tieuDe, ten || S.tenGoi));
+        await A.ve(cv, Object.assign({ ten: ten || S.tenGoi, ngay: d.ngay, ma: A.maCua(nd.p), mauBan: !ten || !dangTao.mo }, nd));
+        cv.setAttribute("aria-label", (dangTao.mo ? "" : S.mau) + S.anh(A.T.ten[nd.loai] + ": " + nd.tieuDe, ten || S.tenGoi));
       }, lan === 1 ? 0 : 160);
     }
     function moTao(key, cuon) {
-      const d = trangThai().find(x => x.key === key && x.mo);
+      const d = trangThai().find(x => x.key === key && x.loai !== "bay");
       if (!d) return;
       dangTao = d; luot = 0;
-      document.getElementById("cc-tao-ten").textContent = A.T.ten[d.loai] + ": " + (d.loai === "chu-de" ? d.bo.ten : d.loai === "nganh" ? d.nh.ten : A.T.toanDien);
+      document.getElementById("cc-tao-ten").textContent = (d.mo ? "" : S.mau) + A.T.ten[d.loai] + (d.loai === "chu-de" ? ": " + d.bo.ten : d.loai === "nganh" ? ": " + d.nh.ten : "");
       loiEl.textContent = ""; baoEl.textContent = "";
+      nuts.hidden = !d.mo;
       hop.hidden = false;
       veTao();
-      if (cuon) hop.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-      history.replaceState(null, "", "?tao=" + key);
+      if (cuon) {
+        hop.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+        history.replaceState(null, "", "?tao=" + key);
+      }
     }
     async function banThat() {
+      if (!dangTao || !dangTao.mo) return null;
       const ten = tenHien();
       if (!ten) { loiEl.textContent = S.canTen; inTen.focus(); return null; }
       loiEl.textContent = "";
@@ -358,7 +372,7 @@ window.MHAI_CC = (function () {
       blobUrl = blob ? URL.createObjectURL(blob) : cv.toDataURL("image/png");
       return { nd, p, ma, url: blobUrl, ten };
     }
-    const tenFile = (x) => "chung-chi-mark-hoc-ai-" + (x.p.b || x.p.l) + ".png";
+    const tenFile = (x) => "chung-nhan-mark-hoc-ai-" + (x.p.b || x.p.l) + ".png";
     document.getElementById("cc-png").addEventListener("click", async () => {
       const x = await banThat(); if (!x) return;
       const a = document.createElement("a"); a.href = x.url; a.download = tenFile(x); document.body.appendChild(a); a.click(); a.remove();
@@ -411,6 +425,8 @@ window.MHAI_CC = (function () {
     veDs();
     window.addEventListener("pageshow", e => { if (e.persisted) veDs(); });
     goc0.dataset.san = "1";
+    // Luôn có một giấy xem trước ngay đầu trang: giấy đã mở khóa đầu tiên, chưa có thì bản mẫu giấy toàn diện
     if (q.get("tao")) moTao(q.get("tao"), true);
+    else if (!q.get("xm")) { const dau = trangThai().find(d => d.mo && d.loai !== "bay"); moTao(dau ? dau.key : "toan-dien", false); }
   }
 })();

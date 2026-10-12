@@ -27,7 +27,7 @@
     chu: ["Chào bạn, mình là Bit 👋 Mới học AI? Bấm vào mình nhé!", "Có 50 prompt mẫu miễn phí đó, bấm mình để tải."],
     bai: ["Cuối bài có mẹo \"Thử ngay\", thử luôn cho nhớ nhé!", "Gặp chữ lạ? Mình tra Từ điển AI giúp bạn."],
     "tu-dien": ["Gõ chữ cần tra vào ô tìm kiếm, ví dụ \"token\".", "Hiểu chữ rồi thì thử bài kiểm tra 10 câu nhé!"],
-    "kiem-tra": ["Chọn một bộ câu hỏi, cứ trả lời theo cảm giác, mình giải thích ngay.", "Đạt 80% là mở khóa chứng chỉ có tên bạn."],
+    "kiem-tra": ["Chọn một bộ câu hỏi, cứ trả lời theo cảm giác, mình giải thích ngay.", "Đạt 80% là mở khóa giấy chứng nhận có tên bạn."],
     "lo-trinh": ["Mỗi ngày một chút: 3 video, 1 việc, 1 câu hỏi. Bạn làm được mà!", "Xong đủ 7 ngày, mình giúp bạn tạo giấy chứng nhận."],
     sach: ["Sách miễn phí, không cần email. Bấm tải là xong!", "Bấm vào từng chương để xem bên trong có gì."],
     "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."]
