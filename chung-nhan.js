@@ -164,7 +164,17 @@ window.MHAI_CC = (function () {
     vua(o.huy[0], 140, 60, 28, s => F(800, s)); c.fillText(o.huy[0], hx, hy - 16);
     vua(o.huy[1], 150, 22, 14, s => F(800, s)); c.fillText(o.huy[1], hx, hy + 40);
 
+    // Bản mẫu để xám hẳn: nhìn là biết chưa mở khóa, bản thật mới có màu
+    function xam() {
+      const anh = c.getImageData(0, 0, W, H), p = anh.data;
+      for (let i = 0; i < p.length; i += 4) {
+        const y = Math.round(0.299 * p[i] + 0.587 * p[i + 1] + 0.114 * p[i + 2]);
+        p[i] = p[i + 1] = p[i + 2] = y;
+      }
+      c.putImageData(anh, 0, 0);
+    }
     if (o.mauBan) {
+      xam();
       c.save(); c.translate(W / 2, H / 2); c.rotate(-Math.PI / 9);
       c.font = F(800, 260); c.textAlign = "center"; c.textBaseline = "middle";
       c.fillStyle = "rgba(15, 23, 42, .07)"; c.fillText(T.mau, 0, 0);
