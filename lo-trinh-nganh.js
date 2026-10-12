@@ -42,7 +42,7 @@
     tiep: "Xem tiếp ›", doi: "Đổi lựa chọn", raMat: d => "Ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4),
     lamTheo: "Bài làm theo", sapRa: "Sắp ra mắt", danhDau: "Đánh dấu đã xem", daXemSo: so => "Đã xem video " + so,
     buoc: "Bước ", series: (t, n) => " · series " + t + ", " + n + " phần", choBan: "Lộ trình cho bạn", note: "Bấm ô vuông cạnh mỗi video để đánh dấu đã xem. Tiến độ lưu ngay trên trình duyệt này.",
-    chep: "Chép link lộ trình", khac: "Chọn ngành khác ›", ktNganh: "Làm bài kiểm tra ngành", ccNganh: "Chứng chỉ chuyên ngành", ghiCc: "Đánh dấu xem hết video và đạt bài kiểm tra ngành là nhận chứng chỉ chuyên ngành có tên bạn.", daChep: "Đã chép link. Dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để chia sẻ: ",
+    chep: "Chép link lộ trình", khac: "Chọn ngành khác ›", ktNganh: "Làm bài kiểm tra ngành", ccNganh: "Giấy chứng nhận chuyên ngành", ghiCc: "Đánh dấu xem hết video và đạt bài kiểm tra ngành là nhận giấy chứng nhận chuyên ngành có tên bạn.", daChep: "Đã chép link. Dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để chia sẻ: ",
     dem: (a, b) => "Đã xem " + a + "/" + b + " video", tieuDe: t => "Lộ trình " + t + " | Mark học AI", tieuDeNghe: t => "Lộ trình cho nghề " + t + " | Mark học AI",
     mailChuDe: n => "Gợi ý video cho nghề " + n, goiY: "Gợi ý chủ đề cho kênh ›",
     nen: ["Nền tảng cho mọi nghề", "Prompt 4 mảnh, AI bịa ở đâu, và dữ liệu nào không được dán vào AI."],
@@ -224,7 +224,7 @@
       kq.innerHTML = '<div class="ltn-dau"><img src="' + goc + 'assets/mark-a-ra-the.svg" alt="" width="110" height="104"><div class="ltn-bong"><p class="eyebrow">' + S.choBan + '</p><h2 id="ltn-ten">' + esc(tieuDe) +
         '</h2><p>' + esc(chao) + "</p>" + (ghiChu || "") + '</div></div><div class="ltn-tien"><b id="ltn-dem"></b><div class="bar" aria-hidden="true"><i id="ltn-thanh"></i></div>' +
         '<p class="course-note">' + S.note + '</p></div><ol class="ltn-buocs">' + buoc.map(buocHtml).join("") + "</ol>" +
-        (nhanhId ? '<div class="ltn-cc">' + ic("award") + '<p>' + S.ghiCc + '</p><p class="ltn-cc-nut"><a class="btn btn-yt" href="kiem-tra.html?bo=' + nhanhId + '">' + S.ktNganh + '</a><a class="btn" href="chung-chi.html">' + S.ccNganh + "</a></p></div>" : "") +
+        (nhanhId ? '<div class="ltn-cc">' + ic("award") + '<p>' + S.ghiCc + '</p><p class="ltn-cc-nut"><a class="btn btn-yt" href="kiem-tra.html?bo=' + nhanhId + '">' + S.ktNganh + '</a><a class="btn" href="chung-nhan.html">' + S.ccNganh + "</a></p></div>" : "") +
         '<div class="ltn-cuoi"><button type="button" class="btn" id="ltn-chia-se">' + ic("copy") + S.chep + '</button><a class="btn" href="#ltn-chon">' + S.khac + '</a></div><p class="ltn-chep" id="ltn-chep" role="status"></p>';
       const dem = () => {
         const n = tatCa.filter(s => daXem.has(s)).length;

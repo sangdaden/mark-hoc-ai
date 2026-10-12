@@ -58,8 +58,8 @@
     '<button type="button" class="nut-menu" aria-expanded="false">' + ic("menu") + '<span class="nhan">Menu</span></button>';
   top.appendChild(hop);
 
-  // Menu "Lộ trình ▾" gom Lộ trình theo ngành, Lộ trình 7 ngày và Chứng chỉ cho đầu trang khỏi tràn hàng (Sang 11/10/2026).
-  // index.html, lo-trinh-nganh.html và chung-chi.html (cả bản en/) viết sẵn <details class="nav-drop">; các trang khác (bài viết, từ điển...) của cả hai thứ tiếng được ghép ở đây.
+  // Menu "Lộ trình ▾" gom Lộ trình theo ngành, Lộ trình 7 ngày và Chứng nhận cho đầu trang khỏi tràn hàng (Sang 11/10/2026).
+  // index.html, lo-trinh-nganh.html và chung-nhan.html (cả bản en/) viết sẵn <details class="nav-drop">; các trang khác (bài viết, từ điển...) của cả hai thứ tiếng được ghép ở đây.
   const navTrang = top.querySelector(".top-links");
   const a7 = navTrang && navTrang.querySelector('a[href$="lo-trinh-7-ngay.html"]');
   if (a7 && !a7.closest(".nav-drop")) {
@@ -70,7 +70,7 @@
       '<div class="nav-drop-ds"><a href="' + truoc + 'lo-trinh-nganh.html">' + (EN ? "Path by field" : "Lộ trình theo ngành") + "</a></div>";
     a7.replaceWith(d);
     d.querySelector(".nav-drop-ds").appendChild(a7);
-    d.querySelector(".nav-drop-ds").insertAdjacentHTML("beforeend", '<a href="' + truoc + 'chung-chi.html">' + (EN ? "Certificates" : "Chứng chỉ") + "</a>");
+    d.querySelector(".nav-drop-ds").insertAdjacentHTML("beforeend", '<a href="' + truoc + 'chung-nhan.html">' + (EN ? "Certificates" : "Chứng nhận") + "</a>");
   }
   // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
   const dsDrop = top.querySelectorAll(".nav-drop");

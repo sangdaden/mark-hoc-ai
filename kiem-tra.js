@@ -1,6 +1,6 @@
 // Trang kiểm tra (kiem-tra.html, en/kiem-tra.html): chọn một bộ câu hỏi, trả lời từng câu, xem giải thích ngay.
 // Dữ liệu nằm sẵn trong trang (<script id="du-lieu">, do scripts/tao_bai_viet.py ghi từ data/bo-kiem-tra.json).
-// Câu "dung-sai" có hai nút Đúng/Sai; câu "chon" có 4 lựa chọn, xáo thứ tự mỗi lần làm. Điểm cao nhất lưu qua chung-chi.js để mở khóa chứng chỉ.
+// Câu "dung-sai" có hai nút Đúng/Sai; câu "chon" có 4 lựa chọn, xáo thứ tự mỗi lần làm. Điểm cao nhất lưu qua chung-nhan.js để mở khóa chứng nhận.
 (function () {
   const EN = document.documentElement.lang === "en", goc = EN ? "../" : "";
   const D = JSON.parse(document.getElementById("du-lieu").textContent);
@@ -32,9 +32,9 @@
       () => "Không sao, ai cũng bắt đầu từ đây. Xem các video bên dưới, mỗi video chỉ khoảng một phút."],
     xemLai: n => "Xem lại " + n + " câu chưa đúng", banChon: "Bạn chọn: ", dapAnDung: "Đáp án đúng: ",
     nenXem: "Nên xem tiếp", diTiep: "Đi tiếp cùng kênh", chiaSe: "Chia sẻ kết quả", lamLai: "Làm lại", boKhac: "Chọn bộ khác",
-    moKhoa: t => "Bạn đã mở khóa chứng chỉ “" + t + "”.", nhan: "Nhận chứng chỉ", canDat: (k, n) => "Đạt từ " + k + "/" + n + " câu để mở khóa chứng chỉ có tên bạn.",
-    nganhThem: "Muốn có chứng chỉ chuyên ngành, bạn đánh dấu xem xong các video trong lộ trình ngành này nữa nhé.", loTrinh: "Mở lộ trình ngành",
-    caoNhat: (d, n) => "Cao nhất " + d + "/" + n, coCc: "Đã có chứng chỉ",
+    moKhoa: t => "Bạn đã mở khóa giấy chứng nhận “" + t + "”.", nhan: "Nhận giấy chứng nhận", canDat: (k, n) => "Đạt từ " + k + "/" + n + " câu để mở khóa giấy chứng nhận có tên bạn.",
+    nganhThem: "Muốn có giấy chứng nhận chuyên ngành, bạn đánh dấu xem xong các video trong lộ trình ngành này nữa nhé.", loTrinh: "Mở lộ trình ngành",
+    caoNhat: (d, n) => "Cao nhất " + d + "/" + n, coCc: "Đã có chứng nhận",
     chiaSeChu: (d, n, t) => "Mình được " + d + "/" + n + " câu trong bài kiểm tra “" + t + "” của Mark học AI. Bạn được mấy câu?",
     daChep: "Đã chép link, dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để gửi bạn bè: "
   };
@@ -124,7 +124,7 @@
     let cc;
     if (dat) {
       cc = '<div class="kt-cc is-mo"><svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-award"/></svg><div><p><b>' + esc(S.moKhoa(CC.tenChungChi("chu-de", B))) + "</b>" +
-        (B.nhanh ? " " + S.nganhThem : "") + '</p><p class="kt-cc-nut"><a class="btn btn-yt" href="chung-chi.html?tao=chu-de.' + B.id + '">' + S.nhan + "</a>" +
+        (B.nhanh ? " " + S.nganhThem : "") + '</p><p class="kt-cc-nut"><a class="btn btn-yt" href="chung-nhan.html?tao=chu-de.' + B.id + '">' + S.nhan + "</a>" +
         (B.nhanh ? '<a class="btn" href="lo-trinh-nganh.html?ai=' + B.nhanh + '">' + S.loTrinh + "</a>" : "") + "</p></div></div>";
     } else {
       cc = '<div class="kt-cc"><svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-award"/></svg><p>' + S.canDat(canDat(n), n) + "</p></div>";
