@@ -27,3 +27,5 @@ Cập nhật 09/10/2026: thêm video 163–300 (137 video thường và tập đ
 5. `python3 scripts/tao_bai_viet.py /mnt/project-files/videos` để tạo lại bài viết hai thứ tiếng và `sitemap.xml`. Không có "CẢNH BÁO" là đủ bản dịch.
 
 Cập nhật 11/10/2026: lịch đăng giảm còn 2 video dọc mỗi ngày (10:00 và 18:00), theo đề xuất Sang duyệt ngày 10/10. Ngày mới lấy từ `/mnt/project-files/videos/lich-dang-moi/ke-hoach-doi-lich.json` (do `lap_lich_moi.py` tạo, ghép số video qua uuid bài Metricool trong `so-cai.json`). Video 300 giờ ra mắt 25/02/2027; các video nhánh 303–334 (chưa có trong file này) kéo tới 21/03/2027.
+
+Cập nhật 12/10/2026: xếp lại lịch 20/10–2/12 (Sang duyệt). Video 45–131 giữ nguyên tập hợp, chỉ đổi thứ tự: khung 18:00 là series đời thường (108–112, 101–107, 118–122, 123–128, 63–71), khung 10:00 là series kỹ thuật. 83 ngày ra mắt đổi theo `/mnt/project-files/videos/sap-lai-lich-2026-10/de-xuat.json`.
