@@ -237,6 +237,7 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
 .srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
 .srcs b { color: var(--ink); font-weight: 600; }
 .tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
@@ -283,6 +284,7 @@ svg .t-bad { fill: var(--bad); }
     <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><b>Drift into normal</b><span>Every flight that came home safely made the damage look a little more "acceptable".</span></div>
     <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>No villain</b><span>People followed the process. It was the process itself that had drifted, without anyone noticing.</span></div>
   </div>
+  <p class="nguon">Sources: Rogers Commission report (1986), chapters 4–6; flight counts from Dalal, Fowlkes and Hoadley (1989), table 1.</p>
 </section>
 
 <section id="luan-diem">
@@ -322,7 +324,7 @@ svg .t-bad { fill: var(--bad); }
         <text x="40" y="218">time scale: seconds after liftoff · air temperature 36°F (2°C), joint below 0°C</text>
       </svg>
     </div>
-    <figcaption><b>The shuttle almost made it.</b> Burnt slag plugged the gap for nearly a minute. The Commission believed the wind-shear events may have broken that temporary seal.</figcaption>
+    <figcaption><b>The shuttle almost made it.</b> Burnt slag plugged the gap for nearly a minute. The Commission believed the wind-shear events may have broken that temporary seal.<span class="nguon">Source: Rogers Commission report, chapter 3 (timeline) and chapter 4 (joint temperature).</span></figcaption>
   </figure>
   <div class="tl">
     <div><b>1977 · Pressure test</b><span>The two halves of the joint moved apart instead of pressing together. Thiokol considered it insignificant.</span></div>
@@ -333,6 +335,7 @@ svg .t-bad { fill: var(--bad); }
     <div class="hot"><b>27 Jan 1986, evening · The teleconference</b><span>Engineers advised against launch. After a 30-minute private caucus, Thiokol's leadership changed its recommendation.</span></div>
     <div class="hot"><b>28 Jan 1986, 11:38 · Launch</b><span>Ice covered the launch pad. There was no rule on surface temperature.</span></div>
   </div>
+  <p class="nguon">Source: Rogers Commission report, chapter 5 (the teleconference, pad ice), chapter 6 (1977 test, the memo, flight 51-C) and chapter 7.</p>
   <div class="parts">
     <div class="part"><span class="label">Episode 1</span><h3>What happened</h3><div class="chips"><span class="chip">73 seconds</span><span class="chip">2°C</span><span class="chip">7 people</span><span class="chip">the night before</span></div></div>
     <div class="part b2"><span class="label">Episode 2</span><h3>Why</h3><div class="chips"><span class="chip">O-ring</span><span class="chip">a chart missing the zeros</span><span class="chip">drift into normal</span><span class="chip">myths</span></div></div>
@@ -356,7 +359,7 @@ svg .t-bad { fill: var(--bad); }
           <circle cx="176" cy="88" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
           <circle cx="176" cy="112" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
           <path d="M20 100 h140" stroke="var(--night)" stroke-width="4"/><path d="M160 100 l-10 -6 v12 z" fill="var(--night)"/>
-          <text x="20" y="196" class="t-night t-bold">hot gas ~3,000°C, pressure ~60 atm</text>
+          <text x="20" y="196" class="t-night t-bold">hot gas from the motor</text>
           <text x="246" y="92" class="t-ink">← primary O-ring</text><text x="246" y="116" class="t-ink">← secondary O-ring</text>
           <rect x="370" y="24" width="340" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
           <text x="384" y="48" class="t-ink t-bold">1 · ignition: joint "rotates", gap opens</text>
@@ -367,7 +370,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="384" y="184" class="t-day t-bold">3 · cold: rubber stiff, slow → leak</text>
         </svg>
       </div>
-      <figcaption><b>The O-rings were not designed to erode.</b> Feynman wrote: "Erosion was a clue that something was wrong". The Commission called the root cause "a faulty design unacceptably sensitive to a number of factors": temperature, dimensions, materials and reuse.</figcaption>
+      <figcaption><b>The O-rings were not designed to erode.</b> Feynman wrote: "Erosion was a clue that something was wrong". The Commission called the root cause "a faulty design unacceptably sensitive to a number of factors": temperature, dimensions, materials and reuse.<span class="nguon">Sources: Rogers Commission report, chapters 4 and 6 (0.052-inch ≈ 1.3 mm gap in the 1977 test); Feynman, Appendix F.</span></figcaption>
     </figure>
   </div>
 
@@ -400,7 +403,7 @@ svg .t-bad { fill: var(--bad); }
 <circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
         </svg>
       </div>
-      <figcaption><b>The view the night before: only the flights with problems.</b> The Commission wrote that, seen this way, there "is nothing irregular" in the distribution over temperature.</figcaption>
+      <figcaption><b>The view the night before: only the flights with problems.</b> The Commission wrote that, seen this way, there "is nothing irregular" in the distribution over temperature.<span class="nguon">Sources: Rogers Commission report, chapter 6, figure 6; per-flight data: Dalal, Fowlkes and Hoadley (1989), table 1.</span></figcaption>
     </figure>
     <figure>
       <div class="svgbox">
@@ -449,7 +452,7 @@ svg .t-bad { fill: var(--bad); }
 <circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
         </svg>
       </div>
-      <figcaption><b>Add the flights without damage, and the pattern appears.</b> Data: Dalal, Fowlkes and Hoadley (1989), table 1. Their model estimated at least a 13% chance of catastrophic O-ring failure at 31°F; postponing to 60°F cut it to about 2%. This is an analysis done after the accident, not something on the table that night.</figcaption>
+      <figcaption><b>Add the flights without damage, and the pattern appears.</b> Data: Dalal, Fowlkes and Hoadley (1989), table 1. Their model estimated at least a 13% chance of catastrophic O-ring failure at 31°F; postponing to 60°F cut it to about 2%. This is an analysis done after the accident, not something on the table that night.<span class="nguon">Sources: Dalal, Fowlkes and Hoadley, JASA 84(408), 1989, table 1 and p. 957; Rogers Commission report, chapter 6, figure 7. The 4 of 4 and 3 of 19 counts come from Dalal's table; the Rogers Commission says "three … out of twenty" flights at 66°F or above. Launch-day joint temperature: 31°F per Dalal, 28 ± 5°F per the Rogers Commission.</span></figcaption>
     </figure>
   </div>
 
@@ -482,7 +485,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="20" y="218" class="t-ink t-bold">to do so. This is in total reverse to what the position usually is."</text>
         </svg>
       </div>
-      <figcaption><b>No one invited a safety representative to the meeting</b> (Rogers, chapter 7). The Commission concluded that Thiokol's management reversed its position, contrary to its own engineers, "to accommodate a major customer".</figcaption>
+      <figcaption><b>No one invited a safety representative to the meeting</b> (Rogers, chapter 7). The Commission concluded that Thiokol's management reversed its position, contrary to its own engineers, "to accommodate a major customer".<span class="nguon">Source: Rogers Commission report, chapter 5 (times, quotes, Boisjoly testimony) and chapter 7.</span></figcaption>
     </figure>
   </div>
 
@@ -506,11 +509,11 @@ svg .t-bad { fill: var(--bad); }
           </g>
         </svg>
       </div>
-      <figcaption><b>Each step is only slightly higher than the one before.</b> Vaughan's definition: "Behaviour that outsiders see as objectively deviant can become normal and acceptable to people inside the organisation." She rejects the reading that managers knowingly traded lives for the flight schedule.</figcaption>
+      <figcaption><b>Each step is only slightly higher than the one before.</b> Vaughan's definition: "Behaviour that outsiders see as objectively deviant can become normal and acceptable to people inside the organisation." She rejects the reading that managers knowingly traded lives for the flight schedule.<span class="nguon">Sources: milestones and the 0.090-inch erosion limit from the Rogers Commission report, chapter 6; the concept from Vaughan (1996, 2005).</span></figcaption>
     </figure>
     <div class="fmap">
       <div class="fcol"><h3><span class="dot"></span>Normalization</h3><span class="muted">Every safe return was taken as evidence of safety. Feynman: when playing Russian roulette, the fact that the first shot got off safely is little comfort for the next.</span></div>
-      <div class="fcol rem"><h3><span class="dot"></span>Culture of production</h3><span class="muted">NASA planned 24 flights a year. 1986 had 15 flights on the schedule; Challenger had to borrow 45 parts from other orbiters.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Culture of production</h3><span class="muted">NASA planned 24 flights a year. 1986 had 15 flights on the schedule; Challenger had to borrow 45 parts from other orbiters (Rogers, chapter 8).</span></div>
       <div class="fcol body"><h3><span class="dot"></span>Structural secrecy</h3><span class="muted">No one was hiding anything. Information was filtered at every level, so the top could not see how serious it was.</span></div>
     </div>
   </div>
@@ -529,7 +532,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="190" y="154" text-anchor="end" class="t-ink">NASA management</text><rect x="200" y="142" width="490" height="18" fill="var(--night)" fill-opacity=".7"/><text x="684" y="135" text-anchor="end" class="t-night t-bold">1/100,000</text>
         </svg>
       </div>
-      <figcaption><b>"What is the cause of management's fantastic faith in the machinery?"</b> Feynman asked. A figure of 1/100,000 means launching every day for 300 years before losing one vehicle. In reality: Challenger lost in 1986 and Columbia in 2003, in 135 flights.</figcaption>
+      <figcaption><b>"What is the cause of management's fantastic faith in the machinery?"</b> Feynman asked. A figure of 1/100,000 means launching every day for 300 years before losing one vehicle. In reality: Challenger lost in 1986 and Columbia in 2003, in 135 flights.<span class="nguon">Sources: Feynman, Appendix F, Rogers Commission report (the 1/25, 1/100 and 1/100,000 estimates and the 300-year example); 2 vehicles lost in 135 flights, 1981–2011: NASA.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -558,6 +561,7 @@ svg .t-bad { fill: var(--bad); }
 
 <section id="danh-gia">
   <div class="sec-head"><span class="label">Part 5</span><h2>Assessing the case</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 8, not figures from a study.</p>
   <div class="scores">
     <div class="score"><span>Avoidable</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
     <div class="score"><span>Prior warnings</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
@@ -610,7 +614,7 @@ svg .t-bad { fill: var(--bad); }
     <div><b>Richard Feynman, <i>What Do You Care What Other People Think?</i> (1988)</b><span class="muted">The second half of the book is Feynman's memoir of the Rogers Commission, as easy to read as a story.</span></div>
     <div><b>Diane Vaughan, <i>The Challenger Launch Decision</i> (1996)</b><span class="muted">The book that coined "normalization of deviance". Long, but it is the original work.</span></div>
     <div><b>Edward Tufte, <i>Visual Explanations</i> (1997), and the rebuttal by Robison, Boisjoly et al. (2002)</b><span class="muted">Read both to see a real debate about data.</span></div>
-    <div><b>Anatomy of a Disaster #02: Mars Climate Orbiter (1999)</b><span class="muted">A US$125 million spacecraft lost because two teams used two different units of measurement.</span></div>
+    <div><b>Anatomy of a Disaster #02: Mars Climate Orbiter (1999)</b><span class="muted">A spacecraft of about US$125 million (per NASA) lost because two teams used two different units of measurement.</span></div>
   </div>
 </section>
 
