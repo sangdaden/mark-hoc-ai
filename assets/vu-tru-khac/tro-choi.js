@@ -190,12 +190,17 @@
   }
 
   // ---------- Khuôn 3: kéo thả vào ngăn ----------
+  // Thẻ đặt vào ngăn rồi vẫn đổi được: kéo hoặc chạm sang ngăn khác, hay về hàng thẻ ban đầu. Chỉ chấm khi bấm "Kiểm tra" (bật khi đã xếp hết).
   function phanLoai(g, t) {
     var s = khung(g, t);
     var dong = tao("div", "tc-dong");
+    dong.setAttribute("aria-label", en ? "Unsorted claims" : "Các câu chưa xếp");
+    dong.tabIndex = 0; dong.setAttribute("role", "button");
     var ngan = tao("div", "tc-ngan");
     var ket = tao("p", "tc-dap tc-ket"); ket.hidden = true;
-    var chon = null, xong = 0, dung = 0;
+    var kiem = nut(t.nut_kiem || (en ? "Check answers" : "Kiểm tra"), true);
+    var hangKiem = tao("div", "tc-hang"); hangKiem.appendChild(kiem);
+    var chon = null, xong = false;
     var cacNgan = Object.keys(t.ngan).map(function (k) {
       var n = tao("div", "tc-o-ngan tc-k-" + k);
       n.dataset.k = k; n.tabIndex = 0; n.setAttribute("role", "button");
@@ -203,6 +208,7 @@
       ngan.appendChild(n);
       return n;
     });
+    var dich = cacNgan.concat([dong]);   // nơi thả được: ba ngăn và hàng thẻ ban đầu
     // Xáo thứ tự để không đoán được nhãn theo vị trí
     var the = g.the.slice();
     for (var j = the.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), tam = the[j]; the[j] = the[r]; the[r] = tam; }
@@ -213,55 +219,90 @@
       e.dataset.k = th.k; e.dataset.ly = x[1];
       dong.appendChild(e);
     });
-    function boChon() { dong.querySelectorAll(".tc-the").forEach(function (x) { x.classList.remove("tc-dang"); x.setAttribute("aria-pressed", "false"); }); }
+    function capNhat() {
+      var con = dong.querySelectorAll(".tc-the").length;
+      kiem.disabled = con > 0;
+      dong.classList.toggle("tc-trong", con === 0);
+    }
+    function boChon() {
+      s.querySelectorAll(".tc-the").forEach(function (x) { x.classList.remove("tc-dang"); x.setAttribute("aria-pressed", "false"); });
+      chon = null; s.classList.remove("tc-dang-chon");
+    }
     function tha(e, n) {
-      if (!e || e.dataset.xong) return;
-      e.dataset.xong = 1; boChon(); chon = null;
-      var ok = e.dataset.k === n.dataset.k; xong++; if (ok) dung++;
-      e.classList.add(ok ? "tc-dung" : "tc-sai");
-      e.removeAttribute("role"); e.removeAttribute("aria-pressed"); e.tabIndex = -1;
-      e.appendChild(tao("small", "", (ok ? t.dung + " " : t.dap_an + " " + t.ngan[e.dataset.k] + ". ") + e.dataset.ly));
-      n.appendChild(e);
-      if (xong === g.the.length) { ket.textContent = dien(t.ket, { d: dung, n: g.the.length }); ket.hidden = false; }
+      if (!e || xong || !n) return;
+      boChon();
+      if (e.parentNode !== n) n.appendChild(e);
+      capNhat();
     }
     function bam(e) {
-      if (!e || e.dataset.xong) return;
-      var lai = e === chon; boChon(); chon = lai ? null : e;
-      if (chon) { e.classList.add("tc-dang"); e.setAttribute("aria-pressed", "true"); }
+      if (!e || xong) return;
+      var lai = e === chon; boChon();
+      if (!lai) { chon = e; e.classList.add("tc-dang"); e.setAttribute("aria-pressed", "true"); s.classList.add("tc-dang-chon"); }
     }
-    dong.addEventListener("click", function (ev) { if (!keo) bam(ev.target.closest(".tc-the")); });
-    dong.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); bam(ev.target.closest(".tc-the")); } });
-    cacNgan.forEach(function (n) {
-      n.addEventListener("click", function () { if (chon) tha(chon, n); });
-      n.addEventListener("keydown", function (ev) { if ((ev.key === "Enter" || ev.key === " ") && chon) { ev.preventDefault(); tha(chon, n); } });
+    kiem.onclick = function () {
+      if (xong) return;
+      xong = true; boChon();
+      var dung = 0;
+      cacNgan.forEach(function (n) {
+        n.querySelectorAll(".tc-the").forEach(function (e) {
+          var ok = e.dataset.k === n.dataset.k; if (ok) dung++;
+          e.classList.add(ok ? "tc-dung" : "tc-sai");
+          e.removeAttribute("role"); e.removeAttribute("aria-pressed"); e.tabIndex = -1;
+          e.appendChild(tao("small", "", (ok ? t.dung + " " : t.dap_an + " " + t.ngan[e.dataset.k] + ". ") + e.dataset.ly));
+        });
+        n.removeAttribute("role"); n.tabIndex = -1;
+      });
+      dong.removeAttribute("role"); dong.tabIndex = -1;
+      s.classList.add("tc-xong");
+      hangKiem.hidden = true;
+      ket.textContent = dien(t.ket, { d: dung, n: g.the.length }); ket.hidden = false;
+    };
+    // Chạm hoặc Enter: lần đầu chọn thẻ, lần sau chạm vào ngăn khác (hay hàng thẻ ban đầu) để chuyển thẻ đó sang.
+    function chamVao(ev) {
+      var e = ev.target.closest(".tc-the"), n = ev.target.closest(".tc-o-ngan, .tc-dong");
+      if (chon && n && n !== chon.parentNode) { tha(chon, n); return true; }
+      if (e) { bam(e); return true; }
+      return false;
+    }
+    s.addEventListener("click", function (ev) { if (!keo && !xong) chamVao(ev); });
+    s.addEventListener("keydown", function (ev) {
+      if (xong || (ev.key !== "Enter" && ev.key !== " ")) return;
+      if (chamVao(ev)) ev.preventDefault();
     });
     // Kéo bằng chuột hoặc ngón tay: chỉ thành "kéo" khi đã di quá 8px, dưới mức đó là chạm để chọn
     var dang = null, bong = null, x0 = 0, y0 = 0, keo = false;
-    dong.addEventListener("pointerdown", function (ev) {
+    s.addEventListener("pointerdown", function (ev) {
       var e = ev.target.closest(".tc-the");
-      if (!e || e.dataset.xong || ev.button > 0) return;
+      if (!e || xong || ev.button > 0) return;
       dang = e; x0 = ev.clientX; y0 = ev.clientY; keo = false;
     });
+    function tren(ev) {
+      var thay = null;
+      dich.forEach(function (n) {
+        var r = n.getBoundingClientRect();
+        var o = ev.clientX > r.left && ev.clientX < r.right && ev.clientY > r.top && ev.clientY < r.bottom;
+        n.classList.toggle("tc-tren", o); if (o) thay = n;
+      });
+      return thay;
+    }
     addEventListener("pointermove", function (ev) {
       if (!dang) return;
       if (!keo && Math.abs(ev.clientX - x0) + Math.abs(ev.clientY - y0) < 8) return;
       if (!keo) {
-        keo = true; bong = dang.cloneNode(true); bong.classList.add("tc-bong");
+        keo = true; boChon(); bong = dang.cloneNode(true); bong.classList.add("tc-bong");
         bong.style.width = dang.offsetWidth + "px"; document.body.appendChild(bong); dang.classList.add("tc-mo");
+        s.classList.add("tc-dang-keo");
       }
       ev.preventDefault();
       bong.style.left = ev.clientX - 24 + "px"; bong.style.top = ev.clientY - 18 + "px";
-      cacNgan.forEach(function (n) {
-        var r = n.getBoundingClientRect();
-        n.classList.toggle("tc-tren", ev.clientX > r.left && ev.clientX < r.right && ev.clientY > r.top && ev.clientY < r.bottom);
-      });
+      tren(ev);
     }, { passive: false });
-    function het() {
+    function het(ev) {
       if (!dang) return;
       if (keo) {
-        var n = cacNgan.filter(function (x) { return x.classList.contains("tc-tren"); })[0];
-        cacNgan.forEach(function (x) { x.classList.remove("tc-tren"); });
-        bong.remove(); dang.classList.remove("tc-mo");
+        var n = ev && ev.type === "pointerup" ? tren(ev) : null;
+        dich.forEach(function (x) { x.classList.remove("tc-tren"); });
+        bong.remove(); dang.classList.remove("tc-mo"); s.classList.remove("tc-dang-keo");
         if (n) tha(dang, n);
         setTimeout(function () { keo = false; }, 0);
       }
@@ -269,7 +310,8 @@
     }
     addEventListener("pointerup", het);
     addEventListener("pointercancel", het);
-    s.appendChild(dong); s.appendChild(ngan); s.appendChild(ket);
+    s.appendChild(dong); s.appendChild(ngan); s.appendChild(hangKiem); s.appendChild(ket);
+    capNhat();
     chanNguon(s, t);
     return s;
   }

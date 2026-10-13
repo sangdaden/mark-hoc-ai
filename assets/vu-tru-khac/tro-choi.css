@@ -72,6 +72,14 @@
 .tc-o-ngan > b { font-size: .9rem; }
 .tc-k-v > b { color: var(--tc-dung); } .tc-k-t > b { color: var(--tc-than); } .tc-k-s > b { color: var(--tc-sai); }
 .tc-o-ngan.tc-tren { border-color: var(--cam); background: var(--grid); }
+/* Thẻ đã xếp vẫn đổi được ngăn hoặc kéo về hàng ban đầu cho tới khi bấm Kiểm tra */
+.tc-dong { border-radius: 12px; }
+.tc-dong.tc-trong { min-height: 0; padding: 0; border: 0; }
+.tc-dang-chon .tc-dong.tc-trong, .tc-dang-keo .tc-dong.tc-trong { min-height: 48px; padding: 8px; border: 2px dashed var(--rule); }
+.tc-dang-chon .tc-dong.tc-trong::before, .tc-dang-keo .tc-dong.tc-trong::before { content: attr(aria-label); color: var(--muted); font-size: .85rem; align-self: center; }
+.tc-dong.tc-tren { outline: 2px dashed var(--cam); outline-offset: 4px; background: var(--grid); }
+.tc-dang-chon .tc-o-ngan { border-color: var(--muted); }
+.tc-xong .tc-o-ngan, .tc-xong .tc-the { cursor: default; }
 
 @media (prefers-reduced-motion: no-preference) {
   .tc-banh svg { transition: transform 2.4s cubic-bezier(.15, .8, .2, 1); }
