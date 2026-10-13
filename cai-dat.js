@@ -41,7 +41,8 @@
   let doiNgu = "", icGoc = "";
   try { icGoc = new URL(".", me ? me.src : location.href).href; } catch (e) {}
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + icGoc + 'assets/icons.svg#i-' + n + '"/></svg>';
-  try {
+  // Trang chỉ có bản tiếng Việt (<html data-chi-vi>, như vu-tru-khac.html) thì không hiện nút EN
+  if (!document.documentElement.hasAttribute("data-chi-vi")) try {
     const goc = new URL(".", me ? me.src : location.href);
     const duong = location.pathname;
     if (duong.indexOf(goc.pathname) === 0) {
