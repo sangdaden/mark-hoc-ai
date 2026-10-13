@@ -481,6 +481,22 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
   text-decoration: none; cursor: pointer; }
 .top-tools button:hover, .top-tools a:hover { background: rgba(255, 255, 255, .26); }
 .top-tools button:focus-visible, .top-tools a:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
+/* Nút Vũ Trụ Khác cạnh nút ngôn ngữ (cai-dat.js): cùng dáng viên thuốc, nền đêm navy, viền cam vàng của nhận diện góc sách */
+.top-tools a.nut-vtk { background: rgba(15, 23, 42, .55); border-color: #FBBF24; margin-right: 6px; }
+.top-tools a.nut-vtk:hover, .top-tools a.nut-vtk[aria-current] { background: #0F172A; color: #FDE047; }
+.nut-vtk img { width: 20px; height: 20px; display: block; flex: none; }
+/* Hàng đầu trang (.top, rộng tối đa 1080px) đã kín nên trên màn rộng nút nằm ngoài hàng, ở khoảng trống lề phải (chỗ Sang khoanh):
+   từ 1480px có cả chữ, 1240–1479px chỉ còn vòng tròn biểu tượng. Hẹp hơn thì vào trong hàng dạng tròn; 761–1180px hàng không còn chỗ
+   nên ẩn (vẫn có nút ở chân trang); điện thoại thì nằm cuối menu. Chữ đầy đủ luôn có trong title và nhãn đọc màn hình */
+.top-tools a.nut-vtk .nhan { white-space: nowrap; }
+@media (max-width: 1479px) { .top-tools a.nut-vtk { width: 34px; padding: 0; justify-content: center; } .top-tools a.nut-vtk .nhan { display: none; } }
+@media (min-width: 1240px) { .top { position: relative; }
+  .top-tools a.nut-vtk { position: absolute; left: calc(100% + 20px); top: 50%; transform: translateY(-50%); margin: 0; } }
+@media (min-width: 761px) and (max-width: 1180px) { .top-tools a.nut-vtk { display: none; } }
+.top-links a.nav-vtk { display: none; }
+@media (max-width: 760px) { .top-tools a.nut-vtk { display: none; }
+  .band .top-links a.nav-vtk { display: inline-flex; align-items: center; gap: 10px; margin-top: 4px; border: 1.5px solid #FBBF24; background: rgba(15, 23, 42, .45); }
+  .nav-vtk img { width: 22px; height: 22px; } }
 
 /* Bản tiếng Anh (en/): ghi chú "video bằng tiếng Việt" */
 .lang-note { font: 500 13.5px/1.4 var(--f-body); color: var(--muted); }
