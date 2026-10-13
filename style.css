@@ -171,9 +171,6 @@ h2 { margin: 0; font: 800 clamp(26px, 3.4vw, 34px)/1.15 var(--f-display); letter
 /* "Bắt đầu từ đây": bản đồ 7 vùng của kênh và lộ trình 3 bước cho người mới (link trong bio trỏ về #bat-dau) */
 .band .top-links a.nav-start { color: #0F172A; background: #FACC15; padding: 6px 12px; border-radius: 999px; font-weight: 700; margin-block: -6px; }
 .band .top-links a.nav-start:hover { color: #0F172A; background: #FDE047; }
-/* "Mark ở vũ trụ khác": góc đọc sách ngoài AI (vu-tru-khac.html), viền tím như cổng sang vũ trụ khác */
-.band .top-links a.nav-vtk { padding: 4px 11px; border: 2px solid #C4B5FD; border-radius: 999px; margin-block: -4px; }
-.band .top-links a.nav-vtk:hover { color: #fff; background: rgba(196, 181, 253, .22); }
 .start { padding-block: 48px 8px; scroll-margin-top: 12px; }
 .start-head { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; align-items: center; }
 .start-art { width: 150px; }
@@ -514,7 +511,6 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
   .band .top-links a { padding: 11px 12px; border-radius: 10px; font-size: 16px; }
   .band .top-links a:hover { background: rgba(255, 255, 255, .12); }
   .band .top-links a.nav-start { margin: 0 0 4px; align-self: flex-start; }
-  .band .top-links a.nav-vtk { margin: 0; border-radius: 10px; }
 }
 
 /* ===== Trang chủ: lời mời Lộ trình 7 ngày (trong #lo-trinh) và khối "Sách miễn phí" ===== */
@@ -1225,6 +1221,10 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .pl-mark.is-di { transition: none; } .pl-boss-hinh.is-trung { animation: none; } }
 
 /* ===== Mark ở vũ trụ khác (vu-tru-khac.html): góc đọc sách ngoài AI, thẻ sách viền tím ===== */
+/* Lối vào cố ý kín đáo: một icon quỹ đạo nhỏ cuối chân trang (Sang 13/10); Bit thỉnh thoảng mới gợi ý (bit-tro-ly.js) */
+.foot-copy a.foot-vtk { display: inline-flex; vertical-align: middle; opacity: .7; text-decoration: none; }
+.foot-copy a.foot-vtk:hover, .foot-copy a.foot-vtk:focus-visible { opacity: 1; }
+.foot-copy a.foot-vtk .ic { width: 15px; height: 15px; }
 .vtk { padding: 32px 24px 56px; }
 .vtk-h { font: 800 24px/1.2 var(--f-display); margin: 0 0 14px; }
 .vtk-ds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
