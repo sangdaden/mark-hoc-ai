@@ -9,6 +9,9 @@
   const hinh = ten => ten === "dang-noi" ? goc + "assets/mascot/bit-dang-noi" + (giamCD ? "-tinh" : "") + ".webp" : goc + "assets/bit-" + ten + ".svg";
   const duong = location.pathname;
   const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : /vu-tru-khac/.test(duong) ? "vtk" : "chu";
+  // Góc "Vũ Trụ Khác" không có AI nên Bit ngủ (Sang 13/10): mặt nhắm mắt, không tự nói, không đổi mặt khi rê chuột;
+  // bấm vào thì Bit nói mớ một câu, bấm câu đó là về Mark học AI
+  const ngu = trang === "vtk", MAT = ngu ? "ngu" : "vui";
   const nho = {
     get(k) { try { return sessionStorage.getItem("bit-" + k); } catch (e) { return null; } },
     set(k, v) { try { sessionStorage.setItem("bit-" + k, v); } catch (e) {} }
@@ -22,8 +25,7 @@
     "kiem-tra": ["Pick a quiz and go with your gut. I'll explain each answer right away.", "Score 80% and you unlock a certificate with your name."],
     "lo-trinh": ["One day at a time: 3 videos, 1 task, 1 question. You've got this!", "Finish all 7 days and I'll help you make a certificate."],
     sach: ["The book is free, no email needed. Just click download!", "Tap a chapter to see what's inside."],
-    "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."],
-    vtk: ["In this universe Mark reads books instead of studying AI. Pick one to read!", "Each write-up rates the evidence: what holds up and what has been criticized."]
+    "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."]
   } : {
     chu: ["Chào bạn, mình là Bit 👋 Mới học AI? Bấm vào mình nhé!", "Có 50 prompt mẫu miễn phí đó, bấm mình để tải."],
     bai: ["Cuối bài có mẹo \"Thử ngay\", thử luôn cho nhớ nhé!", "Gặp chữ lạ? Mình tra Từ điển AI giúp bạn."],
@@ -31,8 +33,7 @@
     "kiem-tra": ["Chọn một bộ câu hỏi, cứ trả lời theo cảm giác, mình giải thích ngay.", "Đạt 80% là mở khóa giấy chứng nhận có tên bạn."],
     "lo-trinh": ["Mỗi ngày một chút: 3 video, 1 việc, 1 câu hỏi. Bạn làm được mà!", "Xong đủ 7 ngày, mình giúp bạn tạo giấy chứng nhận."],
     sach: ["Sách miễn phí, không cần email. Bấm tải là xong!", "Bấm vào từng chương để xem bên trong có gì."],
-    "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."],
-    vtk: ["Ở vũ trụ này Mark không học AI mà đọc sách. Bấm một cuốn để đọc nhé!", "Mỗi bài có phần dẫn chứng: chỗ nào vững, chỗ nào bị phê bình."]
+    "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."]
   })[trang] || [];
   // Thỉnh thoảng (khoảng 1/6 phiên, tối đa một lần mỗi phiên) Bit rủ ghé góc đọc sách "Vũ Trụ Khác";
   // lối vào chính là nút ở chân trang (Sang 13/10). Bấm bóng thoại này là sang trang đó.
@@ -97,7 +98,7 @@
     menu.map(m => '<li><a href="' + m[2] + '"' + (/\.pdf$/.test(m[2]) ? " download" : "") + '>' + ic(m[0]) + esc(m[1]) + "</a></li>").join("") +
     '</ul><div class="bit-meo"><b>' + ic("lightbulb") + T.meo + '</b><p></p><button type="button" class="bit-meo-khac">' + T.khac + '</button></div>' +
     '<div class="bit-kenh" hidden><b>' + T.kenh + "</b></div></div>" +
-    '<button class="bit-nut" type="button" aria-label="' + T.mo + '" aria-expanded="false" aria-controls="bit-menu"><img src="' + hinh("vui") + '" alt="" width="64" height="77"></button>';
+    '<button class="bit-nut" type="button" aria-label="' + T.mo + '" aria-expanded="false" aria-controls="bit-menu"><img src="' + hinh(MAT) + '" alt="" width="64" height="77"></button>';
   document.body.appendChild(hop);
 
   // Hàng biểu tượng nền tảng cuối menu (link lấy từ data/kenh.json, icon ở assets/nen-tang.svg)
@@ -113,17 +114,17 @@
   const nut = hop.querySelector(".bit-nut"), anh = nut.querySelector("img");
   const noi = hop.querySelector(".bit-noi"), noiChu = noi.querySelector("p");
   const bang = hop.querySelector(".bit-menu"), meoChu = hop.querySelector(".bit-meo p");
-  let mat = "vui", soLanNoi = 0, henGio = 0;
+  let mat = MAT, soLanNoi = 0, henGio = 0;
   const doiMat = t => { if (t !== mat) { mat = t; anh.src = hinh(t); } };
   const meoMoi = () => { meoChu.textContent = meo[Math.floor(Math.random() * meo.length)]; };
 
   function noiCau(cau) {
-    if (!bang.hidden || nho.get("im")) return;
+    if (!bang.hidden || (nho.get("im") && !ngu)) return;
     noiChu.textContent = cau;
     noi.hidden = false;
     hop.classList.remove("bit-lui");
     dangNoi();
-    doiMat("dang-noi");
+    doiMat(ngu ? "ngu" : "dang-noi");
     hop.classList.add("bit-nay");
     setTimeout(() => hop.classList.remove("bit-nay"), 700);
     clearTimeout(henGio);
@@ -131,26 +132,30 @@
   }
   // Bóng thoại / menu mọc lên trên Bit; nút Đầu trang ở hàng dưới bên trái Bit nên không bị che (style.css)
   function dangNoi() { document.body.classList.toggle("bit-dang-noi", !noi.hidden || !bang.hidden); }
-  function anNoi() { noi.hidden = true; if (bang.hidden) doiMat("vui"); dangNoi(); }
+  function anNoi() { noi.hidden = true; if (bang.hidden) doiMat(MAT); dangNoi(); }
   function moMenu(mo) {
     bang.hidden = !mo;
     nut.setAttribute("aria-expanded", mo);
     if (mo) { anNoi(); meoMoi(); doiMat("giai-thich"); const a = bang.querySelector("a"); if (a) a.focus({ preventScroll: true }); }
-    else doiMat("vui");
+    else doiMat(MAT);
     dangNoi();
   }
 
-  nut.addEventListener("click", () => moMenu(bang.hidden));
+  const MO = EN ? "Zzz… Bit is asleep. There's no AI in this universe, Mark just reads. Tap here to go back to Mark học AI ›"
+    : "Zzz… Bit đang ngủ. Vũ trụ này không có AI, Mark chỉ đọc sách thôi. Bấm đây để về Mark học AI ›";
+  if (ngu) { hop.classList.add("bit-ngu"); nut.setAttribute("aria-label", EN ? "Bit is asleep" : "Bit đang ngủ"); }
+  nut.addEventListener("click", () => ngu ? (noi.hidden ? noiCau(MO) : anNoi()) : moMenu(bang.hidden));
   noi.addEventListener("click", e => {
-    if (e.target.closest(".bit-x")) { nho.set("im", "1"); anNoi(); }
+    if (e.target.closest(".bit-x")) { if (!ngu) nho.set("im", "1"); anNoi(); }
+    else if (ngu) location.href = nha;
     else if (rePhu && soLanNoi === loi.length) location.href = VTK;
     else moMenu(true);
   });
   hop.querySelector(".bit-meo-khac").addEventListener("click", meoMoi);
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !bang.hidden) { moMenu(false); nut.focus(); } });
   document.addEventListener("click", e => { if (!bang.hidden && !hop.contains(e.target)) moMenu(false); });
-  nut.addEventListener("mouseenter", () => { if (bang.hidden && noi.hidden) doiMat("nhay-mat"); });
-  nut.addEventListener("mouseleave", () => { if (bang.hidden && noi.hidden) doiMat("vui"); });
+  nut.addEventListener("mouseenter", () => { if (!ngu && bang.hidden && noi.hidden) doiMat("nhay-mat"); });
+  nut.addEventListener("mouseleave", () => { if (!ngu && bang.hidden && noi.hidden) doiMat("vui"); });
 
   // Lần 1 sau 6 giây, lần 2 khi đã kéo xuống được nửa trang.
   // Điện thoại: lần 1 đợi tới khi đã kéo qua phần đầu trang để bóng thoại không che các nút ở hero

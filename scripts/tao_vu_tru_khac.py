@@ -13,7 +13,11 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   đang đọc), rồi ghi ra vu-tru-khac/<slug>.html và en/vu-tru-khac/<slug>.html.
   Đừng sửa tay các file đó, sửa bài gốc rồi chạy lại.
 - Bỏ phần "Ghi chú riêng" (để Sang tự điền, không đăng công khai) và nhãn bản nháp.
-- Viết lại danh sách thẻ sách trong vu-tru-khac.html và en/vu-tru-khac.html, giữa <!-- sach:dau --> và <!-- sach:cuoi -->.
+- Trang chủ góc (vu-tru-khac.html, en/vu-tru-khac.html) chia theo chủ đề vì góc sẽ không chỉ có sách (Sang 13/10):
+  các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, tiếng Anh trong "en"),
+  mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
+  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài có bìa thu nhỏ vẽ từ tên, tác giả và "bia" (màu, hoạ tiết). Chủ đề chưa có bài thì
+  chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
 - Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
 """
 import html
@@ -122,12 +126,34 @@ body {{ margin: 0; }}
 '''
 
 
-def the_sach(b, en=False):
+def the_bai(b, cd, en=False):
     e = b.get("en", {}) if en else b
-    return (f'<a class="vtk-sach" href="vu-tru-khac/{esc(b["slug"])}.html">'
-            f'<span class="vtk-so">{"Book" if en else "Sách"} #{b["so"]:03d} · {esc(e.get("chu_de", b["chu_de"]))}</span>'
-            f'<b>{esc(b["ten"])}</b><span class="vtk-tg">{esc(b["tac_gia"])} · {esc(b["nam"])}</span>'
-            f'<span>{esc(e.get("mo_ta", b["mo_ta"]))}</span><em>{"Read" if en else "Đọc bài"} · {esc(b["diem"])} ›</em></a>')
+    bia = b.get("bia") or {}
+    mau = "".join(f"--{k}: {esc(bia[v])};" for k, v in (("bia-1", "nen_1"), ("bia-2", "nen_2"), ("bia-nhan", "nhan")) if bia.get(v))
+    tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
+    return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
+            f'<span class="vtk-bia{" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else ""}{" dai" if max(map(len, str(b["ten"]).split())) > 8 else ""}" aria-hidden="true"><i>{esc(b["ten"])}</i><small>{esc(b.get("tac_gia"))}</small></span>'
+            f'<span class="vtk-noi">'
+            f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d} · {esc(e.get("chu_de", b.get("chu_de")))}</span>'
+            f'<b>{esc(b["ten"])}</b><span class="vtk-tg">{tg}</span>'
+            f'<span class="vtk-mt">{esc(e.get("mo_ta", b.get("mo_ta")))}</span></span></a>')
+
+
+def trang_chu(sach, chu_de, en=False):
+    """Hàng chip lọc + mỗi chủ đề một khối thẻ, mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
+    cds = [dict(c, **c.get("en", {})) if en else c for c in chu_de]
+    co = [(c, sorted((b for b in sach if b.get("loai", "sach") == c["ma"]), key=lambda b: -b["so"])) for c in cds]
+    co = [(c, ds) for c, ds in co if ds]
+    tong = sum(len(ds) for _, ds in co)
+    chip = [f'<a href="#tat-ca" data-loc="" aria-current="true">{"All" if en else "Tất cả"} <small>{tong}</small></a>']
+    chip += [f'<a href="#{esc(c["ma"])}" data-loc="{esc(c["ma"])}">{esc(c["ten"])} <small>{len(ds)}</small></a>' for c, ds in co]
+    chip.append(f'<span class="vtk-sap">{"+ New topics coming" if en else "+ Chủ đề mới · sắp mở"}</span>')
+    ra = [f'  <nav class="vtk-loc" id="tat-ca" aria-label="{"Topics" if en else "Chủ đề"}">' + "".join(chip) + "</nav>"]
+    for c, ds in co:
+        ra.append(f'  <section class="vtk-khoi" id="{esc(c["ma"])}" data-loai="{esc(c["ma"])}">\n'
+                  f'    <div class="vtk-khoi-dau"><h2 class="vtk-h">{esc(c["ten"])}</h2><span>{len(ds)} {esc(c["dem"])}</span></div>\n'
+                  f'    <div class="vtk-ds">\n' + "\n".join("      " + the_bai(b, c, en) for b in ds) + "\n    </div>\n  </section>")
+    return "\n".join(ra), tong
 
 
 def main():
@@ -135,6 +161,10 @@ def main():
         sys.exit(__doc__)
     thu_muc = Path(sys.argv[1])
     sach = json.loads((R / "data" / "vu-tru-khac.json").read_text(encoding="utf-8"))
+    chu_de = json.loads((R / "data" / "vu-tru-khac-chu-de.json").read_text(encoding="utf-8"))
+    for b in sach:
+        if b.get("loai", "sach") not in {c["ma"] for c in chu_de}:
+            print(f"  {b['slug']}: \"loai\" = {b['loai']!r} chưa có trong data/vu-tru-khac-chu-de.json nên chưa hiện ở trang chủ góc")
     for en, goc_ra in ((False, R), (True, R / "en")):
         (goc_ra / "vu-tru-khac").mkdir(parents=True, exist_ok=True)
         for b in sach:
@@ -155,10 +185,12 @@ def main():
             print(f"  {ra.relative_to(R)}")
         hub = goc_ra / "vu-tru-khac.html"
         s = hub.read_text(encoding="utf-8")
-        the = "\n".join("      " + the_sach(b, en) for b in sorted(sach, key=lambda b: -b["so"]))
-        s = re.sub(r"(<!-- sach:dau -->\n).*?(\s*<!-- sach:cuoi -->)", lambda m: m.group(1) + the + m.group(2), s, flags=re.S)
+        khoi, tong = trang_chu(sach, chu_de, en)
+        s, n = re.subn(r"(<!-- vtk:dau -->).*?(<!-- vtk:cuoi -->)", lambda m: m.group(1) + "\n" + khoi + "\n" + m.group(2), s, flags=re.S)
+        if not n:
+            sys.exit(f"{hub}: thiếu <!-- vtk:dau --> / <!-- vtk:cuoi -->")
         hub.write_text(s, encoding="utf-8")
-        print(f"  {hub.relative_to(R)}: {len(sach)} cuốn")
+        print(f"  {hub.relative_to(R)}: {tong} bài")
     cap_nhat_sitemap()
 
 
