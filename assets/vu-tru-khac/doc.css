@@ -124,8 +124,10 @@ footer { margin-top: 28px; }
 
 /* Máy tính: hai cột, mục lục dính ở cột trái, mỗi phần là một thẻ trắng */
 @media (min-width: 1000px) {
-  .wrap { max-width: 72rem; display: grid; grid-template-columns: 13rem 1fr; column-gap: 32px; }
-  header { grid-column: 1 / -1; --le: max(16px, calc(50vw - 36rem)); }
+  /* Cột đọc rộng ra cho bớt lề trống (Sang 13/10 chọn "khung vũ trụ" + "mở rộng trang"): tối đa 88rem, chừa ít nhất 60px
+     mỗi bên để vẫn thấy bầu trời sao ở lề; --le của đầu trang khớp với mép cột */
+  .wrap { --nua: min(44rem, calc(50vw - 60px)); max-width: calc(2 * var(--nua)); display: grid; grid-template-columns: 15rem minmax(0, 1fr); column-gap: 32px; }
+  header { grid-column: 1 / -1; --le: max(16px, calc(50vw - var(--nua))); }
   .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: calc(var(--thanh-cao) + 16px); margin: 24px 0 0; padding: 14px;
     flex-direction: column; flex-wrap: nowrap; overflow: visible; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper); }
   .toc::before { content: "Trong bài"; font: 600 .72rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); padding: 0 4px 6px; }
@@ -186,4 +188,36 @@ html[lang="en"] .toc::before { content: "In this article"; }
   .wrap > section, .toc { box-shadow: 0 10px 30px -12px rgb(0 0 0 / .5); }
   footer { color: #FDE6C8; border-top-color: rgb(255 255 255 / .18); }
   footer a { color: var(--bia-nhan, #FBBF24); }
+}
+
+/* Cột tiện ích (scripts/tao_vu_tru_khac.py chen_ray, Sang 13/10): bìa nhỏ, thời gian đọc còn lại, trò chơi, bài tiếp theo.
+   Chỉ hiện từ 1280px, thành cột thứ ba dính khi cuộn; Mark đọc sách dưới mục lục từ 1000px. */
+.vtk-ray, .vtk-toc-mark { display: none; }
+@media (min-width: 1000px) {
+  .toc { position: sticky; }
+  .vtk-toc-mark { display: block; position: absolute; top: 100%; left: 0; right: 0; margin-top: 18px; text-align: center; pointer-events: none; }
+  .vtk-toc-mark img { width: 62%; height: auto; filter: drop-shadow(0 10px 14px rgb(0 0 0 / .35)); }
+  .vtk-toc-mark small { display: block; margin-top: 4px; font: 500 .78rem/1.35 var(--font-body); color: #FDE6C8; }
+}
+@media (min-width: 1280px) {
+  .wrap { grid-template-columns: 15rem minmax(0, 1fr) 13rem; }
+  .vtk-ray { grid-column: 3; grid-row: 2 / span 20; align-self: start; position: sticky; top: calc(var(--thanh-cao) + 16px); margin-top: 24px;
+    display: flex; flex-direction: column; gap: 12px; font: 500 .82rem/1.35 var(--font-body); }
+  .vtk-ray small { display: block; font: 600 .66rem/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); }
+  .vtk-ray-bia { position: relative; overflow: hidden; aspect-ratio: 3 / 4; padding: 12px 12px 10px 16px; border-radius: 4px 14px 14px 4px;
+    background: radial-gradient(120% 140% at 85% 0%, var(--bia-2, #1E293B), var(--bia-1, #0F172A) 62%); box-shadow: 0 14px 30px -12px rgb(0 0 0 / .6), inset 4px 0 0 rgb(255 255 255 / .12); }
+  .vtk-ray-bia i { position: relative; z-index: 2; display: block; max-width: 92%; font: normal 800 1rem/1.15 var(--font-display); color: var(--bia-nhan, #FBBF24); }
+  .vtk-ray-bia .h { position: absolute; left: 14px; top: 38%; width: 44%; aspect-ratio: 1; }
+  .vtk-ray-bia .h svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .vtk-ray-bia img { position: absolute; right: -6px; bottom: 0; width: 50%; height: auto; }
+  .vtk-ray-o { display: block; margin: 0; padding: 10px 12px; border-radius: 12px; background: var(--paper); border: 1px solid var(--rule); color: var(--ink);
+    text-decoration: none; box-shadow: 0 10px 24px -14px rgb(0 0 0 / .5); }
+  .vtk-ray-o b { display: block; margin-top: 2px; font: 600 .95rem/1.3 var(--font-display); }
+  .vtk-ray-tiep span { display: block; margin-top: 4px; color: var(--muted); font-size: .78rem; }
+  a.vtk-ray-o:hover { border-color: var(--cam); }
+  .vtk-ray-choi { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #A78BFA; color: #1E1B4B;
+    text-decoration: none; font: 600 .88rem/1.25 var(--font-display); box-shadow: 0 10px 24px -14px rgb(0 0 0 / .5); }
+  .vtk-ray-choi small { color: #3B2A80; }
+  .vtk-ray-choi:hover { background: #C4B5FD; }
+  .vtk-ray-choi .ic { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 }
