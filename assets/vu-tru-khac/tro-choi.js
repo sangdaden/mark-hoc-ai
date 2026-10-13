@@ -628,19 +628,28 @@
       hen = setInterval(function () { giay--; dh.textContent = dien(t.giay, { s: giay }); if (giay <= 0) { clearInterval(hen); hoi(ds); } }, 1000);
     }
     function hoi(ds) {
-      dh.textContent = t.chon; san.innerHTML = ""; var chon = [];
+      san.innerHTML = ""; var chon = [];
+      function demChon() { dh.textContent = t.chon + " · " + chon.length + "/" + ds.length; }
+      demChon();
       tron(ds.concat(t.nhieu)).forEach(function (w) {
         var b = nut(w, false); b.className = "tc-chu";
-        b.onclick = function () { var k = chon.indexOf(w); if (k >= 0) chon.splice(k, 1); else chon.push(w); b.classList.toggle("tc-da-chon-chu", k < 0); b.setAttribute("aria-pressed", k < 0); };
+        b.onclick = function () {
+          var k = chon.indexOf(w);
+          if (k < 0 && chon.length >= ds.length) return; // chỉ được chọn đúng bằng số thứ cần nhớ
+          if (k >= 0) chon.splice(k, 1); else chon.push(w);
+          b.classList.toggle("tc-da-chon-chu", k < 0); b.setAttribute("aria-pressed", k < 0); demChon();
+        };
         san.appendChild(b);
       });
       var cham = nut(t.cham, true); cham.classList.add("tc-ca-hang"); san.appendChild(cham);
       cham.onclick = function () {
-        var d = 0;
-        san.querySelectorAll("button.tc-chu").forEach(function (b) { var w = b.textContent, co = ds.indexOf(w) >= 0, c = chon.indexOf(w) >= 0; b.disabled = true; if (c && co) { b.classList.add("tc-dung"); d++; } else if (c) b.classList.add("tc-sai"); else if (co) b.classList.add("tc-sot"); });
+        var d = 0, sai = 0;
+        san.querySelectorAll("button.tc-chu").forEach(function (b) { var w = b.textContent, co = ds.indexOf(w) >= 0, c = chon.indexOf(w) >= 0; b.disabled = true; if (c && co) { b.classList.add("tc-dung"); d++; } else if (c) { b.classList.add("tc-sai"); sai++; } else if (co) b.classList.add("tc-sot"); });
         cham.remove(); dh.textContent = "";
-        if (vong === 1) { d1 = d; ket.textContent = dien(t.ket1, { d: d }); di.textContent = t.nut_v2; vong = 2; }
-        else { ket.textContent = dien(t.ket2, { d: d, d1: d1 }); di.textContent = t.nut_lai; vong = 3; }
+        // điểm = số đúng trừ số chọn nhầm (không âm), để bấm bừa không được điểm
+        var diem = Math.max(0, d - sai);
+        if (vong === 1) { d1 = diem; ket.textContent = dien(t.ket1, { d: d, s: sai, diem: diem }); di.textContent = t.nut_v2; vong = 2; }
+        else { ket.textContent = dien(t.ket2, { d: d, s: sai, diem: diem, d1: d1 }); di.textContent = t.nut_lai; vong = 3; }
         ket.hidden = false; di.disabled = false;
       };
     }
