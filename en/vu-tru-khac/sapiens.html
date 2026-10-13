@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sapiens (Yuval Noah Harari): summary, review and lessons | Another Universe</title>
+<meta name="description" content="We rule the Earth because we can believe shared stories. Four revolutions: cognitive, agricultural, unification, scientific, and the places where historians say it oversimplifies.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/sapiens.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sapiens (Yuval Noah Harari): summary, review and lessons | Another Universe">
+<meta property="og:description" content="We rule the Earth because we can believe shared stories. Four revolutions: cognitive, agricultural, unification, scientific, and the places where historians say it oversimplifies.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/sapiens.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #161616; --bia-2: #5C1014; --bia-nhan: #E5484D; }
+:root { --vtk-nhan: #E5484D; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/sapiens.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep. Sapiens = Vietnamese cover (Omega Plus): white page, red title #BC2228 (--night), black fingerprint motif; ochre (--day) for the agricultural part. */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #b8202a;
+  --day: #b07a12;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f28b8b; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f28b8b; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.hand-row { display:flex; align-items:center; gap:10px; }
+.lvl { display:grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap:10px; }
+.lvl > div { background: var(--paper); border:1px solid var(--rule); border-top:3px solid var(--rem); border-radius:6px; padding:12px; display:grid; gap:6px; align-content:start; min-width:0; }
+.lvl > div.l2 { border-top-color: var(--day); } .lvl > div.l3 { border-top-color: var(--night); background: color-mix(in srgb, var(--night) 6%, var(--paper)); }
+.lvl b { font-family: var(--font-display); }
+.lvl span { font-size:.88rem; color: var(--muted); line-height:1.4; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">History · Anthropology · Big ideas</span>
+  <h1>Sapiens: A Brief History of Humankind</h1>
+  <svg viewBox="0 0 320 84" width="320" height="84" style="max-width:100%" role="img" aria-label="A red bar like the title lettering and a black fingerprint, taken from the Vietnamese edition cover">
+    <rect x="0" y="40" width="220" height="5" rx="2.5" fill="#BC2228"/>
+    <g transform="translate(276 42) rotate(-12)" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="0" cy="0" rx="3" ry="4.0" stroke-dasharray="11 5" stroke-dashoffset="9"/><ellipse cx="0" cy="0" rx="6" ry="7.9" stroke-dasharray="14 3" stroke-dashoffset="18"/><ellipse cx="0" cy="0" rx="9" ry="11.9" stroke-dasharray="17 6" stroke-dashoffset="27"/><ellipse cx="0" cy="0" rx="12" ry="15.8" stroke-dasharray="20 4" stroke-dashoffset="36"/><ellipse cx="0" cy="0" rx="15" ry="19.8" stroke-dasharray="23 2" stroke-dashoffset="45"/><ellipse cx="0" cy="0" rx="18" ry="23.8" stroke-dasharray="26 5" stroke-dashoffset="54"/><ellipse cx="0" cy="0" rx="21" ry="27.7" stroke-dasharray="29 3" stroke-dashoffset="63"/><ellipse cx="0" cy="0" rx="24" ry="31.7" stroke-dasharray="32 6" stroke-dashoffset="72"/><ellipse cx="0" cy="0" rx="27" ry="35.6" stroke-dasharray="35 4" stroke-dashoffset="81"/><ellipse cx="0" cy="0" rx="30" ry="39.6" stroke-dasharray="38 2" stroke-dashoffset="90"/></g>
+  </svg>
+  <p class="sub">Yuval Noah Harari · Vietnamese edition: <i>Sapiens: Lược sử loài người</i></p>
+  <div class="meta">
+    <div><span class="label">Author</span><b>Yuval Noah Harari · historian, Hebrew University of Jerusalem</b></div>
+    <div><span class="label">Published</span><b>2011 (Hebrew) · 2014 (English) · Vietnamese ed.: Omega Plus, Tri Thức, transl. Nguyễn Thủy Chung</b></div>
+    <div><span class="label">Size</span><b>4 parts · 20 chapters · ~450 pages</b></div>
+    <div><span class="label">Rating</span><b>8 / 10 · changes how you see, but read it as an essay</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Thesis</a><a href="#bo-cuc">Structure</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24c3-6 7-6 10 0 3-6 7-6 10 0"/><path d="M8 10h16M8 15h10"/></svg><b>We won by telling stories</b><span>Believe the same story and millions of strangers can cooperate.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 28V8"/><path d="M16 12l-5-4M16 12l5-4M16 18l-5-4M16 18l5-4M16 24l-5-4M16 24l5-4"/></svg><b>Farming was a "fraud"</b><span>More food overall, but each person worked harder and ate worse.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/></svg><b>Money, empire, religion</b><span>Three forces that pulled humankind into one global order.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l10 18H6z"/><circle cx="16" cy="5" r="2" fill="currentColor"/><circle cx="26" cy="23" r="2" fill="currentColor"/><circle cx="6" cy="23" r="2" fill="currentColor"/></svg><b>Science, empire, capital</b><span>Three gears driving each other for the last 500 years.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Big ideas, loose details</b><span>Historians and anthropologists point to many oversimplifications.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>Core thesis</h2></div>
+  <p class="thesis">Homo sapiens rules the Earth because it is the only species that cooperates flexibly in large numbers, thanks to shared belief in things that exist only in the imagination. But that power has not necessarily made us happier.</p>
+  <div class="flow" aria-label="Three steps of the argument">
+    <div class="step"><span class="label">Step 1</span><b>Fiction</b><span>About 70,000 years ago, sapiens began talking about things that don't exist: gods, tribes, ancestors.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 2</span><b>Mass cooperation</b><span>Shared stories bind strangers into villages, kingdoms, empires and markets.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 3</span><b>Powerful, not surely happier</b><span>Each revolution made the species stronger, but not necessarily each person happier.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the book is organised</h2><p class="lead">Four parts, one revolution each. The further you go, the closer each chapter gets to the present.</p></div>
+  <div class="chbar" role="img" aria-label="Part 1 has 4 chapters, part 2 has 4 chapters, part 3 has 5 chapters, part 4 has 7 chapters">
+    <div class="p1" style="flex:4">Cognitive · 4</div><div class="p4" style="flex:4">Agricultural · 4</div><div class="p3" style="flex:5">Unification · 5</div><div class="p5" style="flex:7">Scientific · 7</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="f0t">
+        <title id="f0t">Timeline, not to scale: the genus Homo appears 2.5 million years ago, sapiens about 300,000 years ago, the Cognitive Revolution 70,000 years ago, the Agricultural Revolution 12,000 years ago, writing about 5,000 years ago, the Scientific Revolution 500 years ago.</title>
+        <line x1="20" y1="70" x2="700" y2="70" stroke="var(--rule)" stroke-width="4"/>
+        <g text-anchor="middle">
+          <circle cx="40" cy="70" r="7" fill="var(--muted)"/><text x="40" y="44" class="t-ink t-bold">2.5M</text><text x="40" y="100">genus Homo</text>
+          <circle cx="160" cy="70" r="7" fill="var(--muted)"/><text x="160" y="44" class="t-ink t-bold">300,000</text><text x="160" y="100">sapiens appear</text>
+          <circle cx="290" cy="70" r="12" fill="var(--night)"/><text x="290" y="44" class="t-night t-bold">70,000</text><text x="290" y="100" class="t-night t-bold">Cognitive</text><text x="290" y="116">part 1</text>
+          <circle cx="420" cy="70" r="12" fill="var(--day)"/><text x="420" y="44" class="t-day t-bold">12,000</text><text x="420" y="100" class="t-day t-bold">Agricultural</text><text x="420" y="116">part 2</text>
+          <circle cx="540" cy="70" r="12" fill="var(--rem)"/><text x="540" y="44" class="t-rem t-bold">~5,000</text><text x="540" y="100" class="t-rem t-bold">Unification</text><text x="540" y="116">part 3</text>
+          <circle cx="660" cy="70" r="12" fill="var(--ok)"/><text x="660" y="44" class="t-ok t-bold">500</text><text x="660" y="100" class="t-ok t-bold">Scientific</text><text x="660" y="116">part 4</text>
+        </g>
+        <text x="20" y="144">years ago · spacing not to scale</text>
+      </svg>
+    </div>
+    <figcaption><b>History speeds up.</b> Each revolution arrives many times faster than the one before.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Ch. 1–4 · Part 1</span><h3>The Cognitive Revolution</h3><div class="chips"><span class="chip">many human species</span><span class="chip">fiction</span><span class="chip">gossip</span><span class="chip">foragers</span><span class="chip">the flood</span></div></div>
+    <div class="part b4"><span class="label">Ch. 5–8 · Part 2</span><h3>The Agricultural Revolution</h3><div class="chips"><span class="chip">history's biggest fraud</span><span class="chip">luxury trap</span><span class="chip">imagined orders</span><span class="chip">writing</span><span class="chip">hierarchy</span></div></div>
+    <div class="part b3"><span class="label">Ch. 9–13 · Part 3</span><h3>The Unification of Humankind</h3><div class="chips"><span class="chip">money</span><span class="chip">empires</span><span class="chip">religion</span><span class="chip">the arrow of history</span></div></div>
+    <div class="part b5"><span class="label">Ch. 14–20 · Part 4</span><h3>The Scientific Revolution</h3><div class="chips"><span class="chip">discovery of ignorance</span><span class="chip">science + empire</span><span class="chip">credit</span><span class="chip">happiness</span><span class="chip">the end of sapiens</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>There were many human species</h3><span class="en">Homo neanderthalensis · erectus · denisova · floresiensis</span><span class="pg">Chapter 1</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f1t">
+          <title id="f1t">Over the last 300,000 years, sapiens lived alongside several other human species: erectus, Neanderthals, Denisovans, the Flores "hobbit". Around 40,000 years ago the others disappeared one by one; today only sapiens remains.</title>
+          <g class="gridl"><line x1="150" y1="20" x2="150" y2="180"/><line x1="290" y1="20" x2="290" y2="180"/><line x1="430" y1="20" x2="430" y2="180"/><line x1="570" y1="20" x2="570" y2="180"/></g>
+          <text x="150" y="200" text-anchor="middle">400,000</text><text x="290" y="200" text-anchor="middle">300,000</text><text x="430" y="200" text-anchor="middle">200,000</text><text x="570" y="200" text-anchor="middle">100,000</text><text x="700" y="200" text-anchor="end">now</text>
+          <text x="10" y="40" class="t-ink">Erectus</text><rect x="110" y="30" width="456" height="14" rx="7" fill="var(--muted)" fill-opacity=".45"/>
+          <text x="10" y="72" class="t-ink">Neanderthal</text><rect x="150" y="62" width="514" height="14" rx="7" fill="var(--rem)" fill-opacity=".6"/>
+          <text x="10" y="104" class="t-ink">Denisovan</text><rect x="290" y="94" width="364" height="14" rx="7" fill="var(--day)" fill-opacity=".6"/>
+          <text x="10" y="136" class="t-ink">Flores "hobbit"</text><rect x="570" y="126" width="70" height="14" rx="7" fill="var(--ok)" fill-opacity=".6"/>
+          <text x="10" y="168" class="t-night t-bold">Sapiens</text><rect x="290" y="158" width="414" height="14" rx="7" fill="var(--night)"/>
+          <line x1="664" y1="20" x2="664" y2="180" stroke="var(--night)" stroke-dasharray="4 3"/><text x="660" y="16" text-anchor="end" class="t-night">~40,000: only us left</text>
+        </svg>
+      </div>
+      <figcaption><b>Being the only human species is new.</b> Harari asks: did sapiens replace, interbreed with, or wipe out the others? Probably all three.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Shared fictions</h3><span class="en">fiction · shared myths</span><span class="pg">Chapter 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f2t">
+          <title id="f2t">Through gossip, a group whose members know each other tops out at about 150 people. Through shared belief in a story such as gods, nations, money or companies, millions of strangers can cooperate.</title>
+          <g fill="var(--muted)">
+            <circle cx="80" cy="90" r="5"/><circle cx="100" cy="72" r="5"/><circle cx="122" cy="94" r="5"/><circle cx="96" cy="114" r="5"/><circle cx="66" cy="116" r="5"/><circle cx="130" cy="122" r="5"/><circle cx="114" cy="62" r="5"/><circle cx="58" cy="82" r="5"/>
+          </g>
+          <circle cx="94" cy="94" r="62" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/>
+          <text x="94" y="182" text-anchor="middle" class="t-ink t-bold">≈ 150 people</text><text x="94" y="198" text-anchor="middle">bound by gossip</text>
+          <text x="210" y="98" class="t-ink">→ add a shared story →</text>
+          <circle cx="560" cy="96" r="92" fill="var(--night)" fill-opacity=".08" stroke="var(--night)" stroke-width="2"/>
+          <g fill="var(--night)" fill-opacity=".55">
+            <circle cx="490" cy="60" r="3"/><circle cx="512" cy="40" r="3"/><circle cx="540" cy="30" r="3"/><circle cx="575" cy="28" r="3"/><circle cx="610" cy="40" r="3"/><circle cx="632" cy="62" r="3"/><circle cx="648" cy="96" r="3"/><circle cx="630" cy="132" r="3"/><circle cx="604" cy="156" r="3"/><circle cx="566" cy="166" r="3"/><circle cx="526" cy="160" r="3"/><circle cx="494" cy="138" r="3"/><circle cx="476" cy="100" r="3"/>
+          </g>
+          <text x="560" y="70" text-anchor="middle" class="t-night t-bold">gods · nations</text>
+          <text x="560" y="90" text-anchor="middle" class="t-night t-bold">money · companies</text>
+          <text x="560" y="110" text-anchor="middle" class="t-night t-bold">human rights</text>
+          <text x="560" y="134" text-anchor="middle" class="t-ink">millions of strangers</text>
+          <text x="560" y="204" text-anchor="middle" class="t-night t-bold">exist only because we all believe</text>
+        </svg>
+      </div>
+      <figcaption><b>Harari's example: Peugeot.</b> Burn down the factories and lay off every worker, and Peugeot still exists, because it is a "legal person": a legal story everyone accepts.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Three levels of reality</h3><span class="en">objective · subjective · intersubjective</span><span class="pg">Chapter 6</span></div>
+    <div class="lvl">
+      <div><span class="label">Objective</span><b>Real even if nobody believes it</b><span>rivers, radiation, viruses</span></div>
+      <div class="l2"><span class="label">Subjective</span><b>Exists only in one person's mind</b><span>pain, an imaginary friend</span></div>
+      <div class="l3"><span class="label">Intersubjective</span><b>Real because many people believe it</b><span>money, laws, nations, brands. One person losing faith changes nothing; millions losing faith and it collapses.</span></div>
+    </div>
+    <p class="lead">"Imagined orders" such as the Code of Hammurabi or the US Declaration of Independence belong to the third level: not true or false like a scientific fact, but strong or weak depending on how many people believe in them.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The luxury trap</h3><span class="en">the luxury trap · "history's biggest fraud"</span><span class="pg">Chapter 5</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="f3t">
+          <title id="f3t">The luxury trap loop: growing wheat yields more food, more food means a bigger population, more people need more fields and more work, so more wheat is planted. After a few generations nobody remembers how to live as foragers to go back.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--day)"/></marker></defs>
+          <g text-anchor="middle">
+            <rect x="250" y="10" width="170" height="44" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)"/><text x="335" y="37" class="t-day t-bold">grow more wheat</text>
+            <rect x="470" y="92" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="555" y="119" class="t-ink">more food</text>
+            <rect x="250" y="172" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="335" y="199" class="t-ink">population grows</text>
+            <rect x="30" y="92" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="115" y="113" class="t-ink">need more fields,</text><text x="115" y="128" class="t-ink">more work</text>
+          </g>
+          <path d="M422 40 C500 45 540 60 552 88" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M552 138 C540 170 490 190 424 194" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M248 194 C170 190 130 170 118 140" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M118 90 C130 60 170 45 246 38" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <text x="335" y="110" text-anchor="middle" class="t-night t-bold">no way back</text>
+          <text x="335" y="128" text-anchor="middle">wheat "domesticated" humans</text>
+        </svg>
+      </div>
+      <figcaption><b>The species gained a lot; individuals lost a lot.</b> Farmers worked harder, ate a narrower diet and got sick more often than foragers. The trap is still with us: every new convenience (email, phones) creates new obligations.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Three unifying forces</h3><span class="en">money · empire · religion</span><span class="pg">Chapters 9–12</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f4t">
+          <title id="f4t">Money is the most universal system of trust, empires bring many peoples under one government, and universal religions promise one order for everyone. These three forces pulled scattered cultures into one global order.</title>
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--rem)"/></marker></defs>
+          <g text-anchor="middle">
+            <rect x="20" y="16" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="38" class="t-rem t-bold">MONEY</text><text x="120" y="56">even enemies trust it</text>
+            <rect x="20" y="76" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="98" class="t-rem t-bold">EMPIRE</text><text x="120" y="116">many peoples as one</text>
+            <rect x="20" y="136" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="158" class="t-rem t-bold">UNIVERSAL RELIGION</text><text x="120" y="176">one order for everyone</text>
+          </g>
+          <path d="M224 41 C380 41 420 90 520 98" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <path d="M224 101 L520 101" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <path d="M224 161 C380 161 420 112 520 104" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <circle cx="600" cy="101" r="70" fill="var(--rem)" fill-opacity=".12" stroke="var(--rem)" stroke-width="2"/>
+          <path d="M530 101 H670 M600 31 C632 62 632 140 600 171 M600 31 C568 62 568 140 600 171" fill="none" stroke="var(--rem)" stroke-opacity=".5"/>
+          <text x="600" y="97" text-anchor="middle" class="t-ink t-bold">global</text><text x="600" y="113" text-anchor="middle" class="t-ink t-bold">order</text>
+        </svg>
+      </div>
+      <figcaption><b>Money is the most successful story ever told.</b> People of different faiths and languages, even people who hate each other, still trust the same currency.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The science, empire and capital loop</h3><span class="en">the discovery of ignorance · science · empire · capital</span><span class="pg">Chapters 14–16</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="f5t">
+          <title id="f5t">Modern science starts by admitting "we don't know". Empires fund exploration because they want knowledge and land; capital lends because it believes the future will be bigger; science produces new tools for both. The three push each other in a loop.</title>
+          <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ok)"/></marker></defs>
+          <g text-anchor="middle">
+            <circle cx="360" cy="52" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="360" y="56" class="t-ok t-bold">SCIENCE</text>
+            <text x="440" y="40" text-anchor="start">"we don't know"</text>
+            <circle cx="170" cy="170" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="170" y="174" class="t-ok t-bold">EMPIRE</text>
+            <text x="170" y="228">wants land and knowledge</text>
+            <circle cx="550" cy="170" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="550" y="174" class="t-ok t-bold">CAPITAL</text>
+            <text x="550" y="228">believes in growth</text>
+          </g>
+          <path d="M322 78 L210 142" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="250" y="100" text-anchor="end" class="t-ink">tools, maps</text>
+          <path d="M218 170 L500 170" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="360" y="160" text-anchor="middle" class="t-ink">colonies, markets</text>
+          <path d="M512 142 L400 78" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="470" y="100" class="t-ink">money for research</text>
+        </svg>
+      </div>
+      <figcaption><b>The book's example: James Cook's voyage (1768).</b> It was both a scientific mission to observe the transit of Venus and the opening move in Britain's taking of Australia. Credit (borrowing on faith in the future) keeps the wheel turning.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>More powerful, but happier?</h3><span class="en">happiness · expectations</span><span class="pg">Chapters 19–20</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f6t">
+          <title id="f6t">A diagram of Harari's question, not measured data: humankind's power soars across three revolutions, while individual happiness may stay roughly flat, because expectations rise with living conditions.</title>
+          <line x1="40" y1="170" x2="700" y2="170" class="axis"/><line x1="40" y1="20" x2="40" y2="170" class="axis"/>
+          <path d="M40 166 C300 164 450 150 540 120 C610 96 660 50 700 24" fill="none" stroke="var(--night)" stroke-width="3"/>
+          <text x="560" y="58" class="t-night t-bold">humankind's power</text>
+          <path d="M40 120 C200 116 380 126 540 118 C620 114 660 120 700 116" fill="none" stroke="var(--day)" stroke-width="3" stroke-dasharray="8 6"/>
+          <text x="470" y="146" class="t-day t-bold">individual happiness ?</text>
+          <g text-anchor="middle"><text x="140" y="188">cognitive</text><text x="400" y="188">agricultural</text><text x="620" y="188">scientific</text></g>
+        </svg>
+      </div>
+      <figcaption><b>Happiness depends more on expectations than on conditions.</b> Harari ends with a warning: sapiens is about to redesign itself while still not knowing what it wants.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How solid is the evidence</h2><p class="lead">13 claims the book leans on, checked against current archaeology and anthropology. Tap a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 5 caution, 3 criticised or outdated">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:3">3 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Sapiens once lived alongside other human species</span></summary><p class="note">Neanderthals, Denisovans and the Flores "hobbit" are all attested by fossils or DNA. Since the book came out, Homo luzonensis (Philippines, 2019) and Homo naledi have been added.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>People outside Africa carry some Neanderthal genes</span></summary><p class="note">Current estimates are about 1–2% (the book says up to 4%). Melanesians also carry a few percent of Denisovan DNA. The idea that sapiens interbred with other species is solid.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Early farmers were shorter, had worse teeth and more disease than foragers</span></summary><p class="note">Many skeletal studies (Larsen 1995; Mummert and colleagues 2011) show health declining with the shift to farming, though the degree varies by region.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The first writing in Mesopotamia was for bookkeeping, not poetry</span></summary><p class="note">The earliest cuneiform tablets (around 3200 BCE, Uruk) mostly record quantities of barley, livestock and labour.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Large animals in Australia and the Americas died out soon after sapiens arrived</span></summary><p class="note">The timing match is solid. How much was humans versus climate is still debated, but most recent studies lean toward a large human role.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Language evolved for gossip</span></summary><p class="note">Robin Dunbar's "gossip theory" is an appealing hypothesis but almost impossible to test directly. The book presents it with more certainty than the evidence allows.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Natural groups top out at about 150 people</span></summary><p class="note">"Dunbar's number" is popular, but a 2021 reanalysis (Lindenfors and colleagues) found a very wide confidence interval, from a handful of people to over 500.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Foragers worked fewer hours and lived more comfortably than farmers</span></summary><p class="note">This goes back to Sahlins's "original affluent society" (1966). More careful measurements, including food-processing time, give results that vary widely between groups.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Farming was a trap humankind fell into with no way out</span></summary><p class="note">Graeber and Wengrow (<i>The Dawn of Everything</i>, 2021) show many communities tried farming and abandoned it, or mixed farming and foraging for thousands of years. The path was not as one-way as the book suggests.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Getting richer doesn't make us happier</span></summary><p class="note">The Easterlin paradox has been challenged by Stevenson and Wolfers (2008) and Killingsworth (2021): happiness keeps rising with income, if more slowly. The idea that expectations rise with conditions does have support.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>A "Cognitive Revolution" erupted suddenly about 70,000 years ago</span></summary><p class="note">Many archaeologists (McBrearty and Brooks, 2000: "the revolution that wasn't") show that modern behaviours such as using ochre, making ornaments and fine tools built up gradually in Africa over hundreds of thousands of years.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Neanderthals lacked symbolic thought like sapiens</span></summary><p class="note">There is evidence that Neanderthals buried their dead, made ornaments from feathers and eagle talons, and may have painted caves (Spain, Hoffmann 2018, still debated). The line is not as sharp as the book draws it.</p></details>
+    <details><summary><span class="tag bad">OUTDATED</span><span>Sapiens appeared about 200,000 years ago in East Africa</span></summary><p class="note">The Jebel Irhoud fossils in Morocco (Hublin and colleagues, 2017) push the date back to about 300,000 years and suggest sapiens emerged across Africa, not only in the east.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Practical value</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Readability</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Vision, originality</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>Scientific accuracy</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>A simple frame for seeing the whole of human history</li><li>"Shared fictions" changes how you see money, law and companies</li><li>Gripping writing with memorable examples</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Sweeping claims, few citations, many oversimplifications</li><li>Personal opinion presented as fact</li><li>Some archaeological data is out of date</li></ul></div>
+  </div>
+  <p class="verdict">Read it as a big eye-opening essay, not a history textbook. Keep the questions; check the claims.</p>
+  <details class="more"><summary>More: what the experts criticise</summary><div>
+    <p>Anthropologist Christopher Hallpike (2017) called the book "intellectual entertainment": well told, but often wrong or overgeneralised, and light on specialist sources. Philosopher Galen Strawson (The Guardian, 2014) praised many passages as fascinating but faulted its scholarly carelessness.</p>
+    <p>Neuroscientist Darshana Narayanan (Current Affairs, 2022) argues that Harari often turns hypotheses into certainties to keep the story tidy. Graeber and Wengrow reject the whole "foragers → farming → state" frame as an inevitable path.</p>
+    <p>Defenders say it is a popular book meant to raise big questions, not a work of research. Jared Diamond and many readers see it as a good gateway to big history. A sensible way to read it: trust the questions, doubt the answers that are too neat.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Putting it into practice</h2><p class="lead">Sapiens gives no tips; it gives you a pair of glasses. Try wearing them for an ordinary day.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="f7t">
+        <title id="f7t">A day through Sapiens glasses: at breakfast remember that grain domesticated us; at work remember that a company is a legal person; when paying remember that money is trust; reading the news ask which shared story is at work; shopping ask whether you need it or were told you do; in the evening measure happiness against expectations.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="70" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="70" y="30" class="t-ink t-bold">morning</text><text x="70" y="100" class="t-day t-bold">Bowl of rice</text><text x="70" y="116">grain "tamed"</text><text x="70" y="131">our ancestors</text></g>
+        <circle cx="205" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="205" y="30" class="t-ink t-bold">8:00</text><text x="205" y="100" class="t-night t-bold">Work</text><text x="205" y="116">a company is</text><text x="205" y="131">a legal story</text></g>
+        <circle cx="340" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="340" y="30" class="t-ink t-bold">noon</text><text x="340" y="100" class="t-rem t-bold">Paying</text><text x="340" y="116">paper that works</text><text x="340" y="131">as all trust it</text></g>
+        <circle cx="475" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="475" y="30" class="t-ink t-bold">afternoon</text><text x="475" y="100" class="t-night t-bold">News</text><text x="475" y="116">which shared story</text><text x="475" y="131">is running?</text></g>
+        <circle cx="610" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="610" y="30" class="t-ink t-bold">evening</text><text x="610" y="100" class="t-ok t-bold">Shopping</text><text x="610" y="116">do I need it, or</text><text x="610" y="131">was I told I do?</text></g>
+        <circle cx="745" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="745" y="30" class="t-ink t-bold">bedtime</text><text x="745" y="100" class="t-day t-bold">Happy today?</text><text x="745" y="116">against hopes,</text><text x="745" y="131">not wealth</text></g>
+        <text x="50" y="175">At each stop ask: is this objectively real, or real because many people believe in it?</text>
+      </svg>
+    </div>
+    <figcaption><b>Not a call to doubt everything.</b> Knowing that money, law and nations are "shared stories" doesn't make them less important; it shows they can be retold.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 10h20v14H6z"/><path d="M11 10V6h10v4"/><path d="M6 16h20"/></svg><div><b>Watch for the luxury trap</b><span>Before taking on a new convenience, ask: what new obligations will it create?</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4v24M4 16h24"/><circle cx="16" cy="16" r="11"/></svg><div><b>Ask "who benefits?"</b><span>An order that seems natural is usually a story someone tells and someone profits from.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z"/></svg><div><b>Adjust expectations, not just conditions</b><span>Happiness is the gap between reality and what we expect.</span></div></div>
+  </div>
+  <div class="quote"><span>"You could never convince a monkey to give you a banana by promising him limitless bananas after death in monkey heaven."</span><span class="src">Chapter 2.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Jared Diamond, <i>Guns, Germs, and Steel</i> (1997)</b><span class="muted">Why some continents came to dominate others. More rigorous on geography and ecology.</span></div>
+    <div><b>David Graeber and David Wengrow, <i>The Dawn of Everything</i> (2021)</b><span class="muted">A direct rebuttal of the "farming as a trap" story. Read it right after Sapiens.</span></div>
+    <div><b>Joseph Henrich, <i>The Secret of Our Success</i> (2015)</b><span class="muted">A different explanation of human success: cumulative culture, not just fiction.</span></div>
+    <div><b>Yuval Noah Harari, <i>Homo Deus</i> (2015)</b><span class="muted">The sequel: the future as sapiens upgrades itself.</span></div>
+  </div>
+</section>
+
+<footer>Book analysis #009. Figures are concept diagrams; numbers come from the book and are checked in the Evidence section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

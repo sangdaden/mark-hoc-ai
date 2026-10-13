@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sapiens (Yuval Noah Harari): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Ta làm chủ Trái Đất nhờ cùng tin những câu chuyện. Bốn cuộc cách mạng: nhận thức, nông nghiệp, thống nhất, khoa học, và những chỗ giới sử học cho là đơn giản quá tay.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/sapiens.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/sapiens.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sapiens (Yuval Noah Harari): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Ta làm chủ Trái Đất nhờ cùng tin những câu chuyện. Bốn cuộc cách mạng: nhận thức, nông nghiệp, thống nhất, khoa học, và những chỗ giới sử học cho là đơn giản quá tay.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/sapiens.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #161616; --bia-2: #5C1014; --bia-nhan: #E5484D; }
+:root { --vtk-nhan: #E5484D; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/sapiens.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep. Sapiens = Vietnamese cover (Omega Plus): white page, red title #BC2228 (--night), black fingerprint motif; ochre (--day) for the agricultural part. */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #b8202a;
+  --day: #b07a12;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f28b8b; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f28b8b; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.hand-row { display:flex; align-items:center; gap:10px; }
+.lvl { display:grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap:10px; }
+.lvl > div { background: var(--paper); border:1px solid var(--rule); border-top:3px solid var(--rem); border-radius:6px; padding:12px; display:grid; gap:6px; align-content:start; min-width:0; }
+.lvl > div.l2 { border-top-color: var(--day); } .lvl > div.l3 { border-top-color: var(--night); background: color-mix(in srgb, var(--night) 6%, var(--paper)); }
+.lvl b { font-family: var(--font-display); }
+.lvl span { font-size:.88rem; color: var(--muted); line-height:1.4; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Lịch sử · Nhân học · Tư tưởng lớn</span>
+  <h1>Sapiens: Lược sử loài người</h1>
+  <svg viewBox="0 0 320 84" width="320" height="84" style="max-width:100%" role="img" aria-label="Vạch đỏ như chữ tựa và dấu vân tay đen, lấy từ bìa sách bản tiếng Việt">
+    <rect x="0" y="40" width="220" height="5" rx="2.5" fill="#BC2228"/>
+    <g transform="translate(276 42) rotate(-12)" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="0" cy="0" rx="3" ry="4.0" stroke-dasharray="11 5" stroke-dashoffset="9"/><ellipse cx="0" cy="0" rx="6" ry="7.9" stroke-dasharray="14 3" stroke-dashoffset="18"/><ellipse cx="0" cy="0" rx="9" ry="11.9" stroke-dasharray="17 6" stroke-dashoffset="27"/><ellipse cx="0" cy="0" rx="12" ry="15.8" stroke-dasharray="20 4" stroke-dashoffset="36"/><ellipse cx="0" cy="0" rx="15" ry="19.8" stroke-dasharray="23 2" stroke-dashoffset="45"/><ellipse cx="0" cy="0" rx="18" ry="23.8" stroke-dasharray="26 5" stroke-dashoffset="54"/><ellipse cx="0" cy="0" rx="21" ry="27.7" stroke-dasharray="29 3" stroke-dashoffset="63"/><ellipse cx="0" cy="0" rx="24" ry="31.7" stroke-dasharray="32 6" stroke-dashoffset="72"/><ellipse cx="0" cy="0" rx="27" ry="35.6" stroke-dasharray="35 4" stroke-dashoffset="81"/><ellipse cx="0" cy="0" rx="30" ry="39.6" stroke-dasharray="38 2" stroke-dashoffset="90"/></g>
+  </svg>
+  <p class="sub">Sapiens: A Brief History of Humankind · Yuval Noah Harari</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Yuval Noah Harari · sử gia, Đại học Hebrew Jerusalem</b></div>
+    <div><span class="label">Xuất bản</span><b>2011 (tiếng Hebrew) · 2014 (tiếng Anh) · bản Việt: Omega Plus, NXB Tri Thức, Nguyễn Thủy Chung dịch</b></div>
+    <div><span class="label">Quy mô</span><b>4 phần · 20 chương · ~450 trang</b></div>
+    <div><span class="label">Đánh giá</span><b>8 / 10 · đổi cách nhìn, nhưng đọc như bài luận</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24c3-6 7-6 10 0 3-6 7-6 10 0"/><path d="M8 10h16M8 15h10"/></svg><b>Ta thắng nhờ kể chuyện</b><span>Tin chung một câu chuyện thì hàng triệu người lạ hợp tác được.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 28V8"/><path d="M16 12l-5-4M16 12l5-4M16 18l-5-4M16 18l5-4M16 24l-5-4M16 24l5-4"/></svg><b>Nông nghiệp là "cú lừa"</b><span>Thêm lương thực, nhưng mỗi người làm nhiều hơn và ăn kém hơn.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/></svg><b>Tiền, đế chế, tôn giáo</b><span>Ba thứ gom loài người về một trật tự toàn cầu.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l10 18H6z"/><circle cx="16" cy="5" r="2" fill="currentColor"/><circle cx="26" cy="23" r="2" fill="currentColor"/><circle cx="6" cy="23" r="2" fill="currentColor"/></svg><b>Khoa học, đế chế, tư bản</b><span>Ba bánh răng đẩy nhau suốt 500 năm qua.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Ý lớn, chi tiết lỏng</b><span>Giới sử học và nhân học chỉ ra nhiều chỗ đơn giản hóa quá tay.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Homo sapiens thống trị Trái Đất vì là loài duy nhất hợp tác linh hoạt ở quy mô lớn, nhờ cùng tin vào những thứ chỉ có trong trí tưởng tượng. Nhưng sức mạnh ấy chưa chắc làm ta hạnh phúc hơn.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Biết hư cấu</b><span>Khoảng 70.000 năm trước, sapiens biết nói về thứ không có thật: thần linh, bộ lạc, tổ tiên.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Hợp tác đông người</b><span>Câu chuyện chung gom người lạ thành làng, vương quốc, đế chế, thị trường.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Mạnh mà chưa chắc vui</b><span>Mỗi cuộc cách mạng tăng sức mạnh của loài, nhưng không chắc tăng hạnh phúc của từng người.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Bốn phần, mỗi phần một cuộc cách mạng. Càng về sau, mỗi chương càng gần hiện tại.</p></div>
+  <div class="chbar" role="img" aria-label="Phần 1 có 4 chương, phần 2 có 4 chương, phần 3 có 5 chương, phần 4 có 7 chương">
+    <div class="p1" style="flex:4">Nhận thức · 4</div><div class="p4" style="flex:4">Nông nghiệp · 4</div><div class="p3" style="flex:5">Thống nhất · 5</div><div class="p5" style="flex:7">Khoa học · 7</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="f0t">
+        <title id="f0t">Dòng thời gian không theo tỉ lệ: chi Homo xuất hiện 2,5 triệu năm trước, sapiens khoảng 300.000 năm trước, cách mạng nhận thức 70.000 năm trước, cách mạng nông nghiệp 12.000 năm trước, chữ viết khoảng 5.000 năm trước, cách mạng khoa học 500 năm trước.</title>
+        <line x1="20" y1="70" x2="700" y2="70" stroke="var(--rule)" stroke-width="4"/>
+        <g text-anchor="middle">
+          <circle cx="40" cy="70" r="7" fill="var(--muted)"/><text x="40" y="44" class="t-ink t-bold">2,5 triệu</text><text x="40" y="100">chi Homo</text>
+          <circle cx="160" cy="70" r="7" fill="var(--muted)"/><text x="160" y="44" class="t-ink t-bold">300.000</text><text x="160" y="100">sapiens ra đời</text>
+          <circle cx="290" cy="70" r="12" fill="var(--night)"/><text x="290" y="44" class="t-night t-bold">70.000</text><text x="290" y="100" class="t-night t-bold">Nhận thức</text><text x="290" y="116">phần 1</text>
+          <circle cx="420" cy="70" r="12" fill="var(--day)"/><text x="420" y="44" class="t-day t-bold">12.000</text><text x="420" y="100" class="t-day t-bold">Nông nghiệp</text><text x="420" y="116">phần 2</text>
+          <circle cx="540" cy="70" r="12" fill="var(--rem)"/><text x="540" y="44" class="t-rem t-bold">~5.000</text><text x="540" y="100" class="t-rem t-bold">Thống nhất</text><text x="540" y="116">phần 3</text>
+          <circle cx="660" cy="70" r="12" fill="var(--ok)"/><text x="660" y="44" class="t-ok t-bold">500</text><text x="660" y="100" class="t-ok t-bold">Khoa học</text><text x="660" y="116">phần 4</text>
+        </g>
+        <text x="20" y="144">năm trước · khoảng cách không theo tỉ lệ</text>
+      </svg>
+    </div>
+    <figcaption><b>Lịch sử tăng tốc.</b> Cuộc cách mạng sau đến nhanh hơn cuộc trước rất nhiều lần.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Chương 1–4 · Kỳ 1</span><h3>Cách mạng nhận thức</h3><div class="chips"><span class="chip">nhiều loài người</span><span class="chip">hư cấu</span><span class="chip">buôn chuyện</span><span class="chip">người săn hái</span><span class="chip">trận lụt diệt chủng</span></div></div>
+    <div class="part b4"><span class="label">Chương 5–8 · Kỳ 2</span><h3>Cách mạng nông nghiệp</h3><div class="chips"><span class="chip">cú lừa lớn nhất</span><span class="chip">bẫy xa xỉ</span><span class="chip">trật tự tưởng tượng</span><span class="chip">chữ viết</span><span class="chip">thứ bậc</span></div></div>
+    <div class="part b3"><span class="label">Chương 9–13 · Kỳ 3</span><h3>Thống nhất loài người</h3><div class="chips"><span class="chip">tiền</span><span class="chip">đế chế</span><span class="chip">tôn giáo</span><span class="chip">mũi tên lịch sử</span></div></div>
+    <div class="part b5"><span class="label">Chương 14–20 · Kỳ 4</span><h3>Cách mạng khoa học</h3><div class="chips"><span class="chip">phát hiện sự dốt</span><span class="chip">khoa học + đế chế</span><span class="chip">tín dụng</span><span class="chip">hạnh phúc</span><span class="chip">hậu sapiens</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Từng có nhiều loài người</h3><span class="en">Homo neanderthalensis · erectus · denisova · floresiensis</span><span class="pg">Chương 1</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f1t">
+          <title id="f1t">Trong 300.000 năm qua, sapiens sống cùng thời với nhiều loài người khác: erectus, Neanderthal, Denisova, người lùn Flores. Khoảng 40.000 năm trước, các loài khác lần lượt biến mất; nay chỉ còn sapiens.</title>
+          <g class="gridl"><line x1="150" y1="20" x2="150" y2="180"/><line x1="290" y1="20" x2="290" y2="180"/><line x1="430" y1="20" x2="430" y2="180"/><line x1="570" y1="20" x2="570" y2="180"/></g>
+          <text x="150" y="200" text-anchor="middle">400.000</text><text x="290" y="200" text-anchor="middle">300.000</text><text x="430" y="200" text-anchor="middle">200.000</text><text x="570" y="200" text-anchor="middle">100.000</text><text x="700" y="200" text-anchor="end">nay</text>
+          <text x="10" y="40" class="t-ink">Erectus</text><rect x="110" y="30" width="456" height="14" rx="7" fill="var(--muted)" fill-opacity=".45"/>
+          <text x="10" y="72" class="t-ink">Neanderthal</text><rect x="150" y="62" width="514" height="14" rx="7" fill="var(--rem)" fill-opacity=".6"/>
+          <text x="10" y="104" class="t-ink">Denisova</text><rect x="290" y="94" width="364" height="14" rx="7" fill="var(--day)" fill-opacity=".6"/>
+          <text x="10" y="136" class="t-ink">Người lùn Flores</text><rect x="570" y="126" width="70" height="14" rx="7" fill="var(--ok)" fill-opacity=".6"/>
+          <text x="10" y="168" class="t-night t-bold">Sapiens</text><rect x="290" y="158" width="414" height="14" rx="7" fill="var(--night)"/>
+          <line x1="664" y1="20" x2="664" y2="180" stroke="var(--night)" stroke-dasharray="4 3"/><text x="660" y="16" text-anchor="end" class="t-night">~40.000: chỉ còn ta</text>
+        </svg>
+      </div>
+      <figcaption><b>Việc chỉ còn một loài người là chuyện mới.</b> Harari hỏi: sapiens thay thế, giao phối, hay tiêu diệt các loài kia? Câu trả lời có lẽ là cả ba.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Hư cấu chung</h3><span class="en">fiction · shared myths</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f2t">
+          <title id="f2t">Nhờ buôn chuyện, một nhóm biết rõ nhau giữ được tối đa khoảng 150 người. Nhờ cùng tin một câu chuyện như thần linh, quốc gia, tiền hay công ty, hàng triệu người lạ có thể hợp tác.</title>
+          <g fill="var(--muted)">
+            <circle cx="80" cy="90" r="5"/><circle cx="100" cy="72" r="5"/><circle cx="122" cy="94" r="5"/><circle cx="96" cy="114" r="5"/><circle cx="66" cy="116" r="5"/><circle cx="130" cy="122" r="5"/><circle cx="114" cy="62" r="5"/><circle cx="58" cy="82" r="5"/>
+          </g>
+          <circle cx="94" cy="94" r="62" fill="none" stroke="var(--muted)" stroke-dasharray="4 4"/>
+          <text x="94" y="182" text-anchor="middle" class="t-ink t-bold">≈ 150 người</text><text x="94" y="198" text-anchor="middle">biết nhau qua buôn chuyện</text>
+          <text x="210" y="98" class="t-ink">→ thêm câu chuyện chung →</text>
+          <circle cx="560" cy="96" r="92" fill="var(--night)" fill-opacity=".08" stroke="var(--night)" stroke-width="2"/>
+          <g fill="var(--night)" fill-opacity=".55">
+            <circle cx="490" cy="60" r="3"/><circle cx="512" cy="40" r="3"/><circle cx="540" cy="30" r="3"/><circle cx="575" cy="28" r="3"/><circle cx="610" cy="40" r="3"/><circle cx="632" cy="62" r="3"/><circle cx="648" cy="96" r="3"/><circle cx="630" cy="132" r="3"/><circle cx="604" cy="156" r="3"/><circle cx="566" cy="166" r="3"/><circle cx="526" cy="160" r="3"/><circle cx="494" cy="138" r="3"/><circle cx="476" cy="100" r="3"/>
+          </g>
+          <text x="560" y="70" text-anchor="middle" class="t-night t-bold">thần linh · quốc gia</text>
+          <text x="560" y="90" text-anchor="middle" class="t-night t-bold">tiền · công ty</text>
+          <text x="560" y="110" text-anchor="middle" class="t-night t-bold">nhân quyền</text>
+          <text x="560" y="134" text-anchor="middle" class="t-ink">hàng triệu người lạ</text>
+          <text x="560" y="204" text-anchor="middle" class="t-night t-bold">chỉ tồn tại vì ta cùng tin</text>
+        </svg>
+      </div>
+      <figcaption><b>Ví dụ của Harari: hãng xe Peugeot.</b> Nhà máy cháy, nhân viên nghỉ hết, Peugeot vẫn còn, vì nó là một "pháp nhân": một câu chuyện luật pháp mà ai cũng chấp nhận.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Ba tầng thực tại</h3><span class="en">objective · subjective · intersubjective</span><span class="pg">Chương 6</span></div>
+    <div class="lvl">
+      <div><span class="label">Khách quan</span><b>Có thật dù không ai tin</b><span>dòng sông, phóng xạ, virus</span></div>
+      <div class="l2"><span class="label">Chủ quan</span><b>Chỉ có trong đầu một người</b><span>cơn đau, người bạn tưởng tượng</span></div>
+      <div class="l3"><span class="label">Liên chủ quan</span><b>Có thật vì nhiều người cùng tin</b><span>tiền, luật, quốc gia, thương hiệu. Một người bỏ tin thì không sao; hàng triệu người bỏ tin thì nó sụp.</span></div>
+    </div>
+    <p class="lead">"Trật tự tưởng tượng" như Bộ luật Hammurabi hay Tuyên ngôn Độc lập Mỹ thuộc tầng thứ ba: không đúng hay sai như một sự thật khoa học, mà mạnh hay yếu tùy số người tin.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bẫy xa xỉ</h3><span class="en">the luxury trap · "history's biggest fraud"</span><span class="pg">Chương 5</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="f3t">
+          <title id="f3t">Vòng lặp bẫy xa xỉ: trồng lúa thì có thêm lương thực, thêm lương thực thì dân số tăng, dân đông thì cần thêm ruộng và làm việc nhiều hơn, rồi lại trồng thêm lúa. Sau vài thế hệ, không ai còn nhớ cách sống săn hái để quay lại.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--day)"/></marker></defs>
+          <g text-anchor="middle">
+            <rect x="250" y="10" width="170" height="44" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)"/><text x="335" y="37" class="t-day t-bold">trồng thêm lúa mì</text>
+            <rect x="470" y="92" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="555" y="119" class="t-ink">thêm lương thực</text>
+            <rect x="250" y="172" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="335" y="199" class="t-ink">dân số tăng</text>
+            <rect x="30" y="92" width="170" height="44" rx="8" fill="var(--paper)" stroke="var(--day)"/><text x="115" y="113" class="t-ink">cần thêm ruộng,</text><text x="115" y="128" class="t-ink">làm nhiều hơn</text>
+          </g>
+          <path d="M422 40 C500 45 540 60 552 88" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M552 138 C540 170 490 190 424 194" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M248 194 C170 190 130 170 118 140" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <path d="M118 90 C130 60 170 45 246 38" fill="none" stroke="var(--day)" stroke-width="2" marker-end="url(#ah)"/>
+          <text x="335" y="110" text-anchor="middle" class="t-night t-bold">không quay lại được</text>
+          <text x="335" y="128" text-anchor="middle">lúa mì "thuần hóa" con người</text>
+        </svg>
+      </div>
+      <figcaption><b>Loài người được nhiều, từng người mất nhiều.</b> Nông dân làm lụng vất vả hơn, ăn ít món hơn, bệnh nhiều hơn người săn hái. Bẫy này vẫn còn: mỗi tiện nghi mới (email, điện thoại) sinh thêm việc mới.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Ba lực thống nhất</h3><span class="en">money · empire · religion</span><span class="pg">Chương 9–12</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f4t">
+          <title id="f4t">Tiền là hệ thống lòng tin phổ quát nhất, đế chế gom nhiều dân tộc dưới một chính quyền, tôn giáo phổ quát hứa một trật tự cho mọi người. Ba lực này kéo các nền văn hóa rời rạc về một trật tự toàn cầu.</title>
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--rem)"/></marker></defs>
+          <g text-anchor="middle">
+            <rect x="20" y="16" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="38" class="t-rem t-bold">TIỀN</text><text x="120" y="56">kẻ thù cũng tin như ta</text>
+            <rect x="20" y="76" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="98" class="t-rem t-bold">ĐẾ CHẾ</text><text x="120" y="116">gom nhiều dân tộc làm một</text>
+            <rect x="20" y="136" width="200" height="50" rx="8" fill="var(--paper)" stroke="var(--rem)" stroke-width="2"/><text x="120" y="158" class="t-rem t-bold">TÔN GIÁO PHỔ QUÁT</text><text x="120" y="176">một trật tự cho mọi người</text>
+          </g>
+          <path d="M224 41 C380 41 420 90 520 98" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <path d="M224 101 L520 101" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <path d="M224 161 C380 161 420 112 520 104" fill="none" stroke="var(--rem)" stroke-width="2" marker-end="url(#ah2)"/>
+          <circle cx="600" cy="101" r="70" fill="var(--rem)" fill-opacity=".12" stroke="var(--rem)" stroke-width="2"/>
+          <path d="M530 101 H670 M600 31 C632 62 632 140 600 171 M600 31 C568 62 568 140 600 171" fill="none" stroke="var(--rem)" stroke-opacity=".5"/>
+          <text x="600" y="97" text-anchor="middle" class="t-ink t-bold">trật tự</text><text x="600" y="113" text-anchor="middle" class="t-ink t-bold">toàn cầu</text>
+        </svg>
+      </div>
+      <figcaption><b>Tiền là câu chuyện thành công nhất từng được kể.</b> Người theo đạo khác, nói tiếng khác, ghét nhau, vẫn tin cùng một đồng tiền.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Vòng lặp khoa học, đế chế, tư bản</h3><span class="en">the discovery of ignorance · science · empire · capital</span><span class="pg">Chương 14–16</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="f5t">
+          <title id="f5t">Khoa học hiện đại bắt đầu bằng việc thừa nhận "ta không biết". Đế chế tài trợ thám hiểm vì muốn kiến thức và đất đai; tư bản cho vay vì tin tương lai sẽ lớn hơn; khoa học tạo ra công cụ mới cho cả hai. Ba bên đẩy nhau thành một vòng.</title>
+          <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ok)"/></marker></defs>
+          <g text-anchor="middle">
+            <circle cx="360" cy="52" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="360" y="56" class="t-ok t-bold">KHOA HỌC</text>
+            <text x="440" y="40" text-anchor="start">"ta không biết"</text>
+            <circle cx="170" cy="170" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="170" y="174" class="t-ok t-bold">ĐẾ CHẾ</text>
+            <text x="170" y="228">muốn đất, muốn biết</text>
+            <circle cx="550" cy="170" r="44" fill="var(--ok)" fill-opacity=".15" stroke="var(--ok)" stroke-width="2"/><text x="550" y="174" class="t-ok t-bold">TƯ BẢN</text>
+            <text x="550" y="228">tin vào tăng trưởng</text>
+          </g>
+          <path d="M322 78 L210 142" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="250" y="100" text-anchor="end" class="t-ink">công cụ, bản đồ</text>
+          <path d="M218 170 L500 170" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="360" y="160" text-anchor="middle" class="t-ink">thuộc địa, thị trường</text>
+          <path d="M512 142 L400 78" stroke="var(--ok)" stroke-width="2" marker-end="url(#ah3)"/><text x="470" y="100" class="t-ink">tiền cho nghiên cứu</text>
+        </svg>
+      </div>
+      <figcaption><b>Ví dụ của sách: chuyến đi của James Cook (1768).</b> Vừa là đoàn khoa học quan sát sao Kim, vừa là chuyến mở đường cho Anh chiếm Úc. Tín dụng (vay vì tin vào tương lai) giữ cho vòng quay chạy mãi.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Mạnh hơn, có vui hơn?</h3><span class="en">happiness · expectations</span><span class="pg">Chương 19–20</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f6t">
+          <title id="f6t">Sơ đồ minh họa câu hỏi của Harari, không phải số liệu đo: sức mạnh của loài người tăng vọt qua ba cuộc cách mạng, còn hạnh phúc của từng người có lẽ gần như đi ngang, vì kỳ vọng tăng theo điều kiện sống.</title>
+          <line x1="40" y1="170" x2="700" y2="170" class="axis"/><line x1="40" y1="20" x2="40" y2="170" class="axis"/>
+          <path d="M40 166 C300 164 450 150 540 120 C610 96 660 50 700 24" fill="none" stroke="var(--night)" stroke-width="3"/>
+          <text x="560" y="58" class="t-night t-bold">sức mạnh loài người</text>
+          <path d="M40 120 C200 116 380 126 540 118 C620 114 660 120 700 116" fill="none" stroke="var(--day)" stroke-width="3" stroke-dasharray="8 6"/>
+          <text x="470" y="146" class="t-day t-bold">hạnh phúc từng người ?</text>
+          <g text-anchor="middle"><text x="140" y="188">nhận thức</text><text x="400" y="188">nông nghiệp</text><text x="620" y="188">khoa học</text></g>
+        </svg>
+      </div>
+      <figcaption><b>Hạnh phúc phụ thuộc kỳ vọng hơn là điều kiện.</b> Harari kết sách bằng cảnh báo: sapiens sắp tự thiết kế lại chính mình, mà vẫn chưa biết mình muốn gì.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">13 khẳng định sách hay nhắc, đối chiếu với nghiên cứu khảo cổ và nhân học hiện nay. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 5 cần thận trọng, 3 bị phê bình hoặc lỗi thời">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Sapiens từng sống cùng thời với nhiều loài người khác</span></summary><p class="note">Neanderthal, Denisova, người lùn Flores đều có bằng chứng hóa thạch hoặc ADN. Từ khi sách ra đời còn có thêm Homo luzonensis (Philippines, 2019) và Homo naledi.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Người ngoài châu Phi mang một ít gen Neanderthal</span></summary><p class="note">Ước tính hiện nay khoảng 1–2% (sách ghi tới 4%). Người Melanesia còn mang thêm vài phần trăm gen Denisova. Ý "sapiens có giao phối với loài khác" là vững.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Nông dân thời đầu thấp hơn, răng xấu hơn, bệnh nhiều hơn người săn hái</span></summary><p class="note">Nhiều nghiên cứu xương cốt (Larsen 1995; Mummert và cộng sự 2011) cho thấy sức khỏe đi xuống khi chuyển sang làm ruộng, dù mức độ khác nhau theo vùng.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chữ viết đầu tiên ở Lưỡng Hà dùng để ghi sổ, không phải để viết thơ</span></summary><p class="note">Bảng đất sét chữ hình nêm sớm nhất (khoảng 3200 TCN, Uruk) chủ yếu ghi số lượng lúa mạch, gia súc, nhân công.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Thú lớn ở Úc và châu Mỹ tuyệt chủng không lâu sau khi sapiens đến</span></summary><p class="note">Thời điểm trùng nhau là vững. Mức độ do con người hay do khí hậu vẫn được tranh luận, nhưng đa số nghiên cứu gần đây nghiêng về vai trò lớn của con người.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ngôn ngữ tiến hóa để buôn chuyện</span></summary><p class="note">"Thuyết buôn chuyện" của Robin Dunbar là một giả thuyết hay, nhưng gần như không thể kiểm chứng trực tiếp. Sách trình bày nó chắc chắn hơn mức bằng chứng cho phép.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Nhóm người tự nhiên tối đa khoảng 150 người</span></summary><p class="note">"Con số Dunbar" phổ biến, nhưng phân tích lại năm 2021 (Lindenfors và cộng sự) cho khoảng tin cậy rất rộng, từ vài người đến hơn 500.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Người săn hái làm ít giờ và sống thoải mái hơn nông dân</span></summary><p class="note">Ý này đi từ "xã hội sung túc nguyên thủy" của Sahlins (1966). Đo lại kỹ hơn, tính cả giờ chế biến thức ăn, cho kết quả khác nhau nhiều giữa các nhóm.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Nông nghiệp là cái bẫy mà loài người rơi vào không lối ra</span></summary><p class="note">Graeber và Wengrow (<i>The Dawn of Everything</i>, 2021) cho thấy nhiều cộng đồng thử làm ruộng rồi bỏ, hoặc sống nửa nông nửa săn hái hàng nghìn năm. Con đường không một chiều như sách kể.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Giàu lên không làm ta hạnh phúc hơn</span></summary><p class="note">Nghịch lý Easterlin bị phản bác bởi Stevenson và Wolfers (2008) và Killingsworth (2021): hạnh phúc vẫn tăng theo thu nhập, dù chậm dần. Ý "kỳ vọng tăng theo điều kiện" thì có cơ sở.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Một "cách mạng nhận thức" bùng lên đột ngột khoảng 70.000 năm trước</span></summary><p class="note">Nhiều nhà khảo cổ (McBrearty và Brooks, 2000: "cuộc cách mạng không hề có") cho thấy hành vi hiện đại như dùng màu son, làm đồ trang sức, công cụ tinh xảo tích lũy dần ở châu Phi từ hàng trăm nghìn năm trước.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Neanderthal không có tư duy biểu tượng như sapiens</span></summary><p class="note">Có bằng chứng Neanderthal chôn người chết, làm đồ trang sức từ lông chim và móng đại bàng, và có thể vẽ hang (Tây Ban Nha, Hoffmann 2018, còn tranh luận). Ranh giới không rõ như sách vẽ.</p></details>
+    <details><summary><span class="tag bad">LỖI THỜI</span><span>Sapiens xuất hiện khoảng 200.000 năm trước ở Đông Phi</span></summary><p class="note">Hóa thạch Jebel Irhoud ở Maroc (Hublin và cộng sự, 2017) đẩy mốc lên khoảng 300.000 năm và cho thấy sapiens hình thành rải rác khắp châu Phi, không chỉ ở Đông Phi.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Tầm nhìn, độ mới</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Một khung đơn giản để nhìn cả lịch sử loài người</li><li>Khái niệm "hư cấu chung" thay đổi cách nhìn tiền, luật, công ty</li><li>Viết cuốn hút, nhiều ví dụ nhớ lâu</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Khẳng định rộng, ít chú thích, nhiều chỗ đơn giản quá tay</li><li>Ý kiến cá nhân trình bày như sự thật</li><li>Một số dữ liệu khảo cổ đã lỗi thời</li></ul></div>
+  </div>
+  <p class="verdict">Đọc như một bài luận lớn để mở mắt, không phải sách giáo khoa lịch sử. Giữ lấy các câu hỏi, kiểm tra lại các khẳng định.</p>
+  <details class="more"><summary>Xem thêm: giới chuyên môn phê bình gì</summary><div>
+    <p>Nhà nhân học Christopher Hallpike (2017) gọi sách là "giải trí kiến thức": kể hay nhưng nhiều chỗ sai hoặc khái quát quá mức, và ít tham khảo tài liệu chuyên ngành. Triết gia Galen Strawson (The Guardian, 2014) khen nhiều đoạn thú vị nhưng chê sự cẩu thả về học thuật.</p>
+    <p>Nhà khoa học thần kinh Darshana Narayanan (Current Affairs, 2022) cho rằng Harari hay biến giả thuyết thành điều chắc chắn để câu chuyện gọn hơn. Graeber và Wengrow phản bác cả khung "săn hái → nông nghiệp → nhà nước" như một con đường tất yếu.</p>
+    <p>Phía ủng hộ cho rằng đây là sách phổ thông, mục tiêu là đặt câu hỏi lớn chứ không phải nghiên cứu. Jared Diamond và nhiều độc giả coi nó là cửa ngõ tốt vào lịch sử lớn. Cách đọc hợp lý: tin vào câu hỏi, nghi ngờ các câu trả lời quá gọn.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Sapiens không cho mẹo, nó cho một cặp kính. Thử đeo nó trong một ngày bình thường.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="f7t">
+        <title id="f7t">Một ngày nhìn bằng kính Sapiens: bữa sáng nhớ lúa đã thuần hóa ta; đi làm nhớ công ty là một pháp nhân; trả tiền nhớ tiền là lòng tin; đọc tin hỏi câu chuyện chung nào đang vận hành; mua sắm hỏi mình cần hay được kể là cần; buổi tối so hạnh phúc với kỳ vọng.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="70" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="70" y="30" class="t-ink t-bold">sáng</text><text x="70" y="100" class="t-day t-bold">Bát cơm</text><text x="70" y="116">lúa đã "thuần hóa"</text><text x="70" y="131">tổ tiên ta</text></g>
+        <circle cx="205" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="205" y="30" class="t-ink t-bold">8:00</text><text x="205" y="100" class="t-night t-bold">Đi làm</text><text x="205" y="116">công ty là một</text><text x="205" y="131">câu chuyện pháp lý</text></g>
+        <circle cx="340" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="340" y="30" class="t-ink t-bold">trưa</text><text x="340" y="100" class="t-rem t-bold">Trả tiền</text><text x="340" y="116">tờ giấy chạy được</text><text x="340" y="131">vì ai cũng tin</text></g>
+        <circle cx="475" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="475" y="30" class="t-ink t-bold">chiều</text><text x="475" y="100" class="t-night t-bold">Đọc tin</text><text x="475" y="116">câu chuyện chung</text><text x="475" y="131">nào đang chạy?</text></g>
+        <circle cx="610" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="610" y="30" class="t-ink t-bold">tối</text><text x="610" y="100" class="t-ok t-bold">Mua sắm</text><text x="610" y="116">mình cần, hay</text><text x="610" y="131">được kể là cần?</text></g>
+        <circle cx="745" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="745" y="30" class="t-ink t-bold">trước ngủ</text><text x="745" y="100" class="t-day t-bold">Hôm nay vui?</text><text x="745" y="116">so với kỳ vọng,</text><text x="745" y="131">không so với của cải</text></g>
+        <text x="50" y="175">Mỗi điểm dừng: hỏi "đây là thật khách quan, hay là thứ có thật vì nhiều người cùng tin?"</text>
+      </svg>
+    </div>
+    <figcaption><b>Không phải để hoài nghi mọi thứ.</b> Biết tiền, luật, quốc gia là "câu chuyện chung" không làm chúng kém quan trọng, mà giúp ta thấy chúng có thể được kể lại.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 10h20v14H6z"/><path d="M11 10V6h10v4"/><path d="M6 16h20"/></svg><div><b>Cảnh giác bẫy xa xỉ</b><span>Trước khi nhận một tiện nghi mới, hỏi: nó sẽ sinh thêm nghĩa vụ gì?</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4v24M4 16h24"/><circle cx="16" cy="16" r="11"/></svg><div><b>Hỏi "ai được lợi?"</b><span>Một trật tự có vẻ tự nhiên thường là câu chuyện có người kể và có người hưởng.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z"/></svg><div><b>Chỉnh kỳ vọng, không chỉ chỉnh điều kiện</b><span>Hạnh phúc là khoảng cách giữa thực tại và điều ta mong đợi.</span></div></div>
+  </div>
+  <div class="quote"><span>"You could never convince a monkey to give you a banana by promising him limitless bananas after death in monkey heaven."</span><span class="src">Không thể thuyết phục con khỉ đưa bạn quả chuối bằng lời hứa chuối vô hạn trên thiên đường. Chương 2.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Jared Diamond, <i>Súng, vi trùng và thép</i> (1997)</b><span class="muted">Vì sao lục địa này mạnh hơn lục địa kia. Chặt chẽ hơn về địa lý và sinh thái.</span></div>
+    <div><b>David Graeber và David Wengrow, <i>The Dawn of Everything</i> (2021)</b><span class="muted">Phản biện trực diện câu chuyện "nông nghiệp là cái bẫy". Nên đọc ngay sau Sapiens.</span></div>
+    <div><b>Joseph Henrich, <i>The Secret of Our Success</i> (2015)</b><span class="muted">Giải thích khác cho thành công của loài người: văn hóa tích lũy, không chỉ hư cấu.</span></div>
+    <div><b>Yuval Noah Harari, <i>Homo Deus</i> (2015)</b><span class="muted">Phần tiếp theo: tương lai khi sapiens tự nâng cấp mình.</span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #009. Các hình là sơ đồ minh họa khái niệm; số liệu lấy theo sách và được đối chiếu ở phần Dẫn chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
