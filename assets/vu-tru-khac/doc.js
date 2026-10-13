@@ -63,3 +63,82 @@
   ve();
   nut.hidden = false;
 })();
+
+// Phóng to sơ đồ: mỗi hình (figure hoặc .svgbox có SVG) có nút "Phóng to" ở góc, bấm mở hộp toàn màn hình với bản sao của
+// sơ đồ, nút + / − đổi cỡ (chữ to theo), cuộn hoặc chụm hai ngón để xem; Esc hoặc nút Đóng để thoát. Thanh tiến độ đọc
+// gắn vào mép dưới thanh trên cùng (doc.css) nên không đè nút quay về.
+(function () {
+  var thanhTren = document.querySelector(".mhai-thanh"), tienDo = document.querySelector(".vtk-tien-do");
+  if (thanhTren && tienDo) thanhTren.appendChild(tienDo);
+
+  var EN = document.documentElement.lang === "en";
+  var CHU = EN ? { mo: "Zoom", dong: "Close", to: "Zoom in", nho: "Zoom out", ten: "Diagram" }
+               : { mo: "Phóng to", dong: "Đóng", to: "Phóng to thêm", nho: "Thu nhỏ", ten: "Sơ đồ" };
+  var KINH = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5M11 8v6M8 11h6"/></svg>';
+  var CONG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  var TRU = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>';
+  var DONG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+  var hop = null, khung, ten, coHienTai = 1, rongGoc = 0, hinhDangXem = null;
+  function taoHop() {
+    hop = document.createElement("dialog");
+    hop.className = "vtk-xem-hinh";
+    hop.innerHTML = '<div class="cong-cu"><b></b><button type="button" data-co="-1" aria-label="' + CHU.nho + '">' + TRU + '</button>' +
+      '<button type="button" data-co="1" aria-label="' + CHU.to + '">' + CONG + '</button>' +
+      '<button type="button" data-dong>' + DONG + '<span>' + CHU.dong + '</span></button></div><div class="khung"></div>';
+    khung = hop.querySelector(".khung"); ten = hop.querySelector("b");
+    hop.addEventListener("click", function (e) {
+      var nut = e.target.closest("button");
+      if (!nut) return;
+      if (nut.hasAttribute("data-dong")) { hop.close(); return; }
+      datCo(coHienTai * (nut.getAttribute("data-co") === "1" ? 1.4 : 1 / 1.4));
+    });
+    hop.addEventListener("close", function () { khung.innerHTML = ""; if (hinhDangXem) hinhDangXem.focus(); });
+    document.body.appendChild(hop);
+  }
+  function datCo(c) {
+    coHienTai = Math.max(1, Math.min(4, c));
+    var svg = khung.querySelector("svg");
+    if (svg) svg.style.width = Math.round(rongGoc * coHienTai) + "px";
+  }
+  function mo(goc, nut) {
+    if (!hop) taoHop();
+    hinhDangXem = nut;
+    var ban = goc.cloneNode(true);
+    var tieuDe = goc.querySelector("title");
+    ban.removeAttribute("aria-labelledby");
+    Array.prototype.forEach.call(ban.querySelectorAll("[id]"), function (n) { n.removeAttribute("id"); });
+    if (tieuDe) ban.setAttribute("aria-label", tieuDe.textContent.trim());
+    ban.removeAttribute("width"); ban.removeAttribute("height"); ban.style.minWidth = "0";
+    var chu = goc.closest("figure, .concept, section");
+    var cap = chu && chu.querySelector("figcaption b, h3, h2");
+    ten.textContent = cap ? cap.textContent.trim() : CHU.ten;
+    khung.innerHTML = ""; khung.appendChild(ban);
+    hop.showModal();
+    // Cỡ nhỏ nhất: vừa bề ngang màn hình. Mở ra ở cỡ thật của sơ đồ (theo viewBox) để chữ đọc được, kéo ngang để xem hết
+    rongGoc = khung.clientWidth - 32;
+    var vb = goc.viewBox && goc.viewBox.baseVal;
+    datCo(vb && vb.width ? vb.width / rongGoc : 1);
+    khung.scrollLeft = 0; khung.scrollTop = 0;
+  }
+
+  var daGan = [];
+  Array.prototype.forEach.call(document.querySelectorAll("figure svg, .svgbox svg"), function (svg) {
+    if (svg.closest("header, .ecard, .rule, .mhai-thanh, .vtk-phong")) return;
+    var vb = svg.viewBox && svg.viewBox.baseVal;
+    if (!vb || vb.width < 300) return;
+    var chua = svg.closest("figure") || svg.closest(".svgbox");
+    if (daGan.indexOf(chua) >= 0) return;
+    daGan.push(chua);
+    chua.classList.add("vtk-co-phong");
+    var nut = document.createElement("button");
+    nut.type = "button"; nut.className = "vtk-phong";
+    nut.innerHTML = KINH + "<span>" + CHU.mo + "</span>";
+    nut.setAttribute("aria-label", CHU.mo);
+    nut.addEventListener("click", function () { mo(svg, nut); });
+    // Chạm vào sơ đồ cũng mở (trừ khi bấm vào link hay nút bên trong)
+    svg.style.cursor = "zoom-in";
+    svg.addEventListener("click", function (e) { if (!e.target.closest("a, button")) mo(svg, nut); });
+    chua.appendChild(nut);
+  });
+})();

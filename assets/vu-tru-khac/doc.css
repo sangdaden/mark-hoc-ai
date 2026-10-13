@@ -8,6 +8,7 @@
   --font-display: "Be Vietnam Pro", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --thanh-cao: 66px; /* chiều cao thanh trên cùng (nút quay về cao 44px + đệm + viền) */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -102,7 +103,7 @@ body.bia-bon-mau header::before { content: ""; position: absolute; left: 0; righ
 
 /* Mục lục: hàng chip dính trên cùng khi cuộn */
 .toc {
-  position: sticky; top: 48px; z-index: 5; margin-inline: calc(50% - 50vw); padding: 10px max(16px, calc(50vw - 32rem));
+  position: sticky; top: var(--thanh-cao); z-index: 5; margin-inline: calc(50% - 50vw); padding: 10px max(16px, calc(50vw - 32rem));
   background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px);
   flex-wrap: nowrap; overflow-x: auto; gap: 6px; border-bottom: 1px solid var(--rule); font-size: .88rem; scrollbar-width: none;
 }
@@ -125,7 +126,7 @@ footer { margin-top: 28px; }
 @media (min-width: 1000px) {
   .wrap { max-width: 72rem; display: grid; grid-template-columns: 13rem 1fr; column-gap: 32px; }
   header { grid-column: 1 / -1; --le: max(16px, calc(50vw - 36rem)); }
-  .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: 64px; margin: 24px 0 0; padding: 14px;
+  .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: calc(var(--thanh-cao) + 16px); margin: 24px 0 0; padding: 14px;
     flex-direction: column; flex-wrap: nowrap; overflow: visible; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper); }
   .toc::before { content: "Trong bài"; font: 600 .72rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); padding: 0 4px 6px; }
   .toc a { border: 0; background: none; padding: 6px 10px; border-radius: 8px; }
@@ -135,8 +136,9 @@ footer { margin-top: 28px; }
 }
 html[lang="en"] .toc::before { content: "In this article"; }
 
-/* Tiến độ đọc: vạch màu nhấn của bìa ngay dưới thanh trên cùng, mục đang đọc sáng lên trong mục lục (assets/vu-tru-khac/doc.js) */
-.vtk-tien-do { position: fixed; top: 48px; left: 0; right: 0; height: 3px; z-index: 20; pointer-events: none; background: rgb(15 23 42 / .12); }
+/* Tiến độ đọc: vạch màu nhấn của bìa nằm ở mép dưới thanh trên cùng (doc.js gắn vào .mhai-thanh, không đè nút quay về), mục đang đọc sáng lên trong mục lục (assets/vu-tru-khac/doc.js) */
+.vtk-tien-do { position: fixed; top: var(--thanh-cao); left: 0; right: 0; height: 3px; z-index: 20; pointer-events: none; background: rgb(15 23 42 / .12); }
+.mhai-thanh .vtk-tien-do { position: absolute; top: auto; bottom: -3px; }
 .vtk-tien-do i { display: block; height: 100%; transform-origin: 0 50%; transform: scaleX(0);
   background: linear-gradient(90deg, var(--vtk-nhan, #FBBF24), #EA580C); }
 .toc a[aria-current] { background: var(--vtk-nhan, #FBBF24); border-color: var(--vtk-nhan, #FBBF24); color: #0F172A; font-weight: 600; }
@@ -146,3 +148,24 @@ html[lang="en"] .toc::before { content: "In this article"; }
   .toc a[aria-current]::before { content: ""; position: absolute; left: -2px; top: 6px; bottom: 6px; width: 3px; border-radius: 2px; background: var(--vtk-nhan, #FBBF24); }
 }
 @media (prefers-reduced-motion: no-preference) { .vtk-tien-do i { transition: transform .1s linear; } .toc a { transition: background .2s, color .2s; } }
+
+/* Sơ đồ: trên điện thoại thu vừa màn hình thay vì cuộn ngang (bị cắt mất bên phải), kèm nút phóng to (doc.js) mở sơ đồ
+   toàn màn hình, có nút + / − và chụm hai ngón để xem chữ nhỏ (Sang 13/10) */
+@media (max-width: 640px) { .svgbox { overflow-x: visible; } .svgbox svg { min-width: 0; } }
+.vtk-co-phong { position: relative; }
+.vtk-phong { position: absolute; top: 8px; right: 8px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 12px;
+  border: 1px solid var(--rule); border-radius: 999px; background: color-mix(in srgb, var(--paper) 88%, transparent); color: var(--ink);
+  font: 600 .78rem/1 var(--font-body); cursor: pointer; box-shadow: 0 2px 8px rgb(0 0 0 / .12); }
+.vtk-phong:hover { border-color: var(--cam); color: var(--cam); }
+@media (max-width: 640px) { .vtk-phong { top: 6px; right: 6px; min-height: 32px; width: 32px; padding: 0; justify-content: center; } .vtk-phong span { display: none; } }
+.vtk-phong svg, .vtk-xem-hinh .cong-cu svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.vtk-xem-hinh { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: var(--bg); color: var(--ink); }
+.vtk-xem-hinh::backdrop { background: rgb(0 0 0 / .6); }
+.vtk-xem-hinh[open] { display: flex; flex-direction: column; }
+.vtk-xem-hinh .cong-cu { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--rule); background: var(--paper); }
+.vtk-xem-hinh .cong-cu b { flex: 1; min-width: 0; font: 600 .9rem/1.3 var(--font-display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vtk-xem-hinh .cong-cu button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; min-height: 44px; padding: 0 12px;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--bg); color: var(--ink); font: 600 .95rem/1 var(--font-body); cursor: pointer; }
+.vtk-xem-hinh .cong-cu button:hover { border-color: var(--cam); color: var(--cam); }
+.vtk-xem-hinh .khung { flex: 1; overflow: auto; padding: 16px; touch-action: pan-x pan-y pinch-zoom; }
+.vtk-xem-hinh .khung svg { display: block; height: auto; max-width: none; margin: 0 auto; }
