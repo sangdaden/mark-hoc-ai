@@ -142,3 +142,17 @@
     chua.appendChild(nut);
   });
 })();
+
+// Thời gian đọc còn lại trong cột tiện ích: số phút cả bài (script tính từ số chữ, 200 chữ/phút) nhân phần chưa cuộn tới.
+(function () {
+  var o = document.querySelector(".vtk-con-lai");
+  if (!o) return;
+  var tong = +o.dataset.phut, EN = o.dataset.chu === "en", cho = false;
+  function ve() {
+    cho = false;
+    var g = document.documentElement, het = g.scrollHeight - g.clientHeight, con = Math.ceil(tong * (1 - (het > 0 ? g.scrollTop / het : 0)));
+    o.textContent = con < 1 ? (EN ? "almost done" : "sắp xong rồi") : (EN ? "about " + con + " min read" : "khoảng " + con + " phút đọc");
+  }
+  addEventListener("scroll", function () { if (!cho) { cho = true; requestAnimationFrame(ve); } }, { passive: true });
+  ve();
+})();

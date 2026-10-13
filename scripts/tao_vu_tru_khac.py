@@ -84,7 +84,7 @@ def chen_minh_hoa(bai, b, mo_ta):
     return bai[:dau.start()] + h2 + bai[dau.end():]
 
 
-def trang_sach(b, goc, en=False, cd=None):
+def trang_sach(b, goc, en=False, cd=None, sau=None):
     e = b.get("en", {}) if en else b
     ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
            else f'{b["ten"]} ({b["tac_gia"]}): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác')
@@ -95,6 +95,7 @@ def trang_sach(b, goc, en=False, cd=None):
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
     if b.get("minh_hoa"):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
+    bai = chen_ray(bai, b, en, cd, sau, p)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
     mau_bia = f"\nbody, body header {{ {mau_bia}}}" if mau_bia else ""
@@ -158,6 +159,38 @@ body {{ margin: 0; }}
 </body>
 </html>
 '''
+
+
+def chen_ray(bai, b, en, cd, sau, p):
+    """Cột tiện ích bên phải trang đọc trên máy tính (Sang 13/10): bìa nhỏ của bài (hình bìa tự vẽ + tư thế Mark như thẻ ở
+    trang góc), thời gian đọc còn lại (doc.js cập nhật khi cuộn), nút tới trò chơi của bài, bài tiếp theo cùng chủ đề.
+    Thêm Mark đọc sách dưới mục lục. doc.css chỉ hiện cột từ 1280px, Mark dưới mục lục từ 1000px."""
+    e = b.get("en", {}) if en else b
+    ten = e.get("ten", b["ten"])
+    so_chu = len(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg)\b.*?</\1>", " ", bai, flags=re.S)).split())
+    phut = max(1, round(so_chu / 200))
+    tep = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
+    hinh = ('<span class="h">' + tep.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', "") + "</span>") if tep.exists() else ""
+    mark = b.get("mark") if b.get("mark") in TU_THE else TU_THE[(b["so"] - 1) % len(TU_THE)]
+    ra = [f'<aside class="vtk-ray" aria-label="{"Reading tools" if en else "Tiện ích đọc"}">',
+          f'<div class="vtk-ray-bia" aria-hidden="true"><i>{esc(ten)}</i>{hinh}<img src="{p}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340"></div>',
+          f'<p class="vtk-ray-o"><small>{"Time left" if en else "Còn lại"}</small><b class="vtk-con-lai" data-phut="{phut}" data-chu="{"en" if en else "vi"}">'
+          f'{f"about {phut} min read" if en else f"khoảng {phut} phút đọc"}</b></p>']
+    tc = R / "data" / "vu-tru-khac-tro-choi.json"
+    tro = json.loads(tc.read_text(encoding="utf-8")).get(b["slug"]) if tc.exists() else None
+    for g in ([tro] if isinstance(tro, dict) else tro or []):
+        nhan = (g.get("en" if en else "vi") or {}).get("nhan", "")
+        ra.append(f'<a class="vtk-ray-choi" href="#{esc(g["id"])}"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>'
+                  f'<span><small>{"Play" if en else "Chơi thử"}</small>{esc(nhan)}</span></a>')
+    if sau:
+        es = sau.get("en", {}) if en else sau
+        ra.append(f'<a class="vtk-ray-o vtk-ray-tiep" href="{esc(sau["slug"])}.html"><small>{"Up next" if en else "Bài tiếp theo"}</small>'
+                  f'<b>{esc(es.get("ten", sau["ten"]))}</b><span>{esc(((cd or {}).get("en", {}) if en else (cd or {})).get("nhan", ""))} #{sau["so"]:03d} →</span></a>')
+    ra.append("</aside>")
+    bai = re.sub(r'(<div class="wrap">)', lambda m: m.group(1) + "\n" + "".join(ra), bai, count=1)
+    mark_toc = (f'<span class="vtk-toc-mark" aria-hidden="true"><img src="{p}assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170">'
+                f'<small>{"Mark is reading with you" if en else "Mark đang đọc cùng bạn"}</small></span>')
+    return re.sub(r'(<nav class="toc"[^>]*>.*?)(</nav>)', lambda m: m.group(1) + mark_toc + m.group(2), bai, count=1, flags=re.S)
 
 
 def tro_choi(b, p):
@@ -271,7 +304,10 @@ def main():
                 continue
             ra = goc_ra / "vu-tru-khac" / f'{b["slug"]}.html'
             cd = next((c for c in chu_de if c["ma"] == b.get("loai", "sach")), None)
-            ra.write_text(trang_sach(b, nguon.read_text(encoding="utf-8"), en, cd), encoding="utf-8")
+            # Bài tiếp theo cùng chủ đề (số kế tiếp, hết thì quay về bài đầu) cho cột tiện ích
+            cung = sorted((x for x in sach if x.get("loai", "sach") == b.get("loai", "sach")), key=lambda x: x["so"])
+            sau = next((x for x in cung if x["so"] > b["so"]), cung[0]) if len(cung) > 1 else None
+            ra.write_text(trang_sach(b, nguon.read_text(encoding="utf-8"), en, cd, sau), encoding="utf-8")
             print(f"  {ra.relative_to(R)}")
         hub = goc_ra / "vu-tru-khac.html"
         s = hub.read_text(encoding="utf-8")
