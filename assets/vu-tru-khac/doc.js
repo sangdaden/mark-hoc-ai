@@ -37,3 +37,29 @@
   addEventListener("resize", hen);
   capNhat();
 })();
+
+// Nút đổi giao diện sáng/tối trên thanh trên cùng (cùng cách trang chính: data-theme trên <html>, nhớ ở localStorage "mhai-theme").
+// doc.css đã có màu cho cả hai giao diện; nút có sẵn trong trang (hidden) để không giật thanh khi script chạy.
+(function () {
+  var nut = document.querySelector(".mhai-thanh .mhai-theme");
+  if (!nut) return;
+  var EN = document.documentElement.lang === "en";
+  var MAT_TROI = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
+  var TRANG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  function toi() {
+    return (document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+  }
+  function ve() {
+    var t = toi();
+    nut.innerHTML = (t ? MAT_TROI : TRANG) + "<b>" + (t ? (EN ? "Light" : "Sáng") : (EN ? "Dark" : "Tối")) + "</b>";
+    nut.setAttribute("aria-label", EN ? (t ? "Switch to light theme" : "Switch to dark theme") : (t ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"));
+  }
+  nut.addEventListener("click", function () {
+    var t = toi() ? "light" : "dark";
+    document.documentElement.dataset.theme = t;
+    try { localStorage.setItem("mhai-theme", t); } catch (e) {}
+    ve();
+  });
+  ve();
+  nut.hidden = false;
+})();
