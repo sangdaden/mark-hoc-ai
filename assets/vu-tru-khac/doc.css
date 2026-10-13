@@ -51,7 +51,7 @@ header .meta div { display: flex; align-items: baseline; gap: 8px; padding: 6px 
   background: rgb(255 255 255 / .08); border: 1px solid color-mix(in srgb, var(--bia-nhan) 45%, transparent); }
 header .meta span { font-size: .66rem; }
 header .meta b { color: #FFF7ED; font-size: .9rem; }
-/* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng, "song" = dải sóng nước (Flow) */
+/* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng, "song" = dải sóng nước (Flow), "ba-ngoi-sao" = ba người ngôi sao nắm tay (Never Eat Alone) */
 body.bia-trang header::before { content: ""; position: absolute; top: 22px; right: calc(var(--le) + 150px); width: 46px; height: 46px; border-radius: 50%;
   box-shadow: 10px -6px 0 0 var(--bia-nhan); transform: rotate(-20deg); opacity: .9; }
 body.bia-but-chi header { border-bottom: 0; }
@@ -62,6 +62,9 @@ body.bia-song header::before { content: ""; position: absolute; left: 0; right: 
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14'%3E%3Cpath d='M0 7 Q15 1 30 7 T60 7' fill='none' stroke='%2322D3EE' stroke-width='3'/%3E%3C/svg%3E") repeat-x center / 60px 14px, #0E7490; }
 body.bia-hong-tam header::before { content: ""; position: absolute; top: 20px; right: calc(var(--le) + 150px); width: 52px; height: 52px; border-radius: 50%;
   background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); box-shadow: 0 0 0 3px var(--bia-nhan); }
+body.bia-ba-ngoi-sao header { border-bottom: 0; }
+body.bia-ba-ngoi-sao header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 132 52'%3E%3Cpath d='M22.0 20.5 Q33.4 19.5 41.0 18.2 Q33.8 25.2 28.6 30.9 Q32.5 39.5 35.3 48.6 Q27.7 43.3 22.0 38.0 Q16.3 43.3 10.2 48.6 Q12.5 39.5 15.4 30.4 Q10.6 25.2 3.0 21.4 Q10.6 20.5 22.0 20.5 Z' fill='none' stroke='%23FF5A5A' stroke-width='3.2' stroke-linejoin='round'/%3E%3Cellipse cx='23.5' cy='12.5' rx='3.8' ry='4.6' fill='%23FF5A5A'/%3E%3Cpath d='M66.0 22.0 Q76.8 21.1 84.0 19.8 Q77.2 26.5 72.3 31.9 Q75.9 40.0 78.6 48.6 Q71.4 43.6 66.0 38.6 Q60.6 43.6 54.8 48.6 Q57.0 40.0 59.7 31.4 Q55.2 26.5 48.0 22.9 Q55.2 22.0 66.0 22.0 Z' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linejoin='round'/%3E%3Cellipse cx='67.4' cy='14.4' rx='3.6' ry='4.3' fill='%23FFFFFF'/%3E%3Cpath d='M110.0 19.5 Q121.4 18.5 129.0 17.2 Q121.8 24.2 116.7 29.9 Q120.5 38.5 123.3 47.6 Q115.7 42.3 110.0 37.0 Q104.3 42.3 98.2 47.6 Q100.5 38.5 103.3 29.4 Q98.6 24.2 91.0 20.4 Q98.6 19.5 110.0 19.5 Z' fill='none' stroke='%233BA0FF' stroke-width='3.2' stroke-linejoin='round'/%3E%3Cellipse cx='111.5' cy='11.5' rx='3.8' ry='4.6' fill='%233BA0FF'/%3E%3C/svg%3E") repeat-x left 12px center / 56px 22px, #0A0F78; }
 @media (max-width: 900px) {
   header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
   header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
