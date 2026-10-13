@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why We Sleep (Matthew Walker): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Vì sao giấc ngủ là nền của trí nhớ, cảm xúc và sức khỏe, và những chỗ cuốn sách nói quá so với dẫn chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/why-we-sleep.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why We Sleep (Matthew Walker): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Vì sao giấc ngủ là nền của trí nhớ, cảm xúc và sức khỏe, và những chỗ cuốn sách nói quá so với dẫn chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/why-we-sleep.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 10px 16px; background: var(--paper, #fff); border-bottom: 1px solid var(--rule, #ddd);
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: var(--ink, #111); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: var(--night, #2c3c8c); }
+.mhai-thanh img { width: 26px; height: 26px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a href="../vu-tru-khac.html">‹ Mark ở vũ trụ khác</a><a href="../"><img src="../assets/logo.png" alt="" width="26" height="26">Mark học AI</a></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: visual-first sleep-lab report; every section leads with a figure or cards, prose kept to one line, depth folded into "Xem thêm". */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #2c3c8c;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Khoa học giấc ngủ · Sách phổ thông</span>
+  <h1>Why We Sleep</h1>
+  <p class="sub">Unlocking the Power of Sleep and Dreams · Matthew Walker</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Matthew Walker</b></div>
+    <div><span class="label">Xuất bản</span><b>2017 · Scribner</b></div>
+    <div><span class="label">Quy mô</span><b>4 phần · 16 chương</b></div>
+    <div><span class="label">Đánh giá</span><b>4 / 5 · đọc kèm bút chì</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 5a11 11 0 1 0 6 17A9 9 0 0 1 21 5z"/></svg><b>Ngủ là việc chủ động</b><span>Não và cơ thể làm việc cật lực khi ta ngủ.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 26C10 24 14 14 29 6"/><path d="M3 20c6-12 12-12 18-4s6 6 8 4" stroke-dasharray="3 3"/></svg><b>Hai lực gây buồn ngủ</b><span>Adenosine tích tụ và đồng hồ sinh học 24 giờ.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h5v14h6V12h5v6h5V8h7"/></svg><b>Đầu đêm lưu, cuối đêm trộn</b><span>Ngủ sâu lưu trí nhớ, REM xử lý cảm xúc.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="10" width="23" height="12" rx="2"/><path d="M29 14v4"/><path d="M7 14v4"/></svg><b>Nợ ngủ không tự thấy</b><span>Suy giảm tăng dần, cảm giác mệt thì không.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Đọc kèm bút chì</b><span>Cơ chế đúng, nhiều con số bị phóng đại.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Giấc ngủ là liệu pháp rẻ và hiệu quả nhất mỗi đêm, nhưng xã hội hiện đại lại coi nó là thứ có thể cắt bớt.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Cơ chế</b><span>Giấc ngủ có cấu trúc và quy luật rõ ràng.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Chức năng</b><span>Mỗi pha ngủ làm việc mà lúc thức không thay được.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Xã hội</b><span>Trường học, công sở, bệnh viện đang ép ta thiếu ngủ.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Tỷ lệ số chương của từng phần. Phần I và IV hữu ích nhất khi đọc lại.</p></div>
+  <div class="chbar" role="img" aria-label="Phần I 5 chương, phần II 3 chương, phần III 3 chương, phần IV 5 chương">
+    <div class="p1" style="flex:5">I · 5</div><div class="p2" style="flex:3">II · 3</div><div class="p3" style="flex:3">III · 3</div><div class="p4" style="flex:5">IV · 5</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Phần I</span><h3>Giấc ngủ là gì</h3><div class="chips"><span class="chip">nhịp sinh học</span><span class="chip">caffeine</span><span class="chip">melatonin</span><span class="chip">NREM/REM</span><span class="chip">theo tuổi</span></div></div>
+    <div class="part b2"><span class="label">Phần II</span><h3>Vì sao phải ngủ</h3><div class="chips"><span class="chip">trí nhớ</span><span class="chip">sáng tạo</span><span class="chip">miễn dịch</span><span class="chip">tim mạch</span><span class="chip">tai nạn</span></div></div>
+    <div class="part b3"><span class="label">Phần III</span><h3>Giấc mơ</h3><div class="chips"><span class="chip">não khi REM</span><span class="chip">trị liệu qua đêm</span><span class="chip">mơ tỉnh</span></div></div>
+    <div class="part b4"><span class="label">Phần IV</span><h3>Thuốc ngủ và xã hội</h3><div class="chips"><span class="chip">rối loạn ngủ</span><span class="chip">màn hình</span><span class="chip">rượu</span><span class="chip">CBT-I</span><span class="chip">giờ học</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Hai lực gây buồn ngủ</h3><span class="en">two-process model</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 280" role="img" aria-labelledby="f1t">
+          <title id="f1t">Áp lực ngủ tăng suốt ngày và giảm khi ngủ, nhịp sinh học dao động theo chu kỳ 24 giờ; khoảng cách lớn nhất vào khoảng 23 giờ.</title>
+          <rect x="480" y="30" width="210" height="200" fill="var(--grid)" opacity=".7"/>
+          <text x="585" y="46" text-anchor="middle" class="t-night">đang ngủ</text>
+          <g class="gridl">
+            <line x1="60" y1="50" x2="690" y2="50"/><line x1="60" y1="95" x2="690" y2="95"/><line x1="60" y1="140" x2="690" y2="140"/><line x1="60" y1="185" x2="690" y2="185"/>
+          </g>
+          <line class="axis" x1="60" y1="230" x2="690" y2="230"/>
+          <g text-anchor="middle">
+            <text x="60" y="248">07:00</text><text x="165" y="248">11:00</text><text x="270" y="248">15:00</text><text x="375" y="248">19:00</text><text x="480" y="248">23:00</text><text x="585" y="248">03:00</text><text x="690" y="248">07:00</text>
+          </g>
+          <path d="M60.0 189.9 L70.5 186.6 L81.0 182.8 L91.5 178.5 L102.0 173.9 L112.5 168.8 L123.0 163.4 L133.5 157.8 L144.0 152.0 L154.5 146.0 L165.0 140.0 L175.5 134.0 L186.0 128.0 L196.5 122.2 L207.0 116.6 L217.5 111.2 L228.0 106.1 L238.5 101.5 L249.0 97.2 L259.5 93.4 L270.0 90.1 L280.5 87.4 L291.0 85.2 L301.5 83.7 L312.0 82.7 L322.5 82.4 L333.0 82.7 L343.5 83.7 L354.0 85.2 L364.5 87.4 L375.0 90.1 L385.5 93.4 L396.0 97.2 L406.5 101.5 L417.0 106.1 L427.5 111.2 L438.0 116.6 L448.5 122.2 L459.0 128.0 L469.5 134.0 L480.0 140.0 L490.5 146.0 L501.0 152.0 L511.5 157.8 L522.0 163.4 L532.5 168.8 L543.0 173.9 L553.5 178.5 L564.0 182.8 L574.5 186.6 L585.0 189.9 L595.5 192.6 L606.0 194.8 L616.5 196.3 L627.0 197.3 L637.5 197.6 L648.0 197.3 L658.5 196.3 L669.0 194.8 L679.5 192.6 L690.0 189.9" fill="none" stroke="var(--day)" stroke-width="2.5"/>
+          <path d="M60.0 208.4 L70.5 201.2 L81.0 194.4 L91.5 187.9 L102.0 181.6 L112.5 175.6 L123.0 169.9 L133.5 164.4 L144.0 159.1 L154.5 154.1 L165.0 149.3 L175.5 144.7 L186.0 140.4 L196.5 136.2 L207.0 132.1 L217.5 128.3 L228.0 124.6 L238.5 121.1 L249.0 117.7 L259.5 114.5 L270.0 111.5 L280.5 108.5 L291.0 105.7 L301.5 103.0 L312.0 100.4 L322.5 98.0 L333.0 95.6 L343.5 93.4 L354.0 91.2 L364.5 89.1 L375.0 87.2 L385.5 85.3 L396.0 83.5 L406.5 81.8 L417.0 80.1 L427.5 78.5 L438.0 77.0 L448.5 75.6 L459.0 74.2 L469.5 72.9 L480.0 71.6 L490.5 91.1 L501.0 107.8 L511.5 122.2 L522.0 134.5 L532.5 145.0 L543.0 154.1 L553.5 161.8 L564.0 168.4 L574.5 174.1 L585.0 179.0 L595.5 183.2 L606.0 186.8 L616.5 189.9 L627.0 192.5 L637.5 194.8 L648.0 196.7 L658.5 198.4 L669.0 199.8 L679.5 201.0 L690.0 202.1" fill="none" stroke="var(--night)" stroke-width="2.5"/>
+          <line x1="472" y1="74" x2="472" y2="138" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <line x1="466" y1="160" x2="472" y2="140" stroke="var(--ink)" stroke-width="1"/>
+          <text x="462" y="174" text-anchor="end" class="t-ink">khoảng cách lớn nhất</text>
+          <text x="462" y="188" text-anchor="end" class="t-ink">= buồn ngủ nhất</text>
+          <text x="230" y="66" class="t-day">C · nhịp sinh học (tỉnh táo)</text>
+          <text x="130" y="200" class="t-night">S · áp lực ngủ (adenosine)</text>
+        </svg>
+      </div>
+      <figcaption><b>Khoảng cách giữa hai đường = mức buồn ngủ.</b> Caffeine chỉ che đường S, adenosine vẫn còn và quay lại khi hết thuốc. Sơ đồ minh họa.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Một đêm gồm 4–5 chu kỳ 90 phút</h3><span class="en">NREM · REM · hypnogram</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 740 260" role="img" aria-labelledby="f2t">
+          <title id="f2t">Biểu đồ giấc ngủ 8 giờ: ngủ sâu N3 tập trung ở các chu kỳ đầu, giai đoạn REM dài dần về cuối đêm.</title>
+          <rect x="70" y="20" width="320" height="196" fill="var(--grid)" opacity=".55"/>
+          <text x="230" y="234" text-anchor="middle" class="t-night">nửa đầu: nhiều ngủ sâu</text>
+          <text x="550" y="234" text-anchor="middle" class="t-rem">nửa sau: nhiều REM</text>
+          <g class="gridl"><line x1="70" y1="40" x2="710" y2="40"/><line x1="70" y1="80" x2="710" y2="80"/><line x1="70" y1="120" x2="710" y2="120"/><line x1="70" y1="160" x2="710" y2="160"/><line x1="70" y1="200" x2="710" y2="200"/></g>
+          <g text-anchor="end"><text x="62" y="44">Thức</text><text x="62" y="84" class="t-rem">REM</text><text x="62" y="124">N1</text><text x="62" y="164">N2</text><text x="62" y="204" class="t-night">N3</text></g>
+          <g fill="var(--night)" opacity=".28"><rect x="110" y="196" width="48" height="8"/><rect x="214" y="196" width="56" height="8"/><rect x="334" y="196" width="24" height="8"/></g>
+          <g fill="var(--rem)" opacity=".35"><rect x="174" y="76" width="12" height="8"/><rect x="290" y="76" width="20" height="8"/><rect x="398" y="76" width="32" height="8"/><rect x="502" y="76" width="48" height="8"/><rect x="598" y="76" width="80" height="8"/></g>
+          <path d="M70 40 H82 V120 H94 V160 H110 V200 H158 V160 H174 V80 H186 V160 H214 V200 H270 V160 H290 V80 H310 V160 H334 V200 H358 V160 H398 V80 H430 V120 H438 V160 H502 V80 H550 V40 H556 V160 H598 V80 H678 V40 H710 V40" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linejoin="round"/>
+          <g text-anchor="middle"><text x="70" y="254">0 h</text><text x="230" y="254">2 h</text><text x="390" y="254">4 h</text><text x="550" y="254">6 h</text><text x="710" y="254">8 h</text></g>
+        </svg>
+      </div>
+      <figcaption><b>Ngủ 6 tiếng thay vì 8 là mất phần lớn REM</b>, vì REM dồn về cuối đêm. Sơ đồ minh họa.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Mỗi pha ngủ làm một việc</h3><span class="en">functions of sleep</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Ngủ sâu NREM · "lưu file"</h3><div class="chips"><span class="chip">củng cố trí nhớ</span><span class="chip">làm mới khả năng học</span><span class="chip">dọn chất thải não</span></div></div>
+      <div class="fcol rem"><h3><span class="dot"></span>REM · "trộn file"</h3><div class="chips"><span class="chip">làm dịu cảm xúc</span><span class="chip">đọc nét mặt</span><span class="chip">liên tưởng sáng tạo</span></div></div>
+      <div class="fcol body"><h3><span class="dot"></span>Cơ thể</h3><div class="chips"><span class="chip">miễn dịch</span><span class="chip">đường huyết</span><span class="chip">hormone đói, no</span><span class="chip">huyết áp</span></div></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Caffeine ở lại lâu hơn ta nghĩ</h3><span class="en">half-life ≈ 5–6 giờ</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="f3t">
+          <title id="f3t">Lượng caffeine còn lại sau một ly uống lúc 14 giờ với thời gian bán thải 5,5 giờ: 60% lúc 18 giờ, 36% lúc 22 giờ, 22% lúc 2 giờ sáng.</title>
+          <rect x="340" y="40" width="350" height="160" fill="var(--grid)" opacity=".7"/>
+          <text x="515" y="58" text-anchor="middle" class="t-night">giờ ngủ</text>
+          <g class="gridl"><line x1="60" y1="50" x2="690" y2="50"/><line x1="60" y1="125" x2="690" y2="125"/></g>
+          <line class="axis" x1="60" y1="200" x2="690" y2="200"/>
+          <g text-anchor="end"><text x="52" y="54">100%</text><text x="52" y="129">50%</text><text x="52" y="204">0</text></g>
+          <path d="M60.0 50.0 L77.5 59.2 L95.0 67.8 L112.5 75.8 L130.0 83.4 L147.5 90.5 L165.0 97.2 L182.5 103.5 L200.0 109.4 L217.5 114.9 L235.0 120.1 L252.5 125.0 L270.0 129.6 L287.5 133.9 L305.0 137.9 L322.5 141.7 L340.0 145.3 L357.5 148.6 L375.0 151.8 L392.5 154.7 L410.0 157.5 L427.5 160.1 L445.0 162.5 L462.5 164.8 L480.0 166.9 L497.5 169.0 L515.0 170.9 L532.5 172.6 L550.0 174.3 L567.5 175.9 L585.0 177.3 L602.5 178.7 L620.0 180.0 L637.5 181.2 L655.0 182.4 L672.5 183.5 L690.0 184.5" fill="none" stroke="var(--day)" stroke-width="2.5"/>
+          <g fill="var(--day)"><circle cx="60" cy="50" r="4"/><circle cx="200" cy="109.4" r="4"/><circle cx="340" cy="145.3" r="4"/><circle cx="480" cy="166.9" r="4"/></g>
+          <g class="t-ink"><text x="68" y="44">ly cà phê 14:00</text><text x="208" y="103">60%</text><text x="348" y="139">36%</text><text x="488" y="160">22%</text></g>
+          <g text-anchor="middle"><text x="60" y="218">14:00</text><text x="200" y="218">18:00</text><text x="340" y="218">22:00</text><text x="480" y="218">02:00</text><text x="690" y="218">08:00</text></g>
+        </svg>
+      </div>
+      <figcaption><b>Ly cà phê 14:00 còn khoảng 1/3 lúc 22:00.</b> Tính với thời gian bán thải 5,5 giờ; mỗi người khác nhau nhiều.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Nợ ngủ: suy giảm mà không tự biết</h3><span class="en">sleep debt</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 680 250" role="img" aria-labelledby="f4t">
+          <title id="f4t">Khi ngủ thiếu nhiều ngày liền, hiệu suất chú ý giảm đều, còn cảm giác mệt tự đánh giá chững lại sau vài ngày.</title>
+          <g class="gridl"><line x1="60" y1="60" x2="620" y2="60"/><line x1="60" y1="110" x2="620" y2="110"/><line x1="60" y1="160" x2="620" y2="160"/></g>
+          <line class="axis" x1="60" y1="210" x2="620" y2="210"/>
+          <path d="M100 104 L592 104 L592 178 L100 66 Z" fill="var(--bad)" opacity=".1"/>
+          <path d="M60 52 L620 186" fill="none" stroke="var(--night)" stroke-width="2.5"/>
+          <path d="M60 178 C110 124 150 108 200 104 L620 104" fill="none" stroke="var(--day)" stroke-width="2.5"/>
+          <text x="70" y="40" class="t-night t-bold">Hiệu suất chú ý (đo được)</text>
+          <text x="620" y="92" text-anchor="end" class="t-day t-bold">Cảm giác mệt (tự đánh giá)</text>
+          <text x="586" y="130" text-anchor="end" class="t-ink">phần suy giảm</text>
+          <text x="586" y="144" text-anchor="end" class="t-ink">không tự nhận ra</text>
+          <g text-anchor="middle"><text x="60" y="228">ngày 0</text><text x="340" y="228">ngày 7</text><text x="620" y="228">ngày 14</text></g>
+        </svg>
+      </div>
+      <figcaption><b>Người thiếu ngủ đánh giá thấp mức suy giảm của chính mình.</b> Minh họa theo xu hướng của các thí nghiệm hạn chế ngủ nhiều ngày.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>An thần không phải là ngủ</h3><span class="en">sedation vs. sleep</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <thead><tr><th></th><th>Ngủ tự nhiên</th><th>Sau khi uống rượu</th></tr></thead>
+        <tbody>
+          <tr><td>Giấc ngủ liền mạch</td><td class="y">Có</td><td class="n">Vụn, hay thức giấc</td></tr>
+          <tr><td>Đủ REM</td><td class="y">Có</td><td class="n">Bị ức chế</td></tr>
+          <tr><td>Cảm giác hồi phục</td><td class="y">Có</td><td class="n">Kém</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Với mất ngủ kéo dài, Walker ủng hộ liệu pháp CBT-I thay vì thuốc ngủ.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">10 luận cứ hay được trích dẫn nhất. Bấm vào từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="3 vững, 4 cần thận trọng, 3 sai hoặc bị phê bình">
+    <div class="o" style="flex:3">3 VỮNG</div><div class="w" style="flex:4">4 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Người lớn cần 7–9 giờ ngủ</span></summary><p class="note">Trùng khuyến nghị của các hiệp hội y học giấc ngủ lớn.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Adenosine + nhịp sinh học gây buồn ngủ</span></summary><p class="note">Mô hình kinh điển từ thập niên 1980. Caffeine chặn thụ thể adenosine.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ngủ sau khi học giúp nhớ lâu hơn</span></summary><p class="note">Được nhiều nhóm nghiên cứu lặp lại; độ lớn hiệu ứng còn tranh luận.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"10 ngày ngủ 7 tiếng = 1 đêm thức trắng"</span></summary><p class="note">Xu hướng suy giảm tích lũy là đúng, nhưng phép quy đổi cụ thể không khớp số liệu gốc (Van Dongen và cộng sự, 2003).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>REM là "trị liệu cảm xúc qua đêm"</span></summary><p class="note">Bằng chứng còn ít, nhiều nghiên cứu đến từ chính phòng thí nghiệm của Walker.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ngủ 4 tiếng giảm 70% tế bào diệt tự nhiên</span></summary><p class="note">Nghiên cứu nhỏ thập niên 1990, đo ngắn hạn. Không suy ra được nguy cơ ung thư.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Đổi giờ mùa hè, nhồi máu cơ tim tăng 24%</span></summary><p class="note">Tăng vào ngày thứ Hai, nhưng tổng cả tuần gần như không đổi.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>"Ngủ càng ngắn, đời càng ngắn"</span></summary><p class="note">Dữ liệu là đường cong chữ U: ngủ quá ít và quá nhiều đều gắn với tử vong cao hơn. Đây là tương quan, chưa phải nhân quả.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>WHO tuyên bố "đại dịch thiếu ngủ"</span></summary><p class="note">Không tìm thấy tuyên bố nào như vậy của WHO (Guzey, 2019).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Biểu đồ chấn thương ở vận động viên trẻ</span></summary><p class="note">Bản trong sách bỏ một cột dữ liệu của nghiên cứu gốc, khiến mối liên hệ trông đều đặn hơn thực tế.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Sức thuyết phục</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Giải thích cơ chế dễ hiểu nhất</li><li>Khiến người đọc đổi thói quen thật</li><li>Có góc nhìn chính sách xã hội</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Giọng văn báo động, dễ gây lo âu</li><li>Hay biến tương quan thành nhân quả</li><li>Có lỗi số liệu đã bị chỉ ra</li></ul></div>
+  </div>
+  <p class="verdict">Giữ lại cơ chế và thói quen. Kiểm tra nguồn trước khi trích con số.</p>
+  <details class="more"><summary>Xem thêm: các phê bình đã công bố</summary><div><p>Năm 2019, nhà nghiên cứu độc lập Alexey Guzey công bố bài phân tích dài liệt kê các lỗi của sách; nhà thống kê Andrew Gelman và một số nhà khoa học khác sau đó cũng lên tiếng. Walker có viết phản hồi một phần. Khung lý thuyết và lời khuyên thực hành vẫn được giới chuyên môn chấp nhận rộng rãi.</p></div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Một ngày theo lời khuyên của sách.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 740 200" role="img" aria-labelledby="f5t">
+        <title id="f5t">Lịch một ngày: thức dậy 7 giờ cố định và ra nắng, ly cà phê cuối trước 13 giờ, không ngủ trưa sau 15 giờ, giảm đèn và tắm ấm lúc 21 giờ, lên giường 23 giờ trong phòng tối mát khoảng 18 độ, ngủ đủ 8 tiếng.</title>
+        <rect x="40" y="88" width="432" height="24" fill="var(--day)" opacity=".22"/>
+        <rect x="472" y="88" width="216" height="24" fill="var(--night)" opacity=".28"/>
+        <text x="580" y="104" text-anchor="middle" class="t-ink t-bold">8 tiếng trên giường</text>
+        <g stroke="var(--muted)" stroke-width="1">
+          <line x1="40" y1="112" x2="40" y2="140"/><line x1="202" y1="60" x2="202" y2="88"/><line x1="256" y1="112" x2="256" y2="140"/><line x1="418" y1="60" x2="418" y2="88"/><line x1="472" y1="112" x2="472" y2="140"/>
+        </g>
+        <g fill="var(--ink)"><circle cx="40" cy="100" r="4"/><circle cx="202" cy="100" r="4"/><circle cx="256" cy="100" r="4"/><circle cx="418" cy="100" r="4"/><circle cx="472" cy="100" r="4"/></g>
+        <text x="40" y="156" class="t-day t-bold">07:00 thức dậy</text>
+        <text x="40" y="171">giờ cố định, ra nắng</text>
+        <text x="202" y="36" text-anchor="middle" class="t-day t-bold">13:00</text>
+        <text x="202" y="51" text-anchor="middle">ly cà phê cuối</text>
+        <text x="256" y="156" text-anchor="middle" class="t-day t-bold">15:00</text>
+        <text x="256" y="171" text-anchor="middle">hết giờ ngủ trưa</text>
+        <text x="418" y="36" text-anchor="middle" class="t-night t-bold">21:00</text>
+        <text x="418" y="51" text-anchor="middle">giảm đèn, tắm ấm</text>
+        <text x="472" y="156" text-anchor="middle" class="t-night t-bold">23:00 lên giường</text>
+        <text x="472" y="171" text-anchor="middle">phòng tối, ~18°C</text>
+        <text x="688" y="156" text-anchor="end">07:00</text>
+      </svg>
+    </div>
+    <figcaption><b>Giờ thức dậy là mỏ neo</b>, giữ cố định cả cuối tuần. Các mốc khác dịch theo nó.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4h12l-2 12a4 4 0 0 1-8 0z"/><path d="M16 20v8M11 28h10"/><path d="M5 5l22 22"/></svg><div><b>Không dùng rượu để dễ ngủ</b><span>Ngủ nhanh hơn nhưng vụn và thiếu REM.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg><div><b>Trằn trọc 20 phút thì ra khỏi giường</b><span>Quay lại khi thấy buồn ngủ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h10a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H4zM28 8H20a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h8z"/></svg><div><b>Học xong thì ngủ</b><span>Đừng thức trắng ôn thi.</span></div></div>
+  </div>
+  <div class="quote"><span>"The shorter your sleep, the shorter your life span."</span><span class="src">Câu nổi tiếng nhất sách. Hãy đọc như lời khuyến khích, không phải định luật.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Alexey Guzey (2019), bài phê bình Why We Sleep</b><span class="muted">Đọc để cân bằng. <a href="https://guzey.com/books/why-we-sleep/">guzey.com/books/why-we-sleep</a></span></div>
+    <div><b>Till Roenneberg, <i>Internal Time</i></b><span class="muted">Nhịp sinh học, "cú đêm" và "chim sơn ca".</span></div>
+    <div><b>William C. Dement, <i>The Promise of Sleep</i></b><span class="muted">Sách kinh điển, giọng điềm tĩnh hơn.</span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #001. Các hình là sơ đồ minh họa khái niệm, không phải số liệu đo.</footer>
+</div>
+</body>
+</html>

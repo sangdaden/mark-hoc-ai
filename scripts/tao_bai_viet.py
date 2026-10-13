@@ -292,6 +292,8 @@ def header(p, hien_tai="", q=None):
             f'    {a(q + "lo-trinh-7-ngay.html", t("Lộ trình 7 ngày", "7-day path"), "lo-trinh")}\n'
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
             f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
+            # Góc đọc sách ngoài AI (vu-tru-khac.html, scripts/tao_vu_tru_khac.py): chỉ có bản tiếng Việt
+            + (f'    {a(q + "vu-tru-khac.html", "Mark ở vũ trụ khác", "vu-tru-khac", "nav-vtk")}\n' if LG == "vi" else "") +
             f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>\n  </nav>\n</header>')
 
 # Biểu tượng nền tảng (assets/nen-tang.svg, Simple Icons CC0): link kênh dạng icon tròn, có nhãn cho trình đọc màn hình
