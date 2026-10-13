@@ -2,9 +2,42 @@
   "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the.",
   "tham-hoa-challenger": [
     {
-      "khuon": "quyet-dinh",
-      "id": "choi-phong-khong",
+      "khuon": "ten-lua",
+      "id": "choi-ten-lua",
       "truoc": "tinh-hoa",
+      "lanh": 40,
+      "lanh_gioang": 53,
+      "vo": 73,
+      "su_kien": [
+        [
+          0.678,
+          "khoi"
+        ],
+        [
+          2.5,
+          "khoi_den"
+        ],
+        [
+          37,
+          "gio"
+        ],
+        [
+          58.8,
+          "lua"
+        ],
+        [
+          64.7,
+          "thung"
+        ],
+        [
+          72.2,
+          "giang"
+        ],
+        [
+          73,
+          "vo"
+        ]
+      ],
       "bieu_do": {
         "x_min": 25,
         "x_max": 85,
@@ -106,95 +139,12 @@
             76,
             0
           ]
-        ],
-        "vach": 31
+        ]
       },
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Bạn là người quyết định",
-        "hoi": "Đêm 27/1/1986. Sáng mai mối nối tên lửa đẩy chỉ khoảng 31°F (−1°C). Bạn có cho phóng không?",
-        "dan": "Đây là kiểu biểu đồ các quản lý đã nhìn đêm đó: chỉ những chuyến có gioăng bị hư.",
-        "truc_x": "Nhiệt độ mối nối lúc phóng",
-        "truc_y": "Số gioăng hư",
-        "nhan_vach": "Sáng mai: 31°F",
-        "chon": [
-          {
-            "nhan": "Phóng",
-            "dap": "Đêm đó NASA cũng cho phóng. Nhìn riêng các chuyến có hư, nhiệt độ có vẻ không liên quan gì."
-          },
-          {
-            "nhan": "Hoãn",
-            "dap": "Kỹ sư Thiokol cũng muốn hoãn, nhưng họ bị yêu cầu chứng minh là \"nguy hiểm\" bằng đúng biểu đồ này."
-          }
-        ],
-        "nut_an": "Hiện cả 16 chuyến không hư",
-        "ket": "Thêm các chuyến không hư thì quy luật lộ ra: cả 4 chuyến dưới 65°F đều có gioăng hư, còn 31°F nằm xa ngoài mọi dữ liệu từng có.",
-        "nguon": "Nguồn: nhiệt độ mối nối và số gioăng hư của 23 chuyến bay theo Dalal, Fowlkes và Hoadley (1989), Journal of the American Statistical Association; hai cách vẽ theo Báo cáo Ủy ban Rogers (1986), chương 6. Mức 31°F theo Dalal (1989)."
-      },
-      "en": {
-        "muc": "Play before you read",
-        "nhan": "You make the call",
-        "hoi": "27 January 1986, night. Tomorrow morning the booster joints will be about 31°F (−1°C). Do you launch?",
-        "dan": "This is the kind of chart the managers looked at that night: only the flights with damaged O-rings.",
-        "truc_x": "Joint temperature at launch",
-        "truc_y": "Damaged O-rings",
-        "nhan_vach": "Tomorrow: 31°F",
-        "chon": [
-          {
-            "nhan": "Launch",
-            "dap": "NASA launched too. Looking only at flights with damage, temperature seems to have nothing to do with it."
-          },
-          {
-            "nhan": "Delay",
-            "dap": "The Thiokol engineers wanted to delay too, but they were asked to prove it was \"unsafe\" with exactly this chart."
-          }
-        ],
-        "nut_an": "Show the 16 flights with no damage",
-        "ket": "Add the flights with no damage and the pattern appears: all 4 flights below 65°F had damaged O-rings, and 31°F lies far outside anything ever flown.",
-        "nguon": "Source: joint temperatures and O-ring damage for 23 flights from Dalal, Fowlkes and Hoadley (1989), Journal of the American Statistical Association; the two ways of plotting follow the Rogers Commission report (1986), chapter 6. The 31°F figure is from Dalal (1989)."
-      }
-    },
-    {
-      "khuon": "ten-lua",
-      "id": "choi-ten-lua",
-      "truoc": "dan-chung",
-      "lanh": 40,
-      "lanh_gioang": 53,
-      "vo": 73,
-      "su_kien": [
-        [
-          0.678,
-          "khoi"
-        ],
-        [
-          2.5,
-          "khoi_den"
-        ],
-        [
-          37,
-          "gio"
-        ],
-        [
-          58.8,
-          "lua"
-        ],
-        [
-          64.7,
-          "thung"
-        ],
-        [
-          72.2,
-          "giang"
-        ],
-        [
-          73,
-          "vo"
-        ]
-      ],
-      "vi": {
-        "muc": "Phóng thử",
-        "nhan": "Tên lửa bay",
-        "hoi": "Kéo nhiệt độ mối nối tên lửa đẩy, rồi bấm Phóng. Sáng 28/1/1986 mối nối chỉ khoảng 31°F. Kỹ sư Thiokol khuyên không phóng dưới 53°F.",
+        "nhan": "Bàn họp, rồi bệ phóng",
+        "hoi": "Đêm 27/1/1986. Xem biểu đồ trên bàn họp, kéo nhiệt độ mối nối tên lửa đẩy, rồi bấm Phóng. Sáng 28/1/1986 mối nối chỉ khoảng 31°F. Kỹ sư Thiokol khuyên không phóng dưới 53°F.",
         "mo_ta": "Tàu con thoi trên bệ phóng, nhiệt kế và hình phóng to gioăng ở mối nối tên lửa đẩy.",
         "nhiet": "Nhiệt độ mối nối:",
         "nut_phong": "Phóng",
@@ -216,12 +166,21 @@
         "ket_that": "Ở nhiệt độ này, mô hình của Dalal và cộng sự (1989) ước tính ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Các chuyến dưới 65°F trước đó: 4/4 chuyến có gioăng hư.",
         "ket_vua": "Tàu lên quỹ đạo, nhưng chưa an toàn: các chuyến dưới 65°F trước đó, 4/4 chuyến có gioăng hư. Đêm đó kỹ sư Thiokol khuyên không phóng dưới 53°F.",
         "ket_am": "Tàu lên quỹ đạo. Các chuyến từ 66°F trở lên trước đó chỉ 3/19 chuyến có gioăng hư.",
-        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5 và 6: dòng thời gian 73 giây (0,678; 2,5; 37–64; 58,8; 64,7; 72,2; khoảng 73 giây), khuyến nghị 53°F, nhiệt độ mối nối 28 ± 5°F; Dalal, Fowlkes và Hoadley (1989), JASA 84(408): 31°F, 4/4 chuyến dưới 65°F và 3/19 chuyến từ 66°F có gioăng hư (Ủy ban Rogers ghi 3 trên 20), ít nhất 13% ở 31°F và khoảng 2% ở 60°F. Cảnh dùng chuyến bay thật khi bạn chọn từ 40°F trở xuống; các nhiệt độ khác là giả định, tốc độ bay được tua nhanh."
+        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5 và 6: dòng thời gian 73 giây (0,678; 2,5; 37–64; 58,8; 64,7; 72,2; khoảng 73 giây), khuyến nghị 53°F, nhiệt độ mối nối 28 ± 5°F; Dalal, Fowlkes và Hoadley (1989), JASA 84(408): 31°F, 4/4 chuyến dưới 65°F và 3/19 chuyến từ 66°F có gioăng hư (Ủy ban Rogers ghi 3 trên 20), ít nhất 13% ở 31°F và khoảng 2% ở 60°F. Cảnh dùng chuyến bay thật khi bạn chọn từ 40°F trở xuống; các nhiệt độ khác là giả định, tốc độ bay được tua nhanh. Biểu đồ bàn họp: nhiệt độ mối nối và số gioăng hư của 23 chuyến theo Dalal, Fowlkes và Hoadley (1989); cách vẽ chỉ các chuyến có hư theo Báo cáo Ủy ban Rogers (1986), chương 6.",
+        "ban_tieu_de": "BÀN HỌP 27/1/1986 · CÁC CHUYẾN CÓ GIOĂNG HƯ",
+        "ban_mo_ta": "Biểu đồ trên bàn họp: nhiệt độ mối nối lúc phóng và số gioăng hư của 7 chuyến có hư; nút bên dưới thả thêm 16 chuyến không hư xuống mức 0; vạch xanh là nhiệt độ bạn đang chọn.",
+        "truc_x": "Nhiệt độ mối nối lúc phóng",
+        "truc_y": "Gioăng hư",
+        "dan": "Đây là kiểu biểu đồ các quản lý đã nhìn đêm đó: chỉ những chuyến có gioăng bị hư.",
+        "nut_an": "Hiện cả 16 chuyến không hư",
+        "ban_ket": "Thêm các chuyến không hư thì quy luật lộ ra: cả 4 chuyến dưới 65°F đều có gioăng hư, còn 31°F nằm xa ngoài mọi dữ liệu từng có.",
+        "da_xem_0": "Trước khi phóng, bạn đã xem cả 16 chuyến không hư.",
+        "chua_xem_0": "Bạn phóng khi chưa xem 16 chuyến không hư, đúng như biểu đồ đêm đó."
       },
       "en": {
-        "muc": "Try a launch",
-        "nhan": "Rocket flight",
-        "hoi": "Drag the booster joint temperature, then press Launch. On the morning of 28 January 1986 the joint was only about 31°F. Thiokol engineers advised against launching below 53°F.",
+        "muc": "Play before you read",
+        "nhan": "The meeting, then the pad",
+        "hoi": "27 January 1986, night. Look at the chart on the meeting table, drag the booster joint temperature, then press Launch. On the morning of 28 January 1986 the joint was only about 31°F. Thiokol engineers advised against launching below 53°F.",
         "mo_ta": "The shuttle on the pad, a thermometer, and a close-up of the O-ring in the booster joint.",
         "nhiet": "Joint temperature:",
         "nut_phong": "Launch",
@@ -243,7 +202,16 @@
         "ket_that": "At this temperature, the model of Dalal et al. (1989) puts the chance of catastrophic O-ring failure at 13% or more; postponing to 60°F cuts it to about 2%. Earlier flights below 65°F: 4 of 4 had O-ring damage.",
         "ket_vua": "The shuttle reaches orbit, but it was not safe: of earlier flights below 65°F, 4 of 4 had O-ring damage. That night Thiokol engineers advised against launching below 53°F.",
         "ket_am": "The shuttle reaches orbit. Of earlier flights at 66°F or warmer, only 3 of 19 had O-ring damage.",
-        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5 and 6: the 73-second timeline (0.678; 2.5; 37–64; 58.8; 64.7; 72.2; about 73 s), the 53°F recommendation, joint temperature 28 ± 5°F; Dalal, Fowlkes and Hoadley (1989), JASA 84(408): 31°F, 4/4 flights below 65°F and 3/19 from 66°F with O-ring damage (the Rogers Commission says 3 of 20), at least 13% at 31°F and about 2% at 60°F. The scene replays the real flight when you pick 40°F or colder; other temperatures are hypothetical, and flight time is sped up."
+        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5 and 6: the 73-second timeline (0.678; 2.5; 37–64; 58.8; 64.7; 72.2; about 73 s), the 53°F recommendation, joint temperature 28 ± 5°F; Dalal, Fowlkes and Hoadley (1989), JASA 84(408): 31°F, 4/4 flights below 65°F and 3/19 from 66°F with O-ring damage (the Rogers Commission says 3 of 20), at least 13% at 31°F and about 2% at 60°F. The scene replays the real flight when you pick 40°F or colder; other temperatures are hypothetical, and flight time is sped up. Meeting chart: joint temperatures and O-ring damage for 23 flights from Dalal, Fowlkes and Hoadley (1989); plotting only the damaged flights follows the Rogers Commission report (1986), chapter 6.",
+        "ban_tieu_de": "MEETING, 27 JAN 1986 · FLIGHTS WITH O-RING DAMAGE",
+        "ban_mo_ta": "The chart on the meeting table: joint temperature at launch and number of damaged O-rings for the 7 flights with damage; the button below drops in the 16 flights with no damage at zero; the blue line is the temperature you pick.",
+        "truc_x": "Joint temperature at launch",
+        "truc_y": "Damaged",
+        "dan": "This is the kind of chart the managers looked at that night: only the flights with damaged O-rings.",
+        "nut_an": "Show the 16 flights with no damage",
+        "ban_ket": "Add the flights with no damage and the pattern appears: all 4 flights below 65°F had damaged O-rings, and 31°F lies far outside anything ever flown.",
+        "da_xem_0": "Before launching, you looked at all 16 flights with no damage.",
+        "chua_xem_0": "You launched without looking at the 16 flights with no damage, just like the chart that night."
       }
     }
   ],
@@ -946,10 +914,11 @@
       "toi_thieu": 15,
       "nguong": 8,
       "giay": 30,
+      "an_bien": true,
       "vi": {
         "muc": "Chơi trước khi đọc",
         "nhan": "Phòng điều khiển",
-        "hoi": "Giữ lò quanh 200 MW cho bài thử. Lò bị \"ngộ độc\" dần nên công suất tụt; rút thêm thanh nếu cần. Hết giờ thì nhấn AZ-5 để dừng lò.",
+        "hoi": "Giữ lò quanh 200 MW cho bài thử. Lò bị \"ngộ độc\" dần nên công suất tụt; rút thêm thanh nếu cần. Hết giờ thì nhấn AZ-5 để dừng lò. Chơi xong, thử lượt \"như đêm đó\": dòng biên phản ứng bị che.",
         "mo_ta": "Lõi lò với 12 thanh điều khiển kéo lên xuống được, và đồng hồ công suất bên phải.",
         "nut_bd": "Bắt đầu bài thử",
         "nut_az": "AZ-5",
@@ -963,12 +932,16 @@
         "dung_duoi": "Lò dừng được, nhưng bạn đã chạy dưới mức 15 thanh ({n} thanh).",
         "dung_an_toan": "Lò dừng an toàn với {n} thanh.",
         "sau": "Đêm 26/4/1986 biên chỉ còn tương đương 8 thanh, và không có gì trên bảng báo cho kíp trực biết con số đó.",
-        "nguon": "Nguồn: INSAG-7 (1992), mục 4.2 (tối thiểu 15 thanh) và phụ lục I, mục I-3.4 (ở khoảng 7 thanh, nút dừng làm tăng phản ứng); 8 thanh lúc 01:22:30 theo bảng của World Nuclear Association. Công suất, số thanh vẽ và ngưỡng vọt trong cảnh là mô hình đơn giản do Mark làm, không phải vật lý lò thật."
+        "nguon": "Nguồn: INSAG-7 (1992), mục 4.2 (tối thiểu 15 thanh) và phụ lục I, mục I-3.4 (ở khoảng 7 thanh, nút dừng làm tăng phản ứng); 8 thanh lúc 01:22:30 theo bảng của World Nuclear Association. Biên phản ứng không hiện thuận tiện cho người vận hành theo INSAG-7, mục 4.2 và 5. Công suất, số thanh vẽ và ngưỡng vọt trong cảnh là mô hình đơn giản do Mark làm, không phải vật lý lò thật.",
+        "nut_dem": "Lượt như đêm đó (che biên)",
+        "nut_thuong": "Lượt thường (hiện biên)",
+        "bien_an": "Biên phản ứng: ? (bảng không hiện)",
+        "mo_bien": "Mở con số bị che: lúc nhấn AZ-5, biên còn {n} thanh."
       },
       "en": {
         "muc": "Play before you read",
         "nhan": "Control room",
-        "hoi": "Hold the reactor around 200 MW for the test. It slowly \"poisons\" itself and power drops; pull out more rods if you need to. When time is up, press AZ-5 to shut it down.",
+        "hoi": "Hold the reactor around 200 MW for the test. It slowly \"poisons\" itself and power drops; pull out more rods if you need to. When time is up, press AZ-5 to shut it down. Then try the \"like that night\" round: the margin readout is hidden.",
         "mo_ta": "A reactor core with 12 control rods you can drag up and down, and a power gauge on the right.",
         "nut_bd": "Start the test",
         "nut_az": "AZ-5",
@@ -982,7 +955,11 @@
         "dung_duoi": "The reactor shut down, but you ran below the 15-rod minimum ({n} rods).",
         "dung_an_toan": "The reactor shut down safely with {n} rods.",
         "sau": "On 26 April 1986 the margin was only the equivalent of 8 rods, and nothing on the panel told the crew that number.",
-        "nguon": "Source: INSAG-7 (1992), section 4.2 (15-rod minimum) and annex I, I-3.4 (at about 7 rods the scram raises reactivity); 8 rods at 01:22:30 per the World Nuclear Association table. Power, rod count and surge threshold in the scene are Mark's simplified model, not real reactor physics."
+        "nguon": "Source: INSAG-7 (1992), section 4.2 (15-rod minimum) and annex I, I-3.4 (at about 7 rods the scram raises reactivity); 8 rods at 01:22:30 per the World Nuclear Association table. The margin was not conveniently available to the operators per INSAG-7, sections 4.2 and 5. Power, rod count and surge threshold in the scene are Mark's simplified model, not real reactor physics.",
+        "nut_dem": "Like that night (margin hidden)",
+        "nut_thuong": "Normal round (margin shown)",
+        "bien_an": "Reactivity margin: ? (not on the panel)",
+        "mo_bien": "The hidden number: when you pressed AZ-5 the margin was {n} rods."
       }
     }
   ],
@@ -3152,132 +3129,209 @@
   ],
   "lam-tuong-10000-gio": [
     {
-      "khuon": "chia-nhom",
-      "id": "choi-phong-thi-nghiem",
+      "khuon": "ly-gio-luyen",
+      "id": "choi-ly-gio-luyen",
       "truoc": "tinh-hoa",
-      "nhom": [
-        {
-          "gt": 8224,
-          "nguoi": 4
-        },
-        {
-          "gt": 9844,
-          "nguoi": 4
-        }
+      "linh_vuc": [
+        26,
+        21,
+        18,
+        4,
+        0.5
       ],
-      "hoa": 2000,
+      "doan": 50,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Nhóm nào luyện nhiều hơn?",
-        "hoi": "Năm 2019, Macnamara và Maitra lặp lại nghiên cứu violin là gốc của \"quy tắc 10.000 giờ\", với 39 người, người chấm không biết số giờ. Kéo cúp vào nhóm bạn đoán đã luyện một mình nhiều giờ hơn, rồi bấm Chạy.",
-        "mo_ta": "Hai phòng: nhóm chơi violin giỏi nhất và nhóm giỏi; cột là số giờ luyện một mình cộng dồn.",
-        "nhom": [
+        "nhan": "Ly giờ luyện",
+        "hoi": "Cái ly là toàn bộ khác biệt thành tích giữa người giỏi và người kém trong một lĩnh vực. Chọn lĩnh vực, kéo vạch xanh tới mức bạn đoán giờ luyện có chủ đích giải thích được, rồi bấm Rót.",
+        "mo_ta": "Một bình giờ luyện có chủ đích rót vào cái ly ghi \"khác biệt thành tích\", thang 0 đến 100%; vạch xanh là mức bạn đoán; bên phải là năm ống ghi kết quả từng lĩnh vực.",
+        "chon": "Chọn một lĩnh vực:",
+        "da_chon": "Lĩnh vực: {l}. Kéo vạch đoán, rồi bấm Rót.",
+        "linh_vuc": [
           {
-            "ten": "Giỏi nhất",
-            "mo_ta": "(theo người chấm)",
-            "nhan": "~8.224 giờ"
+            "ten": "Cờ, trò chơi",
+            "so": "26%"
           },
           {
-            "ten": "Giỏi",
-            "mo_ta": "(theo người chấm)",
-            "nhan": "~9.844 giờ"
+            "ten": "Âm nhạc",
+            "so": "21%"
+          },
+          {
+            "ten": "Thể thao",
+            "so": "18%"
+          },
+          {
+            "ten": "Giáo dục",
+            "so": "4%"
+          },
+          {
+            "ten": "Nghề nghiệp",
+            "so": "<1%",
+            "ghi": "\"Nghề nghiệp\" ở đây gồm lập trình, trọng tài bóng đá, bán bảo hiểm, phi công."
           }
         ],
-        "truc": "Giờ luyện một mình, cộng dồn",
-        "cup": "Chiếc cúp",
-        "chon_cup": "Kéo chiếc cúp vào một phòng (hoặc chạm phòng).",
-        "da_chon": "Bạn đoán: nhóm {p}. Bấm Chạy.",
-        "nut_chay": "Chạy",
-        "nut_lai": "Đoán lại",
-        "dung": "Bạn đoán đúng nhóm.",
-        "sai": "Không phải nhóm bạn chọn.",
-        "hoa": "Không nhóm nào hơn: nhóm giỏi nhất còn luyện ít hơn một chút, và chênh lệch không có ý nghĩa thống kê (p = 0,364).",
-        "ket": "Kết quả cốt lõi năm 1993 (7.410 so với 5.301 giờ) không lặp lại được. Giờ luyện vẫn quan trọng, nhưng phân tích gộp năm 2014 cho thấy nó chỉ giải thích khoảng 12% khác biệt thành tích: 26% ở cờ, 21% âm nhạc, dưới 1% trong nghề nghiệp.",
-        "nguon": "Nguồn: Macnamara và Maitra, Royal Society Open Science 6: 190327, 2019 (39 người, p = 0,364; số giờ từng nhóm qua The Strad, nguồn thứ cấp); Ericsson, Krampe và Tesch-Römer, Psychological Review 100(3), 1993 (số giờ qua tóm tắt thứ cấp); Macnamara, Hambrick và Oswald, Psychological Science 25(8), 2014; số ~12% theo thông cáo của APS (7/2014)."
+        "binh": "giờ luyện\ncó chủ đích",
+        "coc": "khác biệt thành tích",
+        "con_lai": "những thứ khác",
+        "vach": "Vạch đoán (phần trăm)",
+        "doan": "đoán {p}%",
+        "nut_rot": "Rót",
+        "nut_lai": "Đổ hết, làm lại",
+        "cap_con_lai": "Phần trên ly là những thứ khác: tuổi bắt đầu, trí nhớ, tính cách, thầy giỏi, môi trường, may mắn, và cả sai số đo. Phần này không tự động là \"năng khiếu bẩm sinh\".",
+        "ket_doan": "{l}: bạn đoán {d}%, giờ luyện có chủ đích giải thích {s} khác biệt.",
+        "ket": "Tính chung 88 nghiên cứu, hơn 11.000 người: khoảng 12%. Luyện tập có ích thật, nhưng chỉ là một phần, và phần còn lại không tự động là năng khiếu.",
+        "nguon": "Nguồn: Macnamara, Hambrick và Oswald, Psychological Science 25(8), 2014, tr. 1608–1618 (26% trò chơi, 21% âm nhạc, 18% thể thao, 4% giáo dục, dưới 1% nghề nghiệp; 88 nghiên cứu, hơn 11.000 người); con số chung khoảng 12% theo thông cáo của Association for Psychological Science (7/2014). Danh sách \"những thứ khác\" theo bài viết. Bình, dòng rót và tốc độ rót là minh họa."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Which group practised more?",
-        "hoi": "In 2019 Macnamara and Maitra re-ran the violin study behind the \"10,000-hour rule\" with 39 players, judged by people who did not know the hours. Drag the trophy to the group you think practised alone for more hours, then press Run.",
-        "mo_ta": "Two rooms: the best violinists and the good ones; bars show accumulated hours of solo practice.",
-        "nhom": [
+        "nhan": "The practice glass",
+        "hoi": "The glass is all the difference in performance between stronger and weaker people in a field. Pick a field, drag the blue line to how much you think deliberate practice explains, then press Pour.",
+        "mo_ta": "A jug of deliberate practice pours into a glass labelled \"differences in performance\", scaled 0 to 100%; the blue line is your guess; on the right, five tubes record each field.",
+        "chon": "Pick a field:",
+        "da_chon": "Field: {l}. Drag your guess, then press Pour.",
+        "linh_vuc": [
           {
-            "ten": "Best",
-            "mo_ta": "(as judged)",
-            "nhan": "~8,224 h"
+            "ten": "Chess, games",
+            "so": "26%"
           },
           {
-            "ten": "Good",
-            "mo_ta": "(as judged)",
-            "nhan": "~9,844 h"
+            "ten": "Music",
+            "so": "21%"
+          },
+          {
+            "ten": "Sports",
+            "so": "18%"
+          },
+          {
+            "ten": "Education",
+            "so": "4%"
+          },
+          {
+            "ten": "Professions",
+            "so": "<1%",
+            "ghi": "\"Professions\" here covers programming, football refereeing, insurance sales and piloting."
           }
         ],
-        "truc": "Accumulated solo practice hours",
-        "cup": "Trophy",
-        "chon_cup": "Drag the trophy into a room (or tap a room).",
-        "da_chon": "Your guess: the {p} group. Press Run.",
-        "nut_chay": "Run",
-        "nut_lai": "Guess again",
-        "dung": "You picked the right group.",
-        "sai": "Not the group you picked.",
-        "hoa": "Neither group comes out ahead: the best group practised slightly less, and the gap was not statistically significant (p = 0.364).",
-        "ket": "The core 1993 result (7,410 versus 5,301 hours) did not replicate. Practice still matters, but a 2014 meta-analysis found it explains only about 12% of differences in performance: 26% in chess, 21% in music, under 1% in professions.",
-        "nguon": "Sources: Macnamara and Maitra, Royal Society Open Science 6: 190327, 2019 (39 people, p = 0.364; group hours via The Strad, secondary source); Ericsson, Krampe and Tesch-Römer, Psychological Review 100(3), 1993 (hours via secondary summaries); Macnamara, Hambrick and Oswald, Psychological Science 25(8), 2014; ~12% per the APS press release (July 2014)."
+        "binh": "deliberate\npractice",
+        "coc": "differences in performance",
+        "con_lai": "everything else",
+        "vach": "Guess line (percent)",
+        "doan": "guess {p}%",
+        "nut_rot": "Pour",
+        "nut_lai": "Empty and restart",
+        "cap_con_lai": "The top of the glass is everything else: starting age, memory, personality, good teachers, environment, luck, and measurement error. It is not automatically \"innate talent\".",
+        "ket_doan": "{l}: you guessed {d}%; deliberate practice explains {s} of the differences.",
+        "ket": "Across 88 studies and over 11,000 people: about 12% overall. Practice really helps, but it is only part of it, and the rest is not automatically talent.",
+        "nguon": "Sources: Macnamara, Hambrick and Oswald, Psychological Science 25(8), 2014, pp. 1608–1618 (26% games, 21% music, 18% sports, 4% education, under 1% professions; 88 studies, over 11,000 people); about 12% overall per the Association for Psychological Science press release (July 2014). The list of \"everything else\" follows the write-up. The jug, the pour and its speed are illustrative."
       }
     }
   ],
   "lam-tuong-ca-vang": [
     {
-      "khuon": "doan-vi-tri",
-      "id": "choi-cam-co",
+      "khuon": "be-ca",
+      "id": "choi-be-ca",
       "truoc": "tinh-hoa",
-      "max": 100,
-      "vach": 10,
-      "le": 0,
-      "buoc": 1,
-      "doan": 30,
-      "hinh": "ca",
-      "that": [
-        74
-      ],
-      "moc": [
-        70
-      ],
+      "ngay": 4,
+      "gio_an": 0.45,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Cá vàng nhớ được bao xa?",
-        "hoi": "Nhóm Oxford dạy 9 con cá vàng bơi đúng 70 cm trong bể có sọc thì mới được thưởng, rồi tắt tín hiệu báo. Kéo lá cờ tới chỗ bạn đoán cá tự quay đầu, rồi thả cá.",
-        "mo_ta": "Bể nước với thước 0 đến 100 cm; vạch 70 cm là khoảng cách cá được dạy; cá bơi tới 74 cm.",
-        "that": [
-          "trung bình: 74 cm"
+        "nhan": "Bể cá học giờ ăn",
+        "hoi": "Năm 1994, cá vàng trong phòng thí nghiệm chỉ có thức ăn khi bấm cần trong đúng 1 giờ mỗi ngày. Đoán xem sau vài ngày cá bấm cần lúc nào, rồi xem bể tua nhanh.",
+        "mo_ta": "Bể cá có một con cá vàng, cần bấm thức ăn ở góc phải, trục một ngày có khung giờ ăn, và bảng ghi các lần bấm cần theo từng ngày.",
+        "doan_hoi": "Sau vài ngày, cá vàng sẽ bấm cần lúc nào?",
+        "doan": [
+          "Rải rác cả ngày (cá nhớ 3 giây)",
+          "Dồn quanh giờ ăn"
         ],
-        "moc": [
-          "được dạy: 70 cm"
+        "mot_ngay": "MỘT NGÀY",
+        "gio_an": "giờ có thức ăn (1 giờ)",
+        "can": "cần bấm",
+        "ngay": "Ngày {d}/{n}",
+        "bam": "mỗi vạch là\nmột lần bấm cần;\nvàng: đúng giờ ăn",
+        "sau_ca": [
+          "Không rải rác: các lần bấm dồn dần quanh giờ ăn. Gee, Stephenson và Wright (1994) thấy cá vàng học được giờ có thức ăn trong ngày.",
+          "Đúng: các lần bấm dồn dần quanh giờ ăn. Gee, Stephenson và Wright (1994) thấy cá vàng học được giờ có thức ăn trong ngày."
         ],
-        "don_vi": "cm",
-        "co": "Lá cờ đoán",
-        "nut_xem": "Thả cá",
-        "nut_lai": "Đoán lại",
-        "ket": "Bạn đoán {doan} cm. 8 trên 9 con tự quay đầu sau trung bình 74 cm: chúng nhớ và ước lượng khoảng cách khá chuẩn. Cá vàng \"chú ý 9 giây\" hay \"nhớ 3 giây\" không lần được tới nghiên cứu nào.",
-        "nguon": "Nguồn: Sibeaux, Karlsson, Newport và Burt de Perera, Proc. R. Soc. B, 2022 (9 con, 70 cm, 74 cm, 8 trên 9 con; số qua tóm tắt của ĐH Oxford và báo khoa học, nguồn thứ cấp); con số 9 giây: BBC More or Less, 10/3/2017, không tìm thấy nghiên cứu gốc."
+        "cau_hoi": "Vậy câu \"người chú ý 8 giây, cá vàng 9 giây\" từ đâu ra? Thả dây câu xuống, lần ngược từng tay chuyển con số.",
+        "mo_ta_2": "Dây câu thả xuống qua các tầng nguồn: hàng nghìn slide, tạp chí Time, báo cáo Microsoft Canada, trang Statistic Brain; đáy là ô trống: không tìm thấy nghiên cứu gốc.",
+        "loi_don": "Người: 8 giây. Cá vàng: 9 giây.",
+        "chuoi": [
+          {
+            "tieu": "Hàng nghìn slide, sách, bài báo",
+            "dong": "2015 đến nay, trích tạp chí Time"
+          },
+          {
+            "tieu": "Tạp chí Time, 14/5/2015",
+            "dong": "tít \"kém cá vàng\", trích báo cáo Microsoft"
+          },
+          {
+            "tieu": "Microsoft Canada, báo cáo 2015",
+            "dong": "dưới biểu đồ: \"Nguồn: Statistic Brain\""
+          },
+          {
+            "tieu": "Statistic Brain, trang tổng hợp",
+            "dong": "\"Nguồn: NCBI, AP\", không có bài báo nào"
+          },
+          {
+            "tieu": "Nghiên cứu gốc? Không tìm thấy",
+            "dong": "BBC More or Less (10/3/2017): NCBI và AP không có"
+          }
+        ],
+        "day_cau": "Dây câu: kéo xuống hoặc nhấn Enter",
+        "nut_tha": "Thả dây xuống tầng tiếp",
+        "nut_lai": "Làm lại",
+        "ket": "Đáy chuỗi là ô trống: \"8 giây\" và \"9 giây\" không lần được tới nghiên cứu nào. Còn cá vàng thật học được giờ ăn trong ngày (Gee 1994) và ước lượng được quãng đường: được dạy bơi 70 cm, 8 trên 9 con tự quay đầu sau trung bình 74 cm (Sibeaux 2022).",
+        "nguon": "Nguồn: Gee, Stephenson và Wright, J. Exp. Anal. Behav. 62(1), 1994 (thức ăn chỉ có trong 1 giờ mỗi ngày, cá dồn lần bấm quanh giờ ăn); Sibeaux, Karlsson, Newport và Burt de Perera, Proc. R. Soc. B, 2022 (70 cm, 74 cm, 8 trên 9 con; qua tóm tắt của ĐH Oxford và báo khoa học, thứ cấp); chuỗi trích dẫn theo BBC More or Less, S. Maybin (10/3/2017), Microsoft Canada, \"Attention spans\" (2015) và Time, K. McSpadden (14/5/2015). Số ngày, chỗ giờ ăn trên trục, đường bơi và nhịp bấm trong bể là minh họa, không phải số liệu thí nghiệm."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "How far can a goldfish remember?",
-        "hoi": "An Oxford team trained 9 goldfish to swim exactly 70 cm along a striped tank for a reward, then removed the cue. Drag the flag to where you think the fish turns back, then release the fish.",
-        "mo_ta": "A water tank with a 0 to 100 cm ruler; the 70 cm line is the trained distance; the fish swims to 74 cm.",
-        "that": [
-          "average: 74 cm"
+        "nhan": "The fish that learned mealtime",
+        "hoi": "In 1994, lab goldfish could only get food by pressing a lever during one hour each day. Guess when the fish presses after a few days, then watch the tank sped up.",
+        "mo_ta": "A tank with one goldfish, a feeding lever at the right, a one-day timeline with the feeding window, and a chart of lever presses for each day.",
+        "doan_hoi": "After a few days, when will the goldfish press the lever?",
+        "doan": [
+          "All through the day (3-second memory)",
+          "Bunched around mealtime"
         ],
-        "moc": [
-          "trained: 70 cm"
+        "mot_ngay": "ONE DAY",
+        "gio_an": "food available (1 hour)",
+        "can": "lever",
+        "ngay": "Day {d}/{n}",
+        "bam": "each tick is\none lever press;\namber: at mealtime",
+        "sau_ca": [
+          "Not scattered: the presses bunch up around mealtime. Gee, Stephenson and Wright (1994) found goldfish learn the time of day when food is available.",
+          "Right: the presses bunch up around mealtime. Gee, Stephenson and Wright (1994) found goldfish learn the time of day when food is available."
         ],
-        "don_vi": "cm",
-        "co": "Guess flag",
-        "nut_xem": "Release the fish",
-        "nut_lai": "Guess again",
-        "ket": "You guessed {doan} cm. 8 of the 9 fish turned back after 74 cm on average: they remembered and judged distance quite well. The goldfish \"9-second attention span\" and \"3-second memory\" trace back to no study.",
-        "nguon": "Sources: Sibeaux, Karlsson, Newport and Burt de Perera, Proc. R. Soc. B, 2022 (9 fish, 70 cm, 74 cm, 8 of 9; figures via University of Oxford summary and science press, secondary sources); the 9 seconds: BBC More or Less, 10 March 2017, no original study found."
+        "cau_hoi": "So where does \"humans focus for 8 seconds, goldfish for 9\" come from? Drop the fishing line and trace the number back hand by hand.",
+        "mo_ta_2": "A fishing line drops through layers of sources: thousands of slides, Time magazine, the Microsoft Canada report, the Statistic Brain site; the bottom is an empty box: no original study found.",
+        "loi_don": "Humans: 8 seconds. Goldfish: 9.",
+        "chuoi": [
+          {
+            "tieu": "Thousands of slides, books, articles",
+            "dong": "2015 to now, citing Time magazine"
+          },
+          {
+            "tieu": "Time magazine, 14 May 2015",
+            "dong": "\"than a goldfish\", citing Microsoft's report"
+          },
+          {
+            "tieu": "Microsoft Canada, 2015 report",
+            "dong": "under the chart: \"Source: Statistic Brain\""
+          },
+          {
+            "tieu": "Statistic Brain, stats website",
+            "dong": "\"Source: NCBI, AP\", but no paper at all"
+          },
+          {
+            "tieu": "Original study? Not found",
+            "dong": "BBC More or Less (10 March 2017): not at NCBI or AP"
+          }
+        ],
+        "day_cau": "Fishing line: drag down or press Enter",
+        "nut_tha": "Drop to the next layer",
+        "nut_lai": "Start again",
+        "ket": "The chain ends in an empty box: \"8 seconds\" and \"9 seconds\" trace back to no study. Real goldfish learn mealtimes (Gee 1994) and judge distance: trained to swim 70 cm, 8 of 9 turned back on their own after 74 cm on average (Sibeaux 2022).",
+        "nguon": "Sources: Gee, Stephenson and Wright, J. Exp. Anal. Behav. 62(1), 1994 (food only in a one-hour window each day; presses bunched around feeding time); Sibeaux, Karlsson, Newport and Burt de Perera, Proc. R. Soc. B, 2022 (70 cm, 74 cm, 8 of 9 fish; via Oxford's summary and science press, secondary); the citation chain per BBC More or Less, S. Maybin (10 March 2017), Microsoft Canada, \"Attention spans\" (2015), and Time, K. McSpadden (14 May 2015). Number of days, the feeding window's place on the timeline, swimming paths and press timing in the tank are illustrative, not experimental data."
       }
     }
   ],
@@ -3720,10 +3774,15 @@
       "khuon": "pho-mai",
       "id": "choi-pho-mai",
       "truoc": "tinh-hoa",
+      "dung_o": 2,
+      "dong_ho": [
+        1400,
+        0
+      ],
       "vi": {
         "muc": "Chơi trước khi đọc",
         "nhan": "Bốn lát phô mai",
-        "hoi": "Kéo từng lát lên xuống để lỗ không thẳng hàng. Khí từ giếng (trái) chỉ tới được giàn khoan (phải) khi lọt qua lỗ của cả bốn lát.",
+        "hoi": "Kéo từng lát lên xuống để lỗ không thẳng hàng. Khí từ giếng (trái) chỉ tới được giàn khoan (phải) khi lọt qua lỗ của cả bốn lát. Khi khí chạm lát Thử áp, bạn phải đọc hai đồng hồ.",
         "mo_ta": "Bốn lớp chắn có lỗ giữa giếng dầu và giàn khoan; các chấm đỏ là khí đi từ trái sang phải.",
         "nut_that": "Xem đêm 20/4/2010",
         "nut_tron": "Xáo lại",
@@ -3744,12 +3803,32 @@
           "Bộ chống phun đóng nhưng không kín."
         ],
         "ket": "Khí lên tới giàn, phát nổ; 11 người chết. Chỉ cần một lớp giữ được là khí không lên tới giàn.",
-        "nguon": "Nguồn: CSB (2016) và Ủy ban Quốc gia về sự cố Deepwater Horizon (2011): bốn hàng rào hỏng gồm xi măng đáy giếng, phép thử áp suất âm (1.400 psi trên cần khoan, 0 ở ống dập giếng) bị kết luận \"đạt\", gần 1 giờ không phát hiện khí vào giếng, bộ chống phun đóng nhưng không kín; 11 người chết. Vị trí lỗ và dòng khí trong cảnh là hình minh họa."
+        "nguon": "Nguồn: CSB (2016) và Ủy ban Quốc gia về sự cố Deepwater Horizon (2011): bốn hàng rào hỏng gồm xi măng đáy giếng, phép thử áp suất âm (1.400 psi trên cần khoan, 0 ở ống dập giếng) bị kết luận \"đạt\", gần 1 giờ không phát hiện khí vào giếng, bộ chống phun đóng nhưng không kín; 11 người chết. Phép thử áp suất âm (273, 1.250 rồi 1.400 psi trên cần khoan, 0 ở ống dập giếng) theo báo cáo điều tra của BP (9/2010), phụ lục dòng thời gian, NAE (2011), chương 2 và CSB (2016), tập 3; \"hiệu ứng bàng quang\" là giả thuyết sai theo Ủy ban Quốc gia (2011), chương 1 và NAE (2011), chương 2. Vị trí lỗ và dòng khí trong cảnh, thang của hai đồng hồ là hình minh họa.",
+        "dung_hoi": "Phép thử áp suất âm. Hai ống thông cùng một giếng, lẽ ra phải chỉ cùng một số. Bạn kết luận gì?",
+        "dung_chon": [
+          "\"Hiệu ứng bàng quang\", đạt",
+          "Xả áp, kiểm lại"
+        ],
+        "dung_dap": [
+          "Đêm 20/4/2010 ca trực cũng gọi đó là \"hiệu ứng bàng quang\" và kết luận \"đạt\". Lát Thử áp vẫn thủng.",
+          "Lát Thử áp được vá kín. \"Hiệu ứng bàng quang\" là giả thuyết sai; ngoài đời không ai kiểm lại."
+        ],
+        "da_va": "đã vá",
+        "dong_ho": [
+          {
+            "ten": "Cần khoan",
+            "so": "1.400 psi"
+          },
+          {
+            "ten": "Ống dập giếng",
+            "so": "0 psi"
+          }
+        ]
       },
       "en": {
         "muc": "Play before you read",
         "nhan": "Four slices of cheese",
-        "hoi": "Drag each slice up or down so the holes don't line up. Gas from the well (left) only reaches the rig (right) if it passes through holes in all four slices.",
+        "hoi": "Drag each slice up or down so the holes don't line up. Gas from the well (left) only reaches the rig (right) if it passes through holes in all four slices. When gas reaches the Pressure test slice, you have to read two gauges.",
         "mo_ta": "Four barriers with holes between the well and the rig; red dots are gas moving from left to right.",
         "nut_that": "See the night of 20 April 2010",
         "nut_tron": "Shuffle",
@@ -3770,7 +3849,27 @@
           "The blowout preventer closed but did not seal."
         ],
         "ket": "Gas reached the rig and exploded; 11 people died. Any one barrier holding would have kept the gas off the rig.",
-        "nguon": "Source: CSB (2016) and the National Commission on the Deepwater Horizon Oil Spill (2011): four failed barriers, namely the bottom-hole cement, a negative pressure test (1,400 psi on the drill pipe, 0 on the kill line) judged a \"pass\", nearly an hour without detecting the kick, and a blowout preventer that closed but did not seal; 11 killed. Hole positions and gas flow in the scene are illustrative."
+        "nguon": "Source: CSB (2016) and the National Commission on the Deepwater Horizon Oil Spill (2011): four failed barriers, namely the bottom-hole cement, a negative pressure test (1,400 psi on the drill pipe, 0 on the kill line) judged a \"pass\", nearly an hour without detecting the kick, and a blowout preventer that closed but did not seal; 11 killed. Negative pressure test (273, 1,250 then 1,400 psi on the drill pipe, 0 on the kill line) from BP's investigation report (September 2010), timeline appendix, NAE (2011), chapter 2, and CSB (2016), volume 3; the \"bladder effect\" as a false theory from the National Commission (2011), chapter 1, and NAE (2011), chapter 2. Hole positions and gas flow in the scene, and the scale of the two gauges, are illustrative.",
+        "dung_hoi": "Negative pressure test. Both lines connect to the same well, so they should read the same. What do you conclude?",
+        "dung_chon": [
+          "\"Bladder effect\", pass",
+          "Bleed off and re-test"
+        ],
+        "dung_dap": [
+          "On 20 April 2010 the crew also called it the \"bladder effect\" and judged it a \"pass\". The Pressure test slice stays holed.",
+          "The Pressure test slice is sealed. The \"bladder effect\" was a false theory; in reality nobody re-tested."
+        ],
+        "da_va": "sealed",
+        "dong_ho": [
+          {
+            "ten": "Drill pipe",
+            "so": "1,400 psi"
+          },
+          {
+            "ten": "Kill line",
+            "so": "0 psi"
+          }
+        ]
       }
     }
   ],
