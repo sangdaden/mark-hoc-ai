@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theranos (Theranos, Inc.): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Hứa hàng trăm xét nghiệm từ vài giọt máu, huy động hơn 700 triệu USD, nhưng máy riêng chỉ chạy khoảng 12 trên hơn 200 xét nghiệm. Mổ xẻ từ đơn kiện SEC, biên bản kiểm tra của CMS, hồ sơ vụ US v. Holmes và 14 lời đồn được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/that-bai-theranos.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/that-bai-theranos.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/that-bai-theranos.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/that-bai-theranos.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Theranos (Theranos, Inc.): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Hứa hàng trăm xét nghiệm từ vài giọt máu, huy động hơn 700 triệu USD, nhưng máy riêng chỉ chạy khoảng 12 trên hơn 200 xét nghiệm. Mổ xẻ từ đơn kiện SEC, biên bản kiểm tra của CMS, hồ sơ vụ US v. Holmes và 14 lời đồn được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/that-bai-theranos.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #071A18; --bia-2: #0F4C46; --bia-nhan: #2DD4BF; }
+:root { --vtk-nhan: #2DD4BF; }
+body header { --ho-so: "Hồ sơ công ty"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/that-bai-theranos.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Giải phẫu thất bại kinh doanh": Theranos, --night = teal (lab, the promise), --day = blood red (the blood sample, the harm). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0f766e;
+  --day: #b91c1c;
+  --rem: #4f46e5;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #2dd4bf; --day: #f87171; --rem: #a5b4fc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #2dd4bf; --day: #f87171; --rem: #a5b4fc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Theranos</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpkN2E5YTkxMC04OGRkLTRhMjctOTNkZC1kZGNjYWNiZDE5OTcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKwY1q5NjloGbMxmW5HMvWwAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDowOWUyMTZjNC05YTJmLTQ4YzQtOGU3Zi1jNGVmNDVkY2RiNjJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoZppdmjC1eoZgeTPN954kNQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg034SpK1d4vLACUAm1X9Q5PClM0Z11OhNSULPkUubgBmkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaDLmmkA6Xa7sNVoO0uCXi4EAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAGDfbqYv3ZdxecuS3Q2u6bydWEpNCD9c5TtvU7mO09UGRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBi4Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmQ3YTlhOTEwLTg4ZGQtNGEyNy05M2RkLWRkY2NhY2JkMTk5Ny9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjdiNjkzODgzLThlMzMtNDBmMy1hMzRhLTVkMzBmZGRkODFiMnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDTfhKkrV3i8sAJQCbVf1Dk8KUzRnXU6E1JQs+RS5uAGaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggtTB0fcSRBk84IE29qDkPpq+a2v9yAqqgrkWluEgEaJ+iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggIxZImKRkflMmGT/mLY/aW4uzQmtfDC5iqXz65vfpbwJ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQBL2iFzt6V6koyJp4JbRGGNFenkR4QYb0Db8MYQfjHYX2xNFyIBNLG15R0faySRqNBZLxa20ClUDTcwQ19AXUtY=</c2pa:manifest></metadata>
+<path d="M30 14 C30 14 12 38 12 50 a18 18 0 0 0 36 0 C48 38 30 14 30 14z" fill="#EF4444"/>
+<path d="M21 51 a9 9 0 0 0 9 9" stroke="#FFF7ED" stroke-width="3" stroke-opacity=".7"/>
+<rect x="56" y="52" width="34" height="38" rx="3" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="3.5"/>
+<path d="M62 62h22M62 70h22M62 78h13" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="3.5"/>
+<circle cx="70" cy="30" r="13" stroke="var(--bia-nhan, #2DD4BF)" stroke-width="5"/>
+<path d="M79 39 l11 11" stroke="var(--bia-nhan, #2DD4BF)" stroke-width="6"/>
+<path d="M10 88 h36" stroke="#FFF7ED" stroke-opacity=".3" stroke-width="5"/><path d="M10 88 h4" stroke="var(--bia-nhan, #2DD4BF)" stroke-width="5"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/ngac-nhien.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="18" data-chu="vi">khoảng 18 phút đọc</b></p><a class="vtk-ray-choi" href="#choi-soi-loi"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Soi hồ sơ gọi vốn</span></a><a class="vtk-ray-o vtk-ray-tiep" href="that-bai-nokia.html"><small>Bài tiếp theo</small><b>Nokia điện thoại</b><span>Thất bại #003 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Giải phẫu thất bại kinh doanh #2 · Y tế · Khởi nghiệp</span>
+  <h1>Theranos</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một giọt máu, một chiếc hộp kín, và một tờ báo cáo bị soi bằng kính lúp">
+    <path d="M22 6 C22 6 8 24 8 33 a14 14 0 0 0 28 0 C36 24 22 6 22 6z" fill="#b91c1c"/>
+    <path d="M15 33 a7 7 0 0 0 7 7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+    <rect x="58" y="10" width="58" height="34" rx="6" fill="none" stroke="#0f766e" stroke-width="3"/>
+    <rect x="68" y="18" width="18" height="12" rx="2" fill="#0f766e" opacity=".35"/>
+    <text x="96" y="30" font-family="monospace" font-size="13" fill="#8a94a6">?</text>
+    <text x="132" y="32" font-family="monospace" font-size="15" fill="#8a94a6">~12 / 200+</text>
+    <rect x="236" y="6" width="34" height="42" rx="3" fill="none" stroke="#8a94a6" stroke-width="2.5"/>
+    <path d="M242 16h22M242 24h22M242 32h12" stroke="#8a94a6" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="282" cy="30" r="11" fill="none" stroke="#0f766e" stroke-width="3.5"/>
+    <path d="M290 38 l12 12" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+  <p class="sub">Theranos, Inc. · 2003–2018 · Palo Alto, California</p>
+  <div class="meta">
+    <div><span class="label">Lời hứa</span><b>hàng trăm xét nghiệm từ vài giọt máu đầu ngón tay</b></div>
+    <div><span class="label">Thực tế</span><b>máy riêng chạy khoảng 12 trên hơn 200 xét nghiệm</b></div>
+    <div><span class="label">Kết cục</span><b>giải thể 9/2018, nhà sáng lập vào tù vì lừa nhà đầu tư</b></div>
+    <div><span class="label">Nguồn chính</span><b>Đơn kiện SEC (3/2018), báo cáo CMS (2016), hồ sơ vụ US v. Holmes</b></div>
+  </div>
+  <p class="nguon">Nguồn: thông cáo SEC 2018-41 và đơn kiện SEC v. Holmes (14/3/2018); thư Theranos gửi cổ đông (9/2018); phán quyết vụ US v. Holmes (3/1/2022).</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Chuyện gì xảy ra</a><a href="#khai-niem">Vì sao</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4c0 0-9 11-9 17a9 9 0 0018 0c0-6-9-17-9-17z"/></svg><b>Lời hứa quá đẹp</b><span>Vài giọt máu đầu ngón tay, hàng trăm xét nghiệm, rẻ và nhanh.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="8" width="20" height="16" rx="2"/><path d="M11 14h4M11 18h10"/></svg><b>Khoảng 12 trên hơn 200</b><span>Máy riêng của Theranos chỉ chạy chừng ấy. Phần còn lại chạy trên máy của hãng khác.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 26h22"/><path d="M8 22V12M14 22V6M20 22v-3M26 22v-1"/></svg><b>100 triệu thành 100 nghìn</b><span>Dự báo doanh thu 2014 hơn 100 triệu USD. Thực tế khoảng 100.000 USD.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l12 22H4z"/><path d="M16 13v6M16 22v1"/></svg><b>"Nguy hiểm tức thời"</b><span>Cơ quan quản lý CMS kết luận phòng xét nghiệm đe dọa sức khỏe bệnh nhân.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 10h16M10 10v15h12V10M13 6h6"/></svg><b>Không ai được nói "chưa chạy"</b><span>Người trong phòng xét nghiệm thấy lỗi từ sớm. Tin xấu phải đi đường vòng ra ngoài.</span></div>
+  </div>
+  <p class="nguon">Nguồn: đơn kiện SEC v. Holmes (14/3/2018): khoảng 12 trên hơn 200 xét nghiệm, dự báo và doanh thu 2014; thư CMS ngày 25/1/2016: "nguy hiểm tức thời"; người tố giác: lời khai tại tòa do báo chí thuật lại (nguồn thứ cấp).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của vụ án</h2></div>
+  <p class="thesis">Một công ty huy động hơn 700 triệu USD, có hội đồng quản trị toàn tên tuổi, có chuỗi nhà thuốc lớn làm đối tác. Vì sao không ai kiểm tra cái máy trước khi tin? Câu trả lời không phải "xui", mà là một bản demo được đối xử như sản phẩm, và không ai được phép nói "nó chưa chạy".</p>
+  <p class="nguon">Nguồn: thông cáo SEC 2018-41 (hơn 700 triệu USD); đối tác Walgreens: hồ sơ vụ Walgreens kiện Theranos (11/2016) do báo chí thuật lại.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">2003–2013</span><b>Lời hứa</b><span>Một giọt máu, hàng trăm xét nghiệm. Gọi vốn bằng bản demo và bí mật thương mại.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2013–2015</span><b>Lên kệ thật</b><span>Lấy máu bệnh nhân ở nhà thuốc. Phần lớn chạy trên máy của hãng khác.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2015–2022</span><b>Bị kiểm tra</b><span>Báo chí, CMS, FDA, SEC, rồi tòa án. Công ty giải thể.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Chuyện gì đã xảy ra</h2><p class="lead">Lên rất cao bằng lời hứa, rơi rất nhanh khi có người kiểm tra.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 250" role="img" aria-labelledby="tlr">
+        <title id="tlr">Đường minh họa kỳ vọng về Theranos từ 2003 đến 2022. Năm 2003 lập công ty. Năm 2013 ra mắt ở nhà thuốc Walgreens. Năm 2014 đỉnh, Forbes ước định giá khoảng 9 tỷ USD. Tháng 10/2015 bài báo đầu tiên của Wall Street Journal. Năm 2016 CMS kết luận nguy hiểm tức thời và thu hồi chứng nhận. Năm 2018 SEC buộc tội, công ty giải thể. Năm 2022 tòa tuyên án.</title>
+        <line x1="40" y1="200" x2="700" y2="200" class="axis"/>
+        <path d="M50 192 C 200 188, 320 130, 387 76 L420 42 L447 58 L471 136 L528 186 L690 196" fill="none" stroke="var(--night)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M447 58 L471 136 L528 186" fill="none" stroke="var(--day)" stroke-width="4" stroke-linecap="round"/>
+        <g text-anchor="middle">
+          <circle cx="50" cy="192" r="6" fill="var(--night)"/><text x="58" y="222" class="t-ink t-bold">2003</text><text x="66" y="238">lập công ty</text>
+          <circle cx="387" cy="76" r="6" fill="var(--night)"/><text x="330" y="76" class="t-ink t-bold">2013</text><text x="330" y="92">Walgreens</text>
+          <circle cx="420" cy="42" r="8" fill="var(--night)"/><text x="420" y="22" class="t-night t-bold">2014 · ~9 tỷ USD</text>
+          <circle cx="447" cy="58" r="6" fill="var(--day)"/><text x="520" y="56" class="t-day t-bold">10/2015 · WSJ</text>
+          <circle cx="471" cy="136" r="6" fill="var(--day)"/><text x="548" y="128" class="t-day t-bold">2016 · CMS</text><text x="548" y="144">"nguy hiểm tức thời"</text>
+          <circle cx="528" cy="186" r="6" fill="var(--day)"/><text x="528" y="222" class="t-ink t-bold">2018</text><text x="528" y="238">SEC, giải thể</text>
+          <circle cx="690" cy="196" r="6" fill="var(--ink)"/><text x="672" y="222" class="t-ink t-bold">2022</text><text x="664" y="238">bản án</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Đường cong là minh họa mức kỳ vọng, không phải số liệu.</b> Con số định giá 9 tỷ USD là ước tính của Forbes dựa trên giá vòng gọi vốn, không phải giá trị đã được kiểm chứng.<span class="nguon">Nguồn: định giá: Forbes 2014 (nguồn thứ cấp); WSJ 15/10/2015 (nguồn thứ cấp); thư CMS 25/1/2016; thông cáo SEC 2018-41; thư Theranos gửi cổ đông 9/2018; tuyên án Holmes 18/11/2022.</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>2003 · Lập công ty</b><span>Elizabeth Holmes, 19 tuổi, bỏ học Stanford để lập công ty, tên ban đầu là Real-Time Cures. <i>(nguồn thứ cấp)</i></span></div>
+    <div><b>9/2013 · Lên kệ ở Walgreens</b><span>Điểm lấy máu đầu tiên ở Palo Alto, sau đó khoảng 40 điểm, phần lớn ở Arizona. Bệnh nhân thật bắt đầu nhận kết quả. <i>(nguồn thứ cấp)</i></span></div>
+    <div class="hot"><b>2013–2015 · Hơn 700 triệu USD</b><span>Gọi vốn bằng lời hứa về máy riêng, về hợp đồng với quân đội, về doanh thu. SEC sau này kết luận các lời này sai sự thật.</span></div>
+    <div><b>7/2015 · FDA cho phép một xét nghiệm</b><span>Xét nghiệm virus herpes HSV-1 lấy máu đầu ngón tay. Một xét nghiệm, không phải cả hệ thống.</span></div>
+    <div class="hot"><b>15/10/2015 · Bài báo đầu tiên</b><span>Wall Street Journal: đến cuối 2014, chỉ 15 trên hơn 240 xét nghiệm chạy trên máy Edison, theo một cựu nhân viên. <i>(nguồn thứ cấp)</i></span></div>
+    <div class="hot"><b>25/1/2016 · CMS: "nguy hiểm tức thời"</b><span>Sau đợt kiểm tra phòng xét nghiệm Newark (9–11/2015): 5 vi phạm nghiêm trọng, mảng huyết học đe dọa bệnh nhân.</span></div>
+    <div><b>5/2016 · Hủy kết quả</b><span>Theranos báo CMS đã hủy toàn bộ kết quả từ máy Edison năm 2014 và 2015, gửi báo cáo đính chính cho bác sĩ. <i>(WSJ, nguồn thứ cấp)</i></span></div>
+    <div><b>7/7/2016 · Thu hồi chứng nhận</b><span>CMS thu hồi chứng nhận phòng xét nghiệm, cấm Holmes sở hữu hoặc điều hành phòng xét nghiệm ít nhất 2 năm.</span></div>
+    <div><b>11/2016 · Đối tác quay lưng</b><span>Walgreens kiện, đòi 140 triệu USD. Hai bên dàn xếp năm 2017, không công bố số tiền. <i>(nguồn thứ cấp)</i></span></div>
+    <div class="hot"><b>14/3/2018 · SEC: "gian lận quy mô lớn"</b><span>Holmes dàn xếp: phạt 500.000 USD, trả 18,9 triệu cổ phiếu, mất quyền kiểm soát, cấm làm lãnh đạo công ty đại chúng 10 năm.</span></div>
+    <div><b>6/2018 · Cáo trạng hình sự</b><span>Holmes và Balwani (cựu chủ tịch, giám đốc vận hành) bị truy tố 2 tội âm mưu và 9 tội lừa đảo qua phương tiện điện tử.</span></div>
+    <div><b>9/2018 · Giải thể</b><span>"Tiền mặt không đủ trả hết chủ nợ", cổ đông không được chia gì.</span></div>
+    <div class="hot"><b>2022 · Bản án</b><span>Holmes: có tội 4 tội lừa nhà đầu tư, 135 tháng tù. Balwani: có tội cả 12 tội, 155 tháng tù. Bồi thường 452 triệu USD. Tòa phúc thẩm giữ nguyên (24/2/2025).</span></div>
+  </div>
+  <p class="nguon">Nguồn: thông cáo SEC 2018-41; FDA, cho phép xét nghiệm HSV-1 (2/7/2015, qua Fortune); thư CMS 25/1/2016 và thông báo xử phạt 7/7/2016; cáo trạng US v. Holmes (6/2018); thư CEO David Taylor gửi cổ đông (9/2018); phán quyết 3/1/2022 và 7/7/2022; tuyên án 18/11/2022 và 12/2022; Tòa phúc thẩm khu vực 9 (24/2/2025). Các mốc ghi "nguồn thứ cấp" lấy từ báo chí.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">một giọt máu</span><span class="chip">700 triệu USD</span><span class="chip">12 trên 200</span><span class="chip">giải thể</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">demo thành sản phẩm</span><span class="chip">tin xấu bị chặn</span><span class="chip">không ai kiểm</span><span class="chip">lời đồn</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">kiểm chứng demo</span><span class="chip">đếm, đừng nghe</span><span class="chip">người được nói "chưa chạy"</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Vì sao: bốn lớp nguyên nhân</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp chiến lược: bán sản phẩm khi mới có bản demo</h3><span class="en">demo sold as product</span><span class="pg">đơn kiện SEC</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kc1">
+          <title id="kc1">Danh mục xét nghiệm công bố có hơn 200 xét nghiệm. Máy riêng của Theranos chỉ thực hiện khoảng 12. Phần lớn còn lại chạy trên máy xét nghiệm thương mại của hãng khác, một số bị sửa lại để dùng mẫu máu nhỏ.</title>
+          <text x="20" y="34" class="t-ink t-bold">danh mục công bố: hơn 200 xét nghiệm</text>
+          <rect x="20" y="46" width="680" height="34" rx="6" fill="var(--grid)"/>
+          <rect x="20" y="46" width="41" height="34" rx="6" fill="var(--night)"/>
+          <text x="70" y="68" class="t-night t-bold">~12 trên máy riêng</text>
+          <text x="20" y="114" class="t-ink">phần còn lại: máy thương mại của hãng khác, một số bị sửa lại cho mẫu máu nhỏ</text>
+          <rect x="20" y="132" width="320" height="46" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)"/>
+          <text x="36" y="160" class="t-night t-bold">nhà đầu tư nghe: "máy của chúng tôi"</text>
+          <rect x="370" y="132" width="330" height="46" rx="8" fill="var(--day)" fill-opacity=".12" stroke="var(--day)"/>
+          <text x="386" y="160" class="t-day t-bold">thực tế: phần lớn là máy người khác</text>
+        </svg>
+      </div>
+      <figcaption><b>Bản demo được bán như sản phẩm hoàn chỉnh.</b> Theranos đưa máu bệnh nhân thật vào hệ thống khi công nghệ của mình mới chạy được một phần nhỏ. WSJ năm 2015 đưa con số gần giống từ một nguồn khác: 15 trên hơn 240.<span class="nguon">Nguồn: đơn kiện SEC v. Holmes (14/3/2018), NBC News trích nguyên văn: "khoảng 12 xét nghiệm trong hơn 200"; thông cáo SEC 2018-41 (máy thương mại bị sửa); WSJ 15/10/2015 (nguồn thứ cấp).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp con người: lời nói với nhà đầu tư và sự thật</h3><span class="en">misrepresentation</span><span class="pg">SEC, phán quyết 2022</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <tr><th>Điều nhà đầu tư được nghe</th><th>Điều hồ sơ ghi lại</th></tr>
+        <tr><td>Công nghệ đã dùng trên chiến trường Afghanistan, trên trực thăng cứu thương</td><td class="n">Chưa từng được Bộ Quốc phòng Mỹ triển khai (SEC)</td></tr>
+        <tr><td>Doanh thu 2014 hơn 100 triệu USD</td><td class="n">Khoảng 100.000 USD (SEC)</td></tr>
+        <tr><td>Máy riêng làm được cả danh mục</td><td class="n">Khoảng 12 trên hơn 200 (SEC)</td></tr>
+        <tr><td>Báo cáo thẩm định mang logo hãng dược lớn</td><td class="n">Holmes thừa nhận tại tòa đã tự thêm logo (thứ cấp)</td></tr>
+      </table>
+    </div>
+    <p class="nguon">Nguồn: đơn kiện SEC v. Holmes (14/3/2018), qua STAT, BioCentury, NBC; lời khai của Holmes tại tòa (11/2021) do báo chí thuật lại (nguồn thứ cấp). Tòa kết tội Holmes 4 tội lừa nhà đầu tư (3/1/2022).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp tổ chức: tin xấu có, nhưng không lên được</h3><span class="en">bad news blocked</span><span class="pg">CMS-2567, lời khai</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kc3">
+          <title id="kc3">Ba tầng. Phòng xét nghiệm: tháng 10/2014, 29 phần trăm lần kiểm tra chất lượng trên máy Edison ra ngoài khoảng chấp nhận được. Ban lãnh đạo: tin xấu dừng ở đây. Nhà đầu tư và đối tác: nghe lời hứa. Người tố giác phải đi đường vòng ra ngoài, tới cơ quan y tế bang New York, CMS và báo chí.</title>
+          <rect x="20" y="150" width="300" height="56" rx="8" fill="var(--day)" fill-opacity=".12" stroke="var(--day)"/>
+          <text x="34" y="174" class="t-day t-bold">phòng xét nghiệm</text><text x="34" y="194">10/2014: 29% lần kiểm QC Edison hỏng</text>
+          <rect x="20" y="80" width="300" height="50" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="34" y="110" class="t-ink t-bold">ban lãnh đạo</text>
+          <rect x="20" y="14" width="300" height="50" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)"/>
+          <text x="34" y="44" class="t-night t-bold">nhà đầu tư, đối tác: nghe lời hứa</text>
+          <path d="M170 150 V134" stroke="var(--day)" stroke-width="3"/>
+          <path d="M150 140 h40" stroke="var(--bad)" stroke-width="4"/>
+          <text x="200" y="146" class="t-bad t-bold">✗ dừng</text>
+          <path d="M320 178 C 420 178, 430 110, 470 110" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
+          <rect x="470" y="70" width="230" height="110" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="484" y="96" class="t-ink t-bold">đường vòng ra ngoài</text>
+          <text x="484" y="118">· cơ quan y tế bang New York</text>
+          <text x="484" y="138">· CMS (khiếu nại)</text>
+          <text x="484" y="158">· phóng viên WSJ</text>
+        </svg>
+      </div>
+      <figcaption><b>Lỗi không bị giấu khỏi những người làm.</b> Chính phòng xét nghiệm ghi lại các lần kiểm tra chất lượng hỏng. Cái thiếu là một đường để tin đó đi lên mà người nói không bị coi là kẻ phản bội. Theo các lời khai, người lên tiếng phải tìm tới cơ quan bên ngoài.<span class="nguon">Nguồn: CMS, mẫu CMS-2567 về phòng Newark (công bố 3–4/2016): 29% lần kiểm QC Edison tháng 10/2014 ngoài khoảng chấp nhận; lời khai của Erika Cheung (9/2021) và lời kể của Tyler Shultz do báo chí thuật lại (nguồn thứ cấp).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp kiểm soát bên ngoài: ai đã thực sự kiểm tra?</h3><span class="en">due diligence gap</span><span class="pg">CMS, FDA, SEC</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="kc4">
+          <title id="kc4">Những bên tin nhưng không tự kiểm tra máy: nhà đầu tư, đối tác nhà thuốc, hội đồng quản trị. Những bên đã kiểm tra và tìm ra sự thật: phóng viên WSJ năm 2015, FDA năm 2015, CMS năm 2015 đến 2016, SEC năm 2018 và tòa án năm 2022.</title>
+          <text x="20" y="28" class="t-ink t-bold">tin, nhưng không tự kiểm</text>
+          <g><rect x="20" y="40" width="200" height="40" rx="8" fill="var(--grid)"/><text x="34" y="65" class="t-ink">nhà đầu tư</text>
+          <rect x="20" y="88" width="200" height="40" rx="8" fill="var(--grid)"/><text x="34" y="113" class="t-ink">đối tác nhà thuốc</text>
+          <rect x="20" y="136" width="200" height="40" rx="8" fill="var(--grid)"/><text x="34" y="161" class="t-ink">hội đồng quản trị</text></g>
+          <path d="M240 108 H300" stroke="var(--muted)" stroke-width="3"/><path d="M308 108 l-12 -7 v14 z" fill="var(--muted)"/>
+          <text x="330" y="28" class="t-night t-bold">đã kiểm, và tìm ra</text>
+          <g>
+          <rect x="330" y="40" width="170" height="40" rx="8" fill="var(--night)" fill-opacity=".14"/><text x="344" y="65" class="t-night t-bold">WSJ · 10/2015</text>
+          <rect x="520" y="40" width="180" height="40" rx="8" fill="var(--night)" fill-opacity=".14"/><text x="534" y="65" class="t-night t-bold">FDA · 2015</text>
+          <rect x="330" y="88" width="170" height="40" rx="8" fill="var(--night)" fill-opacity=".14"/><text x="344" y="113" class="t-night t-bold">CMS · 2015–2016</text>
+          <rect x="520" y="88" width="180" height="40" rx="8" fill="var(--night)" fill-opacity=".14"/><text x="534" y="113" class="t-night t-bold">SEC · 2018</text>
+          <rect x="330" y="136" width="370" height="40" rx="8" fill="var(--day)" fill-opacity=".14"/><text x="344" y="161" class="t-day t-bold">tòa án · 2022: lừa nhà đầu tư</text></g>
+        </svg>
+      </div>
+      <figcaption><b>"Bí mật thương mại" thay chỗ cho dữ liệu.</b> Những bên bỏ tiền và đặt uy tín vào Theranos không đòi được xem máy chạy trên mẫu thật, so với phương pháp chuẩn. Những bên đòi xem đã tìm ra vấn đề trong vài tháng. Theo nhiều nguồn báo chí, hội đồng quản trị khi đó gồm nhiều cựu quan chức nhưng rất ít người chuyên về xét nghiệm.<span class="nguon">Nguồn: FDA, Form 483 sau đợt kiểm tra 8–9/2015 (ống lấy máu "nanotainer" là thiết bị chưa được cho phép, qua Fierce Biotech); thư CMS 25/1/2016; thông cáo SEC 2018-41; phán quyết 3/1/2022. Thành phần hội đồng quản trị: Carreyrou, <i>Bad Blood</i> (2018) (nguồn thứ cấp).</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Không phải "chỉ một người"</h3><span class="muted">Balwani, người điều hành hằng ngày, bị kết tội cả 12 tội, kể cả tội lừa bệnh nhân.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Bệnh nhân là phép thử</h3><span class="muted">Từ 1/4 đến 23/9/2015, kết quả xét nghiệm đông máu vẫn gửi cho 81 bệnh nhân dù kiểm tra chất lượng có vấn đề (CMS-2567).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Kiện thay cho trả lời</h3><span class="muted">Theo <i>Bad Blood</i>, công ty dùng luật sư gây sức ép với người tố giác và với tờ báo (nguồn thứ cấp).</span></div>
+    </div>
+    <p class="nguon">Nguồn: phán quyết vụ Balwani (7/7/2022); CMS-2567 phòng Newark, qua BioSpace và TechCrunch (25/4/2016); Carreyrou, <i>Bad Blood</i> (2018) (nguồn thứ cấp).</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được kể về Theranos, đối chiếu với hồ sơ SEC, CMS và tòa án. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 4 cần thận trọng, 5 sai">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:4">4 THẬN TRỌNG</div><div class="b" style="flex:5">5 SAI</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 170" role="img" aria-labelledby="kv">
+        <title id="kv">Kết quả hai phiên tòa. Holmes: có tội 4 tội, đều liên quan nhà đầu tư; vô tội 4 tội liên quan bệnh nhân; 3 tội bồi thẩm đoàn không thống nhất. Balwani: có tội cả 12 tội, kể cả các tội liên quan bệnh nhân.</title>
+        <text x="20" y="32" class="t-ink t-bold">Holmes · 3/1/2022 · 11 tội</text>
+        <g><rect x="20" y="44" width="236" height="34" fill="var(--day)" fill-opacity=".8"/><rect x="258" y="44" width="236" height="34" fill="var(--ok)" fill-opacity=".55"/><rect x="496" y="44" width="177" height="34" fill="var(--grid)"/></g>
+        <text x="30" y="66" style="fill:#fff" class="t-bold">4 có tội (nhà đầu tư)</text><text x="268" y="66" class="t-ink t-bold">4 vô tội (bệnh nhân)</text><text x="506" y="66" class="t-ink">3 không thống nhất</text>
+        <text x="20" y="112" class="t-ink t-bold">Balwani · 7/7/2022 · 12 tội</text>
+        <rect x="20" y="124" width="653" height="34" fill="var(--day)" fill-opacity=".8"/>
+        <text x="30" y="146" style="fill:#fff" class="t-bold">12 có tội (nhà đầu tư và bệnh nhân)</text>
+      </svg>
+    </div>
+    <figcaption><b>Cùng một công ty, hai kết quả khác nhau.</b> Bồi thẩm đoàn vụ Holmes không kết tội bà về các cáo buộc lừa bệnh nhân. Bồi thẩm đoàn vụ Balwani thì có. Nói "Holmes lừa bệnh nhân" là sai về mặt pháp lý.<span class="nguon">Nguồn: phán quyết vụ US v. Holmes (3/1/2022) và US v. Balwani (7/7/2022), qua NPR và TechCrunch; tuyên án 18/11/2022 (135 tháng) và 12/2022 (155 tháng).</span></figcaption>
+  </figure>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="kmt">
+        <title id="kmt">Hai con số mâu thuẫn về quy mô kết quả bị hủy. Tháng 5/2016 Theranos báo hủy toàn bộ kết quả Edison 2014 và 2015 và gửi hàng chục nghìn báo cáo đính chính. Vài tuần sau, Theranos nói dưới 1 phần trăm kết quả bị hủy hoặc đính chính.</title>
+        <text x="20" y="34" class="t-ink">5/2016 · báo CMS (qua WSJ)</text><rect x="260" y="20" width="440" height="22" rx="4" fill="var(--day)" fill-opacity=".7"/><text x="270" y="36" style="fill:#fff" class="t-bold">hủy mọi kết quả Edison 2014–2015</text><text x="260" y="58" class="t-day">hàng chục nghìn báo cáo đính chính</text>
+        <text x="20" y="98" class="t-ink">vài tuần sau · Theranos</text><rect x="260" y="84" width="12" height="22" rx="3" fill="var(--night)"/><text x="282" y="100" class="t-night t-bold">"dưới 1%" kết quả bị hủy hoặc đính chính</text>
+        <text x="20" y="138">hai con số không nói cùng một mẫu số; bài này không chọn con số nào</text>
+      </svg>
+    </div>
+    <figcaption><b>Chỗ các nguồn không khớp.</b> Con số đầu tính riêng máy Edison trong hai năm; con số sau tính trên toàn bộ kết quả công ty từng trả. Tại tòa, cựu giám đốc phòng xét nghiệm khai đã hủy mọi kết quả Edison 2014–2015.<span class="nguon">Nguồn: WSJ và TechCrunch (18/5/2016), Fierce Biotech (6/2016); lời khai của Kingshuk Das tại tòa do báo chí thuật lại. Tất cả là nguồn thứ cấp.</span></figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Theranos huy động hơn 700 triệu USD</span></summary><p class="note">Thông cáo SEC 2018-41 (14/3/2018): Holmes, Balwani và Theranos "huy động hơn 700 triệu USD từ nhà đầu tư" bằng những tuyên bố sai.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Dự báo doanh thu 2014 hơn 100 triệu USD, thực tế khoảng 100.000 USD</span></summary><p class="note">Đơn kiện SEC, qua STAT và BioCentury. Một bài của MedCity ghi con số dự báo là 108 triệu USD; các nguồn diễn đạt khác nhau nhưng cùng một khoảng cách nghìn lần.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>CMS kết luận phòng xét nghiệm gây "nguy hiểm tức thời" cho bệnh nhân</span></summary><p class="note">Thư CMS ngày 25/1/2016: 5 vi phạm cấp độ điều kiện; riêng mảng huyết học là "immediate jeopardy".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Holmes bị cấm sở hữu, điều hành phòng xét nghiệm 2 năm</span></summary><p class="note">Thông báo xử phạt của CMS ngày 7/7/2016, kèm thu hồi chứng nhận CLIA của phòng Newark.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Theranos hủy toàn bộ kết quả máy Edison năm 2014 và 2015</span></summary><p class="note">Theranos báo CMS (5/2016, qua WSJ); cựu giám đốc phòng xét nghiệm Kingshuk Das khai tại tòa đã hủy mọi kết quả Edison hai năm đó. Quy mô bị tranh cãi: xem hình bên trên (nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Theranos từng đáng giá 9 tỷ USD"</span></summary><p class="note">Đó là ước tính của Forbes (2014) dựa trên giá một vòng gọi vốn, tức là giá nhà đầu tư chấp nhận trả cho lời hứa. Khi giải thể năm 2018, cổ đông không được chia gì (thư CEO Taylor).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Một bài báo đánh sập Theranos"</span></summary><p class="note">Bài WSJ 15/10/2015 là ngòi nổ. Nhưng kết luận có hiệu lực đến từ cơ quan có quyền kiểm tra: FDA (2015), CMS (2016), SEC (2018) và tòa án (2022).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Theranos được FDA chứng nhận"</span></summary><p class="note">FDA chỉ cho phép một xét nghiệm herpes HSV-1 (2/7/2015). Cùng năm, FDA ghi ống lấy máu "nanotainer" là thiết bị y tế chưa được cho phép (Form 483).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Holmes lĩnh 11 năm tù"</span></summary><p class="note">Tuyên 135 tháng (11 năm 3 tháng) ngày 18/11/2022. Tháng 3/2026, tòa giảm 1 năm theo sửa đổi hướng dẫn kết án cho người phạm tội lần đầu (Bloomberg Law, nguồn thứ cấp). Báo chí ghi ngày ra tù khác nhau nên bài không ghi.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Startup nào chẳng thổi phồng, Theranos chỉ xui"</span></summary><p class="note">Lạc quan về tương lai khác với nói sai về hiện tại. SEC chỉ ra các tuyên bố về hợp đồng quân đội, doanh thu và khả năng của máy là sai sự thật; bồi thẩm đoàn kết tội Holmes 4 tội lừa nhà đầu tư, Balwani 12 tội. Không có "xui" nào trong hồ sơ.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Một giọt máu, hơn 200 xét nghiệm trên máy Theranos"</span></summary><p class="note">Đơn kiện SEC: máy riêng chỉ làm khoảng 12 trong hơn 200 xét nghiệm của danh mục. Phần lớn chạy trên máy thương mại của hãng khác.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Holmes bị kết tội lừa bệnh nhân"</span></summary><p class="note">Bồi thẩm đoàn tuyên Holmes vô tội 4 tội liên quan bệnh nhân (3/1/2022). Bà có tội 4 tội liên quan nhà đầu tư. Balwani thì bị kết tội cả các tội liên quan bệnh nhân.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Không ai cảnh báo trước"</span></summary><p class="note">Chính hồ sơ kiểm tra chất lượng của phòng xét nghiệm ghi lỗi (CMS-2567: 29% lần kiểm QC Edison tháng 10/2014 hỏng). Nhân viên đã báo cho cơ quan y tế bang New York và CMS (lời khai, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Pfizer đã xác nhận công nghệ Theranos"</span></summary><p class="note">Holmes thừa nhận tại tòa (11/2021) đã tự thêm logo Pfizer và Schering-Plough vào báo cáo gửi Walgreens và nhà đầu tư; bà nói "ước gì tôi đã làm khác" (báo chí thuật lại, nguồn thứ cấp).</p></details>
+  </div>
+  <p class="nguon">Nguồn: thông cáo SEC 2018-41 và đơn kiện SEC v. Holmes; thư CMS 25/1/2016, CMS-2567, thông báo xử phạt 7/7/2016; FDA (7/2015, Form 483); phán quyết 3/1/2022 và 7/7/2022; tuyên án 18/11/2022; thư Theranos gửi cổ đông 9/2018. Các dòng ghi "nguồn thứ cấp" lấy từ báo chí.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Tín hiệu cảnh báo có từ trước</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Hồ sơ công khai, minh bạch</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Bài học được giữ lại</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Hệ thống làm đúng</span><ul class="plus"><li>Cơ quan quản lý kiểm tra tại chỗ và công bố hồ sơ</li><li>Báo chí giữ được bài dù bị gây sức ép</li><li>Tòa xử, phúc thẩm giữ nguyên, có lệnh bồi thường</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Nhà đầu tư, đối tác tin lời hứa thay cho dữ liệu</li><li>Bệnh nhân thật thành phép thử</li><li>SEC dàn xếp không thừa nhận lỗi, dàn xếp Walgreens không công bố số tiền</li></ul></div>
+  </div>
+  <p class="verdict">Không phải xui. Một bản demo được bán như sản phẩm, và những người biết sự thật không có đường nào để nói "nó chưa chạy".</p>
+  <details class="more"><summary>Xem thêm: ranh giới giữa "tầm nhìn" và "nói sai"</summary><div>
+    <p>Mọi startup đều bán tương lai. Khác biệt nằm ở thì của câu. "Chúng tôi sẽ làm được 200 xét nghiệm" là một lời hứa có rủi ro. "Máy của chúng tôi đang làm 200 xét nghiệm" là một mô tả hiện tại, và có thể kiểm tra được.</p>
+    <p>Theranos sụp vì những câu ở thì hiện tại: máy đang chạy, quân đội đang dùng, doanh thu đang có. Bài học cho người làm việc bình thường: khi báo cáo, tách rõ "đã chạy", "đang thử" và "định làm". Khi nghe báo cáo, hỏi câu đó thuộc thì nào.</p>
+  </div></details>
+  <p class="nguon">Nguồn phần "Xem thêm": các tuyên bố lấy từ đơn kiện SEC v. Holmes (14/3/2018); phần còn lại là nhận xét của Mark.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: kiểm chứng trước khi tin bản demo</h2><p class="lead">Áp dụng cho mọi bản demo: phần mềm, mô hình AI, sản phẩm mẫu, báo cáo "đã xong" của đồng nghiệp hay nhà cung cấp.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kb4">
+        <title id="kb4">Bốn thói quen: hỏi demo chạy trên cái gì; đếm thay vì nghe; có người được phép nói chưa chạy; bí mật không thay được bằng chứng, nhờ người ngoài kiểm.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · demo chạy trên gì?</text><text x="110" y="100" class="t-night t-bold">mẫu thật, máy thật</text><text x="110" y="116">so với cách chuẩn</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · đếm, đừng nghe</text><text x="300" y="100" class="t-day t-bold">"bao nhiêu trên 200?"</text><text x="300" y="116">câu trả lời là một con số</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · người nói "chưa chạy"</text><text x="490" y="100" class="t-rem t-bold">có tên, được bảo vệ</text><text x="490" y="116">tin xấu đi thẳng lên</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · người ngoài kiểm</text><text x="680" y="100" class="t-ok t-bold">bí mật ≠ bằng chứng</text><text x="680" y="116">ký bảo mật rồi cho xem</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Một bản demo chạy được một lần không phải là sản phẩm chạy mỗi ngày.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi thói quen vá một chỗ hỏng của Theranos.</b> Demo được coi là sản phẩm, "200 xét nghiệm" không ai đếm, tin xấu bị chặn, và "bí mật" thay cho dữ liệu.<span class="nguon">Nguồn: các chỗ hỏng lấy từ đơn kiện SEC v. Holmes, thư CMS 25/1/2016 và CMS-2567; các thói quen là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20l7 7"/></svg><div><b>Xem demo trên dữ liệu của bạn</b><span>Đưa mẫu thật của mình, không dùng mẫu họ chuẩn bị sẵn. So với cách làm cũ trên cùng mẫu đó.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h20M6 24h12"/></svg><div><b>Đổi câu hỏi thành con số</b><span>"Chạy tốt không?" thành "bao nhiêu trên tổng số, lỗi bao nhiêu lần trong tháng qua?"</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 26V6M8 7h14l-3 5 3 5H8"/></svg><div><b>Giao quyền nói "chưa chạy"</b><span>Nêu tên một người trong nhóm được dừng lần ra mắt khi thấy lỗi, và không ai bị phạt vì báo tin xấu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="13" width="18" height="13" rx="2"/><path d="M11 13V9a5 5 0 0110 0v4"/></svg><div><b>Bí mật không miễn kiểm tra</b><span>Ai không cho người ngoài xem dù đã ký bảo mật, hãy coi đó là một tín hiệu, không phải một lý do.</span></div></div>
+  </div>
+  <details class="more" open><summary>Tự kiểm tra trong nhóm mình: 5 câu hỏi</summary><div>
+    <ol class="srcs" style="color:var(--ink)">
+      <li>Lần gần nhất có người nói "cái này chưa chạy", chuyện gì xảy ra với người đó?</li>
+      <li>Bản demo gần nhất mình xem chạy trên dữ liệu thật hay dữ liệu chuẩn bị sẵn?</li>
+      <li>Có ai ngoài nhóm từng tự tay kiểm kết quả chưa?</li>
+      <li>Một tin xấu từ người làm trực tiếp mất bao lâu để tới người ra quyết định?</li>
+      <li>Con số mình hứa với khách hay sếp có đếm được hôm nay không, hay mới là "sẽ"?</li>
+    </ol>
+  </div></details>
+  <div class="quote"><span>Lạc quan về tương lai là việc của người khởi nghiệp. Nói sai về hiện tại thì không.</span><span class="src">Mark tóm tắt từ hồ sơ SEC và phán quyết vụ US v. Holmes, không phải trích dẫn.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>SEC v. Holmes and Theranos, đơn kiện (14/3/2018)</b><span class="muted">Văn bản gốc liệt kê từng tuyên bố sai với nhà đầu tư và điều thực tế.</span></div>
+    <div><b>CMS, Statement of Deficiencies phòng xét nghiệm Newark (2016)</b><span class="muted">121 trang biên bản kiểm tra. Đọc để thấy lỗi được ghi lại ngay trong phòng xét nghiệm.</span></div>
+    <div><b>John Carreyrou, <i>Bad Blood</i> (2018) (nguồn thứ cấp)</b><span class="muted">Cuốn sách của phóng viên viết loạt bài WSJ, kể từ góc nhìn nhân viên và người tố giác.</span></div>
+    <div><b>Giải phẫu thất bại kinh doanh #3: Nokia</b><span class="muted">Khi tin xấu không lên được tầng trên, lãnh đạo thành người mù.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên văn bản của cơ quan quản lý, tòa án và chính công ty. Lưu ý: khi làm bài, các trang sec.gov, justice.gov và cms.gov không truy cập trực tiếp được; nội dung các văn bản gốc dưới đây được đối chiếu qua nhiều bài báo trích dẫn chúng. Nên mở bản gốc để ghi số đoạn trước khi dùng lại.</p></div>
+  <ol class="srcs">
+    <li><b>SEC</b>, thông cáo 2018-41, "Theranos, CEO Holmes, and Former President Balwani Charged With Massive Fraud", 14/3/2018. <a href="https://www.sec.gov/news/press-release/2018-41">sec.gov</a></li>
+    <li><b>SEC</b>, <i>SEC v. Elizabeth Holmes and Theranos, Inc.</i>, đơn kiện, N.D. Cal., số 5:18-cv-01602, 14/3/2018; Litigation Release LR-24069. <a href="https://www.sec.gov/litigation/litreleases/2018/lr24069.htm">sec.gov</a></li>
+    <li><b>CMS</b>, thư gửi Theranos ngày 25/1/2016 (5 vi phạm cấp độ điều kiện, "immediate jeopardy"); mẫu CMS-2567 phòng Newark (công bố 2016); thông báo đề xuất xử phạt 18/3/2016; thông báo xử phạt 7/7/2016. Bản đề xuất xử phạt chép lại tại <a href="https://en.wikisource.org/wiki/CMS_Notice_of_Proposed_Sanctions_to_Theranos,_Inc.">Wikisource</a>.</li>
+    <li><b>FDA</b>, cho phép xét nghiệm HSV-1 IgG của Theranos (2/7/2015) và hai Form 483 (2015), qua Fortune và Fierce Biotech.</li>
+    <li><b>US v. Holmes and Balwani</b>, N.D. Cal., số 5:18-cr-00258: cáo trạng 6/2018; phán quyết vụ Holmes 3/1/2022, vụ Balwani 7/7/2022; tuyên án 18/11/2022 và 12/2022; lệnh bồi thường 452 triệu USD. Qua NPR, ABC7, TechCrunch.</li>
+    <li><b>Tòa phúc thẩm khu vực 9</b>, <i>United States v. Holmes</i> và <i>United States v. Balwani</i>, 24/2/2025, qua Bloomberg Law và Law360.</li>
+    <li><b>Theranos</b>, thư của CEO David Taylor gửi cổ đông về việc giải thể, 9/2018, qua NPR và Engadget.</li>
+    <li>(nguồn thứ cấp) <b>John Carreyrou</b>, "Hot Startup Theranos Has Struggled With Its Blood-Test Technology", <i>Wall Street Journal</i>, 15/10/2015; và <i>Bad Blood</i> (2018).</li>
+    <li>(nguồn thứ cấp) <b>Forbes</b> (2014, 6/2016) về định giá; <b>TechCrunch</b> 18/5/2016 và <b>Fierce Biotech</b> về việc hủy kết quả; <b>BioSpace</b>, <b>TechCrunch</b> 25/4/2016 về CMS-2567; tường thuật phiên tòa 2021 (lời khai Holmes, Cheung, Das); <b>Bloomberg Law</b> 3/2026 về việc giảm án.</li>
+  </ol>
+</section>
+
+<footer>Giải phẫu thất bại kinh doanh #2. Các hình là sơ đồ minh họa; số liệu lấy từ hồ sơ SEC, CMS, FDA và tòa án, được đối chiếu ở phần Kiểm chứng. Chỉ nêu điều đã được tòa án hoặc cơ quan quản lý xác định; lời kể từ sách báo được ghi là nguồn thứ cấp.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "soi-loi", "id": "choi-soi-loi", "truoc": "tinh-hoa", "vi": {"muc": "Chơi trước khi đọc", "nhan": "Soi hồ sơ gọi vốn", "hoi": "Hai tài liệu nói về cùng một phòng xét nghiệm. Chạm vào dòng không khớp với thực tế.", "dong": [{"chu": "# BẢN GIỚI THIỆU GỬI NHÀ ĐẦU TƯ (minh họa)", "tieu_de": true}, {"chu": "danh_muc: hơn 200 xét nghiệm từ máu đầu ngón tay"}, {"chu": "may_xet_nghiem: mọi xét nghiệm chạy trên máy riêng của Theranos", "loi": true}, {"chu": "diem_lay_mau: nhà thuốc Walgreens"}, {"chu": "# SỔ PHÒNG XÉT NGHIỆM (minh họa)", "tieu_de": true}, {"chu": "chay_tren_may_rieng: khoảng 12 xét nghiệm"}, {"chu": "con_lai: máy thương mại của hãng khác, một số bị sửa lại"}], "dung": "Đúng. Theo đơn kiện của SEC, máy riêng của Theranos chỉ làm khoảng 12 trong hơn 200 xét nghiệm của danh mục; phần lớn chạy trên máy thương mại của hãng khác. Nhà đầu tư được nghe điều ngược lại. Tòa kết tội Holmes 4 tội lừa nhà đầu tư (2022).", "sai": "Dòng này khớp với hồ sơ. Gợi ý: so phần nói về máy ở hai tài liệu.", "mo_ta_bd": "Danh mục công bố hơn 200 xét nghiệm, máy riêng chạy khoảng 12", "cot": [{"nhan": "Danh mục", "gt": 200, "hien": "200+"}, {"nhan": "Máy riêng", "gt": 12, "hien": "~12", "nong": true}], "nguon": "Nguồn: SEC, đơn kiện SEC v. Holmes và thông cáo 2018-41 (14/3/2018): khoảng 12 trên hơn 200 xét nghiệm, phần lớn chạy trên máy thương mại của hãng khác, một số bị sửa lại; phán quyết US v. Holmes (3/1/2022). Điểm lấy mẫu ở Walgreens: báo chí (nguồn thứ cấp). Hai tài liệu trong trò là minh họa, không phải văn bản thật."}, "en": {"muc": "Play before you read", "nhan": "Check the pitch file", "hoi": "Two documents describe the same lab. Tap the line that does not match reality.", "dong": [{"chu": "# INVESTOR BRIEFING (illustrative)", "tieu_de": true}, {"chu": "menu: more than 200 tests from fingerstick blood"}, {"chu": "analyzer: every test runs on Theranos's own device", "loi": true}, {"chu": "collection_sites: Walgreens pharmacies"}, {"chu": "# LAB LOG (illustrative)", "tieu_de": true}, {"chu": "run_on_own_device: about 12 tests"}, {"chu": "the_rest: other makers' commercial analyzers, some modified"}], "dung": "Right. According to the SEC complaint, Theranos's own analyzer ran only about 12 of the more than 200 tests on its menu; most ran on other makers' commercial analyzers. Investors were told otherwise. A jury convicted Holmes on 4 counts of defrauding investors (2022).", "sai": "That line matches the record. Hint: compare what the two documents say about the analyzer.", "mo_ta_bd": "Published menu more than 200 tests, own analyzer about 12", "cot": [{"nhan": "Menu", "gt": 200, "hien": "200+"}, {"nhan": "Own device", "gt": 12, "hien": "~12", "nong": true}], "nguon": "Source: SEC complaint SEC v. Holmes and press release 2018-41 (14 Mar 2018): about 12 of more than 200 tests, most run on other makers' commercial analyzers, some modified; US v. Holmes verdict (3 Jan 2022). Walgreens collection sites: press reports (secondary source). Both documents in the game are illustrative, not real records."}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
