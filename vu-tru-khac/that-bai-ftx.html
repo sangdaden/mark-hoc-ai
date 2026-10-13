@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FTX (FTX Trading Ltd. và Alameda Research): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Tiền khách nằm ở quỹ cùng chủ, người giữ tiền cũng là người ghi sổ, và 8,7 tỷ USD tài sản khách bị dùng sai. Mổ xẻ từ tuyên bố của John J. Ray III, đơn kiện SEC, CFTC, hồ sơ tòa SDNY và 12 lời đồn được kiểm chứng. Bài cuối, khép chuỗi 10 công ty.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/that-bai-ftx.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/that-bai-ftx.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/that-bai-ftx.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/that-bai-ftx.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FTX (FTX Trading Ltd. và Alameda Research): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Tiền khách nằm ở quỹ cùng chủ, người giữ tiền cũng là người ghi sổ, và 8,7 tỷ USD tài sản khách bị dùng sai. Mổ xẻ từ tuyên bố của John J. Ray III, đơn kiện SEC, CFTC, hồ sơ tòa SDNY và 12 lời đồn được kiểm chứng. Bài cuối, khép chuỗi 10 công ty.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/that-bai-ftx.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #060A14; --bia-2: #10243D; --bia-nhan: #38BDF8; }
+:root { --vtk-nhan: #38BDF8; }
+body header { --ho-so: "Hồ sơ công ty"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/that-bai-ftx.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Giải phẫu thất bại kinh doanh" #10: FTX. Accents from the assignment: #0F172A (deep navy, the ledger) and #38BDF8 (sky, the money flow). --night uses a darker sky (#0284C7) in light mode for text contrast, #38BDF8 in dark mode. */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0284c7;
+  --day: #0f172a;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #38bdf8; --day: #a9b8cf; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #38bdf8; --day: #a9b8cf; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<style>
+.spec { display: grid; gap: 8px; }
+.spec .row { display: grid; grid-template-columns: 9.5rem 1fr; gap: 10px; align-items: center; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; }
+.spec .row b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; }
+.spec .row span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.spec .row.mkt { border-left: 4px solid var(--rem); } .spec .row.mix { border-left: 4px solid var(--warn); } .spec .row.ins { border-left: 4px solid var(--night); }
+@media (max-width: 520px) { .spec .row { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>FTX</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo5NGVmY2JlNi02YTE2LTQxNzItOTM2MC00YWQ5MDBkNzI0Y2MAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaB/PDfCAxJzIzI4GdVMysAEAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozODJlOWE2OS1hOTMyLTQ2MjQtYWVmOS1iMTI5ZWEzNDhhZjlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoAo8D8twSPyyKwU19z5Pv6AAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgglzdbifnS6rts4vITHyhI+vv3mSESGtrH4brbJVxFmW2kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaDmbNAu6q3A2hJ/cAcqptMYAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCCEelA6EP+tEv/euWpy1fybysteL9Pp1uSspknI9KWHFWRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBi4Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjk0ZWZjYmU2LTZhMTYtNDE3Mi05MzYwLTRhZDkwMGQ3MjRjYy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjAyODcxNjI3LTYyZjUtNDMwMC05ODU2LWRlMmNmYWI1ZjljNnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCXN1uJ+dLqu2zi8hMfKEj6+/eZIRIa2sfhutslXEWZbaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggNcVhAenhhMKVPXi7QRK3syM42ucF83IW/Ru8+GRKQ1CiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggH1PCKucKqNV4Z8dIuqYuxnz84ZSmjDk6lm8tMrVqH1h0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQIOH8G2k3Hzm54AUPjsJq3pbuMN/YAu5t63WjZNCOE5QodVUtrviaNFnduMBC5d/91qHRUobv7708fcxRPna1Ng=</c2pa:manifest></metadata>
+<rect x="8" y="58" width="30" height="24" rx="3" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="3"/>
+<circle cx="23" cy="70" r="6" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="2.5"/>
+<path d="M38 76 H62" stroke="var(--bia-nhan, #38BDF8)" stroke-width="4" stroke-dasharray="5 4"/>
+<rect x="62" y="58" width="30" height="24" rx="3" fill="#0F172A" stroke="var(--bia-nhan, #38BDF8)" stroke-width="3"/>
+<circle cx="77" cy="70" r="6" stroke="var(--bia-nhan, #38BDF8)" stroke-width="2.5"/>
+<rect x="26" y="16" width="22" height="28" rx="2" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="2.5"/>
+<rect x="50" y="16" width="22" height="28" rx="2" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="2.5"/>
+<path d="M30 24h14M30 30h14M54 24h14M54 30h10" stroke="#FFF7ED" stroke-opacity=".55" stroke-width="2"/>
+<path d="M80 8 L66 40" stroke="var(--bia-nhan, #38BDF8)" stroke-width="4"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/ngac-nhien.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="18" data-chu="vi">khoảng 18 phút đọc</b></p><a class="vtk-ray-choi" href="#choi-nhap-vai"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Bạn là kỹ sư của sàn</span></a><a class="vtk-ray-o vtk-ray-tiep" href="that-bai-kodak.html"><small>Bài tiếp theo</small><b>Kodak</b><span>Thất bại #001 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Giải phẫu thất bại kinh doanh #10 · Tài chính · Tiền mã hóa</span>
+  <h1>FTX</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Một két tiền của khách có đường ống ngầm chảy sang két thứ hai, và một cuốn sổ với cây bút do cùng một bàn tay cầm">
+    <rect x="6" y="10" width="62" height="42" rx="5" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <circle cx="37" cy="31" r="9" fill="none" stroke="#8a94a6" stroke-width="3"/><path d="M37 22v18M28 31h18" stroke="#8a94a6" stroke-width="2"/>
+    <path d="M68 44 H104 V44 H142" fill="none" stroke="#38bdf8" stroke-width="5" stroke-dasharray="7 5"/>
+    <rect x="142" y="10" width="62" height="42" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="173" cy="31" r="9" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="226" y="14" width="40" height="36" rx="3" fill="none" stroke="#8a94a6" stroke-width="3"/><rect x="266" y="14" width="40" height="36" rx="3" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <path d="M232 24h28M232 32h28M272 24h28M272 32h20" stroke="#8a94a6" stroke-width="2"/>
+    <path d="M300 6 L282 42" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <p class="sub">FTX Trading Ltd. và Alameda Research · sụp đổ 11/2022 · Bahamas</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>sàn giao dịch tiền mã hóa phá sản trong khoảng 9 ngày</b></div>
+    <div><span class="label">Thiệt hại</span><b>8,7 tỷ USD tài sản khách hàng bị dùng sai</b></div>
+    <div><span class="label">Nguyên nhân gốc</span><b>cùng một nhóm vừa giữ tiền khách, vừa ghi sổ, vừa viết luật</b></div>
+    <div><span class="label">Nguồn chính</span><b>Tuyên bố của John J. Ray III, đơn kiện SEC, CFTC, hồ sơ tòa SDNY</b></div>
+  </div>
+  <p class="nguon">Nguồn: khoảng 9 ngày tính từ bài CoinDesk 2/11/2022 (nguồn thứ cấp) đến đơn Chapter 11 ngày 11/11/2022; 8,7 tỷ USD: báo cáo tạm thời thứ hai của John J. Ray III (26/6/2023).</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Chuyện gì xảy ra</a><a href="#khai-niem">Vì sao</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#khep-chuoi">10 công ty</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="9" width="10" height="14" rx="2"/><rect x="18" y="9" width="10" height="14" rx="2"/><path d="M14 19h4"/></svg><b>Tiền khách nằm ở quỹ khác</b><span>Tiền khách nạp vào tài khoản ngân hàng của Alameda, quỹ cùng chủ với sàn.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="5" width="18" height="22" rx="2"/><path d="M11 11h10M11 16h10M11 21h5"/><path d="M24 4l-6 12"/></svg><b>Ghi sổ bằng tay</b><span>Nhân viên Alameda tự ghi có vào sổ của FTX. Khách thấy số dư, tiền thì ở chỗ khác.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 28V5"/><path d="M9 6h15l-4 5 4 5H9"/></svg><b>Một tài khoản đặc quyền</b><span>Alameda được âm số dư, hạn mức gần như vô hạn, không bị tự động thanh lý.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 19c1.5 2 3 3 5 3s3.5-1 5-3"/><circle cx="12" cy="13" r="1"/><circle cx="20" cy="13" r="1"/></svg><b>Duyệt chi bằng emoji</b><span>Đề nghị chi gửi qua chat, người duyệt thả biểu tượng cảm xúc.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26h24"/><path d="M6 8l7 6 5-3 9 13"/></svg><b>Không phải "crypto sập"</b><span>Giá sập chỉ làm lộ lỗ hổng. Bồi thẩm đoàn kết tội gian lận.</span></div>
+  </div>
+  <p class="nguon">Nguồn: đơn kiện CFTC (12/2022) về tài khoản ngân hàng Alameda và ghi có thủ công; đơn kiện SEC (13/12/2022) về hạn mức, số dư âm, miễn thanh lý; tuyên bố của John J. Ray III (17/11/2022) về emoji; DOJ, bản án US v. Bankman-Fried (2023–2024).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của vụ án</h2></div>
+  <p class="thesis">Một sàn giao dịch gọi được hơn 1,8 tỷ USD vốn từ nhà đầu tư, vì sao sụp trong vài ngày? Không phải vì giá tiền mã hóa giảm, mà vì tiền của khách không nằm ở chỗ khách tưởng, và không có ai độc lập để phát hiện ra điều đó.</p>
+  <p class="nguon">Nguồn: thông cáo SEC 2022-219 (hơn 1,8 tỷ USD từ nhà đầu tư cổ phần, từ 5/2019).</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">2019–2022</span><b>Hai công ty, một nhóm chủ</b><span>Sàn FTX nhận tiền khách. Quỹ Alameda giữ tiền và được đặc quyền trên sàn.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2–9/11/2022</span><b>Tin lộ, khách rút</b><span>Bảng cân đối Alameda bị lộ. Khách đổ xô rút tiền. Tiền không có đủ.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">11/11/2022</span><b>Phá sản</b><span>Nộp đơn Chapter 11. Người từng dọn Enron vào thay.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Chuyện gì đã xảy ra</h2><p class="lead">Lên đỉnh trong ba năm, rơi trong khoảng chín ngày. Mốc lấy từ hồ sơ tòa và cơ quan quản lý; các mốc tháng 11/2022 trước ngày phá sản là nguồn thứ cấp.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 240" role="img" aria-labelledby="tl1">
+        <title id="tl1">Đường đi lên từ năm 2019 đến năm 2022: FTX gọi vốn từ tháng 5 năm 2019, tổng cộng hơn 1,8 tỷ USD. Từ cuối 2019, tài khoản Alameda được phép âm số dư. Rồi rơi thẳng trong tháng 11 năm 2022: ngày 2 bài báo về bảng cân đối Alameda, ngày 6 Binance nói sẽ bán FTT, ngày 8 rút tiền dồn dập, ngày 9 Binance rút lui, ngày 11 nộp đơn phá sản.</title>
+        <path d="M40 200 C 160 180, 300 120, 470 50" fill="none" stroke="var(--day)" stroke-width="4"/>
+        <path d="M470 50 L520 70 L560 120 L600 170 L640 205" fill="none" stroke="var(--night)" stroke-width="5" stroke-linejoin="round"/>
+        <line x1="40" y1="215" x2="690" y2="215" stroke="var(--rule)" stroke-width="2"/>
+        <g>
+          <circle cx="60" cy="197" r="6" fill="var(--day)"/><text x="52" y="172" class="t-day t-bold">5/2019</text><text x="52" y="156">bắt đầu gọi vốn</text>
+          <circle cx="170" cy="175" r="6" fill="var(--day)"/><line x1="170" y1="168" x2="170" y2="114" stroke="var(--muted)" stroke-width="1"/><text x="110" y="92" class="t-day t-bold">cuối 2019</text><text x="110" y="108">Alameda được "âm"</text>
+          <circle cx="470" cy="50" r="8" fill="var(--day)"/><text x="230" y="24" class="t-ink t-bold">đỉnh: hơn 1,8 tỷ USD vốn cổ phần</text><text x="230" y="40">tổng gọi được từ nhà đầu tư</text>
+        </g>
+        <g>
+          <circle cx="520" cy="70" r="6" fill="var(--night)"/><text x="532" y="66" class="t-night t-bold">2/11</text>
+          <circle cx="560" cy="120" r="6" fill="var(--night)"/><text x="572" y="118" class="t-night t-bold">6/11</text>
+          <circle cx="600" cy="170" r="6" fill="var(--night)"/><text x="612" y="168" class="t-night t-bold">8–9/11</text>
+          <circle cx="640" cy="205" r="9" fill="var(--bad)"/><text x="656" y="208" class="t-bold" style="fill:var(--bad)">11/11</text>
+        </g>
+        <text x="40" y="236">thang thời gian minh họa, không đúng tỷ lệ</text>
+      </svg>
+    </div>
+    <figcaption><b>Ba năm đi lên, chín ngày đi xuống.</b> Đặc quyền của Alameda có từ cuối 2019, rất lâu trước khi có ai bên ngoài biết.<span class="nguon">Nguồn: thông cáo SEC 2022-219 (gọi vốn từ 5/2019, hơn 1,8 tỷ USD); đơn kiện CFTC sửa đổi 21/12/2022 (cờ cho phép âm); lời khai của Gary Wang tại tòa 10/2023 (từ cuối 2019, nguồn thứ cấp: Blockworks, Decrypt); mốc 2–9/11/2022 theo dòng thời gian của Blockworks (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>Từ 5/2019 · Gọi vốn</b><span>Hơn 1,8 tỷ USD từ nhà đầu tư cổ phần, khoảng 1,1 tỷ USD từ khoảng 90 nhà đầu tư Mỹ. Họ mua vì tin FTX có kiểm soát rủi ro phù hợp.</span></div>
+    <div><b>2019–2022 · Hai công ty, một sổ</b><span>Tiền pháp định của khách đi vào tài khoản ngân hàng của Alameda. Nhân viên Alameda ghi có bằng tay vào sổ nội bộ FTX.</span></div>
+    <div class="hot"><b>2/11/2022 · Tin lộ</b><span>CoinDesk đăng bảng cân đối bị lộ của Alameda, phần lớn là token FTT do chính FTX phát hành (nguồn thứ cấp).</span></div>
+    <div class="hot"><b>6–9/11/2022 · Rút tiền dồn dập</b><span>Binance nói sẽ bán FTT, rồi ký thư ý định mua FTX, rồi rút lui sau khi xem sổ sách (nguồn thứ cấp).</span></div>
+    <div class="hot"><b>11/11/2022 · Chapter 11</b><span>FTX, Alameda nộp đơn phá sản ở Delaware. Bankman-Fried từ chức. John J. Ray III làm CEO.</span></div>
+    <div><b>17/11/2022 · Tuyên bố của Ray</b><span>"Chưa bao giờ trong sự nghiệp tôi thấy một sự thất bại hoàn toàn của kiểm soát doanh nghiệp như ở đây."</span></div>
+    <div><b>13/12/2022 · Ba vụ kiện cùng ngày</b><span>SEC, CFTC kiện; cáo trạng hình sự công bố ở New York.</span></div>
+    <div><b>2/11/2023 và 28/3/2024 · Tòa SDNY</b><span>Bồi thẩm đoàn kết tội 7 tội danh. Án 25 năm tù, tịch thu 11 tỷ USD.</span></div>
+    <div><b>10/2024 · Kế hoạch trả nợ</b><span>Tòa phá sản xác nhận: 98% chủ nợ nhận khoảng 119% khoản nợ được chấp nhận, tính theo giá ngày nộp đơn.</span></div>
+    <div><b>12/6/2026 · Phúc thẩm</b><span>Tòa phúc thẩm khu vực 2 giữ nguyên bản án, nhất trí.</span></div>
+  </div>
+  <p class="nguon">Nguồn: thông cáo SEC 2022-219; đơn kiện CFTC (13/12 và 21/12/2022); tuyên bố của Ray (17/11/2022, qua CNBC); thông cáo DOJ về bản án (28/3/2024); kế hoạch Chapter 11 được xác nhận 10/2024 (qua Finance Magnates, nguồn thứ cấp); US v. Bankman-Fried, số 24-961 (Tòa phúc thẩm khu vực 2, 12/6/2026).</p>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">1,8 tỷ USD vốn</span><span class="chip">9 ngày</span><span class="chip">Chapter 11</span><span class="chip">8,7 tỷ USD</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">ai giữ tiền</span><span class="chip">ai ghi sổ</span><span class="chip">tài khoản đặc quyền</span><span class="chip">lời đồn</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">tách quyền</span><span class="chip">người đối chiếu độc lập</span><span class="chip">khép chuỗi 10 công ty</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Vì sao: bốn lớp nguyên nhân</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp cấu trúc: người giữ tiền cũng là người ghi sổ</h3><span class="en">no segregation of duties</span><span class="pg">CFTC, 12/2022</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="k1">
+          <title id="k1">Khách nạp tiền pháp định. Tiền đi vào tài khoản ngân hàng của Alameda, không phải của FTX. Nhân viên Alameda ghi có bằng tay số tiền đó vào sổ nội bộ của FTX. Khách nhìn thấy số dư trên FTX, nhưng tiền thật nằm ở Alameda. Không có người độc lập nào đối chiếu hai bên.</title>
+          <rect x="20" y="90" width="120" height="56" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="80" y="114" text-anchor="middle" class="t-ink t-bold">khách nạp</text><text x="80" y="132" text-anchor="middle">tiền pháp định</text>
+          <path d="M142 118 H226" stroke="var(--night)" stroke-width="3"/><path d="M232 118 l-10 -6 v12 z" fill="var(--night)"/>
+          <rect x="234" y="20" width="230" height="86" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <text x="250" y="46" class="t-night t-bold">tài khoản ngân hàng Alameda</text><text x="250" y="66" class="t-ink">tiền thật nằm ở đây</text><text x="250" y="86">(quỹ của cùng nhóm chủ)</text>
+          <rect x="234" y="132" width="230" height="86" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/>
+          <text x="250" y="158" class="t-day t-bold">sổ nội bộ FTX</text><text x="250" y="178" class="t-ink">khách thấy số dư ở đây</text><text x="250" y="198">ghi có bằng tay</text>
+          <path d="M349 106 V130" stroke="var(--bad)" stroke-width="3" stroke-dasharray="5 4"/>
+          <text x="480" y="112" class="t-bold" style="fill:var(--bad)">nhân viên Alameda</text><text x="480" y="130" class="t-bold" style="fill:var(--bad)">tự ghi vào sổ FTX</text>
+          <rect x="560" y="150" width="140" height="56" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="630" y="174" text-anchor="middle" class="t-bold" style="fill:var(--bad)">người đối chiếu</text><text x="630" y="192" text-anchor="middle" class="t-bold" style="fill:var(--bad)">độc lập: không có</text>
+        </svg>
+      </div>
+      <figcaption><b>Số dư trên màn hình không phải là tiền trong két.</b> Khi người giữ tiền cũng là người ghi sổ, con số trên sổ chỉ đúng khi người đó muốn nó đúng.<span class="nguon">Nguồn: đơn kiện CFTC (13/12/2022, sửa đổi 21/12/2022): tiền khách nạp vào tài khoản ngân hàng do Alameda kiểm soát, nhân viên Alameda ghi có thủ công vào sổ FTX.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp code: một tài khoản không theo luật chung</h3><span class="en">allow negative · no auto-liquidation</span><span class="pg">SEC, CFTC</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="k2">
+          <title id="k2">So sánh tài khoản thường và tài khoản Alameda trên FTX. Tài khoản thường: không được âm số dư, có hạn mức, bị tự động thanh lý khi thua lỗ. Tài khoản Alameda: được âm số dư, hạn mức gần như không giới hạn, được miễn tự động thanh lý. Các đặc quyền này không được công bố.</title>
+          <text x="250" y="30" text-anchor="middle" class="t-ink t-bold">tài khoản thường</text>
+          <text x="560" y="30" text-anchor="middle" class="t-night t-bold">tài khoản Alameda</text>
+          <g class="t-ink">
+            <text x="20" y="70" class="t-ink">số dư âm</text><text x="250" y="70" text-anchor="middle" class="t-ok t-bold">không được</text><text x="560" y="70" text-anchor="middle" class="t-bad t-bold">được</text>
+            <text x="20" y="110" class="t-ink">hạn mức vay</text><text x="250" y="110" text-anchor="middle" class="t-ok t-bold">có giới hạn</text><text x="560" y="110" text-anchor="middle" class="t-bad t-bold">"gần như vô hạn"</text>
+            <text x="20" y="150" class="t-ink">tự động thanh lý</text><text x="250" y="150" text-anchor="middle" class="t-ok t-bold">có</text><text x="560" y="150" text-anchor="middle" class="t-bad t-bold">được miễn</text>
+            <text x="20" y="190" class="t-ink">công bố cho khách</text><text x="250" y="190" text-anchor="middle">luật chung</text><text x="560" y="190" text-anchor="middle" class="t-bad t-bold">không</text>
+          </g>
+          <line x1="140" y1="84" x2="700" y2="84" class="gridl"/><line x1="140" y1="124" x2="700" y2="124" class="gridl"/><line x1="140" y1="164" x2="700" y2="164" class="gridl"/>
+        </svg>
+      </div>
+      <figcaption><b>Luật được viết bằng code, và ngoại lệ cũng vậy.</b> Một cờ trong code cho Alameda vay từ tiền của khách mà không ai ngoài nhóm nhỏ biết. Tại tòa, đồng sáng lập Gary Wang khai hạn mức này lên tới 65 tỷ USD.<span class="nguon">Nguồn: đơn kiện SEC (13/12/2022): hạn mức "gần như không giới hạn", được âm số dư, miễn tự động thanh lý; đơn kiện CFTC sửa đổi (21/12/2022): "allow negative flag", không công bố; 65 tỷ USD: lời khai của Gary Wang ngày 6/10/2023 (nguồn thứ cấp: Blockworks, Decrypt).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp tổ chức: không có sổ sách đáng tin</h3><span class="en">no controls</span><span class="pg">Ray, 17/11/2022 và 9/4/2023</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Duyệt chi bằng emoji</h3><span class="muted">Đề nghị chi gửi qua nền tảng chat, một nhóm người duyệt khác nhau thả biểu tượng cảm xúc (tuyên bố của Ray, 17/11/2022).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Không biết có bao nhiêu tiền</h3><span class="muted">Không kiểm soát tiền mặt tập trung, không có danh sách chính xác các tài khoản ngân hàng và người ký (tuyên bố của Ray).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Tiền công ty, tên cá nhân</h3><span class="muted">Tiền công ty dùng mua nhà ở Bahamas; một số bất động sản đứng tên nhân viên và cố vấn (tuyên bố của Ray, qua CNBC).</span></div>
+    </div>
+    <div class="quote"><span>Chưa bao giờ trong sự nghiệp tôi thấy một sự thất bại hoàn toàn của kiểm soát doanh nghiệp và sự vắng mặt hoàn toàn của thông tin tài chính đáng tin như ở đây.</span><span class="src">John J. Ray III, tuyên bố nộp tòa phá sản Delaware, 17/11/2022, Mark dịch. Ray từng chủ trì giai đoạn sau phá sản của Enron.</span></div>
+    <p class="nguon">Nguồn bổ sung: Ray điều trần trước Hạ viện Mỹ ngày 13/12/2022 rằng FTX dùng QuickBooks và chuyển hóa đơn qua chat (nguồn thứ cấp: Fortune); báo cáo tạm thời thứ nhất (9/4/2023) nêu thiếu kiểm soát ở bốn mảng: quản trị, tài chính kế toán, quản lý tài sản số, an ninh mạng.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp động cơ: niềm tin thay cho kiểm tra</h3><span class="en">trust as a substitute for verification</span><span class="pg">SEC; Ray, 26/6/2023</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k4">
+          <title id="k4">Chuỗi sụp đổ: tin xấu về Alameda làm khách rút tiền. Một sàn giữ đủ tiền thì trả được. FTX không trả được vì 8,7 tỷ USD tài sản khách đã bị dùng sai, trong đó hơn 6,4 tỷ USD là tiền pháp định và stablecoin.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="30" width="190" height="70" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="115" y="60" class="t-ink t-bold">tin xấu lộ ra</text><text x="115" y="80">giá FTT lao dốc</text>
+            <text x="230" y="70" class="t-ink">→</text>
+            <rect x="250" y="30" width="190" height="70" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="345" y="60" class="t-ink t-bold">khách đổ xô rút</text><text x="345" y="80">chuyện của mọi ngân hàng</text>
+            <text x="460" y="70" class="t-ink">→</text>
+            <rect x="480" y="30" width="220" height="70" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/><text x="590" y="60" class="t-bold" style="fill:var(--bad)">két rỗng một phần</text><text x="590" y="80">không trả được</text>
+          </g>
+          <text x="20" y="140" class="t-ink">tài sản khách FTX.com bị dùng sai</text><rect x="260" y="128" width="435" height="18" fill="var(--night)" fill-opacity=".75"/><text x="690" y="164" text-anchor="end" class="t-night t-bold">8,7 tỷ USD</text>
+          <text x="20" y="186" class="t-ink">trong đó tiền pháp định, stablecoin</text><rect x="260" y="174" width="320" height="18" fill="var(--bad)" fill-opacity=".8"/><text x="588" y="188" class="t-bold" style="fill:var(--bad)">hơn 6,4 tỷ USD</text>
+        </svg>
+      </div>
+      <figcaption><b>Đợt rút tiền là ngòi nổ, không phải thuốc nổ.</b> Nhà đầu tư rót tiền vì tin có kiểm soát, nên không ai bên ngoài hỏi câu "tiền khách đang ở đâu".<span class="nguon">Nguồn: báo cáo tạm thời thứ hai của Ray (26/6/2023): 8,7 tỷ USD, trên 6,4 tỷ USD tiền pháp định và stablecoin (qua The Block, nguồn thứ cấp); đơn kiện SEC (nhà đầu tư tin FTX có kiểm soát rủi ro phù hợp).</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">12 điều hay được kể về FTX, đối chiếu với hồ sơ phá sản, đơn kiện và bản án. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 3 cần thận trọng, 4 sai">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="kl3">
+        <title id="kl3">Ba con số về tiền khách mất. CFTC tháng 12 năm 2022: hơn 8 tỷ USD tiền khách. Báo cáo của Ray tháng 6 năm 2023: 8,7 tỷ USD tài sản khách FTX.com bị dùng sai. Thẩm phán Kaplan khi tuyên án tháng 3 năm 2024: khách mất khoảng 8 tỷ USD.</title>
+        <text x="20" y="34" class="t-ink">12/2022 · CFTC</text><rect x="250" y="22" width="400" height="18" fill="var(--day)" fill-opacity=".6"/><text x="656" y="35" class="t-ink t-bold">hơn 8 tỷ</text>
+        <text x="20" y="80" class="t-ink">6/2023 · báo cáo của Ray</text><rect x="250" y="68" width="435" height="18" fill="var(--night)" fill-opacity=".75"/><text x="690" y="104" text-anchor="end" class="t-night t-bold">8,7 tỷ</text>
+        <text x="20" y="130" class="t-ink">3/2024 · thẩm phán</text><rect x="250" y="118" width="400" height="18" fill="var(--bad)" fill-opacity=".8"/><text x="656" y="132" class="t-bold" style="fill:var(--bad)">~8 tỷ</text>
+      </svg>
+    </div>
+    <figcaption><b>Ba con số, cùng một hố.</b> Khác nhau vì thời điểm và phạm vi tính. Bài này dùng 8,7 tỷ USD của bên quản lý phá sản khi nói về tài sản khách bị dùng sai.<span class="nguon">Nguồn: thông cáo CFTC 8644-22 và đơn kiện; báo cáo tạm thời thứ hai của Ray (26/6/2023, qua The Block, nguồn thứ cấp); phát biểu của thẩm phán Kaplan khi tuyên án 28/3/2024 (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Phiếu chi được duyệt bằng emoji</span></summary><p class="note">Tuyên bố của Ray (17/11/2022): đề nghị chi gửi qua nền tảng chat, "một nhóm người giám sát khác nhau" duyệt bằng biểu tượng cảm xúc riêng. Tòa phúc thẩm khu vực 3 (2024) trích lại đoạn này.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>FTX quản lý tiền bằng QuickBooks</span></summary><p class="note">Ray nói trước Hạ viện Mỹ ngày 13/12/2022 (Fortune, nguồn thứ cấp cho câu chữ). Vấn đề không phải phần mềm, mà là không có quy trình kế toán đi kèm.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Alameda có hạn mức gần như vô hạn trên FTX</span></summary><p class="note">SEC và CFTC dùng chữ "gần như không giới hạn". Gary Wang khai tại tòa con số 65 tỷ USD (nguồn thứ cấp). Các nguồn kể khác nhau về hạn mức ban đầu, nên bài không dùng.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>"Người dọn Enron nói chưa từng thấy vụ nào tệ như vậy"</span></summary><p class="note">Đúng ý: Ray viết "chưa bao giờ trong sự nghiệp" và ông từng chủ trì Enron sau phá sản. Nhưng câu "tệ hơn Enron" là tiêu đề báo chí, không phải nguyên văn của ông.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Bankman-Fried lĩnh 25 năm tù, kháng cáo thất bại</span></summary><p class="note">Kết tội 7 tội danh (2/11/2023); 25 năm tù và tịch thu 11 tỷ USD (28/3/2024). Tòa phúc thẩm khu vực 2 giữ nguyên ngày 12/6/2026, nhất trí, gọi chứng cứ là "vững chắc".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Khách được trả hơn 100%, vậy là không ai thiệt"</span></summary><p class="note">Kế hoạch trả khoảng 119% cho 98% chủ nợ, nhưng khoản nợ tính bằng USD theo giá ngày 11/11/2022, không theo giá tiền mã hóa về sau. Nhiều chủ nợ phản đối cách tính này, và họ phải chờ hơn hai năm (nguồn thứ cấp: The Block, NBC). Ước tính đầu năm 2024 là 118%.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Một mình Bankman-Fried làm, không ai biết"</span></summary><p class="note">Tòa kết tội ông là người chỉ đạo. Nhưng CFTC kiện cả Caroline Ellison và Gary Wang; họ nhận tội và làm chứng tại phiên tòa. Wang khai mình viết phần code theo yêu cầu.</p><p class="nguon">Nguồn: CFTC, đơn kiện sửa đổi 21/12/2022; Văn phòng Công tố liên bang SDNY, thông cáo 21/12/2022 về việc Ellison và Wang nhận tội; lời khai của Wang tại phiên tòa (nguồn thứ cấp: báo chí đưa tin phiên tòa 10/2023).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Binance cố tình đánh sập FTX"</span></summary><p class="note">Việc Binance công khai bán FTT châm ngòi đợt rút tiền (nguồn thứ cấp). Nhưng một sàn giữ đủ tiền khách thì trả được. Động cơ của Binance không phải điều tòa xét trong vụ này.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Chỉ là crypto sập giá"</span></summary><p class="note">Tiền khách bị đưa vào tài khoản Alameda và dùng cho việc của Alameda (CFTC); 8,7 tỷ USD tài sản khách bị dùng sai (báo cáo của Ray, 6/2023). Bồi thẩm đoàn kết tội gian lận, không phải "kinh doanh thua lỗ".</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"FTX mất tiền vì bị hack"</span></summary><p class="note">Có một vụ rút trái phép thật, nhưng xảy ra đêm 11–12/11/2022, sau khi đã nộp đơn phá sản. Các ước tính số tiền mâu thuẫn nhau (nguồn thứ cấp: Elliptic, Halborn). Lỗ hổng tài sản khách có từ trước.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Khách hàng mất trắng"</span></summary><p class="note">Kế hoạch được tòa xác nhận tháng 10/2024: 98% chủ nợ nhận khoảng 119% khoản nợ được chấp nhận; tài sản để phân phối ước 14,7 đến 16,5 tỷ USD (nguồn thứ cấp). Xem dòng "Thận trọng" ở trên về cách tính.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Nhà đầu tư lớn đã soát kỹ, nên FTX phải ổn"</span></summary><p class="note">SEC: nhà đầu tư mua cổ phần vì tin FTX có kiểm soát rủi ro phù hợp, trong khi đặc quyền của Alameda bị che giấu. Tên tuổi người rót vốn không thay được câu hỏi "ai giữ tiền".</p></details>
+  </div>
+  <p class="nguon">Nguồn: tuyên bố của Ray (17/11/2022); đơn kiện SEC, CFTC (12/2022); thông cáo DOJ (28/3/2024); US v. Bankman-Fried, số 24-961 (2d Cir. 12/6/2026); báo cáo tạm thời thứ hai của Ray (6/2023); kế hoạch Chapter 11 (10/2024); lời khai của Gary Wang (10/2023). Các mục ghi "nguồn thứ cấp" lấy từ báo chí tường thuật.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 9, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Cảnh báo có từ trước</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Điều tra minh bạch</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Khách được bù đắp</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng sau sụp đổ</span><ul class="plus"><li>Người ngoài vào quản lý ngay, công khai các lỗ hổng</li><li>Thu hồi tài sản đủ để trả nợ được chấp nhận</li><li>Một phiên tòa công khai, có kháng cáo</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Đặc quyền có từ 2019 mà không ai bên ngoài thấy</li><li>Nhà đầu tư rót vốn mà không hỏi ai giữ tiền</li><li>Khách nhận theo giá ngày phá sản, sau hơn hai năm</li></ul></div>
+  </div>
+  <p class="verdict">Không phải thị trường giết FTX. Một nhóm người vừa giữ tiền, vừa ghi sổ, vừa viết luật, và không ai đứng giữa để hỏi lại.</p>
+  <details class="more"><summary>Xem thêm: vì sao vụ này giống một vụ ngân hàng cũ hơn là một vụ công nghệ</summary><div>
+    <p>Bỏ chữ "tiền mã hóa" đi, phần còn lại là một câu chuyện rất cũ: tiền gửi của khách được cho một bên liên quan vay, không có tài sản bảo đảm tương xứng, và chỉ lộ ra khi khách đến rút cùng lúc.</p>
+    <p>Chính Ray viết rằng nguyên nhân gốc rất quen thuộc: "kiêu ngạo, thiếu năng lực và tham lam". Cái mới là tốc độ và việc mọi đặc quyền nằm gọn trong vài dòng code mà chỉ một nhóm nhỏ được đọc.</p>
+  </div></details>
+  <p class="nguon">Nguồn phần "Xem thêm": báo cáo tạm thời thứ nhất của Ray (9/4/2023), câu "hubris, incompetence, and greed", Mark dịch; phần còn lại là nhận xét của Mark.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: tách quyền</h2><p class="lead">Không ai vừa giữ tiền vừa ghi sổ. Áp dụng cho quỹ nhóm, ngân sách quảng cáo, kho hàng, quyền quản trị hệ thống, cả mật khẩu dùng chung.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 200" role="img" aria-labelledby="kb4">
+        <title id="kb4">Ba vai phải là ba người khác nhau: người giữ tài sản, người ghi sổ, người duyệt và đặt quy tắc. Một người thứ tư độc lập đối chiếu sổ với tài sản thật theo lịch. Mọi ngoại lệ phải được ghi ra và người đối chiếu nhìn thấy.</title>
+        <g text-anchor="middle">
+          <rect x="30" y="20" width="200" height="74" rx="10" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/><text x="130" y="50" class="t-night t-bold">1 · người giữ</text><text x="130" y="72">tiền, hàng, quyền truy cập</text>
+          <rect x="310" y="20" width="200" height="74" rx="10" fill="var(--day)" fill-opacity=".1" stroke="var(--day)" stroke-width="2"/><text x="410" y="50" class="t-day t-bold">2 · người ghi sổ</text><text x="410" y="72">ghi lại mọi thay đổi</text>
+          <rect x="590" y="20" width="200" height="74" rx="10" fill="var(--rem)" fill-opacity=".12" stroke="var(--rem)" stroke-width="2"/><text x="690" y="50" class="t-rem t-bold">3 · người duyệt</text><text x="690" y="72">đặt và ký quy tắc</text>
+          <rect x="250" y="122" width="320" height="60" rx="10" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/><text x="410" y="148" class="t-ok t-bold">4 · người đối chiếu độc lập</text><text x="410" y="168">so sổ với tài sản thật, theo lịch</text>
+        </g>
+        <path d="M130 96 L300 136" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/><path d="M410 96 V120" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/><path d="M690 96 L520 136" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
+      </svg>
+    </div>
+    <figcaption><b>Ở FTX, cả ba vai đầu nằm trong cùng một nhóm, và vai thứ tư không tồn tại.</b> Alameda giữ tiền khách, nhân viên Alameda ghi vào sổ FTX, và ngoại lệ cho Alameda được viết thẳng vào code.<span class="nguon">Nguồn: các chỗ hỏng lấy từ đơn kiện CFTC và SEC (12/2022); mô hình bốn vai là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="11" r="4"/><circle cx="22" cy="11" r="4"/><path d="M4 26c1-5 4-7 6-7s5 2 6 7M16 26c1-5 4-7 6-7s5 2 6 7"/></svg><div><b>Hai người cho mỗi khoản tiền</b><span>Người chi không tự ghi sổ. Người ghi sổ không cầm thẻ, không giữ mật khẩu ngân hàng.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v22H8z"/><path d="M12 12l2 2 4-4M12 20l2 2 4-4"/></svg><div><b>Đối chiếu với thứ thật</b><span>Mỗi tháng, so số trên sổ với sao kê ngân hàng hoặc kho thật. Người đối chiếu không nằm trong nhóm chi.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 28V5"/><path d="M9 6h15l-4 5 4 5H9"/></svg><div><b>Ngoại lệ phải nhìn thấy được</b><span>Mọi "tài khoản đặc biệt", quyền vượt hạn mức, phải có tên trong danh sách mà người đối chiếu đọc được.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7l4 3"/></svg><div><b>Duyệt có dấu vết</b><span>Một biểu tượng cảm xúc trong chat không phải phê duyệt. Phê duyệt cần người, số tiền, lý do, ngày.</span></div></div>
+  </div>
+  <details class="more"><summary>Tự kiểm tra trong nhóm mình: 3 câu hỏi, 10 phút</summary><div>
+    <p>1. Liệt kê 3 thứ quan trọng nhất nhóm đang quản lý: tiền quỹ, ngân sách quảng cáo, kho, tài khoản quản trị.</p>
+    <p>2. Với mỗi thứ, viết tên: ai giữ, ai ghi, ai đối chiếu. Nếu hai ô có cùng một tên, đó là chỗ cần tách.</p>
+    <p>3. Hỏi: có ngoại lệ nào chỉ một người biết không? Nếu có, ghi nó ra và đưa cho người đối chiếu.</p>
+  </div></details>
+</section>
+
+<section id="khep-chuoi">
+  <div class="sec-head"><span class="label">Phần 7 · Khép chuỗi</span><h2>10 công ty: thất bại đến từ thị trường hay từ bên trong?</h2><p class="lead">Thị trường đổi là chuyện bình thường. Điều quyết định là bên trong công ty có nhìn thấy, nói ra và hành động kịp không.</p></div>
+  <div class="spec">
+    <div class="row mkt"><b>Kodak · #1</b><span>Thị trường đổi sang ảnh số; mảng phim đang hái ra tiền làm giám khảo cho cái mới.</span></div>
+    <div class="row mkt"><b>Blockbuster · #6</b><span>Thị trường đổi sang thuê trực tuyến; chỉ số ngắn hạn thắng dự án dài hạn.</span></div>
+    <div class="row mix"><b>Nokia · #3</b><span>Điện thoại thông minh đổi luật chơi; tin xấu không lên được tầng trên.</span></div>
+    <div class="row mix"><b>Quibi · #7</b><span>Sản phẩm không khớp nhu cầu; COVID chỉ là một phần câu chuyện.</span></div>
+    <div class="row mix"><b>Lehman · #8</b><span>Khủng hoảng nhà đất từ bên ngoài, gặp đòn bẩy và con số "làm đẹp" từ bên trong.</span></div>
+    <div class="row mix"><b>WeWork · #9</b><span>Câu chuyện hay, kinh tế đơn vị không chịu nổi khi thị trường đổi chiều.</span></div>
+    <div class="row ins"><b>New Coke · #4</b><span>Đo điều dễ đo thay vì điều khách cần; sửa kịp nên không thành sụp đổ.</span></div>
+    <div class="row ins"><b>Theranos · #2</b><span>Công nghệ không chạy, và không ai được phép nói "chưa chạy".</span></div>
+    <div class="row ins"><b>Enron · #5</b><span>Không ai giải thích được tiền đến từ đâu.</span></div>
+    <div class="row ins"><b>FTX · #10</b><span>Tiền khách không nằm ở chỗ khách tưởng; không ai tách quyền giữ và ghi.</span></div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="kc10">
+        <title id="kc10">Một trục từ "thị trường đổi" bên trái đến "hỏng từ bên trong" bên phải. Kodak và Blockbuster nằm gần bên trái; Nokia, Quibi, Lehman, WeWork ở giữa; New Coke, Theranos, Enron, FTX ở bên phải. Ở cả mười công ty, phản ứng bên trong là thứ quyết định kết cục.</title>
+        <defs><linearGradient id="gx" x1="0" x2="1"><stop offset="0" stop-color="var(--rem)"/><stop offset=".5" stop-color="var(--warn)"/><stop offset="1" stop-color="var(--night)"/></linearGradient></defs>
+        <rect x="40" y="66" width="640" height="10" rx="5" fill="url(#gx)"/>
+        <text x="40" y="104" class="t-rem t-bold">thị trường đổi</text><text x="680" y="104" text-anchor="end" class="t-night t-bold">hỏng từ bên trong</text>
+        <g text-anchor="middle" class="t-ink">
+          <text x="90" y="52" class="t-ink">Kodak</text><text x="160" y="36" class="t-ink">Blockbuster</text>
+          <text x="270" y="52" class="t-ink">Nokia</text><text x="330" y="36" class="t-ink">Quibi</text><text x="390" y="52" class="t-ink">Lehman</text><text x="450" y="36" class="t-ink">WeWork</text>
+          <text x="530" y="52" class="t-ink">New Coke</text><text x="580" y="36" class="t-ink">Theranos</text><text x="620" y="52" class="t-ink">Enron</text><text x="660" y="36" class="t-night t-bold">FTX</text>
+        </g>
+        <text x="360" y="134" text-anchor="middle" class="t-ink">Ở cả 10 công ty, cách bên trong phản ứng mới quyết định kết cục.</text>
+      </svg>
+    </div>
+    <figcaption><b>Không công ty nào chết chỉ vì thị trường.</b> Kodak và Blockbuster gặp thay đổi thật, nhưng quyết định bên trong khiến họ chậm. FTX ở đầu bên kia: thị trường chỉ là ngòi nổ.<span class="nguon">Vị trí trên trục là đánh giá của Mark, dựa trên bài học của từng bài trong chuỗi; không có số liệu mới.</span></figcaption>
+  </figure>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Tuyên bố của John J. Ray III (17/11/2022)</b><span class="muted">Đọc như một danh sách những gì một công ty không được thiếu. Phần mô tả kiểm soát tiền mặt là cốt lõi.</span></div>
+    <div><b>Báo cáo tạm thời thứ nhất và thứ hai của Ray (2023)</b><span class="muted">Báo cáo thứ nhất về lỗi kiểm soát; báo cáo thứ hai về việc trộn lẫn và dùng sai tiền khách.</span></div>
+    <div><b>Đơn kiện của CFTC (sửa đổi 21/12/2022)</b><span class="muted">Mô tả rõ nhất đường đi của tiền khách sang tài khoản Alameda.</span></div>
+    <div><b>Giải phẫu thất bại kinh doanh #05: Enron (2001)</b><span class="muted">Cùng một người dọn dẹp, cùng một câu hỏi: tiền đến từ đâu, và ai kiểm tra?</span></div>
+    <div><b>Cả chuỗi 10 công ty ở markhocai.com/vu-tru-khac</b><span class="muted">Đọc lại từ Kodak đến FTX, xếp theo bài học làm việc.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên hồ sơ tòa án, cơ quan quản lý và bên quản lý phá sản. Nguồn báo chí ghi rõ là nguồn thứ cấp. Ghi chú: trong lúc soạn, các trang gốc không truy cập trực tiếp được, nên nội dung hồ sơ được đối chiếu qua trích dẫn trong thông cáo chính thức và báo chí; nên kiểm lại với văn bản gốc trước khi đăng.</p></div>
+  <ol class="srcs">
+    <li><b>John J. Ray III</b>, Declaration in Support of Chapter 11 Petitions and First Day Pleadings, In re FTX Trading Ltd., Case No. 22-11068 (JTD), Bankr. D. Del., 17/11/2022. <a href="https://restructuring.ra.kroll.com/FTX/">restructuring.ra.kroll.com/FTX</a>; trích lại trong In re FTX Trading Ltd. (3d Cir. 2024). <a href="https://caselaw.findlaw.com/court/us-3rd-circuit/115727813.html">findlaw</a></li>
+    <li><b>SEC</b>, SEC v. Samuel Bankman-Fried (SDNY), đơn kiện 13/12/2022; thông cáo 2022-219. <a href="https://www.sec.gov/news/press-release/2022-219">sec.gov</a></li>
+    <li><b>CFTC</b>, CFTC v. Bankman-Fried, FTX Trading Ltd. và Alameda Research, đơn kiện 13/12/2022, đơn sửa đổi 21/12/2022; thông cáo 8644-22. <a href="https://www.cftc.gov/PressRoom/PressReleases/8644-22">cftc.gov</a> · <a href="https://www.cftc.gov/media/8021/enfftxtradingcomplaint122122/download">đơn sửa đổi</a></li>
+    <li><b>DOJ</b>, United States v. Samuel Bankman-Fried, S1 22 Cr. 673 (LAK), SDNY: thông cáo về bản án, 28/3/2024. <a href="https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-prison">justice.gov</a></li>
+    <li><b>Tòa phúc thẩm khu vực 2</b>, United States v. Bankman-Fried, No. 24-961, 12/6/2026. <a href="https://ww3.ca2.uscourts.gov/decisions/OPN/24-961_opn.pdf">ca2.uscourts.gov</a></li>
+    <li><b>John J. Ray III</b>, First Interim Report to the Independent Directors on Control Failures at the FTX Exchanges, 9/4/2023, D.I. 1242-1. <a href="https://storage.courtlistener.com/recap/gov.uscourts.deb.188450/gov.uscourts.deb.188450.1242.1.pdf">courtlistener</a></li>
+    <li><b>John J. Ray III</b>, Second Interim Report (trộn lẫn và dùng sai tiền khách tại FTX.com), 26/6/2023; đọc qua The Block (nguồn thứ cấp). <a href="https://www.theblock.co/amp/post/236474/ftx-com-exchange-owed-customers-8-7-billion-debtors-say">theblock.co</a></li>
+    <li><b>Kế hoạch Chapter 11</b> được xác nhận 10/2024, hiệu lực 3/1/2025; đọc qua Finance Magnates (nguồn thứ cấp). <a href="https://www.financemagnates.com/cryptocurrency/ftx-bankruptcy-plan-approved-promising-119-return-to-creditors/">financemagnates.com</a></li>
+    <li>Nguồn thứ cấp: Fortune 13/12/2022 (Ray điều trần, QuickBooks); CNBC 17/11/2022 (tuyên bố của Ray); Blockworks và Decrypt 10/2023 (lời khai của Gary Wang); Blockworks, dòng thời gian 2–11/11/2022; The Block 3/2025 (giá ngày nộp đơn); Elliptic và Halborn (vụ rút trái phép 11/2022).</li>
+  </ol>
+</section>
+
+<footer>Giải phẫu thất bại kinh doanh #10. Bài cuối của chuỗi 10 công ty. Các hình là sơ đồ minh họa; số liệu lấy từ hồ sơ phá sản, đơn kiện của SEC, CFTC và hồ sơ tòa SDNY, được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "bac-thang", "id": "choi-nhap-vai", "truoc": "tinh-hoa", "buoc": 5, "toi_da": 65, "nguy": 10, "keu_tu": 15, "keu_den": 45, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn là kỹ sư của sàn", "hoi": "Tài khoản của quỹ anh em với sàn đã được phép âm số dư. Sếp nhờ bạn nâng hạn mức vay của quỹ đó, mỗi lần 5 tỷ USD, trả bằng tiền của khách. Không ai bên ngoài biết. Bạn dừng ở đâu?", "nhan_bang": ["5 tỷ USD", "Vượt cái hố thật", "65 tỷ USD"], "mo": "Sếp: \"Quỹ cần thêm hạn mức. Nâng lên 5 tỷ nhé.\"", "nut_bam": "Nâng lên {v} tỷ", "nut_dung": "Tôi dừng", "nut_van_dung": "Vẫn dừng", "nut_nhat": "Tôi báo cho người độc lập", "nut_thoi": "Thôi, nâng lên {v} tỷ", "nut_lai": "Chơi lại", "keu": ["Kế toán hỏi: \"Số dư âm này là của ai?\"", "Kế toán: \"Sổ không khớp với ngân hàng.\""], "su_kien": {"10": "Số âm đã lớn hơn cả cái hố mà bên quản lý phá sản sau này tìm ra.", "30": "Không ai ngoài nhóm nhỏ đọc được dòng code này.", "50": "Khách vẫn thấy số dư của họ trên màn hình."}, "thuc": ["Sếp: \"Chỉ là tạm thời, quỹ sẽ trả lại.\"", "Sếp: \"Quỹ đang giữ thanh khoản cho cả sàn.\"", "Sếp: \"Không ai cần biết chuyện nội bộ này.\"", "Sếp: \"Bạn muốn cả công ty sụp vì bạn à?\""], "het": "Bạn nâng đến 65 tỷ USD. Tại tòa, đồng sáng lập Gary Wang khai hạn mức của Alameda trên FTX đúng là đã lên tới 65 tỷ USD. Bên quản lý phá sản sau đó xác định 8,7 tỷ USD tài sản khách bị dùng sai.", "dung_o": "Bạn dừng ở {v} tỷ USD.", "khong_bam": "Bạn không nâng lần nào.", "som": "Bạn dừng trước khi số âm vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX, cờ cho phép âm có từ cuối 2019 và hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: người giữ tiền và người viết luật không được là một nhóm.", "muon": "Lúc bạn dừng, số âm đã vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX không ai dừng: hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: cần một người độc lập được nhìn thấy mọi ngoại lệ.", "nguon": "Nguồn: lời khai của Gary Wang tại phiên tòa US v. Bankman-Fried, 5–6/10/2023 (hạn mức 65 tỷ USD, cờ cho phép âm từ cuối 2019; nguồn thứ cấp: Blockworks, Decrypt); đơn kiện SEC (13/12/2022, hạn mức \"gần như không giới hạn\"); đơn kiện CFTC sửa đổi (21/12/2022, \"allow negative flag\" không công bố); báo cáo tạm thời thứ hai của John J. Ray III (26/6/2023, 8,7 tỷ USD tài sản khách bị dùng sai, qua The Block, nguồn thứ cấp). Lời thoại của \"sếp\" là hư cấu để chơi, không phải trích dẫn của người thật."}, "en": {"muc": "Play before you read", "nhan": "You are the exchange's engineer", "hoi": "The account of a sister fund is already allowed to go negative. Your boss asks you to raise that fund's credit line, $5 billion at a time, paid from customer money. Nobody outside knows. Where do you stop?", "nhan_bang": ["$5 billion", "Past the real hole", "$65 billion"], "mo": "Boss: \"The fund needs more room. Raise it to 5 billion.\"", "nut_bam": "Raise to {v}bn", "nut_dung": "I'll stop", "nut_van_dung": "Still stopping", "nut_nhat": "I'm telling someone independent", "nut_thoi": "Fine, raise to {v}bn", "nut_lai": "Play again", "keu": ["Accounting asks: \"Whose negative balance is this?\"", "Accounting: \"The books don't match the bank.\""], "su_kien": {"10": "The negative balance is now bigger than the hole the bankruptcy estate later found.", "30": "Nobody outside a small group can read this line of code.", "50": "Customers still see their balances on screen."}, "thuc": ["Boss: \"It's temporary, the fund will pay it back.\"", "Boss: \"The fund keeps the whole exchange liquid.\"", "Boss: \"Nobody needs to know about internal stuff.\"", "Boss: \"Do you want the company to collapse because of you?\""], "het": "You went to $65 billion. At trial, co-founder Gary Wang testified that Alameda's line on FTX really did reach $65 billion. The bankruptcy estate later found $8.7 billion of customer assets misused.", "dung_o": "You stopped at ${v} billion.", "khong_bam": "You never raised it.", "som": "You stopped before the negative passed $8.7 billion, the hole the estate later found. At FTX the allow-negative flag dated from late 2019 and the line reached $65 billion, per trial testimony. The lesson: whoever holds the money must not also write the rules.", "muon": "By the time you stopped, the negative had passed $8.7 billion, the hole the estate later found. At FTX nobody stopped: the line reached $65 billion, per trial testimony. The lesson: someone independent must see every exception.", "nguon": "Source: Gary Wang's testimony at the US v. Bankman-Fried trial, 5–6 Oct 2023 ($65 billion line, allow-negative from late 2019; secondary source: Blockworks, Decrypt); SEC complaint (13 Dec 2022, \"virtually unlimited\" line of credit); CFTC amended complaint (21 Dec 2022, undisclosed \"allow negative flag\"); John J. Ray III's Second Interim Report (26 Jun 2023, $8.7 billion of customer assets misused, via The Block, secondary source). The boss's lines are fiction for the game, not quotes from real people."}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
