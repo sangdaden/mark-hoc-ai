@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Invisible Gorilla (Simons &amp; Chabris): summary, review and lessons | Another Universe</title>
+<meta name="description" content="While counting basketball passes, half the viewers miss a gorilla walking through. One of psychology&#x27;s sturdiest findings, from radiology to driving, and the case for doing one thing at a time.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-gorilla.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-gorilla.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-gorilla.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-gorilla.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Invisible Gorilla (Simons &amp; Chabris): summary, review and lessons | Another Universe">
+<meta property="og:description" content="While counting basketball passes, half the viewers miss a gorilla walking through. One of psychology&#x27;s sturdiest findings, from radiology to driving, and the case for doing one thing at a time.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/thi-nghiem-gorilla.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #0C1302; --bia-2: #4D7C0F; --bia-nhan: #ECFCCB; }
+:root { --vtk-nhan: #ECFCCB; }
+body header { --ho-so: "Lab notebook"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/thi-nghiem-gorilla.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Thí nghiệm nổi tiếng #05 Gorilla vô hình: --night = xanh lá rừng (thứ đang được chú ý), --day = xanh dương (thứ bị bỏ sót, góc nhìn thứ hai). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #4d7c0f;
+  --day: #1d4ed8;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #a3d65c; --day: #93b4f8; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #a3d65c; --day: #93b4f8; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Famous Experiments · Cognitive psychology</span>
+  <h1>The Invisible Gorilla</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="A basketball on the left, an eye in the middle, a faded gorilla on the right">
+    <circle cx="24" cy="28" r="18" fill="#f59e0b" stroke="#4d7c0f" stroke-width="2"/><path d="M6 28h36M24 10v36" stroke="#4d7c0f" stroke-width="2"/>
+    <text x="56" y="36" font-family="monospace" font-size="16" fill="#8a94a6">count passes</text>
+    <path d="M178 28c10-12 30-12 40 0c-10 12-30 12-40 0z" fill="none" stroke="#4d7c0f" stroke-width="2.5"/><circle cx="198" cy="28" r="5" fill="#4d7c0f"/>
+    <text x="226" y="36" font-family="monospace" font-size="16" fill="#8a94a6">miss</text>
+    <g opacity=".45"><circle cx="292" cy="16" r="10" fill="#1d4ed8"/><ellipse cx="292" cy="38" rx="16" ry="13" fill="#1d4ed8"/></g>
+  </svg>
+  <p class="sub">Gorillas in Our Midst · Daniel Simons and Christopher Chabris, Harvard University</p>
+  <div class="meta">
+    <div><span class="label">Who</span><b>Daniel Simons · Christopher Chabris · Harvard</b></div>
+    <div><span class="label">When</span><b>1999 · repeated ever since, in hospitals and on the street</b></div>
+    <div><span class="label">Scale</span><b>228 viewers (Simons and Chabris, 1999) · 24 radiologists (Drew et al., 2013)</b></div>
+    <div><span class="label">Verdict</span><b>one of the sturdiest effects in psychology · robustness 9 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Question</a><a href="#bo-cuc">How it went</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">One-minute recap</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5v22"/></svg><b>Count the passes</b><span>Viewers count how many times the white team passes the ball in a short video.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="10" r="5"/><path d="M8 28c0-7 4-11 8-11s8 4 8 11"/></svg><b>A gorilla walks through</b><span>Midway, a person in a gorilla suit crosses the scene for about 5 seconds.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16c4-6 8-9 12-9s8 3 12 9c-4 6-8 9-12 9s-8-3-12-9z"/><path d="M6 26L26 6"/></svg><b>About half don't see it</b><span>Only 44% of viewers noticed the gorilla (Simons and Chabris, 1999).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="3"/><path d="M10 12h12M10 17h8"/></svg><b>Experts too</b><span>20 of 24 radiologists missed a gorilla in lung scans (Drew et al., 2013).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Knowing doesn't fix it</b><span>People who knew the gorilla trick were no better at spotting other surprises (Simons, 2010).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question</h2></div>
+  <p class="thesis">When we focus hard on one task, do we see something odd, large and obvious right in front of us? The answer: very often, no. And we hardly ever know what we missed.</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">1975–1998</span><b>Groundwork</b><span>Neisser showed overlaid videos; Mack and Rock named "inattentional blindness".</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1999</span><b>The gorilla</b><span>Simons and Chabris filmed a real scene, no overlay. Half the viewers still missed it.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2001–2015</span><b>Out in the world</b><span>Driving, walking, radiology, a staged fight: the effect holds.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the experiment went</h2><p class="lead">Viewers were warned of nothing. They had a single job: count correctly.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="g0t">
+        <title id="g0t">Two teams of three, in white and black shirts, pass basketballs. Viewers count the white team's passes. Midway a person in a gorilla suit walks through for about 5 seconds. Afterwards viewers are asked whether they noticed anything unusual.</title>
+        <rect x="20" y="20" width="380" height="170" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <g fill="var(--paper)" stroke="var(--night)" stroke-width="2.5"><circle cx="70" cy="70" r="13"/><circle cx="160" cy="130" r="13"/><circle cx="300" cy="80" r="13"/></g>
+        <g fill="var(--ink)"><circle cx="110" cy="140" r="13"/><circle cx="240" cy="60" r="13"/><circle cx="350" cy="140" r="13"/></g>
+        <path d="M83 74 L148 124" stroke="var(--night)" stroke-width="2" stroke-dasharray="5 4"/><path d="M172 126 L288 86" stroke="var(--night)" stroke-width="2" stroke-dasharray="5 4"/>
+        <circle cx="230" cy="106" r="7" fill="#f59e0b"/>
+        <g opacity=".35"><circle cx="205" cy="148" r="11" fill="var(--day)"/><ellipse cx="205" cy="172" rx="17" ry="14" fill="var(--day)"/></g>
+        <path d="M150 172 h-28" stroke="var(--day)" stroke-width="2"/><path d="M122 172 l8 -5 v10 z" fill="var(--day)"/>
+        <text x="210" y="208" text-anchor="middle">gorilla walks through, about 5 seconds</text>
+        <rect x="430" y="24" width="270" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="445" y="51" class="t-night t-bold">task: count white-team passes</text>
+        <rect x="430" y="82" width="270" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="445" y="109" class="t-ink">hard version: count aerial and bounce</text>
+        <rect x="430" y="140" width="270" height="44" rx="8" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="2"/>
+        <text x="445" y="167" class="t-day t-bold">then: "did you notice anything?"</text>
+      </svg>
+    </div>
+    <figcaption><b>There were two "surprise guests".</b> Half the videos showed a person in a gorilla suit, the other half a woman with an umbrella. There were two kinds of video: one continuous shot, or each team filmed separately and overlaid so they looked faint, like Neisser's older studies.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1</span><h3>The gorilla nobody saw</h3><div class="chips"><span class="chip">count passes</span><span class="chip">44% noticed</span><span class="chip">why it got famous</span></div></div>
+    <div class="part b3"><span class="label">Part 2</span><h3>Why we miss things</h3><div class="chips"><span class="chip">attention spotlight</span><span class="chip">looking without seeing</span><span class="chip">multitasking</span></div></div>
+    <div class="part b2"><span class="label">Part 3</span><h3>Checking it again</h3><div class="chips"><span class="chip">radiologists</span><span class="chip">real life</span><span class="chip">checklists</span><span class="chip">lessons</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Inattentional blindness</h3><span class="en">inattentional blindness</span><span class="pg">Mack and Rock, 1998</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="g1t">
+          <title id="g1t">Attention is like a flashlight, not a ceiling light. The lit area holds the passes being counted. The gorilla stands outside the beam: the eyes receive its light but the mind does not register it.</title>
+          <rect x="20" y="20" width="680" height="140" rx="10" fill="var(--ink)" fill-opacity=".08"/>
+          <path d="M70 90 L330 40 L330 140 Z" fill="var(--night)" fill-opacity=".22"/>
+          <rect x="40" y="78" width="36" height="24" rx="5" fill="var(--night)"/>
+          <circle cx="290" cy="70" r="9" fill="#f59e0b"/><circle cx="300" cy="112" r="9" fill="#f59e0b"/>
+          <text x="200" y="96" text-anchor="middle" class="t-night t-bold">passes being counted</text>
+          <g opacity=".35"><circle cx="520" cy="70" r="16" fill="var(--day)"/><ellipse cx="520" cy="110" rx="26" ry="24" fill="var(--day)"/></g>
+          <text x="520" y="152" text-anchor="middle" class="t-day t-bold">gorilla: outside the beam</text>
+          <text x="360" y="182" text-anchor="middle" class="t-ink">Attention is a flashlight, not a ceiling light: light here means dark there.</text>
+        </svg>
+      </div>
+      <figcaption><b>The eyes take in the image, but the brain doesn't "log" it.</b> What isn't attended doesn't reach awareness, even when it is large and in the middle of the frame. Mack and Rock named the phenomenon in their 1998 book.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Harder task, more misses; different colour, harder to see</h3><span class="en">load · attentional set</span><span class="pg">Simons and Chabris, 1999 · Most et al., 2001</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="g2t">
+          <title id="g2t">Share of viewers who noticed the surprise guest. Easy task: 64%. Hard task: 45%. For the black gorilla only: viewers tracking the black team noticed it 58% of the time, viewers tracking the white team 27%.</title>
+          <line x1="60" y1="170" x2="680" y2="170" class="axis"/>
+          <line x1="60" y1="120" x2="680" y2="120" class="gridl"/><line x1="60" y1="70" x2="680" y2="70" class="gridl"/>
+          <text x="52" y="174" text-anchor="end">0</text><text x="52" y="124" text-anchor="end">25%</text><text x="52" y="74" text-anchor="end">50%</text>
+          <rect x="110" y="42" width="70" height="128" fill="var(--night)" fill-opacity=".7"/><text x="145" y="34" text-anchor="middle" class="t-night t-bold">64%</text><text x="145" y="190" text-anchor="middle">easy task</text>
+          <rect x="200" y="80" width="70" height="90" fill="var(--night)" fill-opacity=".45"/><text x="235" y="72" text-anchor="middle" class="t-night t-bold">45%</text><text x="235" y="190" text-anchor="middle">hard task</text>
+          <text x="190" y="212" text-anchor="middle" class="t-ink t-bold">noticed the surprise guest</text>
+          <rect x="430" y="54" width="70" height="116" fill="var(--day)" fill-opacity=".7"/><text x="465" y="46" text-anchor="middle" class="t-day t-bold">58%</text><text x="465" y="190" text-anchor="middle">tracking black</text>
+          <rect x="560" y="116" width="70" height="54" fill="var(--day)" fill-opacity=".45"/><text x="595" y="108" text-anchor="middle" class="t-day t-bold">27%</text><text x="595" y="190" text-anchor="middle">tracking white</text>
+          <text x="530" y="212" text-anchor="middle" class="t-ink t-bold">noticed the (black) gorilla</text>
+        </svg>
+      </div>
+      <figcaption><b>We filter by what we're looking for.</b> People counting the white team "switch off" black things, including a black gorilla. Most et al. (2001) found the same with simple shapes on a screen: the more an unexpected object resembles what you're tracking, the likelier you are to see it.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Looking straight at it and still not seeing</h3><span class="en">looking without seeing</span><span class="pg">Memmert 2006 · Drew 2013 · Simons and Levin 1998</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>About 1 second</h3><span class="muted">Children who missed the gorilla still looked at it for about 1 second on average, as long as those who saw it (Memmert, 2006, eye tracking).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>12 of 20</h3><span class="muted">Of the 20 radiologists who missed the gorilla, 12 looked directly at its location (Drew, Võ and Wolfe, 2013).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Person swapped, 7 of 15 noticed</h3><span class="muted">A close cousin is "change blindness": a stranger asking directions was swapped behind a passing door, and only 7 of 15 pedestrians noticed (Simons and Levin, 1998).</span></div>
+    </div>
+    <p class="lead">Looking isn't seeing. Seeing needs attention to come along.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Multitasking: attention split in two</h3><span class="en">dual-task · task switching</span><span class="pg">Strayer and Johnston 2001 · Hyman 2010</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="g3t">
+          <title id="g3t">Share of pedestrians who noticed a clown riding a unicycle on campus: talking on a phone 25%, walking alone 51%, listening to music 61%, walking in a pair 71%.</title>
+          <text x="20" y="22" class="t-ink t-bold">noticed the unicycling clown</text>
+          <rect x="170" y="38" width="125" height="28" rx="4" fill="var(--bad)" fill-opacity=".7"/><text x="160" y="57" text-anchor="end" class="t-ink">on the phone</text><text x="303" y="57" style="fill:var(--bad)" class="t-bold">25%</text>
+          <rect x="170" y="78" width="255" height="28" rx="4" fill="var(--muted)" fill-opacity=".45"/><text x="160" y="97" text-anchor="end" class="t-ink">walking alone</text><text x="433" y="97" class="t-ink t-bold">51%</text>
+          <rect x="170" y="118" width="305" height="28" rx="4" fill="var(--muted)" fill-opacity=".45"/><text x="160" y="137" text-anchor="end" class="t-ink">music player</text><text x="483" y="137" class="t-ink t-bold">61%</text>
+          <rect x="170" y="158" width="355" height="28" rx="4" fill="var(--ok)" fill-opacity=".6"/><text x="160" y="177" text-anchor="end" class="t-ink">in a pair</text><text x="533" y="177" class="t-ok t-bold">71%</text>
+          <text x="20" y="204">Hyman et al., 2010 · pedestrians crossing a university square</text>
+        </svg>
+      </div>
+      <figcaption><b>A phone conversation "eats" more attention than music.</b> In simulated driving, talking on a phone more than doubled the chance of missing a red light, handheld or hands-free alike; listening to the radio did not (Strayer and Johnston, 2001). Switching back and forth between tasks also costs time, more so for complex tasks (Rubinstein, Meyer and Evans, 2001).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Knowing doesn't help, and everyone is affected</h3><span class="en">familiarity · individual differences</span><span class="pg">Simons 2010 · Kreitz 2015 · Memmert 2006</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Knowing the trick doesn't help</h3><span class="muted">People who had seen the gorilla video all spotted the gorilla in a new one, but only 17% noticed other surprises, versus 29% of newcomers (Simons, 2010; the difference was not statistically significant).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Can't predict who will notice</h3><span class="muted">Working memory and other cognitive abilities barely predict who sees the unexpected object (Kreitz et al., 2015).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Expertise helps only in-field</h3><span class="muted">Basketball players noticed the gorilla more than novices (Memmert, 2006). Yet radiologists still missed a gorilla in a lung scan, because it isn't what they look for.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Evidence check: how far to trust it</h2><p class="lead">10 things often said about the gorilla experiment, checked against current research. Tap each line for the reasoning.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 3 caution, 2 criticised">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:3">3 CAUTION</div><div class="b" style="flex:2">2 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>About half of viewers miss the gorilla while counting</span></summary><p class="note">Simons and Chabris (1999): 44% noticed the gorilla, 65% the umbrella woman, 54% overall noticed the surprise guest. The effect has been repeated many times, in classrooms and labs, with many video versions.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The harder the task, the more you miss</span></summary><p class="note">In the original study, 64% of viewers on the easy task noticed the surprise guest, versus 45% on the hard task. Chabris et al. (2011) found the same in real life: higher attentional load, fewer people noticed the fight.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Things that resemble what you're tracking are easier to see</span></summary><p class="note">The black gorilla was seen 58% of the time by viewers tracking the black team and 27% by those tracking the white team (Simons and Chabris, 1999). Most et al. (2001) repeated the pattern with on-screen shapes.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Experts also miss the unexpected</span></summary><p class="note">Drew, Võ and Wolfe (2013): a gorilla 48 times the size of an average nodule was inserted in lung scans; 20 of 24 radiologists (83%) did not report it. None of 24 non-experts on the same task saw it.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Talking on a phone while driving means more misses, even hands-free</span></summary><p class="note">Strayer and Johnston (2001), 48 students in a simulator: the probability of missing a signal more than doubled during conversation, handheld and hands-free alike; radio or audiobooks made no reliable difference. Strayer's group has repeated this many times since.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>People who miss the gorilla were looking right at it</span></summary><p class="note">Memmert (2006) tracked children's eyes: those who missed it looked at the gorilla for about 1 second, as long as those who saw it. Drew et al. (2013): 12 of 20 radiologists who missed it looked straight at the spot. Same direction, but few eye-tracking studies and small samples so far.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Checklists stop you missing what matters</span></summary><p class="note">Haynes et al. (2009), 8 hospitals: post-surgical deaths fell from 1.5% to 0.8% and complications from 11.0% to 7.0% after the WHO checklist. But in Ontario, 101 hospitals required checklists and almost nothing changed: 0.71% versus 0.65% (Urbach et al., 2014). Checklists work only when actually used, not ticked for show.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Heavy media multitaskers are worse at focusing</span></summary><p class="note">Ophir, Nass and Wagner (2009) found heavy multitaskers filtered distractions worse. A meta-analysis by Parry and le Roux (2021) across 118 assessments found only a small link, and for performance-based tasks it largely disappeared after correction. Cause and effect are unclear.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Once you know the gorilla effect, you won't be fooled again</span></summary><p class="note">Simons (2010): people who knew the original video expected and saw the gorilla, but were no better at spotting other surprises (17% versus 29%, not significant). Knowing you have a blind spot doesn't remove it.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Only absent-minded, unfocused people miss things</span></summary><p class="note">Kreitz et al. (2015) measured many cognitive abilities: almost none predicted who would notice. Top experts miss things too (Drew, 2013). It's a general feature of attention, not a flaw of weak people.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessment</h2></div>
+  <div class="scores">
+    <div class="score"><span>Core phenomenon</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Experimental design</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Holds in real life</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Popular retelling</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Value of the lesson</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Simple, anyone can try it</li><li>Repeated many times, in many places</li><li>Carries over to life: driving, medicine, the street</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Exact numbers change with video and task</li><li>Told as a "gotcha" trick, the lesson gets lost</li><li>Applied research (checklists, multitasking) is less certain than the core effect</li></ul></div>
+  </div>
+  <p class="verdict">One of the sturdiest experiments in psychology. The weak spot is the retelling, not the data. Robustness 9/10.</p>
+  <details class="more"><summary>More: why this one stands when so many others fell</summary><div>
+    <p>Many famous experiments fell because of small effects, small samples and flexible analysis. The gorilla is different: the effect is large enough to see with the naked eye, viewers answer yes or no, and anyone can rerun it in a class. Many independent groups have.</p>
+    <p>The part that needs caution is the exact rate. "50% miss it" is the number for one video and one task. A different video, task or audience gives a different rate. What holds is the pattern: the busier and narrower attention gets, the more we miss the unexpected.</p>
+    <p>Simons and Chabris won an Ig Nobel Prize in 2004 for this study, a prize for research that "makes people laugh, then think". In 2010 they wrote <i>The Invisible Gorilla</i>, extending it to other "illusions" about memory, confidence and knowledge.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Lessons to apply</h2><p class="lead">Work skill: do one thing at a time, and know in advance what you'll miss.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="g7t">
+        <title id="g7t">Four steps: do one thing at a time; before reviewing, ask what you are counting and therefore what you will miss; use a checklist for repeated work; have a second person read with a different question.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · one task</text><text x="110" y="100" class="t-night t-bold">notifications off</text><text x="110" y="116">no calls while driving</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · name the blind spot</text><text x="300" y="100" class="t-day t-bold">"what am I counting?"</text><text x="300" y="116">so what will I miss?</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · checklist</text><text x="490" y="100" class="t-rem t-bold">for repeated work</text><text x="490" y="116">read aloud, do it</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · second pair of eyes</text><text x="680" y="100" class="t-ok t-bold">a different question</text><text x="680" y="116">"anything odd?"</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Don't try to "pay more attention". Design the work so a person or a tool covers the blind spot.</text>
+      </svg>
+    </div>
+    <figcaption><b>At work, what is your "counting passes"?</b> Check the numbers in a report and you miss wording errors; fix the wording and you miss the numbers. Run a meeting from a script and you miss the person staying silent. Knowing what you're counting tells you what you'll miss.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>One-task time blocks</b><span>Notifications off, chat tabs closed. In meetings, close the laptop.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12l2 2 4-4M12 20h8"/></svg><div><b>Checklists for repeated work</b><span>Quotes, contracts, handovers: write down the steps people tend to skip.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="16" r="5"/><circle cx="22" cy="16" r="5"/><path d="M16 16h1"/></svg><div><b>A second reviewer, a different task</b><span>You check the numbers; a colleague only looks for "anything odd".</span></div></div>
+  </div>
+  <div class="quote"><span>We don't just miss a lot. We don't know that we're missing it.</span><span class="src">Paraphrasing the spirit of The Invisible Gorilla (Chabris and Simons, 2010), not a verbatim quote.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>Christopher Chabris and Daniel Simons, <i>The Invisible Gorilla</i> (2010)</b><span class="muted">The two researchers tell the story and five other "illusions" of the mind.</span></div>
+    <div><b>Drew, Võ and Wolfe, "The invisible gorilla strikes again" (2013)</b><span class="muted">A short paper on radiologists; the abstract is enough.</span></div>
+    <div><b>Atul Gawande, <i>The Checklist Manifesto</i> (2009)</b><span class="muted">Why skilled people still need checklists, from the operating room to the cockpit.</span></div>
+    <div><b>Chris Bailey, <i>Hyperfocus</i></b><span class="muted">Managing attention at work. In the book corner.</span></div>
+    <div><b>Daniel Kahneman, <i>Thinking, Fast and Slow</i></b><span class="muted">Kahneman also mentions the gorilla when discussing the limits of attention. Book #3 in the book corner.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Data sources</h2></div>
+  <p class="muted">Every number in this page, the Facebook carousels and the captions comes from the studies below.</p>
+  <div class="reads">
+    <div><b>Simons and Chabris (1999)</b><span class="muted">“Gorillas in our midst: sustained inattentional blindness for dynamic events”, <i>Perception</i> 28(9), 1059–1074 · <b>Data used:</b> 228 participants; gorilla crosses in about 5 seconds; 44% saw the gorilla, 65% the umbrella woman, 54% overall; easy task 64%, hard task 45%; tracking black 58%, white 27%</span></div>
+    <div><b>Neisser and Becklen (1975)</b><span class="muted">“Selective looking: attending to visually specified events”, <i>Cognitive Psychology</i> 7(4), 480–494 · <b>Data used:</b> background, overlaid videos (no numbers)</span></div>
+    <div><b>Mack and Rock (1998)</b><span class="muted">book <i>Inattentional Blindness</i>, MIT Press · <b>Data used:</b> the term "inattentional blindness" (no numbers)</span></div>
+    <div><b>Simons and Levin (1998)</b><span class="muted">“Failure to detect changes to people during a real-world interaction”, <i>Psychonomic Bulletin &amp; Review</i> 5(4), 644–649 · <b>Data used:</b> 7 of 15 pedestrians noticed the swap</span></div>
+    <div><b>Most et al. (2001)</b><span class="muted">“How not to be seen: the contribution of similarity and selective ignoring to sustained inattentional blindness”, <i>Psychological Science</i> 12(1), 9–17 · <b>Data used:</b> objects similar to the tracked set are noticed more (no numbers)</span></div>
+    <div><b>Strayer and Johnston (2001)</b><span class="muted">“Driven to distraction: dual-task studies of simulated driving and conversing on a cellular telephone”, <i>Psychological Science</i> 12(6), 462–466 · <b>Data used:</b> 48 students; miss probability more than doubled while conversing, handheld and hands-free alike; radio no reliable change</span></div>
+    <div><b>Rubinstein, Meyer and Evans (2001)</b><span class="muted">“Executive control of cognitive processes in task switching”, <i>Journal of Experimental Psychology: Human Perception and Performance</i> 27(4), 763–797 · <b>Data used:</b> switching costs time, more for complex tasks (no numbers)</span></div>
+    <div><b>Memmert (2006)</b><span class="muted">“The effects of eye movements, age, and expertise on inattentional blindness”, <i>Consciousness and Cognition</i> 15(3), 620–627 · <b>Data used:</b> children who missed it looked about 1 second; basketball players noticed more than novices</span></div>
+    <div><b>Haynes et al. (2009)</b><span class="muted">“A surgical safety checklist to reduce morbidity and mortality in a global population”, <i>New England Journal of Medicine</i> 360(5), 491–499 · <b>Data used:</b> 8 hospitals; deaths 1.5% to 0.8%; complications 11.0% to 7.0%</span></div>
+    <div><b>Ophir, Nass and Wagner (2009)</b><span class="muted">“Cognitive control in media multitaskers”, <i>PNAS</i> 106(37), 15583–15587 · <b>Data used:</b> heavy multitaskers filtered distractions worse (no numbers)</span></div>
+    <div><b>Hyman et al. (2010)</b><span class="muted">“Did you see the unicycling clown? Inattentional blindness while walking and talking on a cell phone”, <i>Applied Cognitive Psychology</i> 24(5), 597–607 · <b>Data used:</b> noticed the clown: phone 25%, alone 51%, music 61%, pairs 71%</span></div>
+    <div><b>Simons (2010)</b><span class="muted">“Monkeying around with the gorillas in our midst: familiarity with an inattentional-blindness task does not improve the detection of unexpected events”, <i>i-Perception</i> 1(1), 3–6 · <b>Data used:</b> those who knew the gorilla: 17% saw other surprises, newcomers 29%</span></div>
+    <div><b>Chabris and Simons (2010)</b><span class="muted">book <i>The Invisible Gorilla</i>, Crown · <b>Data used:</b> context, the 2004 Ig Nobel Prize (no study figures)</span></div>
+    <div><b>Chabris, Weinberger, Fontaine and Simons (2011)</b><span class="muted">“You do not talk about Fight Club if you do not notice Fight Club: inattentional blindness for a simulated real-world assault”, <i>i-Perception</i> 2(2), 150–153 · <b>Data used:</b> 35% noticed the fight at night, 56% by day</span></div>
+    <div><b>Drew, Võ and Wolfe (2013)</b><span class="muted">“The invisible gorilla strikes again: sustained inattentional blindness in expert observers”, <i>Psychological Science</i> 24(9), 1848–1853 · <b>Data used:</b> 24 radiologists; 20 (83%) missed it; 12 of 20 looked straight at it; gorilla 48 times a nodule; 0 of 24 non-experts saw it</span></div>
+    <div><b>Urbach et al. (2014)</b><span class="muted">“Introduction of surgical safety checklists in Ontario, Canada”, <i>New England Journal of Medicine</i> 370(11), 1029–1038 · <b>Data used:</b> 101 hospitals; mortality 0.71% versus 0.65%, not significant</span></div>
+    <div><b>Kreitz, Furley, Memmert and Simons (2015)</b><span class="muted">“Inattentional blindness and individual differences in cognitive abilities”, <i>PLoS ONE</i> 10(8), e0134675 · <b>Data used:</b> cognitive abilities barely predict who notices (no numbers)</span></div>
+    <div><b>Parry and le Roux (2021)</b><span class="muted">“‘Cognitive control in media multitaskers’ ten years on: a meta-analysis”, <i>Cyberpsychology</i> 15(2), article 7 · <b>Data used:</b> 118 assessments; small link</span></div>
+  </div>
+</section>
+
+<footer>Famous Experiments #05. Figures are my own schematic diagrams; data come from the original studies, listed under Data sources and checked in the Evidence check.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thí nghiệm thử mứt (Iyengar &amp; Lepper): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Bàn 24 loại mứt hút khách, bàn 6 loại bán được hàng? Thí nghiệm gốc, hai phân tích gộp cho thấy quá tải lựa chọn chỉ xảy ra trong vài điều kiện, và cách đưa sếp 2–3 phương án.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/thi-nghiem-thu-mut.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-thu-mut.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-thu-mut.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-thu-mut.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thí nghiệm thử mứt (Iyengar &amp; Lepper): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Bàn 24 loại mứt hút khách, bàn 6 loại bán được hàng? Thí nghiệm gốc, hai phân tích gộp cho thấy quá tải lựa chọn chỉ xảy ra trong vài điều kiện, và cách đưa sếp 2–3 phương án.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/thi-nghiem-thu-mut.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #190209; --bia-2: #9F1239; --bia-nhan: #FFE4E6; }
+:root { --vtk-nhan: #FFE4E6; }
+body header { --ho-so: "Sổ thí nghiệm"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/thi-nghiem-thu-mut.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. "Thí nghiệm nổi tiếng" #03, jam study: --night = rose (the jam), --day = teal (the calm, short list). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #9f1239;
+  --day: #0f766e;
+  --rem: #6d4fb3;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fda4af; --day: #5eead4; --rem: #b9a6f0; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fda4af; --day: #5eead4; --rem: #b9a6f0; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Thí nghiệm nổi tiếng · Tâm lý học ra quyết định</span>
+  <h1>Thí nghiệm thử mứt</h1>
+  <svg viewBox="0 0 320 56" width="320" height="56" style="max-width:100%" role="img" aria-label="Bên trái một hàng dài nhiều hũ mứt, bên phải chỉ ba hũ">
+    <g fill="#ffe4e6" stroke="#9f1239" stroke-width="1.6">
+      <rect x="4" y="22" width="12" height="16" rx="3"/><rect x="19" y="22" width="12" height="16" rx="3"/><rect x="34" y="22" width="12" height="16" rx="3"/><rect x="49" y="22" width="12" height="16" rx="3"/><rect x="64" y="22" width="12" height="16" rx="3"/><rect x="79" y="22" width="12" height="16" rx="3"/><rect x="94" y="22" width="12" height="16" rx="3"/><rect x="109" y="22" width="12" height="16" rx="3"/>
+      <rect x="4" y="40" width="12" height="14" rx="3"/><rect x="19" y="40" width="12" height="14" rx="3"/><rect x="34" y="40" width="12" height="14" rx="3"/><rect x="49" y="40" width="12" height="14" rx="3"/><rect x="64" y="40" width="12" height="14" rx="3"/><rect x="79" y="40" width="12" height="14" rx="3"/><rect x="94" y="40" width="12" height="14" rx="3"/><rect x="109" y="40" width="12" height="14" rx="3"/>
+    </g>
+    <text x="140" y="44" font-family="monospace" font-size="16" fill="#8a94a6">hay</text>
+    <g fill="#ffe4e6" stroke="#0f766e" stroke-width="2"><rect x="196" y="18" width="30" height="36" rx="6"/><rect x="236" y="18" width="30" height="36" rx="6"/><rect x="276" y="18" width="30" height="36" rx="6"/></g>
+    <g fill="#9f1239"><rect x="194" y="12" width="34" height="8" rx="2"/><rect x="234" y="12" width="34" height="8" rx="2"/><rect x="274" y="12" width="34" height="8" rx="2"/></g>
+  </svg>
+  <p class="sub">The Jam Study · Sheena Iyengar và Mark Lepper, "When choice is demotivating" (2000)</p>
+  <div class="meta">
+    <div><span class="label">Người làm</span><b>Sheena Iyengar (Columbia) · Mark Lepper (Stanford)</b></div>
+    <div><span class="label">Thời gian</span><b>công bố 2000 · kiểm chứng lại 2010 và 2015</b></div>
+    <div><span class="label">Quy mô</span><b>502 khách đi ngang bàn thử mứt (Iyengar và Lepper, 2000) · phân tích gộp 5.036 người (Scheibehenne và cộng sự, 2010)</b></div>
+    <div><span class="label">Kết luận</span><b>có thật trong vài điều kiện, không phải quy luật chung · độ vững 4 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Diễn ra thế nào</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="10" width="9" height="16" rx="2"/><rect x="18" y="10" width="9" height="16" rx="2"/><path d="M4 7h11M17 7h11"/></svg><b>24 loại hay 6 loại mứt</b><span>Một bàn thử mứt trong siêu thị ở California, đổi số loại mỗi giờ (Iyengar và Lepper, 2000).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M11 26V8M21 26V22"/></svg><b>Nhiều thì ghé, ít thì mua</b><span>Bàn 24 loại: 60% ghé, 3% mua. Bàn 6 loại: 40% ghé, 30% mua (cùng nguồn).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 16h10"/></svg><b>Gộp lại: gần bằng 0</b><span>50 thí nghiệm, 5.036 người: hiệu ứng trung bình gần như bằng 0 (Scheibehenne và cộng sự, 2010).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><rect x="18" y="5" width="9" height="9" rx="2"/><rect x="5" y="18" width="9" height="9" rx="2"/><rect x="18" y="18" width="9" height="9" rx="2"/></svg><b>Có thật khi đủ điều kiện</b><span>Khó so sánh, việc khó, chưa biết mình muốn gì, muốn chọn nhanh (Chernev và cộng sự, 2015).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Không có con số kỳ diệu</b><span>"Cứ 6 lựa chọn là tối ưu" không có dữ liệu đỡ. Cái cần là lọc và so sánh giúp người chọn.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của thí nghiệm</h2></div>
+  <p class="thesis">Nhiều lựa chọn hơn có luôn tốt hơn không? Thí nghiệm thử mứt nói: có khi nhiều quá làm người ta bỏ đi tay không. Kiểm chứng hiện nay nói: chuyện đó có xảy ra, nhưng chỉ trong vài điều kiện, và trung bình thì gần như không thấy.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">2000</span><b>Thí nghiệm</b><span>Bàn 6 loại mứt bán được nhiều hơn bàn 24 loại. Thêm đề tài bài luận và sô-cô-la.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2004–2010</span><b>Cơn sốt</b><span>Sách "Nghịch lý của lựa chọn", TED, cửa hàng cắt bớt mặt hàng. "Ít là nhiều" thành khẩu hiệu.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2010–2025</span><b>Kiểm chứng lại</b><span>Gộp hàng chục thí nghiệm: trung bình gần 0, nhưng có điều kiện thì hiệu ứng hiện ra.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Thí nghiệm diễn ra thế nào</h2><p class="lead">Một bàn thử mứt, hai thứ Bảy, và một tờ phiếu giảm giá để đếm xem ai mua thật.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="k0t">
+        <title id="k0t">Siêu thị Draeger's ở Menlo Park, California. Một bàn thử mứt Wilkin and Sons, có lúc bày 24 loại, có lúc 6 loại, đổi mỗi giờ. Khách thử mứt được phiếu giảm 1 đô la, dùng trong một tuần. Đếm số người ghé bàn và số người dùng phiếu mua mứt.</title>
+        <rect x="30" y="130" width="300" height="14" rx="4" fill="var(--muted)" fill-opacity=".35"/>
+        <g fill="var(--night)" fill-opacity=".18" stroke="var(--night)" stroke-width="1.5">
+          <rect x="40" y="96" width="16" height="32" rx="3"/><rect x="60" y="96" width="16" height="32" rx="3"/><rect x="80" y="96" width="16" height="32" rx="3"/><rect x="100" y="96" width="16" height="32" rx="3"/><rect x="120" y="96" width="16" height="32" rx="3"/><rect x="140" y="96" width="16" height="32" rx="3"/><rect x="160" y="96" width="16" height="32" rx="3"/><rect x="180" y="96" width="16" height="32" rx="3"/><rect x="200" y="96" width="16" height="32" rx="3"/><rect x="220" y="96" width="16" height="32" rx="3"/><rect x="240" y="96" width="16" height="32" rx="3"/><rect x="260" y="96" width="16" height="32" rx="3"/>
+          <rect x="40" y="60" width="16" height="32" rx="3"/><rect x="60" y="60" width="16" height="32" rx="3"/><rect x="80" y="60" width="16" height="32" rx="3"/><rect x="100" y="60" width="16" height="32" rx="3"/><rect x="120" y="60" width="16" height="32" rx="3"/><rect x="140" y="60" width="16" height="32" rx="3"/><rect x="160" y="60" width="16" height="32" rx="3"/><rect x="180" y="60" width="16" height="32" rx="3"/><rect x="200" y="60" width="16" height="32" rx="3"/><rect x="220" y="60" width="16" height="32" rx="3"/><rect x="240" y="60" width="16" height="32" rx="3"/><rect x="260" y="60" width="16" height="32" rx="3"/>
+        </g>
+        <text x="160" y="44" text-anchor="middle" class="t-night t-bold">24 loại · đổi mỗi giờ</text>
+        <text x="160" y="168" text-anchor="middle" class="t-ink">hoặc</text>
+        <rect x="30" y="200" width="300" height="12" rx="4" fill="var(--muted)" fill-opacity=".35"/>
+        <g fill="var(--day)" fill-opacity=".2" stroke="var(--day)" stroke-width="1.5"><rect x="100" y="178" width="16" height="22" rx="3"/><rect x="120" y="178" width="16" height="22" rx="3"/><rect x="140" y="178" width="16" height="22" rx="3"/><rect x="160" y="178" width="16" height="22" rx="3"/><rect x="180" y="178" width="16" height="22" rx="3"/><rect x="200" y="178" width="16" height="22" rx="3"/></g>
+        <text x="300" y="194" text-anchor="end" class="t-day t-bold">6 loại</text>
+        <rect x="390" y="26" width="310" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="405" y="53" class="t-ink t-bold">1 · thử bao nhiêu loại tùy thích</text>
+        <rect x="390" y="82" width="310" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="405" y="109" class="t-night t-bold">2 · nhận phiếu giảm 1 đô la</text>
+        <rect x="390" y="138" width="310" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="405" y="165" class="t-ink t-bold">3 · đếm ai dùng phiếu trong 1 tuần</text>
+        <text x="390" y="212">mứt Wilkin &amp; Sons, giá 4–6 đô · siêu thị Draeger's, Menlo Park</text>
+      </svg>
+    </div>
+    <figcaption><b>Thiết kế đẹp cho một nghiên cứu thực địa.</b> Bàn đổi 24 và 6 loại theo giờ, khách không biết mình đang ở trong thí nghiệm. Điểm yếu: chỉ một cửa hàng, hai ngày, và rất ít người mua (Iyengar và Lepper, 2000).</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Thí nghiệm và cơn sốt</h3><div class="chips"><span class="chip">24 hay 6 loại</span><span class="chip">60% ghé, 3% mua</span><span class="chip">"ít là nhiều"</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 2</span><h3>Khi nào nhiều lựa chọn gây hại</h3><div class="chips"><span class="chip">4 điều kiện</span><span class="chip">nhóm lại</span><span class="chip">2–3 phương án</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 3</span><h3>Kiểm chứng lại</h3><div class="chips"><span class="chip">phân tích gộp</span><span class="chip">làm lại ở Đức</span><span class="chip">bác sĩ</span><span class="chip">bài học</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Quá tải lựa chọn</h3><span class="en">choice overload</span><span class="pg">Iyengar và Lepper, 2000</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 222" role="img" aria-labelledby="k1t">
+          <title id="k1t">Bàn 24 loại: 242 khách đi ngang, 60% ghé thử, 3% số người ghé mua mứt. Bàn 6 loại: 260 khách đi ngang, 40% ghé thử, 30% số người ghé mua mứt.</title>
+          <text x="20" y="30" class="t-night t-bold">BÀN 24 LOẠI · 242 khách đi ngang</text>
+          <text x="20" y="62" class="t-ink">ghé thử</text>
+          <rect x="120" y="46" width="360" height="24" rx="4" fill="var(--night)" fill-opacity=".7"/><text x="490" y="64" class="t-night t-bold">60%</text>
+          <text x="20" y="96" class="t-ink">mua (trong số ghé)</text>
+          <rect x="160" y="82" width="18" height="24" rx="4" fill="var(--night)"/><text x="188" y="100" class="t-night t-bold">3%</text>
+          <text x="20" y="136" class="t-day t-bold">BÀN 6 LOẠI · 260 khách đi ngang</text>
+          <text x="20" y="168" class="t-ink">ghé thử</text>
+          <rect x="120" y="152" width="240" height="24" rx="4" fill="var(--day)" fill-opacity=".7"/><text x="370" y="170" class="t-day t-bold">40%</text>
+          <text x="20" y="202" class="t-ink">mua (trong số ghé)</text>
+          <rect x="160" y="188" width="180" height="24" rx="4" fill="var(--day)"/><text x="350" y="206" class="t-day t-bold">30%</text>
+          <text x="560" y="96" text-anchor="middle" class="t-ink t-bold">thử trung bình</text>
+          <text x="560" y="118" text-anchor="middle">1,50 loại (24) · 1,38 loại (6)</text>
+          <text x="560" y="140" text-anchor="middle">gần như như nhau</text>
+        </svg>
+      </div>
+      <figcaption><b>Nhiều lựa chọn kéo người ta lại, ít lựa chọn giúp người ta chốt.</b> Ở cả hai bàn, khách chỉ thử khoảng 1–2 loại. Khác biệt nằm ở bước quyết định mua.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Không chỉ mứt: bài luận và sô-cô-la</h3><span class="en">studies 2 and 3</span><span class="pg">cùng bài báo, 2000</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Mứt · siêu thị</h3><span class="muted">6 loại: 30% người ghé mua. 24 loại: 3%.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Bài luận · 193 sinh viên</h3><span class="muted">Chọn từ 6 đề tài: 74% nộp bài lấy điểm cộng. Từ 30 đề tài: 60%. Bài của nhóm 6 đề cũng được chấm cao hơn một chút.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Sô-cô-la · 134 người</h3><span class="muted">Chọn từ 6 viên: hài lòng hơn, 48% lấy hộp sô-cô-la thay vì 5 đô. Chọn từ 30 viên: chỉ 12%.</span></div>
+    </div>
+    <p class="lead">Ba bối cảnh, cùng một hướng. Đây là lý do bài báo thuyết phục. Nhưng cả ba đều do một nhóm làm, mẫu vừa phải.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gộp tất cả lại: trung bình gần 0</h3><span class="en">meta-analysis · D = 0,02</span><span class="pg">Scheibehenne, Greifeneder và Todd, 2010</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k2t">
+          <title id="k2t">Trục từ nhiều lựa chọn có lợi đến nhiều lựa chọn có hại. Phân tích gộp 63 điều kiện từ 50 thí nghiệm, 5.036 người: hiệu ứng trung bình D bằng 0,02, gần như bằng 0. Các nghiên cứu dao động lớn về cả hai phía.</title>
+          <line x1="60" y1="110" x2="660" y2="110" class="axis" stroke-width="2"/>
+          <line x1="360" y1="70" x2="360" y2="150" stroke="var(--muted)" stroke-dasharray="4 4"/>
+          <text x="60" y="140" class="t-day t-bold">← nhiều lựa chọn có lợi</text>
+          <text x="660" y="140" text-anchor="end" class="t-night t-bold">nhiều lựa chọn có hại →</text>
+          <text x="360" y="62" text-anchor="middle">0</text>
+          <rect x="150" y="96" width="420" height="28" rx="14" fill="var(--grid)" stroke="var(--rule)"/>
+          <text x="360" y="170" text-anchor="middle">dải xám: các nghiên cứu trải rộng về cả hai phía (minh họa)</text>
+          <circle cx="366" cy="110" r="9" fill="var(--night)"/>
+          <text x="380" y="92" class="t-night t-bold">trung bình D = 0,02</text>
+          <text x="60" y="30" class="t-ink t-bold">63 điều kiện · 50 thí nghiệm · 5.036 người</text>
+          <text x="60" y="194">nghiên cứu đã đăng báo hay thấy "có hại" hơn nghiên cứu chưa đăng</text>
+        </svg>
+      </div>
+      <figcaption><b>Trung bình gần 0 không có nghĩa là "không bao giờ".</b> Nó có nghĩa: có nơi nhiều lựa chọn có hại, có nơi có lợi, và số loại hàng một mình không đoán được kết quả.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn điều kiện làm quá tải xuất hiện</h3><span class="en">moderators</span><span class="pg">Chernev, Böckenholt và Goodman, 2015</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Bốn điều kiện: các lựa chọn phức tạp khó so; việc chọn khó như ít thời gian hay nhiều tiêu chí; người chọn chưa biết mình muốn gì; người chọn muốn xong nhanh, ít tốn sức. Phân tích gộp 99 quan sát, 7.202 người.</title>
+          <g>
+            <rect x="10" y="20" width="165" height="120" rx="10" fill="var(--night)" fill-opacity=".1" stroke="var(--night)" stroke-width="2"/>
+            <text x="92" y="52" text-anchor="middle" class="t-night t-bold">1 · khó so sánh</text><text x="92" y="80" text-anchor="middle" class="t-ink">không có phương án</text><text x="92" y="98" text-anchor="middle" class="t-ink">nổi bật rõ ràng</text>
+            <rect x="188" y="20" width="165" height="120" rx="10" fill="var(--night)" fill-opacity=".1" stroke="var(--night)" stroke-width="2"/>
+            <text x="270" y="52" text-anchor="middle" class="t-night t-bold">2 · việc chọn khó</text><text x="270" y="80" text-anchor="middle" class="t-ink">ít thời gian,</text><text x="270" y="98" text-anchor="middle" class="t-ink">nhiều tiêu chí</text>
+            <rect x="366" y="20" width="165" height="120" rx="10" fill="var(--night)" fill-opacity=".1" stroke="var(--night)" stroke-width="2"/>
+            <text x="448" y="52" text-anchor="middle" class="t-night t-bold">3 · chưa rõ ý mình</text><text x="448" y="80" text-anchor="middle" class="t-ink">không biết mình</text><text x="448" y="98" text-anchor="middle" class="t-ink">thích loại nào</text>
+            <rect x="544" y="20" width="165" height="120" rx="10" fill="var(--night)" fill-opacity=".1" stroke="var(--night)" stroke-width="2"/>
+            <text x="626" y="52" text-anchor="middle" class="t-night t-bold">4 · muốn xong nhanh</text><text x="626" y="80" text-anchor="middle" class="t-ink">chọn cho xong,</text><text x="626" y="98" text-anchor="middle" class="t-ink">không muốn tìm hiểu</text>
+          </g>
+          <text x="360" y="172" text-anchor="middle" class="t-ink t-bold">càng nhiều điều kiện cùng lúc, nhiều lựa chọn càng dễ gây hại</text>
+          <text x="360" y="194" text-anchor="middle">99 quan sát · 7.202 người</text>
+        </svg>
+      </div>
+      <figcaption><b>Cuộc họp chọn nhà cung cấp lúc 5 giờ chiều có đủ cả bốn.</b> Đó là lúc 10 phương án làm hại nhất.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Khi nào nhiều lựa chọn không hại</h3><span class="en">expertise · categories · alternatives</span><span class="pg">2008 · 2010 · 2025</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Người chọn đã rành</h3><span class="muted">Khi người chọn có chuyên môn hoặc sở thích rõ, nhiều lựa chọn lại có lợi (Scheibehenne và cộng sự, 2010).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Có nhóm, có nhãn</h3><span class="muted">Chia hàng thành danh mục giúp người chưa quen chọn dễ và hài lòng hơn (Mogilner, Rudnick và Iyengar, 2008).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hai phương án tốt hơn một</h3><span class="muted">402 bác sĩ: có từ 2 lựa chọn thay thế, 62% chọn đổi; chỉ có 1, 44%. Thêm quá 2 thì không tốt hơn nữa (Altinger và cộng sự, 2025).</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: tin được đến đâu</h2><p class="lead">10 điều hay được nói về thí nghiệm, đối chiếu với nghiên cứu hiện nay. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="2 vững, 5 cần thận trọng, 3 bị phê bình">
+    <div class="o" style="flex:2">2 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Nhiều lựa chọn gây hại khi lựa chọn khó so, việc khó, người chọn chưa rõ ý mình, muốn xong nhanh</span></summary><p class="note">Chernev, Böckenholt và Goodman (2015) gộp 99 quan sát, 7.202 người: khi tính đến bốn điều kiện này, hiệu ứng có ý nghĩa thống kê. Đây là cách hiểu đúng nhất hiện nay.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Người có chuyên môn, có sở thích rõ ít bị quá tải</span></summary><p class="note">Trong phân tích gộp của Scheibehenne và cộng sự (2010), chuyên môn hoặc sở thích có sẵn nghiêng kết quả về phía "nhiều lựa chọn có lợi". Phân tích năm 2015 cũng thấy sở thích chưa rõ làm quá tải mạnh hơn.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Tỷ lệ mua ở bàn 6 loại gấp 10 lần bàn 24 loại (30% so với 3%)</span></summary><p class="note">Đúng số liệu gốc (Iyengar và Lepper, 2000), nhưng chỉ một siêu thị, hai thứ Bảy, và số người mua rất ít (31 so với 4). Scheibehenne (2008) làm lại ở một siêu thị Đức và không thấy hiệu ứng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ít đề tài hơn thì nhiều sinh viên viết bài hơn (74% so với 60%)</span></summary><p class="note">Một lớp học ở Stanford, 193 sinh viên, khác biệt vừa đủ ý nghĩa thống kê. Hợp lý nhưng chưa thấy được lặp lại rộng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Chọn từ ít loại sô-cô-la thì hài lòng hơn</span></summary><p class="note">134 người trong phòng thí nghiệm: 48% nhóm 6 viên lấy sô-cô-la thay vì tiền, so với 12% nhóm 30 viên. Greifeneder (2008, trích trong phân tích gộp 2010) làm lại với sô-cô-la và không thấy khác biệt.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Quỹ hưu nhiều lựa chọn thì ít người tham gia</span></summary><p class="note">Iyengar, Huberman và Jiang (2004) xem dữ liệu gần 800.000 nhân viên: chương trình có vài quỹ có tỷ lệ tham gia cao hơn chương trình có từ 10 quỹ trở lên. Đây là số liệu quan sát, không phải thí nghiệm, nên có thể có lý do khác.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Thêm một phương án làm người ta ngại thay đổi</span></summary><p class="note">Redelmeier và Shafir (1995): bác sĩ được gợi ý 1 thuốc thì 72% kê, được gợi ý 2 thuốc thì chỉ 53% kê. Nhưng một thử nghiệm ngẫu nhiên với 402 bác sĩ (Altinger và cộng sự, 2025) thấy ngược lại: có từ 2 lựa chọn, nhiều người chọn đổi hơn.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Nhiều lựa chọn luôn làm khách không mua</span></summary><p class="note">Phân tích gộp 63 điều kiện, 50 thí nghiệm, 5.036 người: hiệu ứng trung bình D = 0,02, gần như bằng 0 (Scheibehenne và cộng sự, 2010). Nghiên cứu mới hơn ít thấy hiệu ứng hơn nghiên cứu cũ.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Cứ cắt bớt mặt hàng là bán chạy hơn</span></summary><p class="note">Câu này đi xa hơn dữ liệu. Cùng phân tích gộp cho thấy nhiều khi nhiều lựa chọn có lợi, nhất là với khách đã biết mình muốn gì. Cắt bừa có thể mất đúng món khách cần.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Có một con số tối ưu, ví dụ 6 lựa chọn</span></summary><p class="note">Scheibehenne và cộng sự (2010) không thấy quan hệ rõ giữa số phương án trong nhóm lớn và mức hiệu ứng. Con số 6 chỉ là cách bày của một thí nghiệm.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Thiết kế thí nghiệm gốc</span><div class="bar"><i style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Độ lặp lại của kết quả</span><div class="bar"><i class="low" style="width:30%"></i></div><b>1,5/5</b></div>
+    <div class="score"><span>Câu "ít luôn là nhiều"</span><div class="bar"><i class="low" style="width:20%"></i></div><b>1/5</b></div>
+    <div class="score"><span>Giá trị bài học</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Thí nghiệm thực địa, khách mua bằng tiền thật</li><li>Ba bối cảnh khác nhau cùng một hướng</li><li>Mở ra cả một hướng nghiên cứu có điều kiện rõ</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Một cửa hàng, hai ngày, rất ít người mua</li><li>Nhiều lần làm lại không thấy hiệu ứng</li><li>Bị biến thành quy luật "ít luôn tốt hơn"</li></ul></div>
+  </div>
+  <p class="verdict">Thí nghiệm khéo, kết quả đẹp, nhưng không lặp lại đều. Giữ lấy câu hỏi "lúc nào nhiều lựa chọn gây hại", bỏ khẩu hiệu "ít luôn là nhiều".</p>
+  <details class="more"><summary>Xem thêm: vì sao hai phân tích gộp có vẻ nói ngược nhau</summary><div>
+    <p>Năm 2010, nhóm Scheibehenne gộp mọi thí nghiệm họ tìm được, cả đã đăng và chưa đăng, rồi tính trung bình: gần 0. Họ cũng thấy nghiên cứu đã đăng báo hay thấy hiệu ứng hơn, và nghiên cứu càng mới càng ít thấy. Đây là dấu hiệu quen thuộc của kết quả đầu tiên quá đẹp.</p>
+    <p>Năm 2015, nhóm Chernev đặt câu hỏi khác: không hỏi "trung bình bao nhiêu" mà hỏi "khi nào". Khi đưa bốn điều kiện vào mô hình, hiệu ứng hiện ra rõ. Hai kết quả không mâu thuẫn: trung bình gần 0 vì phần lớn tình huống thiếu các điều kiện ấy.</p>
+    <p>Với người đi làm, phiên bản 2015 hữu ích hơn: nó chỉ ra lúc nào nên rút gọn phương án, lúc nào cứ để nhiều cũng được.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Kỹ năng làm việc: trình phương án cho sếp, cho khách sao cho họ chốt được. Đây là gợi ý của Mark dựa trên bốn điều kiện ở trên, chưa phải kết quả thử nghiệm ở văn phòng.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="k7t">
+        <title id="k7t">Bốn bước: hỏi tiêu chí trước; lọc còn 2 đến 3 phương án thật sự khác nhau; bày cùng một bảng so sánh; nói rõ mình đề xuất phương án nào và vì sao.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · hỏi tiêu chí</text><text x="110" y="100" class="t-night t-bold">"anh ưu tiên gì?"</text><text x="110" y="116">giá, tốc độ, rủi ro</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · lọc còn 2–3</text><text x="300" y="100" class="t-day t-bold">khác nhau thật</text><text x="300" y="116">bỏ phương án "cho đủ"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · cùng một bảng</text><text x="490" y="100" class="t-rem t-bold">cùng tiêu chí</text><text x="490" y="116">dễ so trong 30 giây</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · nói đề xuất</text><text x="680" y="100" class="t-ok t-bold">"em chọn A vì…"</text><text x="680" y="116">kèm khi nào chọn B</text></g>
+        <text x="410" y="164" text-anchor="middle" class="t-ink">Bốn bước này đánh vào đúng bốn điều kiện gây quá tải: khó so, việc khó, chưa rõ ý, muốn xong nhanh.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mẫu email ba dòng:</b> "Em đề xuất A (nhanh nhất, trong ngân sách). Nếu anh ưu tiên chi phí thì B rẻ hơn 15% nhưng chậm 2 tuần. C để tham khảo. Anh chốt trước thứ Sáu giúp em." Các con số trong mẫu chỉ là ví dụ.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h22l-8 10v8l-6-3v-5z"/></svg><div><b>Lọc trước, trình sau</b><span>Sếp cần quyết, không cần đọc lại cả quá trình tìm hiểu của bạn.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="2"/><path d="M5 12h22M14 5v22"/></svg><div><b>Nhiều thì nhóm lại</b><span>Danh mục 30 món: chia 3–4 nhóm có tên, như "rẻ", "nhanh", "an toàn".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 17l6 6 14-14"/></svg><div><b>Người rành thì cho xem hết</b><span>Chuyên gia đã biết mình muốn gì: danh sách dài kèm bộ lọc có khi tốt hơn.</span></div></div>
+  </div>
+  <figure>
+    <div class="tablebox">
+      <table class="cmp">
+        <tr><th>Tình huống</th><th>Nên đưa</th><th>Vì sao</th></tr>
+        <tr><td>Sếp bận, cần chốt trong buổi họp</td><td class="y">2–3 phương án + đề xuất</td><td>việc khó, muốn xong nhanh</td></tr>
+        <tr><td>Khách mới, chưa rõ nhu cầu</td><td class="y">hỏi trước, rồi 2–3 gói</td><td>chưa rõ ý mình</td></tr>
+        <tr><td>Kỹ sư chọn linh kiện quen thuộc</td><td class="y">danh sách đủ + bộ lọc</td><td>người rành ít bị quá tải</td></tr>
+        <tr><td>Đưa 10 phương án "cho sếp tự chọn"</td><td class="n">tránh</td><td>đẩy việc lọc sang người bận nhất</td></tr>
+      </table>
+    </div>
+    <figcaption><b>Ít phương án không phải giấu bớt.</b> Ghi một dòng "đã xem thêm X, Y, loại vì…" để người quyết biết bạn đã cân nhắc.</figcaption>
+  </figure>
+  <div class="quote"><span>Người ta không ngại lựa chọn. Người ta ngại lựa chọn mà không biết so bằng cách nào.</span><span class="src">Diễn ý của Mark từ hai phân tích gộp 2010 và 2015, không phải trích nguyên văn.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Sheena Iyengar, <i>The Art of Choosing</i> (2010)</b><span class="muted">Chính tác giả thí nghiệm mứt kể lại các nghiên cứu về lựa chọn.</span></div>
+    <div><b>Barry Schwartz, <i>The Paradox of Choice</i> (2004)</b><span class="muted">Cuốn sách làm thí nghiệm mứt nổi tiếng. Đọc kèm phần kiểm chứng ở trên.</span></div>
+    <div><b>Scheibehenne, Greifeneder và Todd, "Can there ever be too many options?" (2010)</b><span class="muted">Phân tích gộp, đọc phần tóm tắt và phần thảo luận là đủ.</span></div>
+    <div><b>Daniel Kahneman, <i>Tư duy nhanh và chậm</i></b><span class="muted">Nền chung về cách não chọn nhanh. Tập 3 của góc sách, và là cầu nối sang thí nghiệm #4.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn số liệu</h2></div>
+  <p class="muted">Mọi con số trong bài, bộ ảnh Facebook và chú thích đều lấy từ các nghiên cứu dưới đây.</p>
+  <div class="reads">
+    <div><b>Iyengar và Lepper (2000)</b><span class="muted">“When choice is demotivating: Can one desire too much of a good thing?”, <i>Journal of Personality and Social Psychology</i> 79(6), 995–1006 · <b>Số liệu dùng:</b> 24 và 6 loại mứt Wilkin &amp; Sons, siêu thị Draeger's (Menlo Park), hai thứ Bảy; 242 và 260 khách đi ngang; ghé thử 60% và 40%; mua 3% (4/145) và 30% (31/104); thử trung bình 1,50 và 1,38 loại; phiếu giảm 1 đô trong 1 tuần; bài luận: 193 sinh viên, 6 và 30 đề tài, nộp 74% và 60%; sô-cô-la Godiva: 134 người, 6 và 30 viên, chọn sô-cô-la thay vì 5 đô 48% và 12%</span></div>
+    <div><b>Iyengar, Huberman và Jiang (2004)</b><span class="muted">“How much choice is too much? Contributions to 401(k) retirement plans”, trong <i>Pension Design and Structure</i> (Mitchell và Utkus biên tập), Oxford University Press, 83–96 · <b>Số liệu dùng:</b> gần 800.000 nhân viên; chương trình có nhiều quỹ hơn thì tỷ lệ tham gia thấp hơn</span></div>
+    <div><b>Redelmeier và Shafir (1995)</b><span class="muted">“Medical decision making in situations that offer multiple alternatives”, <i>JAMA</i> 273(4), 302–305 · <b>Số liệu dùng:</b> bác sĩ gia đình kê thuốc 72% khi có 1 thuốc, 53% khi có 2 thuốc</span></div>
+    <div><b>Scheibehenne (2008)</b><span class="muted">luận án tiến sĩ về lựa chọn quá nhiều, được trích trong phân tích gộp 2010 · <b>Số liệu dùng:</b> làm lại thí nghiệm mứt ở một siêu thị Đức, không thấy hiệu ứng</span></div>
+    <div><b>Greifeneder (2008)</b><span class="muted">nghiên cứu với sô-cô-la, được trích trong phân tích gộp 2010 · <b>Số liệu dùng:</b> không thấy khác biệt giữa nhóm ít và nhiều lựa chọn</span></div>
+    <div><b>Mogilner, Rudnick và Iyengar (2008)</b><span class="muted">“The mere categorization effect”, <i>Journal of Consumer Research</i> 35(2), 202–215 · <b>Số liệu dùng:</b> chia danh mục giúp người chưa quen hài lòng hơn (không dùng con số)</span></div>
+    <div><b>Scheibehenne, Greifeneder và Todd (2010)</b><span class="muted">“Can there ever be too many options? A meta-analytic review of choice overload”, <i>Journal of Consumer Research</i> 37(3), 409–425 · <b>Số liệu dùng:</b> 63 điều kiện, 50 thí nghiệm, 5.036 người; hiệu ứng trung bình D = 0,02; chuyên môn, sở thích rõ nghiêng về có lợi; nghiên cứu đã đăng và nghiên cứu cũ hay thấy hiệu ứng hơn; không có quan hệ rõ với số phương án</span></div>
+    <div><b>Chernev, Böckenholt và Goodman (2015)</b><span class="muted">“Choice overload: A conceptual review and meta-analysis”, <i>Journal of Consumer Psychology</i> 25(2), 333–358 · <b>Số liệu dùng:</b> 99 quan sát, 7.202 người; bốn điều kiện: độ phức tạp của nhóm lựa chọn, độ khó của việc chọn, sở thích chưa rõ, mục tiêu tiết kiệm công sức</span></div>
+    <div><b>Altinger và cộng sự (2025)</b><span class="muted">thử nghiệm ngẫu nhiên, <i>JAMA Network Open</i> 8(11), e2542949 · <b>Số liệu dùng:</b> 402 bác sĩ chăm sóc ban đầu; chọn phương án thay thế 62% khi có từ 2 lựa chọn, 44% khi có 1; thêm quá 2 không cải thiện thêm</span></div>
+  </div>
+</section>
+
+<footer>Thí nghiệm nổi tiếng #03. Các hình là sơ đồ minh họa; số liệu lấy từ các nghiên cứu gốc, ghi rõ ở phần Nguồn số liệu và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
