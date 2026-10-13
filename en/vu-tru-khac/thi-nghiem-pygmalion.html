@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher Expectations: the Pygmalion Effect (Rosenthal &amp; Jacobson): summary, review and lessons | Another Universe</title>
+<meta name="description" content="If a teacher believes you will bloom, do you? The original study, the channels expectations travel through, and 18 follow-up experiments showing a real but much smaller effect than the legend.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-pygmalion.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-pygmalion.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-pygmalion.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-pygmalion.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Teacher Expectations: the Pygmalion Effect (Rosenthal &amp; Jacobson): summary, review and lessons | Another Universe">
+<meta property="og:description" content="If a teacher believes you will bloom, do you? The original study, the channels expectations travel through, and 18 follow-up experiments showing a real but much smaller effect than the legend.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/thi-nghiem-pygmalion.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #00130D; --bia-2: #047857; --bia-nhan: #D1FAE5; }
+:root { --vtk-nhan: #D1FAE5; }
+body header { --ho-so: "Lab notebook"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/thi-nghiem-pygmalion.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Thí nghiệm nổi tiếng #09, Pygmalion: --night = emerald (kỳ vọng cao, Pygmalion), --day = rose (kỳ vọng thấp, Golem). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #047857;
+  --day: #9f1239;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #6ee7b7; --day: #fda4af; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #6ee7b7; --day: #fda4af; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Famous experiments · Educational psychology</span>
+  <h1>Teacher expectations: the Pygmalion effect</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="An arrow of expectation goes from a teacher to a pupil, whose result bars grow taller">
+    <circle cx="22" cy="20" r="11" fill="#047857"/><rect x="10" y="33" width="24" height="16" rx="6" fill="#047857"/>
+    <text x="46" y="32" font-family="monospace" font-size="15" fill="#8a94a6">you will bloom</text>
+    <path d="M214 26 h28" stroke="#047857" stroke-width="3"/><path d="M248 26 l-9 -6 v12 z" fill="#047857"/>
+    <rect x="262" y="34" width="12" height="16" rx="2" fill="#a7f3d0"/><rect x="280" y="24" width="12" height="26" rx="2" fill="#34d399"/><rect x="298" y="10" width="12" height="40" rx="2" fill="#047857"/>
+  </svg>
+  <p class="sub">Pygmalion in the Classroom · Robert Rosenthal and Lenore Jacobson, 1968</p>
+  <div class="meta">
+    <div><span class="label">Who</span><b>Robert Rosenthal (Harvard) · Lenore Jacobson (elementary school principal in California)</b></div>
+    <div><span class="label">When</span><b>mid-1960s · report 1966, book 1968 · debated to this day</b></div>
+    <div><span class="label">Size</span><b>18 classes across 6 grades in one California elementary school · about 20% of pupils randomly named "bloomers" (Rosenthal and Jacobson, 1968)</b></div>
+    <div><span class="label">Verdict</span><b>real but small effect, overblown legend · robustness 5 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Question</a><a href="#bo-cuc">How it worked</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="10" r="5"/><path d="M7 27c0-5 4-9 9-9s9 4 9 9"/><path d="M24 6l3-3M26 10h4"/></svg><b>A random "about to bloom" label</b><span>About 20% of pupils were picked by lot, but teachers believed a test had picked them (Rosenthal and Jacobson, 1968).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M10 26V18M16 26V10M22 26V14"/></svg><b>8 months later, bigger IQ gains</b><span>A gap of about 4 IQ points, almost all in grades 1 and 2 (original data, as summarised by Jussim and Harber, 2005).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 16h10"/></svg><b>18 experiments pooled: small</b><span>Mean effect d = 0.11, and close to zero once teachers had known pupils for more than 2 weeks (Raudenbush, 1984).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h20M16 6v20"/><circle cx="16" cy="16" r="11"/></svg><b>Expectations travel through behaviour</b><span>Warmer, harder tasks, longer waits for an answer, more detailed feedback (Harris and Rosenthal, 1985).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Not magic</b><span>Believing in someone does not make them gifted. Teacher expectations are mostly accurate, based on real information (Jussim and Harber, 2005).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question</h2></div>
+  <p class="thesis">If a teacher believes a pupil is about to improve, does the pupil really improve? Today's answer: a little, mostly when the teacher knows nothing else about the child, and far less than the legend of "believe and they become geniuses".</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">1963–1968</span><b>The experiment</b><span>After a study with rats, Rosenthal tried it with pupils at Oak School.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1968–1970</span><b>Fame and rebuttal</b><span>Press and educators embraced it. Measurement expert Thorndike called the data broken.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1984–2005</span><b>Re-checking</b><span>Dozens of experiments pooled: the effect is real, small and depends on context.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the experiment worked</h2><p class="lead">Teachers were "fooled" about one detail only: the list of bloomers was actually random.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="k0t">
+        <title id="k0t">Four steps. One: all pupils take an IQ test with a fake label, a test said to predict blooming. Two: about 20% of each class are chosen at random. Three: teachers get the list and are told these pupils will make unusual progress. Four: eight months later the test is repeated and the IQ gains of the two groups are compared.</title>
+        <g text-anchor="middle">
+          <rect x="20" y="30" width="150" height="110" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="95" y="62" class="t-ink t-bold">1 · the test</text><text x="95" y="86">real IQ, fake name:</text><text x="95" y="104">"Harvard Test of</text><text x="95" y="122">Inflected Acquisition"</text>
+          <rect x="196" y="30" width="150" height="110" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="271" y="62" class="t-ink t-bold">2 · draw lots</text>
+          <g>
+            <circle cx="226" cy="96" r="7" fill="var(--muted)" fill-opacity=".4"/><circle cx="246" cy="96" r="7" fill="var(--night)"/><circle cx="266" cy="96" r="7" fill="var(--muted)" fill-opacity=".4"/><circle cx="286" cy="96" r="7" fill="var(--muted)" fill-opacity=".4"/><circle cx="306" cy="96" r="7" fill="var(--muted)" fill-opacity=".4"/>
+          </g>
+          <text x="271" y="126" class="t-night t-bold">~20% per class</text>
+          <rect x="372" y="30" width="150" height="110" rx="10" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <text x="447" y="62" class="t-night t-bold">3 · tell teachers</text><text x="447" y="88" class="t-ink">"these pupils</text><text x="447" y="106" class="t-ink">will bloom"</text>
+          <rect x="548" y="30" width="150" height="110" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="623" y="62" class="t-ink t-bold">4 · 8 months later</text><text x="623" y="88">retest</text><text x="623" y="106">compare IQ gains</text>
+        </g>
+        <g stroke="var(--muted)" stroke-width="2"><line x1="172" y1="85" x2="192" y2="85"/><line x1="348" y1="85" x2="368" y2="85"/><line x1="524" y1="85" x2="544" y2="85"/></g>
+        <text x="20" y="176" class="t-ink">Oak School (a pseudonym), an elementary school in California with many poor pupils.</text>
+        <text x="20" y="198">18 classes, 3 per grade (fast, medium, slow), 6 grades · Rosenthal and Jacobson, 1968</text>
+        <text x="20" y="220">The only difference between the groups: a label in the teachers' heads.</text>
+      </svg>
+    </div>
+    <figcaption><b>Clever design, shaky measurement.</b> Random assignment is the gold standard. But the IQ test used on young children produced many impossible scores, and that is where the sharpest criticism landed (Part 4).</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1</span><h3>The experiment and the legend</h3><div class="chips"><span class="chip">"bright" rats</span><span class="chip">Oak School</span><span class="chip">grades 1 and 2</span></div></div>
+    <div class="part b3"><span class="label">Part 2</span><h3>How expectations travel</h3><div class="chips"><span class="chip">4 channels</span><span class="chip">Golem</span><span class="chip">workplace</span><span class="chip">feedback</span></div></div>
+    <div class="part b2"><span class="label">Part 3</span><h3>Re-checking</h3><div class="chips"><span class="chip">Thorndike</span><span class="chip">18 experiments</span><span class="chip">accurate expectations</span><span class="chip">lessons</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>The self-fulfilling prophecy</h3><span class="en">self-fulfilling prophecy</span><span class="pg">Merton, 1948</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k1t">
+          <title id="k1t">A four-step loop: the teacher believes the pupil will do well, treats the pupil differently, the pupil responds by trying harder, and the better result makes the teacher even surer.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="70" width="150" height="60" rx="10" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="95" y="98" class="t-night t-bold">1 · expectation</text><text x="95" y="116" class="t-ink">"she'll do well"</text>
+            <rect x="200" y="70" width="150" height="60" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="275" y="98" class="t-ink t-bold">2 · treated differently</text><text x="275" y="116">warmer, harder tasks</text>
+            <rect x="380" y="70" width="150" height="60" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="455" y="98" class="t-ink t-bold">3 · the other responds</text><text x="455" y="116">tries harder, surer</text>
+            <rect x="560" y="70" width="140" height="60" rx="10" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="630" y="98" class="t-night t-bold">4 · result</text><text x="630" y="116" class="t-ink">"see, I was right"</text>
+          </g>
+          <g stroke="var(--muted)" stroke-width="2" fill="none"><line x1="172" y1="100" x2="196" y2="100"/><line x1="352" y1="100" x2="376" y2="100"/><line x1="532" y1="100" x2="556" y2="100"/><path d="M630 132 v34 H95 v-34"/></g>
+          <path d="M95 134 l-6 10 h12 z" fill="var(--muted)"/>
+          <text x="360" y="186" text-anchor="middle" class="t-ink">The loop also runs downhill: think someone is weak, give them fewer chances, they end up weak.</text>
+          <text x="360" y="40" text-anchor="middle">Merton's definition: a false belief that makes itself come true</text>
+        </svg>
+      </div>
+      <figcaption><b>The key word is "false".</b> If an expectation was already accurate, there is nothing left to "fulfil itself". This is the heart of the debate in Part 4.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Four channels of expectation</h3><span class="en">climate · feedback · input · output</span><span class="pg">Rosenthal, 1973 · Harris and Rosenthal, 1985</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Climate</h3><span class="muted">Warmer: smiles, eye contact, nods, a softer voice for people we expect a lot from.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Input</h3><span class="muted">More teaching, harder tasks, more opportunities passed their way.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Output</h3><span class="muted">Asking them more, waiting longer for their answer, giving hints when they are stuck.</span></div>
+      <div class="fcol"><h3><span class="dot"></span>Feedback</h3><span class="muted">More specific praise and critique, instead of vague praise or silence.</span></div>
+    </div>
+    <p class="lead">Harris and Rosenthal (1985) pooled studies of these behaviours: expectations do not travel by telepathy, but through small gestures repeated every day. Climate and input are the clearest channels.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Pygmalion, Golem and Galatea</h3><span class="en">high · low · self-expectation</span><span class="pg">Babad, Inbar and Rosenthal, 1982</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Pygmalion</h3><span class="muted">Others expect a lot, we do better. Named after the sculptor in Greek myth who fell in love with his own statue.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Golem</h3><span class="muted">Others expect little, we do worse. Bias-prone student teachers treated pupils they saw as weak more negatively (26 student teachers, 202 pupils).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Galatea</h3><span class="muted">Our expectations of ourselves. At work, Eden argues this is the route by which a boss's expectations reach results.</span></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Expectations only "take" when the teacher is new to the pupil</h3><span class="en">credibility of induction</span><span class="pg">Raudenbush, 1984</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="k2t">
+          <title id="k2t">Effect on IQ by how many weeks the teacher had known pupils before getting the false information. 0 weeks: d of 0.32 (4 experiments). 1 week: 0.26 (3). 2 weeks: 0.08 (3). More than 2 weeks: minus 0.04 (8).</title>
+          <line x1="60" y1="170" x2="680" y2="170" class="axis"/>
+          <line x1="60" y1="110" x2="680" y2="110" class="gridl"/><line x1="60" y1="50" x2="680" y2="50" class="gridl"/>
+          <text x="52" y="174" text-anchor="end">0</text><text x="52" y="114" text-anchor="end">0.2</text><text x="52" y="54" text-anchor="end">0.4</text>
+          <rect x="110" y="74" width="80" height="96" fill="var(--night)" fill-opacity=".8"/><text x="150" y="66" text-anchor="middle" class="t-night t-bold">0.32</text><text x="150" y="190" text-anchor="middle" class="t-ink">0 weeks</text><text x="150" y="206" text-anchor="middle">4 experiments</text>
+          <rect x="250" y="92" width="80" height="78" fill="var(--night)" fill-opacity=".6"/><text x="290" y="84" text-anchor="middle" class="t-night t-bold">0.26</text><text x="290" y="190" text-anchor="middle" class="t-ink">1 week</text><text x="290" y="206" text-anchor="middle">3 experiments</text>
+          <rect x="390" y="146" width="80" height="24" fill="var(--muted)" fill-opacity=".45"/><text x="430" y="138" text-anchor="middle" class="t-ink t-bold">0.08</text><text x="430" y="190" text-anchor="middle" class="t-ink">2 weeks</text><text x="430" y="206" text-anchor="middle">3 experiments</text>
+          <rect x="530" y="170" width="80" height="12" fill="var(--day)" fill-opacity=".6"/><text x="570" y="162" text-anchor="middle" class="t-day t-bold">−0.04</text><text x="570" y="198" text-anchor="middle" class="t-ink">over 2 weeks</text><text x="570" y="214" text-anchor="middle">8 experiments</text>
+          <text x="60" y="228">d = IQ gap in standard deviations · mean of all 18 experiments: 0.11</text>
+        </svg>
+      </div>
+      <figcaption><b>False information only weighs something when real information is missing.</b> After a few weeks with the class, teachers trust their own eyes more than the list.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Accurate expectations or created ones?</h3><span class="en">accuracy vs self-fulfilling</span><span class="pg">Jussim and Harber, 2005</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="k3t">
+          <title id="k3t">Teacher expectations predict pupil achievement. By Jussim and Harber's estimate, about 75% of that predictive power is because teachers guess right, about 25% is self-fulfilling prophecy.</title>
+          <rect x="40" y="50" width="480" height="50" rx="6" fill="var(--muted)" fill-opacity=".35"/>
+          <rect x="520" y="50" width="160" height="50" rx="6" fill="var(--night)" fill-opacity=".8"/>
+          <text x="280" y="81" text-anchor="middle" class="t-ink t-bold">~75% · teachers guess right</text>
+          <text x="600" y="81" text-anchor="middle" class="t-bold" style="fill:var(--paper)">~25% · self-fulfilling</text>
+          <text x="40" y="36" class="t-ink">Why do teacher expectations predict grades?</text>
+          <text x="40" y="128">correlation of expectations with achievement: about 0.4–0.8 · experimental effects: about 0.1–0.2</text>
+          <text x="40" y="150">estimate by Jussim and Harber (2005) from naturalistic classroom studies</text>
+        </svg>
+      </div>
+      <figcaption><b>Most teachers read pupils correctly.</b> The Pygmalion effect is a small layer on a larger base: teachers expect more because pupils are already doing well.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Pygmalion at work</h3><span class="en">Pygmalion in management</span><span class="pg">Eden and Shani, 1982 · McNatt, 2000 · Eden et al., 2000</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Boot camp</h3><span class="muted">Israeli army instructors were told (at random) that some trainees had high command potential. That group scored higher (Eden and Shani, 1982).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>17 studies pooled: large</h3><span class="muted">Mean d of 1.13 across 2,874 people, strongest in the military, with men, and with people previously expected to do poorly (McNatt, 2000).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Training bosses to expect more: weak</h3><span class="muted">7 workshop experiments for managers: small mean effect, r = 0.13, little change in bosses or staff (Eden et al., 2000).</span></div>
+    </div>
+    <p class="lead">Fooling a boss with a fake list works; teaching a boss to "expect more" is much harder. That is why the lessons in Part 6 focus on concrete behaviour, not belief.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Evidence: how far can we trust it</h2><p class="lead">10 common claims about the Pygmalion effect, checked against current research. Click each line for the reason.</p></div>
+  <div class="tally" role="img" aria-label="3 solid, 5 caution, 2 criticised">
+    <div class="o" style="flex:3">3 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:2">2 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Other people's expectations can affect our results</span></summary><p class="note">Rosenthal and Rubin (1978) pooled 345 experiments on interpersonal expectancy effects. Even the strongest critics (Jussim and Harber, 2005) conclude the effect is real. The debate is about size, not existence.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Expectations are passed on through everyday behaviour</span></summary><p class="note">Harris and Rosenthal (1985) pooled studies on how people with expectations behave: warmer, more teaching, more chances to answer. The mechanism is fairly consistent.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Teacher expectations predict grades mainly because teachers read pupils correctly</span></summary><p class="note">Expectations correlate with achievement at about 0.4–0.8, while experimental effects are about 0.1–0.2. Jussim and Harber (2005) estimate about 75% accuracy, about 25% self-fulfilling prophecy.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Bloomers" gained more IQ (Rosenthal and Jacobson, 1968)</span></summary><p class="note">The overall gap was only about 4 IQ points (12 vs 8), almost all from grade 1 (about 15 points) and grade 2 (about 10 points); other grades showed no difference or the reverse (per Jussim and Harber, 2005). Thorndike (1968) pointed out that one whole class had a mean pre-test IQ in the intellectually disabled range. Snow (1995) found about 35% of scores outside the test's norm range, and the effect vanished without 5 extreme pupils (one went from 17 to 110).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Expectations hit low achievers and stigmatised groups harder</span></summary><p class="note">Madon, Jussim and Eccles (1997): effects of about 0.26 for low achievers, 0.08 for high achievers. Jussim and Harber (2005) report similar findings for poor and African American pupils, but only about 2 studies have tested this.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>At work, the Pygmalion effect is very large</span></summary><p class="note">McNatt (2000) pooled 17 studies (2,874 people): mean d of 1.13. But most were training courses, many in the military, and effects varied widely. There is little data from ordinary, running companies.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Feedback with "I believe you can meet a high bar" gets people to revise</span></summary><p class="note">Yeager et al. (2014), US 7th graders: among African American pupils, 64% turned in a revision with this note vs 27% with standard feedback. Clear result, but in a school, small sample, little tested at work.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Low expectations do harm (the Golem effect)</span></summary><p class="note">Babad, Inbar and Rosenthal (1982): bias-prone student teachers treated pupils they saw as weak more negatively, and the gap showed in task performance. Only 26 student teachers, but consistent with later studies.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>If the teacher believes in you, your IQ shoots up</span></summary><p class="note">Raudenbush (1984) pooled 18 IQ experiments: mean d = 0.11; Snow (1995) put the median at just 0.035. The effect is near zero once teachers have known pupils for more than 2 weeks. The "believe and they become geniuses" version in self-help books is an exaggeration.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Just train bosses to expect more and productivity rises</span></summary><p class="note">Eden et al. (2000) ran 7 experiments training managers in a "Pygmalion leadership style": small mean effect (r = 0.13) and little evidence of change in bosses or staff. Eden, the pioneer of workplace Pygmalion research, published this himself.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Idea that expectations shape results</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Original design and measurement</span><div class="bar"><i class="low" style="width:30%"></i></div><b>1.5/5</b></div>
+    <div class="score"><span>"Believe and they become geniuses"</span><div class="bar"><i class="low" style="width:20%"></i></div><b>1/5</b></div>
+    <div class="score"><span>Value of the lesson for managers</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Random assignment: a real experiment in real classrooms</li><li>Opened a whole field on expectations and bias</li><li>The mechanism (4 channels) is easy to understand, observe and fix</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>The IQ test gave absurd scores for young children</li><li>Results came only from grades 1 and 2 and a few extreme pupils</li><li>Later experiments found much smaller effects</li></ul></div>
+  </div>
+  <p class="verdict">A real but small effect, strongest when people are still strangers. Keep the lesson about behaviour, drop the promise of magic.</p>
+  <details class="more"><summary>More: why a weak study became so famous</summary><div>
+    <p>Pygmalion arrived just as the US was fiercely debating poor and Black pupils' education. The story "if teachers believe, children will thrive" was hopeful and simple, so it spread through the press, education books and later management books.</p>
+    <p>Thorndike (1968), a measurement specialist, wrote a scathing review: some IQ data could not possibly be right, so every conclusion drawn from them was doubtful. His famous line, paraphrased: when the clock strikes thirteen, you doubt more than the last stroke (paraphrase, not an exact quote). Rosenthal replied that poor measurement makes differences harder to find, so the differences found still mean something.</p>
+    <p>Dozens of later experiments give a modest picture: the effect is real, usually small, larger for disadvantaged people, and most of the predictive power of expectations comes from people guessing right. It is an early example of what is now called the replication crisis.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Lessons: expectations and feedback with colleagues and reports</h2><p class="lead">You do not need to "believe harder". You need to check how you treat people differently across the 4 channels, then even it out.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="k7t">
+        <title id="k7t">Four steps for managers: audit your silent expectations of each person; even out the four channels of climate, task assignment, chances to speak and feedback; give feedback as high standard plus belief plus guidance; and pay special attention to a newcomer's first weeks.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · audit</text><text x="110" y="100" class="t-night t-bold">silently rate 1–5</text><text x="110" y="116">for each person</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · even 4 channels</text><text x="300" y="100" class="t-day t-bold">hard tasks, airtime</text><text x="300" y="116">for your "3s" too</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · "high bar" feedback</text><text x="490" y="100" class="t-rem t-bold">high bar + belief</text><text x="490" y="116">+ how to fix</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · first weeks</text><text x="680" y="100" class="t-ok t-bold">newcomers</text><text x="680" y="116">expectations form early</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Expectations must be genuine and grounded. People spot fake praise.</text>
+      </svg>
+    </div>
+    <figcaption><b>Step 4 rests on Raudenbush (1984):</b> expectations weigh most when there is no other information. At work, that means a newcomer's first weeks, or when you have just taken over a team.</figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>In meetings</h3><span class="muted">Ask the quiet person first, wait a few more seconds for their answer, do not jump to "the one with ideas". That is the "output" channel.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>When assigning work</h3><span class="muted">Rotate the hard tasks, the client meetings, the chance to present to senior leaders. Keep a note of who got what this quarter.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>In feedback emails</h3><span class="muted">"I'm giving detailed comments because this needs to meet a high bar, and I'm confident you can. Three things to fix: …" High bar, belief, concrete guidance.</span></div>
+  </div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><div><b>Audit your silent labels</b><span>Who on your team have you boxed in as weak? On what evidence, since when?</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h20M6 9h20M6 23h12"/></svg><div><b>Even-handed, not blind faith</b><span>Treat everyone evenly; update expectations on real results.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 17l6 6 14-14"/></svg><div><b>Give feedback with a good reason</b><span>Say why you are commenting: a high bar and belief in them.</span></div></div>
+  </div>
+  <div class="quote"><span>Expectations are not magic. They are how we behave, repeated every day.</span><span class="src">Mark's summary of Harris and Rosenthal (1985) and Jussim and Harber (2005), not a quote.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Rosenthal and Jacobson, <i>Pygmalion in the Classroom</i> (1968)</b><span class="muted">The original book. Read the design, then Thorndike's review from the same year.</span></div>
+    <div><b>Jussim and Harber, "Teacher expectations and self-fulfilling prophecies" (2005)</b><span class="muted">The most balanced review: what is settled, what is still argued.</span></div>
+    <div><b>Dov Eden, <i>Pygmalion in Management</i> (1990)</b><span class="muted">Brings Pygmalion into the workplace, from the researcher behind the Israeli army studies.</span></div>
+    <div><b>Carol Dweck, <i>Mindset</i></b><span class="muted">A related idea: beliefs about ability. Also over-read. Volume 2 of the book corner.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2></div>
+  <p class="muted">Every number in the article, the Facebook slides and captions comes from the studies below.</p>
+  <div class="reads">
+    <div><b>Merton (1948)</b><span class="muted">“The self-fulfilling prophecy”, <i>The Antioch Review</i> 8(2), 193–210 · <b>Used for:</b> definition of the self-fulfilling prophecy</span></div>
+    <div><b>Rosenthal and Fode (1963)</b><span class="muted">“The effect of experimenter bias on the performance of the albino rat”, <i>Behavioral Science</i> 8(3), 183–189 · <b>Used for:</b> rats labelled "bright" ran the maze better than rats labelled "dull"</span></div>
+    <div><b>Rosenthal and Jacobson (1968)</b><span class="muted">book <i>Pygmalion in the Classroom: Teacher Expectation and Pupils’ Intellectual Development</i>, Holt, Rinehart and Winston (early report: <i>Psychological Reports</i> 19, 1966, 115–118) · <b>Used for:</b> 18 classes, 6 grades, about 20% chosen at random, retest after 8 months, fake test name</span></div>
+    <div><b>Thorndike (1968)</b><span class="muted">review of <i>Pygmalion in the Classroom</i>, <i>American Educational Research Journal</i> 5(4), 708–711 · <b>Used for:</b> critique of the test; one class's mean IQ in the intellectually disabled range</span></div>
+    <div><b>Rosenthal and Rubin (1978)</b><span class="muted">“Interpersonal expectancy effects: the first 345 studies”, <i>Behavioral and Brain Sciences</i> 1(3), 377–386 · <b>Used for:</b> 345 studies of expectancy effects</span></div>
+    <div><b>Babad, Inbar and Rosenthal (1982)</b><span class="muted">“Pygmalion, Galatea, and the Golem”, <i>Journal of Educational Psychology</i> 74(4), 459–474 · <b>Used for:</b> 26 student teachers, 202 pupils; the Golem effect</span></div>
+    <div><b>Eden and Shani (1982)</b><span class="muted">“Pygmalion goes to boot camp”, <i>Journal of Applied Psychology</i> 67(2), 194–199 · <b>Used for:</b> Israeli army trainees randomly labelled "high potential" scored higher</span></div>
+    <div><b>Raudenbush (1984)</b><span class="muted">“Magnitude of teacher expectancy effects on pupil IQ as a function of the credibility of expectancy induction: a synthesis of findings from 18 experiments”, <i>Journal of Educational Psychology</i> 76(1), 85–97 · <b>Used for:</b> 18 experiments, mean d 0.11; by weeks of prior contact: 0.32 (0), 0.26 (1), 0.08 (2), −0.04 (more than 2)</span></div>
+    <div><b>Harris and Rosenthal (1985)</b><span class="muted">“Mediation of interpersonal expectancy effects: 31 meta-analyses”, <i>Psychological Bulletin</i> 97(3), 363–386 · <b>Used for:</b> behaviours that carry expectations (Rosenthal's 1973 four-factor model)</span></div>
+    <div><b>Snow (1995)</b><span class="muted">“Pygmalion and intelligence?”, <i>Current Directions in Psychological Science</i> 4(6), 169–171 · <b>Used for:</b> about 35% of scores outside the 60–160 norm range; 5 extreme pupils (17 to 110, 18 to 122…); median effect 0.035</span></div>
+    <div><b>Madon, Jussim and Eccles (1997)</b><span class="muted">“In search of the powerful self-fulfilling prophecy”, <i>Journal of Personality and Social Psychology</i> 72(4), 791–809 · <b>Used for:</b> effect 0.26 for low achievers, 0.08 for high achievers</span></div>
+    <div><b>McNatt (2000)</b><span class="muted">“Ancient Pygmalion joins contemporary management: a meta-analysis of the result”, <i>Journal of Applied Psychology</i> 85(2), 314–322 · <b>Used for:</b> 17 studies, 2,874 people, mean d 1.13; stronger in the military, with men, with people expected to do poorly</span></div>
+    <div><b>Eden et al. (2000)</b><span class="muted">“Implanting Pygmalion leadership style through workshop training: seven field experiments”, <i>The Leadership Quarterly</i> 11(2), 171–210 · <b>Used for:</b> 7 experiments, 61 effects, mean r 0.13</span></div>
+    <div><b>Jussim and Harber (2005)</b><span class="muted">“Teacher expectations and self-fulfilling prophecies: knowns and unknowns, resolved and unresolved controversies”, <i>Personality and Social Psychology Review</i> 9(2), 131–155 · <b>Used for:</b> summary of the 1968 data (12 vs 8 points, gap ~4, d ≈ 0.30; grade 1 ~15, grade 2 ~10); typical effect r 0.1–0.2; expectation correlations 0.4–0.8; ~75% accuracy, ~25% self-fulfilling</span></div>
+    <div><b>Yeager et al. (2014)</b><span class="muted">“Breaking the cycle of mistrust: wise interventions to provide critical feedback across the racial divide”, <i>Journal of Experimental Psychology: General</i> 143(2), 804–824 · <b>Used for:</b> African American 7th graders revised 64% vs 27%</span></div>
+  </div>
+</section>
+
+<footer>Famous Experiments #09. Figures are illustrative diagrams; numbers come from the original studies and are checked in the Evidence section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

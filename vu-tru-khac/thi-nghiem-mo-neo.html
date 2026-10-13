@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vòng quay mỏ neo (Tversky &amp; Kahneman): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Một vòng quay dừng ở 10 hay 65 đủ làm người ta đoán lệch 20 điểm phần trăm. Thí nghiệm gốc, vì sao con số đầu tiên thường thắng khi bàn lương, báo giá, và lần làm lại ở 36 nơi.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vòng quay mỏ neo (Tversky &amp; Kahneman): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Một vòng quay dừng ở 10 hay 65 đủ làm người ta đoán lệch 20 điểm phần trăm. Thí nghiệm gốc, vì sao con số đầu tiên thường thắng khi bàn lương, báo giá, và lần làm lại ở 36 nơi.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #080A0D; --bia-2: #334155; --bia-nhan: #E2E8F0; }
+:root { --vtk-nhan: #E2E8F0; }
+body header { --ho-so: "Sổ thí nghiệm"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/thi-nghiem-mo-neo.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Series "Thí nghiệm nổi tiếng" #4: anchoring, --night = slate (the anchor), --day = amber (the first number, the wheel). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #334155;
+  --day: #d97706;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #a9b8cc; --day: #f2b155; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #a9b8cc; --day: #f2b155; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Thí nghiệm nổi tiếng · Tâm lý học nhận thức</span>
+  <h1>Vòng quay mỏ neo</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một vòng quay nhỏ, mũi tên tới số 10 rồi 25 phần trăm, và số 65 rồi 45 phần trăm">
+    <circle cx="26" cy="26" r="20" fill="#e2e8f0" stroke="#334155" stroke-width="2"/><path d="M26 26 L26 6 A20 20 0 0 1 38 10 Z" fill="#d97706"/><circle cx="26" cy="26" r="3" fill="#334155"/>
+    <text x="60" y="22" font-family="monospace" font-size="15" fill="#8a94a6">10 → 25%</text>
+    <text x="60" y="44" font-family="monospace" font-size="15" fill="#d97706">65 → 45%</text>
+    <g transform="translate(250 26)" fill="none" stroke="#334155" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-15" r="4"/><path d="M0 -11 V18 M-8 -5 H8 M-15 5 Q-14 18 0 18 Q14 18 15 5"/></g>
+  </svg>
+  <p class="sub">Anchoring · Amos Tversky và Daniel Kahneman, tạp chí Science, 1974</p>
+  <div class="meta">
+    <div><span class="label">Người làm</span><b>Amos Tversky và Daniel Kahneman</b></div>
+    <div><span class="label">Thời gian</span><b>bài báo 1974 · làm lại và mở rộng đến nay</b></div>
+    <div><span class="label">Quy mô</span><b>lần làm lại lớn: 6.344 người ở 36 nhóm mẫu (Klein và cộng sự, 2014)</b></div>
+    <div><span class="label">Kết luận</span><b>hiệu ứng thật, lặp lại tốt · độ vững 8 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Diễn ra thế nào</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 16V5M16 16l8 6"/></svg><b>Số vô nghĩa vẫn kéo</b><span>Vòng quay dừng ở 10 thì đoán 25%, dừng ở 65 thì đoán 45% (Tversky và Kahneman, 1974).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M10 26V14M16 26V8M22 26V18"/></svg><b>Lặp lại rất tốt</b><span>Làm lại với 6.344 người ở 36 nhóm mẫu, mỏ neo vẫn rõ (Klein và cộng sự, 2014).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22h22M9 22l3-10h8l3 10"/><path d="M16 12V6"/></svg><b>Giá đầu kéo giá chốt</b><span>Gộp 90 nghiên cứu: tương quan 0,62 giữa giá đầu và giá chốt (Petrowsky và cộng sự, 2025).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 16h16M16 8v16"/><circle cx="16" cy="16" r="12"/></svg><b>Gỡ neo bằng việc làm</b><span>Nghĩ về mục tiêu của mình và lý do ngược lại; chỉ "biết" thì không đủ.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Dè dặt với số ngẫu nhiên</b><span>Mỏ neo về giá ở mức vừa, nhỏ hơn các bài đầu; số ngẫu nhiên kéo yếu hơn (Li và cộng sự, 2021).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của thí nghiệm</h2></div>
+  <p class="thesis">Khi phải đoán một con số, ta có bị con số vừa thấy kéo theo không, kể cả khi biết nó vô nghĩa? Câu trả lời sau 50 năm: có, khá đều tay. Và ở bàn thương lượng, con số đầu tiên thường thắng.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">1974</span><b>Thí nghiệm</b><span>Vòng quay 10 hay 65 làm câu trả lời lệch 20 điểm phần trăm.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1987–2001</span><b>Ra đời thực</b><span>Môi giới nhà đất, thẩm phán, người đàm phán đều bị kéo.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2014–2025</span><b>Kiểm chứng lại</b><span>Lặp lại ở 36 nơi. Chỉ số ngẫu nhiên vô nghĩa là yếu hơn lời kể.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Thí nghiệm diễn ra thế nào</h2><p class="lead">Một vòng quay số 0 đến 100, quay ngay trước mặt người tham gia, rồi hai câu hỏi.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="k0t">
+        <title id="k0t">Vòng quay số từ 0 đến 100, bị chỉnh để chỉ dừng ở 10 hoặc 65. Câu 1: tỷ lệ nước châu Phi trong Liên Hợp Quốc cao hơn hay thấp hơn con số đó? Câu 2: đoán tỷ lệ cụ thể. Nhóm thấy 10 đoán trung vị 25 phần trăm, nhóm thấy 65 đoán 45 phần trăm.</title>
+        <circle cx="100" cy="100" r="70" fill="var(--grid)" stroke="var(--night)" stroke-width="3"/>
+        <path d="M100 100 L100 30 A70 70 0 0 1 141 43 Z" fill="var(--day)" fill-opacity=".8"/>
+        <path d="M100 100 L59 43 A70 70 0 0 1 100 30 Z" fill="var(--night)" fill-opacity=".25"/>
+        <circle cx="100" cy="100" r="6" fill="var(--night)"/>
+        <path d="M92 18 h16 l-8 14 z" fill="var(--day)"/>
+        <text x="100" y="195" text-anchor="middle" class="t-ink t-bold">chỉ dừng ở 10 hoặc 65</text>
+        <rect x="220" y="20" width="480" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="235" y="47" class="t-night t-bold">Câu 1: cao hơn hay thấp hơn con số này?</text>
+        <rect x="220" y="76" width="480" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="235" y="103" class="t-ink t-bold">Câu 2: nước châu Phi chiếm bao nhiêu % LHQ?</text>
+        <rect x="220" y="132" width="230" height="44" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+        <text x="335" y="159" text-anchor="middle" class="t-night t-bold">thấy 10 → đoán 25%</text>
+        <rect x="470" y="132" width="230" height="44" rx="8" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+        <text x="585" y="159" text-anchor="middle" class="t-day t-bold">thấy 65 → đoán 45%</text>
+        <text x="220" y="200">trung vị các câu trả lời · Tversky và Kahneman, Science, 1974</text>
+      </svg>
+    </div>
+    <figcaption><b>Ai cũng thấy con số là ngẫu nhiên.</b> Vậy mà nó vẫn kéo câu trả lời. Bài báo cũng ghi: trả tiền cho câu trả lời chính xác không làm hiệu ứng giảm.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Vòng quay và con số 65</h3><div class="chips"><span class="chip">10 hay 65</span><span class="chip">nhân nhẩm 5 giây</span><span class="chip">vì sao nổi tiếng</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 2</span><h3>Ai đưa số trước?</h3><div class="chips"><span class="chip">cơ chế</span><span class="chip">giá đầu tiên</span><span class="chip">gỡ mỏ neo</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 3</span><h3>Kiểm chứng lại</h3><div class="chips"><span class="chip">Many Labs</span><span class="chip">số ngẫu nhiên</span><span class="chip">áp dụng</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Mỏ neo và điều chỉnh chưa đủ</h3><span class="en">anchoring and adjustment</span><span class="pg">Tversky và Kahneman, 1974</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="k1t">
+          <title id="k1t">Trục số từ 0 đến 100. Từ mỏ neo 10, người ta nhích lên và dừng ở 25. Từ mỏ neo 65, người ta nhích xuống và dừng ở 45. Hai nhóm dừng ở hai chỗ khác nhau, mỗi nhóm gần mỏ neo của mình.</title>
+          <line x1="40" y1="90" x2="680" y2="90" class="axis" stroke-width="2"/>
+          <g text-anchor="middle"><text x="40" y="112">0</text><text x="360" y="112">50</text><text x="680" y="112">100</text></g>
+          <circle cx="104" cy="90" r="9" fill="var(--night)"/><text x="104" y="68" text-anchor="middle" class="t-night t-bold">mỏ neo 10</text>
+          <circle cx="456" cy="90" r="9" fill="var(--day)"/><text x="456" y="68" text-anchor="middle" class="t-day t-bold">mỏ neo 65</text>
+          <path d="M114 130 H190" stroke="var(--night)" stroke-width="3"/><path d="M200 130 l-10 -6 v12 z" fill="var(--night)"/>
+          <text x="200" y="152" text-anchor="middle" class="t-night t-bold">dừng ở 25</text>
+          <path d="M446 130 H338" stroke="var(--day)" stroke-width="3"/><path d="M328 130 l10 -6 v12 z" fill="var(--day)"/>
+          <text x="328" y="152" text-anchor="middle" class="t-day t-bold">dừng ở 45</text>
+          <text x="40" y="24" class="t-ink">Bắt đầu từ con số có sẵn, nhích dần ra, rồi dừng quá sớm.</text>
+        </svg>
+      </div>
+      <figcaption><b>Đây là cách giải thích gốc của Tversky và Kahneman.</b> Epley và Gilovich (2006) cho thấy điều chỉnh chưa đủ đặc biệt rõ khi người ta tự nghĩ ra mỏ neo, ví dụ bắt đầu từ một con số mình đã biết.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Tìm lý do khớp với con số</h3><span class="en">selective accessibility</span><span class="pg">Mussweiler và Strack, 1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Câu hỏi so sánh</h3><span class="muted">"Có phải cao hơn 65 không?" Để trả lời, đầu ta thử giả định "có thể là 65".</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Bằng chứng bị chọn lọc</h3><span class="muted">Ta nhớ ra những điều hợp với con số đó trước. Chúng nằm sẵn khi ta đoán.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Thuốc giải</h3><span class="muted">Chủ động nghĩ lý do con số có thể sai. Cách này giảm được mỏ neo (Mussweiler, Strack và Pfeiffer, 2000).</span></div>
+    </div>
+    <p class="lead">Hai cách giải thích không loại trừ nhau. Cả hai đều kéo câu trả lời về phía mỏ neo.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Nhân nhẩm trong 5 giây</h3><span class="en">8×7×6×5×4×3×2×1</span><span class="pg">Tversky và Kahneman, 1974</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="k2t">
+          <title id="k2t">Học sinh trung học có 5 giây để ước lượng tích của 8 số. Nhóm thấy dãy tăng dần từ 1 đoán trung vị 512. Nhóm thấy dãy giảm dần từ 8 đoán trung vị 2.250. Đáp án đúng là 40.320.</title>
+          <text x="40" y="34" class="t-ink t-bold">1×2×3×…×8</text>
+          <rect x="200" y="20" width="6" height="22" fill="var(--night)"/><text x="216" y="36" class="t-night t-bold">512</text>
+          <text x="40" y="84" class="t-ink t-bold">8×7×6×…×1</text>
+          <rect x="200" y="70" width="25" height="22" fill="var(--day)"/><text x="235" y="86" class="t-day t-bold">2.250</text>
+          <text x="40" y="134" class="t-ink t-bold">đáp án đúng</text>
+          <rect x="200" y="120" width="460" height="22" fill="var(--ok)" fill-opacity=".6"/><text x="650" y="136" text-anchor="end" class="t-bold" style="fill:var(--paper)">40.320</text>
+          <text x="40" y="176">trung vị ước lượng · học sinh trung học · 5 giây · thanh vẽ theo đúng tỷ lệ</text>
+        </svg>
+      </div>
+      <figcaption><b>Vài phép tính đầu tiên làm mỏ neo cho cả bài.</b> Dãy bắt đầu bằng số lớn cho ước lượng lớn hơn, nhưng cả hai nhóm đều đoán thấp xa so với thật.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Giá đầu tiên trong thương lượng</h3><span class="en">first-offer effect</span><span class="pg">Galinsky và Mussweiler, 2001 · Petrowsky và cộng sự, 2025</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Phân tích gộp 90 nghiên cứu, 16.334 người: tương quan giữa mức giá đầu và giá chốt là 0,62. Ra giá đầu tham vọng giúp được giá tốt hơn, nhưng làm thương lượng dễ đổ vỡ hơn và bên nhận kém hài lòng hơn.</title>
+          <rect x="20" y="20" width="200" height="150" rx="10" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <text x="120" y="80" text-anchor="middle" class="t-night" style="font-size:34px;font-weight:600">0,62</text>
+          <text x="120" y="112" text-anchor="middle" class="t-ink">tương quan giá đầu</text><text x="120" y="130" text-anchor="middle" class="t-ink">và giá chốt</text>
+          <text x="120" y="156" text-anchor="middle">90 nghiên cứu · 16.334 người</text>
+          <rect x="250" y="20" width="210" height="150" rx="10" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="355" y="56" text-anchor="middle" class="t-ok t-bold">+ giá đầu tham vọng</text>
+          <text x="355" y="90" text-anchor="middle" class="t-ink">được giá tốt hơn</text>
+          <text x="355" y="112" text-anchor="middle" class="t-ink">khi thỏa thuận thành</text>
+          <rect x="490" y="20" width="210" height="150" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="595" y="56" text-anchor="middle" class="t-bad t-bold">− cái giá phải trả</text>
+          <text x="595" y="90" text-anchor="middle" class="t-ink">ít thỏa thuận hơn</text>
+          <text x="595" y="112" text-anchor="middle" class="t-ink">bên nhận kém hài lòng</text>
+          <text x="595" y="134" text-anchor="middle" class="t-ink">(vì bực, theo tác giả)</text>
+          <text x="20" y="194">Petrowsky và cộng sự, Organizational Behavior and Human Decision Processes, 2025</text>
+        </svg>
+      </div>
+      <figcaption><b>Người đưa giá trước thường được lợi, dù là bên mua hay bên bán.</b> Galinsky và Mussweiler (2001) thấy điều này trong cả 3 thí nghiệm, gặp mặt lẫn qua email. Lợi thế nhỏ dần khi bàn nhiều vấn đề cùng lúc (Petrowsky và cộng sự, 2025).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Số có vẻ liên quan và số ngẫu nhiên</h3><span class="en">incidental vs plausible anchors</span><span class="pg">Maniadis 2014 · Li 2021</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Bài gốc gây sốc</h3><span class="muted">Ariely, Loewenstein và Prelec (2003): hai số cuối mã an sinh xã hội kéo mức giá sinh viên MBA sẵn lòng trả.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Làm lại yếu hơn</h3><span class="muted">Fudenberg, Levine và Maniadis (2012) làm lại trong phòng thí nghiệm: mỏ neo với hàng hóa rất yếu, với xổ số thì không thấy. Maniadis, Tufano và List (2014) làm lại thí nghiệm âm thanh khó chịu của Ariely: yếu hơn, không có ý nghĩa thống kê.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Gộp 53 nghiên cứu</h3><span class="muted">Li, Maniadis và Sedikides (2021): hiệu ứng mỏ neo về giá ở mức vừa, nhỏ hơn các nghiên cứu đầu; số không ngẫu nhiên kéo mạnh hơn.</span></div>
+    </div>
+    <p class="lead">Ở bàn thương lượng, con số luôn có vẻ liên quan. Đó là lý do mỏ neo ở đó vẫn mạnh.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: tin được đến đâu</h2><p class="lead">10 điều hay được nói về mỏ neo, đối chiếu với nghiên cứu hiện nay. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 4 cần thận trọng, 1 bị phê bình">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:4">4 THẬN TRỌNG</div><div class="b" style="flex:1">1 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Một con số đưa ra trước kéo ước lượng về phía nó</span></summary><p class="note">Thí nghiệm gốc (Tversky và Kahneman, 1974) và hàng trăm nghiên cứu sau. Many Labs (Klein và cộng sự, 2014) làm lại bốn câu hỏi mỏ neo ở 36 nhóm mẫu: cả bốn đều lặp lại, thuộc nhóm hiệu ứng rõ nhất của dự án.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Hiệu ứng giữ được ở nhiều nước, trong phòng thí nghiệm lẫn qua mạng</span></summary><p class="note">Many Labs có 6.344 người. Nhóm tác giả thấy nơi làm (phòng thí nghiệm hay qua mạng, Mỹ hay nước khác) nhìn chung không đổi được độ lớn hiệu ứng. Lưu ý: Many Labs dùng mỏ neo cố định trong câu hỏi so sánh, không phải vòng quay.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Thưởng tiền hay báo trước không xóa được mỏ neo</span></summary><p class="note">Tversky và Kahneman (1974) ghi rằng trả tiền cho câu trả lời chính xác không làm hiệu ứng giảm. Wilson và cộng sự (1996) thấy cả thưởng tiền lẫn cảnh báo chi tiết về mỏ neo đều không làm hiệu ứng nhỏ đi.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chuyên gia cũng bị kéo</span></summary><p class="note">Môi giới nhà đất định giá theo giá niêm yết được đưa (Northcraft và Neale, 1987). Thẩm phán có kinh nghiệm cũng bị con số từ xúc xắc kéo khi đề xuất mức án (Englich, Mussweiler và Strack, 2006). Mẫu từng nghiên cứu không lớn, nhưng nhiều nghiên cứu cùng chiều.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Người đưa giá trước thường được lợi</span></summary><p class="note">Galinsky và Mussweiler (2001), 3 thí nghiệm. Phân tích gộp 90 nghiên cứu, 16.334 người (Petrowsky và cộng sự, 2025): có lợi thế người đi trước, và mức giá đầu tương quan 0,62 với giá chốt. Hai thí nghiệm đăng ký trước với 2.121 người lặp lại kết quả.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Số hoàn toàn ngẫu nhiên kéo mạnh như số có vẻ liên quan</span></summary><p class="note">Các kết quả của Ariely và cộng sự (2003) khi làm lại thì yếu hơn nhiều: mỏ neo với hàng hóa rất yếu, với xổ số không thấy (Fudenberg, Levine và Maniadis, 2012); thí nghiệm âm thanh khó chịu cho hiệu ứng yếu, không có ý nghĩa thống kê (Maniadis, Tufano và List, 2014). Phân tích gộp 53 nghiên cứu về giá (Li, Maniadis và Sedikides, 2021): số không ngẫu nhiên kéo mạnh hơn.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Giá đầu càng cao càng tốt</span></summary><p class="note">Petrowsky và cộng sự (2025): giá đầu tham vọng cho giá chốt tốt hơn, nhưng làm số thỏa thuận ít đi và bên nhận kém hài lòng. Lợi thế còn tùy việc thỏa thuận có thành không.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Lợi thế đưa giá trước giữ nguyên ở mọi cuộc thương lượng</span></summary><p class="note">Theo cùng phân tích gộp, khi bàn nhiều vấn đề cùng lúc, tác dụng của giá đầu nhỏ dần. Khi bạn thiếu thông tin về giá thị trường, đưa số trước có thể tự neo mình thấp; đây là quy tắc thực hành của Chương trình Đàm phán Harvard, không phải một con số đo được.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Số lẻ (1.865) kéo mạnh hơn số tròn (2.000)</span></summary><p class="note">Mason và cộng sự (2013): người nhận giá lẻ trả giá lại sát hơn. Leib và cộng sự (2022) vẫn thấy hiệu ứng nhưng chỉ một phần cơ chế được xác nhận. Hiệu ứng nhỏ, dùng như mẹo phụ.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Biết về mỏ neo là đủ để miễn nhiễm</span></summary><p class="note">Wilson và cộng sự (1996): cảnh báo, dù cách nào và lúc nào, đều không xóa được mỏ neo. Thứ có tác dụng là một bước làm cụ thể: nghĩ lý do ngược lại (Mussweiler, Strack và Pfeiffer, 2000) hoặc tập trung vào mục tiêu của mình, giá sàn và phương án khác của bên kia (Galinsky và Mussweiler, 2001).</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Hiệu ứng mỏ neo cơ bản</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Số ngẫu nhiên "vô nghĩa"</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Lợi thế đưa giá trước</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Giá trị bài học</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Đơn giản, dễ làm lại ở bất cứ đâu</li><li>Lặp lại ở 36 nhóm mẫu, nhiều nước</li><li>Áp dụng thẳng vào giá, lương, dự toán</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Bài gốc là báo cáo ngắn, ít chi tiết về mẫu</li><li>Số hoàn toàn ngẫu nhiên kéo yếu hơn lời kể</li><li>Cơ chế vẫn còn tranh luận</li></ul></div>
+  </div>
+  <p class="verdict">Độ vững 8/10. Một trong những hiệu ứng vững nhất của tâm lý học. Chỉ dè dặt với các câu chuyện "số ngẫu nhiên kéo cả giá trị cuộc sống".</p>
+  <details class="more"><summary>Xem thêm: vì sao mỏ neo đứng vững khi nhiều hiệu ứng khác đổ</summary><div>
+    <p>Trong "khủng hoảng lặp lại" của tâm lý học, nhiều hiệu ứng nổi tiếng nhỏ lại hoặc biến mất khi làm lại với mẫu lớn. Mỏ neo thì khác: trong Many Labs, các câu hỏi mỏ neo cho kết quả rõ ở hầu hết các nơi.</p>
+    <p>Lý do có thể là hiệu ứng vốn lớn và dễ đo: chỉ cần một con số và một câu hỏi. Còn các phiên bản "lạ tai" hơn, như số an sinh xã hội kéo giá một chai rượu, thì phụ thuộc nhiều vào cách làm và nhỏ hơn khi làm lại.</p>
+    <p>Bài học cho người đọc: tin vào hiệu ứng cơ bản, cẩn thận với những câu chuyện quá đẹp xây trên nó.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Kỹ năng làm việc: bàn lương, báo giá, chốt ngân sách. Ai đưa số trước, và đỡ mỏ neo của người khác thế nào.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="k7t">
+        <title id="k7t">Bốn bước: chuẩn bị số của mình trước gồm mục tiêu, mức sàn và phương án khác; nếu biết giá thị trường thì đưa số trước, tham vọng và có lý do; nếu chưa biết thì hỏi trước để bên kia ra số; nếu bị neo thì neo lại bằng số của mình và nghĩ lý do con số kia có thể sai.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · số của mình</text><text x="110" y="100" class="t-night t-bold">mục tiêu, mức sàn</text><text x="110" y="116">phương án khác</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · biết giá: nói trước</text><text x="300" y="100" class="t-day t-bold">tham vọng</text><text x="300" y="116">kèm lý do</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · chưa biết: hỏi trước</text><text x="490" y="100" class="t-rem t-bold">để họ ra số</text><text x="490" y="116">đừng đoán bừa</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · bị neo: neo lại</text><text x="680" y="100" class="t-ok t-bold">nói lại số của mình</text><text x="680" y="116">không mặc cả quanh số họ</text></g>
+        <text x="410" y="166" text-anchor="middle" class="t-ink">Con số đầu tiên là một quyền. Dùng nó khi đã chuẩn bị.</text>
+      </svg>
+    </div>
+    <figcaption><b>Ví dụ bàn lương:</b> tìm khung lương thị trường trước buổi nói chuyện. Nếu có, nêu một con số ở phía trên khung, kèm hai lý do (kinh nghiệm, kết quả). Nếu chưa có, hỏi "khung ngân sách cho vị trí này là bao nhiêu?" trước khi nói số.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="1"/></svg><div><b>Viết số của mình ra giấy trước</b><span>Mục tiêu, mức sàn, phương án khác. Mỏ neo của mình phải có trước khi nghe số của họ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h20M18 8l8 8-8 8"/></svg><div><b>Báo giá: nêu số trước, kèm lý do</b><span>Gửi báo giá có con số rõ và căn cứ, đừng để khách tự nghĩ ra số.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 8l16 16M24 8L8 24"/></svg><div><b>Số vô lý thì đừng trả giá ngay</b><span>Nói rõ con số đó không phải điểm bắt đầu, rồi đưa lại số của mình.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 6v14"/><circle cx="16" cy="25" r="1.5"/></svg><div><b>Họp ước lượng: viết riêng trước</b><span>Mỗi người ghi con số của mình trước khi ai nói, để người nói đầu không neo cả phòng.</span></div></div>
+  </div>
+  <div class="quote"><span>Nếu bên kia đưa ra một con số vô lý, đừng đáp lại bằng một con số vô lý khác. Hãy nói rõ là bạn không bàn tiếp quanh con số đó.</span><span class="src">Diễn ý lời khuyên của Daniel Kahneman trong Tư duy nhanh và chậm (2011), chương về mỏ neo, không phải trích nguyên văn.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Daniel Kahneman, <i>Tư duy nhanh và chậm</i> (2011), chương 11 "Mỏ neo"</b><span class="muted">Chính người làm thí nghiệm kể lại vòng quay và các ví dụ đời thực. Tập 3 của góc sách.</span></div>
+    <div><b>Tversky và Kahneman, "Judgment under Uncertainty: Heuristics and Biases" (1974)</b><span class="muted">Bài báo gốc, ngắn, đọc được trong một buổi tối.</span></div>
+    <div><b>Galinsky và Mussweiler, "First offers as anchors" (2001)</b><span class="muted">Nền tảng cho lời khuyên "ai đưa số trước" và cách gỡ mỏ neo.</span></div>
+    <div><b>Klein và cộng sự, "Investigating variation in replicability" (2014)</b><span class="muted">Dự án Many Labs, đọc để thấy một hiệu ứng vững trông như thế nào.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn số liệu</h2></div>
+  <p class="muted">Mọi con số trong bài, bộ ảnh Facebook và chú thích đều lấy từ các nghiên cứu dưới đây.</p>
+  <div class="reads">
+    <div><b>Tversky và Kahneman (1974)</b><span class="muted">“Judgment under uncertainty: Heuristics and biases”, <i>Science</i> 185(4157), 1124–1131 · <b>Số liệu dùng:</b> vòng quay 10 và 65, trung vị 25% và 45%; phép nhân trong 5 giây, trung vị 512 và 2.250, đáp án 40.320; thưởng tiền không làm giảm hiệu ứng</span></div>
+    <div><b>Daniel Kahneman (2011)</b><span class="muted">sách <i>Thinking, Fast and Slow</i> (Tư duy nhanh và chậm), Farrar, Straus and Giroux, chương 11 · <b>Số liệu dùng:</b> vòng quay được chỉnh để chỉ dừng ở 10 hoặc 65; lời khuyên khi gặp con số vô lý (diễn ý)</span></div>
+    <div><b>Northcraft và Neale (1987)</b><span class="muted">“Experts, amateurs, and real estate: An anchoring-and-adjustment perspective on property pricing decisions”, <i>Organizational Behavior and Human Decision Processes</i> 39(1), 84–97 · <b>Số liệu dùng:</b> môi giới nhà đất bị giá niêm yết kéo</span></div>
+    <div><b>Wilson, Houston, Etling và Brekke (1996)</b><span class="muted">“A new look at anchoring effects: Basic anchoring and its antecedents”, <i>Journal of Experimental Psychology: General</i> 125(4), 387–402 · <b>Số liệu dùng:</b> cảnh báo và thưởng tiền không xóa được mỏ neo</span></div>
+    <div><b>Mussweiler và Strack (1999)</b><span class="muted">“Hypothesis-consistent testing and semantic priming in the anchoring paradigm: A selective accessibility model”, <i>Journal of Experimental Social Psychology</i> 35(2), 136–164 · <b>Số liệu dùng:</b> mô hình tìm lý do khớp</span></div>
+    <div><b>Mussweiler, Strack và Pfeiffer (2000)</b><span class="muted">“Overcoming the inevitable anchoring effect: Considering the opposite compensates for selective accessibility”, <i>Personality and Social Psychology Bulletin</i> 26(9), 1142–1150 · <b>Số liệu dùng:</b> nghĩ điều ngược lại làm giảm mỏ neo</span></div>
+    <div><b>Galinsky và Mussweiler (2001)</b><span class="muted">“First offers as anchors: The role of perspective-taking and negotiator focus”, <i>Journal of Personality and Social Psychology</i> 81(4), 657–669 · <b>Số liệu dùng:</b> 3 thí nghiệm; người đưa giá trước được lợi, cả bên mua và bên bán, gặp mặt và qua email; ba cách tập trung xóa lợi thế đó</span></div>
+    <div><b>Ariely, Loewenstein và Prelec (2003)</b><span class="muted">“Coherent arbitrariness: Stable demand curves without stable preferences”, <i>Quarterly Journal of Economics</i> 118(1), 73–105 · <b>Số liệu dùng:</b> hai số cuối mã an sinh xã hội kéo giá sẵn lòng trả (sinh viên MBA)</span></div>
+    <div><b>Englich, Mussweiler và Strack (2006)</b><span class="muted">“Playing dice with criminal sentences: The influence of irrelevant anchors on experts’ judicial decision making”, <i>Personality and Social Psychology Bulletin</i> 32(2), 188–200 · <b>Số liệu dùng:</b> thẩm phán có kinh nghiệm bị con số từ xúc xắc kéo</span></div>
+    <div><b>Epley và Gilovich (2006)</b><span class="muted">“The anchoring-and-adjustment heuristic: Why the adjustments are insufficient”, <i>Psychological Science</i> 17(4), 311–318 · <b>Số liệu dùng:</b> điều chỉnh chưa đủ với mỏ neo tự nghĩ ra</span></div>
+    <div><b>Fudenberg, Levine và Maniadis (2012)</b><span class="muted">“On the robustness of anchoring effects in WTP and WTA experiments”, <i>American Economic Journal: Microeconomics</i> 4(2), 131–145 · <b>Số liệu dùng:</b> làm lại trong phòng thí nghiệm: mỏ neo với hàng hóa rất yếu, với xổ số không thấy</span></div>
+    <div><b>Mason, Lee, Wiley và Ames (2013)</b><span class="muted">“Precise offers are potent anchors: Conciliatory counteroffers and attributions of knowledge in negotiations”, <i>Journal of Experimental Social Psychology</i> 49(4), 759–763 · <b>Số liệu dùng:</b> giá lẻ (ví dụ 1.865 so với 2.000) khiến bên kia trả giá lại sát hơn</span></div>
+    <div><b>Klein và cộng sự (2014)</b><span class="muted">“Investigating variation in replicability: A ‘Many Labs’ replication project”, <i>Social Psychology</i> 45(3), 142–152 · <b>Số liệu dùng:</b> 13 hiệu ứng, 36 nhóm mẫu, 6.344 người, 10 hiệu ứng lặp lại; bốn câu hỏi mỏ neo</span></div>
+    <div><b>Maniadis, Tufano và List (2014)</b><span class="muted">“One swallow doesn’t make a summer: New evidence on anchoring effects”, <i>American Economic Review</i> 104(1), 277–290 · <b>Số liệu dùng:</b> làm lại thí nghiệm âm thanh khó chịu của Ariely và cộng sự, hiệu ứng yếu hơn, không có ý nghĩa thống kê</span></div>
+    <div><b>Li, Maniadis và Sedikides (2021)</b><span class="muted">“Anchoring in economics: A meta-analysis of studies on willingness-to-pay and willingness-to-accept”, <i>Journal of Behavioral and Experimental Economics</i> 90 · <b>Số liệu dùng:</b> 53 nghiên cứu; hiệu ứng vừa, nhỏ hơn các nghiên cứu đầu; số không ngẫu nhiên kéo mạnh hơn</span></div>
+    <div><b>Leib, Kee, Loschelder và Roskes (2022)</b><span class="muted">“Perspective taking does not moderate the price precision effect, but indirectly affects counteroffers to asking prices”, <i>Journal of Experimental Social Psychology</i> 101, 104323 · <b>Số liệu dùng:</b> hiệu ứng giá lẻ vẫn thấy, chỉ một phần cơ chế được xác nhận</span></div>
+    <div><b>Petrowsky và cộng sự (2025)</b><span class="muted">“The power and peril of first offers in negotiations: A conceptual, meta-analytic, and experimental synthesis”, <i>Organizational Behavior and Human Decision Processes</i> 191, 104448 · <b>Số liệu dùng:</b> 90 nghiên cứu, 16.334 người; tương quan giá đầu và giá chốt r = 0,62; giá đầu tham vọng làm ít thỏa thuận hơn và bên nhận kém hài lòng; 2 thí nghiệm, 2.121 người; tác dụng nhỏ dần khi bàn nhiều vấn đề</span></div>
+    <div><b>Chương trình Đàm phán Harvard (PON)</b><span class="muted">bài “When to make the first offer in negotiations”, pon.harvard.edu · <b>Số liệu dùng:</b> không có số; quy tắc thực hành "biết rõ giá thì đưa trước, thiếu thông tin thì để bên kia đưa trước"</span></div>
+  </div>
+</section>
+
+<footer>Thí nghiệm nổi tiếng #04. Các hình là sơ đồ minh họa; số liệu lấy từ các nghiên cứu gốc, ghi rõ ở phần Nguồn số liệu và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
