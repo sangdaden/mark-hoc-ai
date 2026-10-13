@@ -1206,35 +1206,25 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 .pl-huong { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; text-align: center; }
 @media (pointer: coarse), (max-width: 700px) { .pl-dk { display: flex; } }
 @media (max-width: 700px) { .pl.pl-game { padding-left: 10px; padding-right: 10px; } .pl-canvas { aspect-ratio: 4 / 3; } .pl-the { padding: 8px 10px; } .pl-the b { font-size: 14px; } .pl-man .pl-kq img { width: 60px; } .pl-man .pl-kq h3 { font-size: 19px; } .pl-man { padding: 8px; place-items: start center; } .pl-man > * { padding: 14px; } .pl-chon-ai > p { display: none; } .pl-chon-ai h2 { font-size: 19px; margin-bottom: 10px; } }
-.pl-hop { width: min(560px, calc(100% - 24px)); max-height: calc(100% - 24px); box-sizing: border-box; padding: 20px; border: 2px solid var(--edge); border-radius: 22px; background: var(--panel); color: var(--ink); }
-.pl-hop::backdrop { background: rgba(15, 23, 42, .55); }
-.pl-hop.is-boss { border-color: #A78BFA; }
-.pl-hop-dau { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.pl-hop-dau h2 { margin: 0 0 4px; font: 800 22px/1.25 var(--f-display); }
-.pl-hop-dau p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.45; }
-.pl-ra { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--edge); background: var(--bg2); color: var(--ink); font-size: 16px; cursor: pointer; }
-.pl-boss { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
-.pl-boss-hinh { flex: none; width: 84px; height: 70px; }
-.pl-boss-hinh.is-trung { animation: pl-trung .45s; }
-@keyframes pl-trung { 0%, 100% { transform: none; } 25% { transform: translateX(-8px) rotate(-6deg); filter: brightness(1.6); } 60% { transform: translateX(6px) rotate(4deg); } }
-.pl-hp { flex: 1; height: 14px; border-radius: 999px; background: var(--bg2); border: 1.5px solid var(--edge); overflow: hidden; }
-.pl-hp-thanh { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #7C3AED, #C084FC); transition: width .4s; }
-.pl-trang { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 6px; font: 500 14px/1 var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.pl-tim { font-size: 22px; letter-spacing: 3px; color: #E11D48; }
-.pl-cau-so { margin: 6px 0 4px; font: 500 12.5px/1.3 var(--f-mono); color: var(--blue); text-transform: uppercase; letter-spacing: .04em; }
-.pl-cau-chu { margin: 0 0 14px; font: 700 18px/1.45 var(--f-display); }
-.pl-chon { display: grid; gap: 10px; }
-.pl-chon.is-ds { grid-template-columns: 1fr 1fr; }
-.pl-pa { padding: 13px 16px; border-radius: 14px; border: 2px solid var(--edge); background: var(--panel); color: var(--ink); font: 600 15.5px/1.4 var(--f-body); text-align: left; cursor: pointer; transition: border-color .15s, transform .15s; }
-.pl-chon.is-ds .pl-pa { text-align: center; font-size: 17px; }
-.pl-pa:hover:not(:disabled) { border-color: var(--blue); transform: translateY(-1px); }
-.pl-pa:disabled { cursor: default; opacity: .6; }
-.pl-pa.is-dung { opacity: 1; border-color: #16A34A; background: color-mix(in srgb, #22C55E 16%, var(--panel)); }
-.pl-pa.is-sai { opacity: 1; border-color: #E11D48; background: color-mix(in srgb, #F43F5E 14%, var(--panel)); }
+.pl-de { margin-top: 12px; padding: 14px 16px; border-radius: 18px; background: var(--panel); border: 2px solid var(--edge); }
+.pl-de[hidden] { display: none; }
+.pl-de-dau { margin: 0 0 4px; font: 500 12.5px/1.35 var(--f-mono); color: var(--blue); text-transform: uppercase; letter-spacing: .04em; }
+.pl-de-cau { margin: 0 0 10px; font: 700 17px/1.45 var(--f-display); }
+.pl-de-ds { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pl-de-ds li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 12px; border: 2px solid var(--edge); font-size: 15px; line-height: 1.4; }
+.pl-de-chu { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: #FACC15; color: #0F172A; font: 800 16px/1 var(--f-display); }
+.pl-de-ds li.is-dung { border-color: #16A34A; background: color-mix(in srgb, #22C55E 16%, var(--panel)); }
+.pl-de-chu.is-co { color: #15803D; }
+.pl-de-chu.is-khong { color: #BE123C; }
+.pl-de-ds li.is-dung .pl-de-chu { background: #4ADE80; }
+.pl-de-ds li.is-sai { border-color: #E11D48; background: color-mix(in srgb, #F43F5E 12%, var(--panel)); text-decoration: line-through; text-decoration-color: rgba(225, 29, 72, .5); }
+.pl-de-ds li.is-sai .pl-de-chu { background: #FDA4AF; }
+.pl-de .pl-phan-hoi { margin-top: 10px; }
+.pl-dk .is-ban { flex: .9; background: #FEF9C3; border-color: #CA8A04; }
+@media (max-width: 700px) { .pl-de { padding: 10px 12px; } .pl-de-ds { grid-template-columns: 1fr; gap: 6px; } .pl-de-ds li { padding: 6px 8px; font-size: 14px; } .pl-de-cau { font-size: 15.5px; } }
 .pl-phan-hoi { display: grid; grid-template-columns: 56px 1fr; gap: 6px 12px; align-items: start; margin-top: 16px; padding: 14px; border-radius: 16px; background: var(--bg2); }
 .pl-phan-hoi img { width: 56px; height: 56px; }
 .pl-phan-hoi p { margin: 4px 0 0; line-height: 1.5; }
-.pl-phan-hoi .btn { grid-column: 1 / -1; justify-self: end; margin-top: 6px; }
 .pl-ok { color: #15803D; } .pl-no { color: #BE123C; }
 [data-theme="dark"] .pl-ok { color: #86EFAC; } [data-theme="dark"] .pl-no { color: #FDA4AF; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pl-ok { color: #86EFAC; } :root:not([data-theme="light"]) .pl-no { color: #FDA4AF; } }
@@ -1244,8 +1234,6 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 .pl-kq .pl-kq-sao { font-size: 30px; color: #CA8A04; letter-spacing: 4px; }
 .pl-kq > .btn { margin-top: 10px; }
 .pl-kq-nut { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
-@media (max-width: 420px) { .pl-hop { padding: 16px; } .pl-cau-chu { font-size: 17px; } }
-@media (prefers-reduced-motion: reduce) { .pl-boss-hinh.is-trung { animation: none; } }
 
 /* ===== Mark ở vũ trụ khác (vu-tru-khac.html, en/vu-tru-khac.html): góc đọc sách ngoài AI =====
    Nhận diện riêng do Sang duyệt 13/10 (bảng màu A "Đêm đọc sách": navy #0F172A, kem #FFF7ED, cam vàng #FBBF24→#EA580C;
