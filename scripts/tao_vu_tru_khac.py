@@ -5,7 +5,10 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 
 - Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en", kể cả "ten" khi tên sách tiếng Việt khác tên tiếng Anh). Mục "bia" lấy màu từ bìa
   sách cho nền đầu bài (chữ đầu bài luôn màu kem nên nền phải tối): nen_1 (màu nền chính), nen_2 (màu sáng hơn ở góc), nhan (màu nhấn: viền, nhãn, chip),
-  hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, "song" = dải sóng nước, "hong-tam" = hồng tâm đỏ trắng, "bon-mau" = dải bốn màu xanh/đỏ/vàng/lục, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam. Bài gốc:
+  hoa_tiet ("trang" = trăng khuyết, "song" = dải sóng nước, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam.
+  Bản quyền (Sang 13/10): từ bìa thật chỉ lấy MÀU, không lấy hình, chữ, bố cục hay hoạ tiết nào của bìa.
+  "minh_hoa" (chữ mô tả hình, tiếng Anh trong "en") = hình minh hoạ tự vẽ ý chính của bài ở assets/vu-tru-khac/minh-hoa/<slug>.svg,
+  script chèn thay dải SVG dưới tiêu đề của bài gốc (hoặc thêm sau tiêu đề nếu bài không có). Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
   tiếng Anh tạm dùng bài tiếng Việt và script báo). Đó là trang Artifact không có khung <html>/<head>;
   script bọc khung, thêm thanh quay về trang và giao diện chung assets/vu-tru-khac/doc.css (đặt cuối trang để phủ CSS
@@ -66,6 +69,21 @@ def lam_sach(s, en=False):
     return s
 
 
+def chen_minh_hoa(bai, b, mo_ta):
+    """Thay dải SVG dưới tiêu đề bài bằng hình tự vẽ (chỉ sửa bản bọc, không sửa bài gốc)."""
+    hinh = (R / "assets/vu-tru-khac/minh-hoa" / f'{b["slug"]}.svg').read_text(encoding="utf-8").strip()
+    hinh = hinh.replace(' xmlns="http://www.w3.org/2000/svg"', "").replace(
+        "<svg ", f'<svg class="minh-hoa" style="max-width:100%" role="img" aria-label="{esc(mo_ta)}" ', 1)
+    dau = re.search(r"<header\b.*?</header>", bai, re.S)
+    if not dau:
+        sys.exit(f'{b["slug"]}: bài không có <header> để chèn hình minh hoạ')
+    h = dau.group(0)
+    h2, n = re.subn(r"<svg\b.*?</svg>", lambda m: hinh, h, count=1, flags=re.S)
+    if not n:
+        h2 = re.sub(r"(</h1>)", lambda m: m.group(1) + "\n" + hinh, h, count=1)
+    return bai[:dau.start()] + h2 + bai[dau.end():]
+
+
 def trang_sach(b, goc, en=False, cd=None):
     e = b.get("en", {}) if en else b
     ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
@@ -75,6 +93,8 @@ def trang_sach(b, goc, en=False, cd=None):
     bai = lam_sach(goc, en)
     # Bỏ <title> của Artifact, dùng tiêu đề của trang
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
+    if b.get("minh_hoa"):
+        bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
     mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
