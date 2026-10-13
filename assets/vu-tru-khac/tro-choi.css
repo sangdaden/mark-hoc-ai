@@ -207,7 +207,95 @@ button.tc-chu:disabled { cursor: default; }
 .tc-nhat-ky { margin: 0; padding: 10px 14px 10px 2.2rem; border-radius: 10px; background: #0B1220; color: #E8EDF7; font: 500 .85rem/1.6 var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; }
 .tc-nhat-ky:empty { display: none; }
 
+/* ===== Bản 4: cảnh cho Lầm tưởng, Thất bại kinh doanh, Sự kiện ===== */
+.tc-canh-ban { background: #C9A473; }
+.tc-canh-nuoc { background: linear-gradient(#CFE7F2, #9FCBE0); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-canh-ban { background: #5A4630; } :root:not([data-theme="light"]) .tc-canh-nuoc { background: linear-gradient(#123049, #0B2236); } }
+:root[data-theme="dark"] .tc-canh-ban { background: #5A4630; }
+:root[data-theme="dark"] .tc-canh-nuoc { background: linear-gradient(#123049, #0B2236); }
+/* Vẽ đường đoán */
+.tc-duong-that { fill: none; stroke: var(--cam); stroke-width: 4; stroke-linejoin: round; }
+.tc-duong-doan { fill: none; stroke: var(--tc-lanh); stroke-width: 3; stroke-dasharray: 8 6; }
+.tc-tay-keo { fill: var(--tc-lanh); stroke: var(--paper); stroke-width: 3; }
+/* Cái cân */
+.tc-day-can { stroke: var(--muted); stroke-width: 2; }
+.tc-qua-can { fill: var(--tc-thep); }
+.tc-vat-bay { opacity: .45; } .tc-vat-bay .tc-qua-can { fill: var(--tc-sai); }
+/* Phòng thí nghiệm, hai phòng họp */
+.tc-phong { fill: var(--paper); stroke: var(--rule); stroke-width: 2; }
+.tc-phong-chon { stroke: var(--cam); stroke-width: 4; }
+.tc-hat-y { fill: var(--vtk-nhan, #FBBF24); }
+.tc-hat-quen { fill: var(--muted); opacity: .6; }
+/* Bảng điều tra */
+.tc-to-giay { fill: #FFFBEB; stroke: rgba(0,0,0,.15); }
+.tc-to-giay ~ g .tc-t-dam, .tc-to-giay ~ g .tc-t-nho { fill: #1F2937; }
+.tc-to-up { fill: #E5D3B3; stroke: rgba(0,0,0,.15); }
+.tc-ghim { fill: #DC2626; }
+.tc-chi-do { stroke: #DC2626; stroke-width: 3; }
+/* Kim tự tháp tin xấu */
+.tc-tang { fill: var(--paper); stroke: var(--rule); stroke-width: 2; }
+/* Tháp vay nợ */
+.tc-khoi-von { fill: var(--tc-dung); }
+.tc-khoi-vay { fill: var(--tc-thep); }
+.tc-khoi-mat { fill: var(--tc-sai); }
+.tc-khoi-an { fill: transparent; stroke: var(--tc-thep); stroke-width: 1.5; stroke-dasharray: 4 3; }
+/* Dòng tiền */
+.tc-ong { stroke: var(--tc-thep); stroke-width: 10; stroke-linecap: round; opacity: .55; fill: none; }
+.tc-ong-an { stroke: var(--tc-sai); stroke-dasharray: 2 14; opacity: .8; }
+.tc-nhan-ong { fill: var(--ink); paint-order: stroke; stroke: var(--grid); stroke-width: 4px; }
+.tc-hop-tien { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+.tc-xu { fill: #FBBF24; stroke: #B45309; stroke-width: 2; }
+.tc-xu-do { fill: #F87171; stroke: #991B1B; stroke-width: 2; }
+/* Cắm cờ trên thước */
+.tc-thuoc { stroke: var(--ink); stroke-width: 2; }
+.tc-vach-moc { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 5 5; }
+.tc-net-nguoi { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; fill: none; }
+.tc-canh-nuoc .tc-t-nho, .tc-canh-nuoc .tc-t-dam { fill: #0F2A3D; }
+.tc-canh-nuoc .tc-thuoc, .tc-canh-nuoc .tc-net-nguoi { stroke: #0F2A3D; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-canh-nuoc .tc-t-nho, :root:not([data-theme="light"]) .tc-canh-nuoc .tc-t-dam { fill: #E0F2FE; } :root:not([data-theme="light"]) .tc-canh-nuoc .tc-thuoc { stroke: #E0F2FE; } }
+:root[data-theme="dark"] .tc-canh-nuoc .tc-t-nho, :root[data-theme="dark"] .tc-canh-nuoc .tc-t-dam { fill: #E0F2FE; }
+:root[data-theme="dark"] .tc-canh-nuoc .tc-thuoc { stroke: #E0F2FE; }
+/* Não chia đôi */
+.tc-man-hinh { fill: #0B1220; }
+.tc-ban-cau { fill: #F9C9D4; stroke: #BE5A74; stroke-width: 2; transition: fill .4s; }
+.tc-ban-sang { fill: #FDE68A; stroke: var(--cam); }
+.tc-the-chai { stroke: #BE5A74; stroke-width: 4; stroke-dasharray: 3 9; }
+.tc-the-chai-lien { stroke-dasharray: none; }
+.tc-o-do { fill: var(--grid); stroke: var(--rule); }
+.tc-do-chon .tc-o-do { stroke: var(--cam); stroke-width: 3; fill: var(--paper); }
+/* Bàn trộn lời, giọng, mặt */
+.tc-o-tron { fill: var(--paper); stroke: var(--rule); stroke-width: 2; }
+.tc-dang-chon-o .tc-o-tron { stroke: var(--cam); stroke-width: 4; }
+.tc-song { fill: none; stroke: var(--tc-lanh); stroke-width: 2.5; }
+.tc-mat { fill: #FDE68A; stroke: #B45309; stroke-width: 2; }
+.tc-mieng { fill: none; stroke: #78350F; stroke-width: 3; stroke-linecap: round; }
+.tc-nut-tron:focus-visible .tc-o-tron { stroke: var(--tc-lanh); stroke-width: 4; }
+/* Nhân chứng, chấm điểm */
+.tc-cot-xam { fill: var(--muted); opacity: .45; }
+.tc-net-be { stroke: #1F2937; stroke-width: 4; stroke-linecap: round; fill: none; }
+/* Sau tấm rèm, tổng đài, phễu */
+.tc-rem { fill: #7F1D1D; }
+.tc-dien-thoai { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+.tc-reo .tc-dien-thoai { fill: #FCA5A5; stroke: var(--tc-sai); }
+.tc-coc-chon path { stroke: var(--cam) !important; stroke-width: 5 !important; }
+.tc-pheu { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+/* Nhập vai nhiều cảnh: hồ sơ lật theo từng mốc */
+.tc-moc-cham { fill: var(--paper); stroke: var(--muted); stroke-width: 2; }
+.tc-moc-qua { fill: var(--muted); }
+.tc-moc-nay { fill: var(--cam); stroke: var(--cam); }
+.tc-ho-so { perspective: 900px; }
+.tc-ho-so-mat { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--rule); background: var(--paper);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08); transform-origin: 50% 0; }
+.tc-ho-so-mat > * { margin: 0; }
+.tc-biet { font-size: .95rem; }
+.tc-nut.tc-nguoi-that { box-shadow: inset 0 -3px 0 var(--tc-dung); }
+.tc-chuyen-that { border-left-color: var(--tc-dung); }
+
 @media (prefers-reduced-motion: no-preference) {
   .tc-banh svg { transition: transform 2.4s cubic-bezier(.15, .8, .2, 1); }
   .tc-an { transition: opacity .5s; }
+  .tc-reo { animation: tc-rung .25s linear infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+  .tc-lat .tc-ho-so-mat { animation: tc-lat .5s ease-out; }
 }
+@keyframes tc-rung { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-7deg); } 75% { transform: rotate(7deg); } }
+@keyframes tc-lat { from { transform: rotateX(-70deg); opacity: 0; } to { transform: none; opacity: 1; } }
