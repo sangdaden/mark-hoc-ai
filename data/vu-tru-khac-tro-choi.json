@@ -1,5 +1,5 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), phan-loai (kéo thả vào ngăn).",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn).",
   "tham-hoa-challenger": [
     {
       "khuon": "quyet-dinh",
@@ -100,6 +100,1112 @@
         "ban": "You", "nhom": "Group that saw {a}",
         "ket": "You saw {a} and guessed {me}%. In 1974, people who saw {a} gave a median guess of {g}%, and people who saw {b} guessed {h}%. A random number still pulls the answer toward it.",
         "nguon": "Source: Tversky and Kahneman (1974), \"Judgment under Uncertainty: Heuristics and Biases\", Science 185. The wheel was rigged to stop only at 10 or 65; median answers were 25% and 45%."
+      }
+    }
+  ],
+  "why-we-sleep": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Người lớn cần 7–9 giờ ngủ",
+            "Trùng khuyến nghị của các hiệp hội y học giấc ngủ lớn."
+          ],
+          "en": [
+            "Adults need 7–9 hours of sleep",
+            "Matches the recommendations of the major sleep medicine societies."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Ngủ sau khi học giúp nhớ lâu hơn",
+            "Được nhiều nhóm nghiên cứu lặp lại; độ lớn hiệu ứng còn tranh luận."
+          ],
+          "en": [
+            "Sleeping after learning helps you remember",
+            "Replicated by many groups; the size of the effect is still debated."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "\"10 ngày ngủ 7 tiếng = 1 đêm thức trắng\"",
+            "Xu hướng suy giảm tích lũy là đúng, nhưng phép quy đổi cụ thể không khớp số liệu gốc (Van Dongen và cộng sự, 2003)."
+          ],
+          "en": [
+            "\"10 days of 7 hours = 1 all-nighter\"",
+            "Cumulative decline is real, but this exact conversion doesn't match the original data (Van Dongen et al., 2003)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "REM là \"trị liệu cảm xúc qua đêm\"",
+            "Bằng chứng còn ít, nhiều nghiên cứu đến từ chính phòng thí nghiệm của Walker."
+          ],
+          "en": [
+            "REM is \"overnight emotional therapy\"",
+            "Evidence is thin, and much of it comes from Walker's own lab."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "\"Ngủ càng ngắn, đời càng ngắn\"",
+            "Dữ liệu là đường cong chữ U: ngủ quá ít và quá nhiều đều gắn với tử vong cao hơn. Đây là tương quan, chưa phải nhân quả."
+          ],
+          "en": [
+            "\"The shorter your sleep, the shorter your life\"",
+            "The data is U-shaped: both too little and too much sleep go with higher mortality. That is correlation, not causation."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "WHO tuyên bố \"đại dịch thiếu ngủ\"",
+            "Không tìm thấy tuyên bố nào như vậy của WHO (Guzey, 2019)."
+          ],
+          "en": [
+            "The WHO declared a \"sleep loss epidemic\"",
+            "No such WHO declaration can be found (Guzey, 2019)."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 10 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 10 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "thinking-fast-and-slow": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Mỏ neo kéo lệch con số ta ước lượng",
+            "Lặp lại thành công trong dự án Many Labs (2014) với hàng nghìn người ở nhiều nước."
+          ],
+          "en": [
+            "Anchors bias our numeric estimates",
+            "Replicated in the Many Labs project (2014) with thousands of people across many countries."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Công thức đơn giản thường đoán tốt hơn chuyên gia",
+            "Từ Paul Meehl (1954) đến các phân tích gộp sau này: công thức thắng hoặc hòa trong phần lớn so sánh."
+          ],
+          "en": [
+            "Simple formulas often beat experts",
+            "From Paul Meehl (1954) to later meta-analyses, formulas win or tie in most comparisons."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Mất đau gấp khoảng 2 lần được",
+            "Né tránh mất mát có thật và phân tích gộp ủng hộ. Độ lớn thay đổi theo bối cảnh; với khoản nhỏ, hiệu ứng có thể rất yếu (Gal và Rucker, 2018)."
+          ],
+          "en": [
+            "Losses hurt about twice as much as gains",
+            "Loss aversion is real and meta-analyses support it. Its size varies with context; for small stakes it can be very weak (Gal and Rucker, 2018)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "\"Bàn tay nóng\" trong bóng rổ là ảo tưởng",
+            "Miller và Sanjurjo (2018) chỉ ra lỗi thống kê trong nghiên cứu gốc; tính lại thì có một hiệu ứng nhỏ."
+          ],
+          "en": [
+            "The \"hot hand\" in basketball is an illusion",
+            "Miller and Sanjurjo (2018) found a statistical flaw in the original study; corrected, a small effect appears."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Ý chí là nguồn lực cạn dần, nạp đường thì hồi lại",
+            "Thử nghiệm đăng ký trước ở 23 phòng thí nghiệm với hơn 2.000 người (Hagger và cộng sự, 2016) cho hiệu ứng gần bằng 0."
+          ],
+          "en": [
+            "Willpower is a depletable resource, restored by glucose",
+            "A preregistered study across 23 labs with over 2,000 people (Hagger et al., 2016) found an effect near zero."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Chữ khó đọc làm ta suy nghĩ cẩn thận hơn",
+            "Phân tích gộp 17 thí nghiệm (Meyer và cộng sự, 2015) không tìm thấy hiệu ứng."
+          ],
+          "en": [
+            "Hard-to-read fonts make us think more carefully",
+            "A meta-analysis of 17 experiments (Meyer et al., 2015) found no effect."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "mindset": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Can thiệp 1 giờ giúp học sinh yếu lên điểm chút ít",
+            "Thử nghiệm toàn quốc Mỹ (Yeager và cộng sự, Nature 2019, hơn 12.000 học sinh): nhóm học lực thấp tăng khoảng 0,1 điểm GPA. Có thật, nhưng nhỏ."
+          ],
+          "en": [
+            "A one-hour intervention slightly raises grades for struggling students",
+            "US national study (Yeager et al., Nature 2019, 12,000+ students): lower-achieving students gained about 0.1 GPA points. Real, but small."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Học sinh tin \"trí tuệ phát triển được\" có điểm PISA cao hơn",
+            "OECD, PISA 2018: đúng ở đa số quốc gia. Đây là tương quan, không chứng minh nhân quả."
+          ],
+          "en": [
+            "Students who believe intelligence can grow score higher on PISA",
+            "OECD, PISA 2018: true in most countries. This is a correlation and does not prove cause."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Khen \"thông minh\" khiến trẻ né thử thách và nói dối điểm",
+            "Nghiên cứu gốc (Mueller & Dweck, 1998) có mẫu nhỏ. Li & Bates (2019) làm lại ba lần, không tìm thấy hiệu ứng của lời khen hay của tư duy lên phản ứng với thất bại."
+          ],
+          "en": [
+            "Praising \"smart\" makes children avoid challenges and lie about scores",
+            "The original study (Mueller & Dweck, 1998) had small samples. Li & Bates (2019) ran three replications and found no effect of praise or mindset on responses to failure."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Ảnh chụp não: người tư duy cố định bỏ qua lời sửa sai",
+            "Nghiên cứu sóng não năm 2006 (Mangels và cộng sự) có mẫu nhỏ, chưa được lặp lại quy mô lớn."
+          ],
+          "en": [
+            "Brain recordings: fixed-mindset students ignore corrective feedback",
+            "The 2006 EEG study (Mangels et al.) had a small sample and has not been replicated at scale."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Tư duy là chìa khóa của thành tích",
+            "Tổng hợp 273 nghiên cứu (Sisk và cộng sự, 2018): tương quan giữa tư duy và thành tích chỉ khoảng r = 0,10. Một nghiên cứu 5.600 thí sinh Séc (Bahník & Vranka, 2017) gần như không thấy liên hệ."
+          ],
+          "en": [
+            "Mindset is the key to achievement",
+            "A meta-analysis of 273 studies (Sisk et al., 2018) found a correlation of only about r = 0.10 between mindset and achievement. A study of 5,600 Czech applicants (Bahník & Vranka, 2017) found almost no link."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Dạy tư duy phát triển sẽ thay đổi kết quả học tập rõ rệt",
+            "Hiệu ứng trung bình d ≈ 0,08 (2018), gần 0 khi lọc nghiên cứu chất lượng cao và tính thiên lệch công bố (Macnamara & Burgoyne, 2023). Nhóm của Dweck phản biện rằng hiệu ứng có thật ở đúng đối tượng và bối cảnh."
+          ],
+          "en": [
+            "Teaching growth mindset clearly changes academic results",
+            "Average effect d ≈ 0.08 (2018), near zero after filtering for study quality and publication bias (Macnamara & Burgoyne, 2023). Dweck's group responds that the effect is real for the right students in the right settings."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 10 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 10 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "sapiens": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Nông dân thời đầu thấp hơn, răng xấu hơn, bệnh nhiều hơn người săn hái",
+            "Nhiều nghiên cứu xương cốt (Larsen 1995; Mummert và cộng sự 2011) cho thấy sức khỏe đi xuống khi chuyển sang làm ruộng, dù mức độ khác nhau theo vùng."
+          ],
+          "en": [
+            "Early farmers were shorter, had worse teeth and more disease than foragers",
+            "Many skeletal studies (Larsen 1995; Mummert and colleagues 2011) show health declining with the shift to farming, though the degree varies by region."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Chữ viết đầu tiên ở Lưỡng Hà dùng để ghi sổ, không phải để viết thơ",
+            "Bảng đất sét chữ hình nêm sớm nhất (khoảng 3200 TCN, Uruk) chủ yếu ghi số lượng lúa mạch, gia súc, nhân công."
+          ],
+          "en": [
+            "The first writing in Mesopotamia was for bookkeeping, not poetry",
+            "The earliest cuneiform tablets (around 3200 BCE, Uruk) mostly record quantities of barley, livestock and labour."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Nhóm người tự nhiên tối đa khoảng 150 người",
+            "\"Con số Dunbar\" phổ biến, nhưng phân tích lại năm 2021 (Lindenfors và cộng sự) cho khoảng tin cậy rất rộng, từ vài người đến hơn 500."
+          ],
+          "en": [
+            "Natural groups top out at about 150 people",
+            "\"Dunbar's number\" is popular, but a 2021 reanalysis (Lindenfors and colleagues) found a very wide confidence interval, from a handful of people to over 500."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Người săn hái làm ít giờ và sống thoải mái hơn nông dân",
+            "Ý này đi từ \"xã hội sung túc nguyên thủy\" của Sahlins (1966). Đo lại kỹ hơn, tính cả giờ chế biến thức ăn, cho kết quả khác nhau nhiều giữa các nhóm."
+          ],
+          "en": [
+            "Foragers worked fewer hours and lived more comfortably than farmers",
+            "This goes back to Sahlins's \"original affluent society\" (1966). More careful measurements, including food-processing time, give results that vary widely between groups."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Neanderthal không có tư duy biểu tượng như sapiens",
+            "Có bằng chứng Neanderthal chôn người chết, làm đồ trang sức từ lông chim và móng đại bàng, và có thể vẽ hang (Tây Ban Nha, Hoffmann 2018, còn tranh luận). Ranh giới không rõ như sách vẽ."
+          ],
+          "en": [
+            "Neanderthals lacked symbolic thought like sapiens",
+            "There is evidence that Neanderthals buried their dead, made ornaments from feathers and eagle talons, and may have painted caves (Spain, Hoffmann 2018, still debated). The line is not as sharp as the book draws it."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Sapiens xuất hiện khoảng 200.000 năm trước ở Đông Phi",
+            "Hóa thạch Jebel Irhoud ở Maroc (Hublin và cộng sự, 2017) đẩy mốc lên khoảng 300.000 năm và cho thấy sapiens hình thành rải rác khắp châu Phi, không chỉ ở Đông Phi."
+          ],
+          "en": [
+            "Sapiens appeared about 200,000 years ago in East Africa",
+            "The Jebel Irhoud fossils in Morocco (Hublin and colleagues, 2017) push the date back to about 300,000 years and suggest sapiens emerged across Africa, not only in the east."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "hyperfocus": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Trí nhớ làm việc chỉ giữ được khoảng 4 thứ",
+            "Ước lượng phổ biến trong tâm lý học nhận thức (Cowan, 2001), thay cho con số \"7 ± 2\" cũ."
+          ],
+          "en": [
+            "Working memory holds about 4 items",
+            "A common estimate in cognitive psychology (Cowan, 2001), replacing the older \"7 ± 2\"."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Chuyển qua lại giữa các việc có chi phí",
+            "Chi phí chuyển việc được đo lặp lại nhiều lần trong phòng thí nghiệm (Monsell, 2003). Mỗi lần chuyển mất một chút thời gian và tăng lỗi."
+          ],
+          "en": [
+            "Switching between tasks has a cost",
+            "Switch costs have been measured repeatedly in the lab (Monsell, 2003). Each switch costs a little time and raises errors."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Dư âm chú ý làm giảm hiệu quả việc tiếp theo",
+            "Khái niệm của Sophie Leroy (2009) hợp lý, nhưng số nghiên cứu còn ít và mẫu nhỏ."
+          ],
+          "en": [
+            "Attention residue hurts the next task",
+            "Sophie Leroy's (2009) idea is plausible, but there are few studies and samples are small."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Vài tuần thiền giúp tăng trí nhớ làm việc và điểm thi GRE 16%",
+            "Nghiên cứu của Mrazek và cộng sự (2013) chỉ có 48 sinh viên. Các phân tích gộp về thiền cho thấy lợi ích cho chú ý có thật nhưng nhỏ."
+          ],
+          "en": [
+            "A few weeks of meditation raise working memory and GRE scores by 16%",
+            "Mrazek and colleagues (2013) studied only 48 students. Meta-analyses on meditation find real but small benefits for attention."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Người vui vẻ làm việc năng suất hơn 31%",
+            "Con số phổ biến qua Shawn Achor nhưng không truy được tới một nghiên cứu công bố rõ ràng. Hướng chung (cảm xúc tích cực giúp làm việc tốt hơn) có cơ sở, con số thì không."
+          ],
+          "en": [
+            "Happy people are 31% more productive",
+            "Popularised by Shawn Achor but not traceable to a clearly published study. The general direction (positive mood helps work) has support; the number doesn't."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Ra ngoài thiên nhiên giúp giải vấn đề sáng tạo tốt hơn 50%",
+            "Atchley và cộng sự (2012) chỉ có 56 người, không chia nhóm ngẫu nhiên, và người đi dã ngoại còn bỏ điện thoại ở nhà, nên không tách được tác động của thiên nhiên."
+          ],
+          "en": [
+            "Time in nature makes creative problem-solving 50% better",
+            "Atchley and colleagues (2012) had only 56 people, no random assignment, and hikers also left their phones at home, so nature's effect can't be separated out."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 11 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 11 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "tham-hoa-mars-climate-orbiter": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Lỗi pound và newton trong phần mềm mặt đất là nguyên nhân gốc",
+            "Kết luận của Hội đồng (giai đoạn I, tr. 6, 16): tệp \"Small Forces\" không dùng hệ mét, thấp đi 4,45 lần."
+          ],
+          "en": [
+            "A pounds-versus-newtons error in ground software was the root cause",
+            "The board's finding (Phase I, pp. 6, 16): the \"Small Forces\" file did not use metric units and was low by a factor of 4.45."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Tàu bay thấp hơn kế hoạch rất nhiều",
+            "Nhắm 226 km, ước tính sau cùng khoảng 57 km, dưới ngưỡng sống sót 80 km (tr. 13–14)."
+          ],
+          "en": [
+            "The probe flew far lower than planned",
+            "Aimed at 226 km, final estimate about 57 km, below the 80 km survival limit (pp. 13–14)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Tàu \"đâm xuống\" Sao Hỏa",
+            "Không ai biết chắc. Hội đồng viết tàu \"hoặc đã bị phá hủy trong khí quyển, hoặc đã quay lại không gian quanh Mặt Trời\" (tr. 7)."
+          ],
+          "en": [
+            "The probe \"crashed into\" Mars",
+            "Nobody knows for sure. The board wrote that it \"either was destroyed in the atmosphere or re-entered heliocentric space\" (p. 7)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Lần chỉnh TCM-5 chắc chắn đã cứu được tàu",
+            "Đây là một trong 8 nguyên nhân góp phần, và nó được thiết kế để nâng quỹ đạo lên độ cao an toàn. Nhưng nó chưa từng được chuẩn bị, và Hội đồng không khẳng định nếu làm thì chắc chắn thành công (tr. 19–20)."
+          ],
+          "en": [
+            "The TCM-5 correction would certainly have saved it",
+            "Not doing it is one of the 8 contributing causes, and it was designed to raise the orbit to a safe altitude. But it had never been prepared, and the board does not claim it would surely have worked (pp. 19–20)."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Phần mềm trên tàu dùng sai đơn vị",
+            "\"Phần mềm AMD cài trên tàu dùng đơn vị hệ mét và đúng.\" Lỗi \"chỉ xảy ra trong phần mềm mặt đất\" (tr. 17)."
+          ],
+          "en": [
+            "The flight software used the wrong units",
+            "\"The AMD software installed on the spacecraft used metric units for the computation and was correct.\" \"Mismodeling only occurred in the ground software\" (p. 17)."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Không ai nhận ra gì cho đến phút chót",
+            "Từ mùa xuân 1999, ở cấp làm việc đã có lo ngại về các lời giải quỹ đạo không khớp. Chúng \"chỉ được báo không chính thức\" và \"không được giải quyết\" (tr. 13)."
+          ],
+          "en": [
+            "Nobody noticed anything until the last minute",
+            "From spring 1999 there were working-level concerns about orbit solutions that did not match. They were \"only informally reported\" and \"were not resolved\" (p. 13)."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 12 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 12 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "tham-hoa-tenerife": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "KLM chạy đà khi chưa có lệnh cất cánh",
+            "Nguyên nhân cơ bản số 1 trong báo cáo Tây Ban Nha. Lúc 17:05:53 tháp chỉ cấp lộ trình bay; câu \"OK… chờ cất cánh\" đến sau khi KLM đã nhả phanh."
+          ],
+          "en": [
+            "KLM began its take-off run without a take-off clearance",
+            "Fundamental cause no. 1 in the Spanish report. At 17:05:53 the tower gave only the route clearance; \"OK… stand by for take-off\" came after KLM had released its brakes."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Kỹ sư bay KLM đã hỏi Pan Am ra khỏi đường băng chưa",
+            "Băng ghi âm lúc 17:06:32: \"Is he not clear, that Pan American?\". Cơ trưởng đáp dứt khoát là rồi (báo cáo Tây Ban Nha, mục 2.1)."
+          ],
+          "en": [
+            "The KLM flight engineer asked whether Pan Am was clear of the runway",
+            "CVR, 17:06:32: \"Is he not clear, that Pan American?\" The captain answered emphatically that it was (Spanish report, section 2.1)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "\"Kiểm soát viên mải nghe bóng đá\"",
+            "Đây là nghi vấn của phía Hà Lan, dựa trên tiếng nền trong băng của tháp, với chữ \"có thể đã bị phân tâm\". Báo cáo chính thức không kết luận như vậy."
+          ],
+          "en": [
+            "\"The controllers were listening to football\"",
+            "A Dutch contention, based on background sound on the tower tape, worded as \"may have been distracted\". The official report makes no such finding."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "\"Sau Tenerife, tiếng Anh thành bắt buộc trong hàng không\"",
+            "Hai bên trong vụ này đều nói tiếng Anh trên radio. Yêu cầu năng lực tiếng Anh của ICAO được thông qua ngày 5/3/2003 và áp dụng từ 5/3/2008, 26 năm sau. Tài liệu ICAO/IFALPA đó không nhắc đến Tenerife."
+          ],
+          "en": [
+            "\"After Tenerife, English became mandatory in aviation\"",
+            "Both sides in this accident spoke English on the radio. ICAO's English proficiency requirements were adopted on 5 March 2003 and applied from 5 March 2008, 26 years later. The ICAO/IFALPA document does not mention Tenerife."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "\"Cơ trưởng KLM là phi công non tay\"",
+            "Ông có 11.700 giờ bay và hơn 10 năm làm huấn luyện viên (báo cáo Tây Ban Nha, mục 1.5.1 và 1.16). Chính danh tiếng đó là một phần của vấn đề: báo cáo viết uy tín lớn của ông có thể khiến người khác ngại phản đối."
+          ],
+          "en": [
+            "\"The KLM captain was an inexperienced pilot\"",
+            "He had 11,700 flight hours and more than 10 years as an instructor (Spanish report, sections 1.5.1 and 1.16). That reputation was part of the problem: the report says his great prestige may have made others reluctant to object."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "\"Không ai trong buồng lái KLM lên tiếng\"",
+            "Phụ lái nhắc \"khoan đã, chưa có lệnh ATC\" lúc 17:05:41, và kỹ sư bay hỏi về Pan Am lúc 17:06:32. Họ có lên tiếng, nhưng chỉ bằng lời nhắc nhẹ và câu hỏi, không phải lời yêu cầu dừng."
+          ],
+          "en": [
+            "\"Nobody in the KLM cockpit spoke up\"",
+            "The first officer said \"wait a minute, we don't have an ATC clearance\" at 17:05:41, and the flight engineer asked about Pan Am at 17:06:32. They did speak, but only with a mild reminder and a question, never a demand to stop."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "tham-hoa-chernobyl": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Lỗi thanh điều khiển đã được biết trước năm 1986",
+            "Phát hiện ở Ignalina năm 1983; thiết kế không được sửa, không có biện pháp bù đắp (INSAG-7, mục 4.1, 6(4))."
+          ],
+          "en": [
+            "The control-rod flaw was known before 1986",
+            "Found at Ignalina in 1983; the design was not changed and no compensating measures were taken (INSAG-7, sections 4.1, 6(4))."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Thế giới biết qua phóng xạ đo được ở nước ngoài trước khi Liên Xô xác nhận",
+            "Thụy Điển và Phần Lan công bố ngày 28/4/1986; tối hôm đó Liên Xô mới xác nhận (A. Salo, IAEA Bulletin 28(3), 1986)."
+          ],
+          "en": [
+            "The world learned from radiation measured abroad before the USSR confirmed",
+            "Sweden and Finland announced on 28 April 1986; the USSR confirmed that evening (A. Salo, IAEA Bulletin 28(3), 1986)."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Tai nạn là do nhân viên vận hành vi phạm quy định",
+            "Đó là kết luận năm 1986. INSAG-7 sửa lại: \"một số hành động bị INSAG-1 coi là vi phạm thực ra không phải vi phạm\", nhưng yếu tố con người \"vẫn là một yếu tố lớn\", vì bài thử bị sửa tại chỗ và chạy dưới mức quy định (mục 6(6))."
+          ],
+          "en": [
+            "The accident was caused by operators breaking the rules",
+            "That was the 1986 conclusion. INSAG-7 revised it: \"certain actions by operators that were identified in INSAG-1 as violations of rules were in fact not violations,\" but the human factor \"has still to be considered as a major element,\" because the test was altered on the spot and run below the prescribed level (section 6(6))."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "\"Chernobyl sẽ làm chết hơn 93.000 người\"",
+            "Dự báo của Greenpeace (2006) cho Belarus, Nga, Ukraine đến năm 2056. Dùng giả định và dữ liệu khác hẳn các cơ quan Liên Hợp Quốc; nên ghi rõ đây là ước tính của một tổ chức vận động, đặt cạnh các ước tính khác."
+          ],
+          "en": [
+            "\"Chernobyl will kill more than 93,000 people\"",
+            "Greenpeace's 2006 projection for Belarus, Russia and Ukraine to 2056. It uses assumptions and data very different from the UN agencies; cite it clearly as an advocacy group's estimate, next to the others."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Nhân viên tắt hệ thống làm mát khẩn cấp trái phép",
+            "INSAG-7: việc ngắt làm mát khẩn cấp \"thực ra được phép ở Chernobyl nếu kỹ sư trưởng cho phép\" (mục 3(1)). Điều đáng trách là chạy 11 giờ như vậy, không phải là trái luật."
+          ],
+          "en": [
+            "Operators illegally switched off emergency cooling",
+            "INSAG-7: disconnecting the emergency core cooling \"was in fact permissible at Chernobyl if authorized by the Chief Engineer\" (section 3(1)). The problem was running 11 hours like that, not that it broke a rule."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Phóng xạ gây làn sóng dị tật bẩm sinh",
+            "WHO (2005): không có bằng chứng về tăng dị tật bẩm sinh có thể quy cho phóng xạ, cũng không thấy giảm khả năng sinh sản."
+          ],
+          "en": [
+            "Radiation caused a wave of birth defects",
+            "WHO (2005): no evidence of increases in congenital malformations attributable to radiation, and no decrease in fertility."
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 14 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 14 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "tham-hoa-titanic": [
+    {
+      "khuon": "phan-loai",
+      "id": "choi-that-hay-don",
+      "truoc": "dan-chung",
+      "the": [
+        {
+          "k": "v",
+          "vi": [
+            "Xuồng chỉ đủ cho khoảng một nửa số người, và điều đó hợp pháp",
+            "1.178 chỗ cho 2.201 người. Luật chỉ đòi khoảng 962 chỗ. Tàu có giấy chứng nhận của Bộ Thương mại Anh trước khi rời cảng (báo cáo Mỹ)."
+          ],
+          "en": [
+            "Boats for only about half the people, and that was legal",
+            "1,178 seats for 2,201 people. The rule required only about 962. A Board of Trade surveyor issued the certificate to sail on the morning of departure (US report)."
+          ]
+        },
+        {
+          "k": "v",
+          "vi": [
+            "Nhiều xuồng rời tàu còn trống",
+            "Xuồng 7 có 27 người, xuồng 6 có 28, xuồng 1 (40 chỗ) có 12. Ủy ban Anh: \"ít nhất 8 xuồng không chở đủ\". Báo cáo Mỹ: \"chỉ vài xuồng được chất đầy\"."
+          ],
+          "en": [
+            "Many boats left with empty seats",
+            "Boat 7 had 27 people, boat 6 had 28, boat 1 (40 seats) had 12. British court: \"At least 8 boats did not carry their full loads.\" US report: \"Only a few of the ship's lifeboats were fully loaded.\""
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Có đúng 1.517 người chết",
+            "Báo cáo Mỹ: 706 sống trên 2.223 người, tức 1.517 chết. Ủy ban Anh: 711 sống trên 2.201, tức 1.490 chết. Danh sách người trên tàu lúc đó không đầy đủ, nên mọi con số đều là ước tính."
+          ],
+          "en": [
+            "Exactly 1,517 people died",
+            "US report: 706 saved of 2,223, so 1,517 lost. British report: 711 saved of 2,201, so 1,490 lost. Passenger lists were incomplete, so every total is an estimate."
+          ]
+        },
+        {
+          "k": "t",
+          "vi": [
+            "Ông chủ hãng Ismay ép thuyền trưởng chạy nhanh",
+            "Không có kết luận nào như vậy trong báo cáo Anh. Điều có trong hồ sơ: Ismay giữ bức điện báo băng của Baltic trong túi từ khoảng 13:42 đến 19:15. Chuyện \"ép tăng tốc\" dựa trên lời kể của vài hành khách, còn tranh cãi."
+          ],
+          "en": [
+            "White Star chairman Ismay pushed the captain to go faster",
+            "There is no such finding in the British report. What is on record: Ismay kept Baltic's ice warning in his pocket from about 13:42 until 19:15. The \"speed up\" story rests on a few contested passenger accounts."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Thuyền trưởng cố phá kỷ lục vượt Đại Tây Dương",
+            "Không cuộc điều tra nào nói vậy. Ủy ban Anh ghi tốc độ khoảng 22 hải lý/giờ, \"không phải tốc độ tối đa của tàu\", và quy lỗi cho một thói quen chung của nghề: giữ tốc độ khi trời quang."
+          ],
+          "en": [
+            "The captain was trying to set a crossing record",
+            "Neither inquiry says so. The British report puts speed at about 22 knots, \"though not at the ship's maximum,\" and blames a common practice of the trade: keeping speed in clear weather."
+          ]
+        },
+        {
+          "k": "s",
+          "vi": [
+            "Một nhà quý tộc đã đút tiền để thủy thủ chèo xuồng bỏ đi",
+            "Ủy ban Anh gọi cáo buộc với Sir Cosmo Duff Gordon (xuồng số 1) là \"không có cơ sở\". Nhưng tòa cũng nói nếu ông khuyến khích quay lại, thủy thủ \"có thể đã cứu được vài người\"."
+          ],
+          "en": [
+            "An aristocrat bribed the crew to row his boat away",
+            "The British court called the charge against Sir Cosmo Duff Gordon (boat 1) \"unfounded.\" But it added that had he encouraged the men to go back, they \"could have saved some lives.\""
+          ]
+        }
+      ],
+      "vi": {
+        "muc": "Đoán trước khi xem",
+        "nhan": "Thật hay đồn?",
+        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
+        "ngan": {
+          "v": "Vững",
+          "t": "Thận trọng",
+          "s": "Sai"
+        },
+        "dung": "Đúng.",
+        "dap_an": "Đáp án:",
+        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
+        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+      },
+      "en": {
+        "muc": "Guess before you look",
+        "nhan": "Fact or myth?",
+        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
+        "ngan": {
+          "v": "Solid",
+          "t": "Caution",
+          "s": "False"
+        },
+        "dung": "Right.",
+        "dap_an": "Answer:",
+        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
+        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+      }
+    }
+  ],
+  "thi-nghiem-asch": [
+    {
+      "khuon": "doan-so",
+      "id": "choi-doan-so",
+      "truoc": "tinh-hoa",
+      "so": [
+        {
+          "vi": "Asch (1955)",
+          "en": "Asch (1955)",
+          "so": 36.8,
+          "hien": "36,8%",
+          "hien_en": "36.8%"
+        },
+        {
+          "vi": "Làm lại 2023",
+          "en": "Replication, 2023",
+          "so": 33,
+          "hien": "33%",
+          "hien_en": "33%"
+        }
+      ],
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoán con số",
+        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
+        "cau": "Cả nhóm cố ý chọn sai một đường thẳng rõ ràng. Bao nhiêu phần trăm câu trả lời của người thật đi theo nhóm?",
+        "nut_chot": "Chốt",
+        "ban": "Bạn đoán",
+        "ket": "Bạn đoán {me}%. Asch đo được 36,8%, lần làm lại năm 2023 ra 33%. Nhưng nhìn ngược lại: khoảng 2/3 câu trả lời vẫn đúng.",
+        "nguon": "Nguồn: Asch (1955), Scientific American, 123 người; Franzen và Mader (2023), khoảng 200 sinh viên ở Bern."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Guess the number",
+        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
+        "cau": "The whole group deliberately picks an obviously wrong line. What share of the real participant's answers follow the group?",
+        "nut_chot": "Lock in",
+        "ban": "Your guess",
+        "ket": "You guessed {me}%. Asch measured 36.8%, and a 2023 replication found 33%. Flip it around, though: about 2 in 3 answers stayed correct.",
+        "nguon": "Source: Asch (1955), Scientific American, 123 participants; Franzen and Mader (2023), about 200 students in Bern."
+      }
+    }
+  ],
+  "thi-nghiem-milgram": [
+    {
+      "khuon": "doan-so",
+      "id": "choi-doan-so",
+      "truoc": "tinh-hoa",
+      "so": [
+        {
+          "vi": "Sinh viên Yale đoán",
+          "en": "Yale students' guess",
+          "so": 1.2,
+          "hien": "1,2%",
+          "hien_en": "1.2%"
+        },
+        {
+          "vi": "Điều kiện nổi tiếng",
+          "en": "Best-known condition",
+          "so": 65,
+          "hien": "65%",
+          "hien_en": "65%"
+        },
+        {
+          "vi": "Trung bình 21 điều kiện",
+          "en": "Average of 21 conditions",
+          "so": 43.6,
+          "hien": "43,6%",
+          "hien_en": "43.6%"
+        }
+      ],
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoán con số",
+        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
+        "cau": "Người \"thầy giáo\" được lệnh tăng dần mức giật điện. Bao nhiêu phần trăm đi đến nút cao nhất, 450V?",
+        "nut_chot": "Chốt",
+        "ban": "Bạn đoán",
+        "ket": "Bạn đoán {me}%. Sinh viên Yale đoán chỉ 1,2%; ở điều kiện nổi tiếng nhất, 26 trên 40 người (65%) đi đến cùng. Tính trung bình 21 điều kiện thì là 43,6%.",
+        "nguon": "Nguồn: Milgram (1963), Journal of Abnormal and Social Psychology; Haslam, Loughnan và Perry (2014), PLOS ONE, tổng hợp 21 điều kiện với 740 người."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Guess the number",
+        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
+        "cau": "The \"teacher\" is told to keep raising the shock level. What share went all the way to the top switch, 450V?",
+        "nut_chot": "Lock in",
+        "ban": "Your guess",
+        "ket": "You guessed {me}%. Yale students guessed just 1.2%; in the best-known condition 26 of 40 people (65%) went all the way. Averaged over 21 conditions it was 43.6%.",
+        "nguon": "Source: Milgram (1963), Journal of Abnormal and Social Psychology; Haslam, Loughnan and Perry (2014), PLOS ONE, pooling 21 conditions with 740 people."
+      }
+    }
+  ],
+  "thi-nghiem-gorilla": [
+    {
+      "khuon": "doan-so",
+      "id": "choi-doan-so",
+      "truoc": "tinh-hoa",
+      "so": [
+        {
+          "vi": "Thấy gorilla (1999)",
+          "en": "Saw the gorilla (1999)",
+          "so": 44,
+          "hien": "44%",
+          "hien_en": "44%"
+        },
+        {
+          "vi": "Bác sĩ X quang thấy (2013)",
+          "en": "Radiologists who saw it (2013)",
+          "so": 16.7,
+          "hien": "4/24",
+          "hien_en": "4/24"
+        }
+      ],
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoán con số",
+        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
+        "cau": "Người xem đang đếm số lần chuyền bóng thì một người mặc đồ gorilla đi ngang. Bao nhiêu phần trăm nhận ra gorilla?",
+        "nut_chot": "Chốt",
+        "ban": "Bạn đoán",
+        "ket": "Bạn đoán {me}%. Trong nghiên cứu gốc chỉ 44% thấy gorilla. Ngay cả bác sĩ X quang cũng bỏ sót: 20 trên 24 người không thấy gorilla chèn vào phim chụp phổi.",
+        "nguon": "Nguồn: Simons và Chabris (1999), Perception; Drew, Võ và Wolfe (2013), Psychological Science."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Guess the number",
+        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
+        "cau": "Viewers are counting basketball passes when someone in a gorilla suit walks through. What share notice the gorilla?",
+        "nut_chot": "Lock in",
+        "ban": "Your guess",
+        "ket": "You guessed {me}%. In the original study only 44% saw the gorilla. Even radiologists miss it: 20 of 24 did not report a gorilla inserted into a lung scan.",
+        "nguon": "Source: Simons and Chabris (1999), Perception; Drew, Võ and Wolfe (2013), Psychological Science."
+      }
+    }
+  ],
+  "thi-nghiem-thu-mut": [
+    {
+      "khuon": "doan-so",
+      "id": "choi-doan-so",
+      "truoc": "tinh-hoa",
+      "so": [
+        {
+          "vi": "Bàn 24 loại",
+          "en": "24-jam table",
+          "so": 3,
+          "hien": "3%",
+          "hien_en": "3%"
+        },
+        {
+          "vi": "Bàn 6 loại",
+          "en": "6-jam table",
+          "so": 30,
+          "hien": "30%",
+          "hien_en": "30%"
+        }
+      ],
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoán con số",
+        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
+        "cau": "Ở quầy bày 24 loại mứt, bao nhiêu phần trăm người ghé thử rồi mua?",
+        "nut_chot": "Chốt",
+        "ban": "Bạn đoán",
+        "ket": "Bạn đoán {me}%. Số liệu gốc: 3% ở bàn 24 loại, 30% ở bàn 6 loại. Nhưng đó chỉ là một siêu thị, rất ít người mua (4 so với 31), và lần làm lại ở Đức không thấy khác biệt.",
+        "nguon": "Nguồn: Iyengar và Lepper (2000), Journal of Personality and Social Psychology; Scheibehenne (2008), lần làm lại ở Đức."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Guess the number",
+        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
+        "cau": "At the table with 24 jams, what share of the people who stopped to taste went on to buy?",
+        "nut_chot": "Lock in",
+        "ban": "Your guess",
+        "ket": "You guessed {me}%. The original numbers: 3% at the 24-jam table, 30% at the 6-jam table. But it was one supermarket with very few buyers (4 vs 31), and a German replication found no difference.",
+        "nguon": "Source: Iyengar and Lepper (2000), Journal of Personality and Social Psychology; Scheibehenne (2008), German replication."
       }
     }
   ]

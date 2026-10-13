@@ -154,6 +154,41 @@
     return s;
   }
 
+  // ---------- Khuôn 4: đoán một con số rồi so với kết quả thật ----------
+  // g.so: [{ vi, en, so, hien }] các mốc để so (so = giá trị vẽ thanh, hien = chữ hiển thị, ví dụ "36,8%")
+  function doanSo(g, t) {
+    var s = khung(g, t);
+    var hoi = tao("div", "tc-doan");
+    var idThanh = g.id + "-thanh";
+    var nhan = tao("label", "", t.cau + " "); nhan.htmlFor = idThanh;
+    var gt = tao("b", "tc-so-nho", "50%"); nhan.appendChild(gt);
+    var thanh = tao("input", ""); thanh.type = "range"; thanh.min = 0; thanh.max = 100; thanh.value = 50; thanh.id = idThanh;
+    thanh.oninput = function () { gt.textContent = thanh.value + "%"; };
+    var chot = nut(t.nut_chot, true);
+    var h2 = tao("div", "tc-hang"); h2.appendChild(chot);
+    hoi.appendChild(nhan); hoi.appendChild(thanh); hoi.appendChild(h2);
+    s.appendChild(hoi);
+    var ket = tao("div", "tc-doan"); ket.hidden = true;
+    s.appendChild(ket);
+    chot.onclick = function () {
+      chot.disabled = thanh.disabled = true;
+      var me = +thanh.value;
+      ket.appendChild(tao("p", "tc-dap", dien(t.ket, { me: me })));
+      var cot = tao("div", "tc-cot");
+      [{ nhan: t.ban, so: me, hien: me + "%", lop: "tc-c-ban" }].concat(g.so.map(function (r, i) {
+        return { nhan: r[en ? "en" : "vi"], so: r.so, hien: (en && r.hien_en) || r.hien, lop: i === g.so.length - 1 ? "tc-c-khac" : "tc-c-cung" };
+      })).forEach(function (r) {
+        cot.appendChild(tao("span", "", r.nhan));
+        var o = tao("span", "tc-o"), v = tao("i", r.lop); v.style.width = Math.max(r.so, 1) + "%"; o.appendChild(v); cot.appendChild(o);
+        cot.appendChild(tao("span", "tc-so-nho", r.hien));
+      });
+      ket.appendChild(cot);
+      ket.hidden = false;
+    };
+    chanNguon(s, t);
+    return s;
+  }
+
   // ---------- Khuôn 3: kéo thả vào ngăn ----------
   function phanLoai(g, t) {
     var s = khung(g, t);
@@ -168,7 +203,10 @@
       ngan.appendChild(n);
       return n;
     });
-    g.the.forEach(function (th) {
+    // Xáo thứ tự để không đoán được nhãn theo vị trí
+    var the = g.the.slice();
+    for (var j = the.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), tam = the[j]; the[j] = the[r]; the[r] = tam; }
+    the.forEach(function (th) {
       var x = th[en ? "en" : "vi"];
       var e = tao("div", "tc-the", x[0]);
       e.tabIndex = 0; e.setAttribute("role", "button"); e.setAttribute("aria-pressed", "false");
@@ -236,7 +274,7 @@
     return s;
   }
 
-  var KHUON = { "quyet-dinh": quyetDinh, "doan": doan, "phan-loai": phanLoai };
+  var KHUON = { "quyet-dinh": quyetDinh, "doan": doan, "doan-so": doanSo, "phan-loai": phanLoai };
   ds.forEach(function (g) {
     var lam = KHUON[g.khuon], t = g[en ? "en" : "vi"];
     var moc = document.getElementById(g.truoc || g.sau);
