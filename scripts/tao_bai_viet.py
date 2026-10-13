@@ -305,6 +305,10 @@ def nut_nen_tang(k, p, cls="nt"):
 def footer(p, q=None):
     q = p if q is None else q
     links = "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
+    # Góc đọc sách ngoài AI (vu-tru-khac.html, chỉ tiếng Việt): nút tròn cùng cỡ, đứng tách khỏi hàng mạng xã hội (Sang 13/10)
+    if LG == "vi":
+        links += (f'\n      <a class="nt nt-vtk" href="{q}vu-tru-khac.html" title="Mark ở vũ trụ khác" aria-label="Mark ở vũ trụ khác">'
+                  f'<svg aria-hidden="true"><use href="{p}assets/icons.svg#i-orbit"/></svg></a>')
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
@@ -313,8 +317,6 @@ def footer(p, q=None):
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
             f' · <a href="{q}ung-ho.html">{t("Ủng hộ kênh", "Support us")}</a>'
             + (f' · <a href="mailto:{esc(kenh["email"])}">{esc(kenh["email"])}</a>' if kenh.get("email") else "")
-            # Góc đọc sách ngoài AI (vu-tru-khac.html, chỉ tiếng Việt): icon nhỏ cuối chân trang, cố ý không nổi (Sang 13/10)
-            + (f' · <a class="foot-vtk" href="{q}vu-tru-khac.html" title="Mark ở vũ trụ khác" aria-label="Mark ở vũ trụ khác">{ic(p, "orbit")}</a>' if LG == "vi" else "")
             + '</span>\n  </div>\n</footer>')
 
 def lien_ket_ngon_ngu(goc):

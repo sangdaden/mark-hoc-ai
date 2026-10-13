@@ -1226,10 +1226,14 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .pl-boss-hinh.is-trung { animation: none; } }
 
 /* ===== Mark ở vũ trụ khác (vu-tru-khac.html): góc đọc sách ngoài AI, thẻ sách viền tím ===== */
-/* Lối vào cố ý kín đáo: một icon quỹ đạo nhỏ cuối chân trang (Sang 13/10); Bit thỉnh thoảng mới gợi ý (bit-tro-ly.js) */
-.foot-copy a.foot-vtk { display: inline-flex; vertical-align: middle; opacity: .7; text-decoration: none; }
-.foot-copy a.foot-vtk:hover, .foot-copy a.foot-vtk:focus-visible { opacity: 1; }
-.foot-copy a.foot-vtk .ic { width: 15px; height: 15px; }
+/* Lối vào: nút tròn quỹ đạo cùng cỡ nút mạng xã hội ở chân trang, đứng cách hàng đó một khoảng (Sang 13/10); Bit thỉnh thoảng mới gợi ý (bit-tro-ly.js) */
+.foot-links a.nt.nt-vtk { margin-left: 22px; color: #7C3AED; }
+.nt-vtk svg { fill: none; }
+@media (max-width: 760px) {
+  /* Điện thoại: nút xuống hàng riêng, thẳng lề trái thay vì thụt vào */
+  .foot-links:has(.nt-vtk)::after { content: ""; flex-basis: 100%; order: 1; }
+  .foot-links a.nt.nt-vtk { order: 2; margin-left: 0; }
+}
 .vtk { padding: 32px 24px 56px; }
 .vtk-h { font: 800 24px/1.2 var(--f-display); margin: 0 0 14px; }
 .vtk-ds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
