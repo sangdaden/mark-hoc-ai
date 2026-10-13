@@ -1,5 +1,5 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn).",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js).",
   "tham-hoa-challenger": [
     {
       "khuon": "quyet-dinh",
@@ -105,104 +105,37 @@
   ],
   "why-we-sleep": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Người lớn cần 7–9 giờ ngủ",
-            "Trùng khuyến nghị của các hiệp hội y học giấc ngủ lớn."
-          ],
-          "en": [
-            "Adults need 7–9 hours of sleep",
-            "Matches the recommendations of the major sleep medicine societies."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Ngủ sau khi học giúp nhớ lâu hơn",
-            "Được nhiều nhóm nghiên cứu lặp lại; độ lớn hiệu ứng còn tranh luận."
-          ],
-          "en": [
-            "Sleeping after learning helps you remember",
-            "Replicated by many groups; the size of the effect is still debated."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"10 ngày ngủ 7 tiếng = 1 đêm thức trắng\"",
-            "Xu hướng suy giảm tích lũy là đúng, nhưng phép quy đổi cụ thể không khớp số liệu gốc (Van Dongen và cộng sự, 2003)."
-          ],
-          "en": [
-            "\"10 days of 7 hours = 1 all-nighter\"",
-            "Cumulative decline is real, but this exact conversion doesn't match the original data (Van Dongen et al., 2003)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "REM là \"trị liệu cảm xúc qua đêm\"",
-            "Bằng chứng còn ít, nhiều nghiên cứu đến từ chính phòng thí nghiệm của Walker."
-          ],
-          "en": [
-            "REM is \"overnight emotional therapy\"",
-            "Evidence is thin, and much of it comes from Walker's own lab."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "\"Ngủ càng ngắn, đời càng ngắn\"",
-            "Dữ liệu là đường cong chữ U: ngủ quá ít và quá nhiều đều gắn với tử vong cao hơn. Đây là tương quan, chưa phải nhân quả."
-          ],
-          "en": [
-            "\"The shorter your sleep, the shorter your life\"",
-            "The data is U-shaped: both too little and too much sleep go with higher mortality. That is correlation, not causation."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "WHO tuyên bố \"đại dịch thiếu ngủ\"",
-            "Không tìm thấy tuyên bố nào như vậy của WHO (Guzey, 2019)."
-          ],
-          "en": [
-            "The WHO declared a \"sleep loss epidemic\"",
-            "No such WHO declaration can be found (Guzey, 2019)."
-          ]
-        }
-      ],
+      "khuon": "ban-thai",
+      "id": "choi-ca-phe",
+      "truoc": "ap-dung",
+      "ban_thai": 5.5,
+      "ly": 14,
+      "ngu": 23,
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 10 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Tính cho chính bạn",
+        "nhan": "Ly cà phê cuối",
+        "hoi": "Kéo giờ uống ly cuối và giờ đi ngủ của bạn. Lúc lên giường còn bao nhiêu caffeine?",
+        "ly": "Ly cuối lúc",
+        "ngu": "Đi ngủ lúc",
+        "luc_ngu": "lúc ngủ",
+        "mo_ta_bd": "Đường caffeine còn lại theo giờ",
+        "ket": "Lúc {ngu} trong người bạn còn khoảng {p}% lượng caffeine của ly lúc {ly}.",
+        "cao": "Thử dời ly cuối về trước 13:00 như lịch trong bài.",
+        "thap": "Khá ổn; lịch trong bài gợi ý ly cuối trước 13:00.",
+        "nguon": "Nguồn: bài tính với thời gian bán thải 5,5 giờ (sách Why We Sleep, Walker 2017, nêu khoảng 5–7 giờ; mỗi người khác nhau nhiều): ly 14:00 còn 60% lúc 18:00, 36% lúc 22:00. Đường cong do Mark tính bằng công thức bán thải."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 10 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Work it out for you",
+        "nhan": "Your last coffee",
+        "hoi": "Set when you have your last coffee and when you go to bed. How much caffeine is left at bedtime?",
+        "ly": "Last cup at",
+        "ngu": "Bedtime",
+        "luc_ngu": "at bedtime",
+        "mo_ta_bd": "Caffeine remaining by hour",
+        "ket": "At {ngu} you still have about {p}% of the caffeine from your {ly} cup.",
+        "cao": "Try moving your last cup before 13:00, as in the article's schedule.",
+        "thap": "Not bad; the article's schedule suggests a last cup before 13:00.",
+        "nguon": "Source: the article uses a 5.5-hour half-life (Why We Sleep, Walker 2017, gives about 5–7 hours; it varies a lot between people): a 14:00 cup is at 60% by 18:00 and 36% by 22:00. The curve is Mark's calculation from the half-life formula."
       }
     }
   ],
@@ -414,104 +347,82 @@
   ],
   "sapiens": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
+      "khuon": "thu-tu",
+      "id": "choi-thu-tu",
       "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Nông dân thời đầu thấp hơn, răng xấu hơn, bệnh nhiều hơn người săn hái",
-            "Nhiều nghiên cứu xương cốt (Larsen 1995; Mummert và cộng sự 2011) cho thấy sức khỏe đi xuống khi chuyển sang làm ruộng, dù mức độ khác nhau theo vùng."
-          ],
-          "en": [
-            "Early farmers were shorter, had worse teeth and more disease than foragers",
-            "Many skeletal studies (Larsen 1995; Mummert and colleagues 2011) show health declining with the shift to farming, though the degree varies by region."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Chữ viết đầu tiên ở Lưỡng Hà dùng để ghi sổ, không phải để viết thơ",
-            "Bảng đất sét chữ hình nêm sớm nhất (khoảng 3200 TCN, Uruk) chủ yếu ghi số lượng lúa mạch, gia súc, nhân công."
-          ],
-          "en": [
-            "The first writing in Mesopotamia was for bookkeeping, not poetry",
-            "The earliest cuneiform tablets (around 3200 BCE, Uruk) mostly record quantities of barley, livestock and labour."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Nhóm người tự nhiên tối đa khoảng 150 người",
-            "\"Con số Dunbar\" phổ biến, nhưng phân tích lại năm 2021 (Lindenfors và cộng sự) cho khoảng tin cậy rất rộng, từ vài người đến hơn 500."
-          ],
-          "en": [
-            "Natural groups top out at about 150 people",
-            "\"Dunbar's number\" is popular, but a 2021 reanalysis (Lindenfors and colleagues) found a very wide confidence interval, from a handful of people to over 500."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Người săn hái làm ít giờ và sống thoải mái hơn nông dân",
-            "Ý này đi từ \"xã hội sung túc nguyên thủy\" của Sahlins (1966). Đo lại kỹ hơn, tính cả giờ chế biến thức ăn, cho kết quả khác nhau nhiều giữa các nhóm."
-          ],
-          "en": [
-            "Foragers worked fewer hours and lived more comfortably than farmers",
-            "This goes back to Sahlins's \"original affluent society\" (1966). More careful measurements, including food-processing time, give results that vary widely between groups."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Neanderthal không có tư duy biểu tượng như sapiens",
-            "Có bằng chứng Neanderthal chôn người chết, làm đồ trang sức từ lông chim và móng đại bàng, và có thể vẽ hang (Tây Ban Nha, Hoffmann 2018, còn tranh luận). Ranh giới không rõ như sách vẽ."
-          ],
-          "en": [
-            "Neanderthals lacked symbolic thought like sapiens",
-            "There is evidence that Neanderthals buried their dead, made ornaments from feathers and eagle talons, and may have painted caves (Spain, Hoffmann 2018, still debated). The line is not as sharp as the book draws it."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Sapiens xuất hiện khoảng 200.000 năm trước ở Đông Phi",
-            "Hóa thạch Jebel Irhoud ở Maroc (Hublin và cộng sự, 2017) đẩy mốc lên khoảng 300.000 năm và cho thấy sapiens hình thành rải rác khắp châu Phi, không chỉ ở Đông Phi."
-          ],
-          "en": [
-            "Sapiens appeared about 200,000 years ago in East Africa",
-            "The Jebel Irhoud fossils in Morocco (Hublin and colleagues, 2017) push the date back to about 300,000 years and suggest sapiens emerged across Africa, not only in the east."
-          ]
-        }
-      ],
       "vi": {
         "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "nhan": "Xếp lại lịch sử",
+        "hoi": "Chạm các mốc theo thứ tự, từ xa xưa nhất đến gần nhất.",
+        "cac": [
+          [
+            "khoảng 2,5 triệu năm trước",
+            "Chi Homo, những loài người đầu tiên, xuất hiện."
+          ],
+          [
+            "khoảng 300.000 năm trước",
+            "Homo sapiens có mặt, rải rác khắp châu Phi."
+          ],
+          [
+            "khoảng 70.000 năm trước",
+            "Cách mạng nhận thức: kể chuyện về những thứ không có thật."
+          ],
+          [
+            "khoảng 40.000 năm trước",
+            "Các loài người khác lần lượt biến mất."
+          ],
+          [
+            "khoảng 12.000 năm trước",
+            "Cách mạng nông nghiệp: con người bắt đầu làm ruộng."
+          ],
+          [
+            "khoảng 500 năm trước",
+            "Cách mạng khoa học: thừa nhận \"chúng ta không biết\"."
+          ]
+        ],
+        "nut_kiem": "Xem mốc thật",
+        "nut_lai": "Làm lại",
+        "dung_cho": "đúng vị trí",
+        "sai_cho": "đúng ra là bước {n}",
+        "ket": "Bạn xếp đúng {d}/{n}. Sách ghi sapiens 200.000 năm; hóa thạch Jebel Irhoud đẩy lên khoảng 300.000 năm.",
+        "nguon": "Nguồn: các mốc theo sách Sapiens (Harari, 2014); tuổi Homo sapiens theo Hublin và cộng sự (2017), Nature, hóa thạch Jebel Irhoud."
       },
       "en": {
         "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "nhan": "Put history in order",
+        "hoi": "Tap the milestones in order, from the oldest to the most recent.",
+        "cac": [
+          [
+            "about 2.5 million years ago",
+            "The genus Homo, the first humans, appears."
+          ],
+          [
+            "about 300,000 years ago",
+            "Homo sapiens is present, scattered across Africa."
+          ],
+          [
+            "about 70,000 years ago",
+            "The Cognitive Revolution: telling stories about things that don't exist."
+          ],
+          [
+            "about 40,000 years ago",
+            "The other human species disappear one by one."
+          ],
+          [
+            "about 12,000 years ago",
+            "The Agricultural Revolution: people start farming."
+          ],
+          [
+            "about 500 years ago",
+            "The Scientific Revolution: admitting \"we don't know\"."
+          ]
+        ],
+        "nut_kiem": "Show real dates",
+        "nut_lai": "Start over",
+        "dung_cho": "right place",
+        "sai_cho": "should be step {n}",
+        "ket": "You placed {d}/{n} correctly. The book says sapiens is 200,000 years old; the Jebel Irhoud fossils push that to about 300,000.",
+        "nguon": "Source: milestones as given in Sapiens (Harari, 2014); age of Homo sapiens from Hublin et al. (2017), Nature, Jebel Irhoud fossils."
       }
     }
   ],
@@ -620,207 +531,213 @@
   ],
   "tham-hoa-mars-climate-orbiter": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Lỗi pound và newton trong phần mềm mặt đất là nguyên nhân gốc",
-            "Kết luận của Hội đồng (giai đoạn I, tr. 6, 16): tệp \"Small Forces\" không dùng hệ mét, thấp đi 4,45 lần."
-          ],
-          "en": [
-            "A pounds-versus-newtons error in ground software was the root cause",
-            "The board's finding (Phase I, pp. 6, 16): the \"Small Forces\" file did not use metric units and was low by a factor of 4.45."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Tàu bay thấp hơn kế hoạch rất nhiều",
-            "Nhắm 226 km, ước tính sau cùng khoảng 57 km, dưới ngưỡng sống sót 80 km (tr. 13–14)."
-          ],
-          "en": [
-            "The probe flew far lower than planned",
-            "Aimed at 226 km, final estimate about 57 km, below the 80 km survival limit (pp. 13–14)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Tàu \"đâm xuống\" Sao Hỏa",
-            "Không ai biết chắc. Hội đồng viết tàu \"hoặc đã bị phá hủy trong khí quyển, hoặc đã quay lại không gian quanh Mặt Trời\" (tr. 7)."
-          ],
-          "en": [
-            "The probe \"crashed into\" Mars",
-            "Nobody knows for sure. The board wrote that it \"either was destroyed in the atmosphere or re-entered heliocentric space\" (p. 7)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Lần chỉnh TCM-5 chắc chắn đã cứu được tàu",
-            "Đây là một trong 8 nguyên nhân góp phần, và nó được thiết kế để nâng quỹ đạo lên độ cao an toàn. Nhưng nó chưa từng được chuẩn bị, và Hội đồng không khẳng định nếu làm thì chắc chắn thành công (tr. 19–20)."
-          ],
-          "en": [
-            "The TCM-5 correction would certainly have saved it",
-            "Not doing it is one of the 8 contributing causes, and it was designed to raise the orbit to a safe altitude. But it had never been prepared, and the board does not claim it would surely have worked (pp. 19–20)."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Phần mềm trên tàu dùng sai đơn vị",
-            "\"Phần mềm AMD cài trên tàu dùng đơn vị hệ mét và đúng.\" Lỗi \"chỉ xảy ra trong phần mềm mặt đất\" (tr. 17)."
-          ],
-          "en": [
-            "The flight software used the wrong units",
-            "\"The AMD software installed on the spacecraft used metric units for the computation and was correct.\" \"Mismodeling only occurred in the ground software\" (p. 17)."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Không ai nhận ra gì cho đến phút chót",
-            "Từ mùa xuân 1999, ở cấp làm việc đã có lo ngại về các lời giải quỹ đạo không khớp. Chúng \"chỉ được báo không chính thức\" và \"không được giải quyết\" (tr. 13)."
-          ],
-          "en": [
-            "Nobody noticed anything until the last minute",
-            "From spring 1999 there were working-level concerns about orbit solutions that did not match. They were \"only informally reported\" and \"were not resolved\" (p. 13)."
-          ]
-        }
-      ],
+      "khuon": "soi-loi",
+      "id": "choi-soi-loi",
+      "truoc": "tinh-hoa",
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Soi tệp bàn giao",
+        "hoi": "Hai nhóm bàn giao số liệu cho nhau. Chạm vào dòng làm mất con tàu.",
+        "dong": [
+          {
+            "chu": "# ĐẶC TẢ GIAO TIẾP (SIS) · nhóm dẫn đường",
+            "tieu_de": true
+          },
+          {
+            "chu": "xung_luc_dong_co: số thực"
+          },
+          {
+            "chu": "don_vi: N·s (newton giây)"
+          },
+          {
+            "chu": "# TỆP AMD · phần mềm mặt đất \"Small Forces\"",
+            "tieu_de": true
+          },
+          {
+            "chu": "thoi_diem: 1999-09-08T14:02:11"
+          },
+          {
+            "chu": "xung_luc: 0.4417   # lbf·s",
+            "loi": true
+          },
+          {
+            "chu": "so_lan_dot: 1"
+          }
+        ],
+        "dung": "Đúng. Đặc tả đòi newton giây, tệp lại ghi pound lực giây. 1 pound lực = 4,45 newton, nên mỗi lần đốt bị tính nhỏ đi 4,45 lần. Sai số cộng dồn nhiều tháng, và con tàu đi sát Sao Hỏa hơn nhiều so với dự định.",
+        "sai": "Dòng này ổn. Gợi ý: so đơn vị ở hai phần.",
+        "mo_ta_bd": "Độ cao điểm gần Sao Hỏa: nhắm 226 km, ước tính cuối khoảng 57 km, dưới ngưỡng 80 km",
+        "cot": [
+          {
+            "nhan": "Nhắm (TCM-4)",
+            "gt": 226,
+            "hien": "226 km"
+          },
+          {
+            "nhan": "Tuần cuối",
+            "gt": 160,
+            "hien": "150–170 km"
+          },
+          {
+            "nhan": "1 giờ trước",
+            "gt": 110,
+            "hien": "~110 km"
+          },
+          {
+            "nhan": "Ước tính cuối",
+            "gt": 57,
+            "hien": "~57 km",
+            "nong": true
+          }
+        ],
+        "nguong": {
+          "gt": 80,
+          "nhan": "ngưỡng sống sót 80 km"
         },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 12 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "nguon": "Nguồn: Hội đồng điều tra MCO, báo cáo giai đoạn I (10/11/1999), tr. 6, 13–20: đặc tả yêu cầu N·s, tệp AMD xuất lbf·s, hệ số 4,45; nhắm 226 km, tuần cuối 150–170 km, khoảng 110 km một giờ trước, ước tính cuối khoảng 57 km, ngưỡng 80 km. Giá trị 0.4417 và mốc giờ trong tệp là minh họa."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
+        "muc": "Play before you read",
+        "nhan": "Check the handoff file",
+        "hoi": "Two teams hand data to each other. Tap the line that lost the spacecraft.",
+        "dong": [
+          {
+            "chu": "# INTERFACE SPEC (SIS) · navigation team",
+            "tieu_de": true
+          },
+          {
+            "chu": "thruster_impulse: float"
+          },
+          {
+            "chu": "units: N·s (newton-seconds)"
+          },
+          {
+            "chu": "# AMD FILE · ground software \"Small Forces\"",
+            "tieu_de": true
+          },
+          {
+            "chu": "time: 1999-09-08T14:02:11"
+          },
+          {
+            "chu": "impulse: 0.4417   # lbf·s",
+            "loi": true
+          },
+          {
+            "chu": "burns: 1"
+          }
+        ],
+        "dung": "Right. The spec asks for newton-seconds, but the file holds pound-force seconds. One pound-force is 4.45 newtons, so every burn was understated by a factor of 4.45. The error built up for months, and the spacecraft passed far closer to Mars than planned.",
+        "sai": "That line is fine. Hint: compare the units in the two parts.",
+        "mo_ta_bd": "Closest approach to Mars: target 226 km, final estimate about 57 km, below the 80 km limit",
+        "cot": [
+          {
+            "nhan": "Target (TCM-4)",
+            "gt": 226,
+            "hien": "226 km"
+          },
+          {
+            "nhan": "Final week",
+            "gt": 160,
+            "hien": "150–170 km"
+          },
+          {
+            "nhan": "1 hour before",
+            "gt": 110,
+            "hien": "~110 km"
+          },
+          {
+            "nhan": "Final estimate",
+            "gt": 57,
+            "hien": "~57 km",
+            "nong": true
+          }
+        ],
+        "nguong": {
+          "gt": 80,
+          "nhan": "survival limit 80 km"
         },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 12 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "nguon": "Source: MCO Mishap Investigation Board, Phase I report (10/11/1999), pp. 6, 13–20: spec required N·s, the AMD file used lbf·s, factor 4.45; target 226 km, final week 150–170 km, about 110 km an hour before, final estimate about 57 km, limit 80 km. The value 0.4417 and the timestamp in the file are illustrative."
       }
     }
   ],
   "tham-hoa-tenerife": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "KLM chạy đà khi chưa có lệnh cất cánh",
-            "Nguyên nhân cơ bản số 1 trong báo cáo Tây Ban Nha. Lúc 17:05:53 tháp chỉ cấp lộ trình bay; câu \"OK… chờ cất cánh\" đến sau khi KLM đã nhả phanh."
-          ],
-          "en": [
-            "KLM began its take-off run without a take-off clearance",
-            "Fundamental cause no. 1 in the Spanish report. At 17:05:53 the tower gave only the route clearance; \"OK… stand by for take-off\" came after KLM had released its brakes."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Kỹ sư bay KLM đã hỏi Pan Am ra khỏi đường băng chưa",
-            "Băng ghi âm lúc 17:06:32: \"Is he not clear, that Pan American?\". Cơ trưởng đáp dứt khoát là rồi (báo cáo Tây Ban Nha, mục 2.1)."
-          ],
-          "en": [
-            "The KLM flight engineer asked whether Pan Am was clear of the runway",
-            "CVR, 17:06:32: \"Is he not clear, that Pan American?\" The captain answered emphatically that it was (Spanish report, section 2.1)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"Kiểm soát viên mải nghe bóng đá\"",
-            "Đây là nghi vấn của phía Hà Lan, dựa trên tiếng nền trong băng của tháp, với chữ \"có thể đã bị phân tâm\". Báo cáo chính thức không kết luận như vậy."
-          ],
-          "en": [
-            "\"The controllers were listening to football\"",
-            "A Dutch contention, based on background sound on the tower tape, worded as \"may have been distracted\". The official report makes no such finding."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"Sau Tenerife, tiếng Anh thành bắt buộc trong hàng không\"",
-            "Hai bên trong vụ này đều nói tiếng Anh trên radio. Yêu cầu năng lực tiếng Anh của ICAO được thông qua ngày 5/3/2003 và áp dụng từ 5/3/2008, 26 năm sau. Tài liệu ICAO/IFALPA đó không nhắc đến Tenerife."
-          ],
-          "en": [
-            "\"After Tenerife, English became mandatory in aviation\"",
-            "Both sides in this accident spoke English on the radio. ICAO's English proficiency requirements were adopted on 5 March 2003 and applied from 5 March 2008, 26 years later. The ICAO/IFALPA document does not mention Tenerife."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "\"Cơ trưởng KLM là phi công non tay\"",
-            "Ông có 11.700 giờ bay và hơn 10 năm làm huấn luyện viên (báo cáo Tây Ban Nha, mục 1.5.1 và 1.16). Chính danh tiếng đó là một phần của vấn đề: báo cáo viết uy tín lớn của ông có thể khiến người khác ngại phản đối."
-          ],
-          "en": [
-            "\"The KLM captain was an inexperienced pilot\"",
-            "He had 11,700 flight hours and more than 10 years as an instructor (Spanish report, sections 1.5.1 and 1.16). That reputation was part of the problem: the report says his great prestige may have made others reluctant to object."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "\"Không ai trong buồng lái KLM lên tiếng\"",
-            "Phụ lái nhắc \"khoan đã, chưa có lệnh ATC\" lúc 17:05:41, và kỹ sư bay hỏi về Pan Am lúc 17:06:32. Họ có lên tiếng, nhưng chỉ bằng lời nhắc nhẹ và câu hỏi, không phải lời yêu cầu dừng."
-          ],
-          "en": [
-            "\"Nobody in the KLM cockpit spoke up\"",
-            "The first officer said \"wait a minute, we don't have an ATC clearance\" at 17:05:41, and the flight engineer asked about Pan Am at 17:06:32. They did speak, but only with a mild reminder and a question, never a demand to stop."
-          ]
-        }
-      ],
+      "khuon": "thu-tu",
+      "id": "choi-thu-tu",
+      "truoc": "tinh-hoa",
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "80 giây cuối",
+        "hoi": "Buồng lái KLM, sương mù 300 m. Chạm các câu theo thứ tự xảy ra, rồi xem giờ thật.",
+        "cac": [
+          [
+            "17:05:27",
+            "KLM quay đầu ở cuối đường băng. Pan Am vẫn đang lăn phía sau trong sương."
+          ],
+          [
+            "17:05:41",
+            "Phụ lái: \"Khoan, mình chưa có lệnh của tháp.\""
+          ],
+          [
+            "17:05:53",
+            "Tháp đọc lộ trình bay. Đây chưa phải lệnh cất cánh."
+          ],
+          [
+            "17:06:09",
+            "Phụ lái báo tháp: \"We are now at take-off.\""
+          ],
+          [
+            "17:06:18",
+            "Tháp: \"OK.\" Tiếng rít che mất \"chờ cất cánh, tôi sẽ gọi\"."
+          ],
+          [
+            "17:06:32",
+            "Kỹ sư bay: \"Pan Am chưa ra khỏi đường băng à?\" Cơ trưởng: \"Rồi.\""
+          ]
+        ],
+        "nut_kiem": "Xem giờ thật",
+        "nut_lai": "Làm lại",
+        "dung_cho": "đúng vị trí",
+        "sai_cho": "đúng ra là bước {n}",
+        "ket": "Bạn xếp đúng {d}/{n}. Từ câu \"at take-off\" đến lúc va chạm (17:06:47) chỉ có 38 giây, và câu có thể dừng mọi thứ lại bị tiếng rít che mất.",
+        "nguon": "Nguồn: Báo cáo của Tây Ban Nha (1978), mục 1.1 và 2.1: các mốc giờ từ 17:05:27 đến va chạm 17:06:47, tầm nhìn 300 m, tiếng rít 17:06:19 đến 17:06:22."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before you read",
+        "nhan": "The last 80 seconds",
+        "hoi": "KLM cockpit, 300 m visibility in fog. Tap the lines in the order they happened, then see the real times.",
+        "cac": [
+          [
+            "17:05:27",
+            "KLM turns around at the end of the runway. Pan Am is still taxiing behind it in the fog."
+          ],
+          [
+            "17:05:41",
+            "First officer: \"Wait, we don't have clearance yet.\""
+          ],
+          [
+            "17:05:53",
+            "The tower reads out the route clearance. It is not a takeoff clearance."
+          ],
+          [
+            "17:06:09",
+            "First officer to the tower: \"We are now at take-off.\""
+          ],
+          [
+            "17:06:18",
+            "Tower: \"OK.\" A squeal blocks out \"stand by for takeoff, I will call you\"."
+          ],
+          [
+            "17:06:32",
+            "Flight engineer: \"Is he not clear, that Pan American?\" Captain: \"Oh, yes.\""
+          ]
+        ],
+        "nut_kiem": "Show real times",
+        "nut_lai": "Start over",
+        "dung_cho": "right place",
+        "sai_cho": "should be step {n}",
+        "ket": "You placed {d}/{n} correctly. From \"at take-off\" to the collision (17:06:47) there were only 38 seconds, and the one call that could have stopped it was lost in the squeal.",
+        "nguon": "Source: Spanish investigation report (1978), sections 1.1 and 2.1: times from 17:05:27 to the collision at 17:06:47, 300 m visibility, squeal from 17:06:19 to 17:06:22."
       }
     }
   ],
@@ -929,240 +846,378 @@
   ],
   "tham-hoa-titanic": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Xuồng chỉ đủ cho khoảng một nửa số người, và điều đó hợp pháp",
-            "1.178 chỗ cho 2.201 người. Luật chỉ đòi khoảng 962 chỗ. Tàu có giấy chứng nhận của Bộ Thương mại Anh trước khi rời cảng (báo cáo Mỹ)."
-          ],
-          "en": [
-            "Boats for only about half the people, and that was legal",
-            "1,178 seats for 2,201 people. The rule required only about 962. A Board of Trade surveyor issued the certificate to sail on the morning of departure (US report)."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Nhiều xuồng rời tàu còn trống",
-            "Xuồng 7 có 27 người, xuồng 6 có 28, xuồng 1 (40 chỗ) có 12. Ủy ban Anh: \"ít nhất 8 xuồng không chở đủ\". Báo cáo Mỹ: \"chỉ vài xuồng được chất đầy\"."
-          ],
-          "en": [
-            "Many boats left with empty seats",
-            "Boat 7 had 27 people, boat 6 had 28, boat 1 (40 seats) had 12. British court: \"At least 8 boats did not carry their full loads.\" US report: \"Only a few of the ship's lifeboats were fully loaded.\""
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Có đúng 1.517 người chết",
-            "Báo cáo Mỹ: 706 sống trên 2.223 người, tức 1.517 chết. Ủy ban Anh: 711 sống trên 2.201, tức 1.490 chết. Danh sách người trên tàu lúc đó không đầy đủ, nên mọi con số đều là ước tính."
-          ],
-          "en": [
-            "Exactly 1,517 people died",
-            "US report: 706 saved of 2,223, so 1,517 lost. British report: 711 saved of 2,201, so 1,490 lost. Passenger lists were incomplete, so every total is an estimate."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Ông chủ hãng Ismay ép thuyền trưởng chạy nhanh",
-            "Không có kết luận nào như vậy trong báo cáo Anh. Điều có trong hồ sơ: Ismay giữ bức điện báo băng của Baltic trong túi từ khoảng 13:42 đến 19:15. Chuyện \"ép tăng tốc\" dựa trên lời kể của vài hành khách, còn tranh cãi."
-          ],
-          "en": [
-            "White Star chairman Ismay pushed the captain to go faster",
-            "There is no such finding in the British report. What is on record: Ismay kept Baltic's ice warning in his pocket from about 13:42 until 19:15. The \"speed up\" story rests on a few contested passenger accounts."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Thuyền trưởng cố phá kỷ lục vượt Đại Tây Dương",
-            "Không cuộc điều tra nào nói vậy. Ủy ban Anh ghi tốc độ khoảng 22 hải lý/giờ, \"không phải tốc độ tối đa của tàu\", và quy lỗi cho một thói quen chung của nghề: giữ tốc độ khi trời quang."
-          ],
-          "en": [
-            "The captain was trying to set a crossing record",
-            "Neither inquiry says so. The British report puts speed at about 22 knots, \"though not at the ship's maximum,\" and blames a common practice of the trade: keeping speed in clear weather."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Một nhà quý tộc đã đút tiền để thủy thủ chèo xuồng bỏ đi",
-            "Ủy ban Anh gọi cáo buộc với Sir Cosmo Duff Gordon (xuồng số 1) là \"không có cơ sở\". Nhưng tòa cũng nói nếu ông khuyến khích quay lại, thủy thủ \"có thể đã cứu được vài người\"."
-          ],
-          "en": [
-            "An aristocrat bribed the crew to row his boat away",
-            "The British court called the charge against Sir Cosmo Duff Gordon (boat 1) \"unfounded.\" But it added that had he encouraged the men to go back, they \"could have saved some lives.\""
-          ]
-        }
-      ],
+      "khuon": "hop-thu",
+      "id": "choi-hop-thu",
+      "truoc": "tinh-hoa",
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Hộp thư khẩn",
+        "hoi": "14/4/1912, bạn trực vô tuyến. Tin báo băng lẫn trong tin của hành khách. Tin nào chuyển lên đài chỉ huy?",
+        "nut_chuyen": "Chuyển lên đài chỉ huy",
+        "nut_de": "Để sau",
+        "ban_chuyen": "Bạn chuyển lên.",
+        "ban_de": "Bạn để sau.",
+        "that_ra": "Thật ra đêm đó:",
+        "tin_thuong": "Tin của hành khách.",
+        "thu": [
+          {
+            "gio": "9:00",
+            "tu": "tàu Caronia",
+            "chu": "Có băng trôi trên tuyến đường phía trước.",
+            "khan": true,
+            "that": "tin này tới tay thuyền trưởng."
+          },
+          {
+            "gio": "11:20",
+            "tu": "hành khách hạng nhất",
+            "chu": "Nhờ đặt xe đón ở bến New York.",
+            "khan": false
+          },
+          {
+            "gio": "13:42",
+            "tu": "tàu Baltic",
+            "chu": "Có băng lớn trên đường đi của Titanic.",
+            "khan": true,
+            "that": "tới thuyền trưởng, rồi chủ tàu Ismay giữ trong túi đến 19:15."
+          },
+          {
+            "gio": "13:45",
+            "tu": "tàu Amerika",
+            "chu": "Vừa đi qua những tảng băng lớn.",
+            "khan": true,
+            "that": "không tới sĩ quan nào."
+          },
+          {
+            "gio": "17:10",
+            "tu": "hành khách hạng hai",
+            "chu": "Gửi lời chúc mừng sinh nhật về Southampton.",
+            "khan": false
+          },
+          {
+            "gio": "19:30",
+            "tu": "tàu Californian",
+            "chu": "Ba tảng băng lớn ở phía trước.",
+            "khan": true,
+            "that": "không tới đài chỉ huy."
+          },
+          {
+            "gio": "21:40",
+            "tu": "tàu Mesaba",
+            "chu": "Băng dày đặc, nhiều tảng băng lớn.",
+            "khan": true,
+            "that": "không tới đài chỉ huy."
+          },
+          {
+            "gio": "22:30",
+            "tu": "hành khách hạng nhất",
+            "chu": "Gửi giá cổ phiếu cho văn phòng ở New York.",
+            "khan": false
+          },
+          {
+            "gio": "23:00",
+            "tu": "tàu Californian",
+            "chu": "Chúng tôi đã dừng lại, bị băng vây quanh.",
+            "khan": true,
+            "that": "bị trả lời \"Keep out\". 23:30 người trực ở Californian đi ngủ."
+          }
+        ],
+        "ket": "Bạn chuyển {d}/{n} tin băng lên đài chỉ huy. Đêm đó chỉ 2 tin tới tay thuyền trưởng, và không ai ghép các tin lại thành một bức tranh. 23:40 tàu đâm băng; 1.490 người chết.",
+        "nguon": "Nguồn: Ủy ban Anh, Lord Mersey (30/7/1912), đối chiếu Thượng viện Mỹ (28/5/1912): giờ và nơi đến của 6 tin băng, đâm băng lúc 23:40, 1.490 người chết. Ba tin của hành khách là ví dụ minh họa do Mark viết."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before you read",
+        "nhan": "Urgent inbox",
+        "hoi": "14 April 1912, you are on radio duty. Ice warnings arrive mixed in with passenger messages. Which ones go to the bridge?",
+        "nut_chuyen": "Send to the bridge",
+        "nut_de": "Later",
+        "ban_chuyen": "You sent it up.",
+        "ban_de": "You held it.",
+        "that_ra": "What really happened:",
+        "tin_thuong": "A passenger message.",
+        "thu": [
+          {
+            "gio": "9:00",
+            "tu": "Caronia",
+            "chu": "Drifting ice reported on the route ahead.",
+            "khan": true,
+            "that": "it reached the captain."
+          },
+          {
+            "gio": "11:20",
+            "tu": "first-class passenger",
+            "chu": "Please book a car at the New York pier.",
+            "khan": false
+          },
+          {
+            "gio": "13:42",
+            "tu": "Baltic",
+            "chu": "Large icebergs on Titanic's track.",
+            "khan": true,
+            "that": "it reached the captain, then owner Ismay kept it in his pocket until 19:15."
+          },
+          {
+            "gio": "13:45",
+            "tu": "Amerika",
+            "chu": "We have just passed large icebergs.",
+            "khan": true,
+            "that": "it reached no officer."
+          },
+          {
+            "gio": "17:10",
+            "tu": "second-class passenger",
+            "chu": "Birthday wishes to Southampton.",
+            "khan": false
+          },
+          {
+            "gio": "19:30",
+            "tu": "Californian",
+            "chu": "Three large icebergs ahead.",
+            "khan": true,
+            "that": "it never reached the bridge."
+          },
+          {
+            "gio": "21:40",
+            "tu": "Mesaba",
+            "chu": "Heavy pack ice and many large icebergs.",
+            "khan": true,
+            "that": "it never reached the bridge."
+          },
+          {
+            "gio": "22:30",
+            "tu": "first-class passenger",
+            "chu": "Share prices for the New York office.",
+            "khan": false
+          },
+          {
+            "gio": "23:00",
+            "tu": "Californian",
+            "chu": "We are stopped and surrounded by ice.",
+            "khan": true,
+            "that": "the reply was \"Keep out\". At 23:30 Californian's operator went to bed."
+          }
+        ],
+        "ket": "You sent {d}/{n} ice warnings to the bridge. That night only 2 reached the captain, and nobody put the warnings together. At 23:40 the ship struck the iceberg; 1,490 people died.",
+        "nguon": "Source: British inquiry, Lord Mersey (30/7/1912), checked against the US Senate inquiry (28/5/1912): times and destinations of the 6 ice warnings, collision at 23:40, 1,490 deaths. The three passenger messages are illustrative examples written by Mark."
       }
     }
   ],
   "thi-nghiem-asch": [
     {
-      "khuon": "doan-so",
-      "id": "choi-doan-so",
+      "khuon": "dam-dong",
+      "id": "choi-dam-dong",
       "truoc": "tinh-hoa",
-      "so": [
+      "luot": [
         {
-          "vi": "Asch (1955)",
-          "en": "Asch (1955)",
-          "so": 36.8,
-          "hien": "36,8%",
-          "hien_en": "36.8%"
+          "mau": 100,
+          "abc": [
+            75,
+            100,
+            130
+          ],
+          "dung": "B",
+          "nhom": "B"
         },
         {
-          "vi": "Làm lại 2023",
-          "en": "Replication, 2023",
-          "so": 33,
-          "hien": "33%",
-          "hien_en": "33%"
+          "mau": 120,
+          "abc": [
+            120,
+            90,
+            150
+          ],
+          "dung": "A",
+          "nhom": "C"
+        },
+        {
+          "mau": 80,
+          "abc": [
+            105,
+            58,
+            80
+          ],
+          "dung": "C",
+          "nhom": "A"
+        },
+        {
+          "mau": 110,
+          "abc": [
+            85,
+            110,
+            140
+          ],
+          "dung": "B",
+          "nhom": "C"
         }
       ],
       "vi": {
-        "muc": "Chơi trước khi đọc",
-        "nhan": "Đoán con số",
-        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
-        "cau": "Cả nhóm cố ý chọn sai một đường thẳng rõ ràng. Bao nhiêu phần trăm câu trả lời của người thật đi theo nhóm?",
-        "nut_chot": "Chốt",
-        "ban": "Bạn đoán",
-        "ket": "Bạn đoán {me}%. Asch đo được 36,8%, lần làm lại năm 2023 ra 33%. Nhưng nhìn ngược lại: khoảng 2/3 câu trả lời vẫn đúng.",
-        "nguon": "Nguồn: Asch (1955), Scientific American, 123 người; Franzen và Mader (2023), khoảng 200 sinh viên ở Bern."
+        "muc": "Thử trên chính bạn",
+        "nhan": "Năm người nói trước",
+        "hoi": "Đường nào dài bằng đường mẫu? Năm người trả lời trước, bạn trả lời cuối.",
+        "mo_ta": "Đường mẫu bên trái, ba đường A, B, C bên phải",
+        "mau": "Mẫu",
+        "ban": "Bạn",
+        "ten": [
+          "An",
+          "Bình",
+          "Chi",
+          "Dũng",
+          "Hà"
+        ],
+        "chon": "Tôi chọn {k}",
+        "nut_luot": "Lượt {n}/{t}",
+        "nut_lai": "Chơi lại",
+        "ket": "Ở {c} lượt cả nhóm cố ý nói sai, bạn theo nhóm {f} lần. Trong thí nghiệm gốc, làm một mình gần như không ai sai, nhưng có nhóm thì 36,8% câu trả lời theo cái sai; khoảng 1/4 người không theo lần nào.",
+        "nguon": "Nguồn: Asch (1955), Scientific American 193(5): làm một mình sai dưới 1%, 36,8% câu trả lời theo nhóm, khoảng 1/4 người không theo lần nào."
       },
       "en": {
-        "muc": "Play before you read",
-        "nhan": "Guess the number",
-        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
-        "cau": "The whole group deliberately picks an obviously wrong line. What share of the real participant's answers follow the group?",
-        "nut_chot": "Lock in",
-        "ban": "Your guess",
-        "ket": "You guessed {me}%. Asch measured 36.8%, and a 2023 replication found 33%. Flip it around, though: about 2 in 3 answers stayed correct.",
-        "nguon": "Source: Asch (1955), Scientific American, 123 participants; Franzen and Mader (2023), about 200 students in Bern."
+        "muc": "Try it on yourself",
+        "nhan": "Five people answer first",
+        "hoi": "Which line matches the standard? Five people answer before you; you go last.",
+        "mo_ta": "Standard line on the left, lines A, B and C on the right",
+        "mau": "Standard",
+        "ban": "You",
+        "ten": [
+          "Ann",
+          "Ben",
+          "Cara",
+          "Dan",
+          "Eve"
+        ],
+        "chon": "I pick {k}",
+        "nut_luot": "Round {n}/{t}",
+        "nut_lai": "Play again",
+        "ket": "In the {c} rounds where the group gave the same wrong answer, you went along {f} times. In the original study almost nobody erred alone, but with the group 36.8% of answers followed the wrong one; about 1 in 4 people never went along.",
+        "nguon": "Source: Asch (1955), Scientific American 193(5): under 1% errors when alone, 36.8% of answers conformed, about a quarter of people never conformed."
       }
     }
   ],
   "thi-nghiem-milgram": [
     {
-      "khuon": "doan-so",
-      "id": "choi-doan-so",
+      "khuon": "bac-thang",
+      "id": "choi-nhap-vai",
       "truoc": "tinh-hoa",
-      "so": [
-        {
-          "vi": "Sinh viên Yale đoán",
-          "en": "Yale students' guess",
-          "so": 1.2,
-          "hien": "1,2%",
-          "hien_en": "1.2%"
-        },
-        {
-          "vi": "Điều kiện nổi tiếng",
-          "en": "Best-known condition",
-          "so": 65,
-          "hien": "65%",
-          "hien_en": "65%"
-        },
-        {
-          "vi": "Trung bình 21 điều kiện",
-          "en": "Average of 21 conditions",
-          "so": 43.6,
-          "hien": "43,6%",
-          "hien_en": "43.6%"
-        }
-      ],
+      "buoc": 15,
+      "toi_da": 450,
+      "nguy": 300,
+      "keu_tu": 75,
+      "keu_den": 150,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Đoán con số",
-        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
-        "cau": "Người \"thầy giáo\" được lệnh tăng dần mức giật điện. Bao nhiêu phần trăm đi đến nút cao nhất, 450V?",
-        "nut_chot": "Chốt",
-        "ban": "Bạn đoán",
-        "ket": "Bạn đoán {me}%. Sinh viên Yale đoán chỉ 1,2%; ở điều kiện nổi tiếng nhất, 26 trên 40 người (65%) đi đến cùng. Tính trung bình 21 điều kiện thì là 43,6%.",
-        "nguon": "Nguồn: Milgram (1963), Journal of Abnormal and Social Psychology; Haslam, Loughnan và Perry (2014), PLOS ONE, tổng hợp 21 điều kiện với 740 người."
+        "nhan": "Bạn là người thầy",
+        "hoi": "Người học ở phòng bên. Mỗi câu sai, bạn bấm mức điện cao hơn. Người mặc áo blouse đứng cạnh bạn. Bạn dừng ở đâu?",
+        "nhan_bang": [
+          "15V · Nhẹ",
+          "Nguy hiểm",
+          "450V · XXX"
+        ],
+        "mo": "Người thí nghiệm: \"Bắt đầu nhé. Câu sai đầu tiên, 15 vôn.\"",
+        "nut_bam": "Bấm {v}V",
+        "nut_dung": "Tôi dừng",
+        "nut_van_dung": "Vẫn dừng",
+        "nut_nhat": "Tôi nhất quyết dừng",
+        "nut_thoi": "Thôi, bấm {v}V",
+        "nut_lai": "Chơi lại",
+        "keu": "Người học kêu lên qua tường.",
+        "su_kien": {
+          "150": "Người học: \"Cho tôi ra! Tôi không muốn làm tiếp nữa!\"",
+          "300": "Người học đập vào tường. Không trả lời câu hỏi nữa.",
+          "315": "Người học đập tường lần nữa.",
+          "330": "Phòng bên im lặng."
+        },
+        "thuc": [
+          "Người thí nghiệm: \"Xin cứ tiếp tục.\"",
+          "Người thí nghiệm: \"Thí nghiệm cần anh tiếp tục.\"",
+          "Người thí nghiệm: \"Việc anh tiếp tục là tuyệt đối cần thiết.\"",
+          "Người thí nghiệm: \"Anh không có lựa chọn nào khác, anh phải tiếp tục.\""
+        ],
+        "het": "Bạn đi đến 450V, mức cao nhất. Trong thí nghiệm gốc 26 trên 40 người (65%) cũng vậy, dù sinh viên Yale đoán chỉ khoảng 1,2%.",
+        "dung_o": "Bạn dừng ở {v}V.",
+        "khong_bam": "Bạn không bấm lần nào.",
+        "som": "Trong thí nghiệm gốc không ai dừng trước 300V, và 26 trên 40 người (65%) đi đến 450V. Ở các phiên bản khác, tỷ lệ đi hết thay đổi nhiều theo hoàn cảnh, trung bình 43,6%.",
+        "muon": "Trong thí nghiệm gốc 5 người dừng ở 300V, và 26 trên 40 người (65%) đi đến 450V. Ở các phiên bản khác, tỷ lệ đi hết thay đổi nhiều theo hoàn cảnh, trung bình 43,6%.",
+        "nguon": "Nguồn: Milgram (1963), Journal of Abnormal and Social Psychology 67(4): 26/40 người đến 450V, không ai dừng trước 300V, 14 sinh viên Yale đoán trung bình 1,2%; lời người học và bốn câu thúc theo mô tả trong bài. Haslam, Loughnan và Perry (2014), PLOS ONE: trung bình 43,6% trên 21 điều kiện."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Guess the number",
-        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
-        "cau": "The \"teacher\" is told to keep raising the shock level. What share went all the way to the top switch, 450V?",
-        "nut_chot": "Lock in",
-        "ban": "Your guess",
-        "ket": "You guessed {me}%. Yale students guessed just 1.2%; in the best-known condition 26 of 40 people (65%) went all the way. Averaged over 21 conditions it was 43.6%.",
-        "nguon": "Source: Milgram (1963), Journal of Abnormal and Social Psychology; Haslam, Loughnan and Perry (2014), PLOS ONE, pooling 21 conditions with 740 people."
+        "nhan": "You are the teacher",
+        "hoi": "The learner is in the next room. For each wrong answer you press a higher switch. The man in the lab coat stands beside you. Where do you stop?",
+        "nhan_bang": [
+          "15V · Slight",
+          "Danger",
+          "450V · XXX"
+        ],
+        "mo": "Experimenter: \"Let's begin. First wrong answer, 15 volts.\"",
+        "nut_bam": "Press {v}V",
+        "nut_dung": "I'll stop",
+        "nut_van_dung": "Still stopping",
+        "nut_nhat": "I refuse to go on",
+        "nut_thoi": "Fine, press {v}V",
+        "nut_lai": "Play again",
+        "keu": "The learner cries out through the wall.",
+        "su_kien": {
+          "150": "Learner: \"Get me out of here! I won't go on!\"",
+          "300": "The learner pounds on the wall and stops answering.",
+          "315": "The learner pounds on the wall again.",
+          "330": "Silence from the next room."
+        },
+        "thuc": [
+          "Experimenter: \"Please continue.\"",
+          "Experimenter: \"The experiment requires that you continue.\"",
+          "Experimenter: \"It is absolutely essential that you continue.\"",
+          "Experimenter: \"You have no other choice, you must go on.\""
+        ],
+        "het": "You went to 450V, the top switch. In the original study 26 of 40 people (65%) did the same, though Yale students guessed only about 1.2%.",
+        "dung_o": "You stopped at {v}V.",
+        "khong_bam": "You never pressed a switch.",
+        "som": "In the original study nobody stopped before 300V, and 26 of 40 people (65%) went to 450V. Across other versions the share varied a lot with the setting, averaging 43.6%.",
+        "muon": "In the original study 5 people stopped at 300V, and 26 of 40 (65%) went to 450V. Across other versions the share varied a lot with the setting, averaging 43.6%.",
+        "nguon": "Source: Milgram (1963), Journal of Abnormal and Social Psychology 67(4): 26/40 went to 450V, nobody stopped before 300V, 14 Yale students guessed 1.2% on average; the learner's lines and the four prods follow the article's description. Haslam, Loughnan and Perry (2014), PLOS ONE: 43.6% on average across 21 conditions."
       }
     }
   ],
   "thi-nghiem-gorilla": [
     {
-      "khuon": "doan-so",
-      "id": "choi-doan-so",
+      "khuon": "dem-cham",
+      "id": "choi-dem-cham",
       "truoc": "tinh-hoa",
-      "so": [
-        {
-          "vi": "Thấy gorilla (1999)",
-          "en": "Saw the gorilla (1999)",
-          "so": 44,
-          "hien": "44%",
-          "hien_en": "44%"
-        },
-        {
-          "vi": "Bác sĩ X quang thấy (2013)",
-          "en": "Radiologists who saw it (2013)",
-          "so": 16.7,
-          "hien": "4/24",
-          "hien_en": "4/24"
-        }
-      ],
       "vi": {
-        "muc": "Chơi trước khi đọc",
-        "nhan": "Đoán con số",
-        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
-        "cau": "Người xem đang đếm số lần chuyền bóng thì một người mặc đồ gorilla đi ngang. Bao nhiêu phần trăm nhận ra gorilla?",
-        "nut_chot": "Chốt",
-        "ban": "Bạn đoán",
-        "ket": "Bạn đoán {me}%. Trong nghiên cứu gốc chỉ 44% thấy gorilla. Ngay cả bác sĩ X quang cũng bỏ sót: 20 trên 24 người không thấy gorilla chèn vào phim chụp phổi.",
-        "nguon": "Nguồn: Simons và Chabris (1999), Perception; Drew, Võ và Wolfe (2013), Psychological Science."
+        "muc": "Thử trên chính bạn",
+        "nhan": "Đếm chấm trắng",
+        "hoi": "Đếm số lần các chấm TRẮNG chạm cạnh trên. Bỏ qua chấm đen.",
+        "dan": "Đoạn chạy 16 giây. Tập trung nhé.",
+        "mo_ta": "Các chấm trắng và đen nảy trong khung",
+        "nut_bat_dau": "Bắt đầu đếm",
+        "het_gio": "Hết giờ.",
+        "dem_duoc": "Bạn đếm được",
+        "hoi_la": "Bạn có thấy gì khác lạ không?",
+        "co": "Có",
+        "khong": "Không",
+        "xem_lai": "Xem lại",
+        "so_dem": "Bạn đếm {b}, máy đếm {m}.",
+        "lo": "Từ giây 5 đến giây 11 có một chữ thập xám to bò ngang giữa khung.",
+        "ket_co": "Bạn đã thấy nó.",
+        "ket_khong": "Bạn đã không thấy nó.",
+        "ket": "Trong thí nghiệm gốc chỉ 44% người xem thấy gorilla, và khi đang dõi theo đội áo trắng thì chỉ 27% thấy một thứ màu đen.",
+        "nguon": "Nguồn: Simons và Chabris (1999), Perception 28(9): 228 người, 44% thấy gorilla; người theo dõi đội áo trắng 27% thấy, đội áo đen 58%. Bàn chơi là bản chấm tròn do Mark vẽ, không phải video gốc."
       },
       "en": {
-        "muc": "Play before you read",
-        "nhan": "Guess the number",
-        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
-        "cau": "Viewers are counting basketball passes when someone in a gorilla suit walks through. What share notice the gorilla?",
-        "nut_chot": "Lock in",
-        "ban": "Your guess",
-        "ket": "You guessed {me}%. In the original study only 44% saw the gorilla. Even radiologists miss it: 20 of 24 did not report a gorilla inserted into a lung scan.",
-        "nguon": "Source: Simons and Chabris (1999), Perception; Drew, Võ and Wolfe (2013), Psychological Science."
+        "muc": "Try it on yourself",
+        "nhan": "Count the white dots",
+        "hoi": "Count how many times the WHITE dots hit the top edge. Ignore the black ones.",
+        "dan": "It runs for 16 seconds. Stay focused.",
+        "mo_ta": "White and black dots bouncing inside a box",
+        "nut_bat_dau": "Start counting",
+        "het_gio": "Time's up.",
+        "dem_duoc": "You counted",
+        "hoi_la": "Did you notice anything unusual?",
+        "co": "Yes",
+        "khong": "No",
+        "xem_lai": "Watch again",
+        "so_dem": "You counted {b}; the computer counted {m}.",
+        "lo": "From second 5 to second 11 a large grey cross slid across the middle of the box.",
+        "ket_co": "You saw it.",
+        "ket_khong": "You missed it.",
+        "ket": "In the original study only 44% of viewers saw the gorilla, and only 27% saw something black while tracking the white team.",
+        "nguon": "Source: Simons and Chabris (1999), Perception 28(9): 228 people, 44% saw the gorilla; 27% of those tracking the white team saw it, 58% of those tracking the black team. This version uses dots drawn by Mark, not the original video."
       }
     }
   ],
@@ -1206,6 +1261,258 @@
         "ban": "Your guess",
         "ket": "You guessed {me}%. The original numbers: 3% at the 24-jam table, 30% at the 6-jam table. But it was one supermarket with very few buyers (4 vs 31), and a German replication found no difference.",
         "nguon": "Source: Iyengar and Lepper (2000), Journal of Personality and Social Psychology; Scheibehenne (2008), German replication."
+      }
+    }
+  ],
+  "tham-hoa-boeing-737-max": [
+    {
+      "khuon": "phan-xa",
+      "id": "choi-phan-xa",
+      "truoc": "tinh-hoa",
+      "toc_do": 0.27,
+      "toi_da": 2.5,
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Bốn giây",
+        "hoi": "Thiết kế giả định phi công xử lý trong 4 giây. Bấm Cất cánh; khi mũi máy bay tự chúi xuống, tìm đúng nút để ngắt.",
+        "binh_thuong": "Mũi: +0,00° · Trim: bình thường",
+        "dang_len": "Đang lấy độ cao…",
+        "nut_go": "Cất cánh",
+        "nut_lai": "Thử lại",
+        "coi": [
+          "STICK SHAKER",
+          "IAS DISAGREE",
+          "ALT DISAGREE",
+          "MASTER CAUTION"
+        ],
+        "lua": [
+          [
+            "Tắt còi báo",
+            "Còi tắt, mũi vẫn chúi"
+          ],
+          [
+            "Kéo cần lái",
+            "Kéo được chút, MCAS lại chúi",
+            0.6
+          ],
+          [
+            "Gọi đài kiểm soát",
+            "Đài đang chờ, mũi vẫn chúi"
+          ],
+          [
+            "Ngắt trim điện (CUTOUT)",
+            ""
+          ]
+        ],
+        "dong_ho": "Mũi: −{m}° · Trim: chúi xuống · {s} giây",
+        "mat": "Bạn mất {s} giây.",
+        "qua_lau": "Bạn chưa tìm ra nút sau 20 giây.",
+        "ket": "Thiết kế giả định 4 giây. Phi công thử của Boeing năm 2012 mất hơn 10 giây và gọi đó là \"thảm khốc\". Ở đây chỉ có 4 nút; trên máy bay thật là cả buồng lái, và phi công không được dạy về MCAS.",
+        "nguon": "Nguồn: JATR (2019), O2.8-A: giả định phản ứng 4 giây; Hạ viện Mỹ (9/2020), tr. 24–25: phi công thử của Boeing năm 2012 mất hơn 10 giây; FAA (18/11/2020), tr. 9–10: MCAS chúi mũi 0,27°/giây, tới 2,5° mỗi lần."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Four seconds",
+        "hoi": "The design assumed pilots would respond within 4 seconds. Press Take off; when the nose starts pushing down by itself, find the right switch.",
+        "binh_thuong": "Pitch: +0.00° · Trim: normal",
+        "dang_len": "Climbing…",
+        "nut_go": "Take off",
+        "nut_lai": "Try again",
+        "coi": [
+          "STICK SHAKER",
+          "IAS DISAGREE",
+          "ALT DISAGREE",
+          "MASTER CAUTION"
+        ],
+        "lua": [
+          [
+            "Silence the alarm",
+            "Alarm off, nose still dropping"
+          ],
+          [
+            "Pull the yoke",
+            "A little better, then MCAS pushes again",
+            0.6
+          ],
+          [
+            "Call air traffic control",
+            "ATC is waiting, nose still dropping"
+          ],
+          [
+            "Stab trim CUTOUT",
+            ""
+          ]
+        ],
+        "dong_ho": "Pitch: −{m}° · Trim: nose down · {s} s",
+        "mat": "You took {s} seconds.",
+        "qua_lau": "You didn't find the switch within 20 seconds.",
+        "ket": "The design assumed 4 seconds. A Boeing test pilot in 2012 took more than 10 seconds and called the result \"catastrophic\". Here there are only 4 buttons; in a real cockpit there are hundreds, and pilots had not been told about MCAS.",
+        "nguon": "Source: JATR (2019), O2.8-A: 4-second response assumption; US House committee (9/2020), pp. 24–25: Boeing test pilot in 2012 took more than 10 seconds; FAA (18/11/2020), pp. 9–10: MCAS moves the nose down 0.27°/s, up to 2.5° per activation."
+      }
+    }
+  ],
+  "tham-hoa-knight-capital": [
+    {
+      "khuon": "dieu-khien",
+      "id": "choi-dieu-khien",
+      "truoc": "tinh-hoa",
+      "tong": 440,
+      "phut": 45,
+      "may": 8,
+      "gio_mo": 9,
+      "phut_mo": 30,
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Phòng điều khiển",
+        "hoi": "9:30 sáng, sàn mở cửa. Có máy đang bắn lệnh điên. Dừng nó.",
+        "dan": "Mỗi giây ở đây là một phút thật. Bấm vào một máy để đọc mã đang chạy; máy hỏng sẽ được tắt.",
+        "nut_mo": "Mở cửa sàn",
+        "nut_go_ban": "Gỡ bản mới khỏi cả 8 máy",
+        "nut_lai": "Chơi lại",
+        "don_vi": " triệu USD",
+        "may": "Máy {n}",
+        "chua_kiem": "chưa kiểm",
+        "dang_doc": "đang đọc mã…",
+        "on": "bản mới · ổn",
+        "hong": "Power Peg · đã tắt",
+        "da_go": "đã gỡ bản mới · chưa kiểm",
+        "kip": "Bạn dừng được sau {p} phút, lỗ khoảng {l} triệu USD.",
+        "khong_kip": "Hết 45 phút.",
+        "ket": "Ngày 1/8/2012 Knight không có nút dừng và không có quy trình ứng phó. Họ gỡ bản mới khỏi 7 máy tốt, thế là cả 8 máy cùng chạy Power Peg. Khoảng 45 phút, lỗ khoảng 440 triệu USD.",
+        "nguon": "Nguồn: SEC, lệnh 34-70694 (2013), đoạn 13–27: 1 trong 8 máy bị sót khi triển khai, khoảng 45 phút, gỡ code mới khỏi 7 máy tốt làm cả 8 máy chạy Power Peg; Knight 8-K (2/8/2012): lỗ khoảng 440 triệu USD. Tốc độ lỗ trong trò = 440 triệu chia đều 45 phút cho mỗi máy hỏng (Mark tính)."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Control room",
+        "hoi": "9:30 a.m., the market opens. One server is firing off runaway orders. Stop it.",
+        "dan": "Each second here is one real minute. Tap a server to read the code it runs; a faulty one gets shut down.",
+        "nut_mo": "Open the market",
+        "nut_go_ban": "Roll back the new code on all 8",
+        "nut_lai": "Play again",
+        "don_vi": " million USD",
+        "may": "Server {n}",
+        "chua_kiem": "not checked",
+        "dang_doc": "reading code…",
+        "on": "new code · OK",
+        "hong": "Power Peg · shut down",
+        "da_go": "rolled back · not checked",
+        "kip": "You stopped it after {p} minutes, losing about {l} million USD.",
+        "khong_kip": "45 minutes are up.",
+        "ket": "On 1/8/2012 Knight had no kill switch and no incident procedure. They rolled back the new code on the 7 good servers, so all 8 ran Power Peg. It lasted about 45 minutes and lost about 440 million USD.",
+        "nguon": "Source: SEC order 34-70694 (2013), paragraphs 13–27: 1 of 8 servers missed in the deployment, about 45 minutes, rolling back the 7 good servers left all 8 running Power Peg; Knight 8-K (2/8/2012): loss of about 440 million USD. The loss rate in the game is 440 million spread evenly over 45 minutes per faulty server (Mark's calculation)."
+      }
+    }
+  ],
+  "giai-ma-sieu-tri-nho": [
+    {
+      "khuon": "tri-nho",
+      "id": "choi-tri-nho",
+      "truoc": "ap-dung",
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Nhớ 10 thứ",
+        "hoi": "Vòng 1: nhớ 10 thứ trong 20 giây. Vòng 2: nhớ 10 thứ khác bằng một câu chuyện nối chúng lại.",
+        "dan": "Vòng 1 nhớ kiểu bình thường. Vòng 2 có câu chuyện kiểu phương pháp liên kết trong sách.",
+        "v1": [
+          "trứng",
+          "xà phòng",
+          "chuối",
+          "sữa",
+          "bánh mì",
+          "cái ô",
+          "con mèo",
+          "đồng hồ",
+          "quả bóng",
+          "chìa khóa"
+        ],
+        "v2": [
+          "con voi",
+          "cái ghế",
+          "bút chì",
+          "dưa hấu",
+          "đôi giày",
+          "ngọn nến",
+          "cái thang",
+          "con cá",
+          "mũ bảo hiểm",
+          "quyển sách"
+        ],
+        "nhieu": [
+          "cái bàn",
+          "con chó",
+          "ấm trà",
+          "đôi đũa",
+          "cây bút",
+          "bông hoa",
+          "cái cốc",
+          "cái gối",
+          "tủ lạnh",
+          "cái kéo"
+        ],
+        "chuyen": "Con voi ngồi lên cái ghế, cầm bút chì đâm vào quả dưa hấu. Nước dưa chảy vào đôi giày, làm tắt ngọn nến. Mất đèn, nó leo cái thang, giẫm phải con cá, ngã đập mũ bảo hiểm vào quyển sách.",
+        "nut_v1": "Vòng 1: bắt đầu",
+        "nut_v2": "Vòng 2: học bằng câu chuyện",
+        "nut_lai": "Chơi lại",
+        "nho_xong": "Tôi nhớ xong",
+        "cham": "Chấm",
+        "chon": "Chạm vào 10 thứ bạn vừa thấy",
+        "giay": "{s} giây",
+        "ket1": "Vòng 1: đúng {d}/10. Giờ thử mẹo liên kết: biến từng thứ thành hình, nối thành một cảnh phim.",
+        "ket2": "Vòng 2: đúng {d}/10 (vòng 1: {d1}/10). Người chưa từng luyện, tập 30 phút mỗi ngày trong 6 tuần, nhớ được từ khoảng 26 lên 62 trên 72 từ.",
+        "nguon": "Nguồn: Dresler và cộng sự (2017), Neuron: người chưa luyện, 30 phút mỗi ngày trong 6 tuần, số từ nhớ được tăng từ khoảng 26 lên 62 trên 72. Phương pháp liên kết theo sách Giải mã siêu trí nhớ (Mai Tường Vân, 2020)."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "Remember 10 things",
+        "hoi": "Round 1: remember 10 things in 20 seconds. Round 2: remember 10 different things with a story that links them.",
+        "dan": "Round 1 is plain memorising. Round 2 gives you a story, like the book's linking method.",
+        "v1": [
+          "egg",
+          "soap",
+          "banana",
+          "milk",
+          "bread",
+          "umbrella",
+          "cat",
+          "clock",
+          "ball",
+          "key"
+        ],
+        "v2": [
+          "elephant",
+          "chair",
+          "pencil",
+          "watermelon",
+          "shoes",
+          "candle",
+          "ladder",
+          "fish",
+          "helmet",
+          "book"
+        ],
+        "nhieu": [
+          "table",
+          "dog",
+          "teapot",
+          "chopsticks",
+          "pen",
+          "flower",
+          "cup",
+          "pillow",
+          "fridge",
+          "scissors"
+        ],
+        "chuyen": "An elephant sits on a chair and stabs a watermelon with a pencil. The juice runs into a pair of shoes and puts out a candle. In the dark it climbs a ladder, steps on a fish and falls, banging its helmet on a book.",
+        "nut_v1": "Round 1: start",
+        "nut_v2": "Round 2: learn with a story",
+        "nut_lai": "Play again",
+        "nho_xong": "I've got it",
+        "cham": "Check",
+        "chon": "Tap the 10 things you just saw",
+        "giay": "{s} seconds",
+        "ket1": "Round 1: {d}/10 correct. Now try the linking trick: turn each item into a picture and join them into one scene.",
+        "ket2": "Round 2: {d}/10 correct (round 1: {d1}/10). Untrained people who practised 30 minutes a day for 6 weeks went from about 26 to 62 of 72 words.",
+        "nguon": "Source: Dresler et al. (2017), Neuron: untrained people practising 30 minutes a day for 6 weeks went from about 26 to 62 of 72 words remembered. Linking method as described in Giải mã siêu trí nhớ (Mai Tường Vân, 2020)."
       }
     }
   ]
