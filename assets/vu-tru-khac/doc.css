@@ -44,13 +44,33 @@ header > * { position: relative; z-index: 1; grid-column: 1; }
 header .label, header .meta span { color: var(--bia-nhan); }
 header h1 { font-size: clamp(2rem, 5vw, 3rem); color: #FFF7ED; }
 header .sub { color: #FDE6C8; font-size: 1rem; }
-header .draft { justify-self: start; border: 0; background: var(--bia-nhan); color: var(--bia-1); border-radius: 999px; padding: 3px 10px; font-weight: 600; }
-/* Thông tin sách: chip lấp chỗ trống bên phải tiêu đề */
-header .meta { grid-column: 2; grid-row: 1 / span 5; align-self: center; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
-header .meta div { display: flex; align-items: baseline; gap: 8px; padding: 6px 12px; border-radius: 999px;
-  background: rgb(255 255 255 / .08); border: 1px solid color-mix(in srgb, var(--bia-nhan) 45%, transparent); }
-header .meta span { font-size: .66rem; }
-header .meta b { color: #FFF7ED; font-size: .9rem; }
+/* Nhãn "Mark ở vũ trụ khác" của bài thừa vì thanh trên cùng đã có logo, lại làm đầu bài lệch (Sang 13/10): ẩn đi,
+   dòng chủ đề thành dòng mở đầu có chấm hành tinh */
+header .draft { display: none; }
+header > .label { display: inline-flex; align-items: center; gap: 10px; }
+header > .label::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--bia-nhan);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bia-nhan) 30%, transparent), 0 0 12px var(--bia-nhan); }
+/* Dải số liệu/biểu tượng dưới tiêu đề (SVG trong bài, chữ xám #8a94a6 chìm vào nền tối): đặt lên tấm nền sáng mờ,
+   phóng to, chữ kem đậm, nét xám đổi sang màu nhấn của bìa. Bài nào cũng dùng được, không phải sửa bài */
+header > svg { justify-self: start; width: auto; height: 84px; max-width: 100%; box-sizing: border-box; padding: 10px 18px; margin-block: 4px;
+  border-radius: 16px; background: rgb(255 255 255 / .07); border: 1px solid color-mix(in srgb, var(--bia-nhan) 45%, transparent); overflow: visible; }
+header > svg text { fill: #FFF7ED; font-weight: 700; font-size: 17px; font-family: var(--font-display); }
+header > svg [stroke="#8a94a6"] { stroke: var(--bia-nhan); }
+header > svg [fill="#8a94a6"]:not(text) { fill: var(--bia-nhan); }
+/* Thông tin chính thành một tấm thẻ hồ sơ: giấy kem, tab màu nhấn ghi loại thẻ (--ho-so do script đặt theo chủ đề:
+   "Thẻ sách", "Hồ sơ vụ việc", "Sổ thí nghiệm"), kẹp giấy, mỗi dòng nhãn bên trái, nội dung bên phải, kẻ gạch đứt */
+header .meta { grid-column: 2; grid-row: 1 / span 6; align-self: center; position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin: 18px 0 6px;
+  padding: 16px 18px 8px; border-radius: 4px 14px 14px 14px; background: #FFF7ED; color: #0F172A; transform: rotate(-1.2deg);
+  box-shadow: 0 18px 30px -16px rgb(0 0 0 / .65), 0 0 0 1px rgb(255 255 255 / .6) inset; }
+header .meta::before { content: var(--ho-so, "Hồ sơ"); position: absolute; left: 0; bottom: 100%; padding: 5px 14px 3px; border-radius: 8px 8px 0 0;
+  background: var(--bia-nhan); color: var(--bia-1); font: 700 .68rem/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+header .meta::after { content: ""; position: absolute; top: -16px; right: 26px; width: 12px; height: 38px; border: 3px solid #94A3B8; border-radius: 8px;
+  transform: rotate(10deg); }
+header .meta div { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); align-items: baseline; gap: 12px; padding: 8px 0;
+  border: 0; border-radius: 0; background: none; border-bottom: 1px dashed #E7CFAE; }
+header .meta div:last-child { border-bottom: 0; }
+header .meta span { font-size: .64rem; line-height: 1.3; color: color-mix(in srgb, var(--bia-2) 60%, #7C2D12); }
+header .meta b { color: #0F172A; font-size: .9rem; font-weight: 600; line-height: 1.35; }
 /* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng, "song" = dải sóng nước (Flow) */
 body.bia-trang header::before { content: ""; position: absolute; top: 22px; right: calc(var(--le) + 150px); width: 46px; height: 46px; border-radius: 50%;
   box-shadow: 10px -6px 0 0 var(--bia-nhan); transform: rotate(-20deg); opacity: .9; }
@@ -67,14 +87,16 @@ body.bia-bon-mau header::before { content: ""; position: absolute; left: 0; righ
   background: linear-gradient(90deg, #4285F4 0 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75%); }
 @media (max-width: 900px) {
   header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
-  header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
+  header .meta { grid-column: 1; grid-row: auto; margin-top: 30px; transform: none; }
   header::after { width: 72px; height: 82px; top: 18px; bottom: auto; }
   body.bia-trang header::before { right: calc(var(--le) + 70px); width: 30px; height: 30px; }
   body.bia-hong-tam header::before { right: calc(var(--le) + 70px); width: 34px; height: 34px; }
 }
 @media (max-width: 640px) {
   header { padding-right: var(--le); padding-bottom: 20px; }
-  header h1, header .sub, header .label, header .draft { max-width: calc(100% - 80px); }
+  header h1, header .sub, header > .label { max-width: calc(100% - 80px); }
+  header > svg { height: 60px; padding: 8px 12px; }
+  header .meta div { grid-template-columns: 5.4rem minmax(0, 1fr); }
   body.bia-hong-tam header::before { display: none; }
 }
 
