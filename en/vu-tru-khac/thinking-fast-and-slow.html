@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thinking, Fast and Slow (Daniel Kahneman): summary, review and lessons | Another Universe</title>
+<meta name="description" content="Fast System 1 and slow System 2: the predictable errors of intuition, prospect theory, and the chapters that failed to replicate.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinking, Fast and Slow (Daniel Kahneman): summary, review and lessons | Another Universe">
+<meta property="og:description" content="Fast System 1 and slow System 2: the predictable errors of intuition, prospect theory, and the chapters that failed to replicate.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/thinking-fast-and-slow.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/thinking-fast-and-slow.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep; System 1 = amber (--day), System 2 = indigo (--night). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #2c3c8c;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--night); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Cognitive psychology · Behavioral economics</span>
+  <h1>Thinking, Fast and Slow</h1>
+  <svg viewBox="0 0 320 20" width="320" height="20" style="max-width:100%" role="img" aria-label="A yellow pencil, borrowed from the book cover"><rect x="1" y="2" width="24" height="16" rx="5" fill="#F9A8D4" stroke="var(--ink)" stroke-width="1.5"/><rect x="22" y="2" width="14" height="16" fill="#CBD5E1" stroke="var(--ink)" stroke-width="1.5"/><rect x="36" y="2" width="250" height="16" fill="#FACC15" stroke="var(--ink)" stroke-width="1.5"/><rect x="36" y="8" width="250" height="4" fill="#EAB308"/><path d="M286 2 L316 10 L286 18 Z" fill="#F5D0A9" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/><path d="M306 7.3 L316 10 L306 12.7 Z" fill="var(--ink)"/></svg>
+  <p class="sub">Daniel Kahneman</p>
+  <div class="meta">
+    <div><span class="label">Author</span><b>Daniel Kahneman (1934–2024) · Nobel in Economics 2002</b></div>
+    <div><span class="label">Published</span><b>2011 · Farrar, Straus and Giroux</b></div>
+    <div><span class="label">Length</span><b>5 parts · 38 chapters</b></div>
+    <div><span class="label">Rating</span><b>8.5 / 10 · a classic, read slowly</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Thesis</a><a href="#bo-cuc">Structure</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 3L6 17h8l-3 12 13-16h-8l3-10z"/></svg><b>Two systems</b><span>System 1 is fast and automatic. System 2 is slow, effortful and lazy.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h18l-4-4M28 22H10l4 4"/></svg><b>Quietly swapping questions</b><span>Faced with a hard question, System 1 answers an easier one.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 27V15M12 27V9M19 27V18M26 27V5"/></svg><b>Overconfidence</b><span>A coherent story makes us feel we understand.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 16h26M16 3v26"/><path d="M16 16c4-1 8-3 12-8M16 16C12 18 8 23 6 29"/></svg><b>Losses hurt twice as much</b><span>How a choice is framed changes the choice.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Skip the "priming" part</b><span>Chapters 3–4 rely on studies that failed to replicate.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>Core thesis</h2></div>
+  <p class="thesis">Our intuition is usually right, but when it is wrong it is wrong in predictable ways. Knowing the names of those errors helps us notice when to slow down.</p>
+  <div class="flow" aria-label="Three-step argument">
+    <div class="step"><span class="label">Step 1</span><b>Two systems</b><span>System 1 produces impressions automatically; System 2 usually signs off.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 2</span><b>Shortcuts</b><span>System 1 uses quick heuristics that create systematic biases.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 3</span><b>Consequences</b><span>Overconfidence, choices skewed by fear of loss, misremembered happiness.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the book is built</h2><p class="lead">Chapters per part. Parts II and IV are the work behind the 2002 Nobel.</p></div>
+  <div class="chbar" role="img" aria-label="Part I 9 chapters, part II 9, part III 6, part IV 10, part V 4">
+    <div class="p1" style="flex:9">I · 9</div><div class="p2" style="flex:9">II · 9</div><div class="p3" style="flex:6">III · 6</div><div class="p4" style="flex:10">IV · 10</div><div class="p5" style="flex:4">V · 4</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Part I</span><h3>Two systems</h3><div class="chips"><span class="chip">attention and effort</span><span class="chip">the lazy controller</span><span class="chip">association</span><span class="chip">cognitive ease</span><span class="chip">WYSIATI</span><span class="chip">substitution</span></div></div>
+    <div class="part b2"><span class="label">Part II</span><h3>Heuristics and biases</h3><div class="chips"><span class="chip">law of small numbers</span><span class="chip">anchors</span><span class="chip">availability</span><span class="chip">base rates</span><span class="chip">Linda</span><span class="chip">regression</span></div></div>
+    <div class="part b3"><span class="label">Part III</span><h3>Overconfidence</h3><div class="chips"><span class="chip">illusion of understanding</span><span class="chip">formulas vs experts</span><span class="chip">trustworthy intuition</span><span class="chip">the outside view</span></div></div>
+    <div class="part b4"><span class="label">Part IV</span><h3>Choices</h3><div class="chips"><span class="chip">prospect theory</span><span class="chip">endowment effect</span><span class="chip">fourfold pattern</span><span class="chip">rare events</span><span class="chip">framing</span></div></div>
+    <div class="part b5"><span class="label">Part V</span><h3>Two selves</h3><div class="chips"><span class="chip">experiencing vs remembering</span><span class="chip">peak and end</span><span class="chip">focusing illusion</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>System 1 and System 2</h3><span class="en">two characters</span><span class="pg">Part I</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f1t">
+          <title id="f1t">System 1 is fast, automatic and always on; System 2 is slow, effortful and lazy. System 1 sends impressions and suggestions to System 2, which rarely checks them.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+          <rect x="20" y="20" width="270" height="180" rx="6" fill="var(--day)" fill-opacity=".1" stroke="var(--day)"/>
+          <text x="40" y="50" class="t-day t-bold">SYSTEM 1 · FAST</text>
+          <text x="40" y="80" class="t-ink">automatic, effortless</text>
+          <text x="40" y="102" class="t-ink">always on, can't be turned off</text>
+          <text x="40" y="124" class="t-ink">sees an angry face instantly</text>
+          <text x="40" y="160" class="t-day t-bold">2 + 2 = ?</text>
+          <rect x="430" y="20" width="270" height="180" rx="6" fill="var(--night)" fill-opacity=".1" stroke="var(--night)"/>
+          <text x="450" y="50" class="t-night t-bold">SYSTEM 2 · SLOW</text>
+          <text x="450" y="80" class="t-ink">needs attention and effort</text>
+          <text x="450" y="102" class="t-ink">lazy, tends to sign off</text>
+          <text x="450" y="124" class="t-ink">filling in a tax form</text>
+          <text x="450" y="160" class="t-night t-bold">17 × 24 = ?</text>
+          <line x1="296" y1="90" x2="424" y2="90" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="360" y="80" text-anchor="middle" class="t-ink">impressions</text>
+          <line x1="424" y1="140" x2="296" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="360" y="160" text-anchor="middle">rarely checks</text>
+        </svg>
+      </div>
+      <figcaption><b>System 1 writes the draft; System 2 signs it, rarely reading closely.</b> Kahneman calls them two "characters" for convenience, not two brain regions.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The bat-and-ball puzzle</h3><span class="en">cognitive reflection test</span><span class="pg">Part I</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 180" role="img" aria-labelledby="f2t">
+          <title id="f2t">A bat and ball cost $1.10. The bat costs $1 more than the ball. Intuition says the ball costs 10 cents, but then the bat costs only 90 cents more. The right answer is 5 cents and $1.05.</title>
+          <text x="20" y="22" class="t-ink t-bold">Bat + ball = $1.10. The bat costs $1 more than the ball. Ball = ?</text>
+          <text x="140" y="62" text-anchor="end" class="t-bad t-bold">Intuition</text>
+          <rect x="150" y="44" width="500" height="26" fill="var(--day)" fill-opacity=".45"/><text x="400" y="62" text-anchor="middle" class="t-ink">bat 1.00</text>
+          <rect x="650" y="44" width="50" height="26" fill="var(--bad)" fill-opacity=".5"/><text x="675" y="62" text-anchor="middle" class="t-ink">0.10</text>
+          <text x="150" y="88" class="t-bad">bat is only $0.90 more ✗</text>
+          <text x="140" y="128" text-anchor="end" class="t-ok t-bold">Correct</text>
+          <rect x="150" y="110" width="525" height="26" fill="var(--day)" fill-opacity=".45"/><text x="410" y="128" text-anchor="middle" class="t-ink">bat 1.05</text>
+          <rect x="675" y="110" width="25" height="26" fill="var(--ok)" fill-opacity=".6"/><text x="687" y="104" text-anchor="middle" class="t-ok">0.05</text>
+          <text x="150" y="154" class="t-ok">bat is exactly $1.00 more ✓</text>
+        </svg>
+      </div>
+      <figcaption><b>More than half of students at Harvard, MIT and Princeton answered 10 cents.</b> Not because they can't do math, but because System 2 didn't bother to check.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Answering an easier question</h3><span class="en">substitution · WYSIATI</span><span class="pg">Part I</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <thead><tr><th>The real (hard) question</th><th>What System 1 quietly answers (easy)</th></tr></thead>
+        <tbody>
+          <tr><td>Should I invest in Ford stock?</td><td class="n">Do I like Ford cars?</td></tr>
+          <tr><td>Will this candidate be a good leader?</td><td class="n">Does this person look the part?</td></tr>
+          <tr><td>How much would I pay to save oil-soaked birds?</td><td class="n">How sad do I feel about them?</td></tr>
+          <tr><td>How happy am I these days?</td><td class="n">What is my mood right now?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">WYSIATI: "what you see is all there is". System 1 builds a story from whatever little it has and never asks what is missing.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Anchoring</h3><span class="en">anchors</span><span class="pg">Part II</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f3t">
+          <title id="f3t">Participants spun a wheel that stopped at 10 or 65, then estimated the share of African nations in the UN. Those who saw 10 guessed 25% on average; those who saw 65 guessed 45%.</title>
+          <text x="20" y="22" class="t-ink t-bold">What percentage of UN member states are African?</text>
+          <line class="axis" x1="160" y1="190" x2="560" y2="190"/>
+          <rect x="200" y="115" width="120" height="75" fill="var(--day)" fill-opacity=".55"/>
+          <rect x="400" y="55" width="120" height="135" fill="var(--day)"/>
+          <text x="260" y="106" text-anchor="middle" class="t-ink t-bold">guess 25%</text>
+          <text x="460" y="46" text-anchor="middle" class="t-ink t-bold">guess 45%</text>
+          <text x="260" y="208" text-anchor="middle">wheel stopped at 10</text>
+          <text x="460" y="208" text-anchor="middle">wheel stopped at 65</text>
+          <text x="540" y="120" class="t-day">a random number,</text><text x="540" y="134" class="t-day">clearly meaningless</text>
+        </svg>
+      </div>
+      <figcaption><b>A meaningless number still pulls the answer toward it.</b> Classic Tversky and Kahneman experiment (1974); anchoring has replicated many times.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The Linda problem</h3><span class="en">conjunction fallacy</span><span class="pg">Part II</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 250" role="img" aria-labelledby="f4t">
+          <title id="f4t">Two overlapping circles: bank tellers and feminist activists. The overlap "both" is always smaller than the "bank teller" circle, yet 85 to 90% of students judged Linda more likely to be in the overlap.</title>
+          <circle cx="230" cy="120" r="100" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="1.5"/>
+          <circle cx="350" cy="120" r="90" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="1.5"/>
+          <path d="M297.9 46.6 A100 100 0 0 1 297.9 193.4 A90 90 0 0 1 297.9 46.6 Z" fill="var(--bad)" fill-opacity=".25"/>
+          <text x="296" y="124" text-anchor="middle" class="t-ink t-bold">both</text>
+          <text x="170" y="124" text-anchor="middle" class="t-night t-bold">teller</text>
+          <text x="410" y="124" text-anchor="middle" class="t-day t-bold">feminist</text>
+          <text x="200" y="240" text-anchor="middle" class="t-night">bank teller</text>
+          <text x="380" y="240" text-anchor="middle" class="t-day">feminist activist</text>
+          <text x="470" y="60" class="t-ink t-bold">Which is Linda more likely?</text>
+          <text x="470" y="84" class="t-bad">85–90% of students chose</text>
+          <text x="470" y="100" class="t-bad">"teller AND feminist"</text>
+          <text x="470" y="132" class="t-ink">but the overlap can never be</text>
+          <text x="470" y="148" class="t-ink">larger than the "teller" circle</text>
+        </svg>
+      </div>
+      <figcaption><b>The more detailed the story, the more plausible it sounds and the less likely it is.</b> Linda is described as a philosophy major who cares about social justice.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Ignoring base rates</h3><span class="en">base-rate neglect · the cab problem</span><span class="pg">Part II</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 250" role="img" aria-labelledby="ftt">
+<title id="ftt">100 cabs: 15 Blue, 85 Green. The witness is right 80% of the time. When the witness says "Blue", 12 cabs really are Blue and 17 Green cabs are misidentified, so only about 41% are right.</title>
+<text x="60" y="26" class="t-ink t-bold">100 cabs in the city · bold = the witness would say "Blue"</text>
+<rect x="60" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="90" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="120" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="150" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="180" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="210" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="240" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="270" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="300" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="330" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="360" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="390" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="420" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="450" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="480" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="510" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="540" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="570" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="600" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="630" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="60" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="90" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="120" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="150" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="180" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="210" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="240" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="270" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="300" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="330" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="360" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="390" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="420" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/>
+<text x="60" y="210" class="t-night t-bold">12 real Blue cabs</text><text x="60" y="225">(80% of 15)</text>
+<text x="290" y="210" class="t-ok t-bold">+ 17 Green cabs misread</text><text x="290" y="225">(20% of 85)</text>
+<text x="660" y="210" text-anchor="end" class="t-ink t-bold">12 / 29 ≈ 41%</text><text x="660" y="225" text-anchor="end">not 80%</text>
+</svg></div>
+      <figcaption><b>The witness is 80% reliable, but the chance of being right is only 41%</b>, because Blue cabs are rare. System 1 remembers the witness and forgets the 15 in 100.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Regression to the mean</h3><span class="en">regression</span><span class="pg">Part II</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 230" role="img" aria-labelledby="frt">
+<title id="frt">A flight cadet's scores over 10 runs bounce around the average. After the best run (praised) the next is worse; after the worst run (scolded) the next is better. That is regression to the mean, not the effect of praise or blame.</title>
+<line x1="60" y1="110.0" x2="690" y2="110.0" stroke="var(--muted)" stroke-dasharray="4 4"/>
+<text x="62" y="126.0">true average</text>
+<path d="M80.0 71.6 L144.0 129.2 L208.0 84.4 L272.0 148.4 L336.0 94.0 L400.0 55.6 L464.0 119.6 L528.0 103.6 L592.0 158.0 L656.0 87.6" fill="none" stroke="var(--ink)" stroke-width="1.8"/>
+<circle cx="80" cy="72" r="4" fill="var(--ink)"/><circle cx="144" cy="129" r="4" fill="var(--ink)"/><circle cx="208" cy="84" r="4" fill="var(--ink)"/><circle cx="272" cy="148" r="4" fill="var(--ink)"/><circle cx="336" cy="94" r="4" fill="var(--ink)"/><circle cx="400" cy="56" r="4" fill="var(--ink)"/><circle cx="464" cy="120" r="4" fill="var(--ink)"/><circle cx="528" cy="104" r="4" fill="var(--ink)"/><circle cx="592" cy="158" r="4" fill="var(--ink)"/><circle cx="656" cy="88" r="4" fill="var(--ink)"/>
+<circle cx="400" cy="56" r="8" fill="none" stroke="var(--ok)" stroke-width="2.5"/>
+<circle cx="592" cy="158" r="8" fill="none" stroke="var(--bad)" stroke-width="2.5"/>
+<text x="400" y="40" text-anchor="middle" class="t-ok t-bold">praise</text>
+<text x="464" y="144" text-anchor="middle" class="t-ok">→ next one worse</text>
+<text x="592" y="182" text-anchor="middle" class="t-bad t-bold">scold</text>
+<text x="650" y="74" text-anchor="middle" class="t-bad">→ better</text>
+<g text-anchor="middle"><text x="80" y="222">run 1</text><text x="144" y="222">run 2</text><text x="208" y="222">run 3</text><text x="272" y="222">run 4</text><text x="336" y="222">run 5</text><text x="400" y="222">run 6</text><text x="464" y="222">run 7</text><text x="528" y="222">run 8</text><text x="592" y="222">run 9</text><text x="656" y="222">run 10</text></g>
+</svg></div>
+      <figcaption><b>A flight instructor believed scolding works and praise doesn't.</b> In fact an unusually good or bad run is partly luck, so the next one drifts back toward normal on its own.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The planning fallacy and the outside view</h3><span class="en">inside vs outside view</span><span class="pg">Part III</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 740 210" role="img" aria-labelledby="fplt">
+<title id="fplt">The textbook team expected to finish in about 2 years. Similar teams had taken 7 to 10 years and 40% never finished. The team actually took 8 years.</title>
+<g class="gridl"><line x1="180" y1="20" x2="180" y2="170"/><line x1="260" y1="20" x2="260" y2="170"/><line x1="340" y1="20" x2="340" y2="170"/><line x1="420" y1="20" x2="420" y2="170"/><line x1="500" y1="20" x2="500" y2="170"/><line x1="580" y1="20" x2="580" y2="170"/></g>
+<text x="168" y="50" text-anchor="end" class="t-ink t-bold">Team's own guess</text>
+<rect x="180" y="34" width="60.0" height="24" fill="var(--day)" opacity=".85"/><rect x="240.0" y="34" width="40" height="24" fill="var(--day)" opacity=".4"/>
+<text x="288.0" y="50" class="t-day">1.5–2.5 yrs</text>
+<text x="168" y="100" text-anchor="end" class="t-ink t-bold">Similar teams</text>
+<rect x="180" y="84" width="280" height="24" fill="var(--night)" opacity=".85"/><rect x="460" y="84" width="120" height="24" fill="var(--night)" opacity=".4"/>
+<text x="588" y="96" class="t-night">7–10 yrs</text><text x="588" y="110" class="t-bad">40% quit</text>
+<text x="168" y="150" text-anchor="end" class="t-ink t-bold">Actual</text>
+<rect x="180" y="134" width="320" height="24" fill="var(--ink)"/>
+<text x="508" y="150" class="t-ink t-bold">8 yrs</text>
+<g text-anchor="middle"><text x="180" y="190">0 yrs</text><text x="260" y="190">2 yrs</text><text x="340" y="190">4 yrs</text><text x="420" y="190">6 yrs</text><text x="500" y="190">8 yrs</text><text x="580" y="190">10 yrs</text></g>
+</svg></div>
+      <figcaption><b>Kahneman's own story about writing a curriculum.</b> The team trusted its own plan (the inside view) and ignored how teams like it had fared (the outside view).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Prospect theory</h3><span class="en">loss aversion</span><span class="pg">Part IV</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 300" role="img" aria-labelledby="fpt">
+<title id="fpt">Prospect theory value function: the gain side flattens out, the loss side is about twice as steep; losing 100 hurts far more than gaining 100 pleases.</title>
+<line class="axis" x1="40" y1="140" x2="690" y2="140"/><line class="axis" x1="360" y1="20" x2="360" y2="290"/>
+<text x="690" y="132" text-anchor="end" class="t-ok t-bold">GAINS →</text>
+<text x="40" y="132" class="t-bad t-bold">← LOSSES</text>
+<text x="368" y="30" class="t-ink">pleasure</text><text x="368" y="286" class="t-ink">pain</text>
+<path d="M60.0 275.0 L70.0 271.0 L80.0 267.0 L90.0 263.0 L100.0 259.0 L110.0 255.0 L120.0 250.9 L130.0 246.9 L140.0 242.8 L150.0 238.6 L160.0 234.5 L170.0 230.3 L180.0 226.1 L190.0 221.9 L200.0 217.6 L210.0 213.4 L220.0 209.0 L230.0 204.7 L240.0 200.3 L250.0 195.8 L260.0 191.3 L270.0 186.8 L280.0 182.2 L290.0 177.5 L300.0 172.8 L310.0 167.9 L320.0 162.9 L330.0 157.8 L340.0 152.5 L350.0 146.8 L360.0 140.0 L360.0 140.0 L370.0 137.0 L380.0 134.5 L390.0 132.1 L400.0 129.8 L410.0 127.6 L420.0 125.4 L430.0 123.3 L440.0 121.2 L450.0 119.2 L460.0 117.2 L470.0 115.2 L480.0 113.2 L490.0 111.3 L500.0 109.3 L510.0 107.4 L520.0 105.5 L530.0 103.6 L540.0 101.7 L550.0 99.9 L560.0 98.0 L570.0 96.2 L580.0 94.3 L590.0 92.5 L600.0 90.7 L610.0 88.9 L620.0 87.1 L630.0 85.3 L640.0 83.5 L650.0 81.8 L660.0 80.0" fill="none" stroke="var(--night)" stroke-width="2.5"/>
+<g stroke="var(--muted)" stroke-dasharray="3 3">
+<line x1="460" y1="140" x2="460" y2="117.2"/><line x1="360" y1="117.2" x2="460" y2="117.2"/>
+<line x1="260" y1="140" x2="260" y2="191.3"/><line x1="360" y1="191.3" x2="260" y2="191.3"/></g>
+<circle cx="460" cy="117.2" r="4" fill="var(--ok)"/><circle cx="260" cy="191.3" r="4" fill="var(--bad)"/>
+<circle cx="360" cy="140" r="4" fill="var(--ink)"/>
+<g><circle cx="410" cy="176" r="4" fill="var(--ok)"/><text x="420" y="180" class="t-ok">gain 100: a little joy</text>
+<circle cx="410" cy="198" r="4" fill="var(--bad)"/><text x="420" y="202" class="t-bad">lose 100: about twice the pain</text>
+<circle cx="410" cy="220" r="4" fill="var(--ink)"/><text x="420" y="224" class="t-ink">origin: reference point (today)</text></g>
+</svg></div>
+      <figcaption><b>We judge changes from a reference point, not total wealth</b>, and losses weigh about 1.5–2.5 times as much as gains. Illustrative curve.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The fourfold pattern of risk</h3><span class="en">fourfold pattern</span><span class="pg">Part IV</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>When we might GAIN</th><th>When we might LOSE</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">High probability</th><td class="safe"><b>Risk averse</b><span>Fear losing a near-sure gain · accept a low settlement</span></td><td class="risk"><b>Risk seeking</b><span>Hope to escape · keep betting to win it back</span></td></tr>
+          <tr><th class="rowh">Low probability</th><td class="risk"><b>Risk seeking</b><span>Hope for a big win · buy lottery tickets</span></td><td class="safe"><b>Risk averse</b><span>Fear of disaster · buy insurance</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Red edges mark where we gamble; blue edges mark where we pay for peace of mind.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Framing</h3><span class="en">the "Asian disease" problem</span><span class="pg">Part IV</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f5t">
+          <title id="f5t">The same choice for a disease threatening 600 people. Described as "200 people will be saved", 72% choose the sure option. Described as "400 people will die", only 22% choose the sure option and 78% gamble.</title>
+          <text x="230" y="22" class="t-ink t-bold">A disease threatens 600 people. The sure option:</text>
+          <text x="220" y="62" text-anchor="end" class="t-ok t-bold">"200 will be saved"</text>
+          <rect x="230" y="44" width="324" height="28" fill="var(--night)"/><rect x="554" y="44" width="126" height="28" fill="var(--grid)"/>
+          <text x="244" y="63" style="fill:var(--paper)" class="t-bold">72% take the sure thing</text><text x="617" y="63" text-anchor="middle" class="t-ink">28% gamble</text>
+          <text x="220" y="122" text-anchor="end" class="t-bad t-bold">"400 will die"</text>
+          <rect x="230" y="104" width="99" height="28" fill="var(--night)"/><rect x="329" y="104" width="351" height="28" fill="var(--bad)" fill-opacity=".3"/>
+          <text x="280" y="123" text-anchor="middle" style="fill:var(--paper)" class="t-bold">22%</text><text x="504" y="123" text-anchor="middle" class="t-bad t-bold">78% gamble</text>
+          <text x="230" y="170" class="t-ink">Saving 200 of 600 = letting 400 die. Only the wording changed.</text>
+        </svg>
+      </div>
+      <figcaption><b>Framed as gains we avoid risk; framed as losses we take it.</b> Tversky and Kahneman (1981), replicated many times.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Two selves: experiencing and remembering</h3><span class="en">peak-end rule · duration neglect</span><span class="pg">Part V</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 250" role="img" aria-labelledby="fct">
+<title id="fct">Cold-hand experiment: trial A, 60 seconds in 14°C water. Trial B is identical plus 30 more seconds at 15°C, more total pain but a milder ending. Asked which to repeat, most chose B.</title>
+<line class="axis" x1="70" y1="200" x2="659.0" y2="200"/>
+<text x="62" y="72" text-anchor="end" class="t-ink">pain</text><text x="62" y="200" text-anchor="end" class="t-ink">0</text>
+<rect x="70.0" y="64" width="372.0" height="136" fill="var(--night)" opacity=".18"/>
+<rect x="442.0" y="98" width="186.0" height="102" fill="var(--day)" opacity=".28"/>
+<path d="M70.0 64 H442.0" stroke="var(--night)" stroke-width="3"/>
+<path d="M442.0 64 C491.6 70 516.4000000000001 98 566.0 104 S615.6 112 628.0 114" fill="none" stroke="var(--day)" stroke-width="3"/>
+<text x="256.0" y="56" text-anchor="middle" class="t-night t-bold">Trial A: 60 s at 14°C</text>
+<text x="535.0" y="150" text-anchor="middle" class="t-day t-bold">Trial B: 30 s more</text>
+<text x="535.0" y="166" text-anchor="middle" class="t-day">water warms to 15°C</text>
+<text x="535.0" y="182" text-anchor="middle" class="t-day">(still painful, milder)</text>
+<g text-anchor="middle"><text x="70.0" y="218">0 s</text><text x="442.0" y="218">60</text><text x="628.0" y="218">90</text></g>
+<text x="256.0" y="140" text-anchor="middle" class="t-ink t-bold">total pain B &gt; A</text>
+<text x="256.0" y="156" text-anchor="middle" class="t-ink">yet most choose to repeat B</text>
+<text x="256.0" y="240" text-anchor="middle">memory keeps only the peak and the end</text>
+</svg></div>
+      <figcaption><b>The remembering self is the one that makes decisions.</b> It ignores duration and keeps only the peak and the ending; colonoscopy patients showed the same pattern.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How solid is the evidence?</h2><p class="lead">The 13 most-quoted claims, rechecked after psychology's replication crisis. Tap a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 4 caution, 4 failed to replicate or criticized">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:4">4 CAUTION</div><div class="b" style="flex:4">4 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Anchors bias our numeric estimates</span></summary><p class="note">Replicated in the Many Labs project (2014) with thousands of people across many countries.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Framing as "gain" or "loss" changes choices</span></summary><p class="note">The "Asian disease" problem replicates reliably, including in Many Labs. The effect shrinks when people deliberate.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The conjunction fallacy (Linda)</span></summary><p class="note">Replicated many times. Gigerenzer counters that asking in frequencies ("how many out of 100?") sharply reduces the error.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The planning fallacy; use the outside view</span></summary><p class="note">Infrastructure data (Flyvbjerg) show cost overruns and delays are the rule, not the exception.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Simple formulas often beat experts</span></summary><p class="note">From Paul Meehl (1954) to later meta-analyses, formulas win or tie in most comparisons.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>System 1 and System 2 are two real systems</span></summary><p class="note">Kahneman himself calls them "useful fictions". Many researchers see thinking as a continuum rather than a clean split.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Losses hurt about twice as much as gains</span></summary><p class="note">Loss aversion is real and meta-analyses support it. Its size varies with context; for small stakes it can be very weak (Gal and Rucker, 2018).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Above ~$75,000 a year, income no longer improves daily mood</span></summary><p class="note">In 2023 Kahneman and Killingsworth reanalyzed together: the plateau holds only for the least happy group; most people keep feeling better as income rises.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The "hot hand" in basketball is an illusion</span></summary><p class="note">Miller and Sanjurjo (2018) found a statistical flaw in the original study; corrected, a small effect appears.</p></details>
+    <details><summary><span class="tag bad">WRONG</span><span>Priming: reading words about old age makes you walk slower</span></summary><p class="note">Failed to replicate (Doyen et al., 2012). In 2017 Kahneman wrote that he had "placed too much faith in underpowered studies" in chapter 4.</p></details>
+    <details><summary><span class="tag bad">WRONG</span><span>Willpower is a depletable resource, restored by glucose</span></summary><p class="note">A preregistered study across 23 labs with over 2,000 people (Hagger et al., 2016) found an effect near zero.</p></details>
+    <details><summary><span class="tag bad">WRONG</span><span>Hard-to-read fonts make us think more carefully</span></summary><p class="note">A meta-analysis of 17 experiments (Meyer et al., 2015) found no effect.</p></details>
+    <details><summary><span class="tag bad">CRITICIZED</span><span>Hungry judges grant less parole before meals</span></summary><p class="note">The drop is too large to be hunger. Case order was not random: cases without a lawyer tended to come last in a session.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Influence</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Practical value</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Readability</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2.5/5</b></div>
+    <div class="score"><span>Scientific accuracy</span><div class="bar"><i style="width:70%"></i></div><b>3.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>A vocabulary for naming thinking errors</li><li>Readers fall into the traps right on the page</li><li>Parts II and IV are Nobel-winning science</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Long and dense, hard to read straight through</li><li>Chapters 3–4 rest on studies that collapsed</li><li>Knowing a bias rarely means avoiding it</li></ul></div>
+  </div>
+  <p class="verdict">Keep Parts II to V. Read chapters 3–4 as history of science, not as conclusions.</p>
+  <details class="more"><summary>More: the book and the replication crisis</summary><div>
+    <p>The book came out in 2011, just before social psychology found that many famous results did not replicate. In 2012 Kahneman himself wrote an open letter warning of a "train wreck looming" in priming research.</p>
+    <p>In 2017 Schimmack, Heene and Kesavan rated the replicability of the studies cited in chapter 4 and found it very low. Kahneman replied publicly that he had placed too much faith in underpowered studies, and that readers should discount the chapter.</p>
+    <p>Gerd Gigerenzer criticizes from another angle: System 1's shortcuts are often smart strategies in real environments, not just errors. Kahneman also admitted that knowing about biases barely helped him avoid them; organizational procedures work better.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Lessons to apply</h2><p class="lead">Five steps before a big decision. Leave small everyday choices to System 1.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 740 170" role="img" aria-labelledby="f6t">
+        <title id="f6t">Five steps before a big decision: notice instant certainty, find the base rate, reframe as gain and loss, run a premortem, score criteria first and use intuition last.</title>
+        <line x1="70" y1="50" x2="670" y2="50" stroke="var(--rule)" stroke-width="3"/>
+        <g fill="var(--night)"><circle cx="70" cy="50" r="16"/><circle cx="220" cy="50" r="16"/><circle cx="370" cy="50" r="16"/><circle cx="520" cy="50" r="16"/><circle cx="670" cy="50" r="16"/></g>
+        <g text-anchor="middle" class="t-bold"><text x="70" y="55" style="fill:var(--paper)">1</text><text x="220" y="55" style="fill:var(--paper)">2</text><text x="370" y="55" style="fill:var(--paper)">3</text><text x="520" y="55" style="fill:var(--paper)">4</text><text x="670" y="55" style="fill:var(--paper)">5</text></g>
+        <g text-anchor="middle">
+          <text x="70" y="94" class="t-day t-bold">Sure right away?</text><text x="70" y="110">that's a sign</text><text x="70" y="125">of System 1</text>
+          <text x="220" y="94" class="t-night t-bold">Find the base rate</text><text x="220" y="110">how do cases</text><text x="220" y="125">like this go?</text>
+          <text x="370" y="94" class="t-night t-bold">Reframe</text><text x="370" y="110">restate as a loss,</text><text x="370" y="125">then as a gain</text>
+          <text x="520" y="94" class="t-night t-bold">Premortem</text><text x="520" y="110">"it failed a year</text><text x="520" y="125">from now. Why?"</text>
+          <text x="670" y="94" class="t-night t-bold">Score, then feel</text><text x="670" y="110">rate each criterion</text><text x="670" y="125">first, gut last</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Step 5 is how Kahneman interviewed recruits for the Israeli army</b>: rate six traits from 1 to 5, then "close your eyes" and give an overall score.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4v18M9 15l7 7 7-7"/><path d="M6 28h20"/></svg><div><b>Name your number before you hear theirs</b><span>Prices, salaries: have your own figure first so you don't get anchored.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="10" height="10" rx="2"/><rect x="18" y="4" width="10" height="10" rx="2"/><rect x="4" y="18" width="10" height="10" rx="2"/><rect x="18" y="18" width="10" height="10" rx="2"/></svg><div><b>Look at the whole series, not each bet</b><span>Take many small favorable risks; judge them together, not one at a time.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 10v7M16 21v1"/></svg><div><b>Ask "what am I missing?"</b><span>The smoother the story, the more you should ask.</span></div></div>
+  </div>
+  <div class="quote"><span>"Nothing in life is as important as you think it is, while you are thinking about it."</span><span class="src">The focusing illusion, chapter 38.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Kahneman, Sibony, Sunstein, <i>Noise</i> (2021)</b><span class="muted">The sequel: random scatter in organizational judgment.</span></div>
+    <div><b>Michael Lewis, <i>The Undoing Project</i> (2016)</b><span class="muted">The friendship of Kahneman and Tversky, a much easier read.</span></div>
+    <div><b>Richard Thaler, <i>Misbehaving</i> (2015)</b><span class="muted">Behavioral economics from the inside, light and funny.</span></div>
+    <div><b>Schimmack, Heene, Kesavan (2017), "Reconstruction of a Train Wreck"</b><span class="muted">For balance on chapter 4. <a href="https://replicationindex.com/2017/02/02/reconstruction-of-a-train-wreck-how-priming-research-went-off-the-rails/">replicationindex.com</a></span></div>
+  </div>
+</section>
+
+<footer>Analysis #003. Figures are concept illustrations; experimental numbers as reported in the book.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+</body>
+</html>
