@@ -177,6 +177,12 @@ def tro_choi(b, p):
 TU_THE = ["doc-sach", "thac-mac", "a-ra-the", "cam-sach", "vui-mung", "ngac-nhien", "like", "chao", "buon-ngu"]
 
 
+def co_tro_choi():
+    """Các slug có trò chơi tương tác (khoá trong data/vu-tru-khac-tro-choi.json, bỏ khoá ghi chú bắt đầu bằng _)."""
+    tc = R / "data" / "vu-tru-khac-tro-choi.json"
+    return {k for k in json.loads(tc.read_text(encoding="utf-8")) if not k.startswith("_")} if tc.exists() else set()
+
+
 def the_bai(b, cd, en=False):
     e = b.get("en", {}) if en else b
     bia = b.get("bia") or {}
@@ -191,8 +197,13 @@ def the_bai(b, cd, en=False):
     if tep_hinh.exists():
         hinh = '<span class="vtk-hinh">' + tep_hinh.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', "") + "</span>"
         lop += " co-hinh"
+    # Bài có trò chơi tương tác (data/vu-tru-khac-tro-choi.json): gắn nhãn "Tương tác" kiểu nhãn Xem nhiều/Mới bên trang AI (.hh)
+    nhan = ""
+    if b["slug"] in co_tro_choi():
+        nhan = (f'<span class="hh hh-choi vtk-nhan"><svg class="ic" aria-hidden="true"><use href="{"../" if en else ""}assets/icons.svg#i-gamepad"/></svg>'
+                f'{"Interactive" if en else "Tương tác"}</span>')
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
+            f'{nhan}<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
             f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d}</span>'
             f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')
