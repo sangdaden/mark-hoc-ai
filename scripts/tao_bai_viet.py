@@ -291,6 +291,7 @@ def header(p, hien_tai="", q=None):
             f'  <nav class="top-links" aria-label="{t("Trang", "Pages")}">\n    {a((q or "./") + "#bat-dau", t("Bắt đầu từ đây", "Start here"), "bat-dau", "nav-start")}\n'
             f'    {a(q + "lo-trinh-7-ngay.html", t("Lộ trình 7 ngày", "7-day path"), "lo-trinh")}\n'
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
+            f'    {a(q + "phieu-luu.html", "Game", "game")}\n'
             f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
             f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>\n  </nav>\n</header>')
 
