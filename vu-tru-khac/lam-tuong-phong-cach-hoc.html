@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mỗi người một phong cách học (VAK và VARK): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="&quot;Tôi là người học kiểu nhìn&quot;: sở thích thì có thật, nhưng dạy đúng kiểu có giúp học tốt hơn không? Lần ngược từ VAK, VARK đến các thử nghiệm của Pashler, Rogowsky và phân tích gộp 2024, rồi rút ra cách thiết kế đào tạo theo nội dung.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mỗi người một phong cách học (VAK và VARK): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="&quot;Tôi là người học kiểu nhìn&quot;: sở thích thì có thật, nhưng dạy đúng kiểu có giúp học tốt hơn không? Lần ngược từ VAK, VARK đến các thử nghiệm của Pashler, Rogowsky và phân tích gộp 2024, rồi rút ra cách thiết kế đào tạo theo nội dung.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #1A0B16; --bia-2: #831843; --bia-nhan: #7DD3FC; }
+:root { --vtk-nhan: #7DD3FC; }
+body header { --ho-so: "Hồ sơ lầm tưởng"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/lam-tuong-phong-cach-hoc.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Challenger. Topic "Lầm tưởng phổ biến" #3 phong cách học: --night = magenta (the label stuck on a learner), --day = sky blue (the content itself). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #be185d;
+  --day: #0369a1;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f472b6; --day: #7dd3fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f472b6; --day: #7dd3fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Mỗi người một phong cách học</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><g stroke="#FFF7ED" stroke-width="3">
+<path d="M10 12h30l7 9-7 9H10z"/><path d="M14 21c4-6 18-6 22 0-4 6-18 6-22 0z" stroke-width="2.5"/>
+<path d="M10 40h30l7 9-7 9H10z"/><path d="M26 54c0-3 4-3 4-8a5 5 0 0 0-10 0"/>
+<path d="M10 68h30l7 9-7 9H10z"/><path d="M20 84v-8a2 2 0 0 1 4 0v-3a2 2 0 0 1 4 0v3a2 2 0 0 1 4 0v8"/>
+</g>
+<circle cx="25" cy="21" r="2.6" fill="var(--bia-nhan, #F472B6)"/>
+<g stroke="var(--bia-nhan, #F472B6)" stroke-width="4"><path d="M54 40h10M54 54h10M66 34l-14 26"/></g>
+<rect x="70" y="30" width="24" height="40" rx="3" stroke="#FFF7ED" stroke-width="3"/>
+<path d="M75 60l5-6 4 3 6-9" stroke="var(--bia-nhan, #F472B6)" stroke-width="3"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/doc-sach.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="16" data-chu="vi">khoảng 16 phút đọc</b></p><a class="vtk-ray-choi" href="#choi-nhap-vai"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Bạn phụ trách đào tạo</span></a><a class="vtk-ray-o vtk-ray-tiep" href="lam-tuong-7-38-55.html"><small>Bài tiếp theo</small><b>Lời nói chỉ chiếm 7%</b><span>Lầm tưởng #004 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Lầm tưởng phổ biến · Học tập · Đào tạo</span>
+  <h1>Lầm tưởng phổ biến #3: Mỗi người một "phong cách học"</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Ba chiếc nhãn dán: con mắt, cái tai, bàn tay, và một dấu khác bằng">
+    <g fill="none" stroke="#8a94a6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M6 10h50l10 16-10 16H6z"/><path d="M76 10h50l10 16-10 16H76z"/><path d="M146 10h50l10 16-10 16h-50z"/>
+    </g>
+    <g fill="none" stroke="#be185d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 26c6-8 22-8 28 0-6 8-22 8-28 0z"/><circle cx="30" cy="26" r="3.5" fill="#be185d"/>
+      <path d="M96 34c0-4 6-5 6-12a7 7 0 0 0-14 0"/><path d="M98 24a3 3 0 0 0-6 0"/>
+      <path d="M162 34v-12a2.5 2.5 0 0 1 5 0v-4a2.5 2.5 0 0 1 5 0v4a2.5 2.5 0 0 1 5 0v2a2.5 2.5 0 0 1 5 0v6c0 4-3 6-7 6h-6c-4 0-7-2-7-6z"/>
+    </g>
+    <g stroke="#0369a1" stroke-width="3" stroke-linecap="round"><path d="M222 20h16M222 32h16M236 14l-12 24"/></g>
+    <g fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linejoin="round"><rect x="256" y="8" width="56" height="36" rx="4"/><path d="M264 34l10-10 8 6 14-14"/></g>
+  </svg>
+  <p class="sub">"Tôi là người học kiểu nhìn." Câu nói quen thuộc nhất trong mọi lớp học và phòng đào tạo.</p>
+  <div class="meta">
+    <div><span class="label">Câu nói</span><b>học tốt hơn khi được dạy đúng kiểu nhìn, nghe hay vận động</b></div>
+    <div><span class="label">Lan rộng từ</span><b>mô hình VAK (1979) và bảng hỏi VARK (1992)</b></div>
+    <div><span class="label">Kết luận ngắn</span><b>sở thích có thật, lợi ích của "dạy khớp kiểu" thì không</b></div>
+    <div><span class="label">Nguồn chính</span><b>Pashler và cộng sự, 2008</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Từ đâu ra</a><a href="#khai-niem">Bằng chứng</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16c6-8 18-8 24 0-6 8-18 8-24 0z"/><circle cx="16" cy="16" r="3"/></svg><b>Sở thích có thật</b><span>Ai cũng có cách học mình thấy dễ chịu hơn. Phần này không sai.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M9 23L23 9"/></svg><b>Dạy khớp kiểu không giúp</b><span>Thử nghiệm đúng cách gần như không thấy người học giỏi hơn khi được dạy "đúng kiểu".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l20 16M6 24L26 8"/></svg><b>Thiếu phép thử chéo</b><span>Muốn tin, phải thấy mỗi kiểu thắng ở cách dạy của mình. Rất hiếm nghiên cứu thấy vậy.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="2"/><path d="M9 20l5-5 4 3 6-7"/></svg><b>Nội dung chọn hình thức</b><span>Bản đồ thì cần hình, kỹ năng thì cần làm thử. Với mọi người, không theo "kiểu".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><b>Vẫn cực kỳ phổ biến</b><span>93% giáo viên Anh và 96% giáo viên Hà Lan được hỏi tin vào nó.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Pashler, McDaniel, Rohrer và Bjork (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Dekker và cộng sự (2012), Frontiers in Psychology 3: 429 (93% và 96%).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của lầm tưởng</h2></div>
+  <p class="thesis">Nếu hỏi một người "bạn thích học bằng hình hay bằng lời?" rồi dạy đúng cách đó, họ có học tốt hơn không? Câu trả lời của các thử nghiệm: gần như không. Thứ nên quyết định cách dạy là nội dung, không phải nhãn của người học.</p>
+  <div class="flow" aria-label="Ba mắt xích của lầm tưởng">
+    <div class="step"><span class="label">Mắt xích 1 · vững</span><b>Người ta có sở thích</b><span>Hỏi là trả lời được ngay: thích xem, thích nghe, thích làm.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Mắt xích 2 · yếu</span><b>Sở thích là một "kiểu" cố định</b><span>Hàng chục mô hình khác nhau, đo không ổn định.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Mắt xích 3 · đứt</span><b>Dạy khớp kiểu thì học tốt hơn</b><span>Thử nghiệm đúng cách gần như không tìm thấy.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Pashler và cộng sự (2008); Coffield và cộng sự (2004), Learning and Skills Research Centre.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Lầm tưởng từ đâu ra</h2><p class="lead">Không có một "người nói đầu tiên". Có một chuỗi mô hình, bảng hỏi và khóa tập huấn, mỗi bước nói chắc hơn bước trước một chút.</p></div>
+  <div class="tl">
+    <div><b>1978 · Rita và Kenneth Dunn</b><span>Sách <i>Teaching Students Through Their Individual Learning Styles</i>: dạy học sinh theo phong cách học riêng của từng em.</span></div>
+    <div class="hot"><b>1979 · Barbe và Swassing: ba "kênh" nhìn, nghe, vận động</b><span>Sách <i>Teaching Through Modality Strengths</i> và bộ test tìm "kênh học hiệu quả nhất" của mỗi người. Mô hình VAK thường được gán cho nhóm này, dù có nguồn truy nó về trước đó.</span></div>
+    <div><b>1984 · David Kolb</b><span>Sách <i>Experiential Learning</i> và bảng hỏi phong cách học Kolb, đến nay vẫn là một trong hai bộ được dùng nhiều nhất.</span></div>
+    <div class="hot"><b>1992 · Neil Fleming và Colleen Mills: VARK</b><span>Thêm "đọc/viết" thành bốn kiểu. Tên bài báo nói rõ mục đích: "không phải thêm một bảng trắc nghiệm, mà là chất xúc tác để suy ngẫm".</span></div>
+    <div><b>2004 · Coffield và cộng sự đếm được 71 mô hình</b><span>13 mô hình chính, 58 mô hình phụ. Nhiều công cụ có điểm yếu nghiêm trọng về độ tin cậy.</span></div>
+    <div><b>2006 · Chính Fleming lo ngại</b><span>Ông viết rằng học sinh và giáo viên "đặt vào VARK nhiều niềm tin hơn mức nó đáng có" (nguồn thứ cấp).</span></div>
+    <div class="hot"><b>2008 · Pashler và cộng sự</b><span>Bốn nhà tâm lý học nhận thức rà toàn bộ bằng chứng: không đủ cơ sở để đưa phong cách học vào giảng dạy.</span></div>
+    <div><b>2012 · Dekker và cộng sự</b><span>93% giáo viên Anh, 96% giáo viên Hà Lan trong khảo sát vẫn tin. Đây là lầm tưởng về não được tin nhiều nhất trong nghiên cứu.</span></div>
+    <div><b>2015 · Newton</b><span>89% bài nghiên cứu gần đây về phong cách học ở đại học vẫn ủng hộ dùng nó.</span></div>
+    <div><b>3/2017 · Thư của khoảng 30 nhà khoa học trên báo The Guardian</b><span>Gọi phong cách học là một "lầm tưởng về thần kinh", lãng phí và có thể gây hại (nguồn thứ cấp).</span></div>
+  </div>
+  <p class="nguon">Nguồn: danh mục thư viện (Dunn và Dunn 1978, Reston; Barbe, Swassing và Milone 1979, Zaner-Bloser); Kolb (1984), Prentice-Hall; Fleming và Mills (1992), To Improve the Academy 11; Coffield và cộng sự (2004); Pashler và cộng sự (2008); Dekker và cộng sự (2012); Newton (2015), Frontiers in Psychology 6: 1908. Câu 2006 của Fleming và bức thư 2017: nguồn thứ cấp (báo chí; Centre for Educational Neuroscience, 20/3/2017).</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 190" role="img" aria-labelledby="bd">
+        <title id="bd">Một câu nói bị biến dạng qua bốn bước. Bước 1: tôi thích xem hình, là một sở thích. Bước 2: tôi là người học kiểu nhìn, thành một nhãn. Bước 3: tôi chỉ học được bằng hình, thành một giới hạn. Bước 4: dạy bằng lời là dạy sai cho tôi, thành một đòi hỏi.</title>
+        <g>
+          <rect x="10" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="22" y="64" class="t-ok t-bold">1 · sở thích</text><text x="22" y="90" class="t-ink">"Tôi thích</text><text x="22" y="108" class="t-ink">xem hình."</text>
+          <rect x="190" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="202" y="64" class="t-bold" style="fill:var(--warn)">2 · nhãn</text><text x="202" y="90" class="t-ink">"Tôi là người</text><text x="202" y="108" class="t-ink">học kiểu nhìn."</text>
+          <rect x="370" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+          <text x="382" y="64" class="t-night t-bold">3 · giới hạn</text><text x="382" y="90" class="t-ink">"Tôi chỉ học được</text><text x="382" y="108" class="t-ink">bằng hình."</text>
+          <rect x="550" y="40" width="160" height="90" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="562" y="64" class="t-bold t-bad">4 · đòi hỏi</text><text x="562" y="90" class="t-ink">"Dạy bằng lời là</text><text x="562" y="108" class="t-ink">dạy sai cho tôi."</text>
+          <g stroke="var(--muted)" stroke-width="2"><path d="M172 85h16M352 85h16M532 85h16"/></g>
+        </g>
+        <text x="10" y="160" class="t-ok">có bằng chứng</text><text x="710" y="160" text-anchor="end" class="t-bad">không có bằng chứng</text>
+        <line x1="110" y1="156" x2="560" y2="156" stroke="var(--rule)" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="360" y="182" text-anchor="middle">sơ đồ minh họa: mỗi bước nghe hợp lý, nhưng chỉ bước 1 có dữ liệu đứng sau</text>
+      </svg>
+    </div>
+    <figcaption><b>Lầm tưởng không bịa ra từ đầu.</b> Nó bắt đầu từ một điều đúng (ai cũng có sở thích) rồi trượt dần thành một đòi hỏi mà không ai kiểm chứng.<span class="nguon">Nguồn: phân biệt sở thích và lợi ích học tập theo Pashler và cộng sự (2008) và Knoll và cộng sự (2017), British Journal of Psychology 108(3).</span></figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>Nghe như tôn trọng khác biệt</h3><span class="muted">Ai lại phản đối việc dạy mỗi người theo cách riêng? Câu nói mang một giá trị tốt nên ít ai soi.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>Cảm giác dễ học là thật</h3><span class="muted">Knoll và cộng sự (2017): học đúng "kiểu" làm người ta tin mình sẽ nhớ nhiều hơn, dù thực tế không nhớ hơn.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>Bài test nhanh, nhãn dễ nhớ</h3><span class="muted">Vài phút trả lời, nhận một nhãn. Dễ bán thành khóa tập huấn, dễ đưa vào hồ sơ.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Knoll, Otani, Skeel và Van Horn (2017), British Journal of Psychology 108(3): 544–563.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Lầm tưởng từ đâu ra</h3><div class="chips"><span class="chip">VAK 1979</span><span class="chip">VARK 1992</span><span class="chip">71 mô hình</span><span class="chip">93% giáo viên</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Bằng chứng nói gì</h3><div class="chips"><span class="chip">phép thử chéo</span><span class="chip">sách nói và sách điện tử</span><span class="chip">426 sinh viên</span><span class="chip">phân tích gộp 2024</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">nội dung chọn hình thức</span><span class="chip">onboarding 5 ngày</span><span class="chip">đo bằng kiểm tra</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Bằng chứng nói gì</h2><p class="lead">Mỗi ý một hình. Các hình có chữ "minh họa" là sơ đồ ý tưởng, không phải số liệu đo được.</p></div>
+
+  <div class="concept">
+    <div class="term"><h3>Phép thử chéo: điều phải thấy mới được tin</h3><span class="en">crossover interaction</span><span class="pg">Pashler 2008</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="kc">
+          <title id="kc">Hai biểu đồ minh họa. Bên trái, điều cần thấy để tin vào phong cách học: người thích hình học tốt hơn khi dạy bằng hình, người thích lời học tốt hơn khi dạy bằng lời, hai đường cắt nhau. Bên phải, điều thử nghiệm thường thấy: hai đường song song hoặc trùng nhau, một cách dạy tốt hơn cho cả hai nhóm, hoặc không khác gì.</title>
+          <text x="180" y="20" text-anchor="middle" class="t-ink t-bold">cần thấy: hai đường cắt nhau</text>
+          <text x="540" y="20" text-anchor="middle" class="t-ink t-bold">thường thấy: không cắt nhau</text>
+          <g>
+            <line x1="60" y1="180" x2="320" y2="180" class="axis"/><line x1="60" y1="40" x2="60" y2="180" class="axis"/>
+            <text x="110" y="200" text-anchor="middle">dạy bằng hình</text><text x="270" y="200" text-anchor="middle">dạy bằng lời</text>
+            <text x="20" y="110" transform="rotate(-90 20 110)" text-anchor="middle">điểm kiểm tra</text>
+            <line x1="110" y1="60" x2="270" y2="150" stroke="var(--night)" stroke-width="4"/><circle cx="110" cy="60" r="6" fill="var(--night)"/><circle cx="270" cy="150" r="6" fill="var(--night)"/>
+            <line x1="110" y1="150" x2="270" y2="60" stroke="var(--day)" stroke-width="4"/><circle cx="110" cy="150" r="6" fill="var(--day)"/><circle cx="270" cy="60" r="6" fill="var(--day)"/>
+            <text x="280" y="154" class="t-night t-bold">thích hình</text><text x="280" y="64" class="t-day t-bold">thích lời</text>
+          </g>
+          <g>
+            <line x1="420" y1="180" x2="680" y2="180" class="axis"/><line x1="420" y1="40" x2="420" y2="180" class="axis"/>
+            <text x="470" y="200" text-anchor="middle">dạy bằng hình</text><text x="630" y="200" text-anchor="middle">dạy bằng lời</text>
+            <line x1="470" y1="70" x2="630" y2="110" stroke="var(--night)" stroke-width="4"/><circle cx="470" cy="70" r="6" fill="var(--night)"/><circle cx="630" cy="110" r="6" fill="var(--night)"/>
+            <line x1="470" y1="90" x2="630" y2="130" stroke="var(--day)" stroke-width="4"/><circle cx="470" cy="90" r="6" fill="var(--day)"/><circle cx="630" cy="130" r="6" fill="var(--day)"/>
+            <text x="640" y="106" class="t-night t-bold">thích hình</text><text x="640" y="134" class="t-day t-bold">thích lời</text><text x="550" y="168" text-anchor="middle">một cách dạy thắng cho cả hai nhóm</text>
+          </g>
+          <text x="360" y="224" text-anchor="middle">sơ đồ minh họa</text>
+        </svg>
+      </div>
+      <figcaption><b>Chỉ thấy "người thích hình học bằng hình tốt" là chưa đủ.</b> Có thể hình tốt cho tất cả mọi người. Muốn chứng minh phong cách học, phải chia ngẫu nhiên người mỗi kiểu vào cả hai cách dạy và thấy hai đường cắt nhau. Pashler và cộng sự viết họ "gần như không tìm thấy bằng chứng" cho kiểu tương tác này, và vài nghiên cứu làm đúng cách còn cho kết quả ngược lại.<span class="nguon">Nguồn: Pashler, McDaniel, Rohrer và Bjork (2008), Psychological Science in the Public Interest 9(3): 105–119.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Sách nói hay sách điện tử: người "thích nghe" không hơn</h3><span class="en">audiobook vs e-text</span><span class="pg">Rogowsky 2015, 2020</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kr">
+          <title id="kr">Bảng hai nhân hai. Hàng: người thích nghe, người thích đọc. Cột: học bằng sách nói, học bằng sách điện tử. Cả bốn ô đều có dấu xấp xỉ bằng: không có khác biệt có ý nghĩa giữa các ô khớp kiểu và không khớp kiểu.</title>
+          <text x="330" y="24" text-anchor="middle" class="t-ink t-bold">học bằng sách nói</text><text x="530" y="24" text-anchor="middle" class="t-ink t-bold">học bằng sách điện tử</text>
+          <text x="210" y="80" text-anchor="end" class="t-ink t-bold">thích nghe</text><text x="210" y="150" text-anchor="end" class="t-ink t-bold">thích đọc</text>
+          <rect x="240" y="40" width="180" height="60" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="330" y="70" text-anchor="middle" class="t-night t-bold">khớp kiểu</text><text x="330" y="88" text-anchor="middle">điểm ≈</text>
+          <rect x="440" y="40" width="180" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="530" y="70" text-anchor="middle" class="t-ink">không khớp</text><text x="530" y="88" text-anchor="middle">điểm ≈</text>
+          <rect x="240" y="110" width="180" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="330" y="140" text-anchor="middle" class="t-ink">không khớp</text><text x="330" y="158" text-anchor="middle">điểm ≈</text>
+          <rect x="440" y="110" width="180" height="60" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="530" y="140" text-anchor="middle" class="t-night t-bold">khớp kiểu</text><text x="530" y="158" text-anchor="middle">điểm ≈</text>
+          <text x="430" y="194" text-anchor="middle">kiểm tra ngay và sau 2 tuần: không có liên hệ có ý nghĩa giữa sở thích và cách dạy</text>
+        </svg>
+      </div>
+      <figcaption><b>Cùng một đoạn sách, hai cách học, chia ngẫu nhiên.</b> Người lớn đã tốt nghiệp đại học được đo sở thích nghe hay đọc, rồi học bằng sách nói hoặc sách điện tử. Năm 2020, nhóm làm lại với 125 học sinh lớp 5 và thấy kết quả tương tự.<span class="nguon">Nguồn: Rogowsky, Calhoun và Tallal (2015), Journal of Educational Psychology 107(1): 64–78; Rogowsky, Calhoun và Tallal (2020), Frontiers in Psychology 11: 164 (n = 125).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>426 sinh viên: phần lớn không học theo "kiểu" của mình, và điểm không phụ thuộc vào kiểu</h3><span class="en">VARK vs grades</span><span class="pg">Husmann và O'Loughlin 2019</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="kh">
+          <title id="kh">426 sinh viên giải phẫu học làm bảng hỏi VARK. Khoảng 67 phần trăm không tự học theo phong cách của mình. Điểm môn học không tương quan với điểm ở bất kỳ nhóm VARK nào.</title>
+          <text x="20" y="30" class="t-ink t-bold">426 sinh viên giải phẫu học làm VARK</text>
+          <rect x="20" y="46" width="680" height="34" rx="6" fill="var(--grid)"/>
+          <rect x="20" y="46" width="456" height="34" rx="6" fill="var(--night)" fill-opacity=".75"/>
+          <text x="34" y="68" style="fill:var(--paper)" class="t-bold">~67% không tự học theo "kiểu" của mình</text>
+          <text x="690" y="68" text-anchor="end" class="t-ink t-bold">~33%</text>
+          <rect x="20" y="104" width="680" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="36" y="131" class="t-ink t-bold">điểm môn học × điểm từng nhóm V, A, R, K:</text><text x="420" y="131" class="t-bad t-bold">không tương quan</text>
+        </svg>
+      </div>
+      <figcaption><b>Những gì có liên quan đến điểm là cách học cụ thể</b>, như thực hành với kính hiển vi, chứ không phải nhãn. Tác giả viết kết quả là "bằng chứng mạnh" rằng không nên cổ vũ khái niệm phong cách học.<span class="nguon">Nguồn: Husmann và O'Loughlin (2019), Anatomical Sciences Education 12(1): 6–19 (426 sinh viên, không tương quan). Tỷ lệ ~67% và lời trích: nguồn thứ cấp, BPS Research Digest.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Học đúng "kiểu" làm ta thấy dễ, không làm ta nhớ hơn</h3><span class="en">judgements of learning</span><span class="pg">Knoll 2017</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kk">
+          <title id="kk">Hai cặp cột minh họa. Cặp thứ nhất là cảm giác mình sẽ nhớ: khi học đúng kiểu ưa thích, cột cao hơn. Cặp thứ hai là số thật nhớ được khi kiểm tra: hai cột bằng nhau.</title>
+          <line x1="60" y1="160" x2="680" y2="160" class="axis"/>
+          <rect x="110" y="50" width="70" height="110" fill="var(--night)" fill-opacity=".8"/><rect x="190" y="90" width="70" height="70" fill="var(--muted)" fill-opacity=".45"/>
+          <rect x="440" y="80" width="70" height="80" fill="var(--night)" fill-opacity=".8"/><rect x="520" y="80" width="70" height="80" fill="var(--muted)" fill-opacity=".45"/>
+          <text x="185" y="184" text-anchor="middle" class="t-ink t-bold">"tôi sẽ nhớ được"</text><text x="515" y="184" text-anchor="middle" class="t-ink t-bold">nhớ thật khi kiểm tra</text>
+          <text x="145" y="40" text-anchor="middle" class="t-night t-bold">đúng kiểu</text><text x="225" y="80" text-anchor="middle">khác kiểu</text>
+          <text x="475" y="70" text-anchor="middle" class="t-night t-bold">đúng kiểu</text><text x="555" y="70" text-anchor="middle">khác kiểu</text>
+          <text x="680" y="20" text-anchor="end">sơ đồ minh họa</text>
+        </svg>
+      </div>
+      <figcaption><b>Đây là lý do lầm tưởng sống dai.</b> Người thích chữ đoán mình sẽ nhớ từ tốt hơn, người thích hình đoán mình sẽ nhớ hình tốt hơn. Nhưng điểm sở thích không liên quan đến số thật nhớ được. Cảm giác "học thế này vào hơn" là thật, chỉ không phải bằng chứng.<span class="nguon">Nguồn: Knoll, Otani, Skeel và Van Horn (2017), British Journal of Psychology 108(3): 544–563.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Phân tích gộp 2024: có một hiệu ứng nhỏ, hiếm khi đúng dạng</h3><span class="en">meta-analysis</span><span class="pg">Clinton-Lisell và Litzinger 2024</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="km">
+          <title id="km">Phân tích gộp năm 2024: 21 nghiên cứu, 1.712 người tham gia. Lợi ích chung của dạy khớp kiểu g bằng 0,31, nhỏ. Chỉ 26 phần trăm số thước đo kết quả cho thấy dạng tương tác chéo.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="100" y="56" class="t-ink t-bold" style="font-size:22px">21</text><text x="100" y="82">nghiên cứu</text>
+            <rect x="200" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="280" y="56" class="t-ink t-bold" style="font-size:22px">1.712</text><text x="280" y="82">người tham gia</text>
+            <rect x="380" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="460" y="56" class="t-night t-bold" style="font-size:22px">g = 0,31</text><text x="460" y="82">lợi ích chung, nhỏ</text>
+            <rect x="560" y="20" width="140" height="80" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/><text x="630" y="56" class="t-bad t-bold" style="font-size:22px">26%</text><text x="630" y="82">có dạng chéo</text>
+          </g>
+          <rect x="20" y="124" width="680" height="26" rx="5" fill="var(--grid)"/><rect x="20" y="124" width="177" height="26" rx="5" fill="var(--bad)" fill-opacity=".7"/>
+          <text x="30" y="142" style="fill:var(--paper)" class="t-bold">26%</text><text x="690" y="142" text-anchor="end" class="t-ink">74% thước đo kết quả không có dạng chéo</text>
+          <text x="20" y="178">chính tác giả: lợi ích quá nhỏ và quá hiếm để áp dụng rộng; nhiều nghiên cứu chất lượng thấp</text>
+        </svg>
+      </div>
+      <figcaption><b>Đây là chỗ các nguồn không hoàn toàn đồng ý.</b> Phân tích gộp mới nhất có thấy một lợi ích nhỏ khi khớp kiểu, nên nói "đã bị bác bỏ tuyệt đối" là quá tay. Nhưng chỉ khoảng 1/4 kết quả có dạng chéo mà giả thuyết cần, và tác giả không khuyên áp dụng. Năm 2025 vẫn có bài bàn vì sao vài phân tích gộp lại thấy hiệu ứng.<span class="nguon">Nguồn: Clinton-Lisell và Litzinger (2024), Frontiers in Psychology 15: 1428732 (21 nghiên cứu, 1.712 người, g = 0,31, 26%); Educational Psychology Review (2025), "Learning Styles, Preferences, or Strategies?".</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Hạt nhân đúng: hình thức quan trọng, nhưng theo nội dung</h3><span class="en">content modality</span><span class="pg">Mayer 2009 · Willingham 2005</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kn">
+          <title id="kn">Bảng chọn hình thức theo nội dung. Thứ có hình dạng như bản đồ, quy trình, sơ đồ tổ chức: dùng hình kèm lời giải thích. Kỹ năng thao tác như dùng phần mềm, nói chuyện với khách: làm thử và nhận phản hồi. Phát âm, giọng điệu: nghe. Lập luận, chính sách: đọc kèm ví dụ. Áp dụng cho mọi người.</title>
+          <g>
+            <text x="20" y="24" class="t-ink t-bold">nội dung là…</text><text x="380" y="24" class="t-ink t-bold">thì dạy bằng…</text>
+            <rect x="20" y="36" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="60" class="t-ink">bản đồ, quy trình, sơ đồ tổ chức</text>
+            <rect x="380" y="36" width="320" height="38" rx="6" fill="var(--day)" fill-opacity=".14" stroke="var(--day)"/><text x="394" y="60" class="t-day t-bold">hình + lời giải thích</text>
+            <rect x="20" y="82" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="106" class="t-ink">dùng phần mềm, nói chuyện với khách</text>
+            <rect x="380" y="82" width="320" height="38" rx="6" fill="var(--night)" fill-opacity=".14" stroke="var(--night)"/><text x="394" y="106" class="t-night t-bold">làm thử + phản hồi ngay</text>
+            <rect x="20" y="128" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="152" class="t-ink">phát âm, giọng điệu khi gọi điện</text>
+            <rect x="380" y="128" width="320" height="38" rx="6" fill="var(--rem)" fill-opacity=".14" stroke="var(--rem)"/><text x="394" y="152" class="t-rem t-bold">nghe mẫu + nói lại</text>
+            <rect x="20" y="174" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="198" class="t-ink">lập luận, chính sách, hợp đồng</text>
+            <rect x="380" y="174" width="320" height="38" rx="6" fill="var(--ok)" fill-opacity=".14" stroke="var(--ok)"/><text x="394" y="198" class="t-ok t-bold">đọc + ví dụ + tự trả lời câu hỏi</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Câu hỏi đúng là "nội dung này có hình dạng gì?", không phải "người này thuộc kiểu gì?".</b> Mayer tóm lại sau nhiều thử nghiệm: "người ta học tốt hơn từ lời kèm hình so với chỉ có lời", áp dụng chung cho người học. Willingham kết luận: điều quan trọng là hình thức tốt nhất cho nội dung, không phải kênh mạnh của học sinh.<span class="nguon">Nguồn: Mayer (2009), Multimedia Learning, Cambridge University Press, chương "Multimedia Principle"; Willingham (2005, 2018), "Ask the Cognitive Scientist", American Educator. Bảng là ví dụ của Mark dựa trên các nguồn này.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: Vững, Thận trọng, Sai</h2><p class="lead">10 biến thể hay gặp của lầm tưởng, đối chiếu với nguồn gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="3 vững, 3 cần thận trọng, 4 sai">
+    <div class="o" style="flex:3">3 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Mỗi người có sở thích riêng về cách tiếp nhận thông tin</span></summary><p class="note">Hỏi là đo được, và sở thích gắn với cảm giác học (Knoll và cộng sự, 2017). Pashler và cộng sự (2008) không phủ nhận sở thích; họ chỉ ra sở thích không chứng minh được lợi ích khi dạy khớp.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Kết hợp lời với hình thường giúp người học hơn chỉ có lời</span></summary><p class="note">Nguyên tắc đa phương tiện của Mayer (2009), áp dụng cho người học nói chung, không chia theo "kiểu". Đây là phần đúng mà lầm tưởng "mượn" để nghe có lý.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Người mới và người đã giỏi cần cách dạy khác nhau</span></summary><p class="note">Hướng dẫn chi tiết từng bước giúp người mới nhưng có thể làm chậm người đã thạo (hiệu ứng đảo ngược chuyên môn, Kalyuga và cộng sự, Educational Psychologist, 2003). Khác biệt ở đây là kiến thức nền, không phải "kiểu nhìn hay nghe".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Có nghiên cứu thấy dạy khớp kiểu có hiệu quả"</span></summary><p class="note">Đúng là có: phân tích gộp 2024 thấy lợi ích nhỏ (g = 0,31) trên 21 nghiên cứu. Nhưng chỉ 26% thước đo có dạng chéo, nghiên cứu chất lượng thấp, và chính tác giả không khuyên áp dụng rộng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Làm bài trắc nghiệm VARK giúp hiểu bản thân"</span></summary><p class="note">Fleming và Mills (1992) làm VARK như "chất xúc tác để suy ngẫm", và nghĩ về cách mình học có thể có ích. Nhưng dùng kết quả như chẩn đoán để chọn cách học thì không có bằng chứng ủng hộ, và chính Fleming lo người ta tin VARK quá mức (nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Học bằng nhiều giác quan thì nhớ lâu hơn"</span></summary><p class="note">Thường đúng khi hình thức hợp nội dung (lời kèm hình, làm thử cho kỹ năng). Nhưng nhồi thêm kênh không hợp nội dung có thể chỉ làm rối. Và nếu đúng thì đúng cho mọi người, nên đây là lý do bỏ phong cách học chứ không phải ủng hộ nó.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Dạy đúng phong cách thì người học tiếp thu tốt hơn</span></summary><p class="note">Đây là cốt lõi của lầm tưởng. Pashler và cộng sự (2008) gần như không thấy bằng chứng; Rogowsky và cộng sự (2015, 2020) thử đúng cách ở người lớn và học sinh lớp 5, không thấy khác biệt.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Mỗi người thuộc một trong ba (hoặc bốn) kiểu cố định</span></summary><p class="note">Coffield và cộng sự (2004) đếm được 71 mô hình chia người theo những cách khác nhau, nhiều công cụ đo không ổn định. 426 sinh viên của Husmann và O'Loughlin (2019): phần lớn không tự học theo kiểu của mình.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Nên tránh cách học "không phải kiểu của mình"</span></summary><p class="note">Đây là phần có hại: người tự nhận "kiểu nghe" bỏ qua sơ đồ thì mất nội dung nằm trong sơ đồ. Bức thư 2017 của khoảng 30 nhà khoa học gọi cách dạy này là lãng phí và có thể gây hại (nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Đây là kết luận của khoa học thần kinh"</span></summary><p class="note">Phong cách học nằm trong danh sách các "lầm tưởng về thần kinh" (neuromyths) của Dekker và cộng sự (2012), và là câu được tin nhiều nhất trong khảo sát đó. Biết nhiều hơn về não nói chung cũng không giúp giáo viên tránh được nó.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá lầm tưởng</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Độ sai</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ dai dẳng</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Mức hại</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Phần có hạt nhân đúng</span><ul class="plus"><li>Người ta có sở thích thật</li><li>Hình thức dạy có ý nghĩa, theo nội dung</li><li>Người học khác nhau về kiến thức nền</li></ul></div>
+    <div><span class="label">Phần sai</span><ul class="minus"><li>Dạy khớp kiểu không làm học tốt hơn</li><li>Người không chia gọn vào 3–4 kiểu cố định</li><li>Nhãn có thể khiến người ta né cách học hữu ích</li></ul></div>
+  </div>
+  <p class="verdict">Một ý tưởng tử tế với một mắt xích bị đứt: tôn trọng sở thích của người học là tốt, nhưng dùng sở thích để quyết định cách dạy thì không có bằng chứng đứng sau.</p>
+  <details class="more"><summary>Xem thêm: vì sao Mark không chấm 5/5 độ sai</summary><div>
+    <p>Phân tích gộp 2024 có thấy một hiệu ứng nhỏ, và năm 2025 vẫn có bài bàn về chuyện vì sao. Nói "phong cách học là vô nghĩa hoàn toàn" là đi quá bằng chứng. Nói chính xác hơn: sau hơn 40 năm, giả thuyết dạy khớp kiểu vẫn chưa vượt qua được phép thử nó tự đặt ra.</p>
+    <p>Mức hại 3/5 vì cái giá chủ yếu là tiền, thời gian và cơ hội: làm ba phiên bản tài liệu, chia lớp, và những người tự giới hạn mình bằng một cái nhãn.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: thiết kế đào tạo theo nội dung</h2><p class="lead">Áp dụng cho onboarding nhân viên mới, tập huấn nội bộ, hay tự học một kỹ năng mới.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 850 190" role="img" aria-labelledby="ko">
+        <title id="ko">Lịch onboarding 5 ngày theo nội dung. Ngày 1: sơ đồ tổ chức và quy trình, dạy bằng hình kèm lời. Ngày 2: làm thử một việc thật có người kèm. Ngày 3: tự trả lời câu hỏi về quy định, không đọc lại. Ngày 4: làm lại việc ngày 2 một mình, nhận phản hồi. Ngày 5: kiểm tra ngắn và hỏi đáp.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <g text-anchor="middle">
+          <circle cx="90" cy="60" r="14" fill="var(--day)"/><text x="90" y="30" class="t-ink t-bold">ngày 1 · hình</text><text x="90" y="98" class="t-day t-bold">sơ đồ tổ chức,</text><text x="90" y="114">quy trình, hệ thống</text>
+          <circle cx="260" cy="60" r="14" fill="var(--night)"/><text x="260" y="30" class="t-ink t-bold">ngày 2 · làm thử</text><text x="260" y="98" class="t-night t-bold">một việc thật</text><text x="260" y="114">có người kèm</text>
+          <circle cx="430" cy="60" r="14" fill="var(--ok)"/><text x="430" y="30" class="t-ink t-bold">ngày 3 · tự hỏi</text><text x="430" y="98" class="t-ok t-bold">quy định, thuật ngữ</text><text x="430" y="114">tự trả lời, không đọc lại</text>
+          <circle cx="600" cy="60" r="14" fill="var(--night)"/><text x="600" y="30" class="t-ink t-bold">ngày 4 · làm lại</text><text x="600" y="98" class="t-night t-bold">việc ngày 2, một mình</text><text x="600" y="114">nhận phản hồi</text>
+          <circle cx="760" cy="60" r="14" fill="var(--rem)"/><text x="760" y="30" class="t-ink t-bold">ngày 5 · đo</text><text x="760" y="98" class="t-rem t-bold">kiểm tra ngắn</text><text x="760" y="114">rồi mới hỏi cảm nhận</text>
+        </g>
+        <text x="410" y="166" text-anchor="middle" class="t-ink">Không có bước "làm trắc nghiệm phong cách học". Mọi người cùng một lộ trình.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi ngày chọn hình thức theo thứ cần học.</b> Ngày 3 dùng tự kiểm tra thay vì đọc lại vì nhớ lại chủ động giúp nhớ lâu hơn đọc lại (Roediger và Karpicke, Psychological Science, 2006). Lịch là ví dụ của Mark, chỉnh theo công việc của bạn.<span class="nguon">Nguồn: Roediger và Karpicke (2006), "Test-enhanced learning", Psychological Science 17(3); Mayer (2009).</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="2"/><path d="M9 20l5-5 4 3 6-7"/></svg><div><b>Hỏi về nội dung, không hỏi về người</b><span>"Thứ này có hình dạng không? Là kỹ năng hay là kiến thức?" thay cho "Bạn học kiểu gì?".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M9 23L23 9"/></svg><div><b>Bỏ bài test phong cách khỏi onboarding</b><span>Đừng ghi nhãn "kiểu nhìn" vào hồ sơ, đừng chia lớp theo nhãn, đừng làm ba bản tài liệu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z"/></svg><div><b>Dùng sở thích cho động lực, không cho thiết kế</b><span>Cho chọn nghe bản ghi trên đường đi làm là tốt, miễn là sơ đồ vẫn được xem.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24V8M6 24h20"/><path d="M10 20h3M10 14h12"/></svg><div><b>Đo bằng bài kiểm tra, không bằng cảm giác</b><span>"Học thế này dễ vào" không phải bằng chứng (Knoll, 2017). Kiểm tra sau một tuần mới biết.</span></div></div>
+  </div>
+  <div class="quote"><span>Không có cơ sở bằng chứng đầy đủ để đưa việc đánh giá phong cách học vào thực hành giáo dục nói chung.</span><span class="src">Pashler, McDaniel, Rohrer và Bjork (2008), Psychological Science in the Public Interest 9(3), tr. 105. Mark dịch.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Pashler, McDaniel, Rohrer và Bjork, "Learning Styles: Concepts and Evidence" (2008)</b><span class="muted">Bài gốc. Đọc phần giải thích phép thử chéo, ngắn và rất rõ.</span></div>
+    <div><b>Daniel Willingham, chuyên mục "Ask the Cognitive Scientist", American Educator (2005, 2018)</b><span class="muted">Viết cho giáo viên, dễ đọc, có ví dụ về "hình thức của nội dung".</span></div>
+    <div><b>Richard Mayer, <i>Multimedia Learning</i> (2009)</b><span class="muted">Nếu bạn làm slide hay video đào tạo, đây là cuốn nên có.</span></div>
+    <div><b>Lầm tưởng phổ biến #04: "Giao tiếp chỉ 7% là lời nói"</b><span class="muted">Một con số nổi tiếng mà chính người nghiên cứu ra nó đã phải đính chính.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên bài báo gốc. Chỗ nào chỉ có nguồn thứ cấp đã ghi rõ ngay cạnh con số.</p></div>
+  <ol class="srcs">
+    <li><b>H. Pashler, M. McDaniel, D. Rohrer và R. Bjork</b>, "Learning Styles: Concepts and Evidence", <i>Psychological Science in the Public Interest</i> 9(3): 105–119, 2008. <a href="https://journals.sagepub.com/doi/full/10.1111/j.1539-6053.2009.01038.x">sagepub.com</a></li>
+    <li><b>B. Rogowsky, B. Calhoun và P. Tallal</b>, "Matching Learning Style to Instructional Method: Effects on Comprehension", <i>Journal of Educational Psychology</i> 107(1): 64–78, 2015. <a href="https://eric.ed.gov/?id=EJ1055886">eric.ed.gov</a></li>
+    <li><b>B. Rogowsky, B. Calhoun và P. Tallal</b>, "Providing Instruction Based on Students' Learning Style Preferences Does Not Improve Learning", <i>Frontiers in Psychology</i> 11: 164, 2020 (n = 125 học sinh lớp 5). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full">frontiersin.org</a></li>
+    <li><b>P. Husmann và V. O'Loughlin</b>, "Another Nail in the Coffin for Learning Styles?", <i>Anatomical Sciences Education</i> 12(1): 6–19, 2019 (426 sinh viên). <a href="https://anatomypubs.onlinelibrary.wiley.com/doi/10.1002/ase.1777">wiley.com</a>. Tỷ lệ ~67%: BPS Research Digest (nguồn thứ cấp).</li>
+    <li><b>A. Knoll, H. Otani, R. Skeel và K. R. Van Horn</b>, "Learning style, judgements of learning, and learning of verbal and visual information", <i>British Journal of Psychology</i> 108(3): 544–563, 2017.</li>
+    <li><b>A. Clinton-Lisell và C. Litzinger</b>, "Is it really a neuromyth? A meta-analysis of the learning styles matching hypothesis", <i>Frontiers in Psychology</i> 15: 1428732, 2024 (21 nghiên cứu, 1.712 người, g = 0,31, 26%). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">frontiersin.org</a></li>
+    <li><b>F. Coffield, D. Moseley, E. Hall và K. Ecclestone</b>, <i>Learning styles and pedagogy in post-16 learning: A systematic and critical review</i>, Learning and Skills Research Centre, 2004 (71 mô hình; báo cáo, không phải bài bình duyệt).</li>
+    <li><b>S. Dekker, N. Lee, P. Howard-Jones và J. Jolles</b>, "Neuromyths in education: Prevalence and predictors of misconceptions among teachers", <i>Frontiers in Psychology</i> 3: 429, 2012 (242 giáo viên; 93% Anh, 96% Hà Lan). <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2012.00429/full">frontiersin.org</a></li>
+    <li><b>P. Newton</b>, "The Learning Styles Myth is Thriving in Higher Education", <i>Frontiers in Psychology</i> 6: 1908, 2015 (89%). <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01908/full">frontiersin.org</a></li>
+    <li><b>N. Fleming và C. Mills</b>, "Not Another Inventory, Rather a Catalyst for Reflection", <i>To Improve the Academy</i> 11: 137, 1992. <b>W. Barbe, R. Swassing và M. Milone</b>, <i>Teaching Through Modality Strengths</i>, Zaner-Bloser, 1979. <b>R. Dunn và K. Dunn</b>, <i>Teaching Students Through Their Individual Learning Styles</i>, Reston, 1978. <b>D. Kolb</b>, <i>Experiential Learning</i>, Prentice-Hall, 1984.</li>
+    <li><b>R. Mayer</b>, <i>Multimedia Learning</i>, Cambridge University Press, 2009. <b>D. Willingham</b>, "Ask the Cognitive Scientist", <i>American Educator</i>, 2005 và 2018. <b>H. Roediger và J. Karpicke</b>, "Test-enhanced learning", <i>Psychological Science</i> 17(3), 2006. <b>S. Kalyuga, P. Ayres, P. Chandler và J. Sweller</b>, "The expertise reversal effect", <i>Educational Psychologist</i> 38(1), 2003.</li>
+    <li>Nguồn thứ cấp: thư trên The Guardian 3/2017 (Centre for Educational Neuroscience, 20/3/2017); câu 2006 của Fleming (qua báo chí); BPS Research Digest về Husmann và O'Loughlin.</li>
+  </ol>
+</section>
+
+<footer>Lầm tưởng phổ biến #03. Các hình ghi "minh họa" là sơ đồ ý tưởng; số liệu lấy từ bài báo gốc và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "bac-thang", "id": "choi-nhap-vai", "truoc": "tinh-hoa", "buoc": 1, "toi_da": 8, "nguy": 3, "keu_tu": 0, "keu_den": 0, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn phụ trách đào tạo", "hoi": "Công ty sắp đón một đợt nhân viên mới. Một nhà cung cấp chào gói \"đào tạo theo phong cách học\". Mỗi lần bấm, bạn đi thêm một bậc. Bạn dừng ở đâu?", "nhan_bang": ["Bậc 1 · Trắc nghiệm", "Bắt đầu tốn kém", "Bậc 8 · Tuyển theo kiểu"], "mo": "Nhà cung cấp: \"Bước đầu đơn giản thôi: cho cả phòng làm trắc nghiệm phong cách học.\"", "nut_bam": "Lên bậc {v}", "nut_dung": "Tôi dừng", "nut_van_dung": "Vẫn dừng", "nut_nhat": "Tôi nhất quyết dừng", "nut_thoi": "Thôi, lên bậc {v}", "nut_lai": "Chơi lại", "su_kien": {"1": "Bậc 1 · Cả phòng làm VARK, mỗi người nhận một nhãn. Bằng chứng: Fleming và Mills (1992) làm bảng hỏi này làm \"chất xúc tác để suy ngẫm\", không phải để chẩn đoán.", "2": "Bậc 2 · Nhãn được ghi vào hồ sơ nhân sự. Bằng chứng: Husmann và O'Loughlin (2019), 426 sinh viên, điểm số không tương quan với nhóm VARK nào.", "3": "Bậc 3 · Chia lớp theo nhãn: nhóm nhìn, nhóm nghe, nhóm vận động. Bằng chứng: Rogowsky và cộng sự (2015), người \"thích nghe\" học bằng sách nói không hơn học bằng sách điện tử.", "4": "Bậc 4 · Mỗi khóa làm ba bản: video, bản ghi âm, bài thực hành. Bằng chứng: Pashler và cộng sự (2008) gần như không tìm thấy kiểu tương tác chéo mà việc này cần.", "5": "Bậc 5 · Nhóm \"nghe\" được bỏ qua sơ đồ quy trình. Bằng chứng: sơ đồ là nội dung; Mayer (2009): lời kèm hình giúp người học hơn chỉ có lời.", "6": "Bậc 6 · Giảng viên bị chấm theo việc \"dạy đúng kiểu\". Bằng chứng: Knoll và cộng sự (2017), học đúng kiểu làm người ta thấy dễ hơn, không làm nhớ nhiều hơn.", "7": "Bậc 7 · Mua phần mềm \"cá nhân hóa theo phong cách học\". Bằng chứng: phân tích gộp 2024 thấy lợi ích nhỏ, chỉ 26% kết quả có dạng chéo, nghiên cứu chất lượng thấp.", "8": "Bậc 8 · Tuyển người theo \"phong cách học hợp vị trí\"."}, "thuc": ["Sếp: \"Nhưng ai cũng biết mỗi người học một kiểu mà.\"", "Nhà cung cấp: \"93% giáo viên ở Anh tin vào điều này đấy.\"", "Sếp: \"Nhân viên thích được hỏi họ học kiểu gì.\"", "Nhà cung cấp: \"Đối thủ của anh chị đã mua gói này rồi.\""], "het": "Bạn lên đến bậc 8. Mọi bậc đều dựa trên một giả thuyết mà Pashler và cộng sự (2008) thấy không đủ bằng chứng để dùng trong giáo dục. Cách tốt hơn: chọn hình thức theo nội dung, ví dụ sơ đồ cho quy trình, làm thử cho kỹ năng.", "dung_o": "Bạn dừng ở bậc {v}.", "khong_bam": "Bạn không bước lên bậc nào.", "som": "Bạn dừng trước khi chia lớp theo nhãn, trước khi tiền và thời gian bắt đầu đổ vào. Đúng hướng: sở thích có thật, nhưng thử nghiệm đúng cách gần như không thấy lợi ích khi dạy khớp kiểu. Cách tốt hơn: chọn hình thức theo nội dung.", "muon": "Từ bậc 3 trở đi là tiền và thời gian bỏ vào một giả thuyết chưa vượt qua phép thử: Rogowsky (2015, 2020) và Pashler (2008) không thấy lợi ích khi dạy khớp kiểu. Cách tốt hơn: chọn hình thức theo nội dung, cho mọi người.", "nguon": "Nguồn: Fleming và Mills (1992), To Improve the Academy 11; Husmann và O'Loughlin (2019), Anatomical Sciences Education 12(1): 426 sinh viên; Rogowsky, Calhoun và Tallal (2015), Journal of Educational Psychology 107(1); Pashler và cộng sự (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Knoll và cộng sự (2017), British Journal of Psychology 108(3); Clinton-Lisell và Litzinger (2024), Frontiers in Psychology 15: 26% có dạng chéo; Dekker và cộng sự (2012), Frontiers in Psychology 3: 93% giáo viên Anh. Kịch bản công ty là giả định."}, "en": {"muc": "Play before you read", "nhan": "You run training", "hoi": "Your company is about to welcome a batch of new hires. A vendor pitches a \"learning-styles training\" package. Each press takes you one step further. Where do you stop?", "nhan_bang": ["Step 1 · Quiz", "Costs begin", "Step 8 · Hire by style"], "mo": "Vendor: \"Let's start simple: have the whole team take a learning-style quiz.\"", "nut_bam": "Go to step {v}", "nut_dung": "I'll stop", "nut_van_dung": "Still stopping", "nut_nhat": "I refuse to go on", "nut_thoi": "Fine, go to step {v}", "nut_lai": "Play again", "su_kien": {"1": "Step 1 · Everyone takes VARK and gets a label. Evidence: Fleming and Mills (1992) built the questionnaire as \"a catalyst for reflection\", not a diagnosis.", "2": "Step 2 · Labels go into HR files. Evidence: Husmann and O'Loughlin (2019), 426 students, grades unrelated to any VARK category.", "3": "Step 3 · Classes split by label: visual, auditory, kinesthetic. Evidence: Rogowsky and colleagues (2015), \"auditory\" people learned no better from audiobooks than from e-text.", "4": "Step 4 · Every course made in three versions: video, audio, hands-on. Evidence: Pashler and colleagues (2008) found virtually no evidence for the crossover this requires.", "5": "Step 5 · The \"auditory\" group skips the process diagram. Evidence: the diagram is the content; Mayer (2009): words with pictures beat words alone.", "6": "Step 6 · Trainers are rated on \"teaching to style\". Evidence: Knoll and colleagues (2017), studying in your style feels easier but doesn't improve recall.", "7": "Step 7 · Buy \"learning-style personalisation\" software. Evidence: the 2024 meta-analysis found a small benefit, only 26% of outcomes with crossover, low-quality studies.", "8": "Step 8 · Hire people for a \"learning style that fits the role\"."}, "thuc": ["Boss: \"But everyone knows people learn differently.\"", "Vendor: \"93% of teachers in the UK believe in this.\"", "Boss: \"Staff like being asked how they learn.\"", "Vendor: \"Your competitor already bought this package.\""], "het": "You reached step 8. Every step rests on a hypothesis that Pashler and colleagues (2008) found lacked the evidence to be used in education. A better way: choose the format by content, such as diagrams for processes and practice for skills.", "dung_o": "You stopped at step {v}.", "khong_bam": "You never took a step.", "som": "You stopped before splitting classes by label, before money and time started pouring in. Right call: preferences are real, but properly designed tests find almost no benefit from matching. A better way: choose the format by content.", "muon": "From step 3 on, money and time went into a hypothesis that hasn't passed its test: Rogowsky (2015, 2020) and Pashler (2008) found no benefit from matching. A better way: choose the format by content, for everyone.", "nguon": "Source: Fleming and Mills (1992), To Improve the Academy 11; Husmann and O'Loughlin (2019), Anatomical Sciences Education 12(1): 426 students; Rogowsky, Calhoun and Tallal (2015), Journal of Educational Psychology 107(1); Pashler and colleagues (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Knoll and colleagues (2017), British Journal of Psychology 108(3); Clinton-Lisell and Litzinger (2024), Frontiers in Psychology 15: 26% with crossover; Dekker and colleagues (2012), Frontiers in Psychology 3: 93% of UK teachers. The company scenario is hypothetical."}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

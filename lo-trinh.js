@@ -31,6 +31,7 @@
   const days = Array.from(document.querySelectorAll(".day"));
   const tienDo = document.getElementById("tien-do"), thanh = document.getElementById("thanh");
 
+  const do_ = (t, d) => window.mhaiDo && window.mhaiDo(t, d); // đếm tương tác, xem theo-doi.js
   function veNgay(li, daXong) {
     const n = +li.dataset.ngay, quiz = li.querySelector(".day-quiz"), dung = +quiz.dataset.dung;
     li.classList.toggle("is-done", daXong);
@@ -96,7 +97,7 @@
       }
     });
     nut.addEventListener("click", () => {
-      if (!nho.xong.includes(n)) nho.xong.push(n);
+      if (!nho.xong.includes(n)) { nho.xong.push(n); do_("lo-trinh-xong-ngay", { ngay: n }); do_("hoc-xong", { loai: "lo-trinh" }); }
       nho.xong.sort((a, b) => a - b);
       luu();
       veNgay(li, true);
@@ -283,6 +284,7 @@
       document.getElementById("cn-nut").hidden = false;
       document.getElementById("cn-loi-khen").hidden = false;
       document.getElementById("chung-nhan").dataset.daTao = "1";
+      do_("tao-chung-nhan", { loai: "lo-trinh-7-ngay" });
     } finally {
       nutTao.disabled = false;
       nutTao.innerHTML = nhanCu;

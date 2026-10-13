@@ -251,6 +251,8 @@
     }
 
     function hien(c, cuon) {
+      // đếm tương tác (xem theo-doi.js): chỉ gửi mã ngành có sẵn, nghề người xem tự gõ thì không gửi chữ
+      if (window.mhaiDo && c && (c.ai || c.nghe)) window.mhaiDo("chon-nganh", { nganh: c.ai && D.nganh[c.ai] ? c.ai : "tu-go" });
       oChonEl.innerHTML = oChon(D, c && c.ai);
       if (c && c.ai && D.nganh[c.ai]) {
         const n = D.nganh[c.ai];

@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Não trái logic, não phải sáng tạo (Betty Edwards): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Từ những bộ não bị cắt đôi đoạt Nobel 1981 đến bài trắc nghiệm &quot;bạn là người não nào?&quot;. Nghiên cứu 1.011 bộ não (PLOS ONE 2013) cho thấy chuyên hóa có thật nhưng không có &quot;kiểu người&quot;, và bài học: giao việc theo kỹ năng thể hiện, không theo nhãn.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Não trái logic, não phải sáng tạo (Betty Edwards): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Từ những bộ não bị cắt đôi đoạt Nobel 1981 đến bài trắc nghiệm &quot;bạn là người não nào?&quot;. Nghiên cứu 1.011 bộ não (PLOS ONE 2013) cho thấy chuyên hóa có thật nhưng không có &quot;kiểu người&quot;, và bài học: giao việc theo kỹ năng thể hiện, không theo nhãn.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #1A0F1F; --bia-2: #5B1A47; --bia-nhan: #F472B6; }
+:root { --vtk-nhan: #F472B6; }
+body header { --ho-so: "Hồ sơ lầm tưởng"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/lam-tuong-nao-trai-nao-phai.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Challenger. Topic "Lầm tưởng phổ biến" #2 Não trái, não phải: --night = magenta (the "creative right brain" of the myth), --day = blue (the "logical left brain"). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #be185d;
+  --day: #2563eb;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f472b6; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f472b6; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Não trái logic, não phải sáng tạo</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><path d="M46 20c-14-3-28 4-31 15-6 3-8 11-4 17-2 9 4 17 14 19 5 6 13 8 21 5z" stroke="#FFF7ED" stroke-width="3.5"/>
+<g stroke="#FFF7ED" stroke-width="2" opacity=".75"><path d="M20 38h26M16 50h30M20 62h26M28 26v46M38 21v54"/></g>
+<path d="M54 20c14-3 28 4 31 15 6 3 8 11 4 17 2 9-4 17-14 19-5 6-13 8-21 5z" stroke="var(--bia-nhan, #F472B6)" stroke-width="3.5"/>
+<g fill="var(--bia-nhan, #F472B6)"><circle cx="64" cy="36" r="4"/><circle cx="76" cy="48" r="5.5"/><circle cx="64" cy="60" r="3.5"/><circle cx="80" cy="64" r="2.5"/></g>
+<path d="M50 14v74" stroke="#FFF7ED" stroke-width="2.5" stroke-dasharray="4 5"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="14" data-chu="vi">khoảng 14 phút đọc</b></p><a class="vtk-ray-choi" href="#choi-giao-viec"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Bạn giao việc</span></a><a class="vtk-ray-o vtk-ray-tiep" href="lam-tuong-phong-cach-hoc.html"><small>Bài tiếp theo</small><b>Mỗi người một phong cách học</b><span>Lầm tưởng #003 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Lầm tưởng phổ biến · Não bộ · Làm việc nhóm</span>
+  <h1>Não trái logic, não phải sáng tạo?</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một bộ não bị tách đôi: nửa trái kẻ ô vuông màu xanh, nửa phải đầy chấm màu hồng, ở giữa là các sợi nối và một dấu hỏi">
+    <path d="M58 6c-14-2-30 4-34 16-6 2-8 10-4 16 2 8 12 12 22 10 6 2 12 0 16-2z" fill="#2563eb" fill-opacity=".14" stroke="#2563eb" stroke-width="2.5"/>
+    <g stroke="#2563eb" stroke-width="1.4" opacity=".7"><path d="M26 18h32M22 28h36M26 38h32M36 10v36M48 8v40"/></g>
+    <path d="M66 6c14-2 30 4 34 16 6 2 8 10 4 16-2 8-12 12-22 10-6 2-12 0-16-2z" fill="#be185d" fill-opacity=".14" stroke="#be185d" stroke-width="2.5"/>
+    <g fill="#be185d"><circle cx="78" cy="18" r="3.5"/><circle cx="92" cy="26" r="4.5"/><circle cx="80" cy="36" r="3"/><circle cx="98" cy="38" r="2.5"/></g>
+    <g stroke="#8a94a6" stroke-width="2" stroke-linecap="round"><path d="M58 18h8M58 26h8M58 34h8M58 42h8"/></g>
+    <text x="124" y="24" font-family="monospace" font-size="13" fill="#2563eb">1+1=2</text>
+    <text x="124" y="44" font-family="monospace" font-size="13" fill="#be185d">~ ý tưởng ~</text>
+    <text x="232" y="40" font-family="monospace" font-size="34" font-weight="700" fill="#8a94a6">?</text>
+    <text x="256" y="34" font-family="monospace" font-size="13" fill="#8a94a6">200 tr. sợi</text>
+  </svg>
+  <p class="sub">Từ phòng thí nghiệm não chia đôi những năm 1960 đến bài trắc nghiệm "bạn là người não nào?"</p>
+  <div class="meta">
+    <div><span class="label">Câu hay nghe</span><b>"người não trái giỏi logic, người não phải giỏi sáng tạo"</b></div>
+    <div><span class="label">Gốc thật</span><b>bệnh nhân bị cắt cầu nối hai bán cầu, nhóm Sperry, 1962</b></div>
+    <div><span class="label">Kết luận</span><b>chuyên hóa có thật, "kiểu người não trái/phải" thì không</b></div>
+    <div><span class="label">Nguồn chính</span><b>Nielsen và cộng sự, PLOS ONE 2013 (1.011 người)</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Từ đâu ra</a><a href="#khai-niem">Bằng chứng</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6c-6 0-10 4-10 10s4 10 10 10z"/><path d="M17 6c6 0 10 4 10 10s-4 10-10 10z"/></svg><b>Hai nửa có chuyên môn</b><span>Ngôn ngữ thường nằm bên trái, chú ý không gian nghiêng về bên phải. Phần này đúng.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 16h16"/><path d="M16 6v20" stroke-dasharray="3 3"/></svg><b>Gốc từ não bị cắt đôi</b><span>Phát hiện đến từ bệnh nhân động kinh được cắt cầu nối giữa hai bán cầu.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="12" r="4"/><circle cx="22" cy="12" r="4"/><circle cx="16" cy="22" r="4"/></svg><b>1.011 bộ não, không có "kiểu"</b><span>Không ai có cả bộ não nghiêng hẳn về một bên. Độ lệch là chuyện từng vùng.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24l6-8 5 4 9-12"/></svg><b>Sáng tạo và toán dùng cả hai</b><span>Tính toán chạy trên mạng trán–đỉnh hai bên. Sáng tạo không có "vùng riêng".</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Nhãn dán làm hẹp người</b><span>"Dân não trái" không được giao việc sáng tạo. Nhãn sai thì giao việc cũng sai.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Nielsen và cộng sự, PLOS ONE 2013; Knecht và cộng sự, Brain 2000; Gazzaniga, Bogen và Sperry, PNAS 1962; Arsalidou và Taylor, NeuroImage 2011; Dietrich và Kanso, Psychological Bulletin 2010.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của lầm tưởng</h2></div>
+  <p class="thesis">Một phát hiện đoạt giải Nobel về những bộ não bị cắt đôi đã biến thành cách phân loại người bình thường như thế nào, và nó sai ở đâu? Câu trả lời ngắn: hai bán cầu có chia việc, nhưng con người thì không chia thành hai loại.</p>
+  <div class="flow" aria-label="Ba chặng của lầm tưởng">
+    <div class="step"><span class="label">1962–1981</span><b>Phát hiện thật</b><span>Ở bệnh nhân bị cắt thể chai, mỗi bán cầu xử lý thông tin riêng.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">thập niên 1970</span><b>Phóng đại</b><span>Sách phổ thông: trái là phân tích, phải là trực giác, sáng tạo.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">ngày nay</span><b>Dán nhãn người</b><span>"Bạn là người não trái hay não phải?" trên trắc nghiệm, lớp học, chỗ làm.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Lầm tưởng từ đâu ra</h2><p class="lead">Mỗi lần kể lại, câu chuyện mất đi một điều kiện quan trọng.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="tdv">
+        <title id="tdv">Trò chơi tam sao thất bản qua bốn chặng. Phòng thí nghiệm năm 1962: ở người đã bị cắt thể chai, mỗi bán cầu xử lý một phần thông tin. Sách phổ thông thập niên 1970: bán cầu trái phân tích, bán cầu phải trực giác. Trắc nghiệm và quảng cáo: bạn là người não trái hay não phải. Chỗ làm: cậu ấy dân não trái, đừng giao việc sáng tạo. Mỗi chặng mất đi một điều kiện.</title>
+        <rect x="10" y="20" width="160" height="120" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/>
+        <text x="22" y="42" class="t-day t-bold">1962 · thí nghiệm</text>
+        <text x="22" y="66" class="t-ink">ở người ĐÃ CẮT</text><text x="22" y="82" class="t-ink">thể chai, mỗi bán cầu</text><text x="22" y="98" class="t-ink">xử lý một phần</text><text x="22" y="114" class="t-ink">thông tin</text>
+        <rect x="190" y="20" width="160" height="120" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="202" y="42" class="t-ink t-bold">1970s · sách</text>
+        <text x="202" y="66" class="t-ink">trái: phân tích</text><text x="202" y="82" class="t-ink">phải: trực giác,</text><text x="202" y="98" class="t-ink">tổng thể</text>
+        <rect x="370" y="20" width="160" height="120" rx="8" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="2"/>
+        <text x="382" y="42" class="t-ink t-bold">trắc nghiệm</text>
+        <text x="382" y="66" class="t-ink">"BẠN là người</text><text x="382" y="82" class="t-ink">não trái hay</text><text x="382" y="98" class="t-ink">não phải?"</text>
+        <rect x="550" y="20" width="160" height="120" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+        <text x="562" y="42" class="t-bold" style="fill:var(--bad)">chỗ làm</text>
+        <text x="562" y="66" class="t-ink">"cậu ấy dân</text><text x="562" y="82" class="t-ink">não trái, đừng giao</text><text x="562" y="98" class="t-ink">việc sáng tạo"</text>
+        <g stroke="var(--muted)" stroke-width="2"><path d="M172 80h16M352 80h16M532 80h16"/></g>
+        <g text-anchor="middle">
+          <text x="180" y="166" class="t-night">mất: "đã cắt"</text>
+          <text x="360" y="182" class="t-night">mất: "từng chức năng"</text>
+          <text x="540" y="166" class="t-night">thêm: "kiểu người"</text>
+        </g>
+        <text x="10" y="210">sơ đồ minh họa · mỗi chặng bỏ đi một điều kiện của phát hiện gốc</text>
+      </svg>
+    </div>
+    <figcaption><b>Từ "bán cầu" sang "con người".</b> Phát hiện gốc nói về hai nửa của một bộ não đã bị cắt rời. Lầm tưởng nói về hai loại người có bộ não bình thường.<span class="nguon">Nguồn: Gazzaniga, Bogen và Sperry, PNAS 48(10), 1962; Corballis, PLOS Biology 2014 (về sách phổ thông và cách hiểu "bán cầu phải lo sáng tạo").</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1861–1865 · Paul Broca</b><span>Bệnh nhân tổn thương bán cầu trái mất khả năng nói. Broca viết: "ta nói bằng bán cầu trái". Đây là bằng chứng chuyên hóa đầu tiên được chấp nhận rộng rãi.</span></div>
+    <div><b>1962 · Ca não chia đôi đầu tiên được báo cáo</b><span>Gazzaniga, Bogen và Sperry thử nghiệm một cựu binh 48 tuổi vừa được cắt thể chai để chữa động kinh nặng (PNAS).</span></div>
+    <div><b>1972 và 1979 · Hai cuốn sách bán chạy</b><span>Robert Ornstein, <i>The Psychology of Consciousness</i> (1972), ra đời giữa "cơn sốt trái/phải"; Betty Edwards, <i>Drawing on the Right Side of the Brain</i> (1979), được Corballis gọi là ví dụ điển hình cho ý "não phải lo sáng tạo".</span></div>
+    <div class="hot"><b>8/12/1981 · Sperry nhận Nobel và tự cảnh báo</b><span>"Sự chia đôi trái/phải trong cách nhận thức là một ý tưởng mà người ta rất dễ suy diễn quá đà."</span></div>
+    <div class="hot"><b>2012 · Lầm tưởng trong lớp học</b><span>91% giáo viên Anh và 86% giáo viên Hà Lan được hỏi tin rằng "não trái, não phải" giải thích khác biệt giữa học sinh.</span></div>
+    <div><b>2013 · 1.011 bộ não được quét</b><span>Nhóm Đại học Utah không tìm thấy người "não trái" hay "não phải" (PLOS ONE).</span></div>
+  </div>
+  <p class="nguon">Nguồn: Gazzaniga, Bogen và Sperry, PNAS 1962; Sperry, bài giảng Nobel 8/12/1981, in trong Science 217 (1982), tr. 1226; Dekker và cộng sự, Frontiers in Psychology 2012, bảng 1; Nielsen và cộng sự, PLOS ONE 2013. Mô tả sách Ornstein "giữa cơn sốt trái/phải" là nguồn thứ cấp.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Lầm tưởng từ đâu ra</h3><div class="chips"><span class="chip">não chia đôi</span><span class="chip">Nobel 1981</span><span class="chip">sách phổ thông</span><span class="chip">91% giáo viên</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Bằng chứng nói gì</h3><div class="chips"><span class="chip">1.011 bộ não</span><span class="chip">tay trái</span><span class="chip">sáng tạo</span><span class="chip">toán</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">tả hành vi</span><span class="chip">giao việc theo bằng chứng</span><span class="chip">bảng kỹ năng</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Bằng chứng nói gì</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Phần đúng: hai bán cầu có chia việc</h3><span class="en">lateralization</span><span class="pg">Knecht và cộng sự, Brain 2000</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kn1">
+          <title id="kn1">Tỷ lệ người khỏe mạnh có ngôn ngữ nằm chủ yếu ở bán cầu phải: khoảng 4% ở người thuận tay phải rõ rệt, 15% ở người thuận cả hai tay, 27% ở người thuận tay trái rõ rệt. Nghĩa là ngay cả trong nhóm thuận tay trái rõ rệt, khoảng ba phần tư vẫn có ngôn ngữ bên trái.</title>
+          <text x="20" y="28" class="t-ink t-bold">ngôn ngữ nằm chủ yếu ở bán cầu PHẢI</text>
+          <line x1="230" y1="40" x2="230" y2="170" class="axis"/>
+          <text x="220" y="70" text-anchor="end" class="t-ink">thuận tay phải rõ</text><rect x="230" y="56" width="18" height="22" fill="var(--day)" fill-opacity=".8"/><text x="256" y="72" class="t-day t-bold">~4%</text>
+          <text x="220" y="110" text-anchor="end" class="t-ink">thuận cả hai tay</text><rect x="230" y="96" width="68" height="22" fill="var(--muted)" fill-opacity=".6"/><text x="306" y="112" class="t-ink t-bold">~15%</text>
+          <text x="220" y="150" text-anchor="end" class="t-ink">thuận tay trái rõ</text><rect x="230" y="136" width="122" height="22" fill="var(--night)" fill-opacity=".8"/><text x="360" y="152" class="t-night t-bold">~27%</text>
+          <rect x="440" y="50" width="260" height="110" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="456" y="78" class="t-ink t-bold">nghĩa là:</text>
+          <text x="456" y="102" class="t-ink">người thuận tay trái rõ rệt</text>
+          <text x="456" y="120" class="t-ink">vẫn khoảng 3/4 có ngôn ngữ</text>
+          <text x="456" y="138" class="t-ink">ở bên TRÁI như mọi người</text>
+          <text x="20" y="192">thang: 0% đến 30% · người khỏe mạnh, đo độ lệch ngôn ngữ bằng siêu âm Doppler xuyên sọ</text>
+        </svg>
+      </div>
+      <figcaption><b>Chuyên hóa là thật, nhưng là chuyện từng chức năng.</b> Ngôn ngữ nghiêng trái ở hầu hết mọi người. Nó không biến ai thành "người não trái".<span class="nguon">Nguồn: Knecht và cộng sự, "Handedness and hemispheric language dominance in healthy humans", Brain 123 (2000), tr. 2512–2518. Con số 3/4 suy ra từ tỷ lệ 27%.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gốc của câu chuyện: những bộ não bị cắt đôi</h3><span class="en">split-brain · corpus callosum</span><span class="pg">Gazzaniga, Bogen, Sperry 1962</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="kn2">
+          <title id="kn2">So sánh não bình thường và não chia đôi. Não bình thường: hai bán cầu nối với nhau bằng thể chai hơn 200 triệu sợi, thông tin qua lại liên tục. Não chia đôi: thể chai bị cắt để chữa động kinh nặng. Khi một chữ chỉ hiện ở nửa trái tầm nhìn, nó đi vào bán cầu phải; bệnh nhân nói "không thấy gì" nhưng tay trái vẫn chọn đúng đồ vật.</title>
+          <text x="40" y="26" class="t-ink t-bold">não bình thường</text>
+          <path d="M120 40c-40-4-76 14-80 50s30 66 80 62z" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="2"/>
+          <path d="M136 40c40-4 76 14 80 50s-30 66-80 62z" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <g stroke="var(--ink)" stroke-width="2"><path d="M116 70h24M116 84h24M116 98h24M116 112h24M116 126h24"/></g>
+          <text x="128" y="178" text-anchor="middle" class="t-ink">thể chai: hơn 200 triệu sợi</text>
+          <text x="128" y="194" text-anchor="middle">hai nửa làm việc cùng nhau</text>
+          <text x="300" y="26" class="t-ink t-bold">não chia đôi (sau phẫu thuật)</text>
+          <path d="M380 40c-40-4-76 14-80 50s30 66 80 62z" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="2"/>
+          <path d="M408 40c40-4 76 14 80 50s-30 66-80 62z" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <path d="M394 50v100" stroke="var(--bad)" stroke-width="3" stroke-dasharray="6 5"/>
+          <text x="394" y="178" text-anchor="middle" class="t-bold" style="fill:var(--bad)">cầu nối bị cắt</text>
+          <rect x="520" y="40" width="190" height="130" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="532" y="62" class="t-ink t-bold">thử nghiệm kinh điển</text>
+          <text x="532" y="84" class="t-ink">chữ hiện ở nửa TRÁI</text>
+          <text x="532" y="100" class="t-ink">tầm nhìn → bán cầu PHẢI</text>
+          <text x="532" y="124" class="t-night">miệng: "không thấy gì"</text>
+          <text x="532" y="146" class="t-day">tay trái: chọn đúng đồ</text>
+        </svg>
+      </div>
+      <figcaption><b>Phát hiện chỉ rõ ràng khi cầu nối bị cắt.</b> Ở não bình thường, những gì một nửa biết thì nửa kia cũng biết ngay. Sperry nhận Nobel năm 1981 cho loạt nghiên cứu này.<span class="nguon">Nguồn: Gazzaniga, Bogen và Sperry, PNAS 48(10), 1962; số sợi: Aboitiz và cộng sự, Brain Research 598 (1992), theo trích dẫn thứ cấp; Nobel 1981: nobelprize.org.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Thử thẳng câu hỏi: 1.011 bộ não</h3><span class="en">resting-state fMRI</span><span class="pg">Nielsen và cộng sự, PLOS ONE 2013</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="kn3">
+          <title id="kn3">Hai bức tranh. Nếu lầm tưởng đúng: có người cả bộ não nghiêng xanh về bên trái, có người cả bộ não nghiêng hồng về bên phải. Dữ liệu 1.011 người từ 7 đến 29 tuổi: não chia thành 7.266 vùng; có 9 trung tâm lệch trái và 11 trung tâm lệch phải, nhưng các kết nối lệch không đi cùng nhau theo từng người. Không ai nghiêng hẳn một bên.</title>
+          <rect x="10" y="10" width="330" height="170" rx="8" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="24" y="34" class="t-ink t-bold">nếu lầm tưởng đúng</text>
+          <circle cx="100" cy="100" r="40" fill="var(--day)" fill-opacity=".75"/><text x="100" y="164" text-anchor="middle" class="t-day t-bold">"người não trái"</text>
+          <circle cx="250" cy="100" r="40" fill="var(--night)" fill-opacity=".75"/><text x="250" y="164" text-anchor="middle" class="t-night t-bold">"người não phải"</text>
+          <rect x="380" y="10" width="330" height="170" rx="8" fill="var(--paper)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="394" y="34" class="t-ink t-bold">dữ liệu: 1.011 người, 7–29 tuổi</text>
+          <g>
+            <circle cx="470" cy="100" r="40" fill="var(--grid)"/>
+            <circle cx="452" cy="86" r="9" fill="var(--day)"/><circle cx="486" cy="112" r="8" fill="var(--night)"/><circle cx="458" cy="118" r="6" fill="var(--day)"/><circle cx="490" cy="80" r="7" fill="var(--night)"/>
+            <circle cx="620" cy="100" r="40" fill="var(--grid)"/>
+            <circle cx="604" cy="84" r="7" fill="var(--day)"/><circle cx="636" cy="114" r="9" fill="var(--night)"/><circle cx="608" cy="116" r="8" fill="var(--day)"/><circle cx="640" cy="84" r="6" fill="var(--night)"/>
+          </g>
+          <text x="545" y="164" text-anchor="middle" class="t-ink">ai cũng có cả hai loại vùng lệch</text>
+          <text x="10" y="200" class="t-ink">7.266 vùng · 9 trung tâm lệch trái · 11 lệch phải · độ lệch là chuyện "từng vùng", không phải "từng người"</text>
+        </svg>
+      </div>
+      <figcaption><b>"Lệch" là đặc điểm cục bộ, không phải toàn cục.</b> Các tác giả viết: dữ liệu "không phù hợp với một kiểu hình toàn não" nghiêng trái hay nghiêng phải. Độ lệch tăng nhẹ theo tuổi, không khác giữa nam và nữ. Trưởng nhóm Jeff Anderson: ngôn ngữ thường ở bên trái, chú ý ở bên phải nhiều hơn, "nhưng người ta không có xu hướng mạnh hơn về mạng não bên trái hay bên phải".<span class="nguon">Nguồn: Nielsen, Zielinski, Ferguson, Lainhart và Anderson, PLOS ONE 8(8): e71275, 2013 (dữ liệu mở 1000 Functional Connectomes và ADHD-200); thông cáo Đại học Utah, 8/2013. Hình là sơ đồ minh họa, không phải ảnh quét thật.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Sáng tạo và toán: việc của cả hai nửa</h3><span class="en">creativity · arithmetic</span><span class="pg">Dietrich và Kanso 2010 · Arsalidou và Taylor 2011</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kn4">
+          <title id="kn4">Sơ đồ định tính bốn việc. Đọc và nói: nghiêng rõ về bên trái. Tính toán: mạng trán và đỉnh ở cả hai bên. Nghĩ ý tưởng mới: mạng rộng, không có vùng riêng; một phân tích gộp thấy bên phải nhỉnh hơn ở một số tác vụ. Chú ý không gian, khuôn mặt: nghiêng về bên phải.</title>
+          <text x="300" y="24" text-anchor="middle" class="t-day t-bold">bán cầu trái</text>
+          <text x="560" y="24" text-anchor="middle" class="t-night t-bold">bán cầu phải</text>
+          <line x1="430" y1="34" x2="430" y2="196" stroke="var(--rule)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="20" y="62" class="t-ink t-bold">đọc, nói</text><rect x="190" y="48" width="220" height="20" rx="4" fill="var(--day)" fill-opacity=".8"/><rect x="450" y="48" width="50" height="20" rx="4" fill="var(--night)" fill-opacity=".35"/><text x="510" y="63">nghiêng rõ trái</text>
+          <text x="20" y="102" class="t-ink t-bold">tính toán</text><rect x="250" y="88" width="160" height="20" rx="4" fill="var(--day)" fill-opacity=".65"/><rect x="450" y="88" width="150" height="20" rx="4" fill="var(--night)" fill-opacity=".65"/><text x="610" y="103">cả hai bên</text>
+          <text x="20" y="142" class="t-ink t-bold">nghĩ ý tưởng mới</text><rect x="260" y="128" width="150" height="20" rx="4" fill="var(--day)" fill-opacity=".6"/><rect x="450" y="128" width="170" height="20" rx="4" fill="var(--night)" fill-opacity=".7"/><text x="628" y="143">mạng rộng</text>
+          <text x="20" y="182" class="t-ink t-bold">chú ý không gian</text><rect x="330" y="168" width="80" height="20" rx="4" fill="var(--day)" fill-opacity=".35"/><rect x="450" y="168" width="170" height="20" rx="4" fill="var(--night)" fill-opacity=".8"/><text x="628" y="183">nghiêng phải</text>
+          <text x="20" y="212">sơ đồ định tính · độ dài thanh chỉ để so sánh, không phải số đo</text>
+        </svg>
+      </div>
+      <figcaption><b>Thứ bị gán cho "não trái" (toán) và "não phải" (sáng tạo) đều dùng cả hai bên.</b> Tổng quan của Dietrich và Kanso: tư duy sáng tạo không phụ thuộc vào một vùng não nào và "không đặc biệt gắn với não phải". Phân tích gộp của Mihov và cộng sự cùng năm thấy bên phải nhỉnh hơn ở một số tác vụ sáng tạo. Hai kết quả này kéo ngược nhau, nên ý "sáng tạo ở não phải" chỉ đáng ghi là Thận trọng.<span class="nguon">Nguồn: Dietrich và Kanso, Psychological Bulletin 136(5), 2010; Mihov, Denzler và Förster, Brain and Cognition 72(3), 2010; Arsalidou và Taylor, NeuroImage 54(3), 2011 (mạng trán–đỉnh khi tính toán); Dehaene và cộng sự, Cognitive Neuropsychology 20, 2003 (vùng đỉnh hai bên cho cảm nhận số lượng); Corballis, PLOS Biology 2014.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: Vững, Thận trọng, Sai</h2><p class="lead">10 câu hay gặp quanh chuyện não trái, não phải, đối chiếu với nghiên cứu gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="3 vững, 3 cần thận trọng, 4 sai">
+    <div class="o" style="flex:3">3 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Hai bán cầu có chuyên hóa, ví dụ ngôn ngữ thường ở bên trái</span></summary><p class="note">Từ Broca (thập niên 1860) đến các đo đạc hiện đại. Ở người khỏe mạnh thuận tay phải rõ rệt, chỉ khoảng 4% có ngôn ngữ chủ yếu bên phải (Knecht và cộng sự, Brain 2000).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Cắt thể chai làm hai bán cầu xử lý thông tin tách rời</span></summary><p class="note">Loạt nghiên cứu bắt đầu với Gazzaniga, Bogen và Sperry (PNAS 1962) và mang về Nobel 1981 cho Sperry. Đây là kết quả ở bệnh nhân đã phẫu thuật, không phải ở người bình thường.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Lầm tưởng này rất phổ biến, kể cả trong giới giáo viên</span></summary><p class="note">Khảo sát 242 giáo viên quan tâm đến khoa học não: 91% ở Anh và 86% ở Hà Lan đồng ý câu về "bán cầu trội"; chỉ 3% và 4% trả lời đúng (Dekker và cộng sự, Frontiers in Psychology 2012, bảng 1).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Bán cầu phải nhỉnh hơn trong một số việc sáng tạo</span></summary><p class="note">Phân tích gộp của Mihov và cộng sự (2010) thấy ưu thế tương đối bên phải. Tổng quan của Dietrich và Kanso (2010) kết luận sáng tạo không gắn với một vùng hay một bán cầu. Corballis (2014): tư duy sáng tạo kích hoạt một mạng rộng. "Nhỉnh hơn ở vài tác vụ" khác xa "sáng tạo nằm ở não phải".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Chú ý không gian, nhận diện khuôn mặt "thuộc về" bán cầu phải</span></summary><p class="note">Đúng là nghiêng về bên phải ở nhiều người (Anderson, thông cáo Đại học Utah 2013: chú ý ở bên phải nhiều hơn). Nhưng "nghiêng" không phải "độc quyền": bên trái vẫn tham gia.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Người não chia đôi có "hai tâm trí" trong một đầu</span></summary><p class="note">Đây là cách đọc kinh điển. Pinto và cộng sự (Brain 2017) thử 2 bệnh nhân và thấy họ trả lời được kích thích ở cả hai bên, nên đề xuất "nhận thức bị chia, ý thức không chia". Volz và Gazzaniga (2017) phản bác. Câu hỏi còn mở.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Mỗi người có một bán cầu trội, quyết định tính cách và tài năng</span></summary><p class="note">Nielsen và cộng sự (2013) phân tích 1.011 người: các kết nối lệch không đi cùng nhau theo từng người, không có kiểu "não trái" hay "não phải" ở mức toàn não.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Logic và toán nằm ở não trái</span></summary><p class="note">Tính toán dựa vào mạng trán–đỉnh ở cả hai bên (Arsalidou và Taylor, NeuroImage 2011); cảm nhận số lượng dùng vùng đỉnh hai bên (Dehaene và cộng sự, 2003). Phần lời của bài toán thì nghiêng trái, như mọi việc dùng ngôn ngữ.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Người thuận tay trái là người "não phải", nên sáng tạo hơn</span></summary><p class="note">Ngay cả trong nhóm thuận tay trái rõ rệt, chỉ khoảng 27% có ngôn ngữ chủ yếu bên phải; khoảng 3/4 vẫn bên trái (Knecht và cộng sự, 2000). Thuận tay không nói lên "kiểu não".</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Trắc nghiệm trên mạng cho biết bạn là "người não trái" hay "người não phải"</span></summary><p class="note">Nếu không có kiểu người như vậy trong não (Nielsen 2013) thì bài trắc nghiệm chỉ đo sở thích tự khai, rồi gắn cho nó một cái tên nghe như khoa học. Các chương trình bài tập "cân bằng hai bán cầu" cũng được Dekker và cộng sự xếp vào nhóm lầm tưởng giáo dục.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở Phần 8.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá lầm tưởng</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Độ sai</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ dai dẳng</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Mức hại</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Hạt nhân đúng</span><ul class="plus"><li>Hai bán cầu có chuyên hóa thật</li><li>Ngôn ngữ nghiêng trái ở hầu hết mọi người</li><li>Nghiên cứu não chia đôi là khoa học hàng đầu, đoạt Nobel</li></ul></div>
+    <div><span class="label">Chỗ bị thổi phồng</span><ul class="minus"><li>Từ "từng chức năng" thành "từng con người"</li><li>Từ não bị cắt rời sang não bình thường</li><li>Từ "nhỉnh hơn ở vài tác vụ" thành "sáng tạo nằm ở bên phải"</li></ul></div>
+  </div>
+  <p class="verdict">Một nửa sự thật về bộ não đã bị biến thành một sự sai về con người.</p>
+  <details class="more"><summary>Xem thêm: chính Sperry đã cảnh báo</summary><div>
+    <p>Trong bài giảng Nobel năm 1981, Sperry viết về "làn sóng suy diễn bán phổ thông" quanh chức năng não trái và não phải, và nhắc: "Sự chia đôi trái/phải trong cách nhận thức là một ý tưởng mà người ta rất dễ suy diễn quá đà."</p>
+    <p>Lầm tưởng vẫn sống vì nó dễ dùng: hai hộp, một bài trắc nghiệm, một cái nhãn. Nó cũng nghe khoa học, vì đúng là có một giải Nobel đứng phía sau. Corballis (2014) gọi phần lớn những suy diễn này là "phóng đại hoặc thiếu cơ sở".</p>
+    <p class="nguon">Nguồn: Sperry, "Some Effects of Disconnecting the Cerebral Hemispheres", bài giảng Nobel 8/12/1981, Science 217 (1982), tr. 1226; Corballis, PLOS Biology 12(1), 2014.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: đừng dán nhãn "kiểu người" cho đồng nghiệp</h2><p class="lead">Áp dụng khi giao việc, lập nhóm dự án, viết đánh giá cuối năm, hay khi ai đó nói "cậu ấy không phải dân sáng tạo".</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Bốn bước giao việc không qua nhãn dán: tả hành vi thay vì tả kiểu người; giao việc theo bằng chứng đã làm; bảng kỹ năng gắn với việc, không gắn với người; cho mỗi người một việc nhỏ ngoài vùng quen mỗi quý.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · tả hành vi</text><text x="110" y="100" class="t-night t-bold">"trình bày số liệu rõ"</text><text x="110" y="116">không phải "dân não trái"</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · giao theo bằng chứng</text><text x="300" y="100" class="t-day t-bold">sản phẩm đã làm</text><text x="300" y="116">hoặc một việc thử nhỏ</text></g>
+        <circle cx="500" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="500" y="30" class="t-ink t-bold">3 · bảng theo việc</text><text x="500" y="100" class="t-rem t-bold">việc → ai đã làm được</text><text x="500" y="116">không "ai là kiểu gì"</text></g>
+        <circle cx="700" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="700" y="30" class="t-ink t-bold">4 · thử vùng mới</text><text x="700" y="100" class="t-ok t-bold">mỗi quý, có người kèm</text><text x="700" y="116">nhãn cũ không đóng băng</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Câu hỏi đúng không phải "bạn là người gì?" mà là "bạn đã làm được việc gì?"</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi bước tháo một chỗ hỏng của nhãn dán.</b> Nhãn suy từ một nét (một lần trình bày, một bài trắc nghiệm) ra cả con người, đúng kiểu suy diễn "toàn cục" mà dữ liệu 1.011 bộ não không ủng hộ.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h14M6 24h10"/></svg><div><b>Đổi tính từ thành động từ</b><span>"Sáng tạo" → "đã đề xuất 3 cách làm mới cho chiến dịch Q3". Viết được câu động từ thì mới giao việc dựa vào nó.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M11 16l4 4 7-8"/></svg><div><b>Thử việc nhỏ trước khi kết luận</b><span>Một bản phác 2 giờ, một bảng tính mẫu. Kết quả thật đáng tin hơn ấn tượng "cô ấy không hợp số liệu".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Nhóm cần việc, không cần "kiểu"</b><span>Lập nhóm bằng danh sách việc cần làm và người đã làm được, không phải bằng "một người não trái, một người não phải".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Cẩn thận với nhãn tự dán</b><span>"Em là dân não phải, em không làm Excel" cũng là nhãn. Hỏi lại: em đã thử học trong bao lâu, có người chỉ chưa?</span></div></div>
+  </div>
+  <div class="quote"><span>Sự chia đôi trái/phải trong cách nhận thức là một ý tưởng mà người ta rất dễ suy diễn quá đà.</span><span class="src">Roger Sperry, bài giảng Nobel, 8/12/1981 (in trong Science, 1982).</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Michael Corballis, "Left Brain, Right Brain: Facts and Fantasies", <i>PLOS Biology</i> (2014)</b><span class="muted">Bài tiểu luận ngắn, miễn phí, tách rõ phần sự thật và phần tưởng tượng.</span></div>
+    <div><b>Michael Gazzaniga, <i>Tales from Both Sides of the Brain</i> (2015)</b><span class="muted">Hồi ký của chính người làm thí nghiệm não chia đôi đầu tiên cùng Sperry.</span></div>
+    <div><b>Nielsen và cộng sự, <i>PLOS ONE</i> (2013)</b><span class="muted">Bài báo gốc, truy cập mở; phần thảo luận dễ đọc.</span></div>
+    <div><b>Thí nghiệm nổi tiếng: Hiệu ứng Pygmalion</b><span class="muted">Khi người giao việc tin một điều về ai đó, niềm tin ấy có thể tự thành sự thật.</span></div>
+    <div><b>Lầm tưởng phổ biến #03: Mỗi người có một phong cách học riêng</b><span class="muted">Một cái nhãn "kiểu người" khác, lần này trong phòng đào tạo.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên bài báo gốc. Không tải được bản đầy đủ của một số bài; chi tiết được đối chiếu qua tóm tắt và bảng kết quả trên trang gốc. Chỗ nào là nguồn thứ cấp đã ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Nielsen JA, Zielinski BA, Ferguson MA, Lainhart JE, Anderson JS</b>, "An Evaluation of the Left-Brain vs. Right-Brain Hypothesis with Resting State Functional Connectivity Magnetic Resonance Imaging", <i>PLOS ONE</i> 8(8): e71275, 2013. <a href="https://doi.org/10.1371/journal.pone.0071275">doi.org/10.1371/journal.pone.0071275</a></li>
+    <li><b>Đại học Utah</b>, thông cáo "Researchers Debunk Myth of 'Right-brain' and 'Left-brain' Personality Traits", 8/2013. <a href="https://healthcare.utah.edu/press-releases/2013/08/researchers-debunk-myth-of-right-brain-and-left-brainpersonality-traits">healthcare.utah.edu</a></li>
+    <li><b>Gazzaniga MS, Bogen JE, Sperry RW</b>, "Some functional effects of sectioning the cerebral commissures in man", <i>PNAS</i> 48(10): 1765–1769, 1962. <a href="https://resolver.caltech.edu/CaltechAUTHORS:GAZpnas62">caltech.edu</a></li>
+    <li><b>Sperry RW</b>, "Some Effects of Disconnecting the Cerebral Hemispheres", bài giảng Nobel 8/12/1981; <i>Science</i> 217: 1223–1226, 1982. <a href="https://www.nobelprize.org/prizes/medicine/1981/sperry/25059-roger-w-sperry-nobel-lecture-1981/">nobelprize.org</a></li>
+    <li><b>Dekker S, Lee NC, Howard-Jones P, Jolles J</b>, "Neuromyths in Education: Prevalence and Predictors of Misconceptions among Teachers", <i>Frontiers in Psychology</i> 3: 429, 2012, bảng 1. <a href="https://doi.org/10.3389/fpsyg.2012.00429">doi.org/10.3389/fpsyg.2012.00429</a></li>
+    <li><b>Knecht S và cộng sự</b>, "Handedness and hemispheric language dominance in healthy humans", <i>Brain</i> 123: 2512–2518, 2000.</li>
+    <li><b>Corballis MC</b>, "Left Brain, Right Brain: Facts and Fantasies", <i>PLOS Biology</i> 12(1): e1001767, 2014. <a href="https://doi.org/10.1371/journal.pbio.1001767">doi.org/10.1371/journal.pbio.1001767</a></li>
+    <li><b>Dietrich A, Kanso R</b>, "A review of EEG, ERP, and neuroimaging studies of creativity and insight", <i>Psychological Bulletin</i> 136(5): 822–848, 2010.</li>
+    <li><b>Mihov KM, Denzler M, Förster J</b>, "Hemispheric specialization and creative thinking: a meta-analytic review of lateralization of creativity", <i>Brain and Cognition</i> 72(3): 442–448, 2010.</li>
+    <li><b>Arsalidou M, Taylor MJ</b>, "Is 2+2=4? Meta-analyses of brain areas needed for numbers and calculations", <i>NeuroImage</i> 54(3): 2382–2393, 2011; <b>Dehaene S, Piazza M, Pinel P, Cohen L</b>, "Three parietal circuits for number processing", <i>Cognitive Neuropsychology</i> 20: 487–506, 2003.</li>
+    <li><b>Pinto Y và cộng sự</b>, "Split brain: divided perception but undivided consciousness", <i>Brain</i> 140: 1231–1237, 2017; và phản biện của Volz và Gazzaniga (2017).</li>
+    <li><b>Aboitiz F, Scheibel AB, Fisher RS, Zaidel E</b>, "Fiber composition of the human corpus callosum", <i>Brain Research</i> 598: 143–153, 1992 (con số "hơn 200 triệu sợi" lấy qua một chương sách lâm sàng trích lại, nguồn thứ cấp).</li>
+  </ol>
+</section>
+
+<footer>Lầm tưởng phổ biến #02. Các hình là sơ đồ minh họa; số liệu lấy từ nghiên cứu gốc và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "quyet-dinh", "id": "choi-giao-viec", "truoc": "tinh-hoa", "bieu_do": {"x_min": 0, "x_max": 100, "x_buoc": 20, "x_don_vi": "", "y_max": 3, "diem": [[58, 1], [64, 2], [71, 3], [77, 0], [83, 2], [92, 2]], "an": [[12, 2], [20, 3], [27, 1], [35, 2], [41, 0], [46, 3]], "vach": 50}, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn giao việc", "hoi": "Kịch bản giả định: nhóm bạn có 12 người, sắp làm chiến dịch quảng cáo mới. Tuần trước cả nhóm làm bài trắc nghiệm \"Bạn là người não trái hay não phải?\" trên mạng. Bạn giao phần ý tưởng cho ai?", "dan": "Đây là những gì bạn đang có: chỉ 6 người điểm \"não phải\" trên 50 được mời phác ý tưởng 2 giờ cho chiến dịch trước. Mỗi chấm là một người.", "truc_x": "Điểm \"não phải\" trên trắc nghiệm mạng", "truc_y": "Ý tưởng được chọn", "nhan_vach": "Vạch \"dân sáng tạo\"", "chon": [{"nhan": "Giao cho nhóm \"não phải\"", "dap": "Nhiều người cũng nghĩ vậy: năm 2012, 91% giáo viên Anh và 86% giáo viên Hà Lan được hỏi tin \"não trái, não phải\" giải thích khác biệt giữa học sinh. Nhưng nhìn lại biểu đồ: nó chỉ có những người đã được thử."}, {"nhan": "Cho cả 12 người phác thử 2 giờ", "dap": "Đúng bước \"thử việc nhỏ trước khi kết luận\" trong bài. Bấm nút dưới để xem 6 người \"não trái\" làm được gì khi có cơ hội."}], "nut_an": "Hiện 6 người \"não trái\" khi được phác thử", "ket": "Có cơ hội thì ý tưởng được chọn đến từ cả hai phía vạch, nhiều ngang nhau. Điểm trắc nghiệm không đoán trước được gì, vì nó chỉ đo sở thích tự khai. Nielsen và cộng sự quét 1.011 bộ não và không thấy người \"não trái\" hay \"não phải\". Nhãn sai thì giao việc cũng sai: giao theo việc người ta đã làm được, không theo \"kiểu não\".", "nguon": "Nguồn: nhóm 12 người, điểm trắc nghiệm và số ý tưởng là kịch bản giả định của Mark, không phải dữ liệu thật. 1.011 bộ não: Nielsen và cộng sự, PLOS ONE 8(8): e71275, 2013. 91% và 86% giáo viên: Dekker và cộng sự, Frontiers in Psychology 3: 429, 2012, bảng 1. Bản phác 2 giờ: gợi ý của Mark ở Phần 6."}, "en": {"muc": "Play before you read", "nhan": "You hand out the work", "hoi": "Hypothetical scenario: your team of 12 is starting a new ad campaign. Last week everyone took the online quiz \"Are you left-brained or right-brained?\". Who gets the creative brief?", "dan": "Here is what you have: only the 6 people who scored above 50 on \"right brain\" were asked to sketch ideas for 2 hours on the last campaign. Each dot is one person.", "truc_x": "\"Right brain\" score on the online quiz", "truc_y": "Ideas picked", "nhan_vach": "\"Creative type\" line", "chon": [{"nhan": "The \"right-brained\" group", "dap": "Plenty of people would agree: in 2012, 91% of surveyed UK teachers and 86% of Dutch teachers believed \"left brain, right brain\" explains differences between learners. But look again at the chart: it only shows the people who got a chance."}, {"nhan": "Give all 12 a 2-hour sketch", "dap": "That is the \"small trial before judging\" step from the article. Press the button below to see what the 6 \"left-brained\" people did when they got the chance."}], "nut_an": "Show the 6 \"left-brained\" people's sketches", "ket": "Given the chance, the picked ideas came from both sides of the line, in about equal numbers. The quiz score predicted nothing, because it only measures self-reported preferences. Nielsen and colleagues scanned 1,011 brains and found no \"left-brained\" or \"right-brained\" people. Wrong label, wrong assignment: hand out work by what people have done, not by \"brain type\".", "nguon": "Source: the team of 12, the quiz scores and the idea counts are Mark's hypothetical scenario, not real data. 1,011 brains: Nielsen et al., PLOS ONE 8(8): e71275, 2013. 91% and 86% of teachers: Dekker et al., Frontiers in Psychology 3: 429, 2012, table 1. The 2-hour sketch is Mark's suggestion in Part 6."}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
