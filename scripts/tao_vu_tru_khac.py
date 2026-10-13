@@ -27,7 +27,7 @@ def lam_sach(s, en=False):
     s = re.sub(r'\s*<section id="ghi-chu">.*?</section>', "", s, flags=re.S)
     s = re.sub(r'<a href="#ghi-chu">[^<]*</a>', "", s)
     # Nhãn nháp ở đầu bài và chân bài
-    s = re.sub(r'<span class="draft">[^<]*</span>', f'<span class="draft">{"Another Universe" if en else "Vũ Trụ Khác"}</span>', s, count=1)
+    s = re.sub(r'<span class="draft">[^<]*</span>', f'<span class="draft">{"Mark ở vũ trụ khác · Another Universe" if en else "Mark ở vũ trụ khác"}</span>', s, count=1)
     s = re.sub(r"\s*·\s*(Kho nghiên cứu sách cá nhân|Personal book research)\s*·\s*(Bản nháp|Draft) [0-9/]+\.", ".", s)
     return s
 
@@ -65,16 +65,18 @@ def trang_sach(b, goc, en=False):
 <style>
 body {{ margin: 0; }}
 .mhai-thanh {{ position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
-  margin: 0 -16px; padding: 10px 16px; background: var(--paper, #fff); border-bottom: 1px solid var(--rule, #ddd);
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
   font: 600 .92rem/1.2 system-ui, sans-serif; }}
-.mhai-thanh a {{ color: var(--ink, #111); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }}
-.mhai-thanh a:hover {{ color: var(--night, #2c3c8c); }}
-.mhai-thanh img {{ width: 26px; height: 26px; border-radius: 50%; }}
+.mhai-thanh a {{ color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }}
+.mhai-thanh a:hover {{ color: #FBBF24; }}
+.mhai-thanh .vtk-ve img {{ height: 30px; width: auto; }}
+.mhai-thanh .mhai img {{ width: 24px; height: 24px; border-radius: 50%; }}
 .mhai-thanh span {{ display: inline-flex; gap: 16px; align-items: center; }}
+@media (max-width: 420px) {{ .mhai-thanh .mhai b {{ display: none; }} }}
 </style>
 </head>
 <body>
-<div class="mhai-thanh"><a href="../vu-tru-khac.html">‹ {"Another Universe" if en else "Vũ Trụ Khác"}</a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a href="../"><img src="{p}assets/logo.png" alt="" width="26" height="26">Mark học AI</a></span></div>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}">‹ <img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 {bai.strip()}
 </body>
 </html>
