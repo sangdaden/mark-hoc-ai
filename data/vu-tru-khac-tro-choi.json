@@ -1,5 +1,5 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the. Đợt 2 thêm: quy-dao, song-radio, tau-chim, slide-giau-dong, may-chu, buong-lai, ly-gio-luyen, be-ca; ten-lua có bieu_do, lo-phan-ung có an_bien, pho-mai có dung_o.",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the. Đợt 2 thêm: quy-dao, song-radio, tau-chim, slide-giau-dong, may-chu, buong-lai, ly-gio-luyen, be-ca; ten-lua có bieu_do, lo-phan-ung có an_bien, pho-mai có dung_o. Đợt 3 thêm: ban-dieu-phoi, phong-may-y2k, bom-bong-bong, thang-leo-thang, vong-khoanh, pho-ngan-hang, van-cfc, van-dau, thap-vay-ngan, va-de.",
   "tham-hoa-challenger": [
     {
       "khuon": "ten-lua",
@@ -5507,6 +5507,404 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "ban-dieu-phoi",
+      "id": "ban-dieu-phoi-covid",
+      "truoc": "quyet-dinh",
+      "tuan": 26,
+      "nhan_doi": 7.4,
+      "cong_suat": 1000,
+      "tran": 1.6,
+      "ngan_sach": 36,
+      "nhip": 650,
+      "bp": [
+        {
+          "giam": 0.25,
+          "ton": 0.2
+        },
+        {
+          "giam": 0,
+          "ton": 0.3,
+          "giuong": 0.5
+        },
+        {
+          "giam": 0.45,
+          "ton": 1.0
+        },
+        {
+          "giam": 0.25,
+          "ton": 0.8
+        },
+        {
+          "giam": 0.2,
+          "ton": 0.2
+        }
+      ],
+      "xem": [
+        0,
+        2,
+        4,
+        8
+      ],
+      "giu": 4,
+      "mac_dinh": 4,
+      "khau_trang": 4,
+      "tuan_kt": 13,
+      "manh": [
+        2,
+        3
+      ],
+      "tuan_that": 10,
+      "tin": [
+        9,
+        28,
+        29,
+        70,
+        93,
+        96,
+        156
+      ],
+      "moc": [
+        [
+          9,
+          9
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          31,
+          59
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          75,
+          90
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          156,
+          156
+        ]
+      ],
+      "tu_vong": [
+        5.42,
+        14.83
+      ],
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Bàn điều phối thành phố",
+        "hoi": "Kéo biện pháp lên lịch. Gắn mức chắc chắn và ngày xem lại. Rồi cho thời gian chạy.",
+        "mo_ta": "Bàn điều phối của một thành phố giả định: biểu đồ đường cong ca bệnh minh họa so với vạch sức chứa bệnh viện, dải lịch tháng 1 đến tháng 6/2020 với năm làn biện pháp, khay năm tấm biện pháp để kéo lên lịch, đồng hồ Lòng tin và Giờ làm.",
+        "doc_mac": "Kéo một tấm từ khay lên dải lịch (hoặc chạm tấm để đặt ở tuần mặc định). Chạm tấm trên lịch để đổi mức chắc chắn và ngày xem lại.",
+        "long_tin": "Lòng tin",
+        "gio_lam": "Giờ làm",
+        "tuan": "Tuần {d}",
+        "thang": [
+          "Th1",
+          "Th2",
+          "Th3",
+          "Th4",
+          "Th5",
+          "Th6"
+        ],
+        "thang_ngan": [
+          "T1",
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "T6",
+          "T7",
+          "T8",
+          "T9",
+          "T10",
+          "T11",
+          "T12"
+        ],
+        "truc": "ca cần nằm viện · mô hình minh họa",
+        "suc_chua": "sức chứa bệnh viện",
+        "bp": [
+          {
+            "a": [
+              "Báo bệnh viện",
+              "+ xét nghiệm"
+            ],
+            "ten": "Báo bệnh viện + xét nghiệm",
+            "full": "Báo bệnh viện để ý ca nghi ngờ, chuẩn bị xét nghiệm. Kéo lên lịch."
+          },
+          {
+            "a": [
+              "Giường",
+              "+ đồ bảo hộ"
+            ],
+            "ten": "Chuẩn bị giường và đồ bảo hộ",
+            "full": "Chuẩn bị giường và đồ bảo hộ: nâng sức chứa bệnh viện sau 2 tuần. Kéo lên lịch."
+          },
+          {
+            "a": [
+              "Cấm tụ tập",
+              "đông người"
+            ],
+            "ten": "Cấm tụ tập đông người",
+            "full": "Cấm tụ tập đông người. Kéo lên lịch."
+          },
+          {
+            "a": [
+              "Đóng",
+              "trường học"
+            ],
+            "ten": "Đóng trường",
+            "full": "Đóng trường học. Kéo lên lịch."
+          },
+          {
+            "a": [
+              "Khuyến nghị",
+              "khẩu trang"
+            ],
+            "ten": "Khuyến nghị khẩu trang",
+            "full": "Khuyến nghị đeo khẩu trang nơi đông người. Kéo lên lịch."
+          }
+        ],
+        "chip_aria": "{b}, từ tuần {d}. Chạm để chỉnh.",
+        "chac": "Mức chắc chắn",
+        "chac_ds": [
+          "Thấp",
+          "Vừa",
+          "Cao"
+        ],
+        "xem_nhan": "Ngày xem lại",
+        "xem_ds": [
+          "Không hẹn",
+          "+2 tuần",
+          "+4 tuần",
+          "+8 tuần"
+        ],
+        "lui": "Lùi một tuần",
+        "toi": "Tới một tuần",
+        "ve_khay": "Về khay",
+        "dat": "{b} · từ tuần {d}",
+        "xem_luc": "xem lại tuần {d}",
+        "mat_sau": "Mặt sau của tấm: chọn mức chắc chắn và ngày xem lại (cái ghim vàng trên lịch).",
+        "goi_y": "Thả tấm lên dải lịch, chỗ có năm làn màu.",
+        "nut_chay": "Cho thời gian chạy",
+        "nut_that": "Xem lịch thật",
+        "nut_lai": "Chơi lại",
+        "nut_chot": "Chốt",
+        "dang": "Thời gian đang chạy. Mỗi tấm làm đường cong bớt dốc nhưng rút đồng hồ Giờ làm.",
+        "tin_moi": "Thẻ bằng chứng mới:",
+        "tin_chua": "Chưa có thẻ bằng chứng nào.",
+        "tin": [
+          "10/1 · WHO gửi mọi nước hướng dẫn phát hiện, xét nghiệm, điều trị ca nghi ngờ.",
+          "29/1 · NEJM: số ca nhân đôi sau 7,4 ngày.",
+          "30/1 · WHO: khẩn cấp toàn cầu. 7.711 ca ở Trung Quốc, 83 ca ở 18 nước khác.",
+          "11/3 · WHO: đại dịch. Hơn 118.000 ca ở 114 nước, 4.291 người chết.",
+          "3/4 · CDC khuyên khăn vải che mặt nơi đông người.",
+          "6/4 · WHO: chưa có bằng chứng về khẩu trang cho người khỏe, hẹn cập nhật.",
+          "5/6 · WHO khuyến khích đeo khẩu trang nơi lây lan rộng."
+        ],
+        "dung_xem": "Đến ngày xem lại bạn đã hẹn. Thời gian dừng.",
+        "xem_lai": "Ngày xem lại: {b} (tuần {d}). Thẻ bằng chứng mới nhất:",
+        "giu": "Giữ, hẹn xem lại sau 4 tuần",
+        "go": "Gỡ từ tuần này",
+        "da_giu": "Giữ {b}. Bạn đổi đúng ngày đã hẹn nên không mất lòng tin.",
+        "da_go": "Gỡ {b} đúng ngày đã hẹn: không mất lòng tin.",
+        "kt_mat": "Bạn nói khẩu trang \"chắc chắn cao\", nhưng ngày 6/4 WHO nói chưa có bằng chứng: mất một nấc lòng tin.",
+        "vuot": "Đường cong vượt sức chứa bệnh viện ở tuần {d}.",
+        "kiet": "Hết Giờ làm: thành phố kiệt sức, mọi biện pháp bị gỡ ngoài kế hoạch. Mất lòng tin (mất nhiều hơn với tấm đã ghi \"chắc chắn cao\").",
+        "giu_duoc": "Hết tháng 6: đường cong không chạm vạch, bệnh viện giữ đèn xanh.",
+        "khong_giu": "Hết tháng 6: đường cong đã vượt vạch sức chứa bệnh viện.",
+        "doan_mo": "Trước khi xem lịch thật, đoán một con số.",
+        "doan_hoi": "Số tử vong do COVID-19 được báo cáo (2020–2021) bằng bao nhiêu phần trăm số tử vong dư ước tính?",
+        "bieu_tv": "Tử vong 2020–2021, toàn thế giới",
+        "bao_cao": "Được báo cáo",
+        "du": "Tử vong dư (ước tính)",
+        "trieu": "{x} triệu",
+        "ban_doan": "bạn đoán {p}%",
+        "doan_ket": "Bạn đoán {p}%. Thật: 5,42 triệu được báo cáo so với 14,83 triệu tử vong dư, khoảng 37% (Mark tính 5,42 ÷ 14,83). Số được báo cáo chỉ là phần nổi.",
+        "moc": [
+          "10/1 WHO gửi hướng dẫn",
+          "30/1 khẩn cấp toàn cầu",
+          "tháng 2: \"tháng bị mất\"",
+          "11/3 WHO: đại dịch",
+          "giữa–cuối 3: châu Âu cấm tụ tập, đóng trường",
+          "3/4 CDC: khăn vải",
+          "6/4 WHO: chưa có bằng chứng",
+          "5/6 WHO cập nhật khẩu trang"
+        ],
+        "da_that": "Ghim xanh là lịch thật. So các thanh màu của bạn với các ghim.",
+        "ket": "Lịch của bạn đi trước lịch thật {n} tuần. Ngày xem lại bạn đã hẹn: {k}.",
+        "ket_sau": "Lịch của bạn đi sau lịch thật {n} tuần. Ngày xem lại bạn đã hẹn: {k}.",
+        "ket_bang": "Lịch của bạn trùng tuần với lịch thật. Ngày xem lại bạn đã hẹn: {k}.",
+        "ket_khong": "Bạn không đặt biện pháp mạnh nào (cấm tụ tập, đóng trường). Ngày xem lại bạn đã hẹn: {k}.",
+        "sao": "Bệnh viện {a} · Lòng tin {b} · Giờ làm {c}.",
+        "ilo": "Giờ làm có giá thật: năm 2020 thế giới mất 8,8% giờ làm, bằng 255 triệu việc làm toàn thời gian.",
+        "mien": "Trò chơi nhìn lại lịch sử, không phải lời khuyên y tế.",
+        "nguon": "Nguồn: Li và cs., NEJM 29/1/2020 (nhân đôi 7,4 ngày, tham số duy nhất của mô hình); WHO, dòng thời gian COVID-19 (10/1/2020); tuyên bố Ủy ban Khẩn cấp WHO 30/1/2020 (7.711 và 83 ca); Hội đồng độc lập về chuẩn bị và ứng phó đại dịch, báo cáo 5/2021 (\"tháng bị mất\", qua báo chí, nguồn thứ cấp); phát biểu Tổng giám đốc WHO 11/3/2020 (118.000 ca, 114 nước, 4.291 người chết); Flaxman và cs., Nature 2020 (thời điểm biện pháp ở các nước châu Âu); CDC 3/4/2020 (qua NPR, nguồn thứ cấp); WHO, hướng dẫn khẩu trang 6/4/2020 (qua báo chí, nguồn thứ cấp) và 5/6/2020; ILO Monitor 25/1/2021 (8,8%, 255 triệu, qua báo chí, nguồn thứ cấp); Msemburi và cs., Nature 2023 (5,42 và 14,83 triệu; 37% là Mark tính). Thành phố là giả định; đường cong, sức chứa, tác dụng và chi phí từng tấm, đồng hồ Lòng tin và Giờ làm là minh họa, vì bằng chứng về tác dụng riêng từng biện pháp còn tranh cãi (Soltesz và cs., Nature 2020)."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "City control desk",
+        "hoi": "Drag measures onto the calendar. Set a certainty level and a review date. Then let time run.",
+        "mo_ta": "The control desk of an imaginary city: an illustrative case curve against a hospital capacity line, a January to June 2020 calendar with five measure lanes, a tray of five measure cards to drag onto it, and Trust and Working hours gauges.",
+        "doc_mac": "Drag a card from the tray onto the calendar (or tap it to place it in a default week). Tap a card on the calendar to change its certainty and review date.",
+        "long_tin": "Trust",
+        "gio_lam": "Working hours",
+        "tuan": "Week of {d}",
+        "thang": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun"
+        ],
+        "thang_ngan": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
+        "truc": "cases needing hospital · illustrative model",
+        "suc_chua": "hospital capacity",
+        "bp": [
+          {
+            "a": [
+              "Alert hospitals",
+              "+ testing"
+            ],
+            "ten": "Alert hospitals + testing",
+            "full": "Alert hospitals to suspected cases and prepare testing. Drag onto the calendar."
+          },
+          {
+            "a": [
+              "Prepare beds",
+              "+ PPE"
+            ],
+            "ten": "Prepare beds and protective gear",
+            "full": "Prepare beds and protective gear: raises hospital capacity after 2 weeks. Drag onto the calendar."
+          },
+          {
+            "a": [
+              "Ban large",
+              "gatherings"
+            ],
+            "ten": "Ban large gatherings",
+            "full": "Ban large gatherings. Drag onto the calendar."
+          },
+          {
+            "a": [
+              "Close",
+              "schools"
+            ],
+            "ten": "Close schools",
+            "full": "Close schools. Drag onto the calendar."
+          },
+          {
+            "a": [
+              "Advise",
+              "masks"
+            ],
+            "ten": "Advise masks",
+            "full": "Advise masks in crowded places. Drag onto the calendar."
+          }
+        ],
+        "chip_aria": "{b}, from the week of {d}. Tap to adjust.",
+        "chac": "Certainty",
+        "chac_ds": [
+          "Low",
+          "Medium",
+          "High"
+        ],
+        "xem_nhan": "Review date",
+        "xem_ds": [
+          "None",
+          "+2 weeks",
+          "+4 weeks",
+          "+8 weeks"
+        ],
+        "lui": "One week earlier",
+        "toi": "One week later",
+        "ve_khay": "Back to tray",
+        "dat": "{b} · from the week of {d}",
+        "xem_luc": "review week of {d}",
+        "mat_sau": "The back of the card: choose a certainty level and a review date (the amber pin on the calendar).",
+        "goi_y": "Drop the card on the calendar, where the five coloured lanes are.",
+        "nut_chay": "Let time run",
+        "nut_that": "Show the real calendar",
+        "nut_lai": "Play again",
+        "nut_chot": "Lock in",
+        "dang": "Time is running. Each card flattens the curve but drains the Working hours gauge.",
+        "tin_moi": "New evidence card:",
+        "tin_chua": "No evidence cards yet.",
+        "tin": [
+          "10 Jan · WHO sends all countries guidance on detection, testing and care of suspected cases.",
+          "29 Jan · NEJM: cases doubling every 7.4 days.",
+          "30 Jan · WHO: global emergency. 7,711 cases in China, 83 in 18 other countries.",
+          "11 Mar · WHO: pandemic. More than 118,000 cases in 114 countries, 4,291 deaths.",
+          "3 Apr · CDC advises cloth face coverings in crowded places.",
+          "6 Apr · WHO: no evidence yet on masks for healthy people, update promised.",
+          "5 Jun · WHO encourages masks where spread is widespread."
+        ],
+        "dung_xem": "You reached a review date you set. Time stops.",
+        "xem_lai": "Review date: {b} (week of {d}). Latest evidence card:",
+        "giu": "Keep, review again in 4 weeks",
+        "go": "Lift from this week",
+        "da_giu": "Kept {b}. You changed course on the date you promised, so no trust is lost.",
+        "da_go": "Lifted {b} on the date you promised: no trust lost.",
+        "kt_mat": "You called masks \"high certainty\", but on 6 Apr WHO said there was no evidence yet: one notch of trust lost.",
+        "vuot": "The curve broke through hospital capacity in the week of {d}.",
+        "kiet": "Working hours ran out: the city is exhausted and every measure is lifted off-plan. Trust drops (more for cards marked \"high certainty\").",
+        "giu_duoc": "End of June: the curve never touched the line, the hospital stays green.",
+        "khong_giu": "End of June: the curve broke through the hospital capacity line.",
+        "doan_mo": "Before you see the real calendar, guess one number.",
+        "doan_hoi": "Reported COVID-19 deaths (2020–2021) were what percentage of estimated excess deaths?",
+        "bieu_tv": "Deaths 2020–2021, worldwide",
+        "bao_cao": "Reported",
+        "du": "Excess deaths (estimate)",
+        "trieu": "{x} million",
+        "ban_doan": "your guess {p}%",
+        "doan_ket": "You guessed {p}%. Real: 5.42 million reported against 14.83 million excess deaths, about 37% (Mark's calculation, 5.42 ÷ 14.83). Reported numbers are only the tip.",
+        "moc": [
+          "10 Jan WHO guidance",
+          "30 Jan global emergency",
+          "February: \"a lost month\"",
+          "11 Mar WHO: pandemic",
+          "mid–late Mar: Europe bans crowds, shuts schools",
+          "3 Apr CDC: cloth coverings",
+          "6 Apr WHO: no evidence yet",
+          "5 Jun WHO mask update"
+        ],
+        "da_that": "Blue pins are the real calendar. Compare your coloured bars with them.",
+        "ket": "Your calendar was {n} weeks ahead of the real one. Review dates you set: {k}.",
+        "ket_sau": "Your calendar was {n} weeks behind the real one. Review dates you set: {k}.",
+        "ket_bang": "Your calendar matched the real one to the week. Review dates you set: {k}.",
+        "ket_khong": "You placed no strong measure (gathering ban, school closure). Review dates you set: {k}.",
+        "sao": "Hospital {a} · Trust {b} · Working hours {c}.",
+        "ilo": "Working hours have a real price: in 2020 the world lost 8.8% of working hours, equal to 255 million full-time jobs.",
+        "mien": "A game for looking back at history, not medical advice.",
+        "nguon": "Source: Li et al., NEJM, 29 Jan 2020 (doubling every 7.4 days, the model's only parameter); WHO COVID-19 timeline (10 Jan 2020); WHO Emergency Committee statement, 30 Jan 2020 (7,711 and 83 cases); Independent Panel for Pandemic Preparedness and Response, May 2021 report (\"a lost month\", via press, secondary source); WHO Director-General's remarks, 11 Mar 2020 (118,000 cases, 114 countries, 4,291 deaths); Flaxman et al., Nature 2020 (timing of measures in European countries); CDC, 3 Apr 2020 (via NPR, secondary source); WHO mask guidance, 6 Apr 2020 (via press, secondary source) and 5 Jun 2020; ILO Monitor, 25 Jan 2021 (8.8%, 255 million, via press, secondary source); Msemburi et al., Nature 2023 (5.42 and 14.83 million; 37% is Mark's calculation). The city is imaginary; the curve, capacity, each card's effect and cost, and the Trust and Working hours gauges are illustrative, because the evidence on the effect of individual measures is disputed (Soltesz et al., Nature 2020)."
+      }
     }
   ],
   "su-kien-y2k": [
@@ -5683,6 +6081,246 @@
         "nguon": "Source: FFIEC, \"Year 2000 Project Management Awareness\" (5 May 1997) via FDIC FIL-50-97 (inventory by 30 Sep 1997); FDIC FIL-98-38 and FIL-98-93 (testing complete by 30 Jun 1999, \"Needs Improvement\" if late); FDIC/Fed documents of Sep 1999 (99%); Public Law 105-271 signed 19 Oct 1998; US Department of Commerce, 17 Nov 1999 (about $100 billion, 1995–2001); Senate report \"Y2K Aftermath – Crisis Averted\", 29 Feb 2000, glitch count via CBS News (secondary source). Checked through search excerpts. The bank in the game is fictional.",
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
+      }
+    },
+    {
+      "khuon": "phong-may-y2k",
+      "id": "phong-may-y2k",
+      "truoc": "quyet-dinh",
+      "tien": 4,
+      "sua_thang": 2,
+      "thu_thang": 2,
+      "bd": [
+        1997,
+        5
+      ],
+      "bd2": [
+        1997,
+        10
+      ],
+      "han": [
+        1999,
+        6
+      ],
+      "cuoi": [
+        1999,
+        12
+      ],
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Phòng máy đêm giao thừa",
+        "hoi": "Bạn trông phòng máy của một ngân hàng (giả định) từ 5/1997. Kiểm kê, sửa và thử trước hạn, kéo cần gạt giao thừa, rồi thuyết phục ban giám đốc sáng 1/1/2000.",
+        "mo_ta": "Phòng máy ngân hàng cuối thập niên 1990: băng chuyền chở sáu cuộn băng từ dán nhãn hệ thống, giá kiểm kê hai ngăn Trọng yếu và Để sau, bàn sửa, máy thử có kim, tủ đã chạy thật, đồng hồ tháng, túi tiền và sổ đã tránh được.",
+        "doc_mac": "Chặng 1: kéo từng cuộn băng lên giá Trọng yếu hoặc Để sau. Chạm cuộn để xem nó làm gì.",
+        "dong_ho": "THÁNG",
+        "tui": "Ngân sách",
+        "so": [
+          "Sổ",
+          "đã tránh được"
+        ],
+        "chang": [
+          "Chặng 1 · Kiểm kê",
+          "Chặng 2 · Sửa và thử",
+          "Chặng 3 · Giao thừa",
+          "Chặng 4 · Sáng 1/1/2000"
+        ],
+        "han": [
+          "Hạn kiểm kê: 30/9/1997",
+          "Hạn thử hệ trọng yếu: 30/6/1999"
+        ],
+        "trong_yeu": "Trọng yếu",
+        "de_sau": "Để sau",
+        "ban_sua": "Bàn sửa",
+        "may_thu": "Máy thử",
+        "tu": "Đã chạy thật",
+        "truong": "NAM",
+        "he": [
+          {
+            "a": "Tiền lãi",
+            "full": "Tính lãi tiết kiệm: mỗi đêm cộng lãi cho mọi sổ tiết kiệm.",
+            "tr": true,
+            "hau": "Sổ tiết kiệm tính lãi cho −98 năm.",
+            "phieu": "Tiền lãi · nếu không sửa: lãi tính cho −98 năm, mọi sổ sai.",
+            "goi_y": "Lãi tiết kiệm chạm vào tiền khách mỗi đêm: trọng yếu."
+          },
+          {
+            "a": "Máy ATM",
+            "full": "Máy ATM: khách rút tiền mọi lúc, máy kiểm tra hạn thẻ.",
+            "tr": true,
+            "hau": "ATM in hóa đơn năm 1900 và từ chối thẻ.",
+            "phieu": "Máy ATM · nếu không sửa: thẻ bị coi là hết hạn, hóa đơn ghi năm 1900.",
+            "goi_y": "Máy ATM là nơi khách rút tiền: trọng yếu."
+          },
+          {
+            "a": "Sao kê",
+            "full": "Sao kê tháng: gửi khách bảng giao dịch và số dư.",
+            "tr": true,
+            "hau": "Sao kê tháng 1 xếp giao dịch mới trước giao dịch cũ.",
+            "phieu": "Sao kê · nếu không sửa: giao dịch năm 00 xếp trước năm 99.",
+            "goi_y": "Sao kê là thứ khách và cơ quan quản lý đọc: trọng yếu."
+          },
+          {
+            "a": "Bảng lương",
+            "full": "Bảng lương: trả lương nhân viên ngân hàng mỗi tháng.",
+            "tr": true,
+            "hau": "Bảng lương tính thâm niên âm.",
+            "phieu": "Bảng lương · nếu không sửa: thâm niên âm, lương tháng 1 sai.",
+            "goi_y": "Bảng lương trễ thì cả ngân hàng dừng: trọng yếu."
+          },
+          {
+            "a": "Lịch họp",
+            "full": "Lịch phòng họp nội bộ: đặt chỗ phòng họp.",
+            "tr": false,
+            "hau": "",
+            "phieu": "Lịch họp · nếu không sửa: đặt nhầm phòng vài hôm.",
+            "goi_y": "Lịch phòng họp sai vài hôm thì không ai mất tiền: để sau."
+          },
+          {
+            "a": "Máy cà phê",
+            "full": "Máy pha cà phê có màn hình ngày giờ.",
+            "tr": false,
+            "hau": "",
+            "phieu": "Máy cà phê · nếu không sửa: in sai ngày, không sao.",
+            "goi_y": "Máy cà phê in sai ngày thì không sao: để sau."
+          }
+        ],
+        "da_xep": "{a} lên giá {k}.",
+        "goi_kk": "Thả cuộn băng lên một trong hai ngăn giá bên trái.",
+        "nut_kk": "Xong kiểm kê (30/9/1997)",
+        "kk_sai": "Có cuộn xếp chưa đúng, đã trả về băng chuyền.",
+        "mo_sua": "Chặng 2: kéo cuộn lên bàn sửa (tốn một đồng ngân sách, 2 tháng), rồi kéo sang máy thử (2 tháng). Túi chỉ đủ sửa 4 cuộn.",
+        "da_sua_roi": "{a} đã sửa rồi. Kéo sang máy thử.",
+        "het_tien": "Túi ngân sách đã hết. Không sửa thêm được: thử những cuộn đã sửa, rồi kéo cần gạt.",
+        "sua_xong": "{a}: ô năm 98 thành 1998. Còn {n} đồng ngân sách.",
+        "thu_hong": "{a} chưa sửa: máy thử nhảy sang 01/01/00 và tính 00 − 98 = −98 năm.",
+        "thu_xong": "{a} chạy đúng với ngày 01/01/2000, vào tủ đã chạy thật.",
+        "thu_tre": "{a} chạy đúng, nhưng thử sau 30/6/1999: theo FDIC, trễ hạn là \"Cần cải thiện\".",
+        "goi_sua": "Kéo cuộn lên bàn sửa hoặc vào máy thử.",
+        "het_gio": "Đã tới tháng 12/1999.",
+        "nut_gat": "Kéo cần gạt giao thừa",
+        "sau_gt": "00:00. Đèn đỏ là hệ trọng yếu chưa sửa và thử, đèn vàng là hệ để sau.",
+        "sau_gt_xanh": "00:00. Cả phòng sáng xanh.",
+        "giam_doc": "Sáng 1/1/2000, một thành viên ban giám đốc gõ bàn: \"Cả nước Mỹ chi khoảng 100 tỷ USD. Chẳng có gì xảy ra, tiền phí rồi!\" Kéo phiếu lỗi đã sửa vào sổ \"đã tránh được\", rồi trình.",
+        "phieu_aria": "Phiếu lỗi đã sửa: {a}. Kéo vào sổ đã tránh được.",
+        "nut_trinh": "Trình ban giám đốc",
+        "nut_lai": "Chơi lại",
+        "dau": "DUYỆT NGÂN SÁCH NĂM SAU",
+        "gd_gat": "Ông giám đốc đọc sổ, gật đầu và đóng dấu.",
+        "gd_lua": "Sổ gần trống. Ông giám đốc kết luận: \"trò lừa\", cắt ngân sách năm sau.",
+        "gd_do": "Có hệ trọng yếu sáng đỏ lúc giao thừa: sáng nay khách đã gọi đến.",
+        "ket_thang": "Thắng: {x}/{n} hệ trọng yếu sáng xanh, {s} phiếu trong sổ đủ thuyết phục ban giám đốc.",
+        "ket_a": "Thua kiểu A: chỉ {x}/{n} hệ trọng yếu sáng xanh lúc giao thừa. Kiểm kê và xếp ưu tiên trước khi tiêu tiền.",
+        "ket_b": "Thua kiểu B: {x}/{n} hệ trọng yếu sáng xanh, nhưng sổ chỉ có {s} phiếu trọng yếu. Làm tốt thì trông như thừa: phải ghi lại cái đã tránh được.",
+        "that": "Chuyện thật: đến 9/1999, 99% tổ chức được bảo hiểm liên bang ở Mỹ đã thử xong; quanh giao thừa có hơn 250 sự cố ở khoảng 75 nước, không gián đoạn nghiêm trọng.",
+        "nguon": "Nguồn: FDIC FIL-50-97 (FFIEC, 5/5/1997: kiểm kê và xếp ưu tiên hệ trọng yếu trước 30/9/1997); FDIC FIL-98-38 và FIL-98-93 (thử xong hệ trọng yếu trước 30/6/1999, trễ thì \"Cần cải thiện\"); tài liệu FDIC/Fed 9/1999 (99%); Bộ Thương mại Mỹ, 17/11/1999 (khoảng 100 tỷ USD, 1995–2001); báo cáo Thượng viện Mỹ 29/2/2000 qua CBS News, nguồn thứ cấp (hơn 250 sự cố, khoảng 75 nước). Ngân hàng, các hệ thống, ông giám đốc, ngân sách 4 lần sửa, số tháng mỗi việc và phép tính 00 − 98 = −98 là minh họa."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "The machine room on New Year's Eve",
+        "hoi": "You run the machine room of an (imaginary) bank from May 1997. Take inventory, fix and test before the deadline, pull the New Year lever, then convince the board on 1 Jan 2000.",
+        "mo_ta": "A late-1990s bank machine room: a conveyor with six tape reels labelled with systems, a two-shelf inventory rack (Critical and Later), a repair bench, a test box with a needle, an in-production cabinet, a month clock, a budget bag and an avoided log.",
+        "doc_mac": "Act 1: drag each reel onto the Critical or Later shelf. Tap a reel to see what it does.",
+        "dong_ho": "MONTH",
+        "tui": "Budget",
+        "so": [
+          "Avoided",
+          "log"
+        ],
+        "chang": [
+          "Act 1 · Inventory",
+          "Act 2 · Fix and test",
+          "Act 3 · Rollover",
+          "Act 4 · Morning, 1 Jan 2000"
+        ],
+        "han": [
+          "Inventory deadline: 30 Sep 1997",
+          "Critical systems tested by: 30 Jun 1999"
+        ],
+        "trong_yeu": "Critical",
+        "de_sau": "Later",
+        "ban_sua": "Repair bench",
+        "may_thu": "Test box",
+        "tu": "In production",
+        "truong": "YR",
+        "he": [
+          {
+            "a": "Interest",
+            "full": "Savings interest: adds interest to every savings account each night.",
+            "tr": true,
+            "hau": "Savings accounts earn interest for −98 years.",
+            "phieu": "Interest · if not fixed: interest for −98 years, every account wrong.",
+            "goi_y": "Interest touches customers' money every night: critical."
+          },
+          {
+            "a": "ATMs",
+            "full": "ATMs: customers withdraw cash any time; the machine checks card expiry.",
+            "tr": true,
+            "hau": "ATMs print receipts dated 1900 and reject cards.",
+            "phieu": "ATMs · if not fixed: cards treated as expired, receipts dated 1900.",
+            "goi_y": "ATMs are where customers get cash: critical."
+          },
+          {
+            "a": "Statements",
+            "full": "Monthly statements: send customers their transactions and balance.",
+            "tr": true,
+            "hau": "January statements put new transactions before old ones.",
+            "phieu": "Statements · if not fixed: year-00 items sorted before year-99.",
+            "goi_y": "Statements are read by customers and regulators: critical."
+          },
+          {
+            "a": "Payroll",
+            "full": "Payroll: pays the bank's staff every month.",
+            "tr": true,
+            "hau": "Payroll computes negative seniority.",
+            "phieu": "Payroll · if not fixed: negative seniority, January pay wrong.",
+            "goi_y": "If payroll fails the whole bank stops: critical."
+          },
+          {
+            "a": "Room diary",
+            "full": "Internal meeting-room booking diary.",
+            "tr": false,
+            "hau": "",
+            "phieu": "Room diary · if not fixed: a few days of double bookings.",
+            "goi_y": "A wrong room diary for a few days costs no one money: later."
+          },
+          {
+            "a": "Coffee",
+            "full": "The coffee machine with a date display.",
+            "tr": false,
+            "hau": "",
+            "phieu": "Coffee · if not fixed: prints the wrong date, no harm.",
+            "goi_y": "A coffee machine with the wrong date does no harm: later."
+          }
+        ],
+        "da_xep": "{a} on the {k} shelf.",
+        "goi_kk": "Drop the reel on one of the two shelves on the left.",
+        "nut_kk": "Inventory done (30 Sep 1997)",
+        "kk_sai": "Some reels were on the wrong shelf and went back to the conveyor.",
+        "mo_sua": "Act 2: drag a reel onto the bench (costs one budget coin, 2 months), then into the test box (2 months). The bag only pays for 4 fixes.",
+        "da_sua_roi": "{a} is already fixed. Drag it into the test box.",
+        "het_tien": "The budget bag is empty. No more fixes: test what you fixed, then pull the lever.",
+        "sua_xong": "{a}: the 98 field becomes 1998. {n} budget coins left.",
+        "thu_hong": "{a} is not fixed: the test box jumps to 01/01/00 and computes 00 − 98 = −98 years.",
+        "thu_xong": "{a} runs correctly on 01/01/2000 and goes into production.",
+        "thu_tre": "{a} runs correctly, but was tested after 30 Jun 1999: for the FDIC, late means \"Needs Improvement\".",
+        "goi_sua": "Drag the reel onto the bench or into the test box.",
+        "het_gio": "It is December 1999.",
+        "nut_gat": "Pull the New Year lever",
+        "sau_gt": "00:00. Red lights are critical systems not fixed and tested; amber ones are the later systems.",
+        "sau_gt_xanh": "00:00. The whole room is green.",
+        "giam_doc": "Morning, 1 Jan 2000. A board member taps the desk: \"The US spent about $100 billion. Nothing happened, the money was wasted!\" Drag the slips for fixed bugs into the avoided log, then present.",
+        "phieu_aria": "Slip for a fixed bug: {a}. Drag into the avoided log.",
+        "nut_trinh": "Present to the board",
+        "nut_lai": "Play again",
+        "dau": "NEXT YEAR'S BUDGET APPROVED",
+        "gd_gat": "The board member reads the log, nods and stamps it.",
+        "gd_lua": "The log is nearly empty. The board member calls it \"a hoax\" and cuts next year's budget.",
+        "gd_do": "A critical system was red at midnight: customers are already calling.",
+        "ket_thang": "Win: {x}/{n} critical systems green, and {s} slips in the log convinced the board.",
+        "ket_a": "Loss, type A: only {x}/{n} critical systems were green at midnight. Take inventory and prioritise before spending.",
+        "ket_b": "Loss, type B: {x}/{n} critical systems green, but the log held only {s} critical slips. Done well, prevention looks unnecessary: record what you avoided.",
+        "that": "What really happened: by Sep 1999, 99% of federally insured US institutions had finished testing; around the rollover there were more than 250 glitches in about 75 countries, with no serious disruption.",
+        "nguon": "Source: FDIC FIL-50-97 (FFIEC, 5 May 1997: inventory and prioritise critical systems by 30 Sep 1997); FDIC FIL-98-38 and FIL-98-93 (critical systems tested by 30 Jun 1999, late means \"Needs Improvement\"); FDIC/Fed documents, Sep 1999 (99%); US Commerce Department, 17 Nov 1999 (about $100 billion, 1995–2001); US Senate report, 29 Feb 2000, via CBS News, secondary source (more than 250 glitches, about 75 countries). The bank, systems, board member, four-fix budget, months per task and the sum 00 − 98 = −98 are illustrative."
       }
     }
   ],
@@ -5877,6 +6515,457 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "bom-bong-bong",
+      "id": "bom-bong-bong",
+      "truoc": "quyet-dinh",
+      "vat": [
+        {
+          "loai": "khi",
+          "nam": 1995.7
+        },
+        {
+          "loai": "xu",
+          "nam": 1996.1
+        },
+        {
+          "loai": "khi",
+          "nam": 1996.5
+        },
+        {
+          "loai": "cat",
+          "nam": 1996.93
+        },
+        {
+          "loai": "xu",
+          "nam": 1997.6
+        },
+        {
+          "loai": "khi",
+          "nam": 1998.4
+        },
+        {
+          "loai": "xu",
+          "nam": 1998.9
+        },
+        {
+          "loai": "khi",
+          "nam": 1999.3
+        },
+        {
+          "loai": "cat",
+          "nam": 1999.45
+        },
+        {
+          "loai": "khi",
+          "nam": 1999.7
+        },
+        {
+          "loai": "khi",
+          "nam": 1999.9
+        },
+        {
+          "loai": "xu",
+          "nam": 2000.05
+        },
+        {
+          "loai": "cat",
+          "nam": 2000.22
+        },
+        {
+          "loai": "xu",
+          "nam": 2002.06
+        }
+      ],
+      "lich": [
+        [
+          0,
+          1995.54
+        ],
+        [
+          1,
+          1995.7
+        ],
+        [
+          4.2,
+          1996.1
+        ],
+        [
+          7.4,
+          1996.5
+        ],
+        [
+          10.6,
+          1996.93
+        ],
+        [
+          13.8,
+          1997.6
+        ],
+        [
+          17,
+          1998.4
+        ],
+        [
+          20.2,
+          1998.9
+        ],
+        [
+          23.4,
+          1999.3
+        ],
+        [
+          26.6,
+          1999.45
+        ],
+        [
+          29.8,
+          1999.7
+        ],
+        [
+          33,
+          1999.9
+        ],
+        [
+          36.2,
+          2000.05
+        ],
+        [
+          44,
+          2000.19
+        ],
+        [
+          47.2,
+          2000.22
+        ],
+        [
+          52,
+          2002.06
+        ],
+        [
+          58,
+          2002.77
+        ]
+      ],
+      "moc": [
+        [
+          1995.54,
+          1005.89
+        ],
+        [
+          1996.93,
+          1300
+        ],
+        [
+          2000.19,
+          5048.62
+        ],
+        [
+          2002.77,
+          1114.11
+        ]
+      ],
+      "thu": 2000.19,
+      "nguong": 1,
+      "toc": 44,
+      "nhanh": 3,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Bơm bong bóng",
+        "hoi": "Băng chuyền thả đồ theo từng năm, 1995 đến 2002. Kéo bóng khí vào bong bóng, đồng xu và đồng hồ cát vào giỏ, hoặc ra thùng \"bỏ qua\". Ngày 10/3/2000 bong bóng bị thử.",
+        "mo_ta": "Một quả bong bóng xanh buộc dây vào cái giỏ, đồng hồ Nasdaq phía trên, dải thời gian 1995 đến 2002, băng chuyền thả bóng khí, đồng xu và đồng hồ cát, và một thùng bỏ qua.",
+        "doc_mac": "Bấm Bắt đầu. Chạm một món để đọc nhãn, rồi kéo nó đi hoặc dùng các nút bên dưới. Món để yên sẽ tự rơi vào bong bóng: thị trường tự thổi.",
+        "gio": "Giỏ tiền thật",
+        "bang": "băng chuyền",
+        "thung": "Bỏ qua",
+        "ty": "khí {k} · xu {x}",
+        "vat": [
+          {
+            "a": [
+              "lượt truy cập",
+              "tăng gấp ba"
+            ],
+            "full": "Bóng khí: \"lượt truy cập tăng gấp ba\" (nhãn minh họa). Nhẹ, đẹp, không phải tiền."
+          },
+          {
+            "a": [
+              "doanh thu",
+              "ròng"
+            ],
+            "full": "Đồng xu: doanh thu ròng (nhãn minh họa). Tiền thật, nặng."
+          },
+          {
+            "a": [
+              "kinh tế",
+              "mới"
+            ],
+            "full": "Bóng khí: \"kinh tế mới\" (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "Greenspan",
+              "5/12/1996"
+            ],
+            "full": "Đồng hồ cát: 5/12/1996, Greenspan hỏi về \"sự hưng phấn phi lý\"; Nasdaq khi đó khoảng 1.300 điểm."
+          },
+          {
+            "a": [
+              "khách trả",
+              "tiền lần hai"
+            ],
+            "full": "Đồng xu: khách trả tiền lần hai (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "chuyên viên",
+              "xếp hạng MUA"
+            ],
+            "full": "Bóng khí: \"chuyên viên xếp hạng MUA\" (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "biên lợi",
+              "nhuận gộp"
+            ],
+            "full": "Đồng xu: biên lợi nhuận gộp (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "IPO 1999",
+              "+70,9% ngày đầu"
+            ],
+            "full": "Bóng khí: năm 1999 có 446 vụ IPO, giá trung bình tăng 70,9% ngay ngày đầu (Jay Ritter)."
+          },
+          {
+            "a": [
+              "Fed tăng",
+              "lãi suất"
+            ],
+            "full": "Đồng hồ cát: Fed tăng lãi suất 6 lần, từ 4,75% lên 6,5% (6/1999–5/2000)."
+          },
+          {
+            "a": [
+              "lượt truy cập",
+              "tăng gấp ba"
+            ],
+            "full": "Bóng khí: \"lượt truy cập tăng gấp ba\" (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "kinh tế",
+              "mới"
+            ],
+            "full": "Bóng khí: \"kinh tế mới\" (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "khách trả",
+              "tiền lần hai"
+            ],
+            "full": "Đồng xu: khách trả tiền lần hai (nhãn minh họa)."
+          },
+          {
+            "a": [
+              "Barron's",
+              "20/3/2000"
+            ],
+            "full": "Đồng hồ cát: Barron's 20/3/2000, ít nhất 51 trên 207 công ty Internet cạn tiền trong 12 tháng."
+          },
+          {
+            "a": [
+              "lãi quý",
+              "đầu tiên"
+            ],
+            "full": "Đồng xu: quý 4/2001 Amazon có lãi ròng 5 triệu USD, quý lãi đầu tiên (thông cáo 22/1/2002)."
+          }
+        ],
+        "vao_bong": "Vào bong bóng",
+        "vao_gio": "Vào giỏ",
+        "bo_qua": "Bỏ qua",
+        "nut_bd": "Bắt đầu",
+        "nut_nhanh": "Tua nhanh ×3",
+        "nut_lai": "Chơi lại",
+        "dang": "Thời gian chạy. Khí làm bong bóng to; chỉ xu nằm lại trong giỏ.",
+        "phong": "Phù! Bong bóng phình thêm.",
+        "tu_roi": "Không ai kéo \"{a}\": nó tự rơi vào bong bóng.",
+        "khong_bong": "Bong bóng chỉ nhận khí. Xu và đồng hồ cát thuộc về giỏ hoặc thùng.",
+        "khong_gio": "Khí không đặt vào giỏ được: giỏ chỉ giữ tiền thật.",
+        "them_xu": "Thêm một đồng xu thật vào giỏ.",
+        "cham_lai": "Kim thời gian dừng 2 giây.",
+        "canh_bao": "Cảnh báo có từ sớm, nhưng không cho biết ngày vỡ",
+        "da_bo": "Ra thùng bỏ qua.",
+        "da_thu_roi": "Bong bóng đã bị thử, không thổi thêm được.",
+        "roi_mat": "Món này rơi khỏi băng chuyền.",
+        "no": "10/3/2000: Nasdaq đỉnh 5.048,62. Khí nhiều hơn xu: bong bóng nổ, giỏ rơi xuống.",
+        "xep": "10/3/2000: Nasdaq đỉnh 5.048,62. Bong bóng không nổ mà xẹp dần, giỏ vẫn nguyên.",
+        "moc": [
+          "17/7/1995: Nasdaq lần đầu qua 1.000 điểm (1.005,89).",
+          "5/12/1996: Nasdaq khoảng 1.300 điểm khi Greenspan đặt câu hỏi.",
+          "10/3/2000: đỉnh 5.048,62.",
+          "9/10/2002: đáy 1.114,11."
+        ],
+        "net": [
+          "Internet thì ở lại:",
+          "thương mại điện tử",
+          "0,64% → 16,1%",
+          "bán lẻ Mỹ (Q4/1999 → Q2/2020)"
+        ],
+        "cuoi": "9/10/2002: Nasdaq ở đáy 1.114,11.",
+        "ket_no": "Bạn giữ lại {x} đồng xu thật. Phần khí bay mất.",
+        "ket_xep": "Bạn giữ lại {x} đồng xu thật. Bạn không đoán được đỉnh, nhưng bạn đo bằng tiền thật, nên còn lại thứ để xây tiếp.",
+        "ket_dong": "Dù bạn chơi thế nào, đồng hồ vẫn về 1.114,11: giảm 77,9% từ đỉnh (Mark tính theo giá đóng cửa), vì đó là chuyện thật.",
+        "ket_net": "Nhưng Internet không phải bong bóng: thương mại điện tử từ 0,64% (quý 4/1999) lên 16,1% (quý 2/2020) doanh số bán lẻ Mỹ.",
+        "nguon": "Nguồn (kiểm qua trích đoạn, tính là nguồn thứ cấp): Nasdaq 1.005,89 ngày 17/7/1995 (bảng lịch sử Nasdaq trên fedprimerate.com, Benzinga); Greenspan tại AEI 5/12/1996, Nasdaq khoảng 1.300 (DeLong & Magin 2006, NBER WP 12011; Empiricus, MarketScreener); 446 IPO năm 1999, +70,9% ngày đầu (Jay Ritter qua PBS Frontline); Fed 4,75% → 6,5% (fedprimerate.com, CNN Money); đỉnh 5.048,62 ngày 10/3/2000 (AP, Fortune 23/4/2015); Barron's 20/3/2000, 51 trên 207 công ty (\"Burning Up\", bản lưu trang GS Damodaran, NYU); đáy 1.114,11 ngày 9/10/2002 (AP, Reuters; 77,9% Mark tính); Amazon lãi 5 triệu USD quý 4/2001 (thông cáo 22/1/2002); thương mại điện tử 0,64% → 16,1% (Census qua E-Commerce Times 3/2000; Census 11/2020). Đồng hồ Nasdaq giữa các mốc là nội suy minh họa; nhãn \"lượt truy cập tăng gấp ba\", \"kinh tế mới\", \"chuyên viên xếp hạng MUA\", \"doanh thu ròng\", \"khách trả tiền lần hai\", \"biên lợi nhuận gộp\", ngưỡng nổ, kích cỡ bong bóng và nhịp thời gian là minh họa, hư cấu để chơi."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "Pump the Bubble",
+        "hoi": "A conveyor drops objects year by year, 1995 to 2002. Drag air puffs into the balloon, coins and hourglasses into the basket, or into the \"pass\" bin. On 10 Mar 2000 the balloon is tested.",
+        "mo_ta": "A blue balloon tied to a basket, a Nasdaq counter above it, a 1995 to 2002 timeline, a conveyor dropping air puffs, coins and hourglasses, and a pass bin.",
+        "doc_mac": "Press Start. Tap an object to read its label, then drag it or use the buttons below. Objects left alone fall into the balloon by themselves: the market inflates it.",
+        "gio": "Real-money basket",
+        "bang": "conveyor",
+        "thung": "Pass",
+        "ty": "air {k} · coins {x}",
+        "vat": [
+          {
+            "a": [
+              "traffic",
+              "tripled"
+            ],
+            "full": "Air puff: \"traffic tripled\" (illustrative label). Light, shiny, not money."
+          },
+          {
+            "a": [
+              "net",
+              "revenue"
+            ],
+            "full": "Coin: net revenue (illustrative label). Real money, heavy."
+          },
+          {
+            "a": [
+              "new",
+              "economy"
+            ],
+            "full": "Air puff: \"new economy\" (illustrative label)."
+          },
+          {
+            "a": [
+              "Greenspan",
+              "5 Dec 1996"
+            ],
+            "full": "Hourglass: 5 Dec 1996, Greenspan asks about \"irrational exuberance\"; the Nasdaq was then about 1,300."
+          },
+          {
+            "a": [
+              "customer pays",
+              "a second time"
+            ],
+            "full": "Coin: a customer pays a second time (illustrative label)."
+          },
+          {
+            "a": [
+              "analyst",
+              "rates it BUY"
+            ],
+            "full": "Air puff: \"analyst rates it BUY\" (illustrative label)."
+          },
+          {
+            "a": [
+              "gross",
+              "margin"
+            ],
+            "full": "Coin: gross margin (illustrative label)."
+          },
+          {
+            "a": [
+              "IPOs 1999",
+              "+70.9% day one"
+            ],
+            "full": "Air puff: in 1999 there were 446 IPOs, rising 70.9% on average on day one (Jay Ritter)."
+          },
+          {
+            "a": [
+              "the Fed",
+              "raises rates"
+            ],
+            "full": "Hourglass: the Fed raised rates six times, from 4.75% to 6.5% (Jun 1999–May 2000)."
+          },
+          {
+            "a": [
+              "traffic",
+              "tripled"
+            ],
+            "full": "Air puff: \"traffic tripled\" (illustrative label)."
+          },
+          {
+            "a": [
+              "new",
+              "economy"
+            ],
+            "full": "Air puff: \"new economy\" (illustrative label)."
+          },
+          {
+            "a": [
+              "customer pays",
+              "a second time"
+            ],
+            "full": "Coin: a customer pays a second time (illustrative label)."
+          },
+          {
+            "a": [
+              "Barron's",
+              "20 Mar 2000"
+            ],
+            "full": "Hourglass: Barron's, 20 Mar 2000: at least 51 of 207 internet companies out of cash within 12 months."
+          },
+          {
+            "a": [
+              "first profitable",
+              "quarter"
+            ],
+            "full": "Coin: in Q4 2001 Amazon made a $5 million net profit, its first profitable quarter (release, 22 Jan 2002)."
+          }
+        ],
+        "vao_bong": "Into the balloon",
+        "vao_gio": "Into the basket",
+        "bo_qua": "Pass",
+        "nut_bd": "Start",
+        "nut_nhanh": "Fast forward ×3",
+        "nut_lai": "Play again",
+        "dang": "Time is running. Air makes the balloon big; only coins stay in the basket.",
+        "phong": "Whoosh! The balloon swells.",
+        "tu_roi": "Nobody moved \"{a}\": it fell into the balloon by itself.",
+        "khong_bong": "The balloon only takes air. Coins and hourglasses belong in the basket or the bin.",
+        "khong_gio": "Air can't go in the basket: the basket only holds real money.",
+        "them_xu": "One more real coin in the basket.",
+        "cham_lai": "The timeline pauses for 2 seconds.",
+        "canh_bao": "Warnings came early, but never gave a date",
+        "da_bo": "Into the pass bin.",
+        "da_thu_roi": "The balloon has been tested; it can't be pumped any more.",
+        "roi_mat": "This object fell off the conveyor.",
+        "no": "10 Mar 2000: the Nasdaq peaks at 5,048.62. More air than coins: the balloon pops and the basket drops.",
+        "xep": "10 Mar 2000: the Nasdaq peaks at 5,048.62. The balloon doesn't pop; it slowly deflates and the basket stays full.",
+        "moc": [
+          "17 Jul 1995: the Nasdaq first passes 1,000 (1,005.89).",
+          "5 Dec 1996: the Nasdaq is about 1,300 when Greenspan asks his question.",
+          "10 Mar 2000: peak 5,048.62.",
+          "9 Oct 2002: low 1,114.11."
+        ],
+        "net": [
+          "The internet stayed:",
+          "e-commerce",
+          "0.64% → 16.1%",
+          "of US retail (Q4 1999 → Q2 2020)"
+        ],
+        "cuoi": "9 Oct 2002: the Nasdaq hits its low of 1,114.11.",
+        "ket_no": "You kept {x} real coins. The air is gone.",
+        "ket_xep": "You kept {x} real coins. You couldn't call the top, but you measured in real money, so you still have something to build on.",
+        "ket_dong": "However you play, the counter still reaches 1,114.11: down 77.9% from the peak (Mark's calculation on closing prices), because that is what happened.",
+        "ket_net": "But the internet was not a bubble: e-commerce grew from 0.64% (Q4 1999) to 16.1% (Q2 2020) of US retail sales.",
+        "nguon": "Source (checked via search excerpts, so counted as secondary): Nasdaq 1,005.89 on 17 Jul 1995 (Nasdaq history table on fedprimerate.com, Benzinga); Greenspan at AEI, 5 Dec 1996, Nasdaq about 1,300 (DeLong & Magin 2006, NBER WP 12011; Empiricus, MarketScreener); 446 IPOs in 1999, +70.9% on day one (Jay Ritter via PBS Frontline); Fed 4.75% → 6.5% (fedprimerate.com, CNN Money); peak 5,048.62 on 10 Mar 2000 (AP, Fortune 23 Apr 2015); Barron's, 20 Mar 2000, 51 of 207 companies (\"Burning Up\", archived on Prof. Damodaran's NYU page); low 1,114.11 on 9 Oct 2002 (AP, Reuters; 77.9% is Mark's calculation); Amazon's $5 million profit in Q4 2001 (release, 22 Jan 2002); e-commerce 0.64% → 16.1% (Census via E-Commerce Times, Mar 2000; Census, Nov 2020). The Nasdaq counter between those points is an illustrative interpolation; the labels \"traffic tripled\", \"new economy\", \"analyst rates it BUY\", \"net revenue\", \"customer pays a second time\", \"gross margin\", the pop threshold, balloon size and timing are illustrative fiction for the game."
+      }
     }
   ],
   "su-kien-ten-lua-cuba": [
@@ -6027,6 +7116,211 @@
         "nguon": "Source: U-2 on 14 Oct and the 22 Oct blockade per History.com and the Miller Center (secondary source); ExComm debate per the tapes, JFK Library, via May and Zelikow, The Kennedy Tapes (secondary source); about 100 undetected tactical weapons per the National Security Archive (DNSA); the two letters and the 28 Oct statement per the record of Khrushchev's talk of 30 Oct 1962 (Wilson Center); the Robert Kennedy–Dobrynin meeting per the National Security Archive; the U-2 shootdown per the National Museum of the US Air Force; B-59 per the National Security Archive 2022.",
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
+      }
+    },
+    {
+      "khuon": "thang-leo-thang",
+      "id": "san-khau-cuba",
+      "truoc": "quyet-dinh",
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Thang leo thang: giữ chip ở dưới tới ngày 28/10",
+        "hoi": "Kéo thẻ lên thang hoặc vào hộp thư. Nhớ đặt một lối lùi.",
+        "mo_ta": "Bản đồ biển tự vẽ: một hòn đảo có vạch phong tỏa, ba tàu hàng tiến tới, một cái thang 6 nấc từ ngoại giao kín tới chiến tranh hạt nhân, hộp thư giữa hai bên và đồng hồ 13 ngày từ 16/10 tới 28/10/1962. Người chơi kéo thẻ hành động lên thang hoặc vào hộp thư.",
+        "mo": "14/10/1962: máy bay U-2 chụp được bệ tên lửa trên đảo. Hôm nay là 16/10. Phòng họp chọn bước đầu: kéo một thẻ lên thang.",
+        "thang": "THANG LEO THANG",
+        "nac": [
+          "Ngoại giao kín",
+          "Phong tỏa",
+          "Báo động cao",
+          "Không kích",
+          "Đổ bộ",
+          "Chiến tranh hạt nhân"
+        ],
+        "hop_thu": "Hộp thư",
+        "tho": "Thổ Nhĩ Kỳ",
+        "kin": "kín, xong 4/1963",
+        "ngay_thu": "ngày {n}/13",
+        "phong_toa_nhan": "22/10: vạch phong tỏa",
+        "the": {
+          "phong_toa": {
+            "a": [
+              "Phong tỏa",
+              ""
+            ],
+            "full": "Thẻ Phong tỏa: chặn tàu ở vạch quanh đảo. Kéo lên thang."
+          },
+          "khong_kich": {
+            "a": [
+              "Không kích",
+              ""
+            ],
+            "full": "Thẻ Không kích: đánh vào bệ tên lửa. Kéo lên thang."
+          },
+          "hua": {
+            "a": [
+              "Hứa không",
+              "xâm lược"
+            ],
+            "full": "Thẻ Hứa không xâm lược: trả lời lá thư. Kéo vào hộp thư."
+          },
+          "cau": {
+            "a": [
+              "Lối lùi",
+              "(cây cầu)"
+            ],
+            "full": "Thẻ Lối lùi: một cây cầu cho tàu và tên lửa đường quay về. Kéo tới cạnh hòn đảo."
+          },
+          "cho": {
+            "a": [
+              "Chờ thêm",
+              "một đêm"
+            ],
+            "full": "Thẻ Chờ thêm một đêm: không đánh trả, mua thời gian. Kéo lên thang hoặc vào hộp thư."
+          },
+          "danh_tra": {
+            "a": [
+              "Đánh trả",
+              ""
+            ],
+            "full": "Thẻ Đánh trả: chip leo một nấc. Kéo lên thang."
+          },
+          "jupiter": {
+            "a": [
+              "Rút Jupiter",
+              "(kín)"
+            ],
+            "full": "Thẻ Rút Jupiter (kín): hứa riêng sẽ rút tên lửa Jupiter ở Thổ Nhĩ Kỳ. Kéo vào hộp thư."
+          }
+        },
+        "dich_ten": {
+          "thang": "cái thang",
+          "thu": "hộp thư",
+          "dao": "cạnh hòn đảo"
+        },
+        "sai_cho": "Thẻ này không đặt ở đó. Thử kéo vào {d}.",
+        "khoa": "Đồng hồ đang chạy, đợi một chút.",
+        "da_phong_toa": "Chip lên nấc 2. Ngày 22/10 vạch phong tỏa được công bố, tàu dừng ở vạch. Đồng hồ chạy…",
+        "p2": "26/10: một lá thư riêng bay tới: tên lửa sẽ rút nếu Mỹ hứa không xâm lược. Trả lời bằng một thẻ. Cây cầu \"lối lùi\" đã vào khay.",
+        "da_hua": "Thư trả lời đã đi. Đồng hồ chạy sang 27/10…",
+        "p3": "27/10: một chiếc U-2 bị bắn rơi, phi công thiệt mạng. Cùng ngày tàu ngầm B-59 bị buộc nổi lên. Đánh trả, hay chờ thêm một đêm?",
+        "da_cau": "Cây cầu đã đặt: tàu và tên lửa có đường quay về.",
+        "da_jupiter": "Lời hứa kín về Jupiter đã vào hộp thư.",
+        "da_cho": "Bạn chờ thêm một đêm. Đồng hồ chạy tới 28/10…",
+        "da_danh": "Chip leo một nấc. Đồng hồ chạy tới 28/10…",
+        "cap_thang": "28/10: tàu quay đầu, bệ tên lửa được tháo từng khối. Ở góc xa, 15 tên lửa Jupiter tắt dần.",
+        "cap_chua": "28/10: tàu vẫn đứng ở vạch, chưa ai có đường lùi.",
+        "khong_biet": [
+          "ĐIỀU PHÒNG HỌP KHÔNG BIẾT",
+          "khoảng 100 vũ khí hạt nhân",
+          "chiến thuật đã ở trên đảo,",
+          "Mỹ không phát hiện."
+        ],
+        "thua": "Chip chạm nấc {m}. Điều phòng họp không biết: khoảng 100 vũ khí hạt nhân chiến thuật đã ở trên đảo, và Mỹ không phát hiện. Quyết định được đưa ra khi thiếu dữ kiện.",
+        "ket": "Bạn mua thời gian {t} lần, đặt {l} lối lùi. Năm 1962 hai bên cùng lùi: Liên Xô rút tên lửa, Mỹ hứa không xâm lược và kín đáo rút Jupiter.",
+        "ket_chua": "Tới 28/10 chip ở nấc {m}, bạn mua thời gian {t} lần và đặt {l} lối lùi. Muốn hai bên cùng lùi, chip phải ở nấc 2 trở xuống và có ít nhất một lối lùi. Năm 1962: Liên Xô rút tên lửa, Mỹ hứa không xâm lược và kín đáo rút Jupiter.",
+        "nut_lai": "Chơi lại",
+        "nguon": "Nguồn: History.com và Miller Center (nguồn thứ cấp); Thư viện JFK; biên bản Khrushchev 30/10/1962 (Wilson Center); Bảo tàng Quốc gia Không quân Mỹ; Không quân Mỹ, căn cứ Incirlik; National Security Archive (thỏa thuận Jupiter, B-59, DNSA). Thang 6 nấc, tốc độ tàu và hành động của 'bên kia' là minh họa của Mark."
+      },
+      "en": {
+        "muc": "On stage",
+        "nhan": "The escalation ladder: keep the chip low until 28 October",
+        "hoi": "Drag cards onto the ladder or into the mailbox. Remember to build a way out.",
+        "mo_ta": "A hand-drawn sea map: an island ringed by a blockade line, three cargo ships approaching, a 6-rung ladder from quiet diplomacy to nuclear war, a mailbox between the two sides and a 13-day clock from 16 to 28 October 1962. The player drags action cards onto the ladder or into the mailbox.",
+        "mo": "14 Oct 1962: a U-2 photographs missile sites on the island. Today is 16 October. The room picks a first step: drag a card onto the ladder.",
+        "thang": "ESCALATION LADDER",
+        "nac": [
+          "Quiet diplomacy",
+          "Blockade",
+          "High alert",
+          "Air strike",
+          "Invasion",
+          "Nuclear war"
+        ],
+        "hop_thu": "Mailbox",
+        "tho": "Turkey",
+        "kin": "secret, done Apr 1963",
+        "ngay_thu": "day {n}/13",
+        "phong_toa_nhan": "22 Oct: blockade line",
+        "the": {
+          "phong_toa": {
+            "a": [
+              "Blockade",
+              ""
+            ],
+            "full": "Blockade card: stop ships at the line around the island. Drag onto the ladder."
+          },
+          "khong_kich": {
+            "a": [
+              "Air strike",
+              ""
+            ],
+            "full": "Air strike card: hit the missile sites. Drag onto the ladder."
+          },
+          "hua": {
+            "a": [
+              "Pledge not",
+              "to invade"
+            ],
+            "full": "No-invasion pledge card: answers the letter. Drag into the mailbox."
+          },
+          "cau": {
+            "a": [
+              "Way out",
+              "(a bridge)"
+            ],
+            "full": "Way-out card: a bridge that gives ships and missiles a road home. Drag next to the island."
+          },
+          "cho": {
+            "a": [
+              "Wait one",
+              "more night"
+            ],
+            "full": "Wait one more night card: don't hit back, buy time. Drag onto the ladder or into the mailbox."
+          },
+          "danh_tra": {
+            "a": [
+              "Hit back",
+              ""
+            ],
+            "full": "Hit back card: the chip climbs one rung. Drag onto the ladder."
+          },
+          "jupiter": {
+            "a": [
+              "Remove",
+              "Jupiters"
+            ],
+            "full": "Remove Jupiters (secret) card: a private promise to pull the Jupiter missiles out of Turkey. Drag into the mailbox."
+          }
+        },
+        "dich_ten": {
+          "thang": "the ladder",
+          "thu": "the mailbox",
+          "dao": "next to the island"
+        },
+        "sai_cho": "That card doesn't go there. Try {d}.",
+        "khoa": "The clock is running, wait a moment.",
+        "da_phong_toa": "The chip moves to rung 2. On 22 October the blockade is announced and the ships stop at the line. The clock runs…",
+        "p2": "26 Oct: a private letter arrives: the missiles will go if the US pledges not to invade. Answer with a card. The \"way out\" bridge is now in the tray.",
+        "da_hua": "Your reply is sent. The clock runs to 27 October…",
+        "p3": "27 Oct: a U-2 is shot down and its pilot killed. The same day the submarine B-59 is forced to surface. Hit back, or wait one more night?",
+        "da_cau": "Bridge built: the ships and missiles have a road home.",
+        "da_jupiter": "The secret Jupiter promise is in the mailbox.",
+        "da_cho": "You wait one more night. The clock runs to 28 October…",
+        "da_danh": "The chip climbs one rung. The clock runs to 28 October…",
+        "cap_thang": "28 Oct: the ships turn around and the missile sites come apart block by block. In the far corner, 15 Jupiter missiles go dark.",
+        "cap_chua": "28 Oct: the ships still sit at the line, and nobody has a way back.",
+        "khong_biet": [
+          "WHAT THE ROOM DIDN'T KNOW",
+          "about 100 tactical nuclear",
+          "weapons were on the island,",
+          "undetected by the US."
+        ],
+        "thua": "The chip hits rung {m}. What the room didn't know: about 100 tactical nuclear weapons were already on the island, undetected by the US. Decisions were made with missing facts.",
+        "ket": "You bought time {t} times and built {l} ways out. In 1962 both sides stepped back: the USSR withdrew its missiles, the US pledged not to invade and quietly removed the Jupiters.",
+        "ket_chua": "On 28 October the chip is on rung {m}; you bought time {t} times and built {l} ways out. For both sides to step back, the chip has to be on rung 2 or lower with at least one way out. In 1962: the USSR withdrew its missiles, the US pledged not to invade and quietly removed the Jupiters.",
+        "nut_lai": "Play again",
+        "nguon": "Source: History.com and the Miller Center (secondary source); JFK Library; record of Khrushchev's talk of 30 Oct 1962 (Wilson Center); National Museum of the US Air Force; US Air Force, Incirlik; National Security Archive (Jupiter deal, B-59, DNSA). The 6-rung ladder, the ship speed and the other side's moves are Mark's illustration."
       }
     }
   ],
@@ -6205,6 +7499,74 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "vong-khoanh",
+      "id": "san-khau-sars",
+      "truoc": "quyet-dinh",
+      "ms_ngay": 450,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Vòng khoanh và lá thư",
+        "hoi": "Kéo lá thư vào hộp thư WHO. Ráp rào thành vòng kín quanh chấm cam. Đừng tuyên bố hết dịch trước khi đủ 20 ngày.",
+        "mo_ta": "Mặt bằng một bệnh viện nhìn từ trên xuống, người là chấm tròn: xám là khỏe, cam là có triệu chứng. Bên phải là tờ lịch bắt đầu 26/2/2003 và hộp thư WHO. Người chơi kéo lá thư vào hộp thư, ráp 6 đoạn rào thành vòng kín, kéo cái loa vào tờ lịch, rồi chờ đủ 20 ngày mới tuyên bố.",
+        "mo": "26/2/2003: một bệnh nhân nhập Bệnh viện Việt Pháp. Bấm Bắt đầu: lịch chạy, mỗi nhịp một ngày.",
+        "nut_bd": "Bắt đầu",
+        "nut_tb": "Tuyên bố hết dịch",
+        "nut_lai": "Chơi lại",
+        "dang_chay": "Lịch đang chạy. Kéo lá thư vào hộp thư WHO, kéo cái loa vào tờ lịch, rồi ráp rào quanh chấm cam.",
+        "chua_bd": "Bấm Bắt đầu trước đã.",
+        "biet_chua": "Điều đã biết về tác nhân: gần như trống",
+        "biet_16_4": "16/4: tác nhân là một coronavirus mới",
+        "benh_vien": "BV Việt Pháp",
+        "dem_nhan": "Ngày không ca mới",
+        "rao_nhan": "Đoạn rào {n}",
+        "khoa_rao": "2 đoạn nữa: kéo loa vào lịch",
+        "thu_nhan": "Lá thư báo động",
+        "loa_nhan": "Cái loa: công bố",
+        "loa_chu": "Công bố",
+        "can_loa": "Đoạn rào này còn khóa: kéo cái loa vào tờ lịch để có thêm người giúp.",
+        "da_thu": "Thư đi ngày {d}, khi dải \"điều đã biết\" còn trống. Cảnh báo lan ra.",
+        "da_loa": "Công bố: có thêm chuyên gia quốc tế, bệnh nhân được đưa về Bệnh viện Bạch Mai. Thêm 2 đoạn rào.",
+        "them_rao": "Đã ráp {n}/6 đoạn rào.",
+        "da_vong": "Vòng khép ngày {d}. Chấm bên trong vẫn có thể chuyển cam. Thanh đếm 20 ngày bắt đầu.",
+        "som": "Tuyên bố sớm: một ca nhập vào xuất hiện ở cửa, thanh đếm về 0.",
+        "chua": "chưa",
+        "cap_het": "Ở Hà Nội năm 2003: thư đi 28/2, bệnh viện bị cách ly 9/3, ca cuối 8/4, công nhận hết dịch 28/4. 63 ca, 5 người mất. Phần lớn ca là nhân viên y tế: người đứng trong vòng khoanh trả giá cao nhất.",
+        "ket": "Bạn gửi thư ngày {thu}, khép vòng ngày {vong}, tuyên bố ngày {tb}: {c}/{n} chấm chuyển cam. Cùng mô hình, nếu gửi thư 28/2 và khoanh 9/3 như thật: {c0}/{n} chấm (minh họa). Hà Nội 2003: 28/2, 9/3, 28/4. Chấm là minh họa, không phải số ca thật. Không phải lời khuyên y tế.",
+        "nguon": "Nguồn: MSF (26/2, 28/2, Bạch Mai, tỷ lệ nhân viên y tế); WHO 28/3/2018; Fleury và cs., Médecine Tropicale 2003 (9/3); WHO 12/3, 16/4, 25/4, 28/4/2003 (63 ca, 5 tử vong, 20 ngày); bài báo 5/2003 về cuộc họp 9/3. Văn bản WHO đọc qua trích đoạn, coi là thứ cấp. Số chấm và mô hình lây (lây nhanh khi chưa có thư, chậm hơn khi thư đã đi, chặn ở vòng kín; cùng ngày thì cùng kết quả) là minh họa của Mark, không tỷ lệ với 63 ca."
+      },
+      "en": {
+        "muc": "On stage",
+        "nhan": "The ring and the letter",
+        "hoi": "Drag the letter into the WHO mailbox. Build a closed ring around the orange dots. Don't declare the outbreak over before 20 days.",
+        "mo_ta": "A top-down floor plan of a hospital where people are dots: grey is healthy, orange has symptoms. On the right are a calendar starting on 26 Feb 2003 and a WHO mailbox. The player drags the letter into the mailbox, fits 6 fence pieces into a closed ring, drags the megaphone onto the calendar, and waits 20 days before declaring.",
+        "mo": "26 Feb 2003: a patient is admitted to the French Hospital of Hanoi. Press Start: the calendar runs, one day per beat.",
+        "nut_bd": "Start",
+        "nut_tb": "Declare it over",
+        "nut_lai": "Play again",
+        "dang_chay": "The calendar is running. Drag the letter into the WHO mailbox, the megaphone onto the calendar, then fence in the orange dots.",
+        "chua_bd": "Press Start first.",
+        "biet_chua": "Known about the agent: almost nothing",
+        "biet_16_4": "16 Apr: the agent is a new coronavirus",
+        "benh_vien": "French Hospital",
+        "dem_nhan": "Days without a new case",
+        "rao_nhan": "Fence piece {n}",
+        "khoa_rao": "2 more: megaphone to calendar",
+        "thu_nhan": "Alert letter",
+        "loa_nhan": "Megaphone: go public",
+        "loa_chu": "Go public",
+        "can_loa": "This fence piece is locked: drag the megaphone onto the calendar to get more help.",
+        "da_thu": "Letter sent on {d}, while the \"known\" strip is still empty. The alert spreads.",
+        "da_loa": "Going public brings in international experts, and patients are moved to Bach Mai Hospital. 2 more fence pieces.",
+        "them_rao": "{n}/6 fence pieces in place.",
+        "da_vong": "Ring closed on {d}. Dots inside can still turn orange. The 20-day bar starts.",
+        "som": "Declared too early: an imported case appears at the door and the bar drops to 0.",
+        "chua": "never",
+        "cap_het": "Hanoi 2003: the letter went on 28 Feb, the hospital was isolated on 9 Mar, the last case was on 8 Apr, and the end was confirmed on 28 Apr. 63 cases, 5 deaths. Most cases were health workers: the people inside the ring paid the highest price.",
+        "ket": "You sent the letter on {thu}, closed the ring on {vong}, declared on {tb}: {c}/{n} dots turned orange. Same model, letter on 28 Feb and ring on 9 Mar as in reality: {c0}/{n} dots (illustrative). Hanoi 2003: 28 Feb, 9 Mar, 28 Apr. Dots are illustrative, not real case counts. Not medical advice.",
+        "nguon": "Source: MSF (26 Feb, 28 Feb, Bach Mai, share of health workers); WHO 28 Mar 2018; Fleury et al., Médecine Tropicale 2003 (9 Mar); WHO 12 Mar, 16 Apr, 25 Apr, 28 Apr 2003 (63 cases, 5 deaths, 20 days); May 2003 article on the 9 Mar meeting. WHO documents read via snippets, treated as secondary. The dots and the spread model (fast before the letter, slower after it, stopped at a closed ring; same dates give the same result) are Mark's illustration, not scaled to the 63 cases."
+      }
     }
   ],
   "su-kien-dai-suy-thoai-1929": [
@@ -6381,6 +7743,121 @@
         "nguon": "Source: Federal Reserve History, \"Stock Market Crash of 1929\" (−13% on 28 Oct 1929; New York Fed response), \"Banking Panics of 1930–31\" (1,350 banks in 1930; 11 Dec 1930), \"Banking Panics of 1931–33\" (21 Sep 1931; rate rise in early October 1931); FDIC history page 1930–1939 (merger attempt; debate over solvency); Marriner Eccles memo on FRASER (1.5% to 3.5%); Hsieh and Romer (2006), Journal of Economic History 66(1) (about $1 billion in 1932; reasons for stopping per the 2001 NBER version); April–August 1932 timing from VoxEU (secondary source); Eichengreen (1992), Golden Fetters. Fed and FDIC pages checked through search-result excerpts.",
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
+      }
+    },
+    {
+      "khuon": "pho-ngan-hang",
+      "id": "san-khau-1929",
+      "truoc": "quyet-dinh",
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Giữ phố ngân hàng đứng vững",
+        "hoi": "Mỗi ngân hàng đổ kéo theo ngân hàng bên cạnh. Bạn có ba công cụ và bốn năm.",
+        "mo_ta": "Một con phố đêm với 12 tòa ngân hàng nhỏ kiểu cột cổ điển, mỗi tòa có thanh tiền mặt trong két. Bên trái là tòa Fed với túi tiền khẩn cấp, rương vàng và cần gạt lãi suất. Hàng người rút tiền là những chấm tròn chạy về cửa ngân hàng. Người chơi kéo túi tiền vào ngân hàng bị rút, gạt lãi suất năm 1931, kéo rèm đóng cửa năm 1933 và thả khiên bảo hiểm năm 1934.",
+        "nam": [
+          "8/1929",
+          "10/1929",
+          "1930",
+          "1931",
+          "1932",
+          "3/1933",
+          "1934"
+        ],
+        "bang_0": "DOW 381,17 · đỉnh 3/9/1929",
+        "bang_1": "DOW −13% NGÀY 28/10/1929",
+        "p0": "8/1929: suy thoái bắt đầu. Phố còn sáng đèn, két nào cũng đầy. Bấm nút để thị trường sụp.",
+        "nut_sup": "Thị trường sụp (10/1929)",
+        "nut_tiep": "Sang {y}",
+        "p1": "Dow mất 13% ngày 28/10/1929. Hàng người kéo tới ngân hàng số 1. Fed New York bơm tiền ngay sau vụ sụp đổ: kéo túi tiền vào ngân hàng đó.",
+        "p2": "1930: làn sóng rút tiền chạy tới bốn ngân hàng. Bật \"để thị trường tự lọc\" như quan niệm thời đó thì Fed chỉ đưa 1 túi; tắt đi thì có 4 túi. Chuyện thật: 1.350 ngân hàng ngừng hoạt động năm 1930; Bank of United States đóng cửa ngày 11/12/1930.",
+        "p3": "21/9/1931: Anh rời bản vị vàng, vàng chảy khỏi rương. Gạt lãi suất lên 3,5% thì vàng ngừng chảy nhưng mọi két tụt thêm một vạch; giữ 1,5% thì rương cạn và năm sau Fed gần như hết túi. Phải chọn: giữ vàng hay giữ ngân hàng.",
+        "p4": "1932: Fed mua khoảng 1 tỷ USD trái phiếu, kho đầy túi. Tới 8/1932 nút \"Dừng bơm\" nhấp nháy, giống chuyện thật.",
+        "p4_can": "1932: rương vàng đã cạn, Fed gần như bị trói tay: chỉ còn 1 túi. Tới 8/1932 nút \"Dừng bơm\" nhấp nháy, giống chuyện thật.",
+        "p5": "6/3/1933: ngân hàng cả nước đóng cửa; ngày 9/3 có Luật Ngân hàng Khẩn cấp. Kéo dây kéo rèm phủ phố để kiểm tra từng tòa.",
+        "p6": "1934: tấm khiên bảo hiểm tiền gửi mở khóa. Kéo khiên thả lên phố.",
+        "nut_loc": "Để thị trường tự lọc: {b}",
+        "bat": "BẬT",
+        "tat": "TẮT",
+        "nut_dung": "Dừng bơm (8/1932)",
+        "da_dung": "Bơm dừng. Hàng người rút tiền quay lại ba ngân hàng.",
+        "het_pho": "Cả phố đã tắt đèn.",
+        "vang": "Rương vàng",
+        "can_nhan": "Cần gạt lãi suất chiết khấu, 1,5% hoặc 3,5%",
+        "lai_cao": "Lãi suất 3,5%: vàng ngừng chảy, nhưng hết năm mọi két tụt thêm một vạch.",
+        "lai_thap": "Lãi suất 1,5%: két không bị siết thêm, nhưng rương vàng sẽ cạn.",
+        "tui_nhan": "Túi tiền khẩn cấp của Fed",
+        "con_tui": "còn {n} túi",
+        "khong_rut": "Kéo túi tiền thả lên một ngân hàng đang bị rút.",
+        "da_cuu": "Ngân hàng số {n} được đổ đầy két, hàng người tản đi.",
+        "da_bom": "Ngân hàng số {n} được đổ đầy két từ trước.",
+        "rem_chu": "ĐÓNG CỬA KIỂM TRA",
+        "day_nhan": "Dây kéo rèm: đóng cửa ngân hàng",
+        "da_kiem": "Kiểm tra xong: {n} ngân hàng còn két được mở lại, tòa đã đổ vẫn tắt đèn.",
+        "khien_nhan": "Khiên bảo hiểm tiền gửi (mở khóa 1934)",
+        "da_khien": "Bảo hiểm tiền gửi từ 1/1/1934, tối đa 2.500 USD: hàng người dừng hẳn. 1934: chỉ 9 ngân hàng được bảo hiểm đổ vỡ. Trước khi xem kết quả, đoán một con số.",
+        "hoi_doan": "Bao nhiêu phần trăm người lao động mất việc năm 1933?",
+        "nut_xem": "Xem số thật",
+        "ban_doan": "Bạn đoán",
+        "nam_1929": "Năm 1929",
+        "nam_1933": "Năm 1933",
+        "ket": "Phố của bạn còn {n}/12 ngân hàng. Chuyện thật: khoảng 9.000 ngân hàng ngừng hoạt động từ thu 1929 đến hết 1933, và thất nghiệp lên từ 3,3% (1929) tới 25,2% (1933).",
+        "nut_lai": "Chơi lại",
+        "nguon": "Nguồn: Federal Reserve History; FDIC; Richmond Fed EB 12-11; Hsieh và Romer (2006); bản ghi nhớ Eccles (FRASER). 12 tòa nhà, số túi tiền và luật trừ vạch két là minh họa của Mark, không phải tỷ lệ thật."
+      },
+      "en": {
+        "muc": "On stage",
+        "nhan": "Keep the bank street standing",
+        "hoi": "Every bank that falls drags its neighbour down. You have three tools and four years.",
+        "mo_ta": "A night street of 12 small banks with classical columns, each with a cash bar for its vault. On the left is the Fed with emergency money bags, a gold chest and a discount-rate lever. Queues of depositors are dots running to the bank doors. The player drags money bags onto banks under a run, sets the rate in 1931, pulls a closing curtain in 1933 and drops an insurance shield in 1934.",
+        "nam": [
+          "Aug 1929",
+          "Oct 1929",
+          "1930",
+          "1931",
+          "1932",
+          "Mar 1933",
+          "1934"
+        ],
+        "bang_0": "DOW 381.17 · PEAK 3 SEP 1929",
+        "bang_1": "DOW −13% ON 28 OCT 1929",
+        "p0": "Aug 1929: the downturn begins. The street is lit and every vault is full. Press the button to crash the market.",
+        "nut_sup": "Crash the market (Oct 1929)",
+        "nut_tiep": "On to {y}",
+        "p1": "The Dow loses 13% on 28 Oct 1929. A queue forms at bank 1. The New York Fed pumped in money right after the crash: drag a money bag onto that bank.",
+        "p2": "1930: a wave of withdrawals hits four banks. With \"let the market sort it out\" on, as people believed then, the Fed hands out 1 bag; switch it off and you get 4. In reality: 1,350 banks suspended in 1930, and the Bank of United States closed on 11 Dec 1930.",
+        "p3": "21 Sep 1931: Britain leaves gold and gold flows out of the chest. Raise the rate to 3.5% and the gold stops, but every vault loses one more bar; keep 1.5% and the chest runs dry, leaving the Fed almost no bags next year. You must choose: keep the gold or keep the banks.",
+        "p4": "1932: the Fed buys about $1 billion of bonds and the vault fills with bags. By Aug 1932 a \"Stop pumping\" button blinks, just as in reality.",
+        "p4_can": "1932: the gold chest is empty and the Fed's hands are tied: only 1 bag. By Aug 1932 a \"Stop pumping\" button blinks, just as in reality.",
+        "p5": "6 Mar 1933: every bank in the country closes; on 9 Mar the Emergency Banking Act passes. Pull the cord to drop a curtain over the street and inspect each bank.",
+        "p6": "1934: the deposit-insurance shield unlocks. Drag the shield onto the street.",
+        "nut_loc": "Let the market sort it out: {b}",
+        "bat": "ON",
+        "tat": "OFF",
+        "nut_dung": "Stop pumping (Aug 1932)",
+        "da_dung": "Pumping stops. The queues come back to three banks.",
+        "het_pho": "The whole street has gone dark.",
+        "vang": "Gold chest",
+        "can_nhan": "Discount-rate lever, 1.5% or 3.5%",
+        "lai_cao": "Rate at 3.5%: the gold stops leaving, but at year end every vault loses one more bar.",
+        "lai_thap": "Rate at 1.5%: vaults aren't squeezed further, but the gold chest will run dry.",
+        "tui_nhan": "Fed emergency money bag",
+        "con_tui": "{n} bags left",
+        "khong_rut": "Drag a money bag onto a bank that has a queue.",
+        "da_cuu": "Bank {n} gets its vault refilled and the queue melts away.",
+        "da_bom": "Bank {n} gets its vault refilled in advance.",
+        "rem_chu": "CLOSED FOR INSPECTION",
+        "day_nhan": "Curtain cord: close the banks",
+        "da_kiem": "Inspection done: {n} banks with cash reopen, the fallen ones stay dark.",
+        "khien_nhan": "Deposit-insurance shield (unlocks 1934)",
+        "da_khien": "Deposit insurance from 1 Jan 1934, up to $2,500: the queues stop for good. In 1934 only 9 insured banks failed. Before the result, guess a number.",
+        "hoi_doan": "What share of workers were unemployed in 1933?",
+        "nut_xem": "Show the real number",
+        "ban_doan": "Your guess",
+        "nam_1929": "1929",
+        "nam_1933": "1933",
+        "ket": "Your street has {n}/12 banks left. In reality, about 9,000 banks suspended from autumn 1929 to the end of 1933, and unemployment rose from 3.3% (1929) to 25.2% (1933).",
+        "nut_lai": "Play again",
+        "nguon": "Sources: Federal Reserve History; FDIC; Richmond Fed EB 12-11; Hsieh and Romer (2006); Eccles memo (FRASER). The 12 buildings, the number of money bags and the vault rules are Mark's illustration, not real proportions."
       }
     }
   ],
@@ -6575,6 +8052,275 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "van-cfc",
+      "id": "choi-van-cfc",
+      "truoc": "quyet-dinh",
+      "du_tb": 300,
+      "du": [
+        [
+          1984,
+          194
+        ],
+        [
+          1985,
+          185
+        ],
+        [
+          1987,
+          150
+        ],
+        [
+          1988,
+          216
+        ],
+        [
+          1989,
+          150
+        ],
+        [
+          1993,
+          122
+        ],
+        [
+          2000,
+          137
+        ]
+      ],
+      "dung": [
+        1978,
+        1985,
+        1987,
+        1990,
+        2016
+      ],
+      "mo_hinh": [
+        [
+          2020,
+          17
+        ],
+        [
+          2065,
+          67
+        ]
+      ],
+      "ve_quy": 280,
+      "ve_cham": 220,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Khóa van CFC",
+        "hoi": "Năm tháng trôi, thẻ quyết định hiện ra đúng năm thật. Kéo thẻ vào đúng chỗ và theo dõi lá chắn ozone trên trạm Halley.",
+        "mo_ta": "Sân khấu: Trái Đất nhìn từ Nam Cực, trạm Halley ở mép lục địa. Phía trên là lá chắn ozone gồm 30 viên gạch, mặt trời bắn tia cực tím. Bên trái, ống khói CFC có van nhả hạt clo bay lên gặm gạch; cạnh đó là bình xịt, tủ lạnh, khối xốp. Bên phải là hàng ống khói nhỏ của các nước đang phát triển. Thẻ quyết định hiện ở các năm 1978, 1985, 1987, 1990, 2016; kéo thẻ vào bình xịt, bàn đàm phán, van, hàng ống khói bên phải hoặc nhiệt kế. Biểu đồ nhỏ vẽ dần ozone tháng 10 đo ở Halley.",
+        "doc_mac": "Năm 1956. Bấm “Cho năm trôi”. Mỗi lần dừng, bạn chỉ có những thẻ người ta có lúc đó.",
+        "nut_chay": "Cho năm trôi",
+        "nut_tiep": "Chạy tiếp",
+        "nut_lai": "Chơi lại",
+        "tb": "Halley, TB 1957–72",
+        "do_o": "Halley, tháng 10/{n}",
+        "bd": "Ozone tháng 10, Halley",
+        "mo_hinh_nhan": "kịch bản mô hình",
+        "mo_hinh_so": "toàn cầu, {n}, mô hình",
+        "moc_2066": "≈2066: mức 1980",
+        "ten": {
+          "binh": "bình xịt",
+          "ban": "Bàn đàm phán",
+          "van": "van ống khói CFC",
+          "quy": "Nước đang phát triển",
+          "nhiet": "Nhiệt kế khí hậu"
+        },
+        "the": [
+          {
+            "chu": "Cấm CFC trong bình xịt (1978)",
+            "full": "Thẻ 1978: Mỹ cấm CFC làm khí đẩy trong bình xịt không thiết yếu. Thả vào bình xịt.",
+            "nam": 1978,
+            "dich": "binh",
+            "loai": "binh",
+            "can": true,
+            "cap": "Bình xịt mờ đi, ống khói nhả ít hơn một chút. Tủ lạnh và xốp vẫn chạy. Bấm Chạy tiếp."
+          },
+          {
+            "chu": "Công ước khung (1985)",
+            "full": "Thẻ 1985: Công ước Vienna, khung hợp tác, chưa có mức cắt nào. Thả vào bàn đàm phán.",
+            "nam": 1985,
+            "dich": "ban",
+            "loai": "ban",
+            "can": true,
+            "cap": "Đã có bàn đàm phán. Lá chắn chưa đổi gì, nhưng từ giờ có thể thả thẻ vào van. Bấm Chạy tiếp."
+          },
+          {
+            "chu": "Cắt 50% (1987)",
+            "full": "Thẻ 1987: Nghị định thư Montreal, đóng băng ở mức năm 1986 rồi giảm 50% trong khoảng 10 năm. Thả vào van.",
+            "nam": 1987,
+            "dich": "van",
+            "loai": "cat",
+            "can": true,
+            "cap": "Van siết một nửa. Bấm Chạy tiếp."
+          },
+          {
+            "chu": "Chờ chắc chắn 100%",
+            "full": "Thẻ: chờ khoa học chắc chắn 100% rồi mới cắt. Thả vào van.",
+            "nam": 1987,
+            "dich": "van",
+            "loai": "cho",
+            "can": true,
+            "cap": "Bạn chờ thêm. Van vẫn mở, CFC tiếp tục tăng."
+          },
+          {
+            "chu": "Loại bỏ hẳn vào 2000 (1990)",
+            "full": "Thẻ 1990: tu chính London, nước phát triển loại bỏ CFC vào năm 2000. Thả vào van.",
+            "nam": 1990,
+            "dich": "van",
+            "loai": "loai",
+            "can": true,
+            "cap": "Van khóa hẳn. Thêm Quỹ Đa phương nếu muốn, rồi bấm Chạy tiếp."
+          },
+          {
+            "chu": "Quỹ Đa phương (1990)",
+            "full": "Thẻ 1990: Quỹ Đa phương giúp các nước đang phát triển chuyển đổi. Thả vào hàng ống khói bên phải.",
+            "nam": 1990,
+            "dich": "quy",
+            "loai": "quy",
+            "can": false,
+            "cap": "Hàng ống khói bên phải tắt dần: có tiền để chuyển đổi."
+          },
+          {
+            "chu": "Kigali: HFC (2016)",
+            "full": "Thẻ 2016: tu chính Kigali cắt HFC. Thả vào nhiệt kế khí hậu.",
+            "nam": 2016,
+            "dich": "nhiet",
+            "loai": "kigali",
+            "can": false,
+            "cap": "Nhiệt kế hạ một chút: đánh giá năm 2022 ước Kigali tránh 0,3–0,5 °C nóng lên vào năm 2100. Bấm Chạy tiếp."
+          }
+        ],
+        "dung": [
+          "1978. Bình xịt dùng CFC làm khí đẩy. Kéo thẻ vào bình xịt (vòng nét đứt).",
+          "1985. Công ước Vienna: mới là khung, chưa có mức cắt. Kéo thẻ vào bàn đàm phán.",
+          "Tháng 9/1987. Nguyên nhân lỗ thủng còn đang tranh luận. Chọn một thẻ và kéo vào van: cắt 50% ngay, hay chờ chắc chắn 100%?",
+          "1990. Bằng chứng đã rõ hơn. Kéo “Loại bỏ hẳn” vào van. Quỹ Đa phương (thả vào hàng ống khói bên phải) là tùy bạn.",
+          "2016. Kigali: cắt HFC, chất thay CFC không hại ozone nhưng làm Trái Đất nóng lên. Kéo vào nhiệt kế nếu muốn, rồi bấm Chạy tiếp."
+        ],
+        "sai_cho": "Thẻ này thả vào: {d}.",
+        "dang_chay": "Năm tháng trôi. Hạt clo bay lên gặm lá chắn.",
+        "tre": "Van đã khóa, nhưng clo đã bay lên còn sống nhiều năm: lá chắn trên Halley vẫn mỏng tiếp, xuống 122 DU năm 1993.",
+        "ve": "Sau năm 2000 là dự báo: gạch mọc lại từng viên, rất chậm.",
+        "cap_tot": "Khoảng năm 2066 (dự báo): lá chắn gần kín lại.",
+        "cap_xau": "Năm 2065, kịch bản mô hình: lá chắn còn khoảng một phần ba.",
+        "ket_tot": "Về mức năm 1980 khoảng năm 2066 (dự báo). Khóa van có tác dụng, nhưng chậm: clo đã lên trời vẫn gặm lá chắn đến tận thập niên 1990.",
+        "ket_khong_quy": "Bạn bỏ qua Quỹ Đa phương: hàng ống khói bên phải vẫn chạy và lá chắn hồi phục chậm hơn (minh họa). Chưa phải mọi nước đều tham gia. Ngoài đời, Quỹ được lập năm 1990.",
+        "ket_kigali": "Kigali (2016): tránh khoảng 0,3–0,5 °C nóng lên vào năm 2100 (đánh giá năm 2022).",
+        "ket_xau": "Thế giới tránh được: nếu CFC cứ tăng 3% mỗi năm, ozone toàn cầu mất 17% vào năm 2020 và khoảng hai phần ba (67%) vào năm 2065. Đây là kịch bản mô hình, không phải số đo. Ngoài đời, năm 1987 các nước đã ký cắt 50% khi nguyên nhân còn đang tranh luận.",
+        "ket_bai": "Bài học: hành động khi bằng chứng đủ mạnh, đừng chờ chắc chắn 100%. Tác dụng đến sau nhiều năm, nên nhìn xu hướng chứ không nhìn một năm. Quyết nhỏ rồi siết dần, và kéo người chậm vào bằng hỗ trợ.",
+        "nguon": "Nguồn: British Antarctic Survey, ozone tháng 10 ở Halley (Shanklin 2001, qua bộ dữ liệu DAAG; TB 1957–72 theo bản tin BAS 95/96); FDA và EPA, 43 FR 11301 (1978); Công ước Vienna 1985, Nghị định thư Montreal 1987 và tu chính London 1990 (Ban thư ký Ozone UNEP; mức cắt 50% theo Britannica, nguồn thứ cấp); Đánh giá khoa học WMO/UNEP 2022 (mốc khoảng 2066; Kigali 0,3–0,5 °C qua AP/Al Jazeera, nguồn thứ cấp); Newman và cộng sự 2009 (ACP 9, 2113–2128) và NASA (kịch bản thế giới tránh được). Gạch, hạt clo, tia cực tím, tốc độ hồi phục và đường dự báo nét đứt là minh họa; chỉ các con số DU là số đo."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "Close the CFC valve",
+        "hoi": "Drag decision cards onto the right spot as the years roll by. Watch the ozone shield over Halley.",
+        "mo_ta": "Stage: the Earth seen from above the South Pole, with Halley station on the edge of the continent. Above it is an ozone shield of 30 bricks, and the sun fires ultraviolet rays. On the left, a CFC chimney with a valve releases chlorine particles that rise and nibble the bricks; next to it are a spray can, a fridge and a foam block. On the right is a row of small chimneys for developing countries. Decision cards appear in 1978, 1985, 1987, 1990 and 2016; drag them onto the spray can, the negotiating table, the valve, the row of chimneys or the thermometer. A small chart draws the October ozone measured at Halley.",
+        "doc_mac": "It is 1956. Press “Let the years roll”. At each stop you only get the cards people had at the time.",
+        "nut_chay": "Let the years roll",
+        "nut_tiep": "Continue",
+        "nut_lai": "Play again",
+        "tb": "Halley, 1957–72 mean",
+        "do_o": "Halley, October {n}",
+        "bd": "October ozone, Halley",
+        "mo_hinh_nhan": "model scenario",
+        "mo_hinh_so": "global, {n}, model",
+        "moc_2066": "≈2066: 1980 level",
+        "ten": {
+          "binh": "the spray can",
+          "ban": "Negotiating table",
+          "van": "the CFC chimney valve",
+          "quy": "Developing countries",
+          "nhiet": "Climate thermometer"
+        },
+        "the": [
+          {
+            "chu": "Ban CFCs in spray cans (1978)",
+            "full": "1978 card: the US bans CFCs as propellants in non-essential spray cans. Drop it on the spray can.",
+            "nam": 1978,
+            "dich": "binh",
+            "loai": "binh",
+            "can": true,
+            "cap": "The spray can fades and the chimney puffs a little less. Fridges and foam still run. Press Continue."
+          },
+          {
+            "chu": "Framework convention (1985)",
+            "full": "1985 card: the Vienna Convention, a framework for cooperation with no cuts yet. Drop it on the negotiating table.",
+            "nam": 1985,
+            "dich": "ban",
+            "loai": "ban",
+            "can": true,
+            "cap": "There is a negotiating table now. Nothing changes on the shield yet, but cards can now go on the valve. Press Continue."
+          },
+          {
+            "chu": "Cut 50% (1987)",
+            "full": "1987 card: the Montreal Protocol, freeze at 1986 levels and then cut 50% over about 10 years. Drop it on the valve.",
+            "nam": 1987,
+            "dich": "van",
+            "loai": "cat",
+            "can": true,
+            "cap": "The valve is half closed. Press Continue."
+          },
+          {
+            "chu": "Wait for 100% certainty",
+            "full": "Card: wait until the science is 100% certain before cutting. Drop it on the valve.",
+            "nam": 1987,
+            "dich": "van",
+            "loai": "cho",
+            "can": true,
+            "cap": "You wait. The valve stays open and CFCs keep growing."
+          },
+          {
+            "chu": "Phase out by 2000 (1990)",
+            "full": "1990 card: the London Amendment, developed countries phase out CFCs by 2000. Drop it on the valve.",
+            "nam": 1990,
+            "dich": "van",
+            "loai": "loai",
+            "can": true,
+            "cap": "The valve is fully closed. Add the Multilateral Fund if you like, then press Continue."
+          },
+          {
+            "chu": "Multilateral Fund (1990)",
+            "full": "1990 card: the Multilateral Fund helps developing countries switch. Drop it on the row of chimneys on the right.",
+            "nam": 1990,
+            "dich": "quy",
+            "loai": "quy",
+            "can": false,
+            "cap": "The chimneys on the right die down: there is money to switch."
+          },
+          {
+            "chu": "Kigali: HFCs (2016)",
+            "full": "2016 card: the Kigali Amendment cuts HFCs. Drop it on the climate thermometer.",
+            "nam": 2016,
+            "dich": "nhiet",
+            "loai": "kigali",
+            "can": false,
+            "cap": "The thermometer drops a little: the 2022 assessment estimates Kigali avoids 0.3–0.5 °C of warming by 2100. Press Continue."
+          }
+        ],
+        "dung": [
+          "1978. Spray cans use CFCs as propellant. Drag the card onto the spray can (dashed ring).",
+          "1985. The Vienna Convention: only a framework, no cuts yet. Drag the card onto the negotiating table.",
+          "September 1987. The cause of the hole is still debated. Pick one card and drag it onto the valve: cut 50% now, or wait for 100% certainty?",
+          "1990. The evidence is clearer. Drag “Phase out” onto the valve. The Multilateral Fund (drop it on the chimneys on the right) is up to you.",
+          "2016. Kigali: cutting HFCs, the CFC substitutes that spare the ozone but warm the planet. Drag it onto the thermometer if you like, then press Continue."
+        ],
+        "sai_cho": "This card goes on: {d}.",
+        "dang_chay": "The years roll by. Chlorine rises and nibbles the shield.",
+        "tre": "The valve is closed, but chlorine already up there lives for years: the shield over Halley keeps thinning, down to 122 DU in 1993.",
+        "ve": "After 2000 it is a projection: the bricks grow back one by one, very slowly.",
+        "cap_tot": "Around 2066 (projection): the shield is nearly whole again.",
+        "cap_xau": "2065, model scenario: about a third of the shield is left.",
+        "ket_tot": "Back to 1980 levels around 2066 (projection). Closing the valve worked, but slowly: the chlorine already up there kept eating the shield until the 1990s.",
+        "ket_khong_quy": "You skipped the Multilateral Fund: the chimneys on the right keep running and the shield recovers more slowly (illustrative). Not every country is on board. In real life the Fund was set up in 1990.",
+        "ket_kigali": "Kigali (2016): about 0.3–0.5 °C of warming avoided by 2100 (2022 assessment).",
+        "ket_xau": "The world avoided: if CFCs had kept growing 3% a year, global ozone would have lost 17% by 2020 and about two-thirds (67%) by 2065. A model scenario, not a measurement. In real life, countries signed a 50% cut in 1987 while the cause was still debated.",
+        "ket_bai": "The lesson: act when the evidence is strong enough, do not wait for 100% certainty. The effect arrives years later, so judge the trend, not one year. Start small, tighten step by step, and bring the slow along with support.",
+        "nguon": "Source: British Antarctic Survey, October ozone at Halley (Shanklin 2001, via the DAAG dataset; 1957–72 mean from BAS bulletin 95/96); FDA and EPA, 43 FR 11301 (1978); Vienna Convention 1985, Montreal Protocol 1987 and London Amendment 1990 (UNEP Ozone Secretariat; the 50% cut per Britannica, secondary source); WMO/UNEP Scientific Assessment 2022 (around 2066; Kigali 0.3–0.5 °C via AP/Al Jazeera, secondary sources); Newman et al. 2009 (ACP 9, 2113–2128) and NASA (world-avoided scenario). The bricks, chlorine particles, UV rays, recovery speed and dashed projection line are illustrative; only the DU figures are measurements."
+      }
     }
   ],
   "su-kien-dau-mo-1973": [
@@ -6768,6 +8514,209 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "van-dau",
+      "id": "choi-van-dau",
+      "truoc": "quyet-dinh",
+      "gia": [
+        3.01,
+        5.12,
+        11.65
+      ],
+      "xu": 3,
+      "ngay_thung": 30,
+      "hang_max": 14,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Van dầu và cây xăng",
+        "hoi": "Bạn có 3 xu để chuẩn bị trước cơn bão dầu. Rồi tháng 10/1973 đến: giữ giá hay để giá chạy?",
+        "mo_ta": "Sân khấu ngang: bên trái là giếng dầu và tàu chở dầu nối vào ống chính có van đỏ; ở giữa là bể dự trữ có vạch 30, 60, 90 ngày và một ống phụ nét đứt còn hở; bên phải là cây xăng có đồng hồ giá theo USD/thùng (vạch 3, 6, 12), cần gạt giữ giá và làn xe. Góc trên có lịch và quả địa cầu “các nước khác”. Khay dưới có 3 thùng dự trữ, một đoạn ống nối, một xe tiết kiệm xăng và một cái bắt tay; chỉ có 3 xu.",
+        "doc_mac": "Tháng 9/1973. Kéo đồ vào vòng nét đứt của nó. Mỗi món tốn 1 xu, và bạn chỉ có 3 xu cho 4 loại đồ.",
+        "nut_thang10": "Sang tháng 10/1973",
+        "nut_giu": "Gạt cần giữ giá",
+        "nut_chay": "Chạy đến 3/1974",
+        "nut_lai": "Chơi lại",
+        "nguon_chinh": "nguồn chính",
+        "nguon_hai": "nguồn thứ hai",
+        "be": "Bể dự trữ (ngày)",
+        "cat": "−9% (~4 tr thùng/ngày)",
+        "bien_le": [
+          "Hôm nay:",
+          "biển số lẻ"
+        ],
+        "don_vi": "USD/thùng",
+        "giu_ngan": "giữ giá",
+        "khoa": "khóa giá",
+        "nuoc_khac": "các nước khác",
+        "thang": [
+          "9/1973",
+          "10/1973",
+          "1/1974",
+          "3/1974"
+        ],
+        "xu": "Xu chuẩn bị:",
+        "vat": {
+          "thung": {
+            "chu": [
+              "Thùng dầu",
+              "+30 ngày"
+            ],
+            "full": "Thùng dự trữ: thêm 30 ngày vào bể (sau này IEA đặt mức 90 ngày). Thả vào bể."
+          },
+          "ong": {
+            "chu": [
+              "Ống nối",
+              "nguồn 2"
+            ],
+            "full": "Đoạn ống nối: mở nguồn thứ hai, chảy ít và chậm. Thả vào khe ống phụ.",
+            "da": "Ống phụ đã nối: một nguồn thứ hai chảy chậm vào bể."
+          },
+          "xe": {
+            "chu": [
+              "Xe tiết",
+              "kiệm xăng"
+            ],
+            "full": "Xe tiết kiệm xăng: mỗi xe uống ít hơn (gợi luật CAFE). Thả vào làn xe.",
+            "da": "Xe trong làn uống ít xăng hơn."
+          },
+          "tay": {
+            "chu": [
+              "Bắt tay",
+              "các nước"
+            ],
+            "full": "Cái bắt tay: các nước chia sẻ dầu khi thiếu (gợi IEA). Thả vào quả địa cầu.",
+            "da": "Đã bắt tay: các nước sẽ chia sẻ khi thiếu."
+          }
+        },
+        "da_thung": "Bể có {d} ngày dự trữ.",
+        "het_xu": "Hết xu. Bấm “Sang tháng 10/1973”.",
+        "sai_cho": "Chưa đúng chỗ. Thùng vào bể, ống nối vào khe, xe vào làn, bắt tay vào quả địa cầu.",
+        "man_2": "17/10/1973: OAPEC cắt sản lượng 5% mỗi tháng. Van vặn bớt: ước tính lúc đó khoảng 4 triệu thùng/ngày, cỡ 9% nguồn cung. Gạt cần giữ giá hay không, rồi bấm Chạy.",
+        "da_giu": "Cần đã gạt: giá ở cây xăng bị khóa.",
+        "bo_giu": "Cần đã thả: giá chạy theo thị trường.",
+        "buoc": [
+          "16/10/1973: giá công bố dầu Arabian Light lên 5,12 USD/thùng, từ 3,01."
+        ],
+        "buoc_giu": "1/1/1974: giá thế giới 11,65 USD/thùng (kim mờ). Kim ở cây xăng đứng yên, nhưng xe xếp hàng dài ra khỏi khung, có ngày chỉ bán cho biển số lẻ.",
+        "buoc_tha": "1/1/1974: 11,65 USD/thùng. Giá cao làm người ta đi ít lại: làn xe ngắn đi.",
+        "mo_lai": "3/1974: dỡ cấm vận, van mở lại. Nhưng kim giá không quay về.",
+        "thanh": [
+          "Đệm dự trữ",
+          "Hàng xe dài nhất",
+          "Giá người dân trả"
+        ],
+        "thanh_ngay": "{d} ngày",
+        "them_ong": "+ nguồn thứ hai",
+        "thanh_xe": "{n} xe (minh họa)",
+        "thanh_gia": "{g} USD/thùng",
+        "bi_khoa": "(bị khóa, nên thiếu hàng)",
+        "ket_giu": "Bạn giữ giá: kim đứng yên, nhưng thiếu hụt biến thành hàng dài. Chỉ tấm đệm làm từ trước mới làm cả hai thanh xấu ngắn lại.",
+        "ket_tha": "Bạn để giá chạy: hàng ngắn, nhưng ai cũng trả giá cao. Chỉ tấm đệm làm từ trước mới làm cả hai thanh xấu ngắn lại.",
+        "that_nhan": "Chuyện thật:",
+        "that": [
+          "Mỹ không có kho đệm và thêm kiểm soát giá dầu từ 11/1973; năm 1974 có nơi chỉ bán xăng theo ngày chẵn lẻ.",
+          "Tháng 11/1974 các nước ký Hiệp định IEP, lập IEA: giữ dự trữ ít nhất 90 ngày nhập khẩu ròng và chia sẻ khi thiếu.",
+          "Luật EPCA ngày 22/12/1975 lập kho dự trữ dầu chiến lược; dầu đầu tiên vào kho ngày 21/7/1977. Luật CAFE nâng mức xe tiết kiệm từ 13,6 lên 27,5 dặm/gallon (1974 → mục tiêu 1985)."
+        ],
+        "ket_bai": "Bài học: đừng để một nguồn cung duy nhất quyết chuyện sống còn; tấm đệm phải làm lúc bình yên mới kịp dùng.",
+        "nguon": "Nguồn: bản ghi nhớ Bộ Quốc phòng Mỹ 24/10/1973 (CIA Reading Room, qua trích đoạn: khoảng 4 triệu thùng/ngày, cỡ 9%); FRUS 1969–1976 tập XXV tài liệu 200 (OAPEC cắt 5% mỗi tháng từ 17/10/1973; giá Arabian Light 3,01 → 5,12 → 11,65 USD/thùng), bảng giá CIA Reading Room, Federal Reserve History; Văn phòng Sử học Mỹ, “Oil Embargo, 1973–1974”; Bernanke, “Remarks on Class Day 2008” (kiểm soát giá, ngày chẵn lẻ); Hiệp định IEP 11/1974 (90 ngày, qua nguồn thứ cấp); Bộ Tư pháp Mỹ, ENRD (EPCA); Congressional Research Service IB90122 (CAFE). Mỗi thùng 30 ngày là luật chơi theo mức 90 ngày; độ dài hàng xe, mức xả bể và độ dày dòng chảy là minh họa."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "The oil valve and the gas station",
+        "hoi": "You have 3 coins to prepare before the oil storm. Then October 1973 arrives: hold the price or let it run?",
+        "mo_ta": "A horizontal stage: on the left, oil wells and a tanker feed a main pipe with a red valve; in the middle, a storage tank marked 30, 60 and 90 days and a dashed side pipe with a gap; on the right, a gas station with a price gauge in dollars a barrel (marks 3, 6, 12), a hold-the-price lever and a car lane. At the top are a calendar and a globe for “other countries”. The tray below holds 3 stock barrels, a pipe section, a fuel-efficient car and a handshake; there are only 3 coins.",
+        "doc_mac": "September 1973. Drag each item onto its dashed ring. Each costs 1 coin, and you have only 3 coins for 4 kinds of item.",
+        "nut_thang10": "On to October 1973",
+        "nut_giu": "Pull the hold-the-price lever",
+        "nut_chay": "Run to March 1974",
+        "nut_lai": "Play again",
+        "nguon_chinh": "main source",
+        "nguon_hai": "second source",
+        "be": "Stock tank (days)",
+        "cat": "−9% (~4m barrels/day)",
+        "bien_le": [
+          "Today:",
+          "odd plates"
+        ],
+        "don_vi": "$ a barrel",
+        "giu_ngan": "hold price",
+        "khoa": "price locked",
+        "nuoc_khac": "other countries",
+        "thang": [
+          "Sep 1973",
+          "Oct 1973",
+          "Jan 1974",
+          "Mar 1974"
+        ],
+        "xu": "Prep coins:",
+        "vat": {
+          "thung": {
+            "chu": [
+              "Stock",
+              "+30 days"
+            ],
+            "full": "Stock barrel: adds 30 days to the tank (the IEA later set 90 days). Drop it on the tank."
+          },
+          "ong": {
+            "chu": [
+              "Pipe",
+              "2nd source"
+            ],
+            "full": "Pipe section: opens a second source, small and slow. Drop it in the gap of the side pipe.",
+            "da": "Side pipe connected: a second source trickles into the tank."
+          },
+          "xe": {
+            "chu": [
+              "Efficient",
+              "car"
+            ],
+            "full": "Fuel-efficient car: each car drinks less (a nod to CAFE). Drop it on the car lane.",
+            "da": "Cars in the lane now drink less."
+          },
+          "tay": {
+            "chu": [
+              "Handshake",
+              "share"
+            ],
+            "full": "Handshake: countries share oil in a shortage (a nod to the IEA). Drop it on the globe.",
+            "da": "Handshake done: countries will share in a shortage."
+          }
+        },
+        "da_thung": "The tank holds {d} days of stock.",
+        "het_xu": "Out of coins. Press “On to October 1973”.",
+        "sai_cho": "Not there. Barrels go in the tank, the pipe in the gap, the car on the lane, the handshake on the globe.",
+        "man_2": "17 October 1973: OAPEC cuts output 5% a month. The valve closes a notch: the estimate at the time was about 4 million barrels a day, roughly 9% of supply. Pull the hold-the-price lever or not, then press Run.",
+        "da_giu": "Lever pulled: the pump price is locked.",
+        "bo_giu": "Lever released: the price follows the market.",
+        "buoc": [
+          "16 October 1973: the posted price of Arabian Light rises to $5.12 a barrel, from $3.01."
+        ],
+        "buoc_giu": "1 January 1974: the world price is $11.65 a barrel (faint needle). The pump needle stays put, but cars queue out of the frame, and some days only odd plates may buy.",
+        "buoc_tha": "1 January 1974: $11.65 a barrel. The high price makes people drive less: the lane gets shorter.",
+        "mo_lai": "March 1974: the embargo is lifted and the valve reopens. But the needle does not come back.",
+        "thanh": [
+          "Buffer",
+          "Longest queue",
+          "Price households pay"
+        ],
+        "thanh_ngay": "{d} days",
+        "them_ong": "+ second source",
+        "thanh_xe": "{n} cars (illustrative)",
+        "thanh_gia": "${g} a barrel",
+        "bi_khoa": "(locked, so shortages)",
+        "ket_giu": "You held the price: the needle stayed put, but the shortage turned into lines. Only buffers built in advance shorten both bad bars.",
+        "ket_tha": "You let the price run: short lines, but everyone pays a high price. Only buffers built in advance shorten both bad bars.",
+        "that_nhan": "What really happened:",
+        "that": [
+          "The US had no buffer and added oil price controls in November 1973; in 1974 some places sold gasoline only on odd or even days.",
+          "In November 1974 countries signed the IEP Agreement and set up the IEA: hold at least 90 days of net imports and share in a shortage.",
+          "The EPCA law of 22 December 1975 created the Strategic Petroleum Reserve; the first oil went in on 21 July 1977. CAFE raised fuel economy from 13.6 to 27.5 miles per gallon (1974 → 1985 target)."
+        ],
+        "ket_bai": "The lesson: don't let a single source of supply decide your survival; buffers must be built in calm times.",
+        "nguon": "Source: US Defense Department memo of 24 Oct 1973 (CIA Reading Room, via excerpts: about 4 million barrels a day, roughly 9%); FRUS 1969–1976 vol. XXV doc. 200 (OAPEC 5% monthly cuts from 17 Oct 1973; Arabian Light $3.01 → $5.12 → $11.65 a barrel), CIA Reading Room posted price table, Federal Reserve History; US Office of the Historian, “Oil Embargo, 1973–1974”; Bernanke, “Remarks on Class Day 2008” (price controls, odd-even days); IEP Agreement, Nov 1974 (90 days, via secondary sources); US DOJ ENRD (EPCA); Congressional Research Service IB90122 (CAFE). 30 days per barrel is a game rule based on the 90-day level; queue length, tank drawdown and flow thickness are illustrative."
+      }
     }
   ],
   "su-kien-khung-hoang-chau-a-1997": [
@@ -6945,6 +8894,163 @@
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
       }
+    },
+    {
+      "khuon": "thap-vay-ngan",
+      "id": "choi-thap-vay-ngan",
+      "truoc": "quyet-dinh",
+      "o": 12,
+      "thoi_gian": 12,
+      "nguong": 40,
+      "keo": 3,
+      "cuu": 2,
+      "giay": 10,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Tháp vay ngắn",
+        "hoi": "Xây dự án 5 năm bằng gạch vay. Gạch đô la ngắn hạn thì nhanh và rẻ. Tháp của bạn có đứng nổi qua ngày 2/7/1997?",
+        "mo_ta": "Sân khấu: giữa là tháp “Dự án 5 năm” có 12 ô. Bên trái là hai chồng gạch: gạch đô la ngắn hạn màu vàng (3 tháng, lãi rẻ) và gạch nội tệ dài hạn màu nâu (5 năm, lãi cao hơn, xây chậm gấp đôi). Bên phải là bể dự trữ của ngân hàng trung ương, dưới bể có ngăn kéo “hợp đồng kỳ hạn”. Trên cao là cần gạt tỷ giá đang ở “neo”. Phía sau là ba tháp hàng xóm B, C, D.",
+        "doc_mac": "1995. Kéo gạch từ hai chồng bên trái lên tháp, hoặc chạm vào chồng gạch. Thời gian xây đến đầu 1997 có hạn.",
+        "nut_1997": "Sang đầu 1997",
+        "nut_bom": "Bán đô la từ bể",
+        "nut_hua": "Hứa bán kỳ hạn",
+        "nut_truot": "Để tỷ giá trượt",
+        "nut_bung": "Ngày 2/7/1997",
+        "nut_rut": "Rút tầng trên cùng",
+        "nut_chot": "Chốt",
+        "nut_lai": "Chơi lại",
+        "tg_nhan": "Thời gian xây: 1995 → đầu 1997",
+        "neo": "neo",
+        "tha_noi": "thả nổi",
+        "nguoi_ban": "người bán baht",
+        "giam_ngay": "−17% trong ngày",
+        "be": "Dự trữ",
+        "ky_han": "hợp đồng kỳ hạn",
+        "du_an": "Dự án 5 năm",
+        "gach_noi_ngan": "nội tệ",
+        "nam5": "5 năm",
+        "thang3": "3 tháng",
+        "chong": [
+          "Gạch đô la",
+          "Gạch nội tệ"
+        ],
+        "chong_mo": [
+          "3 tháng · rẻ · nhanh",
+          "5 năm · đắt · chậm"
+        ],
+        "chong_full": [
+          "Gạch đô la ngắn hạn: vay 3 tháng, lãi rẻ, xây nhanh. Kéo lên tháp.",
+          "Gạch nội tệ dài hạn: vay 5 năm, lãi cao hơn, xây chậm gấp đôi. Kéo lên tháp."
+        ],
+        "day_thap": "Tháp đã đủ 12 ô.",
+        "het_gio": "Hết thời gian xây: đã sang 1997.",
+        "them_do": "Gạch đô la: nhanh và rẻ. Tháp {n}/{o} ô. Đồng hồ 3 tháng trên viên gạch bắt đầu đếm.",
+        "them_noi": "Gạch nội tệ: chậm và đắt hơn, nhưng 5 năm mới phải trả. Tháp {n}/{o} ô.",
+        "khong_con_do": "Không còn gạch đô la nào để thay.",
+        "con_cuu": "còn {n} viên khẩn cấp",
+        "da_doi": "Đã thay một viên gạch đô la bằng gạch nội tệ (còn {n} viên khẩn cấp).",
+        "gio_noi": "Đầu 1997. Gió nổi: người bán baht kéo cần gạt tỷ giá.",
+        "bi_keo": "Lần kéo {n}/{t}. Bạn giữ cần thế nào?",
+        "da_bom": "Bạn bán đô la từ bể để giữ neo. Mực nước tụt một vạch.",
+        "can": "Bể đã cạn trước ngày 2/7: không còn gì để giữ neo.",
+        "da_hua": "Mực nước không giảm. Nhưng ngăn kéo dưới bể phồng lên và rung: bạn đã hứa bán đô la sau này.",
+        "da_truot": "Bạn để tỷ giá trượt một chút. Bể giữ nguyên.",
+        "truoc_bung": "Đã đến tháng 7/1997. Bấm “Ngày 2/7/1997”.",
+        "ngay_bung": "2/7/97",
+        "cam_ket": "cam kết ≈ 23 tỷ USD",
+        "rong": "ròng ≈ 2,8 tỷ USD",
+        "keo_trong": "ngăn kéo trống",
+        "x2": "2/7/1997: thả nổi baht. Mỗi gạch đô la giờ nặng gấp đôi (×2, như baht mất 56% đến 1/1998). Chủ nợ đòi cùng lúc.",
+        "x5": "Ở mức rupiah (mất 81%), gạch đô la nặng gấp năm (×5). Bạn có {s} giây: kéo gạch nội tệ khẩn cấp lên tháp để thay gạch đô la, hoặc rút tầng trên cùng. Xong thì bấm Chốt.",
+        "da_rut": "Đã rút tầng trên cùng. Tháp còn {n} viên.",
+        "cap_dung": "Tháp đứng. Hàng xóm vẫn rung nhẹ: khủng hoảng lan cả sang nơi tương đối vững.",
+        "cap_do": "Tháp đổ. Sóng rung lan sang tháp B, C, D phía sau.",
+        "ket_dung": "Tháp đứng: gạch đô la ngắn hạn chỉ chiếm {p}% trong {n} viên.",
+        "ket_do": "Tháp đổ: gạch đô la ngắn hạn chiếm {p}% trong {n} viên (luật chơi: tối đa 40%, không dùng ngăn kéo kỳ hạn, bể không cạn).",
+        "ly_hua": "Ngăn kéo kỳ hạn đã hứa gần hết số đô la trong bể: dự trữ thật bằng dự trữ trừ cam kết.",
+        "ly_can": "Bể đã cạn trước ngày 2/7.",
+        "that_nhan": "Chuyện thật (Thái Lan):",
+        "that": [
+          "2/7/1997 Thái Lan thả nổi baht; baht mất gần 17% trong ngày. Hợp đồng kỳ hạn không công bố khoảng 23 tỷ USD; dự trữ ròng ngày thả nổi chỉ khoảng 2,8 tỷ USD.",
+          "Nợ ngắn hạn chiếm 65% tổng nợ nước ngoài; cuối 1997 dự trữ chỉ bằng 70,4% nợ ngắn hạn. Thâm hụt vãng lai năm 1996 khoảng 8% GDP.",
+          "Đến 1/1998 baht mất 56%, rupiah mất 81%. 16 công ty tài chính bị đình chỉ ngày 27/6/1997, thêm 42 công ty ngày 5/8; IMF duyệt gói SDR 2,9 tỷ cho Thái Lan ngày 20/8/1997."
+        ],
+        "ket_bai": "Bài học: đừng vay ngắn hạn bằng tiền người khác để làm việc dài hạn. Người đầu cơ chỉ kéo cần gạt; tháp đổ vì móng.",
+        "nguon": "Nguồn: IMF, Boughton (2012), chương 11; IMF, International Capital Markets Report 1998, chương II; Ngân hàng Trung ương Thái Lan, “Lessons learnt from the Asian Financial Crisis”; CRS (1998); UNCTAD; IMF Press Release 97/37; cam kết kỳ hạn và dự trữ ròng theo nghiên cứu về khủng hoảng Thái Lan và Ủy ban Nukul (nguồn thứ cấp). Hệ số ×2, ×5 suy ra từ mức mất giá; ngưỡng 40% gạch đô la (tức 60% gạch dài hạn), thời gian xây, số viên khẩn cấp và 10 giây là luật chơi; sóng rung là minh họa."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "The short-loan tower",
+        "hoi": "Build a 5-year project with borrowed bricks. Short-term dollar bricks are fast and cheap. Will your tower survive 2 July 1997?",
+        "mo_ta": "Stage: in the centre, a 12-slot tower labelled “5-year project”. On the left, two brick piles: yellow short-term dollar bricks (3 months, cheap interest) and brown long-term local-currency bricks (5 years, higher interest, twice as slow to lay). On the right, the central bank's reserve tank with a drawer underneath labelled “forward contracts”. Above, an exchange-rate lever locked at “peg”. In the background, three neighbouring towers B, C, D.",
+        "doc_mac": "1995. Drag bricks from the two piles onto the tower, or tap a pile. Building time until early 1997 is limited.",
+        "nut_1997": "On to early 1997",
+        "nut_bom": "Sell dollars from the tank",
+        "nut_hua": "Promise forward sales",
+        "nut_truot": "Let the rate slide",
+        "nut_bung": "2 July 1997",
+        "nut_rut": "Remove the top floor",
+        "nut_chot": "Done",
+        "nut_lai": "Play again",
+        "tg_nhan": "Building time: 1995 → early 1997",
+        "neo": "peg",
+        "tha_noi": "float",
+        "nguoi_ban": "baht seller",
+        "giam_ngay": "−17% in a day",
+        "be": "Reserves",
+        "ky_han": "forward contracts",
+        "du_an": "5-year project",
+        "gach_noi_ngan": "local",
+        "nam5": "5 yrs",
+        "thang3": "3 mo",
+        "chong": [
+          "Dollar bricks",
+          "Local bricks"
+        ],
+        "chong_mo": [
+          "3 months · cheap · fast",
+          "5 years · dear · slow"
+        ],
+        "chong_full": [
+          "Short-term dollar brick: a 3-month loan, cheap interest, fast to lay. Drag it onto the tower.",
+          "Long-term local-currency brick: a 5-year loan, higher interest, twice as slow to lay. Drag it onto the tower."
+        ],
+        "day_thap": "The tower is full (12 slots).",
+        "het_gio": "Building time is up: it is 1997.",
+        "them_do": "Dollar brick: fast and cheap. Tower {n}/{o}. The 3-month clock on the brick starts ticking.",
+        "them_noi": "Local brick: slower and dearer, but not due for 5 years. Tower {n}/{o}.",
+        "khong_con_do": "No dollar bricks left to swap.",
+        "con_cuu": "{n} emergency bricks left",
+        "da_doi": "Swapped a dollar brick for a local one ({n} emergency bricks left).",
+        "gio_noi": "Early 1997. The wind picks up: a baht seller pulls the exchange-rate lever.",
+        "bi_keo": "Pull {n} of {t}. How do you hold the lever?",
+        "da_bom": "You sell dollars from the tank to hold the peg. The water drops a line.",
+        "can": "The tank ran dry before 2 July: nothing left to hold the peg.",
+        "da_hua": "The water level does not drop. But the drawer under the tank swells and shakes: you have promised to sell dollars later.",
+        "da_truot": "You let the rate slide a little. The tank stays full.",
+        "truoc_bung": "It is July 1997. Press “2 July 1997”.",
+        "ngay_bung": "2 Jul 97",
+        "cam_ket": "promised ≈ $23bn",
+        "rong": "net ≈ $2.8bn",
+        "keo_trong": "drawer empty",
+        "x2": "2 July 1997: the baht floats. Every dollar brick is now twice as heavy (×2, as the baht lost 56% by January 1998). Lenders recall together.",
+        "x5": "At the rupiah's level (down 81%), dollar bricks are five times as heavy (×5). You have {s} seconds: drag emergency local bricks onto the tower to replace dollar bricks, or remove the top floor. Then press Done.",
+        "da_rut": "Top floor removed. The tower has {n} bricks left.",
+        "cap_dung": "The tower stands. The neighbours still shake a little: the crisis spread even to fairly sound places.",
+        "cap_do": "The tower falls. The shock wave travels to towers B, C and D.",
+        "ket_dung": "The tower stands: short-term dollar bricks are only {p}% of its {n} bricks.",
+        "ket_do": "The tower falls: short-term dollar bricks are {p}% of its {n} bricks (game rule: at most 40%, no forward drawer, tank not dry).",
+        "ly_hua": "The forward drawer had promised away most of the dollars in the tank: real reserves are reserves minus promises.",
+        "ly_can": "The tank ran dry before 2 July.",
+        "that_nhan": "What really happened (Thailand):",
+        "that": [
+          "On 2 July 1997 Thailand floated the baht; it lost nearly 17% that day. Undisclosed forward contracts were about $23 billion; net reserves on the float day were only about $2.8 billion.",
+          "Short-term debt was 65% of foreign debt; at end-1997 reserves covered only 70.4% of short-term debt. The current account deficit was about 8% of GDP in 1996.",
+          "By January 1998 the baht had lost 56% and the rupiah 81%. 16 finance companies were suspended on 27 June 1997 and 42 more on 5 August; the IMF approved an SDR 2.9 billion package for Thailand on 20 August 1997."
+        ],
+        "ket_bai": "The lesson: don't borrow short term with other people's money to do long-term work. Speculators only pull the lever; the tower falls because of its foundation.",
+        "nguon": "Source: IMF, Boughton (2012), ch. 11; IMF, International Capital Markets Report 1998, ch. II; Bank of Thailand, “Lessons learnt from the Asian Financial Crisis”; CRS (1998); UNCTAD; IMF Press Release 97/37; forward commitments and net reserves per studies of the Thai crisis and the Nukul Commission (secondary sources). The ×2, ×5 factors are derived from the depreciation; the 40% dollar-brick limit (i.e. 60% long-term), building time, emergency bricks and the 10 seconds are game rules; the shock wave is illustrative."
+      }
     }
   ],
   "su-kien-bao-katrina": [
@@ -7095,6 +9201,269 @@
         "nguon": "Source: NHC Tropical Cyclone Report: Hurricane Katrina (Knabb, Rhome, Brown; updated 4 Jan 2023), Category 5 on 28 Aug and Category 3 landfall at 6:10 a.m. on 29 Aug (checked via copies, secondary source); Mayor Nagin's letter to the US Senate, 1 Feb 2006 (voluntary then mandatory evacuation, Superdome); Fox News/AP 2005 (evacuation plan about 10%, secondary source); Esri conference paper 2007 (about 1.3 million evacuated) and Rich Campanella (about 100,000 stayed) (secondary sources, estimates); House report \"A Failure of Initiative\", 15 Feb 2006, via NBC News, NPR (secondary sources); GAO-06-903 (more than 33,500 rescued by the Coast Guard); the 2004 Pam exercise per the Senate record of 24 Jan 2006 (secondary source).",
         "biet_nhan": "You know:",
         "that_nhan": "What really happened:"
+      }
+    },
+    {
+      "khuon": "va-de",
+      "id": "choi-va-de",
+      "truoc": "quyet-dinh",
+      "ngan_sach": 3,
+      "them": 2,
+      "moc_ngap": 80,
+      "moi_lo": 16,
+      "vi": {
+        "muc": "Sân khấu",
+        "nhan": "Vá đê trước khi bão tới",
+        "hoi": "Diễn tập “bão Pam” (7/2004) tìm ra 5 lỗ hổng. Bạn có kinh phí cho 3 viên gạch. Vá lỗ nào trước khi bão tới?",
+        "mo_ta": "Mặt cắt ngang: bên trái là hồ có sóng, ở giữa là bức tường đê chia 5 ô, mỗi ô có một lỗ hổng sáng cam là một phát hiện của diễn tập Pam; bên phải là thành phố trũng gồm các khối nhà. Góc trên có xoáy bão đang tới, lịch và kinh phí. Bãi gạch bên dưới có 7 viên: 5 viên vá được 5 lỗ, 2 viên mồi. Thanh đo bên phải cho biết phần thành phố ngập.",
+        "doc_mac": "7/2004. Chạm vào lỗ hổng để đọc. Kéo viên gạch vào lỗ bạn muốn vá, hoặc chạm viên gạch rồi chạm lỗ. Khi sẵn sàng, bấm “Cho bão vào”.",
+        "da_chon": "Đã chọn “{g}”. Giờ chạm vào lỗ bạn muốn vá (chạm chỗ khác để bỏ chọn).",
+        "bo_chon": "Đã bỏ chọn viên gạch.",
+        "nut_them": "Xin thêm kinh phí",
+        "nut_bao": "Cho bão vào",
+        "nut_lai": "Chơi lại",
+        "lo": [
+          {
+            "ngan": "Người không có xe",
+            "full": "Lỗ hổng 1: chưa có cách sơ tán người không có xe."
+          },
+          {
+            "ngan": "Kế hoạch mới ~10%",
+            "full": "Lỗ hổng 2: kế hoạch sơ tán mới xong khoảng 10%."
+          },
+          {
+            "ngan": "Tiếp nối bị hoãn",
+            "full": "Lỗ hổng 3: buổi tiếp nối của diễn tập bị hoãn vì “không có tiền để làm phần tiếp theo”."
+          },
+          {
+            "ngan": "“Đê sẽ giữ”",
+            "full": "Lỗ hổng 4: mọi người giả định đê và tường chắn sẽ giữ."
+          },
+          {
+            "ngan": "Tin xấu đi chậm",
+            "full": "Lỗ hổng 5: tin xấu đi chậm, chờ xác nhận rồi mới báo."
+          }
+        ],
+        "gach": [
+          {
+            "chu": [
+              "Xe buýt sơ tán:",
+              "tài xế, điểm đến"
+            ],
+            "full": "Kế hoạch xe buýt ra khỏi thành phố, có tài xế và điểm đến.",
+            "lo": 0
+          },
+          {
+            "chu": [
+              "Hoàn thành kế hoạch:",
+              "người nhận, ngày xong"
+            ],
+            "full": "Hoàn thành kế hoạch sơ tán, có người nhận việc và ngày xong.",
+            "lo": 1
+          },
+          {
+            "chu": [
+              "Chốt kinh phí",
+              "cho phần sau diễn tập"
+            ],
+            "full": "Chốt kinh phí cho phần sau của diễn tập.",
+            "lo": 2
+          },
+          {
+            "chu": [
+              "Tập thêm vòng:",
+              "tường chắn hỏng sớm?"
+            ],
+            "full": "Tập thêm một vòng: nếu tường chắn hỏng trước mức thiết kế thì sao?",
+            "lo": 3
+          },
+          {
+            "chu": [
+              "Ngưỡng báo động sẵn:",
+              "báo trước, xác nhận sau"
+            ],
+            "full": "Ngưỡng báo động viết sẵn: báo trước, xác nhận sau.",
+            "lo": 4
+          },
+          {
+            "chu": [
+              "Ghi nhận",
+              "trong biên bản"
+            ],
+            "full": "Ghi nhận trong biên bản.",
+            "lo": -1,
+            "tan": "Viên gạch tan ra: “đã ghi nhận” không vá được gì. Mất một phần kinh phí."
+          },
+          {
+            "chu": [
+              "Chờ dự báo",
+              "chắc chắn hơn"
+            ],
+            "full": "Chờ dự báo chắc chắn hơn.",
+            "lo": -1,
+            "tan": "Viên gạch tan ra: chờ thêm không vá được lỗ nào. Mất một phần kinh phí."
+          }
+        ],
+        "sai_lo": "Viên này không vá lỗ “{l}”. Đọc lại các lỗ rồi thử chỗ khác.",
+        "da_va": "Đã vá lỗ “{l}”.",
+        "het_tien": "Hết kinh phí, như buổi tiếp nối thật bị hoãn vì thiếu tiền. Có thể xin thêm, nhưng phải đợi tới 7/2005.",
+        "het_han": "Hết kinh phí.",
+        "da_them": "Có thêm kinh phí cho 2 viên, nhưng giờ đã là 7/2005: một tháng trước Katrina.",
+        "kinh_phi": "Kinh phí:",
+        "lich": [
+          "7/2004",
+          "12/2004",
+          "7/2005",
+          "27/8/2005",
+          "28/8/2005",
+          "29/8/2005"
+        ],
+        "moc": "≈80% (thật)",
+        "do_nhan": "Nhà ngập",
+        "b27": "27/8/2005: bão mạnh lên ngoài vịnh.",
+        "cap5": "Cấp 5 ngoài vịnh (175 mph)",
+        "b28": "28/8/2005: bão cấp 5 ngoài vịnh Mexico, gió 175 dặm/giờ.",
+        "cap3": "Đổ bộ cấp 3, 6:10 sáng 29/8",
+        "b29": "29/8/2005, 6:10 sáng: bão đổ bộ cấp 3 gần Buras. Nước dâng.",
+        "cap_ngap": "Nước tràn qua các lỗ còn hở. Thanh đo: {p}% (minh họa).",
+        "cap_giu": "Đê giữ ở mọi ô bạn đã vá. Bão vẫn là bão thật.",
+        "ket_ho": "Còn {n} lỗ hở, thanh đo dừng ở {p}% (minh họa). Ngoài đời, các lỗ hổng chưa được vá trước ngày 29/8/2005, và khoảng 80% thành phố ngập.",
+        "ket_kin": "Bão là thật. Phần lớn thêm là do con người, và bạn vừa vá phần đó.",
+        "that_nhan": "Chuyện thật:",
+        "that": [
+          "Diễn tập Pam kéo dài 8 ngày ở Baton Rouge (7/2004); bản nháp báo cáo 12/2004; buổi tiếp nối hoãn tới 7/2005 vì “không có tiền để làm phần tiếp theo”.",
+          "Bão cấp 5 ngoài vịnh ngày 28/8 (175 dặm/giờ), đổ bộ cấp 3 lúc 6:10 sáng 29/8 gần Buras. 4 điểm tường chắn hỏng nền trước khi nước lên tới mức thiết kế. Khoảng 80% thành phố ngập.",
+          "1.392 người chết (NHC, cập nhật 2023); Tuần duyên cứu hơn 33.500 người."
+        ],
+        "ket_bai": "Bài học: diễn tập xong phải sửa theo bài học diễn tập. Phát hiện chỉ có ích khi được vá, và “đã ghi nhận” không phải là vá.",
+        "nguon": "Nguồn: hồ sơ điều trần Thượng viện Mỹ 24/1/2006, CBS News, GovExec 1/2006, Fox News/AP 2005 (diễn tập Pam; nguồn thứ cấp); NHC Tropical Cyclone Report cập nhật 2023 (nguồn thứ cấp, qua CNN, KSLA); IPET Vol. V, Công binh Mỹ (2007); Waterways Journal (80%, nguồn thứ cấp); GAO-06-903. Thanh đo ngập trong trò chơi là minh họa (mỗi lỗ hở 16%); chỉ mốc 80% là số thật. Kinh phí 3 viên là luật chơi."
+      },
+      "en": {
+        "muc": "Stage",
+        "nhan": "Patch the levee before the storm",
+        "hoi": "The “Hurricane Pam” exercise (July 2004) found 5 gaps. You have money for 3 bricks. Which gaps do you patch before the storm?",
+        "mo_ta": "Cross-section: on the left a lake with waves, in the middle a levee wall split into 5 cells, each with a glowing orange gap that is one finding of the Pam exercise; on the right a low-lying city of plain blocks. At the top, an approaching storm, a calendar and a budget. Below, a yard of 7 bricks: 5 that patch the 5 gaps and 2 decoys. A gauge on the right shows how much of the city floods.",
+        "doc_mac": "July 2004. Tap a gap to read it. Drag a brick into the gap you want to patch, or tap a brick and then a gap. When you are ready, press “Let the storm in”.",
+        "da_chon": "Selected “{g}”. Now tap the gap you want to patch (tap elsewhere to cancel).",
+        "bo_chon": "Brick deselected.",
+        "nut_them": "Ask for more money",
+        "nut_bao": "Let the storm in",
+        "nut_lai": "Play again",
+        "lo": [
+          {
+            "ngan": "People without cars",
+            "full": "Gap 1: no way yet to evacuate people without cars."
+          },
+          {
+            "ngan": "Plan ~10% done",
+            "full": "Gap 2: the evacuation plan was about 10% complete."
+          },
+          {
+            "ngan": "Follow-up delayed",
+            "full": "Gap 3: the exercise follow-up was delayed because “money was not available to do the follow-up”."
+          },
+          {
+            "ngan": "“Levees will hold”",
+            "full": "Gap 4: everyone assumed the levees and floodwalls would hold."
+          },
+          {
+            "ngan": "Bad news is slow",
+            "full": "Gap 5: bad news travels slowly, waiting for confirmation before warning."
+          }
+        ],
+        "gach": [
+          {
+            "chu": [
+              "Bus evacuation plan:",
+              "drivers, destinations"
+            ],
+            "full": "A plan for buses out of the city, with drivers and destinations.",
+            "lo": 0
+          },
+          {
+            "chu": [
+              "Finish the plan:",
+              "owner and due date"
+            ],
+            "full": "Finish the evacuation plan, with an owner and a due date.",
+            "lo": 1
+          },
+          {
+            "chu": [
+              "Fund the",
+              "exercise follow-up"
+            ],
+            "full": "Commit the money for the rest of the exercise.",
+            "lo": 2
+          },
+          {
+            "chu": [
+              "Extra round: what if",
+              "floodwalls fail early?"
+            ],
+            "full": "Run one more round: what if floodwalls fail below their design height?",
+            "lo": 3
+          },
+          {
+            "chu": [
+              "Written alarm trigger:",
+              "warn first, confirm later"
+            ],
+            "full": "A written alarm threshold: warn first, confirm later.",
+            "lo": 4
+          },
+          {
+            "chu": [
+              "Note it",
+              "in the minutes"
+            ],
+            "full": "Note it in the minutes.",
+            "lo": -1,
+            "tan": "The brick dissolves: “noted” patches nothing. Some of the money is gone."
+          },
+          {
+            "chu": [
+              "Wait for a",
+              "surer forecast"
+            ],
+            "full": "Wait for a surer forecast.",
+            "lo": -1,
+            "tan": "The brick dissolves: waiting patches no gap. Some of the money is gone."
+          }
+        ],
+        "sai_lo": "This brick does not patch “{l}”. Reread the gaps and try another one.",
+        "da_va": "Patched “{l}”.",
+        "het_tien": "Out of money, just as the real follow-up was delayed for lack of funds. You can ask for more, but it will be July 2005.",
+        "het_han": "Out of money.",
+        "da_them": "Money for 2 more bricks, but it is now July 2005: one month before Katrina.",
+        "kinh_phi": "Budget:",
+        "lich": [
+          "Jul 2004",
+          "Dec 2004",
+          "Jul 2005",
+          "27 Aug 2005",
+          "28 Aug 2005",
+          "29 Aug 2005"
+        ],
+        "moc": "≈80% (real)",
+        "do_nhan": "Flooded",
+        "b27": "27 August 2005: the storm strengthens in the Gulf.",
+        "cap5": "Category 5 in the Gulf (175 mph)",
+        "b28": "28 August 2005: Category 5 in the Gulf of Mexico, winds of 175 mph.",
+        "cap3": "Cat. 3 landfall, 6:10 a.m. 29 Aug",
+        "b29": "29 August 2005, 6:10 a.m.: Category 3 landfall near Buras. The water rises.",
+        "cap_ngap": "Water pours through the open gaps. Gauge: {p}% (illustrative).",
+        "cap_giu": "The levee holds at every cell you patched. The storm is still a real storm.",
+        "ket_ho": "{n} gaps left open; the gauge stops at {p}% (illustrative). In real life the gaps were not patched before 29 August 2005, and about 80% of the city flooded.",
+        "ket_kin": "The storm is real. Much of the rest was man-made, and you just patched that part.",
+        "that_nhan": "What really happened:",
+        "that": [
+          "The Pam exercise ran 8 days in Baton Rouge (July 2004); a draft report came in December 2004; the follow-up was delayed to July 2005 because “money was not available to do the follow-up”.",
+          "Category 5 in the Gulf on 28 August (175 mph), Category 3 landfall at 6:10 a.m. on 29 August near Buras. 4 floodwall sites failed below their design height. About 80% of the city flooded.",
+          "1,392 deaths (NHC, updated 2023); the Coast Guard rescued more than 33,500 people."
+        ],
+        "ket_bai": "The lesson: after an exercise, fix what the exercise taught you. A finding only helps once it is patched, and “noted” is not a patch.",
+        "nguon": "Source: US Senate hearing record of 24 Jan 2006, CBS News, GovExec Jan 2006, Fox News/AP 2005 (Pam exercise; secondary sources); NHC Tropical Cyclone Report updated 2023 (secondary source, via CNN, KSLA); IPET Vol. V, US Army Corps of Engineers (2007); Waterways Journal (80%, secondary source); GAO-06-903. The flood gauge in the game is illustrative (16% per open gap); only the 80% mark is real. The 3-brick budget is a game rule."
       }
     }
   ]
