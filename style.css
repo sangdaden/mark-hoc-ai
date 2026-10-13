@@ -439,6 +439,12 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .bit-nut img { width: 64px; height: auto; display: block; margin: 0 auto; }
 .bit-nut:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; border-radius: 16px; }
 .bit-nay .bit-nut { animation: bit-nay .7s cubic-bezier(.3, 1.6, .5, 1); }
+/* Góc Vũ Trụ Khác: Bit ngủ (assets/bit-ngu.svg), thở chậm thay vì bay, giật mình nhẹ khi bị gọi (bit-tro-ly.js) */
+.bit-ngu .bit-nut { animation: bit-tho 4.5s ease-in-out infinite; transform-origin: 50% 100%; }
+.bit-ngu.bit-nay .bit-nut { animation: bit-nay .7s cubic-bezier(.3, 1.6, .5, 1); }
+:root[data-theme="dark"] .bit-ngu .bit-nut img { filter: brightness(1.6) drop-shadow(0 0 10px rgb(251 191 36 / .25)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bit-ngu .bit-nut img { filter: brightness(1.6) drop-shadow(0 0 10px rgb(251 191 36 / .25)); } }
+@keyframes bit-tho { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04, .97); } }
 @keyframes bit-bay { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes bit-nay { 0% { transform: scale(.85); } 60% { transform: scale(1.12) rotate(-6deg); } 100% { transform: scale(1); } }
 .bit-noi { position: relative; max-width: min(250px, calc(100vw - 32px)); margin-right: 8px; padding: 12px 34px 12px 14px; border-radius: 16px 16px 4px 16px;
@@ -1250,16 +1256,52 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 .vtk-logo img { width: min(100%, 420px); height: auto; }
 .vtk-trang .head-art { width: 200px; }
 .vtk { padding: 32px 24px 56px; }
+/* Trang chủ góc chia theo chủ đề (Sang 13/10: góc sẽ rộng hơn sách): chip lọc, mỗi chủ đề một khối, thẻ gọn có gáy màu bìa.
+   scripts/tao_vu_tru_khac.py tạo chip, khối và thẻ; --bia-1/2/nhan lấy từ "bia" của từng bài */
+.vtk-loc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; scroll-margin-top: 70px; }
+.vtk-loc a, .vtk-sap { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 15px;
+  text-decoration: none; color: var(--ink); background: var(--panel); border: 1px solid color-mix(in srgb, #EA580C 25%, var(--edge)); }
+.vtk-loc a:hover { border-color: #EA580C; }
+.vtk-loc a[aria-current] { background: #0F172A; border-color: #0F172A; color: #FFF7ED; }
+.vtk-loc small { font: 500 12px var(--f-mono, monospace); opacity: .75; }
+.vtk-sap { background: none; border-style: dashed; color: var(--muted); font-weight: 500; }
+.vtk-khoi + .vtk-khoi { margin-top: 32px; }
+.vtk-khoi { scroll-margin-top: 70px; }
+.vtk-khoi-dau { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.vtk-khoi-dau .vtk-h { margin: 0; }
+.vtk-khoi-dau span { color: var(--muted); font-size: 14px; }
 .vtk-h { font: 800 24px/1.2 var(--f-display); margin: 0 0 14px; }
-.vtk-ds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
-.vtk-sach { display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 18px; text-decoration: none; color: var(--ink);
-  background: linear-gradient(135deg, color-mix(in srgb, #F59E0B 14%, var(--panel)), var(--panel));
-  border: 1.5px solid color-mix(in srgb, #EA580C 40%, var(--edge)); transition: transform .15s; }
-.vtk-sach:hover { border-color: #EA580C; transform: translateY(-2px); }
-.vtk-sach b { font: 800 22px/1.2 var(--f-display); }
-.vtk-so { font: 500 12px/1.3 var(--f-mono, monospace); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.vtk-tg { color: var(--muted); font-style: italic; }
-.vtk-sach em { margin-top: 6px; font-style: normal; font-weight: 600; color: #C2410C; }
-:root[data-theme="dark"] .vtk-sach em { color: #FBBF24; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vtk-sach em { color: #FBBF24; } }
+.vtk-ds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 12px; }
+.vtk-the { --bia-1: #0F172A; --bia-2: #1E293B; --bia-nhan: #FBBF24; display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: center;
+  padding: 12px 16px 12px 12px; border-radius: 16px; text-decoration: none; color: var(--ink); background: var(--panel);
+  border: 1px solid color-mix(in srgb, #EA580C 22%, var(--edge)); transition: transform .15s, border-color .15s; }
+.vtk-the:hover { border-color: var(--bia-nhan); transform: translateY(-2px); }
+/* Bìa thu nhỏ: vẽ bằng CSS từ tên sách, tác giả, màu và hoạ tiết bìa (bia-trang, bia-but-chi, bia-song, bia-hong-tam), không cần ảnh */
+.vtk-bia { position: relative; overflow: hidden; height: 116px; padding: 10px 6px 9px 11px; border-radius: 3px 8px 8px 3px; display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(160deg, var(--bia-2), var(--bia-1)); color: #FFF7ED; container-type: inline-size;
+  box-shadow: inset 4px 0 0 rgb(0 0 0 / .3), inset 5px 0 0 rgb(255 255 255 / .12), 0 8px 14px -8px rgb(15 23 42 / .7); }
+.vtk-bia i { position: relative; z-index: 1; font: normal 800 12px/1.12 var(--f-display); color: var(--bia-nhan); hyphens: manual;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.vtk-bia.dai i { font-size: 10.5px; }
+.vtk-bia small { position: relative; z-index: 1; font: 500 7.5px/1.2 var(--f-body); letter-spacing: .04em; text-transform: uppercase; opacity: .85; overflow-wrap: anywhere; }
+.vtk-bia::after { content: ""; position: absolute; left: 12px; right: 8px; bottom: 34px; height: 2px; border-radius: 2px; background: var(--bia-nhan); opacity: .8; }
+.vtk-bia.bia-trang::before { content: ""; position: absolute; right: 9px; top: 46px; width: 20px; height: 20px; border-radius: 50%; box-shadow: 5px -3px 0 0 var(--bia-nhan); transform: rotate(-20deg); }
+.vtk-bia.bia-but-chi::after { left: 0; right: 0; bottom: 0; height: 6px; border-radius: 0; opacity: 1;
+  background: linear-gradient(90deg, #F2A7B8 0 12px, #C0C4CC 12px 16px, #F5C518 16px calc(100% - 10px), #E8C99A calc(100% - 10px) calc(100% - 4px), #333 calc(100% - 4px)); }
+.vtk-bia.bia-song::after { left: 0; right: 0; bottom: 0; height: 10px; border-radius: 0; opacity: 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpath d='M0 5 Q6 1 12 5 T24 5' fill='none' stroke='%2322D3EE' stroke-width='2'/%3E%3C/svg%3E") repeat-x center / 24px 10px; }
+.vtk-bia.bia-hong-tam::before { content: ""; position: absolute; right: -10px; top: 40px; width: 40px; height: 40px; border-radius: 50%;
+  background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); opacity: .9; }
+.vtk-the:hover .vtk-bia { transform: rotate(-2deg) translateY(-2px); }
+@media (prefers-reduced-motion: no-preference) { .vtk-bia { transition: transform .2s; } }
+.vtk-noi { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.vtk-the b { font: 800 19px/1.2 var(--f-display); }
+.vtk-so { font: 500 11px/1.3 var(--f-mono, monospace); letter-spacing: .06em; text-transform: uppercase; color: #C2410C; }
+.vtk-tg { color: var(--muted); font-size: 13px; }
+.vtk-mt { font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+:root[data-theme="dark"] .vtk-so { color: #FBBF24; }
+:root[data-theme="dark"] .vtk-loc a[aria-current] { background: #FBBF24; border-color: #FBBF24; color: #0F172A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vtk-so { color: #FBBF24; }
+  :root:not([data-theme="light"]) .vtk-loc a[aria-current] { background: #FBBF24; border-color: #FBBF24; color: #0F172A; } }
+@media (max-width: 520px) { .vtk-the { grid-template-columns: 72px 1fr; gap: 12px; } .vtk-bia { height: 106px; padding: 8px 5px 8px 9px; } .vtk-bia i { font-size: 11px; } .vtk-bia.dai i { font-size: 9px; } .vtk-loc a, .vtk-sap { padding: 7px 13px; font-size: 14px; } }
 .vtk-ghi { margin-top: 20px; color: var(--muted); font-size: 14px; }
