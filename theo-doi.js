@@ -3,7 +3,7 @@
    Mọi trang nạp file này trong <head>. Trang nào muốn đếm thêm thì gọi window.mhaiDo("ten-su-kien", { nhan: "..." }).
    Chạy thử trên máy: thêm ?do=thu vào địa chỉ trang, sự kiện được in ra console và lưu ở window.__do (không gửi đi đâu). */
 (function () {
-  var MA_WEB = ""; // mã website trên Umami (Website ID). Còn trống thì file này không gửi gì.
+  var MA_WEB = "675f1509-0d09-44bb-98de-9d4c51aaadd9"; // mã website trên Umami (Website ID). Còn trống thì file này không gửi gì.
   var TEN_MIEN = "markhocai.com";
 
   var duong = location.pathname;
