@@ -621,7 +621,8 @@
   function dungVong() { if (raf) cancelAnimationFrame(raf); raf = 0; ve(); }
 
   function coGian() {
-    var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+    // Dùng kích thước chưa xoay (clientWidth/Height) vì ở chế độ game khung có thể bị xoay 90°.
+    var r = {width: cv.clientWidth, height: cv.clientHeight}, dpr = Math.min(2, window.devicePixelRatio || 1);
     if (!r.width || !r.height) return;
     rongNhin = CAO * r.width / r.height;
     cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
@@ -630,7 +631,7 @@
   }
 
   // ---------- Chế độ chơi toàn màn hình trên điện thoại ----------
-  // Chỉ còn khung game và nút bấm; câu hỏi và giải thích nổi lên thành popup đè trên game.
+  // Màn hình xoay ngang, chỉ còn game và nút bấm nổi trên game; câu hỏi và giải thích là popup ở đầu màn chơi.
   var DT = window.matchMedia ? window.matchMedia("(pointer: coarse), (max-width: 700px)") : {matches: false};
   var daThoat = false;
   function toanMan(bat) {
@@ -641,7 +642,12 @@
     nut.setAttribute("aria-label", bat ? T.toanRa : T.toanVao); nut.title = nut.getAttribute("aria-label");
     nut.setAttribute("aria-pressed", bat ? "true" : "false");
     try {
-      if (bat && pl.requestFullscreen && !document.fullscreenElement) pl.requestFullscreen({navigationUI: "hide"}).catch(function () {});
+      // Android: cả trang vào toàn màn hình rồi khóa xoay ngang (không gọi trên #pl vì trình duyệt sẽ ép bỏ phép xoay của nó).
+      // iOS không hỗ trợ thì CSS tự xoay khung.
+      if (bat && document.documentElement.requestFullscreen && !document.fullscreenElement) document.documentElement.requestFullscreen({navigationUI: "hide"}).then(function () {
+        if (screen.orientation && screen.orientation.lock) return screen.orientation.lock("landscape");
+      }).catch(function () {});
+      if (!bat && screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
       if (!bat && document.fullscreenElement) document.exitFullscreen().catch(function () {});
     } catch (x) {}
     requestAnimationFrame(coGian);
