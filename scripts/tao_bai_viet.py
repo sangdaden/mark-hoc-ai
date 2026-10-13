@@ -40,6 +40,7 @@ tu_dien = load("tu-dien")["thuat_ngu"]
 kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
+from tao_vu_tru_khac import dong_sitemap
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
 YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
@@ -1030,6 +1031,8 @@ def chay():
         sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-nhan.html</loc><priority>0.6</priority></url>")
         # Game Mark phiêu lưu (phieu-luu.html, en/phieu-luu.html) viết tay, câu hỏi lấy từ data/bo-kiem-tra.json
         sitemap.append(f"  <url><loc>{BASE}{tien_to}phieu-luu.html</loc><priority>0.7</priority></url>")
+        # Góc sách "Mark ở vũ trụ khác" (scripts/tao_vu_tru_khac.py cũng tự cập nhật các dòng này khi thêm sách)
+        sitemap += dong_sitemap(tien_to)
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
     print("sitemap.xml:", len(sitemap) - 3, "trang")
