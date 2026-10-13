@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Fukushima Daiichi Disaster (TEPCO · Fukushima Daiichi): summary, review and lessons | Another Universe</title>
+<meta name="description" content="TEPCO had calculated a 15.7 m wave in 2008, so why was the wall still built for 5.7 m? An anatomy from the Japanese Diet commission, the IAEA and UNSCEAR, separating three kinds of death and fact-checking 13 myths.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Fukushima Daiichi Disaster (TEPCO · Fukushima Daiichi): summary, review and lessons | Another Universe">
+<meta property="og:description" content="TEPCO had calculated a 15.7 m wave in 2008, so why was the wall still built for 5.7 m? An anatomy from the Japanese Diet commission, the IAEA and UNSCEAR, separating three kinds of death and fact-checking 13 myths.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/tham-hoa-fukushima.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #0B1A20; --bia-2: #0E5568; --bia-nhan: #FACC15; }
+:root { --vtk-nhan: #FACC15; }
+body header { --ho-so: "Case file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/tham-hoa-fukushima.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Anatomy of a Disaster": Fukushima Daiichi, --night = sea teal (the tsunami), --day = radiation amber (the warning sign). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0e7490;
+  --day: #a16207;
+  --rem: #6d28d9;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #22d3ee; --day: #facc15; --rem: #c4b5fd; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #22d3ee; --day: #facc15; --rem: #c4b5fd; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Anatomy of a Disaster · Nuclear · Risk management</span>
+  <h1>The Fukushima Daiichi Disaster</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="A wave, a radiation warning sign, and a height of 15.7 metres">
+    <path d="M4 40c10 0 12-24 30-24 10 0 14 8 10 14-4-6-12-4-12 4 0 4 4 6 8 6z" fill="#0e7490"/>
+    <text x="56" y="32" font-family="monospace" font-size="15" fill="#8a94a6">15.7 m</text>
+    <g transform="translate(150 26)" fill="#a16207"><circle r="3"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z" transform="rotate(120)"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z" transform="rotate(240)"/></g>
+    <text x="180" y="32" font-family="monospace" font-size="15" fill="#8a94a6">11 Mar 2011</text>
+  </svg>
+  <p class="sub">11 March 2011 · Fukushima Daiichi Nuclear Power Station, Fukushima Prefecture, Japan</p>
+  <div class="meta">
+    <div><span class="label">What happened</span><b>a tsunami cut all power, and three reactors melted down</b></div>
+    <div><span class="label">Loss</span><b>about 150,000 people evacuated; INES level 7 (the highest)</b></div>
+    <div><span class="label">Root cause</span><b>a high tsunami warning was shelved; the regulator was "captured"</b></div>
+    <div><span class="label">Main sources</span><b>Japanese Diet investigation commission (NAIIC), July 2012; IAEA report, 2015</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 22c5 0 6-10 13-10 5 0 7 4 5 7-2-3-6-2-6 2 0 2 2 3 4 3"/><path d="M3 27h26"/></svg><b>A wave higher than the wall</b><span>The plant was designed for a tsunami of at most 5.7 m. The real one was about 13–15 m.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V8h20"/><path d="M10 22l5-5 4 3 7-8"/></svg><b>The 15.7 m figure from 2008</b><span>TEPCO itself calculated this wave height three years earlier, then sent it off for "further study".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="6" width="18" height="22" rx="2"/><path d="M12 13h8M12 18h8M12 23h4"/></svg><b>The regulated held the pen</b><span>The Diet commission called it "regulatory capture": the operator led the agency meant to supervise it.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5"/></svg><b>Three kinds of death</b><span>The tsunami killed nearly 16,000 people. Evacuation and displacement brought over 2,000 more. Acute radiation sickness: 0.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>"Simply unthinkable"</b><span>IAEA: the whole system believed an accident this size could not happen, so it did not prepare.</span></div>
+  </div>
+  <p class="nguon">Sources: NAIIC (2012), pp. 16 and 20; TEPCO (24 Apr 2012, the 15.7 m calculation); TEPCO (8 Jul 2011, wave about 13 m); World Nuclear Association (wave about 15 m); Japan's National Police Agency (Mar 2026); Reconstruction Agency (data to 31 Dec 2025); IAEA, Director General's report (2015).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question of the case</h2></div>
+  <p class="thesis">A major power company had calculated, three years in advance, a wave high enough to swamp its plant. Why did that number stay in a drawer? Because an expensive warning is very easy to call "just one estimate".</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">2002–2011</span><b>The warning</b><span>An M8 quake forecast along the coast. TEPCO calculates a 15.7 m wave. Nothing more is built.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">11 Mar 2011</span><b>Total blackout</b><span>An M9 quake, then a tsunami over the 10 m site grade. Backup generators flooded.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">12–15 Mar 2011</span><b>Meltdown and evacuation</b><span>Three cores melt, three buildings blown apart by hydrogen. The evacuation zone grows from 2 km to 20 km.</span></div>
+  </div>
+  <p class="nguon">Sources: TEPCO (24 Apr 2012); World Nuclear Association (timeline, based on NAIIC).</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>What happened</h2><p class="lead">One chart tells most of the story: the wave had been calculated, but the wall was never raised.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 250" role="img" aria-labelledby="th">
+        <title id="th">Heights in metres above sea level. Original design tsunami: 3.1 m. After the 2002 reassessment: 5.7 m. Site grade of reactor buildings 1 to 4: 10 m. Tsunami of 11 March 2011: about 13 to 15 m. TEPCO's 2008 trial calculation: 15.7 m.</title>
+        <line x1="60" y1="200" x2="700" y2="200" class="axis"/>
+        <line x1="60" y1="150" x2="700" y2="150" class="gridl"/><text x="52" y="154" text-anchor="end">5 m</text>
+        <line x1="60" y1="100" x2="700" y2="100" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 4"/><text x="52" y="104" text-anchor="end" class="t-ink t-bold">10 m</text>
+        <line x1="60" y1="50" x2="700" y2="50" class="gridl"/><text x="52" y="54" text-anchor="end">15 m</text>
+        <text x="52" y="204" text-anchor="end">0</text>
+        <g text-anchor="middle">
+          <rect x="85" y="169" width="90" height="31" fill="var(--muted)" fill-opacity=".45"/><text x="130" y="161" class="t-ink t-bold">3.1 m</text><text x="130" y="220">original design</text><text x="130" y="234">(Chile 1960 wave)</text>
+          <rect x="205" y="143" width="90" height="57" fill="var(--muted)" fill-opacity=".65"/><text x="250" y="135" class="t-ink t-bold">5.7 m</text><text x="250" y="220">reassessed 2002</text>
+          <rect x="325" y="100" width="90" height="100" fill="var(--rule)"/><text x="370" y="92" class="t-ink t-bold">10 m</text><text x="370" y="220">site grade</text><text x="370" y="234">(units 1–4)</text>
+          <rect x="445" y="70" width="90" height="130" fill="var(--night)" fill-opacity=".85"/><rect x="445" y="50" width="90" height="20" fill="var(--night)" fill-opacity=".35"/><text x="490" y="42" class="t-night t-bold">~13–15 m</text><text x="490" y="220">wave, 11 Mar 2011</text>
+          <rect x="565" y="43" width="90" height="157" fill="none" stroke="var(--day)" stroke-width="3" stroke-dasharray="6 4"/><text x="610" y="34" class="t-day t-bold">15.7 m</text><text x="610" y="220">TEPCO's own</text><text x="610" y="234">2008 estimate</text>
+        </g>
+        <text x="66" y="92" class="t-ink">water over the 10 m grade → floods below</text>
+      </svg>
+    </div>
+    <figcaption><b>The fifth column is the painful one.</b> The design tsunami, reassessed in 2002, was still only 5.7 m. In 2008 TEPCO ran a trial wave-source model off Fukushima and got 15.7 m, but did not adopt the number. Sources give slightly different heights for the real wave: TEPCO measured about 13 m at its tide gauge; WNA says about 15 m coming ashore.<span class="nguon">Sources: IAEA, Technical Volume 2 (2015), pp. 5–6, 26, 30 (10 m grade, 3.1 m and 5.7 m design bases); TEPCO (24 Apr 2012, the 15.7 m calculation); TEPCO (8 Jul 2011, ~13 m); World Nuclear Association (~15 m).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>11 Mar 2011, 14:46 · M9.0 earthquake</b><span>The three operating reactors (1, 2, 3) shut down automatically. But a shut-down reactor still makes heat and must still be cooled.</span></div>
+    <div class="hot"><b>About 15:42 · Total blackout</b><span>The tsunami overtopped the site. Almost an hour after the quake the plant lost power: 12 of 13 backup generators failed, and switchgear and batteries flooded.</span></div>
+    <div class="hot"><b>12 Mar, 15:36 · Explosion, Unit 1 building</b><span>Hydrogen produced by overheated fuel leaked into the building, mixed with air and ignited. Not a nuclear explosion.</span></div>
+    <div class="hot"><b>14 Mar, about 11:00 · Explosion, Unit 3 building</b><span>An even larger hydrogen explosion.</span></div>
+    <div class="hot"><b>15 Mar, about 6:00 · Explosion, Unit 4 building</b><span>Unit 4 was not operating at the time of the quake, yet the explosion blew apart the top of the building.</span></div>
+    <div><b>About a month later · Level 7</b><span>The top of the international INES scale, the same level as Chernobyl. Japan first rated it level 5.</span></div>
+  </div>
+  <p class="nguon">Sources: World Nuclear Association, "Fukushima Daiichi Accident" (quake time, blackout, 12/13 generators, explosions, INES rating); NAIIC (2012), p. 16. WNA is an industry secondary source; these milestones match the IAEA report.</p>
+
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 260" role="img" aria-labelledby="ev">
+        <title id="ev">Evacuation rings widening within 24 hours. 20:50 on 11 March: 2 km radius. 21:23: 3 km. 05:44 on 12 March: 10 km. 18:25 on 12 March: 20 km. 15 March: residents at 20 to 30 km told to shelter indoors. About 150,000 people evacuated.</title>
+        <g fill="none">
+          <circle cx="170" cy="130" r="120" stroke="var(--day)" stroke-width="2" stroke-dasharray="5 4"/>
+          <circle cx="170" cy="130" r="80" stroke="var(--day)" stroke-width="3" fill="var(--day)" fill-opacity=".08"/>
+          <circle cx="170" cy="130" r="40" stroke="var(--day)" stroke-width="3" fill="var(--day)" fill-opacity=".1"/>
+          <circle cx="170" cy="130" r="12" stroke="var(--day)" stroke-width="3"/>
+          <circle cx="170" cy="130" r="8" stroke="var(--day)" stroke-width="3"/>
+        </g>
+        <circle cx="170" cy="130" r="4" fill="var(--bad)"/>
+        <text x="170" y="22" text-anchor="middle" class="t-day">30 km</text><text x="170" y="62" text-anchor="middle" class="t-day t-bold">20 km</text><text x="170" y="102" text-anchor="middle" class="t-day">10 km</text>
+        <g>
+          <text x="340" y="40" class="t-ink t-bold">11 Mar · 20:50</text><text x="470" y="40">evacuate 2 km (prefecture)</text>
+          <text x="340" y="70" class="t-ink t-bold">11 Mar · 21:23</text><text x="470" y="70">evacuate 3 km (government)</text>
+          <text x="340" y="100" class="t-ink t-bold">12 Mar · 05:44</text><text x="470" y="100">evacuate 10 km</text>
+          <text x="340" y="130" class="t-day t-bold">12 Mar · 18:25</text><text x="470" y="130" class="t-day t-bold">evacuate 20 km</text>
+          <text x="340" y="160" class="t-ink t-bold">15 Mar</text><text x="470" y="160">20–30 km: shelter indoors</text>
+          <text x="340" y="206" class="t-ink t-bold">~150,000 people evacuated</text>
+          <text x="340" y="226">each time the zone grew, residents moved again</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Four evacuation orders in under 24 hours.</b> The Diet commission wrote that many residents "had to flee with only the barest necessities and were forced to move multiple times". In hospitals and nursing homes inside the 20 km zone, "60 patients died in March from complications related to the evacuation".<span class="nguon">Sources: NAIIC (2012), pp. 19 and 38 (150,000 people, quotations, 60 patients); times of the orders: World Nuclear Association, citing NAIIC. The IAEA (2015) gives "more than 100,000".</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="dc">
+        <title id="dc">Three death counts to keep apart. Earthquake and tsunami across Japan: 15,901 dead and 2,519 missing. Disaster-related deaths in Fukushima Prefecture, including those from evacuation and displacement: 2,350. Deaths from acute radiation syndrome: 0.</title>
+        <text x="200" y="40" text-anchor="end" class="t-ink">earthquake + tsunami</text><text x="200" y="54" text-anchor="end">all of Japan</text>
+        <rect x="210" y="28" width="462" height="26" fill="var(--night)" fill-opacity=".85"/><text x="666" y="46" text-anchor="end" style="fill:var(--paper)" class="t-bold">15,901 dead · 2,519 missing</text>
+        <text x="200" y="100" text-anchor="end" class="t-ink">disaster-related deaths</text><text x="200" y="114" text-anchor="end">Fukushima Prefecture</text>
+        <rect x="210" y="88" width="68" height="26" fill="var(--day)" fill-opacity=".85"/><text x="286" y="106" class="t-day t-bold">2,350</text>
+        <text x="200" y="160" text-anchor="end" class="t-ink">acute radiation</text><text x="200" y="174" text-anchor="end">workers and public</text>
+        <line x1="210" y1="148" x2="210" y2="174" stroke="var(--ink)" stroke-width="2"/><text x="220" y="166" class="t-ink t-bold">0</text>
+      </svg>
+    </div>
+    <figcaption><b>Do not add these three numbers together.</b> Nearly 16,000 people died in the earthquake and tsunami, not because of the plant. 2,350 is the count of "disaster-related deaths" in Fukushima: people who died of exhaustion or worsening illness during evacuation and displacement. It includes the wider hardship of the earthquake, but it is more than double Miyagi's (932), although Miyagi was hit far harder by the tsunami. Nobody died of acute radiation sickness.<span class="nguon">Sources: National Police Agency, figures released 9 Mar 2026 (via Jiji); Reconstruction Agency, disaster-related deaths to 31 Dec 2025; IAEA (2015), p. 16 and UNSCEAR (2013) on acute radiation effects.</span></figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Episode 1</span><h3>What happened</h3><div class="chips"><span class="chip">M9.0</span><span class="chip">13–15 m</span><span class="chip">total blackout</span><span class="chip">three kinds of death</span></div></div>
+    <div class="part b2"><span class="label">Episode 2</span><h3>Why</h3><div class="chips"><span class="chip">a lowered hill</span><span class="chip">15.7 m</span><span class="chip">regulatory capture</span><span class="chip">"Made in Japan"</span></div></div>
+    <div class="part b3"><span class="label">Episode 3</span><h3>Work lessons</h3><div class="chips"><span class="chip">expensive warnings</span><span class="chip">independent checkers</span><span class="chip">planning for the "impossible"</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Why: five layers of cause</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>The terrain layer: the plant was lowered towards the sea</h3><span class="en">site grade · 10 m</span><span class="pg">IAEA, Technical Volume 2, pp. 5–7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="dh">
+          <title id="dh">Cross-section of the terrain, not to exact scale. The natural ground at the plant site was about 30 to 35 m high. TEPCO dug it down and placed reactor buildings 1 to 4 at 10 m. Seawater pumps sat by the water at about 4 m. The 13 to 15 m tsunami flowed over the 10 m grade.</title>
+          <rect x="0" y="200" width="250" height="40" fill="var(--night)" fill-opacity=".25"/>
+          <text x="20" y="225" class="t-night">sea</text>
+          <path d="M260 60 H560" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+          <text x="410" y="50" text-anchor="middle" class="t-ink">natural ground ~30–35 m (dug away)</text>
+          <polygon points="250,240 250,184 300,184 300,160 580,160 640,60 720,60 720,240" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="255" y="172" width="34" height="12" fill="var(--ink)"/><text x="272" y="232" text-anchor="middle">pumps ~4 m</text>
+          <rect x="360" y="108" width="110" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/><text x="415" y="138" text-anchor="middle" class="t-ink t-bold">units 1–4</text>
+          <rect x="250" y="140" width="290" height="20" fill="var(--night)" fill-opacity=".45"/>
+          <path d="M0 200 C80 200 120 130 210 128 C240 128 250 140 250 140" fill="var(--night)" fill-opacity=".55"/>
+          <text x="80" y="120" class="t-night t-bold">wave ~13–15 m</text>
+          <text x="590" y="182" class="t-ink t-bold">10 m grade</text>
+          <line x1="580" y1="160" x2="580" y2="170" class="axis"/>
+        </svg>
+      </div>
+      <figcaption><b>A decision from the 1960s.</b> The IAEA notes that the natural ground was about 30–35 m, but "TEPCO decided to build the plant at OP +10.00 m, i.e. much closer to the sea water level." In its words, "a site that was considered as a dry site in the original design basis became a wet site".<span class="nguon">Source: IAEA, The Fukushima Daiichi Accident, Technical Volume 2 (2015), pp. 5–7; seawater pumps ~4 m: World Nuclear Association.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The warning layer: the 15.7 m figure stayed in a drawer</h3><span class="en">ignored estimate</span><span class="pg">TEPCO 2012; NAIIC pp. 16, 27</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="cw">
+          <title id="cw">A staircase of warnings. July 2002: the government's earthquake research body says an M8 quake could occur anywhere along the trench from Sanriku to Boso. 2006: TEPCO and the regulator know a wave reaching site grade would cause a total blackout. 2007: a disaster council decides not to consider an M8 quake off Fukushima. June 2008: a TEPCO team reports a maximum wave of 15.7 m. July 2008: management does not adopt the figure. 2009: TEPCO itself moves the seismic back-check deadline to 2016. 7 March 2011: TEPCO tells the regulator in writing that a wave could exceed 10 m.</title>
+          <g fill="var(--day)">
+            <rect x="30" y="170" width="90" height="20" fill-opacity=".15"/><rect x="125" y="150" width="90" height="40" fill-opacity=".25"/><rect x="220" y="130" width="90" height="60" fill-opacity=".35"/><rect x="315" y="110" width="90" height="80" fill-opacity=".45"/><rect x="410" y="90" width="90" height="100" fill-opacity=".55"/><rect x="505" y="70" width="90" height="120" fill-opacity=".7"/><rect x="600" y="40" width="90" height="150" fill-opacity=".9"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="75" y="160" class="t-ink t-bold">Jul 2002</text><text x="75" y="206">"M8 anywhere"</text>
+            <text x="170" y="140" class="t-ink t-bold">2006</text><text x="170" y="222">blackout risk known</text>
+            <text x="265" y="120" class="t-ink t-bold">2007</text><text x="265" y="206">"not needed"</text>
+            <text x="360" y="100" class="t-ink t-bold">Jun 2008</text><text x="360" y="222">15.7 m calculated</text>
+            <text x="455" y="80" class="t-ink t-bold">Jul 2008</text><text x="455" y="206">not adopted</text>
+            <text x="550" y="60" class="t-ink t-bold">2009</text><text x="550" y="222">deadline → 2016</text>
+            <text x="645" y="30" class="t-day t-bold">7 Mar 2011</text><text x="645" y="206">told regulator</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Nobody hid the number.</b> TEPCO published the 15.7 m calculation itself in 2012, explaining that "the validity of this wave source model had been in question." The Diet commission wrote that since 2006 the regulators and TEPCO "were aware of the risk that a total outage of electricity" could occur if a wave reached site level, and that the regulator knew TEPCO had prepared no measures. Only four days before the disaster did TEPCO tell the regulator in writing that a wave could exceed 10 m.<span class="nguon">Sources: TEPCO, 24 Apr 2012 (HERP 2002, the 15.7 m calculation); IAEA, Technical Volume 2, pp. 38–39 (2007 decision); NAIIC (2012), pp. 16 and 27; criminal-trial testimony of 10 Apr 2018 (Asahi) and 19 Oct 2018 (Mainichi), secondary, on June and July 2008 and the request for an expert re-evaluation; the 7 Mar 2011 notice: Asahi (Aug 2011, secondary) quoting the safety agency NISA.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The oversight layer: the supervised led the supervisor</h3><span class="en">regulatory capture</span><span class="pg">NAIIC pp. 9, 20</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="rc">
+          <title id="rc">Before 2011: the same state bureaucracy both promoted nuclear power and regulated its safety. Lacking expertise, the regulator relied on the operator: regulatory capture. From 2012: Japan set up a new Nuclear Regulation Authority, separating promotion from regulation.</title>
+          <rect x="20" y="20" width="320" height="160" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="36" y="46" class="t-ink t-bold">Before 2011</text>
+          <rect x="40" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="105" y="84" text-anchor="middle" class="t-ink">promote</text><text x="105" y="100" text-anchor="middle" class="t-ink">nuclear power</text>
+          <rect x="190" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="255" y="84" text-anchor="middle" class="t-ink">regulate</text><text x="255" y="100" text-anchor="middle" class="t-ink">safety</text>
+          <text x="180" y="134" text-anchor="middle" class="t-bold" style="fill:var(--bad)">one bureaucracy</text>
+          <text x="180" y="158" text-anchor="middle">the operator knows more than the checker</text>
+          <rect x="380" y="20" width="320" height="160" rx="8" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="396" y="46" class="t-ink t-bold">From 19 Sep 2012</text>
+          <rect x="400" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="465" y="84" text-anchor="middle" class="t-ink">promote</text><text x="465" y="100" text-anchor="middle" class="t-ink">(ministries)</text>
+          <rect x="550" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--ok)" stroke-width="2"/><text x="615" y="84" text-anchor="middle" class="t-ink">NRA</text><text x="615" y="100" text-anchor="middle" class="t-ink">regulates alone</text>
+          <text x="540" y="140" text-anchor="middle" class="t-ok t-bold">functions separated</text>
+        </svg>
+      </div>
+      <figcaption><b>"Its regulation was entrusted to the same government bureaucracy responsible for its promotion."</b> The Diet commission concluded that "the lack of expertise resulted in 'regulatory capture'", and that the regulators' independence was "a mockery". One example: the seismic back-check was due by June 2009; "TEPCO made the decision internally and unilaterally to reschedule the deadline to January 2016", and the regulator did not follow up.<span class="nguon">Sources: NAIIC (2012), pp. 9, 20 and 27; Nuclear Regulation Authority (NRA) annual report, founded 19 Sep 2012.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The belief layer: "simply unthinkable"</h3><span class="en">safety myth</span><span class="pg">IAEA 2015, foreword</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="on">
+          <title id="on">Two plants on the same coast. Tohoku Electric's Onagawa, closer to the epicentre: buildings at 14.7 m, wave 14.3 m, safe shutdown. TEPCO's Fukushima Daiichi: buildings at 10 m, wave 13.1 m, three meltdowns.</title>
+          <line x1="40" y1="180" x2="700" y2="180" class="axis"/>
+          <g text-anchor="middle">
+            <rect x="80" y="33" width="90" height="147" fill="var(--rule)"/><text x="125" y="25" class="t-ink t-bold">14.7 m</text><text x="125" y="196">site</text>
+            <rect x="180" y="37" width="90" height="143" fill="var(--night)" fill-opacity=".8"/><text x="225" y="29" class="t-night t-bold">14.3 m</text><text x="225" y="196">wave</text>
+            <text x="175" y="214" class="t-ok t-bold">Onagawa · safe shutdown</text>
+            <rect x="420" y="80" width="90" height="100" fill="var(--rule)"/><text x="465" y="72" class="t-ink t-bold">10 m</text><text x="465" y="196">site</text>
+            <rect x="520" y="49" width="90" height="131" fill="var(--night)" fill-opacity=".8"/><text x="565" y="41" class="t-night t-bold">13.1 m</text><text x="565" y="196">wave</text>
+            <text x="515" y="214" class="t-bold" style="fill:var(--bad)">Fukushima Daiichi · 3 meltdowns</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Same country, same wave, different outcome.</b> The IAEA Director General wrote that a major factor was "the widespread assumption in Japan that its nuclear power plants were so safe that an accident of this magnitude was simply unthinkable". The assumption was accepted by operators "and was not challenged by regulators or by the government". Onagawa, closer to the epicentre, stood higher than the wave.<span class="nguon">Sources: IAEA, Director General's report (2015), foreword, as quoted by World Nuclear News (2 Sep 2015); Onagawa figures: A. Ryu and N. Meshkati, Bulletin of the Atomic Scientists (10 Mar 2014), an independent analysis.</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Believing it was safe</h3><span class="muted">Diet commission: they "had firmly committed themselves to the idea that nuclear power plants were safe", so preparing for a severe accident looked unnecessary.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>An expensive warning</h3><span class="muted">Accepting 15.7 m meant a seawall, flood-proofing and permits. The defendants later called the figure "nothing more than one estimate".</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Delay instead of refusal</h3><span class="muted">Nobody said "no". The warning went off for more study and deadlines slipped, until the wave arrived first.</span></div>
+    </div>
+    <p class="nguon">Sources: NAIIC (2012), pp. 17 and 27; "nothing more than one estimate": the defence at the criminal trial, per Asahi (Apr 2018, secondary).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The response layer: once the power went, every script expired</h3><span class="en">station blackout</span><span class="pg">NAIIC pp. 16–18</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>No script for a long blackout</h3><span class="muted">The commission wrote that, given the deficiencies in training and preparation, once the total blackout including DC power occurred, "it was impossible to change the course of events".</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>A tangled chain of command</h3><span class="muted">The Prime Minister went to the site in person to direct workers. The commission called it a direct intervention that confused the chain of command.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Residents told too late</h3><span class="muted">The commission traced the confusion of the evacuation to the regulators' negligence in emergency preparation.</span></div>
+    </div>
+    <p class="nguon">Sources: NAIIC (2012), pp. 16–19; the blackout quotation via World Nuclear News (5 Jul 2012).</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: what is true and what is myth</h2><p class="lead">13 things often said about Fukushima, checked against the primary reports. Click each line for the reasoning.</p></div>
+  <div class="tally" role="img" aria-label="4 solid, 6 caution, 3 false">
+    <div class="o" style="flex:4">4 SOLID</div><div class="w" style="flex:6">6 CAUTION</div><div class="b" style="flex:3">3 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>A tsunami above the design basis caused the total blackout</span></summary><p class="note">Design basis 5.7 m, site grade 10 m, wave about 13–15 m. IAEA: the tsunami levels far exceeded the hazard assumptions. Diet commission: the total blackout was the point of no return.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>TEPCO had a 15.7 m tsunami estimate in 2008</span></summary><p class="note">TEPCO published the calculation itself (24 Apr 2012), with the defence that the wave-source model was "in question". Court testimony says management decided not to adopt it in July 2008.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Nobody died of acute radiation sickness</span></summary><p class="note">IAEA (2015): no early radiation-induced health effects were observed among workers or the public. Six workers received over 250 mSv, but below levels that cause radiation sickness (WNA).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The evacuation itself killed people</span></summary><p class="note">Diet commission: 60 patients from hospitals and nursing homes in the 20 km zone died in March from complications related to the evacuation. Fukushima Prefecture had 2,350 disaster-related deaths by the end of 2025 (Reconstruction Agency), though that figure does not separate out the nuclear cause.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"A disaster Made in Japan", caused by Japanese culture</span></summary><p class="note">These are the words of the commission's own chairman, Kiyoshi Kurokawa, in the English edition: the root causes were "our reflexive obedience; our reluctance to question authority … our groupism; and our insularity". But according to critics cited by AP, the passage is missing from the Japanese text, and the English edition itself says the Japanese version prevails where they differ. Professor Gerald Curtis (Columbia University) wrote: "To pin the blame on culture is the ultimate cop-out." The IAEA wrote that the contributing factors "were not unique to Japan". And Onagawa, same culture, survived. The body of the report names specific, fixable failures: a captured regulator, slipped deadlines, no preparation for a blackout.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Nobody died from Fukushima radiation"</span></summary><p class="note">Nobody died of acute radiation sickness. But in 2018 Japan's health ministry accepted that a worker's lung cancer (about 195 mSv cumulative) was caused by radiation, and his family was to be compensated (NPR). UNSCEAR says any increase in radiation-related cancer is "unlikely to be discernible", meaning too small to measure, which is not the same as certainly zero.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Nobody could have foreseen that wave"</span></summary><p class="note">The official sources disagree. Diet commission: the direct causes "were all foreseeable". Tokyo District Court, civil case (2022): the accident "could have been avoided" by making the main buildings watertight. But the criminal courts (2019, 2023, Supreme Court 2025) acquitted three executives, and the Tokyo High Court (June 2025) overturned the civil ruling, finding long-term forecasts were not data that demanded immediate action.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Only the tsunami; the earthquake did no damage"</span></summary><p class="note">The Diet commission said Unit 1 may have been damaged by the quake, possibly a small loss of coolant, before the wave hit. According to WNA, the Nuclear Regulation Authority concluded in 2013 that the quake did not damage Unit 1. Unresolved.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Child thyroid cancer soared because of radiation"</span></summary><p class="note">Detected cases did rise, but UNSCEAR (2021) attributes that to "ultrasensitive screening procedures" applied to all children, and says radiation-induced thyroid cancer is "not likely to be discernible, in any of the age groups considered, including to children".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Fukushima was as bad as Chernobyl"</span></summary><p class="note">Same level 7 on the INES scale. But the estimated release was about 10–15% of Chernobyl's (Japanese agency estimates from 2011, per WNA), and UNSCEAR (2013) found the health risks "far lower than those for Chernobyl".</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Fukushima radiation killed thousands, tens of thousands"</span></summary><p class="note">This confuses the earthquake and tsunami deaths (15,901, National Police Agency) with the nuclear accident. UNSCEAR: no adverse health effects among Fukushima residents have been documented that are directly attributable to radiation exposure.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The reactors exploded like a nuclear bomb"</span></summary><p class="note">The explosions in buildings 1, 3 and 4 were hydrogen explosions: hydrogen produced by overheated fuel cladding leaked into the buildings, mixed with air and ignited. They blew off roofs and walls; there was no nuclear chain-reaction explosion.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The treated-water release poisoned the Pacific"</span></summary><p class="note">IAEA (comprehensive report, 4 Jul 2023): TEPCO's approach is "consistent with relevant international safety standards" and the discharges "would have a negligible radiological impact on people and the environment". Concerns about trust and fisheries are real, but "poisoning the ocean" has no measured basis.</p></details>
+  </div>
+  <p class="nguon">Sources: NAIIC (2012), pp. 9, 16–17, 38; IAEA (2015); TEPCO (2012); UNSCEAR, press release of 9 Mar 2021 on the 2020/2021 report; AP (13 Sep 2012) on the "Made in Japan" debate; AFP (Mar 2025) and AP (Jun 2025) on the rulings; NPR (5 Sep 2018); IAEA on treated water (4 Jul 2023), as quoted by Japan's Ministry of the Environment.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessing the case</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 8, not figures from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Avoidable</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Warnings in advance</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Transparent inquiry</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Lessons retained</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right after the disaster</span><ul class="plus"><li>The Diet set up its first independent investigation commission, with public hearings</li><li>A new nuclear regulator, separated from promotion (2012)</li><li>IAEA and UNSCEAR published international assessments, updated over years</li></ul></div>
+    <div><span class="label">Not done right</span><ul class="minus"><li>No executive convicted; the courts disagree on responsibility</li><li>About 27,000 people still unable to return home (Nov 2025, per WNA)</li><li>The "culture" explanation blurred the specific failures</li></ul></div>
+  </div>
+  <p class="verdict">Not simply a natural disaster: nature brought the wave, but people decided how high the wall would be.</p>
+  <details class="more"><summary>More: why "avoidable" scores 4/5 and not 5/5</summary><div>
+    <p>An M9 quake and a 13–15 m wave are genuinely extreme. Nobody can say for sure whether flood-proofing begun in 2008 would have been finished before March 2011. The 2022 civil court found that making the main buildings watertight would have taken about two years and been enough to avoid the accident; the High Court in 2025 disagreed that the executives were obliged to act immediately.</p>
+    <p>But Onagawa shows that better preparation was possible on the very same coast. So Mark gives 4: largely avoidable, with some uncertainty.</p>
+  </div></details>
+  <p class="nguon">Sources: Tokyo District Court civil ruling, 13 Jul 2022 (Asahi, secondary); Tokyo High Court, 6 Jun 2025 (AP); 27,000 people: World Nuclear Association.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lessons: don't dismiss a warning because it is expensive</h2><p class="lead">Use this when someone brings a risk that would cost money, time or schedule to address: security, backups, safety, legal.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Four steps when you receive an expensive warning: log it in the risk register with the name of whoever raised it and the date; ask what you lose if it is right, against what the fix costs; put a deadline on further study; make the checker independent of whoever pays.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · log it</text><text x="110" y="100" class="t-night t-bold">who raised it, when</text><text x="110" y="116">not buried in email</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · what if it's right?</text><text x="300" y="100" class="t-day t-bold">loss vs cost of fix</text><text x="300" y="116">not just "low odds"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · set a deadline</text><text x="490" y="100" class="t-rem t-bold">for "further study"</text><text x="490" y="116">and interim action</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · independent check</text><text x="680" y="100" class="t-ok t-bold">not paid by the checked</text><text x="680" y="116">and able to stop</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"It's just one estimate" is not an answer.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each step patches one failure at Fukushima.</b> Nobody owned the 15.7 m figure, "what if it's right" was replaced with "the model is in question", "further study" had no deadline, and the checker depended on the checked.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><div><b>Compare with the worst credible scenario</b><span>The 5.7 m design was based on one known wave. The right question is "what is the worst case the experts have already written down?"</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M11 16h10M16 11v10"/></svg><div><b>Backups must not sit with the risk</b><span>The backup generators flooded with the same wave. At work: backups on the same server, a plan B that depends on the same person.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Find an "Onagawa" to compare with</b><span>How do competitors, the team next door or another industry handle the same risk? The difference is evidence, not "different circumstances".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Count the cost of the response too</b><span>A rushed evacuation also kills. Emergency plans must be rehearsed with the most vulnerable people, not only on paper.</span></div></div>
+  </div>
+  <div class="quote"><span>Continuous questioning and openness to learning from experience are key to safety culture.</span><span class="src">Yukiya Amano, IAEA Director General, foreword to the report on Fukushima Daiichi (2015), via World Nuclear News.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>National Diet of Japan commission (NAIIC), English executive summary (2012)</b><span class="muted">Read the Conclusions (from p. 16) to see why it called this a "manmade" disaster.</span></div>
+    <div><b>IAEA, <i>The Fukushima Daiichi Accident: Report by the Director General</i> (2015)</b><span class="muted">The international synthesis, with five technical volumes. Volume 2 has the full history of the tsunami reassessments.</span></div>
+    <div><b>UNSCEAR, 2020/2021 Report, Annex B</b><span class="muted">The scientific assessment of radiation doses and health effects; read it to separate fact from fear.</span></div>
+    <div><b>Anatomy of a Disaster #10: Space Shuttle Columbia (2003)</b><span class="muted">The series finale: 17 years after Challenger, the same organisation, the same kind of mistake.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Primary documents first. Where only a secondary source was available, it is marked next to the figure.</p></div>
+  <ol class="srcs">
+    <li><b>The National Diet of Japan, NAIIC</b>, <i>The official report of The Fukushima Nuclear Accident Independent Investigation Commission: Executive summary</i>, July 2012. <a href="https://www.nirs.org/wp-content/uploads/fukushima/naiic_report.pdf">copy at nirs.org</a></li>
+    <li><b>IAEA</b>, <i>The Fukushima Daiichi Accident: Report by the Director General</i>, GC(59)/14, 2015, and Technical Volume 2. <a href="https://www-pub.iaea.org/MTCD/Publications/PDF/AdditionalVolumes/P1710/Pub1710-TV2-Web.pdf">iaea.org</a></li>
+    <li><b>TEPCO</b>, explanation of the trial tsunami calculations, 24 Apr 2012; press release 8 Jul 2011. <a href="https://www.tepco.co.jp/en/nu/fukushima-np/info/12042401-e.html">tepco.co.jp</a></li>
+    <li><b>UNSCEAR</b>, 2020/2021 Report, Annex B; UN press release, 9 Mar 2021. <a href="https://unis.unvienna.org/unis/en/pressrels/2021/unisous419.html">unis.unvienna.org</a></li>
+    <li><b>Reconstruction Agency (復興庁)</b>, disaster-related deaths, as of 31 Dec 2025. <a href="https://www.reconstruction.go.jp/files/user/topics/main-cat2/sub-cat2-6/20260213_kanrenshi.pdf">reconstruction.go.jp</a></li>
+    <li><b>National Police Agency</b>, dead and missing, released 9 Mar 2026, via Jiji Press. <a href="https://english.adnkronos.com/2026/03/09/2519-still-unaccounted-for-15-yrs-after-huge-quake-tsunami/">adnkronos.com</a></li>
+    <li><b>Nuclear Regulation Authority (NRA)</b>, annual report (founded 19 Sep 2012). <a href="https://www.nra.go.jp/data/000067053.pdf">nra.go.jp</a></li>
+    <li><b>A. Ryu and N. Meshkati</b>, "Onagawa: The Japanese nuclear power plant that didn't melt down on 3/11", <i>Bulletin of the Atomic Scientists</i>, 10 Mar 2014. <a href="https://thebulletin.org/2014/03/onagawa-the-japanese-nuclear-power-plant-that-didnt-melt-down-on-3-11/">thebulletin.org</a></li>
+    <li><b>World Nuclear Association</b>, "Fukushima Daiichi Accident" (updated Sep 2026), an industry secondary source. <a href="https://world-nuclear.org/Information-Library/Safety-and-Security/Safety-of-plants/Fukushima-Daiichi-Accident">world-nuclear.org</a></li>
+    <li><b>Press</b>: World Nuclear News (5 Jul 2012, 2 Sep 2015); AP, "Japan nuke probe head defends report" (13 Sep 2012); Asahi Shimbun (Aug 2011; Apr 2018; Jul 2022); AFP (Mar 2025); AP (6 Jun 2025); NPR (5 Sep 2018).</li>
+  </ol>
+</section>
+
+<footer>Anatomy of a Disaster #09. The figures are illustrative diagrams; numbers come from the original reports and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

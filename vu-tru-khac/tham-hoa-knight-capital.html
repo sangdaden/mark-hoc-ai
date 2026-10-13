@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knight Capital (Knight Capital Americas): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Một lần cập nhật phần mềm, một máy chủ bị sót, 45 phút bắn lệnh không ngừng và khoảng 460 triệu USD bốc hơi. Mổ xẻ từ quyết định của SEC, hồ sơ Knight nộp cho SEC và 12 lời đồn được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Knight Capital (Knight Capital Americas): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Một lần cập nhật phần mềm, một máy chủ bị sót, 45 phút bắn lệnh không ngừng và khoảng 460 triệu USD bốc hơi. Mổ xẻ từ quyết định của SEC, hồ sơ Knight nộp cho SEC và 12 lời đồn được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #1A0F14; --bia-2: #881337; --bia-nhan: #FB7185; }
+:root { --vtk-nhan: #FB7185; }
+body header { --ho-so: "Hồ sơ vụ việc"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/tham-hoa-knight-capital.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Giải phẫu thảm họa": Knight Capital, --night = crimson (the falling price board, the loss), --day = indigo (servers and code). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #be123c;
+  --day: #4f46e5;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fb7185; --day: #a5b4fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fb7185; --day: #a5b4fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Giải phẫu thảm họa · Tài chính · Phần mềm</span>
+  <h1>Knight Capital</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Tám máy chủ, một máy màu đỏ, và một đường giá lao dốc">
+    <g fill="#8a94a6"><rect x="4" y="12" width="14" height="28" rx="2"/><rect x="22" y="12" width="14" height="28" rx="2"/><rect x="40" y="12" width="14" height="28" rx="2"/><rect x="58" y="12" width="14" height="28" rx="2"/><rect x="76" y="12" width="14" height="28" rx="2"/><rect x="94" y="12" width="14" height="28" rx="2"/><rect x="112" y="12" width="14" height="28" rx="2"/></g>
+    <rect x="130" y="12" width="14" height="28" rx="2" fill="#be123c"/>
+    <text x="156" y="32" font-family="monospace" font-size="15" fill="#8a94a6">45 phút</text>
+    <path d="M232 10 l18 8 14 -4 16 18 12 -2 18 20" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M310 50 l-12 -2 8 -9 z" fill="#be123c"/>
+  </svg>
+  <p class="sub">Knight Capital Americas · 1/8/2012 · Sàn chứng khoán New York</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>một máy chủ bắn lệnh liên tục suốt khoảng 45 phút</b></div>
+    <div><span class="label">Thiệt hại</span><b>khoảng 460 triệu USD, công ty suýt sụp</b></div>
+    <div><span class="label">Nguyên nhân gốc</span><b>code cũ bị đánh thức trên 1 trong 8 máy chủ quên cập nhật</b></div>
+    <div><span class="label">Nguồn chính</span><b>Quyết định SEC số 34-70694, 16/10/2013</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Chuyện gì xảy ra</a><a href="#khai-niem">Vì sao</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="5" width="18" height="22" rx="2"/><path d="M11 11h10M11 16h10M11 21h4"/></svg><b>1 trên 8 máy chủ</b><span>Code mới được chép lên từng máy. Một máy bị sót, không ai kiểm tra lại.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 28V5"/><path d="M9 6h15l-4 5 4 5H9"/></svg><b>Một lá cờ dùng lại</b><span>Cờ bật tính năng mới từng là cờ bật "Power Peg", code bỏ không từ 2003.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26h24"/><path d="M6 8l6 5 5-2 5 7 5 4"/></svg><b>Lệnh không biết dừng</b><span>212 lệnh của khách thành hơn 4 triệu lần khớp, 397 triệu cổ phiếu.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="2"/><path d="M5 9l11 8 11-8"/></svg><b>97 email không ai đọc</b><span>Hệ thống báo "Power Peg disabled" từ 8:01, nhưng đó không được thiết kế là cảnh báo.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 11l10 10M21 11L11 21"/></svg><b>Không có nút dừng</b><span>Không quy trình xử lý sự cố. Cú gỡ code vội còn làm cả 8 máy cùng hỏng.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Quyết định SEC số 34-70694 (16/10/2013), đoạn 13–17, 19, 21 và 27.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của vụ án</h2></div>
+  <p class="thesis">Một công ty chiếm khoảng 10% giao dịch cổ phiếu niêm yết ở Mỹ, sống bằng phần mềm, vì sao lại mất gần nửa tỷ USD chỉ vì một lần cập nhật? Câu trả lời không phải một kỹ thuật viên sơ suất, mà là một quy trình triển khai không có lưới an toàn nào.</p>
+  <p class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 11 (khoảng 10% giao dịch) và đoạn 17 (khoản lỗ).</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">2003–2005</span><b>Code chết</b><span>Power Peg bị bỏ nhưng vẫn nằm trên máy. Năm 2005 bị sửa mà không test lại.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">27/7/2012</span><b>Triển khai thiếu kiểm tra</b><span>Code mới chép lên 8 máy chủ. Sót 1 máy. Không ai kiểm tra lại.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1/8/2012</span><b>45 phút</b><span>Máy thứ 8 bắn lệnh không ngừng. Công ty ôm vị thế hàng tỷ USD.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Chuyện gì đã xảy ra</h2><p class="lead">Mốc thời gian lấy từ quyết định của SEC; khoản lỗ lấy từ thông cáo của chính Knight.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="t45">
+        <title id="t45">Sáng 1/8/2012. Từ khoảng 8 giờ 01, một hệ thống nội bộ gửi email báo lỗi "Power Peg disabled", tổng cộng 97 email trước giờ mở cửa 9 giờ 30. Lúc 9 giờ 30, máy chủ thứ tám bắt đầu bắn lệnh con liên tục. Trong khoảng 45 phút: hơn 4 triệu lần khớp lệnh ở 154 mã cổ phiếu, hơn 397 triệu cổ phiếu. Giữa chừng, Knight gỡ code mới khỏi bảy máy chủ tốt, khiến cả tám máy cùng chạy code cũ. Kết thúc: vị thế mua ròng khoảng 3,5 tỷ USD và bán ròng khoảng 3,15 tỷ USD.</title>
+        <line x1="40" y1="110" x2="690" y2="110" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="40" y="96" width="250" height="28" rx="4" fill="var(--day)" fill-opacity=".14"/>
+        <text x="165" y="145" text-anchor="middle" class="t-day">97 email "Power Peg disabled"</text>
+        <text x="165" y="160" text-anchor="middle">không ai coi là cảnh báo</text>
+        <rect x="320" y="96" width="350" height="28" rx="4" fill="var(--night)" fill-opacity=".14"/>
+        <text x="495" y="145" text-anchor="middle" class="t-night">khoảng 45 phút lệnh tuôn ra</text>
+        <g text-anchor="middle">
+          <circle cx="46" cy="110" r="8" fill="var(--day)"/>
+          <text x="46" y="80" class="t-day t-bold">8:01</text><text x="46" y="64">email đầu tiên</text>
+          <circle cx="320" cy="110" r="10" fill="var(--night)"/>
+          <text x="320" y="80" class="t-night t-bold">9:30 · mở cửa</text><text x="320" y="64">máy thứ 8 bắn lệnh</text>
+          <circle cx="495" cy="110" r="7" fill="var(--ink)"/>
+          <text x="495" y="44" class="t-ink t-bold">gỡ code mới</text><text x="495" y="60">khỏi 7 máy tốt</text><text x="495" y="76">→ cả 8 máy hỏng</text>
+          <circle cx="670" cy="110" r="11" fill="var(--bad)"/>
+          <text x="660" y="44" class="t-bold" style="fill:var(--bad)">vị thế</text><text x="660" y="60">mua 3,5 tỷ USD</text><text x="660" y="76">bán 3,15 tỷ USD</text>
+        </g>
+        <text x="40" y="196" class="t-ink">212 lệnh của khách → hơn 4 triệu lần khớp · 154 mã · hơn 397 triệu cổ phiếu</text>
+        <text x="40" y="218">thang thời gian minh họa, không đúng tỷ lệ · giờ miền Đông nước Mỹ</text>
+      </svg>
+    </div>
+    <figcaption><b>Lỗi đã lên tiếng trước giờ mở cửa.</b> 97 email nhắc thẳng tên Power Peg, nhưng chúng không được thiết kế là cảnh báo và thường không ai đọc. SEC không ghi giờ kết thúc chính xác, chỉ ghi "khoảng 45 phút".<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 16–17 (45 phút, 212 lệnh, 4 triệu lần khớp, 154 mã, 397 triệu cổ phiếu, vị thế), 19 (97 email, 8:01) và 27 (gỡ code).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>2003 · Bỏ Power Peg, nhưng không xóa</b><span>Tính năng cũ không còn dùng. Code vẫn nằm trong bộ định tuyến lệnh SMARS và vẫn gọi được nếu bật đúng cờ.</span></div>
+    <div><b>2005 · Sửa mà không test lại</b><span>Phần đếm số cổ phiếu đã khớp, thứ giúp lệnh biết khi nào dừng, bị dời đi chỗ khác. Power Peg không được kiểm thử lại.</span></div>
+    <div><b>10/2011 · Một cảnh báo khác</b><span>Dữ liệu thử nghiệm bị dùng nhầm để báo giá thật, lỗ gần 7,5 triệu USD. Knight vá đúng chỗ đó, không rà soát rộng hơn.</span></div>
+    <div class="hot"><b>Từ 27/7/2012 · Triển khai code mới</b><span>Để tham gia chương trình RLP mới của sàn NYSE. Code mới dùng lại cờ của Power Peg. Một kỹ thuật viên không chép code lên 1 trong 8 máy chủ.</span></div>
+    <div class="hot"><b>1/8/2012 · Khoảng 45 phút</b><span>Máy thứ 8 chạy code cũ, bắn lệnh con liên tục cho mỗi lệnh mẹ, không biết lệnh đã khớp đủ.</span></div>
+    <div><b>2/8/2012 · Knight lên tiếng</b><span>"Sự cố công nghệ" liên quan đến "việc cài đặt phần mềm giao dịch", lỗ trước thuế khoảng 440 triệu USD.</span></div>
+    <div><b>6/8/2012 · Được cứu</b><span>400 triệu USD cổ phần ưu đãi từ 6 nhà đầu tư, chuyển đổi ở giá 1,50 USD mỗi cổ phiếu.</span></div>
+    <div><b>16/10/2013 · SEC kết luận</b><span>Phạt 12 triệu USD. Vụ cưỡng chế đầu tiên của SEC theo quy định tiếp cận thị trường (Rule 15c3-5).</span></div>
+  </div>
+  <p class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 13–15 (2003, 2005, triển khai), 33 (sự cố 10/2011), 16 (1/8); thông cáo Knight 2/8/2012 (8-K) và 6/8/2012; thông cáo SEC 2013-222.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">45 phút</span><span class="chip">8 máy chủ</span><span class="chip">97 email</span><span class="chip">460 triệu USD</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">cờ dùng lại</span><span class="chip">triển khai thiếu kiểm tra</span><span class="chip">không nút dừng</span><span class="chip">lời đồn</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">danh sách kiểm tra</span><span class="chip">xóa code chết</span><span class="chip">nút dừng khẩn cấp</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Vì sao: năm lớp nguyên nhân</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp kỹ thuật: một lá cờ, hai nghĩa</h3><span class="en">repurposed flag · dead code</span><span class="pg">SEC, đoạn 13–16</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kc">
+          <title id="kc">Một lệnh mẹ của khách đến với cờ RLP được bật. Ở bảy máy chủ đã cập nhật, cờ này kích hoạt code RLP mới, lệnh được xử lý đúng. Ở máy chủ thứ tám chưa cập nhật, cùng lá cờ đó kích hoạt code Power Peg cũ, vốn đã mất phần đếm số cổ phiếu đã khớp từ năm 2005, nên nó gửi lệnh con không ngừng.</title>
+          <rect x="20" y="85" width="150" height="50" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="95" y="106" text-anchor="middle" class="t-ink t-bold">lệnh mẹ của khách</text>
+          <text x="95" y="124" text-anchor="middle" class="t-night t-bold">cờ = BẬT</text>
+          <path d="M172 100 L268 50" stroke="var(--muted)" stroke-width="2"/><path d="M172 120 L268 170" stroke="var(--muted)" stroke-width="2"/>
+          <rect x="270" y="20" width="200" height="62" rx="8" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="2"/>
+          <text x="284" y="44" class="t-day t-bold">7 máy đã cập nhật</text>
+          <text x="284" y="64" class="t-ink">cờ → code RLP mới</text>
+          <rect x="270" y="138" width="200" height="62" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="284" y="162" class="t-bold" style="fill:var(--bad)">máy thứ 8, bị sót</text>
+          <text x="284" y="182" class="t-ink">cờ → Power Peg (2003)</text>
+          <path d="M472 51 H520" stroke="var(--muted)" stroke-width="2"/><path d="M472 169 H520" stroke="var(--bad)" stroke-width="2"/>
+          <text x="528" y="48" class="t-ink t-bold">khớp đủ thì dừng</text><text x="528" y="66">xử lý đúng</text>
+          <text x="528" y="160" class="t-bold" style="fill:var(--bad)">không biết đã khớp</text><text x="528" y="178">gửi lệnh con mãi</text>
+          <g fill="var(--bad)"><rect x="528" y="190" width="10" height="10"/><rect x="542" y="190" width="10" height="10"/><rect x="556" y="190" width="10" height="10"/><rect x="570" y="190" width="10" height="10"/><rect x="584" y="190" width="10" height="10"/><rect x="598" y="190" width="10" height="10"/><rect x="612" y="190" width="10" height="10"/><rect x="626" y="190" width="10" height="10"/><rect x="640" y="190" width="10" height="10"/><rect x="654" y="190" width="10" height="10"/><rect x="668" y="190" width="10" height="10"/><rect x="682" y="190" width="10" height="10"/></g>
+        </svg>
+      </div>
+      <figcaption><b>Code mới không sai.</b> Nó chạy đúng trên 7 máy. Cái nguy là code cũ vẫn còn đó, và lá cờ mới trùng với lá cờ cũ. Knight định xóa Power Peg nhưng chưa xóa.<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 13 (cờ dùng lại, ý định xóa Power Peg), 14 (2003, 2005, không test lại) và 16 (7 máy đúng, máy thứ 8 gửi lệnh liên tục).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp triển khai: sót một máy, không người thứ hai</h3><span class="en">unverified deployment · no peer review</span><span class="pg">SEC, đoạn 15 và 26</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="kd">
+          <title id="kd">Tám máy chủ SMARS. Bảy máy nhận code mới. Máy thứ tám không được chép. Không có kỹ thuật viên thứ hai kiểm tra, không có quy trình viết bắt buộc kiểm tra, không có quy trình viết cho việc phát triển và triển khai code của SMARS.</title>
+          <g>
+            <rect x="30" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="110" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="190" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="270" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="350" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="430" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="510" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="590" y="30" width="62" height="90" rx="6" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="3"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="61" y="80" class="t-day t-bold">mới</text><text x="141" y="80" class="t-day t-bold">mới</text><text x="221" y="80" class="t-day t-bold">mới</text><text x="301" y="80" class="t-day t-bold">mới</text><text x="381" y="80" class="t-day t-bold">mới</text><text x="461" y="80" class="t-day t-bold">mới</text><text x="541" y="80" class="t-day t-bold">mới</text>
+            <text x="621" y="80" class="t-bold" style="fill:var(--bad)">CŨ</text>
+            <text x="621" y="140" class="t-bold" style="fill:var(--bad)">bị sót</text>
+          </g>
+          <text x="30" y="160" class="t-ink">✗ không kỹ thuật viên thứ hai kiểm tra   ✗ không quy trình viết bắt buộc kiểm tra</text>
+          <text x="30" y="180" class="t-ink">✗ không quy trình viết cho triển khai code SMARS (các nhóm khác thì có)</text>
+        </svg>
+      </div>
+      <figcaption><b>Sai sót của một người, lỗ hổng của cả quy trình.</b> SEC không chỉ ghi "một kỹ thuật viên không chép code". SEC ghi thêm: không ai được giao kiểm tra lại, và không có văn bản nào bắt phải kiểm tra.<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 15 (1 trong 8 máy, không người thứ hai, không quy trình viết) và 26 (không quy trình phát triển và triển khai code cho SMARS).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp khuếch đại: từ 212 lệnh đến hàng tỷ USD</h3><span class="en">amplification</span><span class="pg">SEC, đoạn 17–18</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kk">
+          <title id="kk">212 lệnh mẹ biến thành hơn 4 triệu lần khớp ở 154 mã, hơn 397 triệu cổ phiếu. Vị thế cuối: mua ròng khoảng 3,5 tỷ USD ở 80 mã, bán ròng khoảng 3,15 tỷ USD ở 74 mã. Khoản lỗ khoảng 460 triệu USD. Ở 75 mã giá biến động hơn 5 phần trăm, trong đó 37 mã hơn 10 phần trăm.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="150" height="70" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+            <text x="95" y="52" class="t-ink t-bold" style="font-size:20px">212</text><text x="95" y="74">lệnh mẹ</text>
+            <text x="190" y="60" class="t-ink">→</text>
+            <rect x="210" y="20" width="150" height="70" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+            <text x="285" y="52" class="t-night t-bold" style="font-size:20px">&gt; 4 triệu</text><text x="285" y="74">lần khớp lệnh</text>
+            <text x="380" y="60" class="t-ink">→</text>
+            <rect x="400" y="20" width="150" height="70" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+            <text x="475" y="52" class="t-night t-bold" style="font-size:20px">&gt; 397 triệu</text><text x="475" y="74">cổ phiếu · 154 mã</text>
+          </g>
+          <text x="20" y="128" class="t-ink">mua ròng</text><rect x="110" y="116" width="350" height="18" fill="var(--night)" fill-opacity=".75"/><text x="468" y="129" class="t-night t-bold">~3,5 tỷ USD · 80 mã</text>
+          <text x="20" y="158" class="t-ink">bán ròng</text><rect x="110" y="146" width="315" height="18" fill="var(--day)" fill-opacity=".75"/><text x="433" y="159" class="t-day t-bold">~3,15 tỷ USD · 74 mã</text>
+          <text x="20" y="188" class="t-ink">lỗ</text><rect x="110" y="176" width="46" height="18" fill="var(--bad)"/><text x="164" y="189" class="t-bold" style="fill:var(--bad)">~460 triệu USD</text>
+          <text x="20" y="214">giá: 75 mã biến động hơn 5% · 37 mã hơn 10% (ở 37 mã này Knight chiếm hơn nửa khối lượng)</text>
+        </svg>
+      </div>
+      <figcaption><b>Tự động hóa phóng đại cả cái sai.</b> SEC viết: thiếu kiểm soát, tự động hóa có thể biến "một lỗi lẽ ra xử lý được thành một sự kiện cực đoan".<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 3 (trích dẫn), 17 (số lệnh, vị thế, lỗ 460 triệu USD) và 18 (biến động giá).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp giám sát: tín hiệu có, cảnh báo không</h3><span class="en">signals that are not alarms</span><span class="pg">SEC, đoạn 19, 21–25</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kg">
+          <title id="kg">Ba lớp giám sát đều không bật còi. 97 email báo lỗi không được thiết kế là cảnh báo. Công cụ theo dõi rủi ro chính PMON hoàn toàn dựa vào người nhìn, không có cảnh báo tự động. Tài khoản 33 có hạn mức 2 triệu USD nhưng không gắn với chặn tự động. SMARS cũng không so lệnh đi ra với lệnh đi vào.</title>
+          <rect x="20" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="34" y="44" class="t-ink t-bold">97 email BNET</text>
+          <text x="34" y="62">"Power Peg disabled"</text>
+          <g fill="var(--day)" fill-opacity=".6"><rect x="34" y="76" width="190" height="6"/><rect x="34" y="88" width="190" height="6"/><rect x="34" y="100" width="190" height="6"/><rect x="34" y="112" width="120" height="6"/></g>
+          <text x="34" y="144" class="t-day t-bold">không phải cảnh báo</text><text x="34" y="160">thường không ai đọc</text>
+          <rect x="250" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="264" y="44" class="t-ink t-bold">PMON</text>
+          <text x="264" y="62">công cụ rủi ro chính</text>
+          <circle cx="300" cy="100" r="18" fill="none" stroke="var(--muted)" stroke-width="2"/><circle cx="300" cy="100" r="6" fill="var(--muted)"/>
+          <text x="264" y="144" class="t-day t-bold">chỉ dựa vào người nhìn</text><text x="264" y="160">không cảnh báo tự động</text>
+          <rect x="480" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="494" y="44" class="t-ink t-bold">Tài khoản "33"</text>
+          <text x="494" y="62">hạn mức 2 triệu USD</text>
+          <rect x="494" y="90" width="40" height="16" fill="var(--ok)"/><rect x="534" y="90" width="152" height="16" fill="var(--bad)" fill-opacity=".8"/>
+          <text x="494" y="144" class="t-day t-bold">không nối với chặn tự động</text><text x="494" y="160">vượt mức vẫn chạy</text>
+          <text x="20" y="194" class="t-ink">và SMARS không so lệnh đi ra với lệnh đi vào.</text>
+        </svg>
+      </div>
+      <figcaption><b>Một hệ thống chỉ dựa vào mắt người sẽ chậm hơn một máy gửi lệnh tốc độ cao.</b> Các con số giới hạn có trên giấy, nhưng không con số nào được nối với một cái chặn tự động.<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 19 (97 email, "không được thiết kế là cảnh báo"), 21 (không theo dõi đầu ra), 22–24 (hạn mức, tài khoản 33) và 25 (PMON).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp ứng phó: không có nút dừng, cú gỡ làm tệ hơn</h3><span class="en">no kill switch · no incident playbook</span><span class="pg">SEC, đoạn 21 và 27</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="ku">
+          <title id="ku">Trước khi gỡ: một trong tám máy chạy code cũ. Knight gỡ code mới khỏi bảy máy tốt, với ý định quay về trạng thái cũ. Sau khi gỡ: cả tám máy đều chạy code cũ, vì lá cờ trong lệnh vẫn bật Power Peg.</title>
+          <text x="20" y="30" class="t-ink t-bold">trước khi gỡ</text>
+          <g><rect x="20" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="54" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="88" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="122" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="156" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="190" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="224" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="258" y="44" width="28" height="44" rx="4" fill="var(--bad)"/></g>
+          <text x="20" y="110">1/8 máy hỏng</text>
+          <path d="M310 66 H390" stroke="var(--ink)" stroke-width="3"/><path d="M398 66 l-12 -7 v14 z" fill="var(--ink)"/>
+          <text x="354" y="50" text-anchor="middle" class="t-ink t-bold">gỡ code mới</text>
+          <text x="420" y="30" class="t-bad t-bold">sau khi gỡ</text>
+          <g fill="var(--bad)"><rect x="420" y="44" width="28" height="44" rx="4"/><rect x="454" y="44" width="28" height="44" rx="4"/><rect x="488" y="44" width="28" height="44" rx="4"/><rect x="522" y="44" width="28" height="44" rx="4"/><rect x="556" y="44" width="28" height="44" rx="4"/><rect x="590" y="44" width="28" height="44" rx="4"/><rect x="624" y="44" width="28" height="44" rx="4"/><rect x="658" y="44" width="28" height="44" rx="4"/></g>
+          <text x="420" y="110" class="t-bad t-bold">8/8 máy hỏng</text>
+          <text x="20" y="150" class="t-ink">không quy trình dừng SMARS khi nó hành xử bất thường · không quy trình ứng phó sự cố</text>
+          <text x="20" y="172">sửa lỗi ngay trong giờ giao dịch, chủ yếu trông vào đội công nghệ</text>
+        </svg>
+      </div>
+      <figcaption><b>"Quay về bản cũ" chỉ an toàn khi bản cũ an toàn.</b> Lá cờ trong lệnh của khách vẫn bật, nên gỡ code mới đồng nghĩa với đánh thức Power Peg trên cả 7 máy còn lại. Knight có cơ chế tự ngắt cho một số chiến lược của một nhóm giao dịch, nhưng không cho SMARS.<span class="nguon">Nguồn: Quyết định SEC 34-70694, đoạn 21 (không quy trình dừng SMARS), 27 (không quy trình ứng phó sự cố, gỡ code làm tệ hơn) và chú thích 7 (tự ngắt cho một số chiến lược).</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Giấy tờ nói "đạt"</h3><span class="muted">Đánh giá tuân thủ ban đầu kết luận hệ thống kiểm soát của Knight đáp ứng Rule 15c3-5 (SEC, đoạn 28).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Sự cố cũ, vá hẹp</h3><span class="muted">Vụ lỗ gần 7,5 triệu USD tháng 10/2011 được vá đúng chỗ, không dẫn tới rà soát rộng (SEC, đoạn 33).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Chữ ký mềm</h3><span class="muted">Chứng nhận của CEO (3/2012) ghi Knight có "quy trình" để tuân thủ, không ghi rằng kiểm soát đã tuân thủ (SEC, đoạn 34).</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">12 điều hay được kể về Knight Capital, đối chiếu với quyết định của SEC và hồ sơ Knight nộp cho SEC. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 5 cần thận trọng, 2 sai">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="kl3">
+        <title id="kl3">Ba con số về khoản lỗ. Ngày 2/8/2012, Knight ước tính lỗ trước thuế khoảng 440 triệu USD. Ngày 17/10/2012, báo cáo quý 3 ghi lỗ giao dịch 457,6 triệu USD, tổng 461,1 triệu USD kể cả phí. Năm 2013, SEC ghi 460 triệu USD.</title>
+        <text x="20" y="34" class="t-ink">2/8/2012 · Knight ước tính</text><rect x="250" y="22" width="440" height="18" fill="var(--day)" fill-opacity=".6"/><text x="684" y="35" text-anchor="end" class="t-ink t-bold">~440 triệu</text>
+        <text x="20" y="74" class="t-ink">17/10/2012 · báo cáo quý 3</text><rect x="250" y="62" width="457" height="18" fill="var(--night)" fill-opacity=".7"/><text x="700" y="96" text-anchor="end" class="t-night t-bold">457,6 triệu lỗ giao dịch</text>
+        <text x="20" y="124" class="t-ink">16/10/2013 · SEC</text><rect x="250" y="112" width="460" height="18" fill="var(--bad)" fill-opacity=".8"/><text x="256" y="146" class="t-bold" style="fill:var(--bad)">"hơn 460 triệu USD"</text>
+      </svg>
+    </div>
+    <figcaption><b>Ba con số, không mâu thuẫn mà khác thời điểm.</b> Số 440 là ước tính ngày hôm sau; 457,6 là số ghi sổ; 460 là số của SEC. Lệnh tuôn ra trong khoảng 45 phút, còn khoản lỗ thành hình khi Knight bán gỡ vị thế sau đó.<span class="nguon">Nguồn: thông cáo Knight 2/8/2012 (8-K, phụ lục 99.1); thông cáo kết quả quý 3/2012 của Knight (17/10/2012); Quyết định SEC 34-70694, đoạn 1 và 17.</span></figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Lệnh lỗi tuôn ra trong khoảng 45 phút</span></summary><p class="note">SEC ghi "khoảng 45 phút" ở đoạn 1, 10 và 17. SEC không ghi giờ kết thúc chính xác, nên bài này không ghi.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Lỗi đến từ code bỏ không từ 2003, sửa năm 2005 mà không test lại</span></summary><p class="note">SEC, đoạn 14: Knight ngừng dùng Power Peg năm 2003; năm 2005 dời phần đếm cổ phiếu đã khớp và "không test lại" Power Peg.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Gỡ code mới ra lại làm sự cố tệ hơn</span></summary><p class="note">SEC, đoạn 27: Knight gỡ code RLP khỏi 7 máy chủ tốt; lệnh đến sau đó kích hoạt Power Peg trên cả 7 máy.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Knight chiếm khoảng 10% giao dịch cổ phiếu niêm yết ở Mỹ</span></summary><p class="note">SEC, đoạn 11, cho năm 2011–2012. Riêng SMARS khoảng 1% hoặc hơn.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Bị phạt 12 triệu USD, vụ đầu tiên theo quy định tiếp cận thị trường</span></summary><p class="note">Thông cáo SEC 2013-222: "vụ cưỡng chế đầu tiên của SEC theo quy định tiếp cận thị trường". Knight đồng ý dàn xếp, "không thừa nhận cũng không phủ nhận" các kết luận.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Chỉ vì một kỹ thuật viên quên chép file"</span></summary><p class="note">Đúng là ngòi nổ (đoạn 15). Nhưng phần lớn quyết định của SEC nói về thứ khác: không quy trình triển khai viết thành văn, không người kiểm tra lại, không theo dõi đầu ra, không nút dừng, không quy trình ứng phó sự cố (đoạn 15, 21–27).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Mất 440 triệu USD trong 45 phút"</span></summary><p class="note">440 triệu là ước tính đầu tiên của Knight. Số ghi sổ là 457,6 triệu lỗ giao dịch; SEC ghi 460 triệu. Lệnh tuôn ra trong 45 phút, nhưng lỗ được chốt khi bán gỡ vị thế sau đó.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Có 97 email cảnh báo mà không ai thèm đọc"</span></summary><p class="note">97 email là có thật (đoạn 19). Nhưng SEC ghi rõ chúng "không được thiết kế là cảnh báo hệ thống". Bài học là về cách thiết kế cảnh báo, không phải nhân viên lười.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Code mới viết sai"</span></summary><p class="note">Code RLP mới chạy đúng trên 7 máy (đoạn 16). Cái nguy là code cũ chưa xóa, lá cờ bị dùng lại, và một máy bị sót.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Knight không có nút dừng nào cả"</span></summary><p class="note">SMARS không có quy trình dừng khi hành xử bất thường (đoạn 21), và không có quy trình ứng phó sự cố (đoạn 27). Nhưng Knight có tự ngắt cho một số chiến lược của một nhóm giao dịch (chú thích 7).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Một thuật toán AI nổi loạn"</span></summary><p class="note">Không có AI hay máy học nào trong hồ sơ. Đây là một đoạn code định tuyến lệnh cũ, chạy đúng như nó được viết, bị đánh thức bởi một lá cờ dùng lại trên một máy chủ chưa cập nhật (SEC, đoạn 13–16).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Knight phá sản ngay hôm đó"</span></summary><p class="note">Ngày 6/8/2012, Knight nhận 400 triệu USD từ Jefferies, Blackstone, GETCO, Stephens, Stifel và TD Ameritrade. Số vốn này chuyển đổi được thành khoảng 267 triệu cổ phiếu, ở giá 1,50 USD mỗi cổ phiếu. Ngày 1/7/2013, Knight và GETCO hợp nhất thành KCG Holdings.</p></details>
+  </div>
+  <p class="nguon">Nguồn: Quyết định SEC 34-70694 (các đoạn ghi trong từng dòng); thông cáo SEC 2013-222; thông cáo Knight 2/8/2012, 6/8/2012 và 17/10/2012.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Cảnh báo có từ trước</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Điều tra minh bạch</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Bài học được giữ lại</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng sau thảm họa</span><ul class="plus"><li>Gỡ phần mềm lỗi, công bố khoản lỗ ngay hôm sau</li><li>Gọi vốn cứu công ty trong 5 ngày</li><li>SEC công bố hồ sơ chi tiết, đặt chuẩn cho quy định mới</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Sự cố 2011 chỉ được vá hẹp</li><li>Giấy tờ tuân thủ nói "đạt" khi thực tế chưa</li><li>Dàn xếp không thừa nhận lỗi, khó biết ai chịu trách nhiệm gì</li></ul></div>
+  </div>
+  <p class="verdict">Không có kẻ ác, không có AI. Chỉ có một quy trình triển khai thiếu mọi lưới an toàn, gặp một máy gửi lệnh nhanh hơn con người.</p>
+  <details class="more"><summary>Xem thêm: vì sao đây là bài học cho mọi đội phần mềm</summary><div>
+    <p>Bỏ chữ "chứng khoán" đi, phần còn lại là chuyện thường ngày của mọi đội làm phần mềm: một tính năng cũ không ai xóa, một cờ cấu hình được dùng lại cho tiết kiệm, một lần chép code lên nhiều máy mà không ai kiểm tra lại, một kênh email báo lỗi mà ai cũng lọc vào thư mục riêng.</p>
+    <p>Điều khác biệt ở Knight là tốc độ. Một máy gửi lệnh tự động có thể làm trong vài phút điều mà con người cần cả tuần mới làm nổi. Vì thế SEC nhấn mạnh rằng kiểm soát phải tự động như chính hệ thống, và việc dừng hệ thống phải được chuẩn bị trước, không phải nghĩ ra giữa sự cố.</p>
+  </div></details>
+  <p class="nguon">Nguồn phần "Xem thêm": Quyết định SEC 34-70694, đoạn 3–4 (vai trò của kiểm soát trong giao dịch tự động); phần còn lại là nhận xét của Mark.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: triển khai có danh sách kiểm tra và nút dừng</h2><p class="lead">Áp dụng cho mọi lần "đẩy lên thật": cập nhật phần mềm, đổi cấu hình, gửi email hàng loạt, chạy chiến dịch quảng cáo.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kb4">
+        <title id="kb4">Bốn bước cho mỗi lần triển khai: tự động hóa và kiểm tra mọi máy đích, xóa code chết và không dùng lại cờ, thiết kế cảnh báo thật và so đầu ra với đầu vào, chuẩn bị nút dừng và quy trình sự cố viết sẵn.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · kiểm đủ mọi máy</text><text x="110" y="100" class="t-night t-bold">"8/8 cùng phiên bản"</text><text x="110" y="116">tự động, có người thứ hai</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · xóa code chết</text><text x="300" y="100" class="t-day t-bold">cờ mới, tên mới</text><text x="300" y="116">không dùng lại cờ cũ</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · cảnh báo là cảnh báo</text><text x="490" y="100" class="t-rem t-bold">so ra với vào</text><text x="490" y="116">hạn mức tự chặn</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · nút dừng viết sẵn</text><text x="680" y="100" class="t-ok t-bold">ai bấm, khi nào</text><text x="680" y="116">dừng trước, sửa sau</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Câu "chắc chép đủ rồi" không phải bằng chứng đã chép đủ.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi bước vá một chỗ hỏng sáng 1/8.</b> Máy bị sót, cờ dùng lại, email không ai đọc, và một cú gỡ code nghĩ ra giữa sự cố.<span class="nguon">Nguồn: các chỗ hỏng lấy từ Quyết định SEC 34-70694, đoạn 13–15, 19, 21–27; các bước là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v22H8z"/><path d="M12 12l2 2 4-4M12 20l2 2 4-4"/></svg><div><b>Danh sách kiểm tra có tên người ký</b><span>Liệt kê mọi máy đích. Sau triển khai, một người khác xác nhận từng máy chạy đúng phiên bản.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 9h18M12 9V6h8v3M9 9l1 18h12l1-18"/></svg><div><b>Xóa thứ không dùng</b><span>Code, cờ, tài khoản, quyền truy cập bỏ không chín năm là chín năm rủi ro nằm chờ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5a8 8 0 018 8v6l3 4H5l3-4v-6a8 8 0 018-8z"/><path d="M13 27h6"/></svg><div><b>Ít cảnh báo, nhưng cảnh báo thật</b><span>Một kênh nhận 97 email mà không ai đọc thì bằng không có kênh. Lọc ồn, chỉ để lại thứ bắt người phải dậy.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><rect x="12" y="12" width="8" height="8"/></svg><div><b>Tập dừng trước khi cần dừng</b><span>Viết sẵn: ai được dừng, dừng bằng cách nào, khi nào thì dừng. Đừng "quay về bản cũ" khi chưa biết bản cũ có an toàn không.</span></div></div>
+  </div>
+  <div class="quote"><span>Không có kiểm soát phù hợp, tự động hóa có thể biến một lỗi lẽ ra xử lý được thành một sự kiện cực đoan.</span><span class="src">SEC, Quyết định 34-70694, đoạn 3 (2013), Mark dịch.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>SEC, Quyết định 34-70694 (2013)</b><span class="muted">Văn bản ngắn, đọc như một bản phân tích sự cố. Đoạn 12–27 là phần cốt lõi.</span></div>
+    <div><b>Thông cáo của Knight ngày 2/8 và 6/8/2012</b><span class="muted">Xem một công ty mô tả sự cố của chính mình trong vòng 24 giờ, rồi gọi vốn cứu mình trong 5 ngày.</span></div>
+    <div><b>Google, <i>Site Reliability Engineering</i> (2016), các chương về triển khai và xử lý sự cố</b><span class="muted">Cách các đội lớn làm triển khai từng phần, rút lui an toàn và quy trình sự cố.</span></div>
+    <div><b>Giải phẫu thảm họa #06: Titanic (1912)</b><span class="muted">Khi quy định đi sau công nghệ, và vì sao phải lên kế hoạch cho tình huống xấu nhất.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên tài liệu gốc: quyết định của cơ quan quản lý và hồ sơ công ty nộp cho SEC.</p></div>
+  <ol class="srcs">
+    <li><b>SEC</b>, <i>In the Matter of Knight Capital Americas LLC</i>, Exchange Act Release No. 70694, Admin. Proc. File No. 3-15570, 16/10/2013, phần III, đoạn 1–51. <a href="https://www.sec.gov/litigation/admin/2013/34-70694.pdf">sec.gov</a></li>
+    <li><b>SEC</b>, thông cáo báo chí 2013-222, "SEC Charges Knight Capital With Violations of Market Access Rule", 16/10/2013. <a href="https://www.sec.gov/news/press-release/2013-222">sec.gov</a></li>
+    <li><b>Knight Capital Group</b>, thông cáo 2/8/2012, Form 8-K, phụ lục 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512332176/d391111dex991.htm">sec.gov/Archives</a></li>
+    <li><b>Knight Capital Group</b>, "Knight Capital Group Completes $400 Million Equity Financing Agreement", 6/8/2012, Form 8-K, phụ lục 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512338098/d392396dex991.htm">sec.gov/Archives</a></li>
+    <li><b>Knight Capital Group</b>, thông cáo kết quả quý 3/2012, 17/10/2012, Form 8-K, phụ lục 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512425350/d425406dex991.htm">sec.gov/Archives</a></li>
+  </ol>
+</section>
+
+<footer>Giải phẫu thảm họa #05. Các hình là sơ đồ minh họa; số liệu lấy từ quyết định của SEC và hồ sơ Knight nộp cho SEC, được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

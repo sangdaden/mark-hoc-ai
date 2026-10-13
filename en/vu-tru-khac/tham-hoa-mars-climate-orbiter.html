@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mars Climate Orbiter (NASA/JPL): summary, review and lessons | Another Universe</title>
+<meta name="description" content="The spec said metric and navigators saw the numbers drift for months, so how did a pounds-versus-newtons error make it all the way to Mars? An anatomy from NASA&#x27;s investigation board report, with 12 myths fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-mars-climate-orbiter.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-mars-climate-orbiter.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-mars-climate-orbiter.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-mars-climate-orbiter.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mars Climate Orbiter (NASA/JPL): summary, review and lessons | Another Universe">
+<meta property="og:description" content="The spec said metric and navigators saw the numbers drift for months, so how did a pounds-versus-newtons error make it all the way to Mars? An anatomy from NASA&#x27;s investigation board report, with 12 myths fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/tham-hoa-mars-climate-orbiter.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #1A0E0A; --bia-2: #7A2E15; --bia-nhan: #C4B5FD; }
+:root { --vtk-nhan: #C4B5FD; }
+body header { --ho-so: "Case file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/tham-hoa-mars-climate-orbiter.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Anatomy of a Disaster" #2: Mars Climate Orbiter, --night = Mars rust (the planet), --day = violet (the navigation / metric side). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #a8431f;
+  --day: #7c3aed;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f08a5d; --day: #b9a2f7; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f08a5d; --day: #b9a2f7; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Anatomy of a Disaster · Space · Working across teams</span>
+  <h1>Mars Climate Orbiter</h1>
+  <svg viewBox="0 0 340 52" width="340" height="52" style="max-width:100%" role="img" aria-label="Mars, an orbit dipping too low, and two units that do not match">
+    <circle cx="26" cy="26" r="20" fill="#a8431f"/>
+    <path d="M4 40 C 30 6, 70 4, 96 26" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <text x="108" y="32" font-family="monospace" font-size="15" fill="#8a94a6">57 km</text>
+    <text x="178" y="32" font-family="monospace" font-size="15" fill="#a8431f">lbf·s</text>
+    <text x="232" y="32" font-family="monospace" font-size="15" fill="#8a94a6">≠</text>
+    <text x="252" y="32" font-family="monospace" font-size="15" fill="#7c3aed">N·s</text>
+  </svg>
+  <p class="sub">Launched 11 December 1998 · signal lost 23 September 1999 · at Mars orbit insertion</p>
+  <div class="meta">
+    <div><span class="label">What happened</span><b>the probe dipped too deep into the Martian atmosphere and was never heard from again</b></div>
+    <div><span class="label">Loss</span><b>one Mars weather satellite; nobody was hurt</b></div>
+    <div><span class="label">Root cause</span><b>a ground software file used pounds instead of newtons</b></div>
+    <div><span class="label">Main source</span><b>MCO Mishap Investigation Board report, November 1999</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 22h24M8 22v-4M12 22v-6M16 22v-4M20 22v-6M24 22v-4"/></svg><b>A factor of 4.45</b><span>One pound-force is 4.45 newtons. The file held pounds; the receiving team read newtons.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="14" rx="2"/><path d="M11 26h10M16 21v5"/></svg><b>The bug was on the ground</b><span>The flight software was metric and correct. The error sat in a file made by ground computers.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 24l4-2 4-3 4-4 4-7"/></svg><b>Nine months of drift</b><span>A little wrong each time. By arrival the probe was nearly 170 km lower than planned.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="2"/><path d="M5 10l11 8 11-8"/></svg><b>Someone noticed</b><span>Navigators saw mismatched numbers from the spring, but raised them by e-mail, never as a formal incident.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Not one person's slip</b><span>The board listed 8 contributing causes, from training to verification.</span></div>
+  </div>
+  <p class="nguon">Source: MCO Mishap Investigation Board, Phase I report (10 Nov 1999), pp. 6–7, 13–17.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question of the case</h2></div>
+  <p class="thesis">The interface spec said metric. Navigators saw numbers that did not add up for months. So how did a unit error slip through the handoff between two teams, all the way to the Martian atmosphere?</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">Dec 1998 – Apr 1999</span><b>The bad file is born</b><span>Ground software writes its output in pounds. For four months the file is not even usable.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Apr 1999 – Sep 1999</span><b>Numbers drift, word of mouth</b><span>Different orbit solutions disagree. The worry travels only by e-mail.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">23 Sep 1999</span><b>57 km</b><span>Aimed at 226 km, the probe actually dipped to about 57 km. Signal lost.</span></div>
+  </div>
+  <p class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 13–18.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>What happened</h2><p class="lead">The milestones below come from the Phase I report of the investigation board (chaired by Arthur Stephenson, NASA).</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 250" role="img" aria-labelledby="tcao">
+        <title id="tcao">Closest-approach altitude at Mars orbit insertion. Target after the fourth trajectory correction: 226 km. Estimates in the final week: 150 to 170 km. About an hour before the engine burn: as low as 110 km. Estimate after the loss: 57 km. Minimum survivable altitude: 80 km.</title>
+        <rect x="160" y="20" width="4" height="196" fill="var(--night)"/>
+        <text x="156" y="232" text-anchor="end" class="t-night">Mars surface · 0 km</text>
+        <line x1="164" y1="210" x2="690" y2="210" class="axis"/>
+        <g text-anchor="middle"><text x="264" y="226">50</text><text x="364" y="226">100</text><text x="464" y="226">150</text><text x="564" y="226">200</text><text x="664" y="226">250 km</text></g>
+        <line x1="324" y1="20" x2="324" y2="210" stroke="var(--bad)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="330" y="196" class="t-bold" style="fill:var(--bad)">80 km · survival limit</text>
+        <text x="150" y="46" text-anchor="end" class="t-ink">target (TCM-4)</text>
+        <rect x="164" y="34" width="452" height="18" fill="var(--day)" fill-opacity=".7"/><text x="622" y="47" class="t-day t-bold">226</text>
+        <text x="150" y="86" text-anchor="end" class="t-ink">final week</text>
+        <rect x="164" y="74" width="300" height="18" fill="var(--day)" fill-opacity=".35"/><rect x="464" y="74" width="40" height="18" fill="var(--day)" fill-opacity=".7"/><text x="510" y="87" class="t-day t-bold">150–170</text>
+        <text x="150" y="126" text-anchor="end" class="t-ink">1 hour before</text>
+        <rect x="164" y="114" width="220" height="18" fill="var(--warn)" fill-opacity=".7"/><text x="390" y="127" class="t-bold" style="fill:var(--warn)">~110</text>
+        <text x="150" y="166" text-anchor="end" class="t-ink">after the loss</text>
+        <rect x="164" y="154" width="114" height="18" fill="var(--night)" fill-opacity=".85"/><text x="284" y="150" class="t-night t-bold">~57</text>
+      </svg>
+    </div>
+    <figcaption><b>Every recalculation put the probe lower.</b> The board took 80 km as the lowest altitude the probe could survive. The final estimate was 57 km: the probe "either was destroyed in the atmosphere or re-entered heliocentric space".<span class="nguon">Source: MCO Mishap Investigation Board, Phase I report (Nov 1999), pp. 7, 13–14.</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>11 Dec 1998 · Launch</b><span>A 629 kg probe whose job was to "orbit Mars as the first interplanetary weather satellite" and relay data for the Mars Polar Lander.</span></div>
+    <div><b>Dec 1998 – Apr 1999 · The data file is unusable</b><span>For the first four months, the file logging small thruster firings had format problems, so navigators did not use it. From April 1999 it could be used, but the units were still wrong.</span></div>
+    <div><b>Spring – summer 1999 · Numbers disagree</b><span>At the working level there were concerns about orbit solutions that did not match. The Doppler-only solutions "consistently indicated" a path closer to the planet. These discrepancies "were not resolved".</span></div>
+    <div><b>15 Sep 1999 · Fourth trajectory correction (TCM-4)</b><span>Aimed at a 226 km closest approach.</span></div>
+    <div class="hot"><b>23 Sep 1999, about an hour before · Estimate of 110 km</b><span>A fifth correction (TCM-5) was discussed verbally, but it had never been prepared, so it was not carried out.</span></div>
+    <div class="hot"><b>23 Sep 1999, 09:00:46 UTC · Orbit insertion burn</b><span>At 09:04:52 the probe passed behind Mars, 49 seconds earlier than predicted. The signal never came back.</span></div>
+    <div class="hot"><b>29 Sep 1999 · The factor of 4.45 is found</b><span>Six days after the loss, the small-forces data were found to be too low by a factor of 4.45.</span></div>
+  </div>
+  <p class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 6, 13–14, 17–20; mass of 629 kg: NASA/JPL MCO arrival press kit (Sep 1999), p. 6.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Episode 1</span><h3>What happened</h3><div class="chips"><span class="chip">226 km</span><span class="chip">57 km</span><span class="chip">9 months</span><span class="chip">49 seconds</span></div></div>
+    <div class="part b2"><span class="label">Episode 2</span><h3>Why</h3><div class="chips"><span class="chip">pounds and newtons</span><span class="chip">the handoff</span><span class="chip">e-mail instead of process</span><span class="chip">myths</span></div></div>
+    <div class="part b3"><span class="label">Episode 3</span><h3>Work lessons</h3><div class="chips"><span class="chip">check the handoff</span><span class="chip">a mismatch is an incident</span><span class="chip">plan B</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Why: four layers of cause</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Technical layer: a number crosses the handoff</h3><span class="en">interface · units</span><span class="pg">MCO board, pp. 14–17</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kj">
+          <title id="kj">The path of the number. The probe fires small thrusters to dump reaction-wheel momentum. Ground software SM_FORCES computes the impulse of each firing and writes it in pound-force seconds. The AMD file is handed over. The interface specification requires newton seconds. Navigators read the numbers as newton seconds, so each firing is underestimated 4.45 times. The orbit estimate drifts.</title>
+          <rect x="20" y="40" width="190" height="96" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="34" y="64" class="t-ink t-bold">1 · ground software</text>
+          <text x="34" y="84">SM_FORCES computes</text>
+          <text x="34" y="104">each small firing</text>
+          <text x="34" y="126" class="t-night t-bold">output: lbf·s</text>
+          <rect x="262" y="40" width="190" height="96" rx="8" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="276" y="64" class="t-ink t-bold">2 · AMD file handed over</text>
+          <text x="276" y="84">interface spec (SIS)</text>
+          <text x="276" y="104">requires: N·s</text>
+          <text x="276" y="126" class="t-bold" style="fill:var(--warn)">nobody checked</text>
+          <rect x="504" y="40" width="196" height="96" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="518" y="64" class="t-ink t-bold">3 · navigation team</text>
+          <text x="518" y="84">reads the number as N·s</text>
+          <text x="518" y="104">feeds the orbit model</text>
+          <text x="518" y="126" class="t-day t-bold">force 4.45× too small</text>
+          <line x1="212" y1="88" x2="258" y2="88" stroke="var(--muted)" stroke-width="2"/><path d="M258 88 l-8 -5 v10z" fill="var(--muted)"/>
+          <line x1="454" y1="88" x2="500" y2="88" stroke="var(--muted)" stroke-width="2"/><path d="M500 88 l-8 -5 v10z" fill="var(--muted)"/>
+          <text x="20" y="176" class="t-ink t-bold">1 pound-force (lbf) = 4.45 newtons (N)</text>
+          <text x="20" y="198">The flight software computed in metric and was correct. The error lived only in the ground model.</text>
+        </svg>
+      </div>
+      <figcaption><b>The error sat exactly where two teams handed over.</b> The board named the root cause as "the failure to use metric units in the coding of a ground software file, 'Small Forces,' used in trajectory models". The interface spec set the units, but it "was not followed".<span class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 6, 14, 16–17.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Physical layer: why a small error grew large</h3><span class="en">angular momentum desaturation</span><span class="pg">MCO board, pp. 6–7, 17, 22</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kv">
+          <title id="kv">MCO had a solar array on one side of its body, unlike Mars Global Surveyor. So it had to fire small thrusters to dump wheel momentum 10 to 14 times more often than the navigation team expected. Each firing was undercounted, and the error added up over nine months.</title>
+          <rect x="60" y="70" width="60" height="60" rx="6" fill="var(--muted)" fill-opacity=".45"/>
+          <rect x="120" y="92" width="170" height="16" fill="var(--day)" fill-opacity=".7"/>
+          <text x="60" y="58" class="t-ink t-bold">spacecraft body</text><text x="140" y="84" class="t-day">solar array on one side</text>
+          <g fill="var(--night)"><circle cx="66" cy="140" r="5"/><circle cx="114" cy="140" r="5"/></g>
+          <text x="40" y="168">small thrusters dump wheel momentum</text>
+          <text x="360" y="60" class="t-ink t-bold">firings compared with expectation</text>
+          <rect x="360" y="76" width="24" height="18" fill="var(--muted)" fill-opacity=".6"/><text x="392" y="90">expected: 1 share</text>
+          <rect x="360" y="104" width="300" height="18" fill="var(--night)" fill-opacity=".8"/><text x="360" y="142" class="t-night t-bold">actual: 10–14 times more often</text>
+          <text x="360" y="176" class="t-ink">a little short each time · added up over 9 months</text>
+        </svg>
+      </div>
+      <figcaption><b>New design, old expectations.</b> Compared with Mars Global Surveyor, MCO's solar array was strongly asymmetric. So these firings "occurred 10-14 times more often than was expected by the operations navigation team", and a small error each time became "small errors being introduced in the trajectory estimate over the course of the 9-month journey".<span class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 6–7, 17, 22.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Process layer: four safety nets, all torn</h3><span class="en">checks and balances</span><span class="pg">MCO board, pp. 13, 18–25, 30</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="kl">
+          <title id="kl">Four layers of checks that should have caught the error. One: verification of ground software, unclear whether done independently. Two: the interface specification, not followed and not checked. Three: the Incident, Surprise, Anomaly reporting process, misunderstood by many, with e-mail used instead. Four: the backup trajectory correction TCM-5, never prepared. The error passed through all four.</title>
+          <g>
+            <rect x="40" y="20" width="140" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><circle cx="110" cy="80" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2"/>
+            <text x="110" y="124" text-anchor="middle" class="t-ink t-bold">verification</text><text x="110" y="140" text-anchor="middle">of ground software</text><text x="110" y="158" text-anchor="middle" style="fill:var(--bad)">"not clear"</text>
+            <rect x="205" y="20" width="140" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><circle cx="275" cy="80" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2"/>
+            <text x="275" y="124" text-anchor="middle" class="t-ink t-bold">interface spec</text><text x="275" y="140" text-anchor="middle">required N·s</text><text x="275" y="158" text-anchor="middle" style="fill:var(--bad)">"was not followed"</text>
+            <rect x="370" y="20" width="140" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><circle cx="440" cy="80" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2"/>
+            <text x="440" y="124" text-anchor="middle" class="t-ink t-bold">ISA incident form</text><text x="440" y="140" text-anchor="middle">mismatch was seen</text><text x="440" y="158" text-anchor="middle" style="fill:var(--bad)">raised by e-mail only</text>
+            <rect x="535" y="20" width="140" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><circle cx="605" cy="80" r="16" fill="var(--bg)" stroke="var(--bad)" stroke-width="2"/>
+            <text x="605" y="124" text-anchor="middle" class="t-ink t-bold">plan B</text><text x="605" y="140" text-anchor="middle">correction TCM-5</text><text x="605" y="158" text-anchor="middle" style="fill:var(--bad)">never prepared</text>
+          </g>
+          <line x1="20" y1="80" x2="700" y2="80" stroke="var(--night)" stroke-width="3" stroke-dasharray="8 5"/><path d="M700 80 l-10 -6 v12z" fill="var(--night)"/>
+          <text x="20" y="210" class="t-night t-bold">The unit error passed through all four layers</text>
+        </svg>
+      </div>
+      <figcaption><b>Anyone can make an error. Someone has to hold the net.</b> The board wrote that "the team relied on e-mail to solve problems, instead of formal problem resolution processes", so things ended up "slipping through the cracks". It also "observed no fault tree or other a priori analyses of what could go wrong".<span class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 13 (informal reporting), 16 (spec), 20 (TCM-5), 22–23 (e-mail), 25 (ISA, verification), 30 (fault tree).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Organisational layer: two spacecraft for the price of one</h3><span class="en">faster, better, cheaper</span><span class="pg">MPIAT, March 2000</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kt">
+          <title id="kt">Development cost in 1999 dollars. Mars Pathfinder, one landing mission: 196 million dollars. Mars 98, the MCO orbiter plus the Mars Polar Lander: 188 million dollars. The independent assessment team judged Mars 98 underfunded by at least 30 percent. The navigation team ran three missions at once; MCO had a single navigator.</title>
+          <text x="190" y="44" text-anchor="end" class="t-ink">Mars Pathfinder (1 mission)</text>
+          <rect x="200" y="30" width="392" height="22" fill="var(--muted)" fill-opacity=".55"/><text x="600" y="46" class="t-ink t-bold">196</text>
+          <text x="190" y="88" text-anchor="end" class="t-ink">Mars '98 (2 craft)</text>
+          <rect x="200" y="74" width="376" height="22" fill="var(--night)" fill-opacity=".8"/><text x="584" y="90" class="t-night t-bold">188</text>
+          <text x="200" y="120">million USD development, 1999 dollars</text>
+          <text x="40" y="160" class="t-ink t-bold">"underfunded by at least 30 percent"</text>
+          <text x="40" y="182">navigators ran 3 missions at once · MCO had a single navigator</text>
+        </svg>
+      </div>
+      <figcaption><b>"Faster, better, cheaper" was not wrong, but it was done wrong.</b> Thomas Young's independent assessment team called the slogan "an effective concept … if properly applied", while failing to apply it well "has contributed to an unacceptably high failure rate". The MCO board's second report said the project management team "appeared more focused on meeting mission cost and schedule objectives".<span class="nguon">Source: Mars Program Independent Assessment Team (MPIAT, 14 Mar 2000), slides 8, 12, 24, 25; MCO board, Phase I, p. 24 (3 missions, single navigator); MCO board, Report on Project Management in NASA (13 Mar 2000), p. 18.</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>New people, new craft</h3><span class="muted">The navigation team was "unfamiliar with spacecraft" and had "inadequate training" (2 of the 8 contributing causes).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>A botched handover</h3><span class="muted">Systems engineering "did not adequately address" the move from development to operations. A recurring question: "Who's in charge?"</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Nobody owned the seam</h3><span class="muted">Navigators were worried but "did not communicate their trajectory concerns effectively" to the spacecraft team.</span></div>
+    </div>
+    <p class="nguon">Source: MCO Mishap Investigation Board, Phase I report, pp. 7, 22; Report on Project Management in NASA (Mar 2000), p. 18.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: what is true and what is myth</h2><p class="lead">12 things often said about Mars Climate Orbiter, checked against the primary record. Click each row to see why.</p></div>
+  <div class="tally" role="img" aria-label="3 solid, 5 caution, 4 false">
+    <div class="o" style="flex:3">3 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:4">4 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>A pounds-versus-newtons error in ground software was the root cause</span></summary><p class="note">The board's finding (Phase I, pp. 6, 16): the "Small Forces" file did not use metric units and was low by a factor of 4.45.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The probe flew far lower than planned</span></summary><p class="note">Aimed at 226 km, final estimate about 57 km, below the 80 km survival limit (pp. 13–14).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The project was short of people and money</span></summary><p class="note">The navigation team ran 3 missions at once and MCO had a single navigator (board, p. 24). MPIAT judged Mars '98 "underfunded by at least 30 percent".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Lockheed used imperial, NASA used metric"</span></summary><p class="note">Broadly right: NASA's 30 Sep 1999 release says a team in Colorado (industrial partner Lockheed Martin) and a team in California (JPL) used different units. But it was not "NASA metric, the company imperial": the shared spec required metric, and the board does not pin the blame on one company.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The probe "crashed into" Mars</span></summary><p class="note">Nobody knows for sure. The board wrote that it "either was destroyed in the atmosphere or re-entered heliocentric space" (p. 7).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"$125 million lost"</span></summary><p class="note">This figure comes from 1999 press reports (Reuters, 1 Oct 1999); it is not in the investigation reports. NASA's official numbers cover the orbiter and lander together: $193.1M development and $42.8M operations (NASA/JPL press kit, Sep 1999).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Faster, better, cheaper" was the culprit</span></summary><p class="note">MPIAT said the slogan works "if properly applied". The culprit was applying it badly: fewer people, less money, fewer checks.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The TCM-5 correction would certainly have saved it</span></summary><p class="note">Not doing it is one of the 8 contributing causes, and it was designed to raise the orbit to a safe altitude. But it had never been prepared, and the board does not claim it would surely have worked (pp. 19–20).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Just one person forgot to convert units"</span></summary><p class="note">The board listed 8 contributing causes. NASA's Edward Weiler: "The problem here was not the error, it was the failure of NASA's systems engineering, and the checks and balances in our processes to detect the error."</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>The flight software used the wrong units</span></summary><p class="note">"The AMD software installed on the spacecraft used metric units for the computation and was correct." "Mismodeling only occurred in the ground software" (p. 17).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>Nobody noticed anything until the last minute</span></summary><p class="note">From spring 1999 there were working-level concerns about orbit solutions that did not match. They were "only informally reported" and "were not resolved" (p. 13).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>Mars Polar Lander was lost to the same unit error</span></summary><p class="note">The lander was lost on 3 Dec 1999 for a different reason: the "probable cause" was premature shutdown of the descent engines after a spurious touchdown signal at leg deployment (JPL Special Review Board, Mar 2000).</p></details>
+  </div>
+  <p class="nguon">Sources: MCO Mishap Investigation Board, Phase I (Nov 1999); NASA release 99-113 (30 Sep 1999); MPIAT (Mar 2000); NASA/JPL press kit (Sep 1999); Reuters (1 Oct 1999); JPL D-18709 (22 Mar 2000).</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessing the case</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 8, not figures from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Avoidable</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Warnings in advance</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Open investigation</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Lessons retained</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right afterwards</span><ul class="plus"><li>Preliminary cause made public just 7 days later</li><li>Said plainly: the system failed, not one person</li><li>Recommendations applied at once to Mars Polar Lander</li></ul></div>
+    <div><span class="label">Not done right</span><ul class="minus"><li>10 weeks later Mars Polar Lander was lost too (different cause)</li><li>The "forgot to convert" story spread faster than the process lesson</li><li>Fixing the incident-reporting culture was slower than fixing a data file</li></ul></div>
+  </div>
+  <p class="verdict">A very ordinary error that had to pass through four layers of checks to become a disaster. That makes it far more worth studying than a joke about units.</p>
+  <details class="more"><summary>More: two spacecraft, two failures, one root</summary><div>
+    <p>Mars Polar Lander was lost on 3 December 1999. JPL's review board concluded the software probably mistook a spurious signal at leg deployment for touchdown, allowing engine shutdown at about 40 m altitude. A completely different bug, but the independent MPIAT team put both losses in the same picture: Mars '98 was short of money, short of people, and light on checks.</p>
+    <p>The MCO board's second report (March 2000) set out the vision "Mission Success First" and called for an environment where "problems may be raised without fear of reprisal".</p>
+  </div></details>
+  <p class="nguon">Sources: NASA release 99-113 (30 Sep 1999); JPL D-18709 (22 Mar 2000); MPIAT (14 Mar 2000); Report on Project Management in NASA (13 Mar 2000), pp. 6, 37.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lessons: check the handoff between two teams</h2><p class="lead">Applies wherever one team passes numbers, files or an API to another: finance and sales, backend and frontend, supplier and customer.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kb">
+        <title id="kb">Four steps to check a handoff: put the unit in the data itself, test end to end with real data, treat a mismatch as an incident and log it, and prepare plan B before you need it.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · unit in the data</text><text x="110" y="100" class="t-night t-bold">"force_Ns", not "force"</text><text x="110" y="116">a machine can check it</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · test end to end</text><text x="300" y="100" class="t-day t-bold">one real case, both sides</text><text x="300" y="116">compare the results</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · mismatch = incident</text><text x="490" y="100" class="t-rem t-bold">a ticket with an owner</text><text x="490" y="116">not an e-mail thread</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · prepare plan B</text><text x="680" y="100" class="t-ok t-bold">when to use it, who decides</text><text x="680" y="116">written before you need it</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Having a spec is not enough. Someone has to check that it is followed.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each step patches one torn net from MCO.</b> Units were not checked, ground software had no end-to-end test, the mismatch went by e-mail, and TCM-5 had never been prepared.<span class="nguon">Source: the nets follow the MCO Mishap Investigation Board, Phase I report, pp. 16–25; the steps are Mark's suggestions.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="16" r="5"/><circle cx="23" cy="16" r="5"/><path d="M14 16h4"/></svg><div><b>Every seam has one owner</b><span>Not team A, not team B, but one person accountable for both ends.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="2"/><path d="M5 10l11 8 11-8"/><path d="M4 28L28 4"/></svg><div><b>Don't resolve incidents by e-mail</b><span>E-mail drifts away. A ticket has a status, an owner and a deadline.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h16M18 10l6 6-6 6"/><circle cx="6" cy="16" r="3"/></svg><div><b>Builders stay on into operations</b><span>The board recommends key people "remain with the project from the start to operations".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4v8M16 12l-8 8M16 12l8 8M8 20v6M24 20v6"/></svg><div><b>Ask "what if it's wrong?" first</b><span>Draw a fault tree before launch. The board found no such analysis for MCO.</span></div></div>
+  </div>
+  <p class="nguon">Source: Report on Project Management in NASA (Mar 2000), p. 40; MCO board, Phase I, pp. 22–23, 30.</p>
+  <div class="quote"><span>People sometimes make errors. The problem here was not the error, it was the failure of NASA's systems engineering, and the checks and balances in our processes to detect the error.</span><span class="src">Edward Weiler, NASA Associate Administrator for Space Science, release 99-113 (30 Sep 1999).</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>MCO Mishap Investigation Board, <i>Phase I Report</i> (10 Nov 1999)</b><span class="muted">Section 5 on the contributing causes is gripping. Better than any retelling.</span></div>
+    <div><b>MCO Mishap Investigation Board, <i>Report on Project Management in NASA</i> (13 Mar 2000)</b><span class="muted">Project management lessons drawn from the case, usable in any field.</span></div>
+    <div><b>Thomas Young's MPIAT report (14 Mar 2000)</b><span class="muted">The whole Mars programme: money, people, and the "faster, better, cheaper" slogan.</span></div>
+    <div><b>Anatomy of a Disaster #03: The Tenerife collision (1977)</b><span class="muted">Two Boeing 747s on one fog-bound runway, and words that were not quite clear enough.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Primary documents first. Page numbers follow the PDF and may be off by one. Where only a press source exists, it is flagged in the Fact check section.</p></div>
+  <ol class="srcs">
+    <li><b>Mars Climate Orbiter Mishap Investigation Board</b>, <i>Phase I Report</i>, 10 Nov 1999. <a href="https://llis.nasa.gov/llis_lib/pdf/1009464main1_0641-mr.pdf">llis.nasa.gov</a></li>
+    <li><b>Mars Climate Orbiter Mishap Investigation Board</b>, <i>Report on Project Management in NASA</i>, 13 Mar 2000. <a href="https://discovery.larc.nasa.gov/PDF_FILES/mars_climate_orbiter_phaseII.pdf">discovery.larc.nasa.gov</a></li>
+    <li><b>NASA</b>, release 99-113, "Mars Climate Orbiter team finds likely cause of loss", 30 Sep 1999. <a href="https://nssdc.gsfc.nasa.gov/planetary/text/mco_pr_19990930.txt">nssdc.gsfc.nasa.gov</a></li>
+    <li><b>Mars Program Independent Assessment Team</b> (chair T. Young), report, 14 Mar 2000. <a href="https://www.cs.washington.edu/homes/leveson/accidents/mpiat_report_1.pdf">PDF copy</a></li>
+    <li><b>NASA/JPL</b>, <i>Mars Climate Orbiter Arrival</i> press kit, Sep 1999. <a href="https://www.jpl.nasa.gov/news/press_kits/mcoarrivehq.pdf">jpl.nasa.gov</a></li>
+    <li><b>JPL Special Review Board</b>, <i>Report on the Loss of the Mars Polar Lander and Deep Space 2 Missions</i>, JPL D-18709, 22 Mar 2000. <a href="https://www.cs.washington.edu/homes/leveson/accidents/mpl_report_1.pdf">PDF copy</a></li>
+    <li><b>NASA NSSDCA</b>, Mars Climate Orbiter entry (1998-073A). <a href="https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1998-073A">nssdc.gsfc.nasa.gov</a></li>
+    <li><b>Reuters</b>, "NASA Says Human Error Caused Loss Of Mars Craft", 1 Oct 1999 (press source for the $125 million figure). <a href="https://mste.illinois.edu/dildine/tcd_files/metric/hook.htm">archived copy</a></li>
+  </ol>
+</section>
+
+<footer>Anatomy of a Disaster #02. The figures are illustrative diagrams; numbers come from the original reports and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tenerife Runway Collision (KLM 4805 · Pan Am 1736): summary, review and lessons | Another Universe</title>
+<meta name="description" content="The flight engineer asked &quot;Is he not clear, that Pan American?&quot;, so why did the 747 still roll into the fog? An anatomy from the Spanish report, the cockpit tapes, the Dutch comments, and 13 myths fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-tenerife.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-tenerife.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-tenerife.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-tenerife.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tenerife Runway Collision (KLM 4805 · Pan Am 1736): summary, review and lessons | Another Universe">
+<meta property="og:description" content="The flight engineer asked &quot;Is he not clear, that Pan American?&quot;, so why did the 747 still roll into the fog? An anatomy from the Spanish report, the cockpit tapes, the Dutch comments, and 13 myths fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/tham-hoa-tenerife.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #0E1A1F; --bia-2: #155E75; --bia-nhan: #FBBF24; }
+:root { --vtk-nhan: #FBBF24; }
+body header { --ho-so: "Case file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/tham-hoa-tenerife.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Anatomy of a Disaster": Tenerife, --night = runway-light amber (the KLM take-off, the fire), --day = fog teal (the fog, the radio). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #b45309;
+  --day: #0e7490;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fbbf24; --day: #67c6d6; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fbbf24; --day: #67c6d6; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Anatomy of a Disaster · Aviation · Communication</span>
+  <h1>Tenerife Runway Collision</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Fog, two overlapping radio waves, and a runway">
+    <g fill="#8a94a6" fill-opacity=".45"><ellipse cx="22" cy="30" rx="18" ry="9"/><ellipse cx="38" cy="22" rx="14" ry="9"/><ellipse cx="50" cy="31" rx="12" ry="8"/></g>
+    <path d="M78 26c6-12 12-12 18 0s12 12 18 0 12-12 18 0" fill="none" stroke="#0e7490" stroke-width="2.5"/>
+    <path d="M78 26c4-10 9-10 13 0s9 10 13 0 9-10 13 0 9-10 13 0" fill="none" stroke="#b45309" stroke-width="2.5"/>
+    <text x="146" y="31" font-family="monospace" font-size="15" fill="#8a94a6">"OK"</text>
+    <rect x="196" y="20" width="118" height="12" rx="2" fill="#8a94a6" fill-opacity=".35"/>
+    <g stroke="#b45309" stroke-width="2"><path d="M204 26h10M224 26h10M244 26h10M264 26h10M284 26h10"/></g>
+  </svg>
+  <p class="sub">KLM 4805 and Pan Am 1736 · 27 March 1977 · Los Rodeos airport, Tenerife, Spain</p>
+  <div class="meta">
+    <div><span class="label">What happened</span><b>two Boeing 747s collided on a runway in fog</b></div>
+    <div><span class="label">Loss</span><b>583 dead, 61 survivors</b></div>
+    <div><span class="label">Root cause</span><b>a take-off without clearance, after a chain of misheard words</b></div>
+    <div><span class="label">Main source</span><b>Spanish report, 1978; Dutch comments</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Re-read in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="13" width="24" height="6" rx="1"/><path d="M8 16h3M14 16h3M20 16h3"/></svg><b>One runway, two 747s</b><span>Thick fog. The tower could not see the runway.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22v13H14l-6 5v-5H5z"/></svg><b>One ambiguous sentence</b><span>"We are now at take-off": the first officer meant "taking off"; the tower heard "in position, waiting".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16c3-8 6-8 9 0s6 8 9 0 6-8 6-4"/><path d="M4 18c2-6 4-6 6 0s4 6 6 0 4-6 6 0 4 6 6 0"/></svg><b>One "OK" and 3 seconds of squeal</b><span>Two warnings went out at the same moment and blocked each other on the radio.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M13 12a3 3 0 1 1 4 3c-1 .6-1 1.5-1 3M16 22v1"/></svg><b>One question brushed aside</b><span>The flight engineer asked, "Is he not clear, that Pan American?" The captain: "Oh, yes." Fifteen seconds later, impact.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Not just one man</b><span>The report names the KLM captain, but lists six contributing factors. The Dutch did not fully agree.</span></div>
+  </div>
+  <p class="nguon">Source: Spanish report (Subsecretaría de Aviación Civil, 1978), sections 1.2, 1.7, 2.1 and conclusions; FAA, "Lessons Learned", PH-BUF/N736PA.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question</h2></div>
+  <p class="thesis">The best-known captain, a full crew, a flight engineer who spoke up: why did the 747 still roll into the fog? Because everyone heard what they expected to hear, and in that cockpit a junior's question was not heavy enough to stop a senior.</p>
+  <div class="flow" aria-label="The three stages of the story">
+    <div class="step"><span class="label">midday, 27 March 1977</span><b>Diversion</b><span>A bomb goes off at Las Palmas airport. Flights pile into the small Los Rodeos airport.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">16:50–17:05</span><b>Fog</b><span>Visibility drops from 2–3 km to 300 m. Two 747s taxi on the same runway.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">17:06:47</span><b>Collision</b><span>KLM starts its take-off without clearance and hits Pan Am, still on the runway.</span></div>
+  </div>
+  <p class="nguon">Source: Spanish report (1978), sections 1.1 and 1.7 (times, visibility).</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>What happened</h2><p class="lead">Times come from the cockpit voice recorder (CVR) and tower tapes, as printed in the Spanish report.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 270" role="img" aria-labelledby="tmap">
+        <title id="tmap">Diagram of Los Rodeos airport, not to scale. The runway runs left to right, with threshold 12 on the left near the apron and threshold 30 on the right. Exits C-1 and C-2 are blocked by parked aircraft. KLM taxis to the end, turns 180 degrees and starts its take-off run to the left. Pan Am taxis behind it, is told to leave at the third exit, C-3, a sharp turn of about 148 degrees, misses it, and is still on the runway between C-3 and C-4 when it is hit.</title>
+        <rect x="40" y="112" width="640" height="30" rx="3" fill="var(--muted)" fill-opacity=".28"/>
+        <g stroke="var(--paper)" stroke-width="2"><path d="M60 127h20M100 127h20M140 127h20M180 127h20M220 127h20M260 127h20M300 127h20M340 127h20M380 127h20M420 127h20M460 127h20M500 127h20M540 127h20M580 127h20M620 127h20"/></g>
+        <line x1="70" y1="200" x2="640" y2="200" stroke="var(--muted)" stroke-opacity=".5" stroke-width="8"/>
+        <g stroke="var(--muted)" stroke-opacity=".5" stroke-width="8"><path d="M120 142v58M220 142v58M372 142L322 200M470 142v58"/></g>
+        <rect x="40" y="214" width="190" height="40" rx="4" fill="var(--muted)" fill-opacity=".15"/>
+        <g fill="var(--muted)"><rect x="104" y="160" width="32" height="10" rx="3"/><rect x="204" y="166" width="32" height="10" rx="3"/></g>
+        <text x="135" y="239" text-anchor="middle">apron packed with aircraft</text>
+        <g text-anchor="middle" class="t-ink"><text x="140" y="192" style="font-size:10px">C-1</text><text x="240" y="192" style="font-size:10px">C-2</text><text x="338" y="168">C-3</text><text x="486" y="176">C-4</text></g>
+        <text x="40" y="104">threshold 12</text><text x="680" y="104" text-anchor="end">threshold 30</text>
+        <ellipse cx="420" cy="122" rx="190" ry="42" fill="var(--paper)" fill-opacity=".55"/>
+        <text x="420" y="84" text-anchor="middle">fog · visibility ~300 m</text>
+        <path d="M70 118H664" stroke="var(--night)" stroke-width="2.5" stroke-dasharray="6 5" fill="none"/>
+        <path d="M664 118a9 9 0 0 1 0 18" stroke="var(--night)" stroke-width="2.5" fill="none"/>
+        <path d="M664 136H450" stroke="var(--night)" stroke-width="4" fill="none"/><path d="M446 136l12-6v12z" fill="var(--night)"/>
+        <path d="M70 130H420" stroke="var(--day)" stroke-width="3" fill="none"/><path d="M424 130l-12-6v12z" fill="var(--day)"/>
+        <path d="M372 150 q-8 10 -18 14" stroke="var(--day)" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+        <circle cx="432" cy="128" r="12" fill="var(--bad)" fill-opacity=".85"/>
+        <text x="540" y="40" class="t-night t-bold">KLM: taxi to the end,</text><text x="540" y="56" class="t-night">turn 180°, take-off run ←</text>
+        <text x="60" y="40" class="t-day t-bold">Pan Am: taxi behind,</text><text x="60" y="56" class="t-day">"leave at the third exit" (C-3)</text>
+        <text x="300" y="262" class="t-day">C-3 needs a ~148° turn, almost a U-turn</text>
+        <text x="432" y="168" text-anchor="middle" class="t-bold" style="fill:var(--bad)">17:06:47</text>
+      </svg>
+    </div>
+    <figcaption><b>Illustrative diagram, not to scale.</b> The runway is 3,400 m long and 45 m wide. The Pan Am wreck lay about 1,385 m from threshold 30. At that point the tower could not see the aircraft on the runway.<span class="nguon">Source: Spanish report, sections 1.1, 1.7, 1.14.2 and 2.1; the 148° turn at C-3 is from the ALPA study, cited via Wikipedia (secondary).</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="t60">
+        <title id="t60">The last minute. 17:05:41, first officer: wait, we don't have an ATC clearance. 17:05:53, the tower gives the route clearance, not a take-off clearance. 17:06:09, the first officer reads back and says "We are now at take-off". 17:06:11, brakes released, captain: "we're going". 17:06:18, tower: "OK". 17:06:19 to 17:06:22, a squeal covers the tower's "stand by for take-off" and Pan Am's "still taxiing down the runway". 17:06:32, the flight engineer asks whether Pan Am is clear. 17:06:35, captain: "Oh, yes". 17:06:47, collision.</title>
+        <line x1="50" y1="118" x2="690" y2="118" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="410" y="104" width="25" height="28" fill="var(--bad)" fill-opacity=".3"/>
+        <g text-anchor="middle">
+          <circle cx="59" cy="118" r="6" fill="var(--day)"/>
+          <circle cx="172" cy="118" r="6" fill="var(--muted)"/>
+          <circle cx="320" cy="118" r="7" fill="var(--night)"/>
+          <circle cx="333" cy="118" r="5" fill="var(--night)"/>
+          <circle cx="399" cy="118" r="6" fill="var(--muted)"/>
+          <circle cx="529" cy="118" r="6" fill="var(--day)"/>
+          <circle cx="559" cy="118" r="6" fill="var(--night)"/>
+          <circle cx="666" cy="118" r="10" fill="var(--bad)"/>
+          <text x="320" y="30" class="t-night t-bold">17:06:09 · KLM first officer</text><text x="320" y="46" class="t-night">"We are now at take-off"</text>
+          <text x="529" y="30" class="t-day t-bold">17:06:32 · flight engineer</text><text x="529" y="46" class="t-day">"Is he not clear?"</text>
+          <text x="422" y="96" class="t-bold" style="fill:var(--bad)">squeal ~3 s</text>
+          <text x="172" y="150" class="t-ink t-bold">17:05:53 · tower</text><text x="172" y="166">route clearance,</text><text x="172" y="180">not a take-off clearance</text>
+          <text x="399" y="150" class="t-ink t-bold">17:06:18 · tower: "OK"</text>
+          <text x="566" y="150" class="t-night t-bold">17:06:35 · captain</text><text x="566" y="166" class="t-night">"Oh, yes"</text>
+          <text x="333" y="196" class="t-night">17:06:11 · brakes off: "we're going"</text>
+        </g>
+        <text x="59" y="74" class="t-day t-bold">17:05:41 · first officer</text><text x="59" y="90" class="t-day">"wait, no ATC clearance"</text>
+        <text x="690" y="200" text-anchor="end" class="t-bold" style="fill:var(--bad)">17:06:47 · collision</text>
+        <text x="50" y="224">time scale: seconds, 17:05:40 to 17:06:50 (recorder time)</text>
+      </svg>
+    </div>
+    <figcaption><b>From brake release to impact: about 36 seconds.</b> The tower's "OK" came about 6.5 seconds after KLM had begun its take-off roll. Two people in the KLM cockpit spoke up, but only with a question or a mild reminder.<span class="nguon">Source: Spanish report, sections 1.1 and 2.1 (times, words); conclusions as printed in ICAO Circular 153-AN/56 (6.5 seconds); PBS NOVA CVR transcript, taken from the Spanish report ("we're going", Dutch "We gaan"). The 36 seconds is Mark's calculation from 17:06:11 and 17:06:47.</span></figcaption>
+  </figure>
+
+  <div class="tl">
+    <div><b>13:38 and 14:15 · Landing at Los Rodeos</b><span>A bomb at Las Palmas closed that airport. KLM arrived first; Pan Am arrived later and parked behind it.</span></div>
+    <div><b>While waiting · KLM loads 55,500 litres of fuel</b><span>It took about 30 minutes. Pan Am was ready but could not get past the KLM jet.</span></div>
+    <div><b>Duty-time pressure</b><span>Since December 1976, Dutch rules no longer let a captain extend the duty limit. KLM said a departure before a certain time looked fine; otherwise the crew would have to stop.</span></div>
+    <div class="hot"><b>17:02 · Visibility 300 m</b><span>Low cloud drifted across the field. The runway centreline lights were out of service.</span></div>
+    <div class="hot"><b>17:05:27 · KLM turns at the end of the runway</b><span>Pan Am is still taxiing on the runway behind it, in the fog.</span></div>
+    <div class="hot"><b>17:06:47 · Collision</b><span>KLM had already lifted its nose; its tail scraped the runway for about 20 m before it hit Pan Am. The fire burned until 3:30 the next morning.</span></div>
+  </div>
+  <p class="nguon">Source: Spanish report, sections 1.1 (landing times), 1.7 (weather, centreline lights), 1.14.2 (tail scrape, fire), 1.16 and 2.1 (fuel, duty time).</p>
+
+  <div class="nums-row cards5">
+    <div class="ecard"><b style="font-size:1.8rem;color:var(--bad)">248</b><span>people on KLM, no survivors (14 crew, 234 passengers)</span></div>
+    <div class="ecard"><b style="font-size:1.8rem;color:var(--day)">396</b><span>people on Pan Am</span></div>
+    <div class="ecard"><b style="font-size:1.8rem;color:var(--bad)">335</b><span>Pan Am dead, including 9 who died later of their injuries</span></div>
+    <div class="ecard"><b style="font-size:1.8rem;color:var(--ok)">61</b><span>survivors, all on Pan Am</span></div>
+  </div>
+  <p class="nguon">Source: Spanish report, section 1.2; FAA, "Lessons Learned" (583 dead, 61 survivors).</p>
+
+  <div class="parts">
+    <div class="part"><span class="label">Part 1</span><h3>What happened</h3><div class="chips"><span class="chip">fog</span><span class="chip">the last minute</span><span class="chip">583 people</span><span class="chip">"Oh, yes"</span></div></div>
+    <div class="part b2"><span class="label">Part 2</span><h3>Why</h3><div class="chips"><span class="chip">ambiguous words</span><span class="chip">blocked radio</span><span class="chip">cockpit hierarchy</span><span class="chip">two reports</span></div></div>
+    <div class="part b3"><span class="label">Part 3</span><h3>Work lessons</h3><div class="chips"><span class="chip">say it clearly</span><span class="chip">read it back</span><span class="chip">dare to interrupt</span><span class="chip">CRM</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Why: five layers of cause</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>The circumstances: holes that lined up</h3><span class="en">chain of events</span><span class="pg">Spanish report, conclusions</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kc">
+          <title id="kc">Eight barriers, each with a hole, and one arrow passing through them all: the Las Palmas bomb, diversion to a small airport, a packed apron, fuel and duty time, fog, ambiguous words, blocked radio, cockpit hierarchy. Then the collision.</title>
+          <g fill="var(--night)">
+            <rect x="40" y="40" width="24" height="120" rx="4" fill-opacity=".18"/><rect x="118" y="40" width="24" height="120" rx="4" fill-opacity=".24"/><rect x="196" y="40" width="24" height="120" rx="4" fill-opacity=".3"/><rect x="274" y="40" width="24" height="120" rx="4" fill-opacity=".36"/><rect x="352" y="40" width="24" height="120" rx="4" fill-opacity=".42"/><rect x="430" y="40" width="24" height="120" rx="4" fill-opacity=".5"/><rect x="508" y="40" width="24" height="120" rx="4" fill-opacity=".58"/><rect x="586" y="40" width="24" height="120" rx="4" fill-opacity=".66"/>
+          </g>
+          <g fill="var(--paper)"><circle cx="52" cy="98" r="7"/><circle cx="130" cy="98" r="7"/><circle cx="208" cy="98" r="7"/><circle cx="286" cy="98" r="7"/><circle cx="364" cy="98" r="7"/><circle cx="442" cy="98" r="7"/><circle cx="520" cy="98" r="7"/><circle cx="598" cy="98" r="7"/></g>
+          <line x1="20" y1="98" x2="660" y2="98" stroke="var(--bad)" stroke-width="2.5"/><path d="M670 98l-12-6v12z" fill="var(--bad)"/>
+          <text x="690" y="102" text-anchor="middle" class="t-bold" style="fill:var(--bad)">im-</text><text x="690" y="116" text-anchor="middle" class="t-bold" style="fill:var(--bad)">pact</text>
+          <g text-anchor="middle" class="t-ink">
+            <text x="52" y="28">bomb at</text><text x="52" y="180">Las Palmas</text>
+            <text x="130" y="28">diverted to</text><text x="130" y="180">small field</text>
+            <text x="208" y="28">packed</text><text x="208" y="180">apron</text>
+            <text x="286" y="28">fuel,</text><text x="286" y="180">duty time</text>
+            <text x="364" y="28">fog</text><text x="364" y="180">300 m</text>
+            <text x="442" y="28">ambiguous</text><text x="442" y="180">words</text>
+            <text x="520" y="28">blocked</text><text x="520" y="180">radio</text>
+            <text x="598" y="28">cockpit</text><text x="598" y="180">hierarchy</text>
+          </g>
+          <text x="40" y="210">left to right: from midday to the last moment in the cockpit</text>
+        </svg>
+      </div>
+      <figcaption><b>No single layer caused the accident.</b> The Spanish report states that the bomb, the refuelling and the reduced-power take-off were not direct factors. The contributing factors it lists are duty time, weather, blocked radio, language, Pan Am not leaving at the third exit, and airport congestion.<span class="nguon">Source: Spanish report, conclusions, as printed in ICAO Circular 153-AN/56, pp. 22–68. The "barriers with holes" drawing is Mark's illustration.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The words: "at take-off" and "OK"</h3><span class="en">ambiguous phraseology</span><span class="pg">Spanish report, 2.1 and conclusions</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="kw">
+          <title id="kw">What was said and what was heard. The KLM first officer said "We are now at take-off", meaning they were taking off; the tower understood "at the take-off position, waiting". The tower said "OK", and only two seconds later "stand by for take-off, I will call you". To KLM, "OK" sounded like permission.</title>
+          <text x="20" y="24" class="t-ink t-bold">the words</text><text x="270" y="24" class="t-ink t-bold">what the speaker meant</text><text x="490" y="24" class="t-ink t-bold">what the listener heard</text>
+          <rect x="16" y="36" width="690" height="62" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="30" y="62" class="t-night t-bold">KLM: "We are now</text><text x="30" y="80" class="t-night t-bold">at take-off"</text>
+          <text x="270" y="62" class="t-ink">"we are taking</text><text x="270" y="80" class="t-ink">off"</text>
+          <text x="490" y="62" class="t-ink">tower: "in take-off</text><text x="490" y="80" class="t-ink">position, waiting"</text>
+          <rect x="16" y="108" width="690" height="62" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="30" y="134" class="t-day t-bold">tower: "OK" … 2 s …</text><text x="30" y="152" class="t-day t-bold">"stand by for take-off"</text>
+          <text x="270" y="134" class="t-ink">"route clearance</text><text x="270" y="152" class="t-ink">received, wait"</text>
+          <text x="490" y="134" class="t-ink">KLM: "OK" sounds like</text><text x="490" y="152" class="t-ink">permission; rest squealed</text>
+        </svg>
+      </div>
+      <figcaption><b>Nobody knows for sure whether the first officer said "we are at take-off" or "we are taking off".</b> The Spanish report calls both this sentence and the tower's "OK" inadequate language, and recommends avoiding the word "take-off" in the route clearance.<span class="nguon">Source: Spanish report, section 2.1, conclusions and recommendations 3.2–3.3; the 2 seconds run from 17:06:18.19 ("OK") to 17:06:20.08 ("stand by").</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The radio: two warnings cancel each other</h3><span class="en">heterodyne · blocked transmission</span><span class="pg">Spanish report, 1.1</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="kr">
+          <title id="kr">Five seconds on the radio frequency. The tower transmits from 17:06:18 to 17:06:22: "OK… stand by for take-off, I will call you". Pan Am transmits at the same time: "we're still taxiing down the runway". From 17:06:19.4 to 17:06:22.1 the signals overlap and the KLM cockpit hears only a squeal.</title>
+          <line x1="60" y1="140" x2="690" y2="140" class="axis"/>
+          <g text-anchor="middle"><text x="60" y="158">:17</text><text x="186" y="158">:18</text><text x="312" y="158">:19</text><text x="438" y="158">:20</text><text x="564" y="158">:21</text><text x="690" y="158">:22</text></g>
+          <rect x="210" y="30" width="460" height="30" rx="4" fill="var(--day)" fill-opacity=".25"/>
+          <text x="216" y="50" class="t-day t-bold">tower: "OK" … "stand by for take-off, I will call you"</text>
+          <rect x="363" y="70" width="327" height="30" rx="4" fill="var(--night)" fill-opacity=".25"/>
+          <text x="369" y="90" class="t-night t-bold">Pan Am: "still taxiing down the runway"</text>
+          <rect x="361" y="24" width="329" height="82" fill="var(--bad)" fill-opacity=".12" stroke="var(--bad)" stroke-dasharray="5 4"/>
+          <text x="526" y="124" text-anchor="middle" class="t-bold" style="fill:var(--bad)">KLM hears only a squeal (19.4 → 22.1 s)</text>
+          <text x="20" y="50" class="t-ink">tower</text><text x="20" y="90" class="t-ink">Pan Am</text>
+        </svg>
+      </div>
+      <figcaption><b>A radio channel lets one person talk at a time.</b> When two stations transmit together, the signals interfere and become a squeal; neither is heard clearly. The Spanish report logs the squeal from 17:06:19.39 to 17:06:22.06. Other summaries say "about 3 seconds" or "almost 4 seconds".<span class="nguon">Source: Spanish report, sections 1.1 and 2.1; ICAO Circular 153-AN/56 ("about three seconds"); PBS NOVA ("almost four seconds"). Illustrative diagram; the end of Pan Am's sentence is not timed in the report.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The cockpit: the authority gradient</h3><span class="en">authority gradient</span><span class="pg">Spanish report, 1.5 and 1.16</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="ka">
+          <title id="ka">Three people in the KLM cockpit. The captain: 11,700 flight hours, more than 10 years as an instructor, great prestige. The first officer: 95 hours on the Boeing 747. The flight engineer asks a question: "Is he not clear, that Pan American?" The captain answers firmly: "Oh, yes." Nobody asks again.</title>
+          <path d="M40 170 L680 60" stroke="var(--rule)" stroke-width="3"/>
+          <rect x="40" y="120" width="190" height="66" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/>
+          <text x="54" y="144" class="t-day t-bold">flight engineer</text><text x="54" y="162" class="t-ink">"Is he not clear?"</text><text x="54" y="178">asks, does not assert</text>
+          <rect x="260" y="88" width="190" height="66" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/>
+          <text x="274" y="112" class="t-day t-bold">first officer</text><text x="274" y="130" class="t-ink">95 hours on the 747</text><text x="274" y="146">"wait, no clearance"</text>
+          <rect x="480" y="30" width="220" height="74" rx="8" fill="var(--paper)"/><rect x="480" y="30" width="220" height="74" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <text x="494" y="54" class="t-night t-bold">captain</text><text x="494" y="72" class="t-ink">11,700 flight hours</text><text x="494" y="90">&gt;10 years instructor</text>
+          <text x="494" y="128" class="t-night t-bold">"Oh, yes." No one asks again.</text>
+          <text x="40" y="24" class="t-ink t-bold">the authority slope in the KLM cockpit</text>
+        </svg>
+      </div>
+      <figcaption><b>The person who was right had the least power.</b> The Spanish report says the captain's great prestige may have made the others reluctant to object, and calls the first officer still green on the type. When asked, the captain answered firmly, and the question ended there.<span class="nguon">Source: Spanish report, sections 1.5.1 (11,700 hours, 1,545 on the 747), 1.16 (instructor for more than 10 years, "gran prestigio", first officer 95 hours on the 747) and 2.1.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The inquiry: two countries, two stories</h3><span class="en">Spanish report vs Dutch comments</span><span class="pg">1978–1979</span></div>
+    <div class="tablebox"><table class="cmp">
+      <tr><th></th><th>Spain (official report, 1978)</th><th>Netherlands (comments, 1978–1979)</th></tr>
+      <tr><td>Main cause</td><td>The KLM captain took off without clearance and did not abort when Pan Am reported it was still on the runway</td><td>A radio-communication misunderstanding was the main cause; the captain took off "prematurely" but should not be blamed alone</td></tr>
+      <tr><td>The tower's "OK"</td><td>Not a take-off clearance; inadequate language</td><td>KLM and the Dutch civil aviation authority argued the crew had reason to read it as a clearance</td></tr>
+      <tr><td>Pan Am</td><td>Contributing factor: did not leave at the third exit</td><td>Stressed: had Pan Am turned at C-3, there would have been no collision</td></tr>
+      <tr><td>Air traffic control</td><td>Not a cause</td><td>Raised the possibility that the tower was distracted by a football broadcast (not confirmed)</td></tr>
+    </table></div>
+    <p class="nguon">Source: Spain column: official report, conclusions. Netherlands column: "Dutch comments on the Spanish report" and the Raad voor de Luchtvaart report (1979). Mark could not read the originals; content via Wikipedia "Tenerife airport disaster" and aviacrash.nl "Rijn" (secondary).</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: truths and myths</h2><p class="lead">13 things often said about Tenerife, checked against the original record. Tap a line to see why.</p></div>
+  <div class="tally" role="img" aria-label="4 solid, 6 caution, 3 false">
+    <div class="o" style="flex:4">4 SOLID</div><div class="w" style="flex:6">6 CAUTION</div><div class="b" style="flex:3">3 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>KLM began its take-off run without a take-off clearance</span></summary><p class="note">Fundamental cause no. 1 in the Spanish report. At 17:05:53 the tower gave only the route clearance; "OK… stand by for take-off" came after KLM had released its brakes.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The KLM flight engineer asked whether Pan Am was clear of the runway</span></summary><p class="note">CVR, 17:06:32: "Is he not clear, that Pan American?" The captain answered emphatically that it was (Spanish report, section 2.1).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The KLM captain was under duty-time pressure</span></summary><p class="note">Dutch rules changed in December 1976; captains could no longer extend the duty limit. The report calls the uncertainty a significant psychological factor and lists it as a contributing factor.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>583 dead, the deadliest accident in aviation history</span></summary><p class="note">248 on KLM and 335 on Pan Am (Spanish report, section 1.2). The FAA calls it the deadliest accident in aviation history.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"It was only the KLM captain's fault"</span></summary><p class="note">The Spanish report names him as the fundamental cause, but lists six contributing factors: duty time, weather, blocked radio, non-standard language (including the tower's "OK"), Pan Am not leaving at the third exit, and an overloaded airport. The Dutch did not accept blame on him alone. He made the final decision, but he was not the only hole.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Pan Am got lost and ignored its exit"</span></summary><p class="note">Pan Am read back "the third", but C-3 required a turn of about 148° and then another, very hard for a 747 (ALPA, via Wikipedia). The crew was still debating which exit to count. The Spanish report still lists it as a contributing factor: they should have checked.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The controllers were listening to football"</span></summary><p class="note">A Dutch contention, based on background sound on the tower tape, worded as "may have been distracted". The official report makes no such finding.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"CRM was born from Tenerife"</span></summary><p class="note">The name "Cockpit Resource Management" was coined at a NASA workshop in 1979, and the first comprehensive CRM programme was United Airlines' in 1981. Helmreich and colleagues' history of CRM (1999) cites a 1978 United crash, not Tenerife. Tenerife is the classic teaching case for CRM, but not its only origin.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"After Tenerife, English became mandatory in aviation"</span></summary><p class="note">Both sides in this accident spoke English on the radio. ICAO's English proficiency requirements were adopted on 5 March 2003 and applied from 5 March 2008, 26 years later. The ICAO/IFALPA document does not mention Tenerife.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The extra fuel made KLM too heavy to clear Pan Am"</span></summary><p class="note">KLM loaded 55,500 litres and did get airborne, scraping its tail. The Spanish report classes the refuelling as an indirect factor. No official calculation was found showing a lighter KLM would have cleared Pan Am. That the fuel made the fire worse is widely reported.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The KLM captain was an inexperienced pilot"</span></summary><p class="note">He had 11,700 flight hours and more than 10 years as an instructor (Spanish report, sections 1.5.1 and 1.16). That reputation was part of the problem: the report says his great prestige may have made others reluctant to object.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The bomb caused the disaster"</span></summary><p class="note">The bomb started the chain by pushing flights to a small airport. But the Spanish report states clearly that it was not a direct factor.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Nobody in the KLM cockpit spoke up"</span></summary><p class="note">The first officer said "wait a minute, we don't have an ATC clearance" at 17:05:41, and the flight engineer asked about Pan Am at 17:06:32. They did speak, but only with a mild reminder and a question, never a demand to stop.</p></details>
+  </div>
+  <p class="nguon">Source: Spanish report (1978), sections 1.2, 1.5, 1.16, 2.1 and conclusions; FAA "Lessons Learned"; Helmreich, Merritt and Wilhelm (1999); IFALPA briefing leaflet 08ATSBL03 on ICAO language requirements; the Dutch position and the C-3 angle via Wikipedia (secondary).</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessment</h2></div>
+  <p class="nguon">Scores are Mark's judgement based on the sources in Part 8, not data from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Avoidable</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Warning in time</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Transparent inquiry</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Lesson retained</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right afterwards</span><ul class="plus"><li>Standard wording: "take-off" used only to clear a take-off</li><li>Crew teamwork training (CRM) spread across the industry</li><li>Tenerife got ground radar (per Wikipedia)</li></ul></div>
+    <div><span class="label">Not done right</span><ul class="minus"><li>Two countries published two explanations, with no shared picture</li><li>A long blame fight crowded out the system lessons</li><li>Runway collisions still happen decades later</li></ul></div>
+  </div>
+  <p class="verdict">A disaster of communication: everything needed to stop was said out loud, but not heard in time.</p>
+  <details class="more"><summary>More: why "Lesson retained" is 4, not 5</summary><div>
+    <p>The lessons on wording and teamwork were adopted worldwide. But in 2007, 30 years later, the FAA still had to launch a "Call to Action" on runway incursions, and the FAA lists Tenerife as part of the reason.</p>
+    <p>Source: FAA, "Lessons Learned", PH-BUF/N736PA. Some sources say CRM became mandatory in 2006, but Mark found no primary source for that date and does not use it.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lesson: say it clearly, read it back, and dare to interrupt the boss</h2><p class="lead">For any decision that travels by voice or chat: shift handovers, code-review approvals, an "OK" in the team chat.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Four habits: reserve the key word for the decision, read back in full instead of saying OK, say a stop sentence instead of a soft question, and the person in charge asks before speaking.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · reserve the key word</text><text x="110" y="100" class="t-night t-bold">"take-off" only to clear</text><text x="110" y="116">"done" only when done</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · read it back</text><text x="300" y="100" class="t-day t-bold">no bare "OK"</text><text x="300" y="116">repeat what you understood</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · say "stop"</text><text x="490" y="100" class="t-rem t-bold">"Stop. Pan Am is not clear."</text><text x="490" y="116">not "is he not clear?"</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · the boss asks first</text><text x="680" y="100" class="t-ok t-bold">"Anyone see a problem?"</text><text x="680" y="116">then give your view</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">A junior's question is often a warning said quietly.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each habit patches one failure of 27 March.</b> "Take-off" was used loosely, "OK" replaced a read-back, a question replaced a stop, and the most senior person answered before hearing everything.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22v13H14l-6 5v-5H5z"/></svg><div><b>One word, one meaning</b><span>Aviation now says "take-off" only to clear or cancel a take-off, and "departure" otherwise. Which words in your team, like "done", "agreed" or "ship", carry two meanings?</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 12h16l-4-4M26 20H10l4 4"/></svg><div><b>Close the loop: say, read back, confirm</b><span>For anything important, the receiver repeats it in their own words. The sender listens and corrects at once.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="7" width="18" height="18" rx="3"/><path d="M12 12v8M20 12v8"/></svg><div><b>Agree on a "stop phrase" in advance</b><span>A phrase anyone may use, including the newest person. When it is said, everyone stops and checks before arguing.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Treat a question as a signal</b><span>When a junior asks "are we sure?", the person in charge should pause and check, not answer straight away with confidence.</span></div></div>
+  </div>
+  <p class="nguon">Source: the "take-off"/"departure" rule per SKYbrary, "Immediate Takeoff Clearances", citing ICAO Doc 9432 and Doc 4444, chapter 12; recommendations 3.2–3.3 of the Spanish report.</p>
+  <div class="quote"><span>Flight engineer: "Is he not clear, that Pan American?" Captain: "Oh, yes."</span><span class="src">KLM cockpit voice recorder, 17:06:32–17:06:35, Spanish report, section 2.1.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>Karl E. Weick, "The Vulnerable System: An Analysis of the Tenerife Air Disaster", <i>Journal of Management</i> (1990)</b><span class="muted">The classic analysis of how stress degrades a team's communication.</span></div>
+    <div><b>Helmreich, Merritt and Wilhelm, "The Evolution of Crew Resource Management Training" (1999)</b><span class="muted">A short history of CRM across five generations, hosted as a PDF by the FAA.</span></div>
+    <div><b>FAA, "Lessons Learned from Transport Airplane Accidents": Tenerife</b><span class="muted">A summary page with the timeline, causes and the English translation of the Spanish report.</span></div>
+    <div><b>Anatomy of a Disaster #04: Chernobyl (1986)</b><span class="muted">One accident, two IAEA reports with different conclusions: blame the people or fix the system.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Original documents first. Where only a secondary source exists, it is marked.</p></div>
+  <ol class="srcs">
+    <li><b>Subsecretaría de Aviación Civil (Spain)</b>, accident report of 27 March 1977, PH-BUF and N736PA, files A-102/1977 and A-103/1977, 1978. Spanish text: <a href="https://dru10.imibo.com/bookshelf/books/3620.pdf">SKYbrary library</a>. English translation: <a href="https://www.faa.gov/sites/faa.gov/files/2022-11/Spanish_AccReport.pdf">faa.gov</a></li>
+    <li><b>ICAO</b>, Aircraft Accident Digest, Circular 153-AN/56, pp. 22–68 (conclusions of the Spanish report). <a href="https://www.faa.gov/sites/faa.gov/files/2022-11/Spanish_Findings_0.pdf">faa.gov</a></li>
+    <li><b>FAA</b>, "Lessons Learned from Transport Airplane Accidents": Boeing 747-206B and 747-121, Tenerife. <a href="https://www.faa.gov/lessons_learned/transport_airplane/accidents/PH-BUF">faa.gov</a></li>
+    <li><b>Netherlands Department of Civil Aviation</b>, "Dutch comments on the Spanish report" (1978), and <b>Raad voor de Luchtvaart</b>, <i>Final report and comments of the Netherlands Aviation Safety Board</i> (1979). Mark could not read the originals; content via Wikipedia "Tenerife airport disaster" and aviacrash.nl "Rijn" (<a href="https://www.leonardo-in-flight.nl/PDF/Rijn.pdf">saved copy</a>).</li>
+    <li><b>PBS NOVA</b>, "The Final Eight Minutes", CVR transcript from the Spanish report. <a href="https://www.pbs.org/wgbh/nova/planecrash/minutes.html">pbs.org</a></li>
+    <li><b>Helmreich, Merritt and Wilhelm</b>, "The Evolution of Crew Resource Management Training in Commercial Aviation", <i>International Journal of Aviation Psychology</i> 9(1), 1999. <a href="https://www.faa.gov/sites/faa.gov/files/crmhistory.pdf">faa.gov</a></li>
+    <li><b>Cooper, White and Lauber</b>, <i>Resource Management on the Flight Deck</i>, NASA CP-2120, 1980 (workshop of 26–28 June 1979). <a href="https://ntrs.nasa.gov/citations/19800013796">ntrs.nasa.gov</a></li>
+    <li><b>IFALPA</b>, briefing leaflet 08ATSBL03 on ICAO language requirements. <a href="https://www.ifalpa.org/media/2020/08atsbl03-icao-language-requirements.pdf">ifalpa.org</a></li>
+    <li><b>SKYbrary</b>, "Immediate Takeoff Clearances". <a href="https://skybrary.aero/articles/immediate-takeoff-clearances">skybrary.aero</a></li>
+  </ol>
+</section>
+
+<footer>Anatomy of a Disaster #03. The figures are illustrative diagrams; numbers come from the original reports and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

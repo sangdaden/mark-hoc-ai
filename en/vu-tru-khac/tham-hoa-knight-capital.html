@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knight Capital (Knight Capital Americas): summary, review and lessons | Another Universe</title>
+<meta name="description" content="One software update, one missed server, 45 minutes of runaway orders and about $460 million gone. An anatomy from the SEC order, Knight&#x27;s own SEC filings, and 12 myths fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-knight-capital.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-knight-capital.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Knight Capital (Knight Capital Americas): summary, review and lessons | Another Universe">
+<meta property="og:description" content="One software update, one missed server, 45 minutes of runaway orders and about $460 million gone. An anatomy from the SEC order, Knight&#x27;s own SEC filings, and 12 myths fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/tham-hoa-knight-capital.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #1A0F14; --bia-2: #881337; --bia-nhan: #FB7185; }
+:root { --vtk-nhan: #FB7185; }
+body header { --ho-so: "Case file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/tham-hoa-knight-capital.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Anatomy of a Disaster": Knight Capital, --night = crimson (the falling price board, the loss), --day = indigo (servers and code). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #be123c;
+  --day: #4f46e5;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fb7185; --day: #a5b4fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fb7185; --day: #a5b4fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Anatomy of a Disaster · Finance · Software</span>
+  <h1>Knight Capital</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Eight servers, one of them red, and a falling price line">
+    <g fill="#8a94a6"><rect x="4" y="12" width="14" height="28" rx="2"/><rect x="22" y="12" width="14" height="28" rx="2"/><rect x="40" y="12" width="14" height="28" rx="2"/><rect x="58" y="12" width="14" height="28" rx="2"/><rect x="76" y="12" width="14" height="28" rx="2"/><rect x="94" y="12" width="14" height="28" rx="2"/><rect x="112" y="12" width="14" height="28" rx="2"/></g>
+    <rect x="130" y="12" width="14" height="28" rx="2" fill="#be123c"/>
+    <text x="156" y="32" font-family="monospace" font-size="15" fill="#8a94a6">45 min</text>
+    <path d="M232 10 l18 8 14 -4 16 18 12 -2 18 20" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M310 50 l-12 -2 8 -9 z" fill="#be123c"/>
+  </svg>
+  <p class="sub">Knight Capital Americas · 1 August 2012 · New York Stock Exchange</p>
+  <div class="meta">
+    <div><span class="label">What</span><b>one server fired orders nonstop for about 45 minutes</b></div>
+    <div><span class="label">Damage</span><b>about $460 million; the firm nearly went under</b></div>
+    <div><span class="label">Root cause</span><b>old code woken up on 1 of 8 servers that missed an update</b></div>
+    <div><span class="label">Main source</span><b>SEC Order No. 34-70694, 16 Oct 2013</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Work lesson</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Re-read in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="5" width="18" height="22" rx="2"/><path d="M11 11h10M11 16h10M11 21h4"/></svg><b>1 of 8 servers</b><span>New code was copied server by server. One was missed, and nobody checked.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 28V5"/><path d="M9 6h15l-4 5 4 5H9"/></svg><b>A reused flag</b><span>The flag for the new feature used to switch on "Power Peg", code unused since 2003.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26h24"/><path d="M6 8l6 5 5-2 5 7 5 4"/></svg><b>Orders that never stop</b><span>212 customer orders became over 4 million executions, 397 million shares.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="22" height="16" rx="2"/><path d="M5 9l11 8 11-8"/></svg><b>97 unread e-mails</b><span>A system said "Power Peg disabled" from 8:01, but those messages were not designed as alerts.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 11l10 10M21 11L11 21"/></svg><b>No stop button</b><span>No incident procedure. A hasty rollback broke all 8 servers.</span></div>
+  </div>
+  <p class="nguon">Source: SEC Order No. 34-70694 (16 Oct 2013), paragraphs 13–17, 19, 21 and 27.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question</h2></div>
+  <p class="thesis">A firm handling about 10% of trading in U.S. listed stocks, living on software, lost almost half a billion dollars from one update. Why? Not because of one careless technician, but because a deployment process had no safety net at all.</p>
+  <p class="nguon">Source: SEC Order 34-70694, paragraph 11 (about 10% of trading) and paragraph 17 (the loss).</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">2003–2005</span><b>Dead code</b><span>Power Peg retired but left on the servers. Changed in 2005 without retesting.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">27 Jul 2012</span><b>Unchecked deploy</b><span>New code copied to 8 servers. One missed. Nobody checked.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1 Aug 2012</span><b>45 minutes</b><span>Server 8 fires orders nonstop. The firm holds billions in positions.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>What happened</h2><p class="lead">Timeline from the SEC order; the loss from Knight's own releases.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="t45">
+        <title id="t45">Morning of 1 August 2012. From about 8:01, an internal system sends e-mails reporting "Power Peg disabled", 97 in all before the 9:30 open. At 9:30, server eight starts sending child orders continuously. In about 45 minutes: over 4 million executions in 154 stocks, over 397 million shares. Midway, Knight removes the new code from the seven good servers, so all eight run the old code. End: net long about 3.5 billion dollars and net short about 3.15 billion dollars.</title>
+        <line x1="40" y1="110" x2="690" y2="110" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="40" y="96" width="250" height="28" rx="4" fill="var(--day)" fill-opacity=".14"/>
+        <text x="165" y="145" text-anchor="middle" class="t-day">97 "Power Peg disabled" e-mails</text>
+        <text x="165" y="160" text-anchor="middle">not treated as alerts</text>
+        <rect x="320" y="96" width="350" height="28" rx="4" fill="var(--night)" fill-opacity=".14"/>
+        <text x="495" y="145" text-anchor="middle" class="t-night">about 45 minutes of runaway orders</text>
+        <g text-anchor="middle">
+          <circle cx="46" cy="110" r="8" fill="var(--day)"/>
+          <text x="46" y="80" class="t-day t-bold">8:01</text><text x="46" y="64">first e-mail</text>
+          <circle cx="320" cy="110" r="10" fill="var(--night)"/>
+          <text x="320" y="80" class="t-night t-bold">9:30 · open</text><text x="320" y="64">server 8 fires orders</text>
+          <circle cx="495" cy="110" r="7" fill="var(--ink)"/>
+          <text x="495" y="44" class="t-ink t-bold">new code removed</text><text x="495" y="60">from 7 good servers</text><text x="495" y="76">→ all 8 broken</text>
+          <circle cx="670" cy="110" r="11" fill="var(--bad)"/>
+          <text x="660" y="44" class="t-bold" style="fill:var(--bad)">positions</text><text x="660" y="60">long $3.5 bn</text><text x="660" y="76">short $3.15 bn</text>
+        </g>
+        <text x="40" y="196" class="t-ink">212 customer orders → over 4 million executions · 154 stocks · over 397 million shares</text>
+        <text x="40" y="218">illustrative time axis, not to scale · U.S. Eastern time</text>
+      </svg>
+    </div>
+    <figcaption><b>The fault spoke up before the open.</b> 97 e-mails named Power Peg outright, but they were not designed as alerts and were generally not read. The SEC gives no exact end time, only "approximately 45 minutes".<span class="nguon">Source: SEC Order 34-70694, paragraphs 16–17 (45 minutes, 212 orders, 4 million executions, 154 stocks, 397 million shares, positions), 19 (97 e-mails, 8:01) and 27 (rollback).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>2003 · Power Peg retired, not deleted</b><span>The old feature was no longer used. The code stayed in the SMARS order router and could still be called if the right flag was set.</span></div>
+    <div><b>2005 · Changed without retesting</b><span>The part that counted filled shares, which told orders when to stop, was moved. Power Peg was not retested.</span></div>
+    <div><b>Oct 2011 · A different warning</b><span>Test data was mistakenly used for live quotes, a loss of nearly $7.5 million. Knight fixed that spot and did not look wider.</span></div>
+    <div class="hot"><b>From 27 Jul 2012 · New code rolled out</b><span>For NYSE's new Retail Liquidity Program (RLP). The new code reused Power Peg's flag. A technician did not copy it to 1 of the 8 servers.</span></div>
+    <div class="hot"><b>1 Aug 2012 · About 45 minutes</b><span>Server 8 runs the old code and sends child orders nonstop for each parent order, never learning it is filled.</span></div>
+    <div><b>2 Aug 2012 · Knight speaks</b><span>A "technology issue" "related to Knight's installation of trading software", a pre-tax loss of about $440 million.</span></div>
+    <div><b>6 Aug 2012 · Rescued</b><span>$400 million of preferred stock from six investors, convertible at $1.50 a share.</span></div>
+    <div><b>16 Oct 2013 · The SEC concludes</b><span>A $12 million penalty. The SEC's first enforcement action under the market access rule (Rule 15c3-5).</span></div>
+  </div>
+  <p class="nguon">Source: SEC Order 34-70694, paragraphs 13–15 (2003, 2005, rollout), 33 (Oct 2011 incident), 16 (1 Aug); Knight releases of 2 Aug 2012 (8-K) and 6 Aug 2012; SEC press release 2013-222.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1</span><h3>What happened</h3><div class="chips"><span class="chip">45 minutes</span><span class="chip">8 servers</span><span class="chip">97 e-mails</span><span class="chip">$460 million</span></div></div>
+    <div class="part b2"><span class="label">Part 2</span><h3>Why</h3><div class="chips"><span class="chip">reused flag</span><span class="chip">unchecked deploy</span><span class="chip">no stop button</span><span class="chip">myths</span></div></div>
+    <div class="part b3"><span class="label">Part 3</span><h3>Work lesson</h3><div class="chips"><span class="chip">checklists</span><span class="chip">delete dead code</span><span class="chip">kill switch</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Why: five layers of cause</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Technical layer: one flag, two meanings</h3><span class="en">repurposed flag · dead code</span><span class="pg">SEC, paras 13–16</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kc">
+          <title id="kc">A customer parent order arrives with the RLP flag on. On the seven updated servers the flag triggers the new RLP code and the order is handled correctly. On the eighth, un-updated server the same flag triggers the old Power Peg code, which had lost its filled-share counter in 2005, so it sends child orders without end.</title>
+          <rect x="20" y="85" width="150" height="50" rx="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          <text x="95" y="106" text-anchor="middle" class="t-ink t-bold">customer order</text>
+          <text x="95" y="124" text-anchor="middle" class="t-night t-bold">flag = ON</text>
+          <path d="M172 100 L268 50" stroke="var(--muted)" stroke-width="2"/><path d="M172 120 L268 170" stroke="var(--muted)" stroke-width="2"/>
+          <rect x="270" y="20" width="200" height="62" rx="8" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="2"/>
+          <text x="284" y="44" class="t-day t-bold">7 updated servers</text>
+          <text x="284" y="64" class="t-ink">flag → new RLP code</text>
+          <rect x="270" y="138" width="200" height="62" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="284" y="162" class="t-bold" style="fill:var(--bad)">server 8, missed</text>
+          <text x="284" y="182" class="t-ink">flag → Power Peg (2003)</text>
+          <path d="M472 51 H520" stroke="var(--muted)" stroke-width="2"/><path d="M472 169 H520" stroke="var(--bad)" stroke-width="2"/>
+          <text x="528" y="48" class="t-ink t-bold">stops when filled</text><text x="528" y="66">handled correctly</text>
+          <text x="528" y="160" class="t-bold" style="fill:var(--bad)">never sees fills</text><text x="528" y="178">child orders forever</text>
+          <g fill="var(--bad)"><rect x="528" y="190" width="10" height="10"/><rect x="542" y="190" width="10" height="10"/><rect x="556" y="190" width="10" height="10"/><rect x="570" y="190" width="10" height="10"/><rect x="584" y="190" width="10" height="10"/><rect x="598" y="190" width="10" height="10"/><rect x="612" y="190" width="10" height="10"/><rect x="626" y="190" width="10" height="10"/><rect x="640" y="190" width="10" height="10"/><rect x="654" y="190" width="10" height="10"/><rect x="668" y="190" width="10" height="10"/><rect x="682" y="190" width="10" height="10"/></g>
+        </svg>
+      </div>
+      <figcaption><b>The new code was not wrong.</b> It ran correctly on 7 servers. The danger was that the old code was still there, and the new flag was the old flag. Knight intended to delete Power Peg but had not.<span class="nguon">Source: SEC Order 34-70694, paragraph 13 (reused flag, intent to delete Power Peg), 14 (2003, 2005, not retested) and 16 (7 servers correct, server 8 sending orders continuously).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Deployment layer: one server missed, no second pair of eyes</h3><span class="en">no peer review · no written procedure</span><span class="pg">SEC, paras 15 and 26</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="kd">
+          <title id="kd">Eight SMARS servers. Seven received the new code. The eighth did not. No second technician reviewed it, no written procedure required a review, and there were no written code development and deployment procedures for SMARS.</title>
+          <g>
+            <rect x="30" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="110" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="190" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="270" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="350" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="430" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="510" y="30" width="62" height="90" rx="6" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/>
+            <rect x="590" y="30" width="62" height="90" rx="6" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="3"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="61" y="80" class="t-day t-bold">new</text><text x="141" y="80" class="t-day t-bold">new</text><text x="221" y="80" class="t-day t-bold">new</text><text x="301" y="80" class="t-day t-bold">new</text><text x="381" y="80" class="t-day t-bold">new</text><text x="461" y="80" class="t-day t-bold">new</text><text x="541" y="80" class="t-day t-bold">new</text>
+            <text x="621" y="80" class="t-bold" style="fill:var(--bad)">OLD</text>
+            <text x="621" y="140" class="t-bold" style="fill:var(--bad)">missed</text>
+          </g>
+          <text x="30" y="160" class="t-ink">✗ no second technician review   ✗ no written procedure requiring one</text>
+          <text x="30" y="180" class="t-ink">✗ no written code deployment procedures for SMARS (other groups had them)</text>
+        </svg>
+      </div>
+      <figcaption><b>One person's slip, the whole process's gap.</b> The SEC did not stop at "a technician did not copy the code". It added: nobody was assigned to check, and nothing in writing required a check.<span class="nguon">Source: SEC Order 34-70694, paragraph 15 (1 of 8 servers, no second technician, no written procedure) and 26 (no code development and deployment procedures for SMARS).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Amplification layer: from 212 orders to billions</h3><span class="en">amplification</span><span class="pg">SEC, paras 17–18</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kk">
+          <title id="kk">212 parent orders became over 4 million executions in 154 stocks, over 397 million shares. Final positions: net long about 3.5 billion dollars in 80 stocks, net short about 3.15 billion dollars in 74 stocks. Loss about 460 million dollars. In 75 stocks prices moved more than 5 percent, in 37 of them more than 10 percent.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="150" height="70" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+            <text x="95" y="52" class="t-ink t-bold" style="font-size:20px">212</text><text x="95" y="74">parent orders</text>
+            <text x="190" y="60" class="t-ink">→</text>
+            <rect x="210" y="20" width="150" height="70" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+            <text x="285" y="52" class="t-night t-bold" style="font-size:18px">&gt; 4 million</text><text x="285" y="74">executions</text>
+            <text x="380" y="60" class="t-ink">→</text>
+            <rect x="400" y="20" width="150" height="70" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+            <text x="475" y="52" class="t-night t-bold" style="font-size:16px">&gt; 397 million</text><text x="475" y="74">shares · 154 stocks</text>
+          </g>
+          <text x="20" y="128" class="t-ink">net long</text><rect x="110" y="116" width="350" height="18" fill="var(--night)" fill-opacity=".75"/><text x="468" y="129" class="t-night t-bold">~$3.5 bn · 80 stocks</text>
+          <text x="20" y="158" class="t-ink">net short</text><rect x="110" y="146" width="315" height="18" fill="var(--day)" fill-opacity=".75"/><text x="433" y="159" class="t-day t-bold">~$3.15 bn · 74 stocks</text>
+          <text x="20" y="188" class="t-ink">loss</text><rect x="110" y="176" width="46" height="18" fill="var(--bad)"/><text x="164" y="189" class="t-bold" style="fill:var(--bad)">~$460 million</text>
+          <text x="20" y="214">prices: 75 stocks moved over 5% · 37 over 10% (in those 37, Knight was over half the volume)</text>
+        </svg>
+      </div>
+      <figcaption><b>Automation amplifies mistakes too.</b> The SEC wrote that without proper controls, automation can "turn an otherwise manageable error into an extreme event".<span class="nguon">Source: SEC Order 34-70694, paragraph 3 (quote), 17 (orders, positions, $460 million loss) and 18 (price moves).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Monitoring layer: signals, but no alarms</h3><span class="en">signals that are not alarms</span><span class="pg">SEC, paras 19, 21–25</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kg">
+          <title id="kg">Three layers of monitoring and none sounded an alarm. 97 error e-mails were not designed as alerts. The main risk tool, PMON, relied entirely on people watching, with no automated alerts. The 33 Account had a 2 million dollar limit not linked to automated blocks. SMARS also did not compare orders going out with orders coming in.</title>
+          <rect x="20" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="34" y="44" class="t-ink t-bold">97 BNET e-mails</text>
+          <text x="34" y="62">"Power Peg disabled"</text>
+          <g fill="var(--day)" fill-opacity=".6"><rect x="34" y="76" width="190" height="6"/><rect x="34" y="88" width="190" height="6"/><rect x="34" y="100" width="190" height="6"/><rect x="34" y="112" width="120" height="6"/></g>
+          <text x="34" y="144" class="t-day t-bold">not an alert</text><text x="34" y="160">generally not read</text>
+          <rect x="250" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="264" y="44" class="t-ink t-bold">PMON</text>
+          <text x="264" y="62">main risk monitor</text>
+          <circle cx="300" cy="100" r="18" fill="none" stroke="var(--muted)" stroke-width="2"/><circle cx="300" cy="100" r="6" fill="var(--muted)"/>
+          <text x="264" y="144" class="t-day t-bold">human eyes only</text><text x="264" y="160">no automated alerts</text>
+          <rect x="480" y="20" width="220" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="494" y="44" class="t-ink t-bold">The "33" Account</text>
+          <text x="494" y="62">$2 million limit</text>
+          <rect x="494" y="90" width="40" height="16" fill="var(--ok)"/><rect x="534" y="90" width="152" height="16" fill="var(--bad)" fill-opacity=".8"/>
+          <text x="494" y="144" class="t-day t-bold">not wired to auto-block</text><text x="494" y="160">over the limit, still running</text>
+          <text x="20" y="194" class="t-ink">and SMARS did not compare orders out with orders in.</text>
+        </svg>
+      </div>
+      <figcaption><b>A system that relies on human eyes is slower than a high-speed order machine.</b> The limits existed on paper, but none was wired to an automatic block.<span class="nguon">Source: SEC Order 34-70694, paragraph 19 (97 e-mails, "not designed ... to be system alerts"), 21 (no output monitoring), 22–24 (limits, 33 Account) and 25 (PMON).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Response layer: no stop button, and the rollback made it worse</h3><span class="en">no kill switch · no incident playbook</span><span class="pg">SEC, paras 21 and 27</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="ku">
+          <title id="ku">Before the rollback: one of eight servers runs old code. Knight removes the new code from the seven good servers, intending to go back to the old state. After the rollback: all eight run old code, because the flag in the orders still switches on Power Peg.</title>
+          <text x="20" y="30" class="t-ink t-bold">before rollback</text>
+          <g><rect x="20" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="54" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="88" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="122" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="156" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="190" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="224" y="44" width="28" height="44" rx="4" fill="var(--day)" fill-opacity=".3"/><rect x="258" y="44" width="28" height="44" rx="4" fill="var(--bad)"/></g>
+          <text x="20" y="110">1/8 servers broken</text>
+          <path d="M310 66 H390" stroke="var(--ink)" stroke-width="3"/><path d="M398 66 l-12 -7 v14 z" fill="var(--ink)"/>
+          <text x="354" y="50" text-anchor="middle" class="t-ink t-bold">remove new code</text>
+          <text x="420" y="30" class="t-bad t-bold">after rollback</text>
+          <g fill="var(--bad)"><rect x="420" y="44" width="28" height="44" rx="4"/><rect x="454" y="44" width="28" height="44" rx="4"/><rect x="488" y="44" width="28" height="44" rx="4"/><rect x="522" y="44" width="28" height="44" rx="4"/><rect x="556" y="44" width="28" height="44" rx="4"/><rect x="590" y="44" width="28" height="44" rx="4"/><rect x="624" y="44" width="28" height="44" rx="4"/><rect x="658" y="44" width="28" height="44" rx="4"/></g>
+          <text x="420" y="110" class="t-bad t-bold">8/8 servers broken</text>
+          <text x="20" y="150" class="t-ink">no procedure to halt SMARS on aberrant activity · no incident-response procedure</text>
+          <text x="20" y="172">fixing it live during trading, relying mainly on the technology team</text>
+        </svg>
+      </div>
+      <figcaption><b>"Roll back" is only safe if the old version is safe.</b> The flag in customer orders was still on, so removing the new code meant waking Power Peg on the other 7 servers. Knight had automatic shutdown for certain strategies of one trading group, but not for SMARS.<span class="nguon">Source: SEC Order 34-70694, paragraph 21 (no procedure to halt SMARS), 27 (no incident response, rollback made it worse) and footnote 7 (automatic shutdown for certain strategies).</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Paper said "compliant"</h3><span class="muted">The initial compliance assessment concluded Knight's controls satisfied Rule 15c3-5 (SEC, paragraph 28).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Old incident, narrow fix</h3><span class="muted">The nearly $7.5 million loss in October 2011 was patched on the spot, with no broad review (SEC, paragraph 33).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Soft signature</h3><span class="muted">The CEO certification (March 2012) said Knight had "processes" to comply, not that its controls complied (SEC, paragraph 34).</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: facts and myths</h2><p class="lead">12 things often said about Knight Capital, checked against the SEC order and Knight's own SEC filings. Click a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 5 caution, 2 false">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:2">2 FALSE</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="kl3">
+        <title id="kl3">Three numbers for the loss. On 2 August 2012 Knight estimated a pre-tax loss of about 440 million dollars. On 17 October 2012 the third-quarter report showed a trading loss of 457.6 million dollars, 461.1 million including fees. In 2013 the SEC wrote 460 million dollars.</title>
+        <text x="20" y="34" class="t-ink">2 Aug 2012 · Knight estimate</text><rect x="250" y="22" width="440" height="18" fill="var(--day)" fill-opacity=".6"/><text x="684" y="35" text-anchor="end" class="t-ink t-bold">~$440 million</text>
+        <text x="20" y="74" class="t-ink">17 Oct 2012 · Q3 report</text><rect x="250" y="62" width="457" height="18" fill="var(--night)" fill-opacity=".7"/><text x="700" y="96" text-anchor="end" class="t-night t-bold">$457.6 million trading loss</text>
+        <text x="20" y="124" class="t-ink">16 Oct 2013 · SEC</text><rect x="250" y="112" width="460" height="18" fill="var(--bad)" fill-opacity=".8"/><text x="256" y="146" class="t-bold" style="fill:var(--bad)">"more than $460 million"</text>
+      </svg>
+    </div>
+    <figcaption><b>Three numbers, not a contradiction, just different dates.</b> 440 was the next-day estimate; 457.6 is the booked figure; 460 is the SEC's. The orders poured out in about 45 minutes; the loss took shape as Knight traded out of the positions afterwards.<span class="nguon">Source: Knight release of 2 Aug 2012 (8-K, Exhibit 99.1); Knight Q3 2012 results release (17 Oct 2012); SEC Order 34-70694, paragraphs 1 and 17.</span></figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>The faulty orders ran for about 45 minutes</span></summary><p class="note">The SEC says "approximately 45 minutes" in paragraphs 1, 10 and 17. It gives no exact end time, so this piece gives none.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The bug came from code unused since 2003 and changed in 2005 without retesting</span></summary><p class="note">SEC, paragraph 14: Knight stopped using Power Peg in 2003; in 2005 it moved the filled-share counter and "did not retest" Power Peg.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Rolling back the new code made it worse</span></summary><p class="note">SEC, paragraph 27: Knight removed the RLP code from the 7 good servers; incoming orders then triggered Power Peg on all 7.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Knight handled about 10% of U.S. listed stock trading</span></summary><p class="note">SEC, paragraph 11, for 2011–2012. SMARS alone was about 1% or more.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>A $12 million penalty, the first case under the market access rule</span></summary><p class="note">SEC press release 2013-222: "the SEC's first enforcement action under the market access rule". Knight settled "without admitting or denying the findings".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"It was just one technician who forgot to copy a file"</span></summary><p class="note">That was the trigger (paragraph 15). But most of the SEC order is about something else: no written deployment procedure, no second review, no output monitoring, no halt, no incident response (paragraphs 15, 21–27).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"They lost $440 million in 45 minutes"</span></summary><p class="note">$440 million was Knight's first estimate. The booked trading loss was $457.6 million; the SEC says $460 million. Orders ran for 45 minutes, but the loss was locked in as positions were unwound afterwards.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"There were 97 warning e-mails and nobody bothered to read them"</span></summary><p class="note">The 97 e-mails are real (paragraph 19). But the SEC says Knight "did not design these types of messages to be system alerts". The lesson is about alert design, not lazy staff.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The new code was buggy"</span></summary><p class="note">The new RLP code worked on 7 servers (paragraph 16). The danger was old code not deleted, a reused flag, and one missed server.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Knight had no kill switch at all"</span></summary><p class="note">SMARS had no procedure to halt on aberrant activity (paragraph 21) and there was no incident response procedure (paragraph 27). But Knight did have automatic shutdown for certain strategies of one trading group (footnote 7).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"A rogue AI algorithm"</span></summary><p class="note">There is no AI or machine learning anywhere in the record. It was old order-routing code doing exactly what it was written to do, woken by a reused flag on a server that missed an update (SEC, paragraphs 13–16).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Knight went bankrupt that day"</span></summary><p class="note">On 6 Aug 2012 Knight received $400 million from Jefferies, Blackstone, GETCO, Stephens, Stifel and TD Ameritrade, convertible into about 267 million shares at $1.50 a share. On 1 Jul 2013 Knight and GETCO combined to form KCG Holdings.</p></details>
+  </div>
+  <p class="nguon">Source: SEC Order 34-70694 (paragraphs as noted in each row); SEC press release 2013-222; Knight releases of 2 Aug, 6 Aug and 17 Oct 2012.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <p class="nguon">Scores are Mark's judgement based on the sources in Part 8, not data from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Avoidable</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Warnings in advance</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Transparent inquiry</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Lesson retained</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right afterwards</span><ul class="plus"><li>Removed the faulty software, disclosed the loss the next day</li><li>Raised rescue capital within 5 days</li><li>The SEC published a detailed record that set the standard for a new rule</li></ul></div>
+    <div><span class="label">Not done right</span><ul class="minus"><li>The 2011 incident got only a narrow fix</li><li>Compliance paperwork said "compliant" when it was not</li><li>A no-admit settlement makes responsibility hard to pin down</li></ul></div>
+  </div>
+  <p class="verdict">No villain, no AI. Just a deployment process missing every safety net, meeting an order machine faster than any human.</p>
+  <details class="more"><summary>More: why this is a lesson for every software team</summary><div>
+    <p>Take away the word "stocks" and the rest is everyday life on any software team: an old feature nobody deleted, a config flag reused to save effort, an unchecked rollout to several machines, an error-mail channel everyone filters into a folder.</p>
+    <p>What made Knight different was speed. An automated order machine can do in minutes what people would need a week to do. That is why the SEC stresses that controls must be as automatic as the system itself, and that stopping the system must be prepared in advance, not invented mid-incident.</p>
+  </div></details>
+  <p class="nguon">Source for "More": SEC Order 34-70694, paragraphs 3–4 (the role of controls in automated trading); the rest is Mark's commentary.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lesson: deploy with a checklist and a stop button</h2><p class="lead">For every "push to production": software updates, config changes, mass e-mails, ad campaigns.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kb4">
+        <title id="kb4">Four steps for every deployment: automate and verify every target, delete dead code and never reuse a flag, design real alerts and compare output with input, prepare a stop button and a written incident procedure.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · verify every target</text><text x="110" y="100" class="t-night t-bold">"8/8 same version"</text><text x="110" y="116">automated, second reviewer</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · delete dead code</text><text x="300" y="100" class="t-day t-bold">new flag, new name</text><text x="300" y="116">never reuse an old flag</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · alerts are alerts</text><text x="490" y="100" class="t-rem t-bold">compare out with in</text><text x="490" y="116">limits that block</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · stop button, written</text><text x="680" y="100" class="t-ok t-bold">who presses, when</text><text x="680" y="116">stop first, fix later</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"I'm sure it got copied everywhere" is not evidence that it did.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each step patches one failure of 1 August.</b> A missed server, a reused flag, unread e-mails, and a rollback invented mid-incident.<span class="nguon">Source: failures from SEC Order 34-70694, paragraphs 13–15, 19, 21–27; the steps are Mark's suggestions.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v22H8z"/><path d="M12 12l2 2 4-4M12 20l2 2 4-4"/></svg><div><b>A checklist with a name on it</b><span>List every target. After the deploy, someone else confirms each one runs the right version.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 9h18M12 9V6h8v3M9 9l1 18h12l1-18"/></svg><div><b>Delete what you don't use</b><span>Code, flags, accounts, access left idle for nine years are nine years of risk waiting.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5a8 8 0 018 8v6l3 4H5l3-4v-6a8 8 0 018-8z"/><path d="M13 27h6"/></svg><div><b>Fewer alerts, real alerts</b><span>A channel that gets 97 e-mails nobody reads is no channel. Cut the noise; keep only what should wake someone up.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><rect x="12" y="12" width="8" height="8"/></svg><div><b>Practise stopping before you need to</b><span>Write down who may stop it, how, and when. Don't "roll back" until you know the old version is safe.</span></div></div>
+  </div>
+  <div class="quote"><span>Without appropriate controls, automation can turn an otherwise manageable error into an extreme event.</span><span class="src">SEC, Order 34-70694, paragraph 3 (2013), paraphrased.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>SEC, Order 34-70694 (2013)</b><span class="muted">Short, and reads like an incident analysis. Paragraphs 12–27 are the core.</span></div>
+    <div><b>Knight's releases of 2 and 6 August 2012</b><span class="muted">Watch a firm describe its own incident within 24 hours, then raise rescue money within 5 days.</span></div>
+    <div><b>Google, <i>Site Reliability Engineering</i> (2016), chapters on releases and incident management</b><span class="muted">How large teams do staged rollouts, safe rollbacks and incident procedures.</span></div>
+    <div><b>Anatomy of a Disaster #06: Titanic (1912)</b><span class="muted">When regulation lags technology, and why to plan for the worst case.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Primary documents first: the regulator's order and the company's own SEC filings.</p></div>
+  <ol class="srcs">
+    <li><b>SEC</b>, <i>In the Matter of Knight Capital Americas LLC</i>, Exchange Act Release No. 70694, Admin. Proc. File No. 3-15570, 16 Oct 2013, Section III, paragraphs 1–51. <a href="https://www.sec.gov/litigation/admin/2013/34-70694.pdf">sec.gov</a></li>
+    <li><b>SEC</b>, press release 2013-222, "SEC Charges Knight Capital With Violations of Market Access Rule", 16 Oct 2013. <a href="https://www.sec.gov/news/press-release/2013-222">sec.gov</a></li>
+    <li><b>Knight Capital Group</b>, release of 2 Aug 2012, Form 8-K, Exhibit 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512332176/d391111dex991.htm">sec.gov/Archives</a></li>
+    <li><b>Knight Capital Group</b>, "Knight Capital Group Completes $400 Million Equity Financing Agreement", 6 Aug 2012, Form 8-K, Exhibit 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512338098/d392396dex991.htm">sec.gov/Archives</a></li>
+    <li><b>Knight Capital Group</b>, Q3 2012 results release, 17 Oct 2012, Form 8-K, Exhibit 99.1. <a href="https://www.sec.gov/Archives/edgar/data/0001060749/000119312512425350/d425406dex991.htm">sec.gov/Archives</a></li>
+  </ol>
+</section>
+
+<footer>Anatomy of a Disaster #05. The figures are illustrative diagrams; numbers come from the SEC order and Knight's SEC filings and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
