@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mark phiêu lưu: game học AI chơi ngay trên web | Mark học AI</title>
-<meta name="description" content="Game miễn phí: dẫn Mark qua 5 trạm, trả lời đúng các thử thách về hiểu lầm AI, viết prompt, an toàn và AI trong công việc, rồi hạ trùm Hang Ảo Giác. Chơi ngay trên điện thoại.">
+<meta name="description" content="Game đi cảnh miễn phí: chạy, nhảy, đạp quái qua 4 ải. Mỗi con quái và trùm hỏi bạn một câu về AI: hiểu lầm, viết prompt, an toàn và AI trong công việc. Chơi ngay trên điện thoại.">
 <link rel="canonical" href="https://markhocai.com/phieu-luu.html">
 <link rel="alternate" hreflang="vi" href="https://markhocai.com/phieu-luu.html">
 <link rel="alternate" hreflang="en" href="https://markhocai.com/en/phieu-luu.html">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mark phiêu lưu: game học AI chơi ngay trên web | Mark học AI">
-<meta property="og:description" content="Game miễn phí: dẫn Mark qua 5 trạm, trả lời đúng các thử thách về hiểu lầm AI, viết prompt, an toàn và AI trong công việc, rồi hạ trùm Hang Ảo Giác. Chơi ngay trên điện thoại.">
+<meta property="og:description" content="Game đi cảnh miễn phí: chạy, nhảy, đạp quái qua 4 ải. Mỗi con quái và trùm hỏi bạn một câu về AI: hiểu lầm, viết prompt, an toàn và AI trong công việc. Chơi ngay trên điện thoại.">
 <meta property="og:url" content="https://markhocai.com/phieu-luu.html">
 <meta property="og:image" content="https://markhocai.com/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -46,22 +46,19 @@
 <div class="head-row"><div>
 <p class="eyebrow">Game miễn phí · chơi ngay trên web</p>
 <h1>Mark phiêu lưu</h1>
-<p class="lead">Dẫn Mark qua 5 trạm. Ở mỗi trạm, Bit ra thử thách về AI: trả lời đúng để đi tiếp, sai thì mất tim nhưng được giải thích ngay. Cuối đường là trùm Hang Ảo Giác.</p>
+<p class="lead">Chạy nhảy qua 4 ải, đạp quái và hạ trùm. Mỗi lần Mark đụng quái, Bit hỏi một câu về AI: trả lời đúng để hạ quái, sai thì mất tim nhưng được giải thích ngay.</p>
 </div><img class="head-art" src="assets/mark-chao.svg" alt="" width="180" height="170"></div>
 </div>
 </div>
-<main class="pl" id="pl">
+<main class="pl pl-game" id="pl">
   <div class="pl-dau"><p class="pl-tong" id="pl-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="pl-xoa">Chơi lại từ đầu</button></div>
-  <div class="pl-ban" id="pl-ban">
-    <svg id="pl-svg" class="pl-svg" viewBox="0 0 400 900" aria-hidden="true">
-      <defs><linearGradient id="pl-nen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C1D95"/><stop offset=".22" stop-color="#7C3AED"/><stop offset=".3" stop-color="#7DD3FC"/><stop offset=".62" stop-color="#BBF7D0"/><stop offset="1" stop-color="#86EFAC"/></linearGradient></defs>
-      <rect width="400" height="900" fill="url(#pl-nen)"/>
-      <g class="pl-cay"><circle cx="40" cy="560" r="22"/><circle cx="360" cy="420" r="26"/><circle cx="345" cy="820" r="20"/><circle cx="55" cy="300" r="18"/><circle cx="370" cy="200" r="14"/><circle cx="30" cy="690" r="14"/></g>
-      <g class="pl-sao-troi"><circle cx="60" cy="50" r="2.5"/><circle cx="130" cy="90" r="2"/><circle cx="330" cy="60" r="2.5"/><circle cx="280" cy="30" r="1.8"/><circle cx="20" cy="150" r="2"/></g>
-    </svg>
-    <div class="pl-lop" id="pl-tram"></div>
-    <img class="pl-mark" id="pl-mark" src="assets/mascot/mark-chi-len-tinh.webp" alt="Mark" width="64" height="64">
+  <div class="pl-khung" id="pl-khung">
+    <canvas class="pl-canvas" id="pl-canvas" tabindex="0"></canvas>
+    <button type="button" class="pl-menu" id="pl-menu" hidden></button>
+    <div class="pl-man" id="pl-man"></div>
   </div>
+  <div class="pl-dk" id="pl-dk" role="group" aria-label="Nút điều khiển"><button type="button" data-k="trai" aria-label="Sang trái">◀</button><button type="button" data-k="phai" aria-label="Sang phải">▶</button><button type="button" data-k="nhay" class="is-nhay">Nhảy</button></div>
+  <p class="pl-huong"><b>Cách chơi:</b> phím ← → hoặc A D để chạy, Space hoặc ↑ để nhảy. Trên điện thoại, dùng các nút dưới khung game. Đạp lên đầu quái thì trả lời sai cũng không mất tim.</p>
   <p class="pl-bao" id="pl-bao" role="status" hidden></p>
   <p class="pl-ghi">Câu hỏi lấy từ <a href="kiem-tra.html">bài kiểm tra</a> của kênh. Tiến độ lưu trên trình duyệt này, không gửi đi đâu.</p>
   <noscript><p>Game cần JavaScript. Bạn vẫn có thể <a href="kiem-tra.html">làm bài kiểm tra</a>.</p></noscript>
