@@ -125,11 +125,23 @@ body {{ margin: 0; }}
 <body{lop_bia}>
 <div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}">‹ <img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 {bai.strip()}
-<link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">{tro_choi(b, p)}
 <script src="{p}assets/vu-tru-khac/doc.js?v=dev" defer></script>
 </body>
 </html>
 '''
+
+
+def tro_choi(b, p):
+    """Trò chơi tương tác của bài (data/vu-tru-khac-tro-choi.json, khuôn ở assets/vu-tru-khac/tro-choi.js), đặt trước doc.js để mục lục có link tới trò."""
+    tc = R / "data" / "vu-tru-khac-tro-choi.json"
+    ds = json.loads(tc.read_text(encoding="utf-8")).get(b["slug"]) if tc.exists() else None
+    if not ds:
+        return ""
+    du_lieu = json.dumps(ds, ensure_ascii=False).replace("</", "<\\/")
+    return (f'\n<link rel="stylesheet" href="{p}assets/vu-tru-khac/tro-choi.css?v=dev">'
+            f'\n<script type="application/json" id="vtk-tro-choi">{du_lieu}</script>'
+            f'\n<script src="{p}assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>')
 
 
 # Tư thế Mark trên bìa thu nhỏ: SVG gốc ở assets/vu-tru-khac/mark/<tư thế>.svg (chép từ branding/mark-chuan, không vẽ lại, không lật).
