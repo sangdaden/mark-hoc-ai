@@ -147,7 +147,7 @@ def the_bai(b, cd, en=False):
     lop = (" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else "") + (" dai" if max(map(len, str(ten).split())) > 8 else "")
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
             f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>'
-            f'<img src="assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
+            f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d}</span>'
             f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')
 
@@ -168,6 +168,22 @@ def trang_chu(sach, chu_de, en=False):
                   f'    <div class="vtk-ds">\n' + "\n".join("      " + the_bai(b, c, en) for b in ds) + "\n    </div>\n"
                   f'    <button class="vtk-them" type="button" hidden data-mo="{"Read more" if en else "Xem thêm"}" data-dong="{"Show less" if en else "Thu gọn"}">{"Read more" if en else "Xem thêm"}</button>\n  </section>')
     return "\n".join(ra), tong
+
+
+def kiem_duong_dan(tep):
+    """Mọi src/href tương đối trong các trang vừa tạo (cả VI lẫn en/) phải trỏ tới file có thật, tránh lỗi như ảnh Mark
+    trên bìa bản tiếng Anh từng trỏ nhầm en/assets/ (13/10). Trả về danh sách lỗi."""
+    loi = []
+    for f in tep:
+        s = f.read_text(encoding="utf-8")
+        s = re.sub(r"<script>.*?</script>", "", s, flags=re.S)  # bỏ mã trong trang, chỉ xét thuộc tính HTML
+        for u in re.findall(r'(?:src|href)="([^"]+)"', s):
+            if re.match(r"^(?:[a-z]+:|//|#|data:)", u):
+                continue
+            duong = u.split("#")[0].split("?")[0]
+            if duong and not (f.parent / duong).resolve().exists():
+                loi.append(f"{f.relative_to(R)}: {u}")
+    return loi
 
 
 def main():
@@ -207,6 +223,11 @@ def main():
         hub.write_text(s, encoding="utf-8")
         print(f"  {hub.relative_to(R)}: {tong} bài")
     cap_nhat_sitemap()
+    tep = [R / "vu-tru-khac.html", R / "en" / "vu-tru-khac.html"] + sorted((R / "vu-tru-khac").glob("*.html")) + sorted((R / "en" / "vu-tru-khac").glob("*.html"))
+    loi = kiem_duong_dan(tep)
+    if loi:
+        sys.exit("Đường dẫn hỏng (file không tồn tại):\n  " + "\n  ".join(loi))
+    print(f"  kiểm tra đường dẫn: {len(tep)} trang, không có link hỏng")
 
 
 if __name__ == "__main__":
