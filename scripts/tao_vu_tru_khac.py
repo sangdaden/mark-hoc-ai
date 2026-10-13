@@ -5,9 +5,9 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 
 - Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en", kể cả "ten" khi tên sách tiếng Việt khác tên tiếng Anh). Mục "bia" lấy màu từ bìa
   sách cho nền đầu bài (chữ đầu bài luôn màu kem nên nền phải tối): nen_1 (màu nền chính), nen_2 (màu sáng hơn ở góc), nhan (màu nhấn: viền, nhãn, chip),
-  hoa_tiet ("trang" = trăng khuyết, "song" = dải sóng nước, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam.
-  Bản quyền (Sang 13/10): từ bìa thật chỉ lấy MÀU, không lấy hình, chữ, bố cục hay hoạ tiết nào của bìa.
-  "minh_hoa" (chữ mô tả hình, tiếng Anh trong "en") = hình minh hoạ tự vẽ ý chính của bài ở assets/vu-tru-khac/minh-hoa/<slug>.svg,
+  hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, "song" = dải sóng nước, "hong-tam" = hồng tâm đỏ trắng, "bon-mau" = dải bốn màu xanh/đỏ/vàng/lục, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam.
+  Bìa thật: lấy màu và một hình đơn giản gợi nhớ bìa (Sang 13/10: hình phải nhận ra được cuốn sách), tự vẽ lại; không chép bố cục, chữ tựa hay tranh của bìa.
+  "minh_hoa" (chữ mô tả hình, tiếng Anh trong "en") = hình tự vẽ ở assets/vu-tru-khac/minh-hoa/<slug>.svg,
   script chèn thay dải SVG dưới tiêu đề của bài gốc (hoặc thêm sau tiêu đề nếu bài không có). Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
   tiếng Anh tạm dùng bài tiếng Việt và script báo). Đó là trang Artifact không có khung <html>/<head>;
