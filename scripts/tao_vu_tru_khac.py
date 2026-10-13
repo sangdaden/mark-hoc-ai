@@ -14,7 +14,8 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   Đừng sửa tay các file đó, sửa bài gốc rồi chạy lại.
 - Bỏ phần "Ghi chú riêng" (để Sang tự điền, không đăng công khai) và nhãn bản nháp.
 - Trang chủ góc (vu-tru-khac.html, en/vu-tru-khac.html) chia theo chủ đề vì góc sẽ không chỉ có sách (Sang 13/10):
-  các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, tiếng Anh trong "en"),
+  các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, ho_so = chữ trên tab thẻ thông tin
+  ở đầu bài, tiếng Anh trong "en"),
   mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
   và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài có bìa thu nhỏ vẽ từ tên, tác giả và "bia" (màu, hoạ tiết). Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
@@ -64,7 +65,7 @@ def lam_sach(s, en=False):
     return s
 
 
-def trang_sach(b, goc, en=False):
+def trang_sach(b, goc, en=False, cd=None):
     e = b.get("en", {}) if en else b
     ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
            else f'{b["ten"]} ({b["tac_gia"]}): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác')
@@ -78,6 +79,10 @@ def trang_sach(b, goc, en=False):
     mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
     if bia.get("nhan"):
         mau_bia += f"\n:root {{ --vtk-nhan: {bia['nhan']}; }}"
+    # Chữ trên tab của thẻ thông tin ở đầu bài (doc.css): "ho_so" của chủ đề, ví dụ "Thẻ sách", "Hồ sơ vụ việc"
+    ho_so = ((cd or {}).get("en", {}) if en else (cd or {})).get("ho_so")
+    if ho_so:
+        mau_bia += "\nbody header { --ho-so: " + json.dumps(ho_so, ensure_ascii=False) + "; }"
     lop_bia = f' class="bia-{esc(bia["hoa_tiet"])}"' if bia.get("hoa_tiet") else ""
     return f'''<!doctype html>
 <html lang="{"en" if en else "vi"}">
@@ -181,7 +186,8 @@ def main():
                 print(f"  bỏ qua {b['slug']}: không thấy {nguon}")
                 continue
             ra = goc_ra / "vu-tru-khac" / f'{b["slug"]}.html'
-            ra.write_text(trang_sach(b, nguon.read_text(encoding="utf-8"), en), encoding="utf-8")
+            cd = next((c for c in chu_de if c["ma"] == b.get("loai", "sach")), None)
+            ra.write_text(trang_sach(b, nguon.read_text(encoding="utf-8"), en, cd), encoding="utf-8")
             print(f"  {ra.relative_to(R)}")
         hub = goc_ra / "vu-tru-khac.html"
         s = hub.read_text(encoding="utf-8")
