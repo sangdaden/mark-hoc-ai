@@ -95,9 +95,10 @@ def trang_sach(b, goc, en=False, cd=None):
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
     if b.get("minh_hoa"):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
+    bai = chen_nen(bai, b)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
-    mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
+    mau_bia = f"\nbody header, .vtk-nen {{ {mau_bia}}}" if mau_bia else ""
     if bia.get("nhan"):
         mau_bia += f"\n:root {{ --vtk-nhan: {bia['nhan']}; }}"
     # Chữ trên tab của thẻ thông tin ở đầu bài (doc.css): "ho_so" của chủ đề, ví dụ "Thẻ sách", "Hồ sơ vụ việc"
@@ -160,6 +161,20 @@ body {{ margin: 0; }}
 '''
 
 
+def chen_nen(bai, b):
+    """Nền trang đọc trên máy tính (Sang 13/10: hai bên trang đọc còn trống): hình bìa tự vẽ assets/vu-tru-khac/bia/<slug>.svg
+    (cùng hình trên thẻ ở trang góc) đặt mờ ở lề phải và dưới mục lục, nét kem đổi theo màu chữ (doc.css .vtk-nen).
+    Hình lề phải nằm trong .wrap, hình dưới mục lục nằm trong .toc để dính theo mục lục; bản thứ hai đổi id cho khỏi trùng."""
+    tep = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
+    if not tep.exists():
+        return bai
+    hinh = re.sub(r"<svg\b", '<svg aria-hidden="true" focusable="false"', tep.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', ""), count=1)
+    ban_2 = re.sub(r'(id="|url\(#|href="#)([\w-]+)', r"\1\2-t", hinh)
+    bai = re.sub(r'(<div class="wrap">)', lambda m: m.group(1) + f'\n<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div>{hinh}</div></div>', bai, count=1)
+    return re.sub(r'(<nav class="toc"[^>]*>.*?)(</nav>)', lambda m: m.group(1) + f'<span class="vtk-nen vtk-nen-trai" aria-hidden="true">{ban_2}</span>' + m.group(2),
+                  bai, count=1, flags=re.S)
+
+
 def tro_choi(b, p):
     """Trò chơi tương tác của bài (data/vu-tru-khac-tro-choi.json, khuôn ở assets/vu-tru-khac/tro-choi.js), đặt trước doc.js để mục lục có link tới trò."""
     tc = R / "data" / "vu-tru-khac-tro-choi.json"
@@ -210,9 +225,11 @@ def the_bai(b, cd, en=False):
 
 
 def trang_chu(sach, chu_de, en=False):
-    """Hàng chip lọc + mỗi chủ đề một khối thẻ, mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
+    """Hàng chip lọc + mỗi chủ đề một khối thẻ, bài có trò chơi trước rồi mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
     cds = [dict(c, **c.get("en", {})) if en else c for c in chu_de]
-    co = [(c, sorted((b for b in sach if b.get("loai", "sach") == c["ma"]), key=lambda b: -b["so"])) for c in cds]
+    # Bài có trò chơi tương tác lên đầu khối (Sang 13/10) để thấy ngay không cần bấm "Xem thêm"; còn lại mới nhất trước
+    choi = co_tro_choi()
+    co = [(c, sorted((b for b in sach if b.get("loai", "sach") == c["ma"]), key=lambda b: (b["slug"] not in choi, -b["so"]))) for c in cds]
     co = [(c, ds) for c, ds in co if ds]
     tong = sum(len(ds) for _, ds in co)
     chip = [f'<a href="#tat-ca" data-loc="" aria-current="true">{"All" if en else "Tất cả"} <small>{tong}</small></a>']

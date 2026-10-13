@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header { --bia-1: #161616; --bia-2: #5C1014; --bia-nhan: #E5484D; }
+body header, .vtk-nen { --bia-1: #161616; --bia-2: #5C1014; --bia-nhan: #E5484D; }
 :root { --vtk-nhan: #E5484D; }
 body header { --ho-so: "Thẻ sách"; }
 </style>
@@ -251,6 +251,9 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <div class="wrap">
+<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g transform="rotate(-14 50 50)" stroke="#FFF7ED" stroke-width="2.6"><ellipse cx="50" cy="50" rx="3.6" ry="4.2"/><ellipse cx="50" cy="50" rx="7.2" ry="8.4" stroke-dasharray="35.4 6" stroke-dashoffset="5"/><ellipse cx="50" cy="50" rx="10.8" ry="12.6" stroke-dasharray="53.1 4" stroke-dashoffset="16"/><ellipse cx="50" cy="50" rx="14.4" ry="16.8" stroke-dasharray="70.7 5" stroke-dashoffset="10"/><ellipse cx="50" cy="50" rx="18.0" ry="21.0" stroke-dasharray="88.4 6" stroke-dashoffset="4"/><ellipse cx="50" cy="50" rx="21.6" ry="25.2" stroke-dasharray="106.1 4" stroke-dashoffset="15"/><ellipse cx="50" cy="50" rx="25.2" ry="29.4" stroke-dasharray="123.8 5" stroke-dashoffset="9"/><ellipse cx="50" cy="50" rx="28.8" ry="33.6" stroke-dasharray="141.5 6" stroke-dashoffset="3"/><ellipse cx="50" cy="50" rx="32.4" ry="37.8" stroke-dasharray="159.2 4" stroke-dashoffset="14"/></g>
+</svg></div></div>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>
@@ -271,7 +274,9 @@ svg .t-bad { fill: var(--bad); }
 
 <nav class="toc" aria-label="Mục lục">
   <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
-</nav>
+<span class="vtk-nen vtk-nen-trai" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g transform="rotate(-14 50 50)" stroke="#FFF7ED" stroke-width="2.6"><ellipse cx="50" cy="50" rx="3.6" ry="4.2"/><ellipse cx="50" cy="50" rx="7.2" ry="8.4" stroke-dasharray="35.4 6" stroke-dashoffset="5"/><ellipse cx="50" cy="50" rx="10.8" ry="12.6" stroke-dasharray="53.1 4" stroke-dashoffset="16"/><ellipse cx="50" cy="50" rx="14.4" ry="16.8" stroke-dasharray="70.7 5" stroke-dashoffset="10"/><ellipse cx="50" cy="50" rx="18.0" ry="21.0" stroke-dasharray="88.4 6" stroke-dashoffset="4"/><ellipse cx="50" cy="50" rx="21.6" ry="25.2" stroke-dasharray="106.1 4" stroke-dashoffset="15"/><ellipse cx="50" cy="50" rx="25.2" ry="29.4" stroke-dasharray="123.8 5" stroke-dashoffset="9"/><ellipse cx="50" cy="50" rx="28.8" ry="33.6" stroke-dasharray="141.5 6" stroke-dashoffset="3"/><ellipse cx="50" cy="50" rx="32.4" ry="37.8" stroke-dasharray="159.2 4" stroke-dashoffset="14"/></g>
+</svg></span></nav>
 
 <section id="tinh-hoa">
   <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>

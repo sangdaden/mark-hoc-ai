@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header { --bia-1: #190F01; --bia-2: #A16207; --bia-nhan: #FEF3C7; }
+body header, .vtk-nen { --bia-1: #190F01; --bia-2: #A16207; --bia-nhan: #FEF3C7; }
 :root { --vtk-nhan: #FEF3C7; }
 body header { --ho-so: "Sổ thí nghiệm"; }
 </style>
@@ -246,6 +246,11 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <div class="wrap">
+<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M16 22 V78" stroke="var(--bia-nhan, #FBBF24)" stroke-width="6"/>
+<g stroke="#FFF7ED" stroke-width="6"><path d="M48 46 V78"/><path d="M66 22 V78" stroke="var(--bia-nhan, #FBBF24)"/><path d="M84 34 V78" stroke-opacity=".6"/></g>
+<path d="M30 50 h6" stroke="#FFF7ED" stroke-width="3" stroke-opacity=".5"/>
+</svg></div></div>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>
@@ -269,7 +274,11 @@ svg .t-bad { fill: var(--bad); }
 
 <nav class="toc" aria-label="Mục lục">
   <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Diễn ra thế nào</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
-</nav>
+<span class="vtk-nen vtk-nen-trai" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M16 22 V78" stroke="var(--bia-nhan, #FBBF24)" stroke-width="6"/>
+<g stroke="#FFF7ED" stroke-width="6"><path d="M48 46 V78"/><path d="M66 22 V78" stroke="var(--bia-nhan, #FBBF24)"/><path d="M84 34 V78" stroke-opacity=".6"/></g>
+<path d="M30 50 h6" stroke="#FFF7ED" stroke-width="3" stroke-opacity=".5"/>
+</svg></span></nav>
 
 <section id="tinh-hoa">
   <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>

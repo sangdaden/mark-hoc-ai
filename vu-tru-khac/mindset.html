@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header { --bia-1: #6A1418; --bia-2: #B13034; --bia-nhan: #F8B4A6; }
+body header, .vtk-nen { --bia-1: #6A1418; --bia-2: #B13034; --bia-nhan: #F8B4A6; }
 :root { --vtk-nhan: #F8B4A6; }
 body header { --ho-so: "Thẻ sách"; }
 </style>
@@ -263,6 +263,12 @@ header h1 { color: var(--book); }
 </style>
 
 <div class="wrap">
+<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><clipPath id="bia-ms-dau"><path d="M50 6 C68 6 78 20 78 38 C78 48 76 56 72 62 C68 69 62 74 58 76 V94 H42 V76 C38 74 32 69 28 62 C24 56 22 48 22 38 C22 20 32 6 50 6 Z"/></clipPath><linearGradient id="bia-ms-xam" x1="0" x2="1"><stop offset="0" stop-color="#6B7280"/><stop offset="1" stop-color="#E5E7EB"/></linearGradient></defs>
+<path d="M50 6 C32 6 22 20 22 38 C22 48 24 56 28 62 C32 69 38 74 42 76 V94 H50 Z" fill="url(#bia-ms-xam)"/>
+<g clip-path="url(#bia-ms-dau)" stroke="#FFF7ED" stroke-width="1.3"><path d="M50 10 Q66 12 82 10"/><path d="M50 16 Q66 18 82 16"/><path d="M50 22 Q66 24 82 22"/><path d="M50 28 Q66 30 82 28"/><path d="M50 34 Q66 36 82 34"/><path d="M50 40 Q66 42 82 40"/><path d="M50 46 Q66 48 82 46"/><path d="M50 52 Q66 54 82 52"/><path d="M50 58 Q66 60 82 58"/><path d="M50 64 Q66 66 82 64"/><path d="M50 70 Q66 72 82 70"/><path d="M50 76 Q66 78 82 76"/><path d="M50 82 Q66 84 82 82"/><path d="M50 88 Q66 90 82 88"/><path d="M50 94 Q66 96 82 94"/><path d="M55 2 Q56.2 50 55 98"/><path d="M61 2 Q63.8 50 61 98"/><path d="M67 2 Q71.2 50 67 98"/><path d="M73 2 Q78.8 50 73 98"/><path d="M79 2 Q86.2 50 79 98"/></g>
+<path d="M50 6 C68 6 78 20 78 38 C78 48 76 56 72 62 C68 69 62 74 58 76 V94 H50" stroke="#FFF7ED" stroke-width="2.4"/>
+</svg></div></div>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>
@@ -288,7 +294,12 @@ header h1 { color: var(--book); }
 
 <nav class="toc" aria-label="Mục lục">
   <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
-</nav>
+<span class="vtk-nen vtk-nen-trai" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs><clipPath id="bia-ms-dau-t"><path d="M50 6 C68 6 78 20 78 38 C78 48 76 56 72 62 C68 69 62 74 58 76 V94 H42 V76 C38 74 32 69 28 62 C24 56 22 48 22 38 C22 20 32 6 50 6 Z"/></clipPath><linearGradient id="bia-ms-xam-t" x1="0" x2="1"><stop offset="0" stop-color="#6B7280"/><stop offset="1" stop-color="#E5E7EB"/></linearGradient></defs>
+<path d="M50 6 C32 6 22 20 22 38 C22 48 24 56 28 62 C32 69 38 74 42 76 V94 H50 Z" fill="url(#bia-ms-xam-t)"/>
+<g clip-path="url(#bia-ms-dau-t)" stroke="#FFF7ED" stroke-width="1.3"><path d="M50 10 Q66 12 82 10"/><path d="M50 16 Q66 18 82 16"/><path d="M50 22 Q66 24 82 22"/><path d="M50 28 Q66 30 82 28"/><path d="M50 34 Q66 36 82 34"/><path d="M50 40 Q66 42 82 40"/><path d="M50 46 Q66 48 82 46"/><path d="M50 52 Q66 54 82 52"/><path d="M50 58 Q66 60 82 58"/><path d="M50 64 Q66 66 82 64"/><path d="M50 70 Q66 72 82 70"/><path d="M50 76 Q66 78 82 76"/><path d="M50 82 Q66 84 82 82"/><path d="M50 88 Q66 90 82 88"/><path d="M50 94 Q66 96 82 94"/><path d="M55 2 Q56.2 50 55 98"/><path d="M61 2 Q63.8 50 61 98"/><path d="M67 2 Q71.2 50 67 98"/><path d="M73 2 Q78.8 50 73 98"/><path d="M79 2 Q86.2 50 79 98"/></g>
+<path d="M50 6 C68 6 78 20 78 38 C78 48 76 56 72 62 C68 69 62 74 58 76 V94 H50" stroke="#FFF7ED" stroke-width="2.4"/>
+</svg></span></nav>
 
 <section id="tinh-hoa">
   <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>

@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header { --bia-1: #140B24; --bia-2: #4C1D95; --bia-nhan: #C4B5FD; }
+body header, .vtk-nen { --bia-1: #140B24; --bia-2: #4C1D95; --bia-nhan: #C4B5FD; }
 :root { --vtk-nhan: #C4B5FD; }
 body header { --ho-so: "Case file"; }
 </style>
@@ -261,6 +261,12 @@ svg .t-chal { fill: var(--chal); }
 </style>
 
 <div class="wrap">
+<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 54 L60 54 Q82 54 92 48 Q82 42 60 42 L22 42 L12 32 L6 32 L10 46 Z" fill="#FFF7ED"/>
+<path d="M30 54 L58 54 L44 74 Z" fill="#FFF7ED" fill-opacity=".85"/><path d="M58 54 L44 74" stroke="var(--bia-nhan, #FBBF24)" stroke-width="3"/>
+<path d="M78 82 l-4 -6 l6 -3 l4 6 z" fill="var(--bia-nhan, #FBBF24)"/><path d="M86 90 L78 80" stroke="var(--bia-nhan, #FBBF24)" stroke-width="2" stroke-dasharray="2 3"/>
+<g stroke="var(--bia-nhan, #FBBF24)" stroke-width="3" stroke-opacity=".7"><path d="M4 66 q6 -2 10 0 M2 74 q8 -2 14 2"/></g>
+</svg></div></div>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
@@ -285,7 +291,12 @@ svg .t-chal { fill: var(--chal); }
 
 <nav class="toc" aria-label="Contents">
   <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
-</nav>
+<span class="vtk-nen vtk-nen-trai" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 54 L60 54 Q82 54 92 48 Q82 42 60 42 L22 42 L12 32 L6 32 L10 46 Z" fill="#FFF7ED"/>
+<path d="M30 54 L58 54 L44 74 Z" fill="#FFF7ED" fill-opacity=".85"/><path d="M58 54 L44 74" stroke="var(--bia-nhan, #FBBF24)" stroke-width="3"/>
+<path d="M78 82 l-4 -6 l6 -3 l4 6 z" fill="var(--bia-nhan, #FBBF24)"/><path d="M86 90 L78 80" stroke="var(--bia-nhan, #FBBF24)" stroke-width="2" stroke-dasharray="2 3"/>
+<g stroke="var(--bia-nhan, #FBBF24)" stroke-width="3" stroke-opacity=".7"><path d="M4 66 q6 -2 10 0 M2 74 q8 -2 14 2"/></g>
+</svg></span></nav>
 
 <section id="tinh-hoa">
   <div class="sec-head"><span class="label">One-minute recap</span><h2>Essence</h2></div>

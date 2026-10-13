@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header { --bia-1: #3A2A06; --bia-2: #7A5410; --bia-nhan: #F7BC33; }
+body header, .vtk-nen { --bia-1: #3A2A06; --bia-2: #7A5410; --bia-nhan: #F7BC33; }
 :root { --vtk-nhan: #F7BC33; }
 body header { --ho-so: "Thẻ sách"; }
 </style>
@@ -264,6 +264,12 @@ svg .t-book { fill: var(--book); }
 </style>
 
 <div class="wrap">
+<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#FFF7ED" stroke-width="3" stroke-dasharray="1 0"><path d="M50 14 a22 22 0 0 1 14 39 c-3 3 -4 6 -4 10 h-20 c0 -4 -1 -7 -4 -10 a22 22 0 0 1 14 -39 z"/><path d="M41 70 h18 M43 77 h14"/></g>
+<g stroke="#FFF7ED" stroke-width="2.4" stroke-opacity=".8"><path d="M50 4 v4 M22 16 l3 3 M78 16 l-3 3 M14 40 h4 M82 40 h4"/></g>
+<path d="M40 40 q5 -8 10 0 t10 0" stroke="var(--bia-nhan, #FBBF24)" stroke-width="3"/>
+<g stroke="#FFF7ED" stroke-width="2" stroke-opacity=".6"><path d="M8 88 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/></g>
+</svg></div></div>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>
@@ -281,7 +287,12 @@ svg .t-book { fill: var(--book); }
 
 <nav class="toc" aria-label="Mục lục">
   <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
-</nav>
+<span class="vtk-nen vtk-nen-trai" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#FFF7ED" stroke-width="3" stroke-dasharray="1 0"><path d="M50 14 a22 22 0 0 1 14 39 c-3 3 -4 6 -4 10 h-20 c0 -4 -1 -7 -4 -10 a22 22 0 0 1 14 -39 z"/><path d="M41 70 h18 M43 77 h14"/></g>
+<g stroke="#FFF7ED" stroke-width="2.4" stroke-opacity=".8"><path d="M50 4 v4 M22 16 l3 3 M78 16 l-3 3 M14 40 h4 M82 40 h4"/></g>
+<path d="M40 40 q5 -8 10 0 t10 0" stroke="var(--bia-nhan, #FBBF24)" stroke-width="3"/>
+<g stroke="#FFF7ED" stroke-width="2" stroke-opacity=".6"><path d="M8 88 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/></g>
+</svg></span></nav>
 
 <section id="tinh-hoa">
   <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
