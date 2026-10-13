@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giải mã siêu trí nhớ (Mai Tường Vân): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Bốn kỹ thuật của dân thi trí nhớ: tưởng tượng, liên kết, mã hóa và cung điện trí nhớ. Phần nào có nghiên cứu ủng hộ, phần nào sách đơn giản hóa quá.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/giai-ma-sieu-tri-nho.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/giai-ma-sieu-tri-nho.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/giai-ma-sieu-tri-nho.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/giai-ma-sieu-tri-nho.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Giải mã siêu trí nhớ (Mai Tường Vân): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Bốn kỹ thuật của dân thi trí nhớ: tưởng tượng, liên kết, mã hóa và cung điện trí nhớ. Phần nào có nghiên cứu ủng hộ, phần nào sách đơn giản hóa quá.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/giai-ma-sieu-tri-nho.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #3A2A06; --bia-2: #7A5410; --bia-nhan: #F7BC33; }
+:root { --vtk-nhan: #F7BC33; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/giai-ma-sieu-tri-nho.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep. --book = saffron yellow from the book cover (#F7BC33), darkened for text contrast. */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #2c3c8c;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--night); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+
+:root { --book: #a16207; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --book: #f7bc33; } }
+:root[data-theme="dark"] { --book: #f7bc33; }
+header { border-top: 6px solid var(--book); margin-top: 0; }
+header h1 { color: var(--book); }
+.thesis { border-left-color: var(--book); }
+.toc a:hover { color: var(--book); }
+.ecard svg, .rule svg { color: var(--book); }
+.ecard.warnc svg { color: var(--bad); }
+svg .t-book { fill: var(--book); }
+.p1 { background: var(--night); } .p2 { background: var(--book); } .p3 { background: var(--day); }
+.part.b2 { border-top-color: var(--book); } .part.b3 { border-top-color: var(--day); }
+.m4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 10px; }
+.m4 div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.m4 b { font-family: var(--font-display); }
+.m4 span { font-size: .86rem; color: var(--muted); line-height: 1.4; }
+.m4 .n { font-family: var(--font-mono); font-size: .72rem; color: var(--book); font-weight: 600; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Kỹ năng học tập · Trí nhớ</span>
+  <h1>Giải mã siêu trí nhớ</h1>
+  <svg viewBox="0 0 320 26" width="320" height="26" style="max-width:100%" role="img" aria-label="Nét phấn trắng nguệch ngoạc và bóng đèn trên nền vàng nghệ, lấy ý từ bìa sách"><rect x="0" y="0" width="320" height="26" rx="6" fill="#F7BC33"/><rect x="3" y="3" width="314" height="20" rx="4" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M14 14 q7 -7 14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0 t14 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><g transform="translate(296 14)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M0 -7 a5 5 0 0 1 5 5 c0 2.5 -2 3.5 -2.5 5.5 h-5 c-.5 -2 -2.5 -3 -2.5 -5.5 a5 5 0 0 1 5 -5z"/><path d="M-2 6 h4"/></g></svg>
+  <p class="sub">Sách viết bằng tiếng Việt · Mai Tường Vân</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Mai Tường Vân · Siêu trí tuệ Việt Nam 2019</b></div>
+    <div><span class="label">Xuất bản</span><b>2020 · NXB Đà Nẵng</b></div>
+    <div><span class="label">Quy mô</span><b>3 chương · khoảng 200 trang in màu</b></div>
+    <div><span class="label">Đánh giá</span><b>7 / 10 · sổ tay kỹ thuật dễ làm theo</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26l6-8 5 5 9-13"/><path d="M20 10h6v6"/></svg><b>Luyện được, không cần bẩm sinh</b><span>Trí nhớ "siêu" là kỹ thuật cộng với tập luyện.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="3"/><circle cx="12" cy="14" r="2.5"/><path d="M5 22l7-5 5 4 4-3 6 5"/></svg><b>Biến mọi thứ thành hình</b><span>Não nhớ hình ảnh sống động tốt hơn chữ và số.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="16" r="4"/><circle cx="24" cy="8" r="4"/><circle cx="24" cy="24" r="4"/><path d="M12 14l8-4M12 18l8 4"/></svg><b>Móc vào cái đã biết</b><span>Liên kết thông tin mới với hình quen thuộc.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 28V13l12-9 12 9v15z"/><path d="M12 28v-8h8v8"/></svg><b>Đặt hình vào cung điện</b><span>Một lộ trình quen thuộc giữ đúng thứ tự.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v8M16 21v1"/></svg><b>Nhớ không phải là hiểu</b><span>Kỹ thuật mạnh với số và danh sách, yếu với tư duy.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Siêu trí nhớ không phải phép màu. Đó là một chuỗi kỹ thuật ai cũng học được: biến thông tin thành hình ảnh, nối các hình với nhau, rồi đặt chúng vào một nơi quen thuộc.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Não nhớ thế nào</b><span>Não giỏi nhớ hình và vị trí, kém nhớ số và chữ trừu tượng.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Bốn kỹ thuật</b><span>Tưởng tượng, liên kết, mã hóa và cung điện trí nhớ.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Giải thử thách</b><span>Bộ bài, số nhị phân, gương mặt, rồi áp dụng vào việc học.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Ba chương, nặng nhất là chương 2 và 3. Tỷ lệ dưới đây là ước lượng theo mục lục.</p></div>
+  <div class="chbar" role="img" aria-label="Chương 1 ngắn, chương 2 dài nhất, chương 3 dài gần bằng chương 2">
+    <div class="p1" style="flex:2">Chương 1</div><div class="p2" style="flex:4">Chương 2</div><div class="p3" style="flex:4">Chương 3</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Chương 1</span><h3>Não ghi nhớ như thế nào</h3><div class="chips"><span class="chip">ngắn hạn, dài hạn</span><span class="chip">quên là bình thường</span><span class="chip">tài năng hay luyện tập</span></div></div>
+    <div class="part b2"><span class="label">Chương 2</span><h3>Xây dựng trí nhớ phi thường</h3><div class="chips"><span class="chip">tưởng tượng</span><span class="chip">liên kết</span><span class="chip">mã hóa</span><span class="chip">cung điện trí nhớ</span></div></div>
+    <div class="part b3"><span class="label">Chương 3</span><h3>Giải mã các thử thách</h3><div class="chips"><span class="chip">bộ bài 52 lá</span><span class="chip">số nhị phân</span><span class="chip">100 mã QR, 100 gương mặt</span><span class="chip">hình trừu tượng</span><span class="chip">tiếng Anh, văn</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Ba bước của trí nhớ</h3><span class="en">encode · store · retrieve</span><span class="pg">Chương 1</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k1t">
+          <title id="k1t">Thông tin đi qua trí nhớ ngắn hạn, chỉ giữ vài mục trong vài giây, rồi mới vào trí nhớ dài hạn. Phần lớn bị quên ở bước đầu. Kỹ thuật ghi nhớ tác động vào bước mã hóa.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+          <rect x="20" y="40" width="150" height="90" rx="6" fill="var(--grid)" stroke="var(--rule)"/>
+          <text x="95" y="72" text-anchor="middle" class="t-ink t-bold">Thông tin vào</text>
+          <text x="95" y="94" text-anchor="middle">số, tên, từ mới</text>
+          <rect x="270" y="40" width="170" height="90" rx="6" fill="var(--day)" fill-opacity=".12" stroke="var(--day)"/>
+          <text x="355" y="72" text-anchor="middle" class="t-day t-bold">Ngắn hạn</text>
+          <text x="355" y="94" text-anchor="middle" class="t-ink">vài mục, vài giây</text>
+          <text x="355" y="112" text-anchor="middle">dễ rơi rụng</text>
+          <rect x="540" y="40" width="160" height="90" rx="6" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/>
+          <text x="620" y="72" text-anchor="middle" class="t-book t-bold">Dài hạn</text>
+          <text x="620" y="94" text-anchor="middle" class="t-ink">gần như không giới hạn</text>
+          <text x="620" y="112" text-anchor="middle">cần ôn để giữ</text>
+          <line x1="176" y1="85" x2="264" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <line x1="446" y1="85" x2="534" y2="85" stroke="var(--book)" stroke-width="2.5" marker-end="url(#ah)"/>
+          <text x="490" y="74" text-anchor="middle" class="t-book t-bold">mã hóa</text>
+          <line x1="355" y1="136" x2="355" y2="176" stroke="var(--muted)" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="368" y="176">quên ngay</text>
+          <text x="490" y="160" text-anchor="middle" class="t-book">kỹ thuật ghi nhớ</text>
+          <text x="490" y="176" text-anchor="middle" class="t-book">làm ở bước này</text>
+        </svg>
+      </div>
+      <figcaption><b>Kỹ thuật không làm "ổ cứng" to hơn, mà giúp đóng gói thông tin tốt hơn.</b> Sách gộp trí nhớ ngắn hạn đến "vài tuần"; tâm lý học thường chỉ tính vài giây đến khoảng nửa phút.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Quên là tính năng, ôn ngắt quãng là cách giữ</h3><span class="en">forgetting curve · spaced repetition</span><span class="pg">Chương 1</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="k2t">
+          <title id="k2t">Không ôn, lượng nhớ được tụt nhanh trong vài ngày đầu. Mỗi lần ôn lại đưa lên gần mức đầu và đường quên sau đó thoải hơn, nên các lần ôn có thể cách xa dần: 1, 3, 7, 21 ngày.</title>
+          <line class="axis" x1="60" y1="180" x2="700" y2="180"/><line class="axis" x1="60" y1="20" x2="60" y2="180"/>
+          <text x="54" y="34" text-anchor="end">100%</text><text x="54" y="184" text-anchor="end">0</text>
+          <path d="M60 30 C 90 110, 140 140, 690 160" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="600" y="152" class="t-ink">không ôn</text>
+          <path d="M60 30 C 75 70, 90 80, 100 84 L100 34 C 130 60, 160 70, 180 74 L180 32 C 230 50, 280 58, 320 60 L320 30 C 420 42, 520 48, 600 50 L600 28 C 640 32, 670 34, 700 36" fill="none" stroke="var(--book)" stroke-width="2.4"/>
+          <g fill="var(--book)"><circle cx="100" cy="34" r="4"/><circle cx="180" cy="32" r="4"/><circle cx="320" cy="30" r="4"/><circle cx="600" cy="28" r="4"/></g>
+          <g text-anchor="middle" class="t-book"><text x="100" y="200">ngày 1</text><text x="180" y="200">ngày 3</text><text x="320" y="200">ngày 7</text><text x="600" y="200">ngày 21</text></g>
+          <text x="330" y="18" class="t-book t-bold">ôn đúng lúc sắp quên</text>
+        </svg>
+      </div>
+      <figcaption><b>Não quên điều không dùng đến để khỏi rối.</b> Muốn giữ, hãy ôn lại khi sắp quên và cách xa dần. Lịch 1, 3, 7, 21 ngày chỉ là ví dụ.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn kỹ thuật nền tảng</h3><span class="en">imagination · association · coding · loci</span><span class="pg">Chương 2</span></div>
+    <div class="m4">
+      <div><span class="n">01</span><b>Tưởng tượng</b><span>Biến chữ, số, khái niệm thành một hình ảnh rõ, to, lạ, có chuyển động.</span></div>
+      <div><span class="n">02</span><b>Liên kết</b><span>Cho các hình tương tác với nhau thành một câu chuyện.</span></div>
+      <div><span class="n">03</span><b>Mã hóa</b><span>Học thuộc một bảng hình cố định cho số, lá bài, nhị phân.</span></div>
+      <div><span class="n">04</span><b>Cung điện</b><span>Đặt từng hình vào các điểm trên một lộ trình quen thuộc.</span></div>
+    </div>
+    <p class="lead">Bốn kỹ thuật chồng lên nhau: cung điện chỉ chạy tốt khi đã có hình (1), hình biết "nói chuyện" (2) và bảng mã sẵn (3).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Liên kết thành câu chuyện</h3><span class="en">link method</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="k3t">
+          <title id="k3t">Danh sách đi chợ: trứng, xà phòng, chuối, sữa, bánh mì. Thay vì đọc lại, tưởng tượng quả trứng khổng lồ trượt trên bánh xà phòng, đâm vào nải chuối, chuối phun ra sữa, sữa ngấm vào ổ bánh mì.</title>
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--book)"/></marker></defs>
+          <g text-anchor="middle">
+            <circle cx="70" cy="70" r="40" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="70" y="75" class="t-ink t-bold">trứng</text>
+            <circle cx="215" cy="70" r="40" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="215" y="75" class="t-ink t-bold">xà phòng</text>
+            <circle cx="360" cy="70" r="40" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="360" y="75" class="t-ink t-bold">chuối</text>
+            <circle cx="505" cy="70" r="40" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="505" y="75" class="t-ink t-bold">sữa</text>
+            <circle cx="650" cy="70" r="40" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="650" y="75" class="t-ink t-bold">bánh mì</text>
+            <text x="142" y="132">trượt trên</text><text x="288" y="132">đâm vào</text><text x="432" y="132">phun ra</text><text x="578" y="132">ngấm vào</text>
+          </g>
+          <g stroke="var(--book)" stroke-width="1.8"><line x1="112" y1="70" x2="172" y2="70" marker-end="url(#ah2)"/><line x1="257" y1="70" x2="317" y2="70" marker-end="url(#ah2)"/><line x1="402" y1="70" x2="462" y2="70" marker-end="url(#ah2)"/><line x1="547" y1="70" x2="607" y2="70" marker-end="url(#ah2)"/></g>
+          <text x="20" y="162" class="t-ink">Quả trứng khổng lồ trượt trên bánh xà phòng, đâm sầm vào nải chuối, chuối phun ra sữa...</text>
+        </svg>
+      </div>
+      <figcaption><b>Từ rời rạc thành một cảnh phim ngắn.</b> Càng phóng đại, càng có hành động, càng dễ nhớ lại theo đúng thứ tự. Ví dụ do Mark minh họa.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Mã hóa số: Người, Hành động, Đồ vật</h3><span class="en">PAO system</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="k4t">
+          <title id="k4t">Mỗi số từ 00 đến 99 gắn với một người, một hành động và một đồ vật. Dãy 01 32 55 thành người của 01, hành động của 32, đồ vật của 55: Einstein đánh golf vào con ngựa. Sáu chữ số gói trong một cảnh.</title>
+          <g font-size="24" text-anchor="middle" class="t-bold">
+            <rect x="40" y="20" width="180" height="56" rx="6" fill="var(--night)" fill-opacity=".12" stroke="var(--night)"/><text x="130" y="57" class="t-night" style="font-size:26px">01</text>
+            <rect x="270" y="20" width="180" height="56" rx="6" fill="var(--book)" fill-opacity=".12" stroke="var(--book)"/><text x="360" y="57" class="t-book" style="font-size:26px">32</text>
+            <rect x="500" y="20" width="180" height="56" rx="6" fill="var(--day)" fill-opacity=".12" stroke="var(--day)"/><text x="590" y="57" class="t-day" style="font-size:26px">55</text>
+          </g>
+          <g text-anchor="middle">
+            <text x="130" y="102">lấy NGƯỜI</text><text x="360" y="102">lấy HÀNH ĐỘNG</text><text x="590" y="102">lấy ĐỒ VẬT</text>
+            <text x="130" y="126" class="t-night t-bold">Einstein</text><text x="360" y="126" class="t-book t-bold">đánh golf</text><text x="590" y="126" class="t-day t-bold">con ngựa</text>
+          </g>
+          <rect x="40" y="148" width="640" height="44" rx="6" fill="var(--grid)"/>
+          <text x="360" y="176" text-anchor="middle" class="t-ink t-bold">013255 → "Einstein đánh golf vào con ngựa"</text>
+        </svg>
+      </div>
+      <figcaption><b>Sáu chữ số gói gọn trong một cảnh.</b> Cái giá: phải thuộc lòng 100 người, 100 hành động, 100 đồ vật không trùng nhau. Cùng hệ này dùng được cho lá bài và số nhị phân.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Cung điện trí nhớ</h3><span class="en">method of loci</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 250" role="img" aria-labelledby="k5t">
+          <title id="k5t">Sơ đồ một căn nhà ba phòng: phòng khách, bếp, phòng ngủ. Một lộ trình đi qua 12 điểm theo thứ tự cố định, mỗi phòng không quá 5 điểm. Mỗi điểm giữ một hình ảnh.</title>
+          <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--book)"/></marker></defs>
+          <rect x="20" y="20" width="440" height="210" rx="4" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="180" y1="20" x2="180" y2="230" stroke="var(--ink)" stroke-width="2"/><line x1="320" y1="20" x2="320" y2="230" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="172" y="110" width="16" height="36" fill="var(--paper)"/><rect x="312" y="110" width="16" height="36" fill="var(--paper)"/>
+          <text x="100" y="42" text-anchor="middle" class="t-ink t-bold">Phòng khách</text><text x="250" y="42" text-anchor="middle" class="t-ink t-bold">Bếp</text><text x="390" y="42" text-anchor="middle" class="t-ink t-bold">Phòng ngủ</text>
+          <path d="M50 200 L50 70 L150 70 L150 200 L200 200 L200 70 L295 70 L295 200 L345 200 L345 70 L430 70 L430 200" fill="none" stroke="var(--book)" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah3)"/>
+          <g fill="var(--book)">
+            <circle cx="50" cy="190" r="11"/><circle cx="50" cy="90" r="11"/><circle cx="150" cy="90" r="11"/><circle cx="150" cy="190" r="11"/>
+            <circle cx="200" cy="190" r="11"/><circle cx="200" cy="90" r="11"/><circle cx="295" cy="90" r="11"/><circle cx="295" cy="190" r="11"/>
+            <circle cx="345" cy="190" r="11"/><circle cx="345" cy="90" r="11"/><circle cx="430" cy="90" r="11"/><circle cx="430" cy="190" r="11"/>
+          </g>
+          <g text-anchor="middle" style="font-size:10px;font-weight:600"><text x="50" y="194" style="fill:var(--paper)">1</text><text x="50" y="94" style="fill:var(--paper)">2</text><text x="150" y="94" style="fill:var(--paper)">3</text><text x="150" y="194" style="fill:var(--paper)">4</text><text x="200" y="194" style="fill:var(--paper)">5</text><text x="200" y="94" style="fill:var(--paper)">6</text><text x="295" y="94" style="fill:var(--paper)">7</text><text x="295" y="194" style="fill:var(--paper)">8</text><text x="345" y="194" style="fill:var(--paper)">9</text><text x="345" y="94" style="fill:var(--paper)">10</text><text x="430" y="94" style="fill:var(--paper)">11</text><text x="430" y="194" style="fill:var(--paper)">12</text></g>
+          <text x="490" y="60" class="t-book t-bold">Quy tắc trong sách</text>
+          <text x="490" y="88" class="t-ink">tối đa 5 điểm mỗi phòng</text>
+          <text x="490" y="110" class="t-ink">20–30 điểm mỗi cung điện</text>
+          <text x="490" y="132" class="t-ink">luôn đi một chiều cố định</text>
+          <text x="490" y="154" class="t-ink">"dọn" cung điện trước khi</text>
+          <text x="490" y="170" class="t-ink">dùng lại cho bài mới</text>
+          <text x="490" y="206">vd: điểm 1 = sofa, 2 = tivi...</text>
+        </svg>
+      </div>
+      <figcaption><b>Não người tiến hóa để nhớ đường đi và chỗ cất đồ.</b> Cung điện tận dụng điều đó: đi lại lộ trình trong đầu là "nhặt" lại từng hình theo đúng thứ tự.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Từ thử thách đến bài học</h3><span class="en">cards · binary · names and faces</span><span class="pg">Chương 3</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <thead><tr><th>Thử thách trong sách</th><th>Ghép những kỹ thuật nào</th><th>Dùng ngoài đời</th></tr></thead>
+        <tbody>
+          <tr><td>Bộ bài 52 lá</td><td>mã hóa + cung điện</td><td>mã PIN, số tài khoản</td></tr>
+          <tr><td>Dãy số nhị phân</td><td>đổi 3 bit thành 1 chữ số, rồi mã hóa</td><td>dãy số dài</td></tr>
+          <tr><td>100 mã QR và 100 gương mặt</td><td>tưởng tượng + liên kết</td><td>nhớ tên người mới gặp</td></tr>
+          <tr><td>Hình trừu tượng, ảnh thật</td><td>tìm chi tiết lạ, gán hình</td><td>ít dùng</td></tr>
+          <tr><td>Từ vựng, bài văn</td><td>từ khóa hình ảnh + cung điện</td><td>học thi, học ngoại ngữ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Tác giả cho biết sau khoảng ba tháng luyện, chị nhớ 1.000 chữ số trong 58 phút và một bộ bài trong khoảng 2 phút.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">Các ý chính của sách đối chiếu với nghiên cứu về trí nhớ. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 3 cần thận trọng, 2 sai hoặc dễ gây hiểu lầm">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Cung điện trí nhớ giúp người thường nhớ nhiều hơn hẳn</span></summary><p class="note">Dresler và cộng sự (Neuron, 2017): người chưa từng luyện tập 30 phút mỗi ngày trong 6 tuần, số từ nhớ được tăng từ khoảng 26 lên 62 trên 72, và vẫn giữ được phần lớn sau 4 tháng.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Nhà vô địch trí nhớ không có bộ não khác thường</span></summary><p class="note">Maguire và cộng sự (2003) chụp não 10 người nhớ siêu hạng: trí thông minh và cấu trúc não bình thường. Khác biệt là họ dùng chiến lược không gian, 9 trên 10 người dùng cung điện.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ôn ngắt quãng giữ trí nhớ lâu hơn học dồn</span></summary><p class="note">Phân tích gộp hơn 300 thí nghiệm (Cepeda và cộng sự, 2006). Dunlosky và cộng sự (2013) xếp ôn ngắt quãng và tự kiểm tra vào nhóm "hiệu quả cao".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Quên là chức năng bình thường của não</span></summary><p class="note">Richards và Frankland (Neuron, 2017): quên giúp bỏ chi tiết thừa để khái quát hóa tốt hơn. Đường cong quên của Ebbinghaus đã được lặp lại năm 2015.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Não có "bản đồ" chuyên nhớ vị trí</span></summary><p class="note">Tế bào vị trí và tế bào lưới ở hồi hải mã và vùng lân cận, giải Nobel Y học 2014 (O'Keefe, May-Britt và Edvard Moser).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Hình càng kỳ quặc càng dễ nhớ</span></summary><p class="note">Hiệu ứng có thật khi hình lạ nằm lẫn giữa hình thường, nhưng yếu đi khi mọi thứ đều lạ (McDaniel và Einstein, 1986). Yếu tố chắc hơn là các hình tương tác với nhau.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Học từ vựng bằng từ khóa hình ảnh</span></summary><p class="note">Giúp nhớ nhanh ngay sau khi học (Atkinson và Raugh, 1975), nhưng có nghiên cứu thấy sau một tuần lại quên nhanh hơn học thường nếu không ôn (Wang và Thomas, 1995). Dunlosky (2013) xếp vào nhóm "hiệu quả thấp" cho việc học nói chung.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ba tháng luyện là nhớ được 1.000 chữ số</span></summary><p class="note">Đây là kết quả của chính tác giả, với một huấn luyện viên. Nghiên cứu cho thấy ai cũng tiến bộ, nhưng tốc độ khác nhau nhiều. Chuẩn bị thi thế giới thường mất vài giờ mỗi ngày trong nhiều tháng.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Trí nhớ ngắn hạn kéo dài từ vài giây đến vài tuần</span></summary><p class="note">Theo một bài điểm sách, sách định nghĩa như vậy. Tâm lý học chỉ tính ngắn hạn trong vài giây đến khoảng 30 giây, giữ được chừng 4 đến 7 mục. Thứ còn sau vài tuần đã là trí nhớ dài hạn.</p></details>
+    <details><summary><span class="tag bad">HIỂU LẦM</span><span>Luyện nhớ số là trí nhớ nói chung tốt lên</span></summary><p class="note">Không có trong sách như một lời hứa, nhưng người đọc dễ hiểu vậy. Kỹ năng rất hẹp: người tập nhớ 80 chữ số (Ericsson và Chase, 1980) vẫn chỉ nhớ khoảng 6 chữ cái. Dân thi trí nhớ vẫn quên chìa khóa như ai.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i style="width:70%"></i></div><b>3,5/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Ví dụ gần gũi</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Ví dụ Việt Nam, in màu, dễ làm theo</li><li>Giải thích rõ các thử thách trên truyền hình</li><li>Kỹ thuật cốt lõi đã được nghiên cứu ủng hộ</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Phần khoa học về não mỏng và đơn giản hóa</li><li>Nặng về kỹ thuật thi đấu, ít bàn khi nào nên dùng</li><li>Không nói rõ cái giá thời gian luyện tập</li></ul></div>
+  </div>
+  <p class="verdict">Đọc chương 2 và làm bài tập. Dùng kỹ thuật cho thứ cần nhớ nguyên văn, đừng dùng thay cho việc hiểu bài.</p>
+  <details class="more"><summary>Xem thêm: siêu trí nhớ có đáng công luyện?</summary><div>
+    <p>Một bài điểm sách so cuốn này với Moonwalking with Einstein của Joshua Foer và thấy nó mỏng hơn về nền khoa học, có chỗ đơn giản hóa đến mức thiếu chính xác. Sách cũng bỏ qua trí nhớ sự kiện và trí nhớ kỹ năng, hai loại liên quan trực tiếp đến cung điện trí nhớ và việc học.</p>
+    <p>Joshua Foer, vô địch trí nhớ Mỹ 2006, viết rằng sau cuộc thi ông hầu như không dùng các kỹ thuật này, vì đã có giấy và điện thoại. Kỹ thuật thật sự hữu ích ở những chỗ hẹp: từ vựng, công thức, bài phát biểu, tên người.</p>
+    <p>Với học sinh, lợi ích lớn nhất có lẽ đến từ thứ sách nói ít hơn: tự kiểm tra và ôn ngắt quãng. Hai cách này hiệu quả với mọi môn, kể cả phần cần hiểu.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Một vòng học 20 từ tiếng Anh mới, gộp cả bốn kỹ thuật và lịch ôn.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 740 170" role="img" aria-labelledby="a1t">
+        <title id="a1t">Năm bước: chọn một cung điện 20 điểm, biến mỗi từ thành hình, đặt hình vào từng điểm, tự kiểm tra bằng cách đi lại lộ trình, ôn sau 1, 3, 7 và 21 ngày.</title>
+        <line x1="70" y1="50" x2="670" y2="50" stroke="var(--rule)" stroke-width="3"/>
+        <g fill="var(--book)"><circle cx="70" cy="50" r="16"/><circle cx="220" cy="50" r="16"/><circle cx="370" cy="50" r="16"/><circle cx="520" cy="50" r="16"/><circle cx="670" cy="50" r="16"/></g>
+        <g text-anchor="middle" class="t-bold"><text x="70" y="55" style="fill:var(--paper)">1</text><text x="220" y="55" style="fill:var(--paper)">2</text><text x="370" y="55" style="fill:var(--paper)">3</text><text x="520" y="55" style="fill:var(--paper)">4</text><text x="670" y="55" style="fill:var(--paper)">5</text></g>
+        <g text-anchor="middle">
+          <text x="70" y="94" class="t-book t-bold">Chọn cung điện</text><text x="70" y="110">nhà mình,</text><text x="70" y="125">20 điểm</text>
+          <text x="220" y="94" class="t-book t-bold">Từ thành hình</text><text x="220" y="110">"rabbit" ≈ "ráp bít":</text><text x="220" y="125">thỏ bịt tai giấy ráp</text>
+          <text x="370" y="94" class="t-book t-bold">Đặt vào điểm</text><text x="370" y="110">chú thỏ đó nhảy</text><text x="370" y="125">tưng tưng trên sofa</text>
+          <text x="520" y="94" class="t-book t-bold">Tự kiểm tra</text><text x="520" y="110">đi lại lộ trình,</text><text x="520" y="125">không nhìn sách</text>
+          <text x="670" y="94" class="t-book t-bold">Ôn ngắt quãng</text><text x="670" y="110">sau 1, 3, 7,</text><text x="670" y="125">21 ngày</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Bước 4 và 5 quan trọng không kém bước 1 đến 3.</b> Hình ảnh giúp nạp nhanh, tự kiểm tra và ôn mới giúp giữ lâu.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22M5 16h22M5 23h14"/></svg><div><b>Dùng cho thứ cần nhớ nguyên văn</b><span>Số, danh sách, từ vựng, dàn ý bài nói. Phần cần hiểu thì học cách khác.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><path d="M3 27c1-5 4-8 8-8s7 3 8 8"/><path d="M21 9h8M21 14h6"/></svg><div><b>Nhớ tên người mới gặp</b><span>Gắn tên với một hình, đặt hình lên nét nổi bật trên gương mặt.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M10 16l4 4 8-9"/></svg><div><b>Tự hỏi thay vì đọc lại</b><span>Gập sách lại và kể ra. Đọc lại chỉ tạo cảm giác quen.</span></div></div>
+  </div>
+  <div class="quote"><span>"Mọi thứ đều có phương pháp."</span><span class="src">Câu mở đầu trên trang giới thiệu sách.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Joshua Foer, <i>Moonwalking with Einstein</i> (2011)</b><span class="muted">Một nhà báo luyện một năm rồi vô địch trí nhớ Mỹ. Kể hay, nhiều khoa học và hoài nghi hơn.</span></div>
+    <div><b>Brown, Roediger, McDaniel, <i>Make It Stick</i> (2014)</b><span class="muted">Khoa học về học tập: tự kiểm tra, ôn ngắt quãng, xen kẽ. Bổ sung đúng chỗ sách còn thiếu.</span></div>
+    <div><b>Dominic O'Brien, <i>Siêu trí nhớ</i> (Alphabooks)</b><span class="muted">Từ tám lần vô địch thế giới, nặng về kỹ thuật thi đấu hơn.</span></div>
+    <div><b>Dresler và cộng sự (2017), "Mnemonic Training Reshapes Brain Networks"</b><span class="muted">Nghiên cứu 6 tuần luyện cung điện trí nhớ. <a href="https://doi.org/10.1016/j.neuron.2017.02.003">doi.org</a></span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #004. Tóm tắt theo mục lục, giới thiệu của nhà sách và các bài điểm sách; ví dụ trong sơ đồ do Mark minh họa, không chép từ sách.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
