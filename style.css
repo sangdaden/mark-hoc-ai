@@ -1272,13 +1272,28 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 .vtk-khoi-dau span { color: var(--muted); font-size: 14px; }
 .vtk-h { font: 800 24px/1.2 var(--f-display); margin: 0 0 14px; }
 .vtk-ds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 12px; }
-.vtk-the { --bia-1: #0F172A; --bia-2: #1E293B; --bia-nhan: #FBBF24; display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center;
+.vtk-the { --bia-1: #0F172A; --bia-2: #1E293B; --bia-nhan: #FBBF24; display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: center;
   padding: 12px 16px 12px 12px; border-radius: 16px; text-decoration: none; color: var(--ink); background: var(--panel);
   border: 1px solid color-mix(in srgb, #EA580C 22%, var(--edge)); transition: transform .15s, border-color .15s; }
 .vtk-the:hover { border-color: var(--bia-nhan); transform: translateY(-2px); }
-.vtk-gay { position: relative; height: 92px; border-radius: 5px 10px 10px 5px; background: linear-gradient(160deg, var(--bia-2), var(--bia-1));
-  box-shadow: inset 6px 0 0 rgb(0 0 0 / .28), 0 6px 12px -8px rgb(15 23 42 / .6); }
-.vtk-gay::after { content: ""; position: absolute; left: 12px; right: 8px; bottom: 12px; height: 3px; border-radius: 2px; background: var(--bia-nhan); }
+/* Bìa thu nhỏ: vẽ bằng CSS từ tên sách, tác giả, màu và hoạ tiết bìa (bia-trang, bia-but-chi, bia-song, bia-hong-tam), không cần ảnh */
+.vtk-bia { position: relative; overflow: hidden; height: 116px; padding: 10px 6px 9px 11px; border-radius: 3px 8px 8px 3px; display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(160deg, var(--bia-2), var(--bia-1)); color: #FFF7ED; container-type: inline-size;
+  box-shadow: inset 4px 0 0 rgb(0 0 0 / .3), inset 5px 0 0 rgb(255 255 255 / .12), 0 8px 14px -8px rgb(15 23 42 / .7); }
+.vtk-bia i { position: relative; z-index: 1; font: normal 800 12px/1.12 var(--f-display); color: var(--bia-nhan); hyphens: manual;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.vtk-bia.dai i { font-size: 10.5px; }
+.vtk-bia small { position: relative; z-index: 1; font: 500 7.5px/1.2 var(--f-body); letter-spacing: .04em; text-transform: uppercase; opacity: .85; overflow-wrap: anywhere; }
+.vtk-bia::after { content: ""; position: absolute; left: 12px; right: 8px; bottom: 34px; height: 2px; border-radius: 2px; background: var(--bia-nhan); opacity: .8; }
+.vtk-bia.bia-trang::before { content: ""; position: absolute; right: 9px; top: 46px; width: 20px; height: 20px; border-radius: 50%; box-shadow: 5px -3px 0 0 var(--bia-nhan); transform: rotate(-20deg); }
+.vtk-bia.bia-but-chi::after { left: 0; right: 0; bottom: 0; height: 6px; border-radius: 0; opacity: 1;
+  background: linear-gradient(90deg, #F2A7B8 0 12px, #C0C4CC 12px 16px, #F5C518 16px calc(100% - 10px), #E8C99A calc(100% - 10px) calc(100% - 4px), #333 calc(100% - 4px)); }
+.vtk-bia.bia-song::after { left: 0; right: 0; bottom: 0; height: 10px; border-radius: 0; opacity: 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpath d='M0 5 Q6 1 12 5 T24 5' fill='none' stroke='%2322D3EE' stroke-width='2'/%3E%3C/svg%3E") repeat-x center / 24px 10px; }
+.vtk-bia.bia-hong-tam::before { content: ""; position: absolute; right: -10px; top: 40px; width: 40px; height: 40px; border-radius: 50%;
+  background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); opacity: .9; }
+.vtk-the:hover .vtk-bia { transform: rotate(-2deg) translateY(-2px); }
+@media (prefers-reduced-motion: no-preference) { .vtk-bia { transition: transform .2s; } }
 .vtk-noi { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .vtk-the b { font: 800 19px/1.2 var(--f-display); }
 .vtk-so { font: 500 11px/1.3 var(--f-mono, monospace); letter-spacing: .06em; text-transform: uppercase; color: #C2410C; }
@@ -1288,5 +1303,5 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 :root[data-theme="dark"] .vtk-loc a[aria-current] { background: #FBBF24; border-color: #FBBF24; color: #0F172A; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vtk-so { color: #FBBF24; }
   :root:not([data-theme="light"]) .vtk-loc a[aria-current] { background: #FBBF24; border-color: #FBBF24; color: #0F172A; } }
-@media (max-width: 520px) { .vtk-the { grid-template-columns: 48px 1fr; gap: 12px; } .vtk-gay { height: 76px; } .vtk-loc a, .vtk-sap { padding: 7px 13px; font-size: 14px; } }
+@media (max-width: 520px) { .vtk-the { grid-template-columns: 72px 1fr; gap: 12px; } .vtk-bia { height: 106px; padding: 8px 5px 8px 9px; } .vtk-bia i { font-size: 11px; } .vtk-bia.dai i { font-size: 9px; } .vtk-loc a, .vtk-sap { padding: 7px 13px; font-size: 14px; } }
 .vtk-ghi { margin-top: 20px; color: var(--muted); font-size: 14px; }

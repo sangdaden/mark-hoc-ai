@@ -16,7 +16,7 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 - Trang chủ góc (vu-tru-khac.html, en/vu-tru-khac.html) chia theo chủ đề vì góc sẽ không chỉ có sách (Sang 13/10):
   các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, tiếng Anh trong "en"),
   mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
-  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài có gáy màu theo "bia". Chủ đề chưa có bài thì
+  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài có bìa thu nhỏ vẽ từ tên, tác giả và "bia" (màu, hoạ tiết). Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
 - Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
 """
@@ -132,7 +132,8 @@ def the_bai(b, cd, en=False):
     mau = "".join(f"--{k}: {esc(bia[v])};" for k, v in (("bia-1", "nen_1"), ("bia-2", "nen_2"), ("bia-nhan", "nhan")) if bia.get(v))
     tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-gay" aria-hidden="true"></span><span class="vtk-noi">'
+            f'<span class="vtk-bia{" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else ""}{" dai" if max(map(len, str(b["ten"]).split())) > 8 else ""}" aria-hidden="true"><i>{esc(b["ten"])}</i><small>{esc(b.get("tac_gia"))}</small></span>'
+            f'<span class="vtk-noi">'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d} · {esc(e.get("chu_de", b.get("chu_de")))}</span>'
             f'<b>{esc(b["ten"])}</b><span class="vtk-tg">{tg}</span>'
             f'<span class="vtk-mt">{esc(e.get("mo_ta", b.get("mo_ta")))}</span></span></a>')
