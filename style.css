@@ -851,6 +851,7 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .hh-hot { background: #F97316; color: #fff; }
 .hh-chon { background: #FACC15; color: #0F172A; }
 .hh-moi { background: #06D6A0; color: #0F172A; }
+.hh-choi { background: #A78BFA; color: #1E1B4B; }
 .sc-cover { position: relative; }
 .sc-hh { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .sc-hh .hh { margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
@@ -1343,6 +1344,10 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
   background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); opacity: .85; }
 .vtk-the:hover .vtk-bia { transform: translateY(-4px) rotate(-1.5deg); }
 .vtk-the:hover b { color: #C2410C; }
+/* Nhãn "Tương tác" (bài có trò chơi): ló ra trên mép bìa, góc phải, như nhãn trên bìa series bên trang AI */
+.vtk-the { position: relative; }
+.vtk-the .vtk-nhan { position: absolute; z-index: 3; top: -13px; right: -6px; margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
+@media (max-width: 760px) { .vtk-the .vtk-nhan { font-size: 10px; padding: 4px 7px; } }
 .vtk-the:focus-visible { outline: none; }
 .vtk-the:focus-visible .vtk-bia { outline: 3px solid var(--bia-nhan); outline-offset: 3px; }
 @media (prefers-reduced-motion: no-preference) { .vtk-bia { transition: transform .2s; } }
