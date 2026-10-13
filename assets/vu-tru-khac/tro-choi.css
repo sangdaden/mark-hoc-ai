@@ -15,9 +15,14 @@
 .tc-hang { display: flex; flex-wrap: wrap; gap: 10px; }
 .tc-nut { font: 600 .95rem/1.2 var(--font-body, system-ui, sans-serif); padding: 10px 18px; border-radius: 10px; cursor: pointer;
   border: 1.5px solid var(--ink); background: transparent; color: var(--ink); }
-.tc-nut.tc-chinh { background: var(--vtk-nhan, #FBBF24); border-color: var(--vtk-nhan, #FBBF24); color: #0F172A; }
+/* Nút chính dùng màu cam chung (--cam, như thanh trượt), không dùng --vtk-nhan vì nhiều bài để màu nhạt gần xám, trông như nút bị khóa. */
+.tc-nut.tc-chinh { background: var(--cam, #EA580C); border-color: var(--cam, #EA580C); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; } }
+:root[data-theme="dark"] .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; }
+.tc-nut.tc-chinh:not(:disabled):hover { filter: brightness(1.08); }
 .tc-nut.tc-da-chon { outline: 2px solid var(--cam); outline-offset: 2px; }
 .tc-nut:disabled { cursor: default; opacity: .55; }
+.tc-nut.tc-chinh:disabled { background: var(--rule); border-color: var(--rule); color: var(--muted); opacity: 1; }
 .tc-nut.tc-da-chon:disabled { opacity: 1; }
 .tc-nut:focus-visible, .tc-the:focus-visible, .tc-o-ngan:focus-visible, .tc-buoc:focus-visible, .tc-o-may:focus-visible, .tc-dong-tl:focus-visible, .tc-chu:focus-visible { outline: 3px solid var(--tc-lanh); outline-offset: 2px; }
 .tc-dap { background: var(--grid); border-left: 4px solid var(--vtk-nhan, #FBBF24); border-radius: 10px; padding: 10px 14px; }
