@@ -1,5 +1,5 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the.",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the. Đợt 2 thêm: quy-dao, song-radio, tau-chim, slide-giau-dong, may-chu, buong-lai, ly-gio-luyen, be-ca; ten-lua có bieu_do, lo-phan-ung có an_bien, pho-mai có dung_o.",
   "tham-hoa-challenger": [
     {
       "khuon": "ten-lua",
@@ -695,213 +695,246 @@
   ],
   "tham-hoa-mars-climate-orbiter": [
     {
-      "khuon": "soi-loi",
-      "id": "choi-soi-loi",
+      "khuon": "quy-dao",
+      "id": "choi-quy-dao",
       "truoc": "tinh-hoa",
+      "the": 14,
+      "khoang": [
+        2200,
+        2000,
+        1700,
+        1400,
+        1200,
+        1000,
+        800,
+        700,
+        600,
+        500,
+        450,
+        400,
+        400
+      ],
+      "chay_ms": 6000,
+      "email_sau": 5,
+      "nham": 226,
+      "cuoi": 57,
+      "nguong": 80,
+      "moc": [
+        226,
+        160,
+        110,
+        57
+      ],
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Soi tệp bàn giao",
-        "hoi": "Hai nhóm bàn giao số liệu cho nhau. Chạm vào dòng làm mất con tàu.",
-        "dong": [
-          {
-            "chu": "# ĐẶC TẢ GIAO TIẾP (SIS) · nhóm dẫn đường",
-            "tieu_de": true
-          },
-          {
-            "chu": "xung_luc_dong_co: số thực"
-          },
-          {
-            "chu": "don_vi: N·s (newton giây)"
-          },
-          {
-            "chu": "# TỆP AMD · phần mềm mặt đất \"Small Forces\"",
-            "tieu_de": true
-          },
-          {
-            "chu": "thoi_diem: 1999-09-08T14:02:11"
-          },
-          {
-            "chu": "xung_luc: 0.4417   # lbf·s",
-            "loi": true
-          },
-          {
-            "chu": "so_lan_dot: 1"
-          }
-        ],
-        "dung": "Đúng. Đặc tả đòi newton giây, tệp lại ghi pound lực giây. 1 pound lực = 4,45 newton, nên mỗi lần đốt bị tính nhỏ đi 4,45 lần. Sai số cộng dồn nhiều tháng, và con tàu đi sát Sao Hỏa hơn nhiều so với dự định.",
-        "sai": "Dòng này ổn. Gợi ý: so đơn vị ở hai phần.",
-        "mo_ta_bd": "Độ cao điểm gần Sao Hỏa: nhắm 226 km, ước tính cuối khoảng 57 km, dưới ngưỡng 80 km",
-        "cot": [
+        "nhan": "Quỹ đạo trôi",
+        "hoi": "Tệp AMD ghi xung lực bằng pound lực giây (lbf·s), còn đội dẫn đường cần newton giây (N·s). Bấm Bắt đầu, rồi kéo từng thẻ xuống khe “× 4,45” trước khi băng chuyền đổ nó vào khe đọc thẳng.",
+        "mo_ta": "Trái Đất bên trái, Sao Hỏa bên phải, đường bay dự tính nét đứt và con tàu. Bên dưới là băng chuyền thẻ AMD chạy về khe đọc thẳng bên phải; khe đổi × 4,45 ở bên trái. Góc trên trái là ô phiếu sự cố ISA.",
+        "doc_mac": "Mỗi thẻ là một lần đốt động cơ nhỏ. Thẻ nào rơi vào khe đọc thẳng thì lực bị tính nhỏ đi 4,45 lần, và con tàu thật trôi khỏi bóng tàu dự tính.",
+        "nut_bd": "Bắt đầu hành trình",
+        "nut_that": "Xem chuyện thật",
+        "nut_lai": "Chơi lại",
+        "trai_dat": "Trái Đất",
+        "sao_hoa": "Sao Hỏa",
+        "vanh": "vòng đỏ: 80 km",
+        "isa": "Phiếu sự cố ISA",
+        "bang": "Tệp AMD · mỗi thẻ là một lần đốt",
+        "khe_doi": "× 4,45 → N·s",
+        "khe_doi_phu": "đổi đúng đơn vị",
+        "khe_thang": "Đọc thẳng như N·s",
+        "khe_thang_phu": "mặc định của phần mềm",
+        "the_aria": "Thẻ AMD số {n}. Enter: đổi × 4,45",
+        "email": "Số lệch lạ?",
+        "email_aria": "Email báo số lệch lạ. Enter: mở phiếu sự cố ISA",
+        "email_den": "Một email báo “số lệch hơi lạ” vừa đến. Kéo nó vào ô phiếu ISA nếu bạn muốn mở sự cố chính thức.",
+        "da_isa": "Bạn đã mở phiếu ISA: lần chỉnh dự phòng TCM-5 được chuẩn bị sẵn.",
+        "goi_y": "Kéo thẻ xuống khe “× 4,45” (hoặc chọn thẻ bằng phím Tab rồi bấm Enter).",
+        "dang": "Thẻ đến dày dần: ngoài đời số lần đốt nhiều hơn dự kiến 10–14 lần.",
+        "the_thang": "Thẻ #{n} bị đọc thẳng: lực bị tính nhỏ đi 4,45 lần.",
+        "the_doi": "Thẻ #{n} được đổi đúng sang N·s.",
+        "toi": "Tàu tới Sao Hỏa. Theo cách bạn xử lý, điểm gần khoảng {a} km (minh họa).",
+        "toi_tcm": "Tàu tới Sao Hỏa. Lần chỉnh TCM-5 kéo tàu về gần đường dự tính (minh họa).",
+        "duoi_nguong": "Dưới ngưỡng 80 km: tàu cháy trong khí quyển.",
+        "tren_nguong": "Trên ngưỡng 80 km: tàu vào được quỹ đạo.",
+        "do_cao": "Độ cao điểm gần Sao Hỏa, chuyện thật",
+        "nguong": "ngưỡng 80 km",
+        "moc": [
           {
             "nhan": "Nhắm (TCM-4)",
-            "gt": 226,
             "hien": "226 km"
           },
           {
             "nhan": "Tuần cuối",
-            "gt": 160,
             "hien": "150–170 km"
           },
           {
             "nhan": "1 giờ trước",
-            "gt": 110,
             "hien": "~110 km"
           },
           {
             "nhan": "Ước tính cuối",
-            "gt": 57,
-            "hien": "~57 km",
-            "nong": true
+            "hien": "~57 km"
           }
         ],
-        "nguong": {
-          "gt": 80,
-          "nhan": "ngưỡng sống sót 80 km"
-        },
-        "nguon": "Nguồn: Hội đồng điều tra MCO, báo cáo giai đoạn I (10/11/1999), tr. 6, 13–20: đặc tả yêu cầu N·s, tệp AMD xuất lbf·s, hệ số 4,45; nhắm 226 km, tuần cuối 150–170 km, khoảng 110 km một giờ trước, ước tính cuối khoảng 57 km, ngưỡng 80 km. Giá trị 0.4417 và mốc giờ trong tệp là minh họa."
+        "mat": "23/9/1999: tàu sà xuống khoảng 57 km, dưới ngưỡng 80 km, và mất tích.",
+        "ket": "Bạn để {d}/{n} thẻ rơi vào khe đọc thẳng. Ngoài đời không thẻ nào được đổi: mỗi lần đốt bị tính nhỏ đi 4,45 lần, sai số cộng dồn suốt 9 tháng, và tàu lệch xuống thấp hơn dự tính gần 170 km.",
+        "ket_isa": "Bạn đã mở phiếu ISA. Ngoài đời đội dẫn đường chỉ báo số lệch qua email, không ai mở phiếu, và TCM-5 chưa từng được chuẩn bị.",
+        "ket_khong": "Bạn để email nằm đó, giống ngoài đời: số lệch chỉ được báo qua email, không ai mở phiếu, và TCM-5 chưa từng được chuẩn bị.",
+        "nguon": "Nguồn: Hội đồng điều tra MCO, báo cáo giai đoạn I (10/11/1999): 1 lbf = 4,45 N, đặc tả SIS đòi N·s, tệp AMD xuất lbf·s (tr. 6, 14–17); số lần đốt nhiều hơn dự kiến 10–14 lần, hành trình 9 tháng (tr. 6–7, 17, 22); nhắm 226 km, tuần cuối 150–170 km, khoảng 110 km một giờ trước, ước tính cuối khoảng 57 km, ngưỡng sống sót 80 km, lệch xuống gần 170 km (tr. 6, 13–20); số lệch chỉ báo qua email, TCM-5 chưa được chuẩn bị (tr. 7, 13, 20, 22–23). Minh họa: số thẻ, giá trị trên thẻ, nhịp băng chuyền, độ cao theo cách bạn chơi, hình đường bay."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Check the handoff file",
-        "hoi": "Two teams hand data to each other. Tap the line that lost the spacecraft.",
-        "dong": [
-          {
-            "chu": "# INTERFACE SPEC (SIS) · navigation team",
-            "tieu_de": true
-          },
-          {
-            "chu": "thruster_impulse: float"
-          },
-          {
-            "chu": "units: N·s (newton-seconds)"
-          },
-          {
-            "chu": "# AMD FILE · ground software \"Small Forces\"",
-            "tieu_de": true
-          },
-          {
-            "chu": "time: 1999-09-08T14:02:11"
-          },
-          {
-            "chu": "impulse: 0.4417   # lbf·s",
-            "loi": true
-          },
-          {
-            "chu": "burns: 1"
-          }
-        ],
-        "dung": "Right. The spec asks for newton-seconds, but the file holds pound-force seconds. One pound-force is 4.45 newtons, so every burn was understated by a factor of 4.45. The error built up for months, and the spacecraft passed far closer to Mars than planned.",
-        "sai": "That line is fine. Hint: compare the units in the two parts.",
-        "mo_ta_bd": "Closest approach to Mars: target 226 km, final estimate about 57 km, below the 80 km limit",
-        "cot": [
+        "nhan": "Drifting orbit",
+        "hoi": "The AMD file records impulse in pound-force seconds (lbf·s), but the navigation team needs newton-seconds (N·s). Press Start, then drag each card into the “× 4.45” slot before the conveyor drops it into the read-as-is slot.",
+        "mo_ta": "Earth on the left, Mars on the right, the planned path dashed and the spacecraft. Below, a conveyor of AMD cards runs toward the read-as-is slot on the right; the × 4.45 slot is on the left. Top left is the ISA incident form box.",
+        "doc_mac": "Each card is one small thruster firing. A card that lands in the read-as-is slot is counted 4.45 times too small, and the real spacecraft drifts away from its planned shadow.",
+        "nut_bd": "Start the journey",
+        "nut_that": "See what really happened",
+        "nut_lai": "Play again",
+        "trai_dat": "Earth",
+        "sao_hoa": "Mars",
+        "vanh": "red ring: 80 km",
+        "isa": "ISA incident form",
+        "bang": "AMD file · each card is one firing",
+        "khe_doi": "× 4.45 → N·s",
+        "khe_doi_phu": "convert the unit",
+        "khe_thang": "Read as N·s",
+        "khe_thang_phu": "the software default",
+        "the_aria": "AMD card {n}. Enter: convert × 4.45",
+        "email": "Odd numbers?",
+        "email_aria": "Email about odd numbers. Enter: file an ISA incident",
+        "email_den": "An email saying “the numbers look a bit odd” just arrived. Drag it onto the ISA form if you want to open a formal incident.",
+        "da_isa": "You filed an ISA: the backup correction TCM-5 gets prepared.",
+        "goi_y": "Drag the card down into the “× 4.45” slot (or Tab to a card and press Enter).",
+        "dang": "Cards come faster and faster: in reality there were 10–14 times more firings than planned.",
+        "the_thang": "Card #{n} read as is: the force counted 4.45 times too small.",
+        "the_doi": "Card #{n} converted to N·s.",
+        "toi": "The spacecraft reaches Mars. The way you played, closest approach is about {a} km (illustrative).",
+        "toi_tcm": "The spacecraft reaches Mars. The TCM-5 correction pulls it back near the planned path (illustrative).",
+        "duoi_nguong": "Below the 80 km limit: it burns up in the atmosphere.",
+        "tren_nguong": "Above the 80 km limit: it makes orbit.",
+        "do_cao": "Closest approach to Mars, what really happened",
+        "nguong": "80 km limit",
+        "moc": [
           {
             "nhan": "Target (TCM-4)",
-            "gt": 226,
             "hien": "226 km"
           },
           {
             "nhan": "Final week",
-            "gt": 160,
             "hien": "150–170 km"
           },
           {
             "nhan": "1 hour before",
-            "gt": 110,
             "hien": "~110 km"
           },
           {
             "nhan": "Final estimate",
-            "gt": 57,
-            "hien": "~57 km",
-            "nong": true
+            "hien": "~57 km"
           }
         ],
-        "nguong": {
-          "gt": 80,
-          "nhan": "survival limit 80 km"
-        },
-        "nguon": "Source: MCO Mishap Investigation Board, Phase I report (10/11/1999), pp. 6, 13–20: spec required N·s, the AMD file used lbf·s, factor 4.45; target 226 km, final week 150–170 km, about 110 km an hour before, final estimate about 57 km, limit 80 km. The value 0.4417 and the timestamp in the file are illustrative."
+        "mat": "23 September 1999: the spacecraft dipped to about 57 km, below the 80 km limit, and was lost.",
+        "ket": "You let {d}/{n} cards fall into the read-as-is slot. In reality no card was converted: every firing was counted 4.45 times too small, the error added up over 9 months, and the spacecraft ended up nearly 170 km lower than planned.",
+        "ket_isa": "You filed an ISA. In reality the navigation team only raised the numbers by email, nobody filed a form, and TCM-5 was never prepared.",
+        "ket_khong": "You left the email where it was, as happened in reality: the numbers were only raised by email, nobody filed a form, and TCM-5 was never prepared.",
+        "nguon": "Source: MCO Mishap Investigation Board, Phase I report (10/11/1999): 1 lbf = 4.45 N, the SIS spec required N·s, the AMD file used lbf·s (pp. 6, 14–17); 10–14 times more firings than planned, 9-month cruise (pp. 6–7, 17, 22); target 226 km, final week 150–170 km, about 110 km an hour before, final estimate about 57 km, 80 km survival limit, nearly 170 km lower (pp. 6, 13–20); concerns raised only by email, TCM-5 not prepared (pp. 7, 13, 20, 22–23). Illustrative: number of cards, card values, conveyor pace, the altitude from your play, the drawn path."
       }
     }
   ],
   "tham-hoa-tenerife": [
     {
-      "khuon": "thu-tu",
-      "id": "choi-thu-tu",
+      "khuon": "song-radio",
+      "id": "choi-song-radio",
       "truoc": "tinh-hoa",
+      "truc": [
+        16,
+        26
+      ],
+      "thap": [
+        18.19,
+        22.06,
+        20.08
+      ],
+      "panam": [
+        19.39,
+        22.06
+      ],
+      "duong_bang": 3400,
+      "tam_nhin": 300,
+      "toc": 2,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "80 giây cuối",
-        "hoi": "Buồng lái KLM, sương mù 300 m. Chạm các câu theo thứ tự xảy ra, rồi xem giờ thật.",
-        "cac": [
-          [
-            "17:05:27",
-            "KLM quay đầu ở cuối đường băng. Pan Am vẫn đang lăn phía sau trong sương."
-          ],
-          [
-            "17:05:41",
-            "Phụ lái: \"Khoan, mình chưa có lệnh của tháp.\""
-          ],
-          [
-            "17:05:53",
-            "Tháp đọc lộ trình bay. Đây chưa phải lệnh cất cánh."
-          ],
-          [
-            "17:06:09",
-            "Phụ lái báo tháp: \"We are now at take-off.\""
-          ],
-          [
-            "17:06:18",
-            "Tháp: \"OK.\" Tiếng rít che mất \"chờ cất cánh, tôi sẽ gọi\"."
-          ],
-          [
-            "17:06:32",
-            "Kỹ sư bay: \"Pan Am chưa ra khỏi đường băng à?\" Cơ trưởng: \"Rồi.\""
-          ]
-        ],
-        "nut_kiem": "Xem giờ thật",
-        "nut_lai": "Làm lại",
-        "dung_cho": "đúng vị trí",
-        "sai_cho": "đúng ra là bước {n}",
-        "ket": "Bạn xếp đúng {d}/{n}. Từ câu \"at take-off\" đến lúc va chạm (17:06:47) chỉ có 38 giây, và câu có thể dừng mọi thứ lại bị tiếng rít che mất.",
-        "nguon": "Nguồn: Báo cáo của Tây Ban Nha (1978), mục 1.1 và 2.1: các mốc giờ từ 17:05:27 đến va chạm 17:06:47, tầm nhìn 300 m, tiếng rít 17:06:19 đến 17:06:22."
+        "nhan": "Hai sóng radio trong sương",
+        "hoi": "Tenerife, 27/3/1977, sương mù dày. KLM đã nhả phanh chạy đà, Pan Am còn lăn trên đường băng. Phát lượt 1 để nghe đúng những gì buồng lái KLM nghe được.",
+        "mo_ta": "Nửa trên: đường băng nhìn từ trên xuống, phủ sương, chỉ có một vòng nhìn thấy quanh mỗi máy bay; KLM ở đầu trái, Pan Am đi ngược chiều gần lối C-3. Nửa dưới: trục giờ 17:06:16 đến 17:06:26 với hai khối sóng radio của tháp và của Pan Am; chỗ chồng nhau thành tiếng rít.",
+        "doc_mac": "Hai khối bên dưới là hai lần phát radio, đặt đúng giờ thật. Chỗ hai khối chồng nhau, buồng lái KLM chỉ nghe tiếng rít.",
+        "nut_1": "Phát lượt 1 (giờ thật)",
+        "nut_2": "Phát lại",
+        "nut_3": "Sang lượt 3",
+        "nut_lai": "Chơi lại",
+        "chon_hoi": "“Pan Am chưa ra khỏi đường băng à?”",
+        "chon_dung": "“Dừng lại! Pan Am chưa ra.”",
+        "suong": "Sương mù · tầm nhìn ~300 m",
+        "tai_nghe": "Tai nghe KLM",
+        "bang_tan": "Băng tần radio · 17:06:16 → 17:06:26",
+        "thap": "Tháp",
+        "aria_thap": "Khối sóng của tháp. Phím mũi tên trái phải để dời",
+        "aria_pa": "Khối sóng của Pan Am. Phím mũi tên trái phải để dời",
+        "nghe_ok": "“OK…”",
+        "nghe_sb": "“stand by for take-off, I will call you”",
+        "nghe_pa": "Pan Am: “still taxiing”",
+        "rit": "ríiiiit",
+        "sau_1": "KLM chỉ nghe “OK” rồi tiếng rít, nên chạy đà tiếp. Lượt 2: kéo một khối sóng sang bên cho hết chồng, rồi bấm Phát lại.",
+        "van_chong": "Hai khối vẫn chồng nhau.",
+        "het_chong": "Hết chồng. Bấm Phát lại.",
+        "sau_2_thong": "Sóng thông: KLM nghe được lời cảnh báo và phanh lại (quãng phanh là minh họa). Ngoài đời không ai dời được hai lần phát. Bấm Sang lượt 3.",
+        "sau_2_chong": "Vẫn chồng: KLM vẫn chỉ nghe tiếng rít. Dời khối kia thử, hoặc bấm Sang lượt 3.",
+        "nghe_luot3": "(đang chạy đà, sương mù phía trước)",
+        "luot_3": "Quay về đêm thật: hai sóng vẫn chồng nhau. 17:06:32, bạn là kỹ sư bay và ngờ rằng Pan Am còn trên đường băng. Bạn nói gì?",
+        "tra_hoi": "Cơ trưởng: “Rồi.”",
+        "tra_dung": "Cơ trưởng giảm ga, phanh lại (minh họa).",
+        "va_cham": "17:06:47 · va chạm",
+        "sau_hoi": "Một câu hỏi cho phép cơ trưởng đáp bằng một chữ, và máy bay chạy tiếp. 15 giây sau là va chạm.",
+        "sau_dung": "Một câu dừng rõ ràng buộc cả buồng lái dừng lại để kiểm tra (kết cục này là minh họa).",
+        "ket": "Đêm thật: 17:06:18 tháp nói “OK”; từ 17:06:19,4 đến 17:06:22,1 hai sóng chồng nhau và KLM chỉ nghe tiếng rít. 17:06:32 kỹ sư bay hỏi bằng một câu hỏi, cơ trưởng đáp “Rồi”. 17:06:47 va chạm, khoảng 36 giây sau khi nhả phanh. 583 người chết, 61 người sống sót.",
+        "nguon": "Nguồn: Báo cáo của Tây Ban Nha (1978), mục 1.1, 1.7, 1.14.2 và 2.1: tầm nhìn khoảng 300 m, đường băng 3.400 m; các mốc 17:06:11 (nhả phanh), 17:06:18,19 (“OK”), 17:06:20,08 (“stand by”), 17:06:32, 17:06:47; tiếng rít từ 17:06:19,39 đến 17:06:22,06 (ICAO Circular 153-AN/56 ghi khoảng 3 giây). 583 người chết, 61 người sống sót: báo cáo Tây Ban Nha, mục 1.2; FAA “Lessons Learned”. 36 giây là Mark tính từ 17:06:11 đến 17:06:47. Minh họa: vị trí máy bay, quãng phanh, tốc độ hoạt cảnh (tua nhanh 2 lần), kết cục khi bạn đổi lượt 2 hay lượt 3."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "The last 80 seconds",
-        "hoi": "KLM cockpit, 300 m visibility in fog. Tap the lines in the order they happened, then see the real times.",
-        "cac": [
-          [
-            "17:05:27",
-            "KLM turns around at the end of the runway. Pan Am is still taxiing behind it in the fog."
-          ],
-          [
-            "17:05:41",
-            "First officer: \"Wait, we don't have clearance yet.\""
-          ],
-          [
-            "17:05:53",
-            "The tower reads out the route clearance. It is not a takeoff clearance."
-          ],
-          [
-            "17:06:09",
-            "First officer to the tower: \"We are now at take-off.\""
-          ],
-          [
-            "17:06:18",
-            "Tower: \"OK.\" A squeal blocks out \"stand by for takeoff, I will call you\"."
-          ],
-          [
-            "17:06:32",
-            "Flight engineer: \"Is he not clear, that Pan American?\" Captain: \"Oh, yes.\""
-          ]
-        ],
-        "nut_kiem": "Show real times",
+        "nhan": "Two radio calls in the fog",
+        "hoi": "Tenerife, 27 March 1977, thick fog. KLM has released its brakes and is rolling; Pan Am is still taxiing on the runway. Play round 1 to hear exactly what the KLM cockpit heard.",
+        "mo_ta": "Top half: the runway seen from above, covered in fog, with only a small circle of visibility around each plane; KLM at the left end, Pan Am coming the other way near exit C-3. Bottom half: a time axis from 17:06:16 to 17:06:26 with two radio blocks, the tower's and Pan Am's; where they overlap there is only a squeal.",
+        "doc_mac": "The two blocks below are two radio transmissions, placed at their real times. Where they overlap, the KLM cockpit hears only a squeal.",
+        "nut_1": "Play round 1 (real timing)",
+        "nut_2": "Play again",
+        "nut_3": "Go to round 3",
         "nut_lai": "Start over",
-        "dung_cho": "right place",
-        "sai_cho": "should be step {n}",
-        "ket": "You placed {d}/{n} correctly. From \"at take-off\" to the collision (17:06:47) there were only 38 seconds, and the one call that could have stopped it was lost in the squeal.",
-        "nguon": "Source: Spanish investigation report (1978), sections 1.1 and 2.1: times from 17:05:27 to the collision at 17:06:47, 300 m visibility, squeal from 17:06:19 to 17:06:22."
+        "chon_hoi": "“Is he not clear, that Pan American?”",
+        "chon_dung": "“Stop! Pan Am is not clear.”",
+        "suong": "Fog · visibility ~300 m",
+        "tai_nghe": "KLM headset",
+        "bang_tan": "Radio band · 17:06:16 → 17:06:26",
+        "thap": "Tower",
+        "aria_thap": "Tower radio block. Left and right arrow keys move it",
+        "aria_pa": "Pan Am radio block. Left and right arrow keys move it",
+        "nghe_ok": "“OK…”",
+        "nghe_sb": "“stand by for take-off, I will call you”",
+        "nghe_pa": "Pan Am: “still taxiing”",
+        "rit": "squeeeal",
+        "sau_1": "KLM heard only “OK”, then a squeal, and kept rolling. Round 2: drag one radio block aside until they no longer overlap, then press Play again.",
+        "van_chong": "The blocks still overlap.",
+        "het_chong": "No overlap. Press Play again.",
+        "sau_2_thong": "Clear signal: KLM hears the warning and brakes (stopping distance is illustrative). In reality nobody could move the two calls apart. Press Go to round 3.",
+        "sau_2_chong": "Still overlapping: KLM still hears only a squeal. Try moving the other block, or press Go to round 3.",
+        "nghe_luot3": "(rolling, fog ahead)",
+        "luot_3": "Back to the real night: the two calls still overlap. 17:06:32, you are the flight engineer and you suspect Pan Am is still on the runway. What do you say?",
+        "tra_hoi": "Captain: “Oh, yes.”",
+        "tra_dung": "The captain pulls the power back and brakes (illustrative).",
+        "va_cham": "17:06:47 · collision",
+        "sau_hoi": "A question let the captain answer with two words, and the plane kept going. Fifteen seconds later came the collision.",
+        "sau_dung": "A clear stop call makes the whole cockpit stop and check (this outcome is illustrative).",
+        "ket": "The real night: at 17:06:18 the tower said “OK”; from 17:06:19.4 to 17:06:22.1 the two calls overlapped and KLM heard only a squeal. At 17:06:32 the flight engineer asked a question, and the captain answered “Oh, yes”. At 17:06:47 came the collision, about 36 seconds after brake release. 583 people died and 61 survived.",
+        "nguon": "Source: Spanish investigation report (1978), sections 1.1, 1.7, 1.14.2 and 2.1: visibility about 300 m, runway 3,400 m; times 17:06:11 (brake release), 17:06:18.19 (“OK”), 17:06:20.08 (“stand by”), 17:06:32, 17:06:47; squeal from 17:06:19.39 to 17:06:22.06 (ICAO Circular 153-AN/56 gives about 3 seconds). 583 dead, 61 survivors: Spanish report, section 1.2; FAA “Lessons Learned”. The 36 seconds is Mark's calculation from 17:06:11 to 17:06:47. Illustrative: aircraft positions, stopping distance, animation speed (2× fast-forward), the outcomes when you change round 2 or round 3."
       }
     }
   ],
@@ -965,158 +998,118 @@
   ],
   "tham-hoa-titanic": [
     {
-      "khuon": "hop-thu",
-      "id": "choi-hop-thu",
+      "khuon": "tau-chim",
+      "id": "choi-tau-chim",
       "truoc": "tinh-hoa",
+      "xuong": [
+        65,
+        65,
+        40,
+        65,
+        65,
+        47,
+        65,
+        65,
+        65,
+        47,
+        65,
+        40,
+        65,
+        65,
+        47,
+        65,
+        65,
+        65,
+        47,
+        65
+      ],
+      "tren_tau": 2201,
+      "luat": 962,
+      "khoang": 16,
+      "chiu": 4,
+      "rach": 6,
+      "cham": 10,
+      "ha_ms": 24000,
+      "day_ms": 1100,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Hộp thư khẩn",
-        "hoi": "14/4/1912, bạn trực vô tuyến. Tin báo băng lẫn trong tin của hành khách. Tin nào chuyển lên đài chỉ huy?",
-        "nut_chuyen": "Chuyển lên đài chỉ huy",
-        "nut_de": "Để sau",
-        "ban_chuyen": "Bạn chuyển lên.",
-        "ban_de": "Bạn để sau.",
-        "that_ra": "Thật ra đêm đó:",
-        "tin_thuong": "Tin của hành khách.",
-        "thu": [
-          {
-            "gio": "9:00",
-            "tu": "tàu Caronia",
-            "chu": "Có băng trôi trên tuyến đường phía trước.",
-            "khan": true,
-            "that": "tin này tới tay thuyền trưởng."
-          },
-          {
-            "gio": "11:20",
-            "tu": "hành khách hạng nhất",
-            "chu": "Nhờ đặt xe đón ở bến New York.",
-            "khan": false
-          },
-          {
-            "gio": "13:42",
-            "tu": "tàu Baltic",
-            "chu": "Có băng lớn trên đường đi của Titanic.",
-            "khan": true,
-            "that": "tới thuyền trưởng, rồi chủ tàu Ismay giữ trong túi đến 19:15."
-          },
-          {
-            "gio": "13:45",
-            "tu": "tàu Amerika",
-            "chu": "Vừa đi qua những tảng băng lớn.",
-            "khan": true,
-            "that": "không tới sĩ quan nào."
-          },
-          {
-            "gio": "17:10",
-            "tu": "hành khách hạng hai",
-            "chu": "Gửi lời chúc mừng sinh nhật về Southampton.",
-            "khan": false
-          },
-          {
-            "gio": "19:30",
-            "tu": "tàu Californian",
-            "chu": "Ba tảng băng lớn ở phía trước.",
-            "khan": true,
-            "that": "không tới đài chỉ huy."
-          },
-          {
-            "gio": "21:40",
-            "tu": "tàu Mesaba",
-            "chu": "Băng dày đặc, nhiều tảng băng lớn.",
-            "khan": true,
-            "that": "không tới đài chỉ huy."
-          },
-          {
-            "gio": "22:30",
-            "tu": "hành khách hạng nhất",
-            "chu": "Gửi giá cổ phiếu cho văn phòng ở New York.",
-            "khan": false
-          },
-          {
-            "gio": "23:00",
-            "tu": "tàu Californian",
-            "chu": "Chúng tôi đã dừng lại, bị băng vây quanh.",
-            "khan": true,
-            "that": "bị trả lời \"Keep out\". 23:30 người trực ở Californian đi ngủ."
-          }
+        "nhan": "Đạt chuẩn, thiếu xuồng",
+        "hoi": "Năm 1912, bạn chuẩn bị tàu cho đợt kiểm định. Kéo xuồng từ bến lên giá trên boong (hoặc chạm vào xuồng) cho đến khi tàu đạt luật.",
+        "mo_ta": "Con tàu nhìn ngang, mũi bên phải, có giá treo xuồng trên boong. Phía trên là thước số chỗ trên xuồng so với 2.201 người trên tàu, có vạch luật khoảng 962 chỗ. Dưới bến có 20 xuồng ghi sức chứa. Màn sau là mặt cắt 16 khoang, rồi màn hạ xuồng, mỗi chấm là 10 người.",
+        "doc_mac": "Luật năm 1894 dừng ở bậc “từ 10.000 tấn trở lên”, tối thiểu 16 xuồng. Titanic nặng 46.328 tấn.",
+        "cho": "Chỗ trên xuồng: {n}",
+        "tren_tau": "2.201 người trên tàu",
+        "vach_luat": "luật ≈ 962",
+        "dat": "ĐẠT",
+        "xuong_aria": "Xuồng {c} chỗ. Enter: treo lên giá",
+        "lap": "Treo xuồng {c} chỗ. Tổng {n} chỗ.",
+        "da_dat": "Đóng dấu ĐẠT: {n} chỗ đã vượt mức luật khoảng 962. Bạn có thể sang đêm 14/4, hoặc treo nốt các xuồng.",
+        "du_20": "Đủ 20 xuồng: {n} chỗ, đủ cho {p}% số người trên tàu.",
+        "nut_het": "Treo nốt các xuồng",
+        "nut_2": "Sang 23:40, đêm 14/4",
+        "nut_nuoc": "Cho nước vào",
+        "nut_that": "Vết rách thật: 6 khoang",
+        "nut_3": "Sang 0:45: hạ xuồng",
+        "nut_ha": "Hạ xuồng này",
+        "nut_lai": "Chơi lại",
+        "rach": "Vết rách dài: {k} khoang",
+        "man_2": "23:40, tàu chạy khoảng 22 hải lý/giờ thì đâm băng. Thân tàu chia 16 khoang bằng 15 vách. Chọn vết rách dài bao nhiêu khoang rồi cho nước vào.",
+        "noi": "Ngập {k} khoang: tàu vẫn nổi. Tàu được thiết kế để nổi khi ngập 4 khoang đầu. Thử vết rách dài hơn, hoặc xem vết rách thật.",
+        "chim": "Ngập {k} khoang: nước dâng qua đỉnh vách, tràn sang khoang sau, hết khoang này đến khoang khác. Đêm thật vết rách dài khoảng 300 feet (~91 m) qua 6 khoang; tàu chìm sau 2 giờ 40 phút (ở đây tua nhanh).",
+        "man_3": "0:45 đến 2:05: hạ xuồng. Mỗi chấm là 10 người. Xuồng đang sáng đầy dần; chờ thì chở được nhiều hơn, nhưng thời gian không chờ.",
+        "trang": "Xuồng {i}/{n}: {k}/{c} người · {g}",
+        "moi_cham": "mỗi chấm = {n} người",
+        "da_ha": "Hạ xuồng với {k}/{c} người.",
+        "californian": "Californian: 8–10 dặm, đứng yên",
+        "sau_3": "Đèn tàu Californian sáng ở chân trời, cách 8–10 dặm, nhưng tàu không đến.",
+        "ket_ban": "Bạn hạ {b}/{x} xuồng và đưa {n} người lên xuồng (minh họa). Kể cả khi mọi xuồng đều đầy, {c} chỗ vẫn không đủ cho 2.201 người.",
+        "that": [
+          "Xuồng 7 rời tàu với 27 người trên 65 chỗ; xuồng 6 với 28 trên 65; xuồng 1 với 12 trên 40.",
+          "711 người sống sót trên 2.201 người; 1.490 người chết (điều tra Mỹ ghi 1.517).",
+          "Tàu Californian cách 8–10 dặm, thấy 8 pháo hiệu; người trực vô tuyến của tàu đã đi ngủ lúc 23:30."
         ],
-        "ket": "Bạn chuyển {d}/{n} tin băng lên đài chỉ huy. Đêm đó chỉ 2 tin tới tay thuyền trưởng, và không ai ghép các tin lại thành một bức tranh. 23:40 tàu đâm băng; 1.490 người chết.",
-        "nguon": "Nguồn: Ủy ban Anh, Lord Mersey (30/7/1912), đối chiếu Thượng viện Mỹ (28/5/1912): giờ và nơi đến của 6 tin băng, đâm băng lúc 23:40, 1.490 người chết. Ba tin của hành khách là ví dụ minh họa do Mark viết."
+        "ket": "Titanic đạt luật mà vẫn thiếu hơn 1.000 chỗ. Câu nên hỏi: chuẩn này viết cho tàu cỡ nào, và nếu không ai đến cứu thì sao?",
+        "nguon": "Nguồn: Ủy ban Anh, Lord Mersey (30/7/1912): luật 1894 “từ 10.000 tấn trở lên”, tối thiểu 16 xuồng, Titanic 46.328 tấn (mục Quản lý của Bộ Thương mại, Mô tả tàu); 20 xuồng gồm 14 xuồng 65 chỗ, 2 xuồng 40 chỗ, 4 xuồng gập 47 chỗ, tổng 1.178 chỗ (54%); luật đòi khoảng 962 (9.625 feet khối) (mục Thiết bị cứu sinh, Quản lý của Bộ Thương mại); 2.201 người trên tàu, 711 người sống sót (mục Thuyền viên và hành khách, Số người được cứu); 16 khoang, 15 vách, rách khoảng 300 feet qua 6 khoang, nổi được nếu ngập 4 khoang đầu (mục Mô tả tàu, Mức độ hư hại, Nhận xét); đâm băng 23:40 ở khoảng 22 hải lý/giờ, chìm lúc 2:20; hạ xuồng 0:45–2:05, xuồng 7, 6, 1 (mục Xuồng); Californian cách 8–10 dặm, 8 pháo hiệu, người trực vô tuyến đi ngủ 23:30 (mục Californian); 1.490 người chết, Thượng viện Mỹ ghi 1.517. Minh họa: thứ tự xuồng, tốc độ xuồng đầy, thời gian tua nhanh, độ nghiêng của tàu, vị trí các chấm người."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Urgent inbox",
-        "hoi": "14 April 1912, you are on radio duty. Ice warnings arrive mixed in with passenger messages. Which ones go to the bridge?",
-        "nut_chuyen": "Send to the bridge",
-        "nut_de": "Later",
-        "ban_chuyen": "You sent it up.",
-        "ban_de": "You held it.",
-        "that_ra": "What really happened:",
-        "tin_thuong": "A passenger message.",
-        "thu": [
-          {
-            "gio": "9:00",
-            "tu": "Caronia",
-            "chu": "Drifting ice reported on the route ahead.",
-            "khan": true,
-            "that": "it reached the captain."
-          },
-          {
-            "gio": "11:20",
-            "tu": "first-class passenger",
-            "chu": "Please book a car at the New York pier.",
-            "khan": false
-          },
-          {
-            "gio": "13:42",
-            "tu": "Baltic",
-            "chu": "Large icebergs on Titanic's track.",
-            "khan": true,
-            "that": "it reached the captain, then owner Ismay kept it in his pocket until 19:15."
-          },
-          {
-            "gio": "13:45",
-            "tu": "Amerika",
-            "chu": "We have just passed large icebergs.",
-            "khan": true,
-            "that": "it reached no officer."
-          },
-          {
-            "gio": "17:10",
-            "tu": "second-class passenger",
-            "chu": "Birthday wishes to Southampton.",
-            "khan": false
-          },
-          {
-            "gio": "19:30",
-            "tu": "Californian",
-            "chu": "Three large icebergs ahead.",
-            "khan": true,
-            "that": "it never reached the bridge."
-          },
-          {
-            "gio": "21:40",
-            "tu": "Mesaba",
-            "chu": "Heavy pack ice and many large icebergs.",
-            "khan": true,
-            "that": "it never reached the bridge."
-          },
-          {
-            "gio": "22:30",
-            "tu": "first-class passenger",
-            "chu": "Share prices for the New York office.",
-            "khan": false
-          },
-          {
-            "gio": "23:00",
-            "tu": "Californian",
-            "chu": "We are stopped and surrounded by ice.",
-            "khan": true,
-            "that": "the reply was \"Keep out\". At 23:30 Californian's operator went to bed."
-          }
+        "nhan": "Up to code, short of boats",
+        "hoi": "1912: you are getting the ship ready for inspection. Drag lifeboats from the quay onto the davits on deck (or tap a boat) until the ship passes the rule.",
+        "mo_ta": "The ship seen from the side, bow to the right, with lifeboat davits on deck. Above, a gauge of lifeboat seats against the 2,201 people on board, with the rule's line at about 962 seats. On the quay are 20 boats marked with their capacity. Later scenes: a cross-section of 16 compartments, then lowering the boats, each dot being 10 people.",
+        "doc_mac": "The 1894 rule stopped at the band “10,000 tons and upwards”, with a minimum of 16 boats. Titanic was 46,328 tons.",
+        "cho": "Lifeboat seats: {n}",
+        "tren_tau": "2,201 people on board",
+        "vach_luat": "rule ≈ 962",
+        "dat": "PASSED",
+        "xuong_aria": "Lifeboat with {c} seats. Enter: hang it on a davit",
+        "lap": "Hung a {c}-seat boat. Total {n} seats.",
+        "da_dat": "Stamped PASSED: {n} seats is above the rule's roughly 962. You can move on to the night of 14 April, or hang the rest of the boats.",
+        "du_20": "All 20 boats: {n} seats, enough for {p}% of the people on board.",
+        "nut_het": "Hang the rest",
+        "nut_2": "Go to 23:40, 14 April",
+        "nut_nuoc": "Let the water in",
+        "nut_that": "The real gash: 6 compartments",
+        "nut_3": "Go to 0:45: lower the boats",
+        "nut_ha": "Lower this boat",
+        "nut_lai": "Play again",
+        "rach": "Length of the gash: {k} compartments",
+        "man_2": "23:40: the ship hits the iceberg at about 22 knots. The hull is split into 16 compartments by 15 bulkheads. Choose how many compartments the gash opens, then let the water in.",
+        "noi": "{k} compartments flooded: the ship stays afloat. It was designed to float with the first 4 compartments flooded. Try a longer gash, or see the real one.",
+        "chim": "{k} compartments flooded: the water rises over the tops of the bulkheads and spills into the next compartment, one after another. On the real night the gash ran about 300 feet (~91 m) across 6 compartments; the ship sank 2 hours 40 minutes later (sped up here).",
+        "man_3": "0:45 to 2:05: lowering the boats. Each dot is 10 people. The highlighted boat fills up; waiting carries more people, but time does not wait.",
+        "trang": "Boat {i}/{n}: {k}/{c} people · {g}",
+        "moi_cham": "each dot = {n} people",
+        "da_ha": "Lowered with {k}/{c} people.",
+        "californian": "Californian: 8–10 miles, not moving",
+        "sau_3": "The Californian's lights show on the horizon, 8–10 miles away, but it does not come.",
+        "ket_ban": "You lowered {b}/{x} boats and got {n} people into them (illustrative). Even with every boat full, {c} seats were not enough for 2,201 people.",
+        "that": [
+          "Boat 7 left with 27 people in 65 seats; boat 6 with 28 of 65; boat 1 with 12 of 40.",
+          "711 of the 2,201 people survived; 1,490 died (the US inquiry says 1,517).",
+          "The Californian, 8–10 miles away, saw 8 rockets; its radio operator had gone to bed at 23:30."
         ],
-        "ket": "You sent {d}/{n} ice warnings to the bridge. That night only 2 reached the captain, and nobody put the warnings together. At 23:40 the ship struck the iceberg; 1,490 people died.",
-        "nguon": "Source: British inquiry, Lord Mersey (30/7/1912), checked against the US Senate inquiry (28/5/1912): times and destinations of the 6 ice warnings, collision at 23:40, 1,490 deaths. The three passenger messages are illustrative examples written by Mark."
+        "ket": "Titanic passed the rule and was still more than 1,000 seats short. The question to ask: what size of ship was this standard written for, and what if nobody comes to help?",
+        "nguon": "Source: British inquiry, Lord Mersey (30/7/1912): the 1894 rule “10,000 tons and upwards”, minimum 16 boats, Titanic 46,328 tons (sections Board of Trade's Administration, Description of the Ship); 20 boats: 14 of 65 seats, 2 of 40, 4 collapsibles of 47, total 1,178 seats (54%); the rule required about 962 (9,625 cubic feet) (sections Life-Saving Appliances, Board of Trade's Administration); 2,201 on board, 711 saved (Crew and Passengers, Numbers Saved); 16 compartments, 15 bulkheads, a gash of about 300 feet across 6 compartments, afloat with the first 4 flooded (Description of the Ship, Extent of the Damage, Observations); struck the iceberg at 23:40 at about 22 knots, sank at 2:20; boats lowered 0:45–2:05, boats 7, 6, 1 (The Boats); Californian 8–10 miles away, 8 rockets, radio operator to bed at 23:30 (The Californian); 1,490 dead, US Senate 1,517. Illustrative: boat order, how fast boats fill, fast-forward timing, the ship's tilt, the positions of the dots."
       }
     }
   ],
@@ -1763,140 +1756,223 @@
   ],
   "tham-hoa-boeing-737-max": [
     {
-      "khuon": "phan-xa",
-      "id": "choi-phan-xa",
+      "khuon": "buong-lai",
+      "id": "choi-buong-lai",
       "truoc": "tinh-hoa",
       "toc_do": 0.27,
       "toi_da": 2.5,
+      "lech": 21,
+      "gia_dinh": 4,
+      "thu": 10,
+      "nghi": 5000,
+      "het": 20,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Bốn giây",
-        "hoi": "Thiết kế giả định phi công xử lý trong 4 giây. Bấm Cất cánh; khi mũi máy bay tự chúi xuống, tìm đúng nút để ngắt.",
-        "binh_thuong": "Mũi: +0,00° · Trim: bình thường",
-        "dang_len": "Đang lấy độ cao…",
-        "nut_go": "Cất cánh",
-        "nut_lai": "Thử lại",
+        "nhan": "Buồng lái rung",
+        "hoi": "Bấm Cất cánh. Khi mũi tự chúi xuống, kéo bánh xe trim lên để nâng mũi, rồi mở nắp và gạt cả hai công tắc CUTOUT. Thiết kế giả định bạn làm xong trong 4 giây.",
+        "mo_ta": "Buồng lái phác lại: đường chân trời nhân tạo ở giữa, hai cánh cảm biến góc tấn hai bên (bên trái lệch 21°), bánh xe trim bên phải, hai công tắc CUTOUT có nắp che, bốn đèn báo phía trên và thước giây có vạch 4 giây và 10 giây. Lượt hai là bản sửa năm 2020: máy so hai cảm biến và MCAS không chạy.",
+        "doc_mac": "Đường bay bình thường. Bấm Cất cánh.",
         "coi": [
           "STICK SHAKER",
           "IAS DISAGREE",
           "ALT DISAGREE",
           "MASTER CAUTION"
         ],
-        "lua": [
-          [
-            "Tắt còi báo",
-            "Còi tắt, mũi vẫn chúi"
-          ],
-          [
-            "Kéo cần lái",
-            "Kéo được chút, MCAS lại chúi",
-            0.6
-          ],
-          [
-            "Gọi đài kiểm soát",
-            "Đài đang chờ, mũi vẫn chúi"
-          ],
-          [
-            "Ngắt trim điện (CUTOUT)",
-            ""
-          ]
-        ],
-        "dong_ho": "Mũi: −{m}° · Trim: chúi xuống · {s} giây",
-        "mat": "Bạn mất {s} giây.",
-        "qua_lau": "Bạn chưa tìm ra nút sau 20 giây.",
-        "ket": "Thiết kế giả định 4 giây. Phi công thử của Boeing năm 2012 mất hơn 10 giây và gọi đó là \"thảm khốc\". Ở đây chỉ có 4 nút; trên máy bay thật là cả buồng lái, và phi công không được dạy về MCAS.",
-        "nguon": "Nguồn: JATR (2019), O2.8-A: giả định phản ứng 4 giây; Hạ viện Mỹ (9/2020), tr. 24–25: phi công thử của Boeing năm 2012 mất hơn 10 giây; FAA (18/11/2020), tr. 9–10: MCAS chúi mũi 0,27°/giây, tới 2,5° mỗi lần."
+        "trai": "cảm biến trái",
+        "phai": "cảm biến phải",
+        "lech": "lệch 21°",
+        "so_sanh": "21° > 5,5°: tắt",
+        "trim": "TRIM",
+        "len": "▲ mũi lên",
+        "keo_trim": "Bánh xe trim: kéo lên để nâng mũi",
+        "cutout": "CUTOUT",
+        "nap": "Nắp công tắc CUTOUT {n}: chạm để mở",
+        "gat": "Công tắc CUTOUT {n}: chạm để gạt",
+        "moc_gd": "4 s · giả định",
+        "moc_thu": "> 10 s · phi công thử",
+        "ban": "bạn",
+        "dang_len": "Đang lấy độ cao…",
+        "dong_ho": "MCAS chúi mũi: {m}° · {s} giây",
+        "mcas_lai": "MCAS lại quay bánh trim xuống",
+        "nap_mo": "Nắp đã mở, chạm lần nữa để gạt",
+        "cat_mot": "Còn một công tắc",
+        "nut_go": "Cất cánh",
+        "nut_go2": "Lượt 2: bản sửa 2020",
+        "nut_lai": "Chơi lại",
+        "mat": "Bạn mất {s} giây để ngắt trim điện.",
+        "qua_lau": "Sau 20 giây bạn chưa ngắt được trim điện.",
+        "ket1": "Thiết kế giả định phi công nhận ra trong 1 giây và xử lý trong 3 giây. Phi công thử của Boeing năm 2012 mất hơn 10 giây và gọi kết quả là “thảm khốc”. Trên chuyến Lion Air 610, MCAS kích hoạt hơn 20 lần, và phi công không được biết MCAS tồn tại: nó đã bị gỡ khỏi sổ tay vận hành.",
+        "sua": "Bản sửa 2020: cảm biến trái vẫn lệch 21°, nhưng máy so hai cảm biến. Lệch quá 5,5° nên MCAS không chạy. Mũi không chúi.",
+        "sua_ket": "Bản sửa năm 2020 so cả hai cảm biến (lệch quá 5,5° thì MCAS tắt) và chỉ cho MCAS kích hoạt một lần. Giả định “phi công sẽ xử lý trong 4 giây” được thay bằng một phép so sánh trong máy.",
+        "ket": "Trước bản sửa đó, hai chuyến Lion Air 610 (29/10/2018) và Ethiopian 302 (10/3/2019) đã mất 346 người: 189 và 157.",
+        "nguon": "Nguồn: FAA, Summary of the FAA's Review of the Boeing 737 MAX (18/11/2020), tr. 9–10, 20–24: MCAS chúi mũi 0,27°/giây, tới 2,5° mỗi lần; bản sửa so hai cảm biến, lệch quá 5,5° thì tắt, chỉ kích hoạt một lần. JATR (11/10/2019), tr. 14, O2.8-A: giả định 4 giây (1 giây nhận ra, 3 giây hành động). Hạ viện Mỹ (9/2020): tr. 24–25, phi công thử của Boeing năm 2012 mất hơn 10 giây, “thảm khốc”; tr. 21, MCAS bị gỡ khỏi sổ tay; tr. 5, 9, 346 người (189 và 157). KNKT (2019), tr. xviii: cảm biến lệch 21°, MCAS kích hoạt hơn 20 lần. EAIB (2022): Ethiopian 302. Minh họa: góc chân trời trên màn hình, độ nhạy bánh trim, MCAS chờ 5 giây sau mỗi lần trim ngược, lúc sự cố bắt đầu, bố cục buồng lái."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Four seconds",
-        "hoi": "The design assumed pilots would respond within 4 seconds. Press Take off; when the nose starts pushing down by itself, find the right switch.",
-        "binh_thuong": "Pitch: +0.00° · Trim: normal",
-        "dang_len": "Climbing…",
-        "nut_go": "Take off",
-        "nut_lai": "Try again",
+        "nhan": "Shaking cockpit",
+        "hoi": "Press Take off. When the nose starts pushing down by itself, drag the trim wheel up to raise it, then open the guards and flip both CUTOUT switches. The design assumed you would be done within 4 seconds.",
+        "mo_ta": "A sketched cockpit: an artificial horizon in the middle, an angle-of-attack vane on each side (the left one off by 21°), a trim wheel on the right, two guarded CUTOUT switches, four warning lights along the top and a seconds ruler marked at 4 and 10 seconds. Round two is the 2020 fix: the computer compares both sensors and MCAS stays off.",
+        "doc_mac": "Normal climb-out. Press Take off.",
         "coi": [
           "STICK SHAKER",
           "IAS DISAGREE",
           "ALT DISAGREE",
           "MASTER CAUTION"
         ],
-        "lua": [
-          [
-            "Silence the alarm",
-            "Alarm off, nose still dropping"
-          ],
-          [
-            "Pull the yoke",
-            "A little better, then MCAS pushes again",
-            0.6
-          ],
-          [
-            "Call air traffic control",
-            "ATC is waiting, nose still dropping"
-          ],
-          [
-            "Stab trim CUTOUT",
-            ""
-          ]
-        ],
-        "dong_ho": "Pitch: −{m}° · Trim: nose down · {s} s",
-        "mat": "You took {s} seconds.",
-        "qua_lau": "You didn't find the switch within 20 seconds.",
-        "ket": "The design assumed 4 seconds. A Boeing test pilot in 2012 took more than 10 seconds and called the result \"catastrophic\". Here there are only 4 buttons; in a real cockpit there are hundreds, and pilots had not been told about MCAS.",
-        "nguon": "Source: JATR (2019), O2.8-A: 4-second response assumption; US House committee (9/2020), pp. 24–25: Boeing test pilot in 2012 took more than 10 seconds; FAA (18/11/2020), pp. 9–10: MCAS moves the nose down 0.27°/s, up to 2.5° per activation."
+        "trai": "left sensor",
+        "phai": "right sensor",
+        "lech": "off by 21°",
+        "so_sanh": "21° > 5.5°: off",
+        "trim": "TRIM",
+        "len": "▲ nose up",
+        "keo_trim": "Trim wheel: drag up to raise the nose",
+        "cutout": "CUTOUT",
+        "nap": "CUTOUT switch {n} guard: tap to open",
+        "gat": "CUTOUT switch {n}: tap to flip",
+        "moc_gd": "4 s · assumed",
+        "moc_thu": "> 10 s · test pilot",
+        "ban": "you",
+        "dang_len": "Climbing…",
+        "dong_ho": "MCAS nose-down: {m}° · {s} s",
+        "mcas_lai": "MCAS turns the trim wheel down again",
+        "nap_mo": "Guard open, tap again to flip",
+        "cat_mot": "One switch to go",
+        "nut_go": "Take off",
+        "nut_go2": "Round 2: the 2020 fix",
+        "nut_lai": "Play again",
+        "mat": "You took {s} seconds to cut out electric trim.",
+        "qua_lau": "After 20 seconds you still hadn't cut out electric trim.",
+        "ket1": "The design assumed pilots would recognise the problem in 1 second and act within 3. A Boeing test pilot in 2012 took more than 10 seconds and called the result “catastrophic”. On Lion Air 610, MCAS activated more than 20 times, and the pilots had not been told MCAS existed: it had been removed from the operations manual.",
+        "sua": "The 2020 fix: the left sensor is still off by 21°, but the computer compares both sensors. They differ by more than 5.5°, so MCAS stays off. The nose does not drop.",
+        "sua_ket": "The 2020 fix compares both sensors (more than 5.5° apart and MCAS shuts off) and lets MCAS activate only once. The assumption “pilots will handle it in 4 seconds” was replaced by a comparison inside the computer.",
+        "ket": "Before that fix, Lion Air 610 (29 Oct 2018) and Ethiopian 302 (10 Mar 2019) had cost 346 lives: 189 and 157.",
+        "nguon": "Source: FAA, Summary of the FAA's Review of the Boeing 737 MAX (18 Nov 2020), pp. 9–10, 20–24: MCAS moves the nose down 0.27°/s, up to 2.5° per activation; the fix compares both sensors, shuts off above 5.5° disagreement, activates once. JATR (11 Oct 2019), p. 14, O2.8-A: 4-second assumption (1 s to recognise, 3 s to act). US House committee (Sep 2020): pp. 24–25, Boeing test pilot in 2012 took more than 10 seconds, “catastrophic”; p. 21, MCAS removed from the manual; pp. 5, 9, 346 people (189 and 157). KNKT (2019), p. xviii: sensor off by 21°, MCAS activated more than 20 times. EAIB (2022): Ethiopian 302. Illustrative: the horizon angle on screen, trim wheel sensitivity, MCAS waiting 5 seconds after each counter-trim, when the fault starts, the cockpit layout."
       }
     }
   ],
   "tham-hoa-knight-capital": [
     {
-      "khuon": "dieu-khien",
-      "id": "choi-dieu-khien",
+      "khuon": "may-chu",
+      "id": "choi-may-chu",
       "truoc": "tinh-hoa",
-      "tong": 440,
-      "phut": 45,
       "may": 8,
-      "gio_mo": 9,
-      "phut_mo": 30,
+      "phut": 45,
+      "nhip": 400,
+      "email": 97,
+      "khop": 4000000,
+      "co_phieu": 397000000,
+      "mua": 3.5,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Phòng điều khiển",
-        "hoi": "9:30 sáng, sàn mở cửa. Có máy đang bắn lệnh điên. Dừng nó.",
-        "dan": "Mỗi giây ở đây là một phút thật. Bấm vào một máy để đọc mã đang chạy; máy hỏng sẽ được tắt.",
-        "nut_mo": "Mở cửa sàn",
-        "nut_go_ban": "Gỡ bản mới khỏi cả 8 máy",
-        "nut_lai": "Chơi lại",
-        "don_vi": " triệu USD",
+        "nhan": "Tám máy chủ",
+        "hoi": "8:00 sáng 1/8/2012. Chép bản RLP mới lên cả 8 máy chủ trước khi sàn mở cửa lúc 9:30.",
+        "mo_ta": "Phòng máy với 8 tủ máy chủ. Màn một: kéo gói RLP mới thả vào từng tủ; một lần thả bị trượt mà không báo gì. Có ô nhờ người thứ hai kiểm tra. Màn hai, 9:30: lệnh mẹ chạy vào; máy chưa có bản mới phun lệnh con không dứt, đồng hồ đếm lần khớp, cổ phiếu và tiền mua ròng chạy nhanh. Chạm vào máy đang phun để ngắt; nút gỡ bản mới làm cả 8 máy cùng phun; nút kill switch bị khóa.",
+        "doc_mac": "Kéo gói RLP vào từng tủ (hoặc chạm vào tủ).",
+        "goi": "bản mới",
+        "keo": "← kéo gói vào từng tủ bên dưới",
         "may": "Máy {n}",
-        "chua_kiem": "chưa kiểm",
-        "dang_doc": "đang đọc mã…",
-        "on": "bản mới · ổn",
-        "hong": "Power Peg · đã tắt",
-        "da_go": "đã gỡ bản mới · chưa kiểm",
-        "kip": "Bạn dừng được sau {p} phút, lỗ khoảng {l} triệu USD.",
-        "khong_kip": "Hết 45 phút.",
-        "ket": "Ngày 1/8/2012 Knight không có nút dừng và không có quy trình ứng phó. Họ gỡ bản mới khỏi 7 máy tốt, thế là cả 8 máy cùng chạy Power Peg. Khoảng 45 phút, lỗ khoảng 440 triệu USD.",
-        "nguon": "Nguồn: SEC, lệnh 34-70694 (2013), đoạn 13–27: 1 trong 8 máy bị sót khi triển khai, khoảng 45 phút, gỡ code mới khỏi 7 máy tốt làm cả 8 máy chạy Power Peg; Knight 8-K (2/8/2012): lỗ khoảng 440 triệu USD. Tốc độ lỗ trong trò = 440 triệu chia đều 45 phút cho mỗi máy hỏng (Mark tính)."
+        "san": "1/8/2012 · phòng máy",
+        "hop_thu": "email",
+        "thi_truong": "thị trường",
+        "dem": [
+          "lần khớp",
+          "cổ phiếu",
+          "mua ròng"
+        ],
+        "ty": "{v} tỷ USD",
+        "kiem": "Nhờ người thứ hai kiểm tra trước giờ mở sàn",
+        "nut_mo": "9:30 · Mở sàn",
+        "nut_go": "Gỡ bản mới khỏi cả 8 máy",
+        "nut_kill": "Kill switch · Knight không có",
+        "nut_lai": "Chơi lại",
+        "da_cai": "Máy {n}: đã chép.",
+        "co_roi": "Máy {n} đã có bản mới rồi.",
+        "kiem_tim": "Người thứ hai: máy {n} chưa có bản mới! Chép lại.",
+        "kiem_ok": "Người thứ hai: đủ 8 máy.",
+        "mo_san": "9:30. Lệnh mẹ có cờ BẬT chạy vào. Một máy phun lệnh con không dứt. Chạm vào nó để ngắt.",
+        "mo_on": "9:30. Lệnh mẹ có cờ BẬT chạy vào. Cả 8 máy khớp đủ rồi dừng.",
+        "on": "Máy {n}: bản RLP mới, khớp đủ thì dừng. Ổn.",
+        "ngat": "Máy {n} đã ngắt.",
+        "da_go": "Đã gỡ bản mới: cả 8 máy giờ cùng chạy code Power Peg cũ. Ngắt từng máy.",
+        "cu": "CŨ",
+        "tat": "TẮT",
+        "ket_dung": "Bạn dừng được sau {p} phút. Knight mất khoảng 45 phút.",
+        "ket_het": "Hết 45 phút, vẫn còn máy phun lệnh.",
+        "ket_on": "Cả 8 máy có bản mới, nên sáng nay yên ổn. Ngày 1/8/2012, Knight sót 1 trong 8 máy, không ai được giao kiểm tra lại, và 97 email “Power Peg disabled” từ 8:01 không được thiết kế là cảnh báo.",
+        "chuoi": [
+          "212 lệnh mẹ",
+          "hơn 4 triệu lần khớp",
+          "hơn 397 triệu cổ phiếu"
+        ],
+        "lo_nhan": "Khoản lỗ, hai nguồn ghi hai số:",
+        "lo": [
+          [
+            "khoảng 440 triệu USD",
+            "Knight 8-K, 2/8/2012"
+          ],
+          [
+            "khoảng 460 triệu USD",
+            "SEC 34-70694, đoạn 17"
+          ]
+        ],
+        "ket": "Knight không có nút dừng, không có quy trình xử lý sự cố. Họ gỡ code mới khỏi 7 máy tốt, thế là cả 8 máy cùng chạy Power Peg. Bài học: triển khai có danh sách kiểm tra, có người thứ hai kiểm tra, và có nút dừng.",
+        "nguon": "Nguồn: SEC, quyết định 34-70694 (16/10/2013): đoạn 15, 26 (1 trong 8 máy bị sót, không người thứ hai kiểm tra, không quy trình viết); đoạn 13–14, 16 (lá cờ dùng lại đánh thức Power Peg); đoạn 17 (212 lệnh mẹ, hơn 4 triệu lần khớp, hơn 397 triệu cổ phiếu, mua ròng khoảng 3,5 tỷ USD, lỗ khoảng 460 triệu USD); đoạn 19 (97 email từ 8:01, không phải cảnh báo); đoạn 21, 27 (khoảng 45 phút, không nút dừng, gỡ code khỏi 7 máy tốt làm cả 8 máy hỏng). Knight, mẫu 8-K (2/8/2012): lỗ trước thuế khoảng 440 triệu USD. Minh họa: lần thả bị trượt, giờ trên đồng hồ trước 9:30, nhịp chấm lệnh, 1 phút thật = 0,4 giây trong trò, số đếm chia đều theo phút (Mark tính)."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Control room",
-        "hoi": "9:30 a.m., the market opens. One server is firing off runaway orders. Stop it.",
-        "dan": "Each second here is one real minute. Tap a server to read the code it runs; a faulty one gets shut down.",
-        "nut_mo": "Open the market",
-        "nut_go_ban": "Roll back the new code on all 8",
-        "nut_lai": "Play again",
-        "don_vi": " million USD",
+        "nhan": "Eight servers",
+        "hoi": "8:00 a.m., 1 August 2012. Copy the new RLP code onto all 8 servers before the market opens at 9:30.",
+        "mo_ta": "A server room with 8 racks. Part one: drag the new RLP package onto each rack; one drop silently fails. A checkbox asks a second person to check. Part two, 9:30: parent orders arrive; the server without the new code sprays child orders without end while counters of executions, shares and net long position race up. Tap the spraying server to shut it down; the roll-back button makes all 8 spray; the kill switch button is locked.",
+        "doc_mac": "Drag the RLP package onto each rack (or tap a rack).",
+        "goi": "new code",
+        "keo": "← drag onto each rack below",
         "may": "Server {n}",
-        "chua_kiem": "not checked",
-        "dang_doc": "reading code…",
-        "on": "new code · OK",
-        "hong": "Power Peg · shut down",
-        "da_go": "rolled back · not checked",
-        "kip": "You stopped it after {p} minutes, losing about {l} million USD.",
-        "khong_kip": "45 minutes are up.",
-        "ket": "On 1/8/2012 Knight had no kill switch and no incident procedure. They rolled back the new code on the 7 good servers, so all 8 ran Power Peg. It lasted about 45 minutes and lost about 440 million USD.",
-        "nguon": "Source: SEC order 34-70694 (2013), paragraphs 13–27: 1 of 8 servers missed in the deployment, about 45 minutes, rolling back the 7 good servers left all 8 running Power Peg; Knight 8-K (2/8/2012): loss of about 440 million USD. The loss rate in the game is 440 million spread evenly over 45 minutes per faulty server (Mark's calculation)."
+        "san": "1 Aug 2012 · server room",
+        "hop_thu": "e-mails",
+        "thi_truong": "market",
+        "dem": [
+          "executions",
+          "shares",
+          "net long"
+        ],
+        "ty": "{v} bn USD",
+        "kiem": "Ask a second person to check before the open",
+        "nut_mo": "9:30 · Open market",
+        "nut_go": "Roll back the new code on all 8",
+        "nut_kill": "Kill switch · Knight had none",
+        "nut_lai": "Play again",
+        "da_cai": "Server {n}: copied.",
+        "co_roi": "Server {n} already has the new code.",
+        "kiem_tim": "Second person: server {n} doesn't have the new code! Copying it again.",
+        "kiem_ok": "Second person: all 8 servers OK.",
+        "mo_san": "9:30. Parent orders with the flag ON arrive. One server sprays child orders without end. Tap it to shut it down.",
+        "mo_on": "9:30. Parent orders with the flag ON arrive. All 8 servers fill them and stop.",
+        "on": "Server {n}: new RLP code, stops when filled. OK.",
+        "ngat": "Server {n} shut down.",
+        "da_go": "Rolled back: all 8 servers now run the old Power Peg code. Shut them down one by one.",
+        "cu": "OLD",
+        "tat": "OFF",
+        "ket_dung": "You stopped it after {p} minutes. Knight took about 45 minutes.",
+        "ket_het": "45 minutes are up and servers are still spraying orders.",
+        "ket_on": "All 8 servers had the new code, so the morning was quiet. On 1 August 2012 Knight missed 1 of 8 servers, nobody was assigned to check, and 97 “Power Peg disabled” e-mails from 8:01 were not designed as alerts.",
+        "chuoi": [
+          "212 parent orders",
+          "over 4 million executions",
+          "over 397 million shares"
+        ],
+        "lo_nhan": "The loss, given as two figures by two sources:",
+        "lo": [
+          [
+            "about 440 million USD",
+            "Knight 8-K, 2 Aug 2012"
+          ],
+          [
+            "about 460 million USD",
+            "SEC 34-70694, paragraph 17"
+          ]
+        ],
+        "ket": "Knight had no kill switch and no incident procedure. It rolled back the new code on the 7 good servers, so all 8 ran Power Peg. The lesson: deploy with a checklist, a second person who checks, and a stop button.",
+        "nguon": "Source: SEC order 34-70694 (16 Oct 2013): paragraphs 15, 26 (1 of 8 servers missed, no second technician, no written procedure); 13–14, 16 (a reused flag woke Power Peg); 17 (212 parent orders, over 4 million executions, over 397 million shares, net long about 3.5 billion USD, loss about 460 million USD); 19 (97 e-mails from 8:01, not designed as alerts); 21, 27 (about 45 minutes, no kill switch, rolling back the 7 good servers broke all 8). Knight Form 8-K (2 Aug 2012): pre-tax loss of about 440 million USD. Illustrative: the failed drop, the clock before 9:30, the order dots, 1 real minute = 0.4 s in the game, counters spread evenly per minute (Mark's calculation)."
       }
     }
   ],
@@ -3496,120 +3572,175 @@
   ],
   "tham-hoa-columbia": [
     {
-      "khuon": "doan-tau",
-      "id": "choi-doan-tau",
+      "khuon": "slide-giau-dong",
+      "id": "choi-slide-giau-dong",
       "truoc": "tinh-hoa",
+      "chot": 3,
+      "ti_le": 640,
+      "that": 2,
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Đoàn tàu 16 ngày",
-        "hoi": "Kéo từng toa từ bãi xuống đường ray theo đúng thứ tự ngày. Toa số 1 nối ngay sau đầu máy. Chạm một toa để đọc nó.",
-        "mo_ta": "Bãi toa và đường ray: năm toa ghi các ngày của chuyến bay Columbia, cần nối vào sau đầu máy theo thứ tự.",
-        "doc_mac": "Chạm vào một toa để đọc.",
-        "nut_chay": "Cho tàu chạy",
-        "nut_lai": "Xếp lại",
-        "bai": "BÃI TOA",
-        "ten_toa": "toa {n}",
-        "toa": [
+        "nhan": "Tấm slide và mảnh bọt",
+        "hoi": "Đây là slide Boeing trình bày khi Columbia đang trên quỹ đạo. Kéo các dòng lên xuống: dòng nào đáng nằm ở đầu?",
+        "mo_ta": "Ba màn. Một: tấm slide phác lại, tiêu đề nói kết quả thử nghiệm là bảo thủ, dòng cuối chữ nhỏ ghi thể tích mảnh bọt 1.920 inch khối so với 3 inch khối của mẫu thử; kéo dòng đó lên đầu thì hiện hai khối lập phương lớn hơn nhau 640 lần. Hai: mảnh bọt rời bình nhiên liệu ở giây 81,7 và va vào tấm số 8 ở mép cánh trái. Ba: bậc thang tên gọi của bọt rơi qua các năm, bạn chọn con dấu cho chuyến STS-107.",
+        "doc_mac": "Chạm một dòng để đọc bản dịch. Kéo dòng lên xuống để sắp lại.",
+        "keo": "↕ Kéo dòng lên xuống",
+        "tieu_de": [
+          "Review Of Test Data Indicates",
+          "Conservatism for Tile Penetration"
+        ],
+        "tieu_de_moi": "Tufte đề xuất: “…Indicates Irrelevance of Two Models”",
+        "dong": [
           {
-            "d": "16/1",
-            "a": [
-              "Phóng; bọt",
-              "đập cánh trái"
-            ],
-            "full": "16/1/2003: phóng. Giây 81,7 một mảng bọt rời bình nhiên liệu và đập vào mép cánh trái."
+            "chu": "",
+            "an": true,
+            "dich": "Dòng lược bớt (vạch xám, không phải nội dung gốc)."
           },
           {
-            "d": "17/1",
-            "a": [
-              "Nhóm ảnh",
-              "thấy cú va"
-            ],
-            "full": "17/1 (ngày bay 2): nhóm phân tích ảnh thấy cú va, xin ảnh chụp cánh lần đầu."
+            "chu": "• …overpredicted penetration of tile coating significantly",
+            "dich": "“…dự đoán độ xuyên thủng lớp gạch cao hơn đáng kể.” Nghe như mô hình an toàn thừa."
           },
           {
-            "d": "21/1",
-            "a": [
-              "Kỹ sư",
-              "\"năn nỉ\" xin ảnh"
-            ],
-            "full": "21/1 (ngày bay 6): kỹ sư tiếp tục xin ảnh vệ tinh, một người viết là \"năn nỉ\"."
+            "chu": "– Flight condition is significantly outside of test database",
+            "dich": "“Điều kiện bay nằm ngoài dữ liệu thử nghiệm một cách đáng kể.”"
           },
           {
-            "d": "22/1",
-            "a": [
-              "Yêu cầu ảnh",
-              "bị hủy"
-            ],
-            "full": "22/1: yêu cầu chụp ảnh gửi Bộ Quốc phòng bị hủy 90 phút sau khi đưa ra."
-          },
-          {
-            "d": "23/1",
-            "a": [
-              "Email:",
-              "\"không đáng lo\""
-            ],
-            "full": "23/1: email cho phi hành đoàn: \"Hoàn toàn không có gì đáng lo khi trở về.\""
+            "chu": "– Volume of ramp is 1920cu in vs 3 cu in for test",
+            "dich": "“Thể tích mảnh bọt là 1.920 inch khối, so với 3 inch khối của mẫu thử.” Dòng cuối, chữ nhỏ nhất."
           }
         ],
-        "sai": "Đúng {d}/{n} toa. Toa viền đỏ đang sai chỗ; kéo đổi rồi cho chạy lại.",
-        "dung": "Đúng cả 5 toa. Đoàn tàu này chạy thẳng tới ngày 1/2/2003: Columbia vỡ trên bầu trời Texas, 7 phi hành gia thiệt mạng. Dọc đường có nhiều lần lẽ ra đã có thể dừng lại.",
-        "nguon": "Nguồn: CAIB, tập I (8/2003), chương 3 và mục 6.3: phóng 16/1/2003, bọt rơi ở giây 81,7 và đập mép cánh trái; 17/1 nhóm ảnh thấy cú va; 21/1 kỹ sư xin ảnh; 22/1 yêu cầu với Bộ Quốc phòng bị hủy 90 phút sau; 23/1 email \"không có gì đáng lo khi trở về\"; 1/2 tàu vỡ trên Texas, 7 người chết."
+        "khoi_nho": "~3 inch khối: mẫu thử",
+        "khoi_lon": "~1.920 inch khối: mảnh bọt",
+        "lan": "lớn hơn tới 640 lần",
+        "mo_khoa": "Dòng chốt lên đầu thì tiêu đề “bảo thủ” không đứng được nữa: mô hình được hiệu chỉnh bằng mẫu nhỏ hơn tới 640 lần.",
+        "nut_tiep1": "Tiếp: giây 81,7",
+        "nut_tiep2": "Tiếp: tên gọi qua các năm",
+        "nut_lai": "Chơi lại",
+        "binh": "bình nhiên liệu ngoài",
+        "canh": "mép cánh trái",
+        "tam": "tấm 8",
+        "va": [
+          "giây 81,7: bọt rời bình",
+          "bọt 53–69 × 30–46 cm",
+          "giây 81,9: va gần tấm 8",
+          "~877 km/h so với tàu",
+          "thử 7/7/2003: bọt 0,76 kg",
+          "→ lỗ khoảng 40 cm"
+        ],
+        "va_dau": "16/1/2003. Một mảnh bọt nhẹ rời phần đế giằng bên trái của bình nhiên liệu.",
+        "va_xong": "Bọt nhẹ, nhưng va ở tốc độ gần 900 km/h. Thử nghiệm sau tai nạn bắn khối bọt 0,76 kg vào tấm số 8 và tạo ra lỗ khoảng 40 cm.",
+        "buc": [
+          {
+            "moc": "Thiết kế gốc",
+            "dau": "không mảnh vụn"
+          },
+          {
+            "moc": "1983–1994",
+            "dau": "bất thường"
+          },
+          {
+            "moc": "10/2002 · STS-112",
+            "dau": "chỉ là việc cần làm"
+          },
+          {
+            "moc": "11/2002 · STS-113",
+            "dau": "rủi ro đã chấp nhận"
+          }
+        ],
+        "moc_cuoi": "1/2003 · STS-107",
+        "thang_dau": "Bọt rơi ở 65 trong 79 chuyến có ảnh. Mỗi lần, tên gọi nhẹ hơn lần trước một chút.",
+        "thang_hoi": "Bạn đóng con dấu nào cho cú va của STS-107?",
+        "chon": [
+          "bất thường",
+          "rủi ro đã chấp nhận",
+          "cùng họ, không sao"
+        ],
+        "nasa": "NASA: {n}",
+        "ket_chon": "Bạn đóng “{c}”. Tháng 1/2003, cú va được xếp là “{n}”: không ảnh hưởng an toàn bay.",
+        "ket": "Ba lần kỹ sư xin chụp ảnh cánh trái trên quỹ đạo, cả ba bị dừng. Ngày 1/2/2003 Columbia vỡ khi trở về trên bầu trời Texas, 7 phi hành gia thiệt mạng. Bài học: giữ nguyên tên của bất thường, và viết kết luận cùng giới hạn của nó ở dòng đầu.",
+        "nguon": "Nguồn: Báo cáo CAIB, tập I (8/2003): chương 3, tr. 49, 54, 59–66 (bọt rơi ở giây 81,7, va ở giây 81,9 gần tấm số 8 mép cánh trái; mảnh bọt 21–27 × 12–18 inch; 545 dặm/giờ; thử nghiệm 7/7/2003 với khối bọt 1,67 pound tạo lỗ 16 inch, theo chú thích ảnh CAIB); mục 6.1, tr. 122–131 (bọt rơi ở 65/79 chuyến có ảnh; yêu cầu thiết kế không mảnh vụn; bậc thang tên gọi đến STS-112, STS-113 và “in-family”); mục 6.3 và chương 7, tr. 190–192 (slide của Boeing, tiêu đề và ba dòng trích nguyên văn; mẫu thử khoảng 3 so với 1.920 inch khối, lớn hơn tới 640 lần; tiêu đề đề xuất của Tufte; ba yêu cầu chụp ảnh bị dừng); chương 8, tr. 195 (1/2/2003, 7 phi hành gia). Quy đổi cm, km/h, kg là của Mark; “cùng họ” là cách Mark dịch “in-family”. Minh họa: bố cục slide phác lại và vạch xám (dòng lược bớt), hình tàu, đường bay của mảnh bọt, cỡ lỗ trên hình. Hai khối lập phương vẽ đúng tỉ lệ thể tích 640 lần."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "A 16-day train",
-        "hoi": "Drag each car from the yard onto the track in date order. Car 1 couples right behind the engine. Tap a car to read it.",
-        "mo_ta": "A rail yard and a track: five cars labelled with dates from Columbia's flight, to be coupled behind the engine in order.",
-        "doc_mac": "Tap a car to read it.",
-        "nut_chay": "Run the train",
-        "nut_lai": "Reset",
-        "bai": "RAIL YARD",
-        "ten_toa": "car {n}",
-        "toa": [
+        "nhan": "The slide and the foam",
+        "hoi": "This is the slide Boeing presented while Columbia was in orbit. Drag the lines up and down: which one belongs at the top?",
+        "mo_ta": "Three screens. One: a redrawn slide whose title calls the test results conservative, with the last, smallest line giving the foam's volume as 1,920 cubic inches versus 3 for the test; dragging that line to the top shows two cubes 640 times apart in volume. Two: foam leaves the fuel tank at 81.7 seconds and strikes panel 8 on the left wing's leading edge. Three: the staircase of labels given to falling foam over the years; you pick the stamp for flight STS-107.",
+        "doc_mac": "Tap a line to read about it. Drag lines up or down to reorder them.",
+        "keo": "↕ Drag the lines up or down",
+        "tieu_de": [
+          "Review Of Test Data Indicates",
+          "Conservatism for Tile Penetration"
+        ],
+        "tieu_de_moi": "Tufte's fix: “…Indicates Irrelevance of Two Models”",
+        "dong": [
           {
-            "d": "16 Jan",
-            "a": [
-              "Launch; foam",
-              "hits wing"
-            ],
-            "full": "16 Jan 2003: launch. At 81.7 s a piece of foam breaks off the fuel tank and strikes the left wing's leading edge."
+            "chu": "",
+            "an": true,
+            "dich": "Omitted lines (grey bars, not original content)."
           },
           {
-            "d": "17 Jan",
-            "a": [
-              "Photo team",
-              "sees strike"
-            ],
-            "full": "17 Jan (flight day 2): the imagery team sees the strike and makes the first request for pictures of the wing."
+            "chu": "• …overpredicted penetration of tile coating significantly",
+            "dich": "“…overpredicted penetration of tile coating significantly.” It sounds as if the model errs on the safe side."
           },
           {
-            "d": "21 Jan",
-            "a": [
-              "Engineers",
-              "\"beg\""
-            ],
-            "full": "21 Jan (flight day 6): engineers keep asking for satellite images; one writes about having to \"beg\"."
+            "chu": "– Flight condition is significantly outside of test database",
+            "dich": "“Flight condition is significantly outside of test database.”"
           },
           {
-            "d": "22 Jan",
-            "a": [
-              "Photo ask",
-              "cancelled"
-            ],
-            "full": "22 Jan: the imaging request to the Department of Defense is cancelled 90 minutes after it was made."
-          },
-          {
-            "d": "23 Jan",
-            "a": [
-              "E-mail:",
-              "\"no concern\""
-            ],
-            "full": "23 Jan: e-mail to the crew: \"There is absolutely no concern for entry.\""
+            "chu": "– Volume of ramp is 1920cu in vs 3 cu in for test",
+            "dich": "“Volume of ramp is 1920cu in vs 3 cu in for test.” The last line, in the smallest type."
           }
         ],
-        "sai": "{d}/{n} cars right. Cars outlined in red are in the wrong place; swap them and run again.",
-        "dung": "All 5 cars right. This train runs straight to 1 February 2003: Columbia breaks apart over Texas and 7 astronauts die. Along the way there were several points where it could have been stopped.",
-        "nguon": "Source: CAIB, vol. I (Aug 2003), chapter 3 and section 6.3: launch 16 Jan 2003, foam shed at 81.7 s striking the left wing leading edge; 17 Jan the imagery team sees the strike; 21 Jan engineers ask for images; 22 Jan the DoD request cancelled 90 minutes later; 23 Jan e-mail \"absolutely no concern for entry\"; 1 Feb breakup over Texas, 7 killed."
+        "khoi_nho": "~3 cubic inches: test piece",
+        "khoi_lon": "~1,920 cubic inches: the foam",
+        "lan": "up to 640 times larger",
+        "mo_khoa": "With the key line on top, the “conservatism” title no longer stands: the model was calibrated with pieces up to 640 times smaller.",
+        "nut_tiep1": "Next: 81.7 seconds",
+        "nut_tiep2": "Next: the labels over the years",
+        "nut_lai": "Play again",
+        "binh": "external fuel tank",
+        "canh": "left wing leading edge",
+        "tam": "panel 8",
+        "va": [
+          "81.7 s: foam leaves tank",
+          "foam 53–69 × 30–46 cm",
+          "81.9 s: hits near panel 8",
+          "~877 km/h (545 mph)",
+          "test 7/7/2003: 0.76 kg foam",
+          "→ hole about 40 cm (16 in)"
+        ],
+        "va_dau": "16 January 2003. A light piece of foam breaks off the left bipod ramp of the fuel tank.",
+        "va_xong": "The foam was light, but it hit at nearly 900 km/h. A test after the accident fired a 0.76 kg block at panel 8 and opened a hole about 40 cm across.",
+        "buc": [
+          {
+            "moc": "Original design",
+            "dau": "no debris"
+          },
+          {
+            "moc": "1983–1994",
+            "dau": "in-flight anomaly"
+          },
+          {
+            "moc": "Oct 2002 · STS-112",
+            "dau": "just an “action”"
+          },
+          {
+            "moc": "Nov 2002 · STS-113",
+            "dau": "accepted risk"
+          }
+        ],
+        "moc_cuoi": "Jan 2003 · STS-107",
+        "thang_dau": "Foam loss was seen on 65 of 79 flights with imagery. Each time, the label got a little softer.",
+        "thang_hoi": "Which stamp do you put on STS-107's foam strike?",
+        "chon": [
+          "anomaly",
+          "accepted risk",
+          "in-family, fine"
+        ],
+        "nasa": "NASA: {n}",
+        "ket_chon": "You stamped “{c}”. In January 2003 the strike was classed as “{n}”: no safety-of-flight issue.",
+        "ket": "Engineers asked three times for images of the left wing in orbit, and all three requests were stopped. On 1 February 2003 Columbia broke apart over Texas during re-entry, and 7 astronauts died. The lesson: keep an anomaly's real name, and put the conclusion and its limits on the first line.",
+        "nguon": "Source: CAIB report, vol. I (Aug 2003): chapter 3, pp. 49, 54, 59–66 (foam shed at 81.7 s, strike at 81.9 s near panel 8 of the left wing leading edge; foam 21–27 × 12–18 in; 545 mph; 7 July 2003 test with a 1.67 lb foam block making a 16-inch hole, per the CAIB photo caption); section 6.1, pp. 122–131 (foam loss on 65 of 79 imaged flights; the no-debris design requirement; the labels through STS-112, STS-113 and “in-family”); section 6.3 and chapter 7, pp. 190–192 (the Boeing slide, its title and three lines quoted verbatim; test piece about 3 vs 1,920 cubic inches, up to 640 times larger; Tufte's proposed title; three imagery requests stopped); chapter 8, p. 195 (1 Feb 2003, 7 astronauts). Metric conversions are Mark's. Illustrative: the redrawn slide layout and grey bars (omitted lines), the shuttle drawing, the foam's path, the hole's size in the drawing. The two cubes are drawn to the true 640-fold volume ratio."
       }
     }
   ],
