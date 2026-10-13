@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flow (Mihaly Csikszentmihalyi): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Dòng chảy: lúc mải mê đến quên thời gian. Thử thách vừa sức, mục tiêu rõ, phản hồi ngay, nghịch lý công việc, và chỗ nào trong sách chỉ là chuyện kể.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/flow.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/flow.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/flow.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/flow.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flow (Mihaly Csikszentmihalyi): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Dòng chảy: lúc mải mê đến quên thời gian. Thử thách vừa sức, mục tiêu rõ, phản hồi ngay, nghịch lý công việc, và chỗ nào trong sách chỉ là chuyện kể.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/flow.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #06343B; --bia-2: #0E7490; --bia-nhan: #22D3EE; }
+</style>
+</head>
+<body class="bia-song">
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/flow.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep; --night = dòng chảy (xanh nước), --day = lo âu/thử thách (cam), --rem = chán/kỹ năng (chàm). */
+:root {
+  --bg: #f1f5f5;
+  --paper: #fbfdfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d3dfdf;
+  --grid: #e4eded;
+  --night: #0e6f74;
+  --day: #c2560e;
+  --rem: #4b55a3;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1416; --paper: #111c1f; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #5fcfd0; --day: #f0965a; --rem: #a3acff; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1416; --paper: #111c1f; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #5fcfd0; --day: #f0965a; --rem: #a3acff; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--night); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+
+.eight { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+.rule .num { width: 26px; height: 26px; border-radius: 50%; background: var(--night); color: var(--paper); font-family: var(--font-mono); font-size: .8rem; font-weight: 600; display: grid; place-items: center; }
+.chip b { font-family: var(--font-display); font-weight: 500; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Tâm lý học tích cực · Hạnh phúc</span>
+  <h1>Dòng chảy</h1>
+  <svg viewBox="0 0 320 22" width="320" height="22" style="max-width:100%" role="img" aria-label="Dải sóng nước, biểu tượng dòng chảy"><path d="M2 11 C 22 1, 42 1, 62 11 S 102 21, 122 11 S 162 1, 182 11 S 222 21, 242 11 S 282 1, 302 11" fill="none" stroke="var(--bia-nhan, var(--night))" stroke-width="3" stroke-linecap="round"/><path d="M2 17 C 22 9, 42 9, 62 17 S 102 25, 122 17 S 162 9, 182 17 S 222 25, 242 17 S 282 9, 302 17" fill="none" stroke="var(--bia-nhan, var(--night))" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/><circle cx="312" cy="11" r="4" fill="var(--day)"/></svg>
+  <p class="sub">Flow: The Psychology of Optimal Experience · Mihaly Csikszentmihalyi</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Mihaly Csikszentmihalyi (1934–2021) · ĐH Chicago</b></div>
+    <div><span class="label">Xuất bản</span><b>1990 · Harper &amp; Row</b></div>
+    <div><span class="label">Quy mô</span><b>10 chương · khoảng 300 trang</b></div>
+    <div><span class="label">Đánh giá</span><b>8 / 10 · khái niệm lớn, sách hơi dày</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c4-4 8-4 13 0s9 4 13 0M3 20c4-4 8-4 13 0s9 4 13 0"/></svg><b>Dòng chảy</b><span>Lúc mải mê đến quên thời gian, quên cả bản thân.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 28L28 4"/><path d="M4 18l10 10M14 4l14 14" stroke-dasharray="3 3"/></svg><b>Khó vừa sức</b><span>Thử thách ngang tầm kỹ năng thì vào dòng chảy.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/></svg><b>Chú ý là vốn</b><span>Ai làm chủ sự chú ý thì làm chủ trải nghiệm.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="9" width="24" height="17" rx="2"/><path d="M11 9V5h10v4"/></svg><b>Nghịch lý công việc</b><span>Ở chỗ làm có nhiều dòng chảy hơn lúc rảnh.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Khung tốt, đơn thuốc yếu</b><span>Mô tả dòng chảy vững; lời khuyên chủ yếu dựa vào chuyện kể.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Hạnh phúc không tự đến; nó đến khi ta dồn sự chú ý vào một việc khó vừa sức, có mục tiêu rõ và phản hồi ngay, rồi lặp lại điều đó trong công việc, quan hệ và cả lúc gặp nạn.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Chú ý là vốn</b><span>Ý thức có hạn. Nó bị nhiễu thì ta khổ, được sắp xếp thì ta yên.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Dòng chảy</b><span>Việc khó vừa sức, mục tiêu rõ, phản hồi ngay giúp ý thức vào trật tự.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Một đời có nghĩa</b><span>Gom các lần dòng chảy quanh một mục đích chung của cả cuộc đời.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Sách không chia phần; Mark gom 10 chương thành 4 cụm, cũng là 4 kỳ trên fanpage.</p></div>
+  <div class="chbar" role="img" aria-label="Cụm 1 ba chương, cụm 2 một chương, cụm 3 bốn chương, cụm 4 hai chương">
+    <div class="p1" style="flex:3">Ch. 1–3</div><div class="p2" style="flex:1.6">Ch. 4</div><div class="p3" style="flex:4">Ch. 5–8</div><div class="p4" style="flex:2">Ch. 9–10</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1 · Ch. 1–3</span><h3>Dòng chảy là gì</h3><div class="chips"><span class="chip">hạnh phúc phải chuẩn bị</span><span class="chip">giới hạn của ý thức</span><span class="chip">entropy tâm trí</span><span class="chip">khoái cảm và thích thú</span><span class="chip">8 dấu hiệu</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2 · Ch. 4</span><h3>Điều kiện để vào</h3><div class="chips"><span class="chip">kênh dòng chảy</span><span class="chip">thử thách và kỹ năng</span><span class="chip">trò chơi</span><span class="chip">văn hóa</span><span class="chip">người tự thân</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3 · Ch. 5–8</span><h3>Dòng chảy trong đời thường</h3><div class="chips"><span class="chip">thân thể</span><span class="chip">tư duy</span><span class="chip">công việc</span><span class="chip">một mình</span><span class="chip">gia đình, bạn bè</span></div></div>
+    <div class="part b4"><span class="label">Kỳ 4 · Ch. 9–10</span><h3>Nghịch cảnh và ý nghĩa</h3><div class="chips"><span class="chip">vượt bi kịch</span><span class="chip">đối phó với căng thẳng</span><span class="chip">cái tôi tự thân</span><span class="chip">chủ đề cuộc đời</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Entropy tâm trí</h3><span class="en">psychic entropy · psychic energy</span><span class="pg">Ch. 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f1t">
+          <title id="f1t">Bên trái: sự chú ý bị kéo về nhiều hướng bởi lo lắng, thông báo, so sánh, nên ý thức hỗn loạn. Bên phải: mọi sự chú ý cùng hướng về một mục tiêu, ý thức có trật tự, đó là dòng chảy.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+          <rect x="20" y="20" width="320" height="170" rx="6" fill="var(--day)" fill-opacity=".08" stroke="var(--day)"/>
+          <text x="40" y="44" class="t-day t-bold">HỖN LOẠN · ENTROPY</text>
+          <circle cx="180" cy="115" r="10" fill="var(--day)"/>
+          <g stroke="var(--day)" stroke-width="2"><line x1="180" y1="115" x2="90" y2="70" marker-end="url(#ah)"/><line x1="180" y1="115" x2="290" y2="75" marker-end="url(#ah)"/><line x1="180" y1="115" x2="80" y2="165" marker-end="url(#ah)"/><line x1="180" y1="115" x2="300" y2="160" marker-end="url(#ah)"/><line x1="180" y1="115" x2="185" y2="60" marker-end="url(#ah)"/></g>
+          <text x="58" y="62">lo lắng</text><text x="272" y="66">thông báo</text><text x="48" y="182">so sánh</text><text x="270" y="180">việc dở dang</text>
+          <rect x="380" y="20" width="320" height="170" rx="6" fill="var(--night)" fill-opacity=".08" stroke="var(--night)"/>
+          <text x="400" y="44" class="t-night t-bold">TRẬT TỰ · DÒNG CHẢY</text>
+          <circle cx="420" cy="115" r="10" fill="var(--night)"/>
+          <g stroke="var(--night)" stroke-width="2"><line x1="432" y1="100" x2="640" y2="100" marker-end="url(#ah)"/><line x1="432" y1="115" x2="640" y2="115" marker-end="url(#ah)"/><line x1="432" y1="130" x2="640" y2="130" marker-end="url(#ah)"/></g>
+          <circle cx="664" cy="115" r="18" fill="none" stroke="var(--night)" stroke-width="2.5"/><circle cx="664" cy="115" r="6" fill="var(--night)"/>
+          <text x="664" y="160" text-anchor="middle" class="t-night">mục tiêu</text>
+          <text x="420" y="176" class="t-ink">mọi sự chú ý cùng một hướng</text>
+        </svg>
+      </div>
+      <figcaption><b>Sự chú ý là "năng lượng tâm trí" có hạn.</b> Khi thông tin trái với mục tiêu tràn vào, ý thức hỗn loạn và ta thấy khổ; khi nó cùng hướng, ta thấy yên và mạnh.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Khoái cảm và thích thú</h3><span class="en">pleasure · enjoyment</span><span class="pg">Ch. 3</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <thead><tr><th></th><th>Khoái cảm</th><th>Thích thú (dòng chảy)</th></tr></thead>
+        <tbody>
+          <tr><td>Ví dụ</td><td>ăn ngon, nằm xem phim, lướt mạng</td><td>chơi đàn, leo núi, giải bài khó, trò chuyện sâu</td></tr>
+          <tr><td>Cần nỗ lực?</td><td class="n">không</td><td class="y">có, và cần kỹ năng</td></tr>
+          <tr><td>Sau đó ta</td><td class="n">vẫn như cũ</td><td class="y">giỏi hơn, phức tạp hơn</td></tr>
+          <tr><td>Lặp lại mãi</td><td class="n">nhàm dần</td><td class="y">phải nâng độ khó, nên lớn lên</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Khoái cảm giữ ta cân bằng; chỉ sự thích thú mới làm ta lớn lên. Cả hai đều cần, nhưng đừng nhầm cái này với cái kia.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>8 dấu hiệu của dòng chảy</h3><span class="en">elements of enjoyment</span><span class="pg">Ch. 3</span></div>
+    <div class="rules eight">
+      <div class="rule"><span class="num">1</span><div><b>Việc khó vừa sức</b><span>Cần kỹ năng, có thể thất bại.</span></div></div>
+      <div class="rule"><span class="num">2</span><div><b>Hành động hòa với ý thức</b><span>Làm mà không phải nghĩ "mình đang làm".</span></div></div>
+      <div class="rule"><span class="num">3</span><div><b>Mục tiêu rõ</b><span>Biết bước kế tiếp phải làm gì.</span></div></div>
+      <div class="rule"><span class="num">4</span><div><b>Phản hồi ngay</b><span>Biết tức thì mình làm đúng hay sai.</span></div></div>
+      <div class="rule"><span class="num">5</span><div><b>Tập trung trọn vẹn</b><span>Không còn chỗ cho lo âu chuyện khác.</span></div></div>
+      <div class="rule"><span class="num">6</span><div><b>Cảm giác làm chủ</b><span>Không sợ mất kiểm soát.</span></div></div>
+      <div class="rule"><span class="num">7</span><div><b>Quên bản thân</b><span>Thôi để ý người khác nghĩ gì về mình.</span></div></div>
+      <div class="rule"><span class="num">8</span><div><b>Thời gian biến dạng</b><span>Vài giờ trôi như vài phút.</span></div></div>
+    </div>
+    <p class="lead">Gộp lại thành trải nghiệm "tự thân" (autotelic): làm vì chính việc đó, không vì phần thưởng sau.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Kênh dòng chảy</h3><span class="en">flow channel · challenge vs skill</span><span class="pg">Ch. 4</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 300" role="img" aria-labelledby="f4t">
+          <title id="f4t">Trục ngang là kỹ năng, trục dọc là thử thách. Dải chéo ở giữa là kênh dòng chảy. Trên dải là lo âu, dưới dải là chán. Alex mới học tennis ở A1 trong kênh; giỏi lên mà bài tập vẫn dễ thì rơi xuống A2 chán; gặp đối thủ quá mạnh thì lên A3 lo âu. Cách duy nhất để trở lại kênh ở mức cao hơn là A4.</title>
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+          <polygon points="70,260 120,260 450,60 450,30 400,30 70,215" fill="var(--night)" fill-opacity=".16"/>
+          <line class="axis" x1="70" y1="260" x2="460" y2="260"/><line class="axis" x1="70" y1="20" x2="70" y2="260"/>
+          <text x="460" y="280" text-anchor="end" class="t-ink t-bold">KỸ NĂNG →</text>
+          <text x="62" y="30" text-anchor="end" class="t-ink t-bold">THỬ</text><text x="62" y="44" text-anchor="end" class="t-ink t-bold">THÁCH</text>
+          <text x="110" y="52" class="t-day t-bold">LO ÂU</text>
+          <text x="340" y="240" class="t-rem t-bold">CHÁN</text>
+          <text x="245" y="152" transform="rotate(-31 245 152)" text-anchor="middle" class="t-night t-bold">KÊNH DÒNG CHẢY</text>
+          <g stroke-width="2" fill="none">
+            <line x1="300" y1="226" x2="327" y2="132" stroke="var(--rem)" marker-end="url(#ah2)"/>
+            <line x1="152" y1="88" x2="318" y2="117" stroke="var(--day)" marker-end="url(#ah2)"/>
+          </g>
+          <circle cx="115" cy="232" r="9" fill="var(--night)"/><text x="130" y="236" class="t-ink t-bold">A1</text>
+          <circle cx="300" cy="235" r="9" fill="var(--rem)"/><text x="280" y="239" text-anchor="end" class="t-ink t-bold">A2</text>
+          <circle cx="140" cy="80" r="9" fill="var(--day)"/><text x="140" y="68" text-anchor="middle" class="t-ink t-bold">A3</text>
+          <circle cx="330" cy="120" r="9" fill="var(--night)"/><text x="345" y="116" class="t-ink t-bold">A4</text>
+          <g>
+            <text x="490" y="60" class="t-night t-bold">A1 · mới tập tennis</text><text x="490" y="76">đánh bóng qua lưới là đủ vui</text>
+            <text x="490" y="108" class="t-rem t-bold">A2 · chán</text><text x="490" y="124">giỏi lên, bài tập vẫn dễ</text>
+            <text x="490" y="156" class="t-day t-bold">A3 · lo âu</text><text x="490" y="172">gặp đối thủ quá mạnh</text>
+            <text x="490" y="204" class="t-night t-bold">A4 · lại vào kênh</text><text x="490" y="220">nâng thử thách, hoặc nâng</text><text x="490" y="236">kỹ năng. Không quay về A1.</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Dòng chảy không đứng yên: muốn ở lại, ta phải lớn lên.</b> Chán thì tăng độ khó, lo thì luyện thêm hoặc chia nhỏ việc. Ví dụ Alex học tennis là của chính tác giả.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bản ngã phức tạp hơn</h3><span class="en">differentiation · integration</span><span class="pg">Ch. 2 và 4</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Ít gắn kết</th><th>Nhiều gắn kết</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Nhiều khác biệt</th><td class="risk"><b>Cô lập</b><span>Giỏi riêng, sống riêng, dễ ích kỷ</span></td><td class="safe"><b>Phức tạp (đích đến)</b><span>Có bản sắc riêng mà vẫn gắn với người khác</span></td></tr>
+          <tr><th class="rowh">Ít khác biệt</th><td class="risk"><b>Rỗng</b><span>Không rõ mình là ai, không thuộc về đâu</span></td><td class="risk"><b>Hòa tan</b><span>Gắn bó nhưng mất mình trong đám đông</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Mỗi lần dòng chảy vừa làm ta khác đi (giỏi hơn), vừa nối ta với việc và người. Đó là ý "lớn lên" của tác giả.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Nghịch lý công việc</h3><span class="en">paradox of work · ESM</span><span class="pg">Ch. 7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="f6t">
+          <title id="f6t">Nghiên cứu lấy mẫu trải nghiệm với người đi làm ở Chicago: khi ở chỗ làm, 54% lần được hỏi là dòng chảy và 16% là thờ ơ; lúc rảnh, chỉ 18% là dòng chảy và 52% là thờ ơ. Vậy mà ở chỗ làm, người ta vẫn ước mình đang ở chỗ khác.</title>
+          <text x="20" y="22" class="t-ink t-bold">Máy nhắn tin kêu ngẫu nhiên trong ngày: "lúc này bạn thấy sao?"</text>
+          <text x="150" y="68" text-anchor="end" class="t-ink t-bold">Ở chỗ làm</text>
+          <rect x="160" y="50" width="270" height="26" fill="var(--night)"/><text x="170" y="68" style="fill:var(--paper)" class="t-bold">dòng chảy 54%</text>
+          <rect x="160" y="80" width="80" height="20" fill="var(--rem)" fill-opacity=".45"/><text x="248" y="95" class="t-rem">thờ ơ 16%</text>
+          <text x="150" y="138" text-anchor="end" class="t-ink t-bold">Lúc rảnh</text>
+          <rect x="160" y="120" width="90" height="26" fill="var(--night)"/><text x="258" y="138" class="t-night t-bold">dòng chảy 18%</text>
+          <rect x="160" y="150" width="260" height="20" fill="var(--rem)" fill-opacity=".45"/><text x="428" y="165" class="t-rem">thờ ơ 52%</text>
+          <text x="470" y="68" class="t-day t-bold">Nhưng ở chỗ làm,</text><text x="470" y="84" class="t-day">người ta vẫn ước</text><text x="470" y="100" class="t-day">mình đang ở chỗ khác.</text>
+          <text x="20" y="200">Csikszentmihalyi và LeFevre (1989), khoảng 100 người đi làm ở Chicago.</text><text x="20" y="216">"Dòng chảy" ở đây = thử thách và kỹ năng cùng trên mức trung bình của chính người đó.</text>
+        </svg>
+      </div>
+      <figcaption><b>Ta coi thường công việc vì "phải làm", và phí thời gian rảnh vào giải trí thụ động.</b> Xem TV là hoạt động có mức tập trung và tâm trạng thấp nhất trong các mẫu đo.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gia đình nuôi dòng chảy</h3><span class="en">autotelic family · 5C</span><span class="pg">Ch. 4</span></div>
+    <div class="chips" style="gap:8px">
+      <span class="chip"><b>Rõ ràng</b> · biết bố mẹ mong gì</span>
+      <span class="chip"><b>Quan tâm hiện tại</b> · hỏi con đang nghĩ gì, không chỉ điểm số</span>
+      <span class="chip"><b>Được chọn</b> · có lựa chọn, chịu hệ quả</span>
+      <span class="chip"><b>Tin cậy</b> · đủ an toàn để buông phòng thủ</span>
+      <span class="chip"><b>Thử thách</b> · được giao việc khó dần</span>
+    </div>
+    <p class="lead">Nghiên cứu của Kevin Rathunde: thiếu niên ở nhà có năm điều này báo cáo nhiều dòng chảy hơn. Đây là tương quan, chưa chứng minh nhân quả.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Biến nghịch cảnh thành dòng chảy</h3><span class="en">transformational coping</span><span class="pg">Ch. 9</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f8t">
+          <title id="f8t">Gặp biến cố có hai lối. Lối tiêu tán: đổ lỗi, rút lui, chú ý dồn vào bản thân, dẫn tới hỗn loạn. Lối biến đổi: giữ bình tĩnh, hướng chú ý ra ngoài, tìm mục tiêu mới, dẫn tới dòng chảy mới.</title>
+          <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+          <rect x="20" y="75" width="120" height="50" rx="6" fill="var(--ink)" fill-opacity=".08" stroke="var(--muted)"/>
+          <text x="80" y="105" text-anchor="middle" class="t-ink t-bold">Biến cố</text>
+          <path d="M140 92 C 200 60, 220 45, 270 45" stroke="var(--day)" stroke-width="2" fill="none" marker-end="url(#ah3)"/>
+          <path d="M140 108 C 200 140, 220 155, 270 155" stroke="var(--night)" stroke-width="2" fill="none" marker-end="url(#ah3)"/>
+          <text x="280" y="38" class="t-day t-bold">Tiêu tán</text><text x="280" y="56">đổ lỗi · rút lui · chỉ nghĩ về mình</text>
+          <text x="280" y="148" class="t-night t-bold">Biến đổi</text><text x="280" y="166">bình tĩnh · nhìn ra ngoài · tìm lối mới</text>
+          <line x1="540" y1="48" x2="590" y2="48" stroke="var(--day)" stroke-width="2" marker-end="url(#ah3)"/>
+          <line x1="560" y1="158" x2="610" y2="158" stroke="var(--night)" stroke-width="2" marker-end="url(#ah3)"/>
+          <text x="600" y="52" class="t-day t-bold">hỗn loạn</text>
+          <text x="620" y="162" class="t-night t-bold">mục tiêu mới</text>
+        </svg>
+      </div>
+      <figcaption><b>Cùng một cú sốc, người "tự thân" coi nó như một thử thách mới.</b> Sách kể nhiều người bị liệt, mù, tù đày vẫn tìm được dòng chảy; đây là chuyện kể, nên đọc thận trọng.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gom đời thành một dòng chảy</h3><span class="en">purpose · resolve · harmony · life theme</span><span class="pg">Ch. 10</span></div>
+    <div class="flow" aria-label="Ba tầng ý nghĩa">
+      <div class="step"><span class="label">Tầng 1</span><b>Mục đích</b><span>Một mục tiêu đủ lớn để gom mọi mục tiêu nhỏ.</span></div>
+      <span class="arr">→</span>
+      <div class="step"><span class="label">Tầng 2</span><b>Quyết tâm</b><span>Biến mục đích thành việc làm cụ thể, bền bỉ.</span></div>
+      <span class="arr">→</span>
+      <div class="step"><span class="label">Tầng 3</span><b>Hài hòa</b><span>Nghĩ, cảm và làm cùng một hướng, bớt mâu thuẫn trong lòng.</span></div>
+    </div>
+    <p class="lead">Kết quả là một "chủ đề cuộc đời": cả đời giống một hoạt động dòng chảy lớn, có mục tiêu và phản hồi riêng.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">10 luận điểm hay được trích nhất, xét theo nghiên cứu sau năm 1990. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="3 vững, 5 cần thận trọng, 2 bị phê bình">
+    <div class="o" style="flex:3">3 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:2">2 BỊ PHÊ BÌNH</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Dòng chảy là trải nghiệm có thật, giống nhau ở nhiều nền văn hóa</span></summary><p class="note">Phỏng vấn và lấy mẫu trải nghiệm ở Mỹ, Ý, Hàn, Nhật, người Navajo... cho mô tả rất giống nhau. Nhiều thang đo sau này (FSS, FKS) đo được nó ổn định.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Mục tiêu rõ và phản hồi ngay giúp tập trung</span></summary><p class="note">Khớp với hàng chục năm nghiên cứu đặt mục tiêu (Locke và Latham) và học tập có phản hồi.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Xem TV đi kèm tập trung và tâm trạng thấp</span></summary><p class="note">Kubey và Csikszentmihalyi (1990) lặp lại trên nhiều mẫu. Lưu ý: đây là tương quan, người đang mệt cũng hay bật TV.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Cân bằng thử thách và kỹ năng là chìa khóa</span></summary><p class="note">Phân tích gộp của Fong, Zaleski và Leach (2015): có liên hệ nhưng chỉ ở mức vừa. Mục tiêu rõ, phản hồi và hứng thú cũng quan trọng không kém.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ở chỗ làm có dòng chảy nhiều gấp 3 lúc rảnh</span></summary><p class="note">Một nghiên cứu khoảng 100 người ở Chicago, tự báo cáo, và "dòng chảy" được định nghĩa khá rộng. Ý chính hợp lý, con số thì không nên trích như quy luật.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Dòng chảy làm cuộc sống hạnh phúc hơn</span></summary><p class="note">Dữ liệu chủ yếu là tương quan, chưa rõ chiều nhân quả. Chính tác giả thừa nhận lúc đang trong dòng chảy ta không thấy "vui"; chỉ sau đó mới thấy.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Có "nhân cách tự thân" dễ vào dòng chảy hơn, và gia đình 5C nuôi nó</span></summary><p class="note">Khái niệm hấp dẫn nhưng khó đo; các nghiên cứu sau dùng nhiều thang khác nhau và kết quả chưa thống nhất.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Người bị liệt, tù đày vẫn biến bi kịch thành dòng chảy</span></summary><p class="note">Câu chuyện thật và cảm động, nhưng là chuyện chọn lọc. Ta không nghe những người đã không vượt qua được.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Ý thức xử lý tối đa khoảng 126 bit mỗi giây</span></summary><p class="note">Ước lượng thô từ thập niên 1950–70, nay không còn được dùng trong khoa học nhận thức. Ý chung "sự chú ý có hạn" thì vẫn đúng.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Ai cũng có thể tự rèn dòng chảy để hạnh phúc</span></summary><p class="note">Bị chê là đặt hết trách nhiệm lên cá nhân, xem nhẹ nghèo khó và việc làm đơn điệu. Dòng chảy cũng trung tính về đạo đức: cờ bạc, game, thậm chí chiến tranh cũng tạo ra nó, điều tác giả có nhắc nhưng lướt qua.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Sức ảnh hưởng</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2,5/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i style="width:70%"></i></div><b>3,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Đặt tên cho một trải nghiệm ai cũng từng có</li><li>Sơ đồ thử thách và kỹ năng dùng được ngay</li><li>Mở rộng từ thể thao sang công việc, gia đình, nghịch cảnh</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Dày, triết lý, nhiều đoạn lặp ý</li><li>Ít số liệu, nhiều chuyện kể chọn lọc</li><li>Ít hướng dẫn cụ thể "làm sao để vào dòng chảy"</li></ul></div>
+  </div>
+  <p class="verdict">Đọc kỹ chương 3, 4 và 7. Các chương còn lại lướt lấy ví dụ.</p>
+  <details class="more"><summary>Xem thêm: dòng chảy sau hơn 30 năm</summary><div>
+    <p>Phương pháp lấy mẫu trải nghiệm (máy nhắn tin kêu ngẫu nhiên, người tham gia ghi lại cảm xúc) là đóng góp phương pháp lớn của Csikszentmihalyi và nay được dùng rộng rãi. Nhưng nó vẫn là tự báo cáo.</p>
+    <p>Mô hình "kênh" ba vùng trong sách sau đó được nhóm Massimini và Carli mở rộng thành 8 trạng thái (hưng phấn, dòng chảy, làm chủ, thư giãn, chán, thờ ơ, lo lắng, lo âu). Dòng chảy chỉ xuất hiện khi cả thử thách lẫn kỹ năng đều cao hơn mức thường của mình.</p>
+    <p>Từ "flow" về sau bị dùng tràn lan trong quảng cáo, thiết kế game và sách phát triển bản thân, thường với những con số như "tăng năng suất 500%" không có trong sách gốc và không có nghiên cứu vững đằng sau.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Một "phiên dòng chảy" cho việc quan trọng nhất trong ngày.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 740 170" role="img" aria-labelledby="f9t">
+        <title id="f9t">Năm bước cho một phiên dòng chảy: chọn việc khó vừa sức, đặt mục tiêu cho phiên, tạo phản hồi, chặn gián đoạn, rồi chỉnh độ khó khi chán hoặc khi lo.</title>
+        <line x1="70" y1="50" x2="670" y2="50" stroke="var(--rule)" stroke-width="3"/>
+        <g fill="var(--night)"><circle cx="70" cy="50" r="16"/><circle cx="220" cy="50" r="16"/><circle cx="370" cy="50" r="16"/><circle cx="520" cy="50" r="16"/><circle cx="670" cy="50" r="16"/></g>
+        <g text-anchor="middle" class="t-bold"><text x="70" y="55" style="fill:var(--paper)">1</text><text x="220" y="55" style="fill:var(--paper)">2</text><text x="370" y="55" style="fill:var(--paper)">3</text><text x="520" y="55" style="fill:var(--paper)">4</text><text x="670" y="55" style="fill:var(--paper)">5</text></g>
+        <g text-anchor="middle">
+          <text x="70" y="94" class="t-night t-bold">Chọn việc</text><text x="70" y="110">khó hơn mức</text><text x="70" y="125">quen một chút</text>
+          <text x="220" y="94" class="t-night t-bold">Mục tiêu phiên</text><text x="220" y="110">"xong bản nháp</text><text x="220" y="125">phần 2"</text>
+          <text x="370" y="94" class="t-night t-bold">Tạo phản hồi</text><text x="370" y="110">đếm, bấm giờ,</text><text x="370" y="125">chạy thử</text>
+          <text x="520" y="94" class="t-night t-bold">Chặn gián đoạn</text><text x="520" y="110">tắt thông báo,</text><text x="520" y="125">cất điện thoại</text>
+          <text x="670" y="94" class="t-day t-bold">Chỉnh độ khó</text><text x="670" y="110">chán: nâng lên</text><text x="670" y="125">lo: chia nhỏ</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Bước 5 chính là đọc sơ đồ kênh dòng chảy</b>: cảm xúc là phản hồi cho biết nên tăng thử thách hay tăng kỹ năng.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="18" r="10"/><path d="M16 18V12M13 4h6"/></svg><div><b>Biến việc lặp lại thành trò chơi</b><span>Rico, công nhân dây chuyền, tự bấm giờ để phá kỷ lục của chính mình.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26l8-14 5 8 3-4 4 10z"/></svg><div><b>Giải trí chủ động</b><span>Thay một giờ lướt mạng bằng một việc cần kỹ năng: đàn, vẽ, chạy, nấu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 28s-10-6-10-14a6 6 0 0 1 10-4 6 6 0 0 1 10 4c0 8-10 14-10 14z"/></svg><div><b>Học như người nghiệp dư</b><span>"Amateur" gốc Latin là "người yêu". Học vì thích, không vì bằng.</span></div></div>
+  </div>
+  <div class="quote"><span>"Những khoảnh khắc đẹp nhất đời ta không phải lúc thụ động, nhận lấy, thư giãn... mà thường đến khi thân thể hay tâm trí được kéo căng tới giới hạn, trong một nỗ lực tự nguyện để làm điều gì đó khó và đáng làm."</span><span class="src">Chương 1. Mark dịch.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Csikszentmihalyi, <i>Finding Flow</i> (1997)</b><span class="muted">Bản ngắn, dễ đọc hơn, có mô hình 8 trạng thái.</span></div>
+    <div><b>Chris Bailey, <i>Hyperfocus</i> (2018)</b><span class="muted">"Siêu tập trung", cuốn kế tiếp của Mark: cách quản lý sự chú ý thời điện thoại.</span></div>
+    <div><b>Cal Newport, <i>Deep Work</i> (2016)</b><span class="muted">Dòng chảy áp dụng cho công việc trí óc.</span></div>
+    <div><b>Fong, Zaleski, Leach (2015), phân tích gộp về thử thách và kỹ năng</b><span class="muted">Đọc để cân bằng: sơ đồ kênh chỉ là một phần của câu chuyện. <i>Journal of Positive Psychology</i> 10(5).</span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #005. Các hình là sơ đồ minh họa khái niệm; số liệu nghiên cứu lấy theo sách và các nguồn nêu trong mục Dẫn chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+</body>
+</html>
