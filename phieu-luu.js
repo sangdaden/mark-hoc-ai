@@ -16,7 +16,7 @@
   // 7 ô / khối đáp án (ô ở hàng 10, khối ở hàng 6), 8 cổng trạm, 9 đáp án sai, 10 đáp án đúng.
 
   var T = EN ? {
-    dung: "True", sai: "False", chuDS: ["T", "F"], dungRoi: "Correct!", saiRoi: "Not that one.",
+    dung: "True", sai: "False", chuDS: ["✓", "✗"], dungRoi: "Correct!", saiRoi: "Not that one.",
     tram: function (i, n, o) { return "Question gate " + i + " of " + n + (o ? " · stand on the tile with the right answer" : " · jump into the block with the right answer"); },
     trum: function (n, o) { return "Boss fight · " + (o ? "stand on the right tile" : "hit the right block") + " to call down lightning · " + n + " to go"; },
     goiY: "The right answer is glowing green.",
@@ -31,7 +31,7 @@
     menu: "☰ Levels", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
     danHet: "No bolts yet. Answer right to earn some."
   } : {
-    dung: "Đúng", sai: "Sai", chuDS: ["Đ", "S"], dungRoi: "Chính xác!", saiRoi: "Chưa đúng rồi.",
+    dung: "Đúng", sai: "Sai", chuDS: ["✓", "✗"], dungRoi: "Chính xác!", saiRoi: "Chưa đúng rồi.",
     tram: function (i, n, o) { return "Trạm câu hỏi " + i + "/" + n + (o ? " · đứng vào ô có đáp án đúng" : " · nhảy húc khối có đáp án đúng"); },
     trum: function (n, o) { return "Đấu trùm · " + (o ? "đứng vào ô đúng" : "húc khối đúng") + " để gọi sét · còn " + n + " đòn"; },
     goiY: "Đáp án đúng đang sáng xanh.",
@@ -270,7 +270,7 @@
     ds.classList.toggle("is-ds", st.pa.length === 2);
     st.pa.forEach(function (p, k) {
       var li = el("li", null);
-      li.appendChild(el("b", "pl-de-chu", p.nhan));
+      li.appendChild(el("b", "pl-de-chu" + (p.nhan === "✓" ? " is-co" : p.nhan === "✗" ? " is-khong" : ""), p.nhan));
       li.appendChild(el("span", null, p.chu));
       var c = st.cot[k], v = c != null ? o(c, st.hang) : 0;
       if (p.sai) li.className = "is-sai";
@@ -506,6 +506,7 @@
       ctx.fillStyle = v === 9 ? "#FDA4AF" : v === 10 ? "#4ADE80" : "#FACC15"; ctx.fill();
       ctx.lineWidth = 3; ctx.strokeStyle = v === 9 ? "#BE123C" : v === 10 ? "#15803D" : "#CA8A04"; ctx.stroke();
       ctx.fillStyle = "#0F172A"; ctx.font = "800 24px " + CHU; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      if (kb && v === 7) ctx.fillStyle = mauNhan(kb.st.pa[kb.k].nhan);
       ctx.fillText(kb ? kb.st.pa[kb.k].nhan : (v === 9 ? "✗" : "✓"), px + O / 2, py + O / 2 + 1 + nayB);
     } else if (v === 7 || v === 9 || v === 10) {
       // Ô đáp án nằm trên mặt đất: nền đất, mặt ô màu có chữ cái.
@@ -517,16 +518,19 @@
       ctx.fillStyle = v === 9 ? "#FDA4AF" : v === 10 ? "#4ADE80" : dangDung ? "#FDE047" : "#FACC15"; ctx.fill();
       ctx.lineWidth = 3; ctx.strokeStyle = v === 9 ? "#BE123C" : v === 10 ? "#15803D" : "#CA8A04"; ctx.stroke();
       ctx.fillStyle = "#0F172A"; ctx.font = "800 18px " + CHU; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      if (kh && v === 7) ctx.fillStyle = mauNhan(kh.st.pa[kh.k].nhan);
       ctx.fillText(kh ? kh.st.pa[kh.k].nhan : (v === 9 ? "✗" : "✓"), px + O / 2 + rung, py + 7);
       if (kh) {
         // Biển chữ cái cắm phía trên ô để nhìn rõ từ xa.
         ctx.fillStyle = "#475569"; ctx.fillRect(px + O / 2 - 2, py - 58, 4, 54);
         hinhTron(px + 4, py - 92, O - 8, 36, 8); ctx.fillStyle = goiY ? "#4ADE80" : "#fff"; ctx.fill();
         ctx.lineWidth = 2.5; ctx.strokeStyle = "#0F172A"; ctx.stroke();
-        ctx.fillStyle = "#0F172A"; ctx.font = "800 22px " + CHU; ctx.fillText(kh.st.pa[kh.k].nhan, px + O / 2, py - 73);
+        ctx.fillStyle = mauNhan(kh.st.pa[kh.k].nhan); ctx.font = "800 22px " + CHU; ctx.fillText(kh.st.pa[kh.k].nhan, px + O / 2, py - 73);
       }
     }
   }
+  // Câu đúng/sai dùng biểu tượng ✓ (xanh) và ✗ (đỏ) thay cho chữ cái.
+  function mauNhan(n) { return n === "✓" ? "#15803D" : n === "✗" ? "#BE123C" : "#0F172A"; }
   function veCo(x, dat, cao, mau, rong) {
     ctx.fillStyle = "#475569"; ctx.fillRect(x, dat - cao, 4, cao);
     ctx.fillStyle = mau; ctx.beginPath(); ctx.moveTo(x + 4, dat - cao); ctx.lineTo(x + 4 + rong, dat - cao + rong * 0.35); ctx.lineTo(x + 4, dat - cao + rong * 0.7); ctx.fill();
