@@ -304,11 +304,14 @@ def nut_nen_tang(k, p, cls="nt"):
     return (f'<a class="{cls} nt-{k}" href="{esc(kenh[k])}" target="_blank" rel="noopener" aria-label="{nhan}" title="{ten}">'
             f'<svg aria-hidden="true"><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></a>')
 
+FANPAGE_VTK = "https://www.facebook.com/markovutrukhac/"
+
 def footer(p, q=None):
     q = p if q is None else q
-    # Góc đọc sách ngoài AI (vu-tru-khac.html): nút tròn có logo biểu tượng "Mark ở vũ trụ khác" kèm chữ, đứng đầu hàng ngay trước YouTube, cách nhóm mạng xã hội một khoảng (Sang 13/10)
+    # Nút tròn có logo biểu tượng "Mark ở vũ trụ khác" kèm chữ, đứng đầu hàng ngay trước YouTube, cách nhóm mạng xã hội một khoảng (Sang 13/10).
+    # Từ 13/10 nút dẫn tới fanpage Facebook của góc, mở tab mới như các nút mạng xã hội; góc trên web vẫn vào từ nút ở đầu trang và Bit gợi ý.
     ten_vtk = t("Vũ Trụ Khác", "Another Universe")
-    links = (f'\n      <a class="vtk-nut" href="{q}vu-tru-khac.html"><span class="nt nt-vtk" aria-hidden="true">'
+    links = (f'\n      <a class="vtk-nut" href="{esc(FANPAGE_VTK)}" target="_blank" rel="noopener" title="{t("Mark ở vũ trụ khác trên Facebook", "Mark ở vũ trụ khác on Facebook")}"><span class="nt nt-vtk" aria-hidden="true">'
              f'<img src="{p}assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>{ten_vtk}</a>')
     links += "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
