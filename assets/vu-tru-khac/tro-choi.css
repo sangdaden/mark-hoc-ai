@@ -5,6 +5,8 @@
 :root[data-theme="dark"] { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD; }
 
 .tc-khoi { display: flex; flex-direction: column; gap: 12px; }
+/* Thuộc tính hidden phải thắng mọi lớp có display (tc-hang, tc-phu...), nếu không phần che/hỏi không bao giờ ẩn. */
+.tc-khoi [hidden] { display: none !important; }
 .tc-khoi > * { margin: 0; min-width: 0; }
 .tc-khoi h2 { margin: 0; }
 .tc-muc { font: 600 .74rem/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); }
@@ -13,9 +15,14 @@
 .tc-hang { display: flex; flex-wrap: wrap; gap: 10px; }
 .tc-nut { font: 600 .95rem/1.2 var(--font-body, system-ui, sans-serif); padding: 10px 18px; border-radius: 10px; cursor: pointer;
   border: 1.5px solid var(--ink); background: transparent; color: var(--ink); }
-.tc-nut.tc-chinh { background: var(--vtk-nhan, #FBBF24); border-color: var(--vtk-nhan, #FBBF24); color: #0F172A; }
+/* Nút chính dùng màu cam chung (--cam, như thanh trượt), không dùng --vtk-nhan vì nhiều bài để màu nhạt gần xám, trông như nút bị khóa. */
+.tc-nut.tc-chinh { background: var(--cam, #EA580C); border-color: var(--cam, #EA580C); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; } }
+:root[data-theme="dark"] .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; }
+.tc-nut.tc-chinh:not(:disabled):hover { filter: brightness(1.08); }
 .tc-nut.tc-da-chon { outline: 2px solid var(--cam); outline-offset: 2px; }
 .tc-nut:disabled { cursor: default; opacity: .55; }
+.tc-nut.tc-chinh:disabled { background: var(--rule); border-color: var(--rule); color: var(--muted); opacity: 1; }
 .tc-nut.tc-da-chon:disabled { opacity: 1; }
 .tc-nut:focus-visible, .tc-the:focus-visible, .tc-o-ngan:focus-visible, .tc-buoc:focus-visible, .tc-o-may:focus-visible, .tc-dong-tl:focus-visible, .tc-chu:focus-visible { outline: 3px solid var(--tc-lanh); outline-offset: 2px; }
 .tc-dap { background: var(--grid); border-left: 4px solid var(--vtk-nhan, #FBBF24); border-radius: 10px; padding: 10px 14px; }
@@ -93,7 +100,7 @@
 .tc-bang-nhan { display: flex; justify-content: space-between; gap: 8px; font: 500 .72rem var(--font-mono, ui-monospace, monospace); color: var(--muted); }
 .tc-chat { display: flex; flex-direction: column; gap: 6px; min-height: 60px; }
 .tc-chat p { margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--grid); font-size: .93rem; max-width: 34rem; }
-.tc-chat .tc-sep { border-left: 3px solid var(--muted); } .tc-chat .tc-nguoi { border-left: 3px solid var(--tc-sai); }
+.tc-chat .tc-sep { border-left: 3px solid var(--muted); } .tc-chat .tc-nguoi-hoc { border-left: 3px solid var(--tc-sai); }
 /* Xếp thứ tự */
 .tc-thu-tu { display: flex; flex-direction: column; gap: 8px; }
 .tc-buoc { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; text-align: left; font: 500 .95rem/1.4 var(--font-body, system-ui, sans-serif);
