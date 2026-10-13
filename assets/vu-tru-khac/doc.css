@@ -170,26 +170,16 @@ html[lang="en"] .toc::before { content: "In this article"; }
 .vtk-xem-hinh .khung { flex: 1; overflow: auto; padding: 16px; touch-action: pan-x pan-y pinch-zoom; }
 .vtk-xem-hinh .khung svg { display: block; height: auto; max-width: none; margin: 0 auto; }
 
-/* Nền hai bên trang đọc trên máy tính (Sang 13/10: lề phải và chỗ dưới mục lục còn trống): hình bìa tự vẽ của từng bài
-   (assets/vu-tru-khac/bia/<slug>.svg, script chèn vào .vtk-nen), vẽ mờ như hình chìm. Nét kem của hình (vẽ cho nền tối)
-   đổi theo màu chữ của nền: màu bìa đậm khi sáng, kem khi tối. Điện thoại và màn hẹp ẩn đi. */
-.vtk-nen { display: none; pointer-events: none; color: var(--bia-1, #0F172A); }
+/* Nền hai bên trang đọc trên máy tính (Sang 13/10: lề phải và chỗ dưới mục lục còn trống; một hình to "không đẹp lắm"):
+   doc.js rải nhiều bản nhỏ của hình bìa tự vẽ (assets/vu-tru-khac/bia/<slug>.svg) ở hai lề, nằm dưới nội dung.
+   Nét kem của hình (vẽ cho nền tối) đổi theo màu chữ của nền: màu bìa đậm khi sáng, kem khi tối. Điện thoại ẩn đi. */
+.vtk-nen { position: absolute; top: 0; left: 0; z-index: -1; overflow: hidden; pointer-events: none; color: var(--bia-1, #0F172A); }
 :root[data-theme="dark"] .vtk-nen { color: #FFF7ED; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vtk-nen { color: #FFF7ED; } }
+.vtk-nen > span { position: absolute; display: block; }
 .vtk-nen svg { display: block; width: 100%; height: auto; overflow: visible; }
 .vtk-nen [stroke="#FFF7ED"] { stroke: currentColor; }
 .vtk-nen [fill="#FFF7ED"] { fill: currentColor; }
-@media (min-width: 1000px) {
-  .wrap { position: relative; }
-  /* Dưới mục lục: dính theo mục lục khi cuộn */
-  .toc .vtk-nen-trai { display: block; position: absolute; top: 100%; left: 50%; width: 72%; margin-top: 36px; transform: translateX(-50%) rotate(-6deg); opacity: .2; }
-  .toc .vtk-nen-trai::before { content: ""; position: absolute; inset: -14%; border: 2px dashed currentColor; border-radius: 50%; opacity: .7; }
-}
-/* Lề phải: chỉ khi lề đủ rộng (từ khoảng 1440px), hình to dính giữa lề khi cuộn, có quỹ đạo nét đứt và vài ngôi sao */
-@media (min-width: 1440px) {
-  .vtk-nen-phai { display: block; position: absolute; grid-column: 2; grid-row: 2 / 99; left: 100%; top: 0; bottom: 0; width: calc(50vw - 36rem - 8px); }
-  .vtk-nen-phai > div { position: sticky; top: calc(var(--thanh-cao) + 48px); width: min(58%, 220px); margin: 56px auto 0; aspect-ratio: 1; opacity: .24; transform: rotate(6deg); }
-  .vtk-nen-phai > div::before { content: ""; position: absolute; inset: -18%; border: 2px dashed currentColor; border-radius: 50%; opacity: .7; }
-  .vtk-nen-phai > div::after { content: ""; position: absolute; top: -26%; right: -8%; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--bia-nhan, #FBBF24); box-shadow: -50px 230px 0 -5px var(--bia-nhan, #FBBF24), 6px 170px 0 -6px currentColor, -80px 30px 0 -6px currentColor; }
-}
+.vtk-nen .sao { border-radius: 50%; background: var(--bia-nhan, #FBBF24); }
+.vtk-nen .noi { position: absolute; inset: 0; width: 100%; height: 100%; }
+@media (max-width: 999px) { .vtk-nen { display: none; } }

@@ -163,16 +163,12 @@ body {{ margin: 0; }}
 
 def chen_nen(bai, b):
     """Nền trang đọc trên máy tính (Sang 13/10: hai bên trang đọc còn trống): hình bìa tự vẽ assets/vu-tru-khac/bia/<slug>.svg
-    (cùng hình trên thẻ ở trang góc) đặt mờ ở lề phải và dưới mục lục, nét kem đổi theo màu chữ (doc.css .vtk-nen).
-    Hình lề phải nằm trong .wrap, hình dưới mục lục nằm trong .toc để dính theo mục lục; bản thứ hai đổi id cho khỏi trùng."""
+    (cùng hình trên thẻ ở trang góc) làm mẫu trong <template>; doc.js rải nhiều bản nhỏ ở lề trái và lề phải (doc.css .vtk-nen)."""
     tep = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
     if not tep.exists():
         return bai
     hinh = re.sub(r"<svg\b", '<svg aria-hidden="true" focusable="false"', tep.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', ""), count=1)
-    ban_2 = re.sub(r'(id="|url\(#|href="#)([\w-]+)', r"\1\2-t", hinh)
-    bai = re.sub(r'(<div class="wrap">)', lambda m: m.group(1) + f'\n<div class="vtk-nen vtk-nen-phai" aria-hidden="true"><div>{hinh}</div></div>', bai, count=1)
-    return re.sub(r'(<nav class="toc"[^>]*>.*?)(</nav>)', lambda m: m.group(1) + f'<span class="vtk-nen vtk-nen-trai" aria-hidden="true">{ban_2}</span>' + m.group(2),
-                  bai, count=1, flags=re.S)
+    return re.sub(r'(<div class="wrap">)', lambda m: m.group(1) + f'\n<template id="vtk-nen-mau">{hinh}</template>', bai, count=1)
 
 
 def tro_choi(b, p):
