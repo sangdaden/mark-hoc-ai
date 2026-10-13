@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thảm họa Fukushima Daiichi (TEPCO · Fukushima Daiichi): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="TEPCO đã tự tính ra con sóng 15,7 m từ năm 2008, vì sao bức tường vẫn chỉ tính cho 5,7 m? Mổ xẻ từ báo cáo Ủy ban Quốc hội Nhật, IAEA và UNSCEAR, tách bạch ba loại cái chết và kiểm chứng 13 lời đồn.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-fukushima.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thảm họa Fukushima Daiichi (TEPCO · Fukushima Daiichi): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="TEPCO đã tự tính ra con sóng 15,7 m từ năm 2008, vì sao bức tường vẫn chỉ tính cho 5,7 m? Mổ xẻ từ báo cáo Ủy ban Quốc hội Nhật, IAEA và UNSCEAR, tách bạch ba loại cái chết và kiểm chứng 13 lời đồn.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/tham-hoa-fukushima.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body header { --bia-1: #0B1A20; --bia-2: #0E5568; --bia-nhan: #FACC15; }
+:root { --vtk-nhan: #FACC15; }
+body header { --ho-so: "Hồ sơ vụ việc"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/tham-hoa-fukushima.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Giải phẫu thảm họa": Fukushima Daiichi, --night = sea teal (the tsunami), --day = radiation amber (the warning sign). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0e7490;
+  --day: #a16207;
+  --rem: #6d28d9;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #22d3ee; --day: #facc15; --rem: #c4b5fd; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #22d3ee; --day: #facc15; --rem: #c4b5fd; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Giải phẫu thảm họa · Hạt nhân · Quản trị rủi ro</span>
+  <h1>Thảm họa Fukushima Daiichi</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một con sóng, một dấu cảnh báo phóng xạ, và độ cao 15,7 mét">
+    <path d="M4 40c10 0 12-24 30-24 10 0 14 8 10 14-4-6-12-4-12 4 0 4 4 6 8 6z" fill="#0e7490"/>
+    <text x="56" y="32" font-family="monospace" font-size="15" fill="#8a94a6">15,7 m</text>
+    <g transform="translate(150 26)" fill="#a16207"><circle r="3"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z" transform="rotate(120)"/><path d="M0 -5 L-8 -15 A17 17 0 0 1 8 -15 Z" transform="rotate(240)"/></g>
+    <text x="180" y="32" font-family="monospace" font-size="15" fill="#8a94a6">11/3/2011</text>
+  </svg>
+  <p class="sub">11/3/2011 · Nhà máy điện hạt nhân Fukushima Daiichi, tỉnh Fukushima, Nhật Bản</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>sóng thần làm mất điện toàn bộ, 3 lò phản ứng tan chảy</b></div>
+    <div><span class="label">Thiệt hại</span><b>khoảng 150.000 người phải sơ tán, cấp độ 7 (cao nhất)</b></div>
+    <div><span class="label">Nguyên nhân gốc</span><b>cảnh báo sóng thần cao bị gác lại, cơ quan quản lý bị "bắt giữ"</b></div>
+    <div><span class="label">Nguồn chính</span><b>Báo cáo Ủy ban điều tra của Quốc hội Nhật (NAIIC), 7/2012; báo cáo IAEA, 2015</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Chuyện gì xảy ra</a><a href="#khai-niem">Vì sao</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 22c5 0 6-10 13-10 5 0 7 4 5 7-2-3-6-2-6 2 0 2 2 3 4 3"/><path d="M3 27h26"/></svg><b>Sóng cao hơn tường</b><span>Nhà máy tính sóng thần tối đa 5,7 m. Sóng thật cao khoảng 13–15 m.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V8h20"/><path d="M10 22l5-5 4 3 7-8"/></svg><b>Con số 15,7 m từ 2008</b><span>Chính TEPCO đã tính ra mức sóng này 3 năm trước, rồi gửi đi "nghiên cứu thêm".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="6" width="18" height="22" rx="2"/><path d="M12 13h8M12 18h8M12 23h4"/></svg><b>Người bị quản lý cầm bút</b><span>Ủy ban Quốc hội gọi đây là "bắt giữ quản lý": nhà điều hành dẫn dắt cơ quan giám sát mình.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5"/></svg><b>Ba loại cái chết</b><span>Sóng thần giết gần 16.000 người. Sơ tán và đời sống lánh nạn kéo theo hơn 2.000 ca. Nhiễm xạ cấp tính: 0.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>"Không thể nghĩ tới"</b><span>IAEA: cả hệ thống tin rằng tai nạn cỡ này là chuyện không thể xảy ra, nên không chuẩn bị.</span></div>
+  </div>
+  <p class="nguon">Nguồn: NAIIC (2012), tr. 16 và 20; TEPCO (24/4/2012, phép tính 15,7 m); TEPCO (8/7/2011, sóng khoảng 13 m); World Nuclear Association (sóng khoảng 15 m); Cục Cảnh sát Quốc gia Nhật (3/2026); Cơ quan Tái thiết Nhật (số liệu đến 31/12/2025); IAEA, báo cáo Tổng giám đốc (2015).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của vụ án</h2></div>
+  <p class="thesis">Một công ty điện lớn đã tự tính ra con sóng đủ cao để nhấn chìm nhà máy, ba năm trước khi nó đến. Vì sao con số đó nằm yên trong ngăn kéo? Vì một cảnh báo đắt tiền rất dễ bị gọi là "chỉ là một ước tính".</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">2002–2011</span><b>Có cảnh báo</b><span>Dự báo động đất M8 dọc bờ biển. TEPCO tính ra sóng 15,7 m. Không xây gì thêm.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">11/3/2011</span><b>Mất điện toàn bộ</b><span>Động đất M9, rồi sóng thần tràn qua mặt bằng 10 m. Máy phát dự phòng ngập nước.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">12–15/3/2011</span><b>Tan chảy và sơ tán</b><span>Ba lò tan chảy, ba tòa nhà nổ khí hydro. Vùng sơ tán nới từ 2 km lên 20 km.</span></div>
+  </div>
+  <p class="nguon">Nguồn: TEPCO (24/4/2012); World Nuclear Association (mốc thời gian, dựa trên NAIIC).</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Chuyện gì đã xảy ra</h2><p class="lead">Một hình nói gần hết câu chuyện: con sóng đã được tính, nhưng bức tường thì không được nâng.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 250" role="img" aria-labelledby="th">
+        <title id="th">So sánh độ cao, đơn vị mét trên mực nước biển. Sóng thần thiết kế ban đầu: 3,1 m. Sau khi tính lại năm 2002: 5,7 m. Mặt bằng đặt các tòa lò phản ứng 1 đến 4: 10 m. Sóng thần ngày 11/3/2011: khoảng 13 đến 15 m. Phép tính thử của TEPCO năm 2008: 15,7 m.</title>
+        <line x1="60" y1="200" x2="700" y2="200" class="axis"/>
+        <line x1="60" y1="150" x2="700" y2="150" class="gridl"/><text x="52" y="154" text-anchor="end">5 m</text>
+        <line x1="60" y1="100" x2="700" y2="100" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="6 4"/><text x="52" y="104" text-anchor="end" class="t-ink t-bold">10 m</text>
+        <line x1="60" y1="50" x2="700" y2="50" class="gridl"/><text x="52" y="54" text-anchor="end">15 m</text>
+        <text x="52" y="204" text-anchor="end">0</text>
+        <g text-anchor="middle">
+          <rect x="85" y="169" width="90" height="31" fill="var(--muted)" fill-opacity=".45"/><text x="130" y="161" class="t-ink t-bold">3,1 m</text><text x="130" y="220">thiết kế gốc</text><text x="130" y="234">(sóng Chile 1960)</text>
+          <rect x="205" y="143" width="90" height="57" fill="var(--muted)" fill-opacity=".65"/><text x="250" y="135" class="t-ink t-bold">5,7 m</text><text x="250" y="220">tính lại 2002</text>
+          <rect x="325" y="100" width="90" height="100" fill="var(--rule)"/><text x="370" y="92" class="t-ink t-bold">10 m</text><text x="370" y="220">mặt bằng nhà máy</text><text x="370" y="234">(tòa lò 1–4)</text>
+          <rect x="445" y="70" width="90" height="130" fill="var(--night)" fill-opacity=".85"/><rect x="445" y="50" width="90" height="20" fill="var(--night)" fill-opacity=".35"/><text x="490" y="42" class="t-night t-bold">~13–15 m</text><text x="490" y="220">sóng 11/3/2011</text>
+          <rect x="565" y="43" width="90" height="157" fill="none" stroke="var(--day)" stroke-width="3" stroke-dasharray="6 4"/><text x="610" y="34" class="t-day t-bold">15,7 m</text><text x="610" y="220">TEPCO tự tính</text><text x="610" y="234">năm 2008</text>
+        </g>
+        <text x="66" y="92" class="t-ink">nước vượt mặt bằng 10 m → ngập tầng dưới</text>
+      </svg>
+    </div>
+    <figcaption><b>Cột thứ năm là cột đau nhất.</b> Mức sóng thiết kế được tính lại năm 2002 vẫn chỉ 5,7 m. Năm 2008 TEPCO chạy thử một mô hình nguồn sóng ngoài khơi Fukushima và ra 15,7 m, nhưng không dùng con số đó. Các nguồn ghi độ cao sóng thật hơi khác nhau: TEPCO đo khoảng 13 m ở trạm triều, WNA ghi khoảng 15 m khi lên bờ.<span class="nguon">Nguồn: IAEA, Tập kỹ thuật 2 (2015), tr. 5–6, 26, 30 (mặt bằng 10 m, thiết kế 3,1 m và 5,7 m); TEPCO (24/4/2012, phép tính 15,7 m); TEPCO (8/7/2011, ~13 m); World Nuclear Association (~15 m).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>11/3/2011, 14:46 · Động đất M9,0</b><span>Ba lò đang chạy (1, 2, 3) tự động dừng. Nhưng lò đã dừng vẫn sinh nhiệt, vẫn phải được làm mát.</span></div>
+    <div class="hot"><b>Khoảng 15:42 · Mất điện toàn bộ</b><span>Sóng thần tràn qua mặt bằng. Gần một giờ sau động đất, nhà máy mất điện: 12 trong 13 máy phát dự phòng hỏng, tủ điện và ắc quy ngập nước.</span></div>
+    <div class="hot"><b>12/3, 15:36 · Nổ ở tòa lò 1</b><span>Khí hydro sinh ra khi nhiên liệu quá nóng, rò ra tòa nhà, gặp không khí và bùng nổ. Không phải nổ hạt nhân.</span></div>
+    <div class="hot"><b>14/3, khoảng 11:00 · Nổ ở tòa lò 3</b><span>Một vụ nổ hydro còn lớn hơn.</span></div>
+    <div class="hot"><b>15/3, khoảng 6:00 · Nổ ở tòa lò 4</b><span>Lò 4 không chạy lúc động đất, nhưng vụ nổ vẫn phá tung phần trên tòa nhà.</span></div>
+    <div><b>Khoảng 1 tháng sau · Cấp độ 7</b><span>Mức cao nhất của thang sự cố hạt nhân quốc tế INES, bằng Chernobyl về cấp độ. Ban đầu Nhật xếp cấp 5.</span></div>
+  </div>
+  <p class="nguon">Nguồn: World Nuclear Association, "Fukushima Daiichi Accident" (giờ động đất, mất điện, 12/13 máy phát, các vụ nổ, cấp INES); NAIIC (2012), tr. 16. WNA là nguồn thứ cấp của ngành hạt nhân; các mốc này khớp với báo cáo IAEA.</p>
+
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 260" role="img" aria-labelledby="ev">
+        <title id="ev">Các vòng sơ tán mở rộng trong 24 giờ. 20:50 ngày 11/3: bán kính 2 km. 21:23: 3 km. 5:44 sáng 12/3: 10 km. 18:25 ngày 12/3: 20 km. Ngày 15/3: vùng 20 đến 30 km được yêu cầu ở trong nhà. Khoảng 150.000 người đã sơ tán.</title>
+        <g fill="none">
+          <circle cx="170" cy="130" r="120" stroke="var(--day)" stroke-width="2" stroke-dasharray="5 4"/>
+          <circle cx="170" cy="130" r="80" stroke="var(--day)" stroke-width="3" fill="var(--day)" fill-opacity=".08"/>
+          <circle cx="170" cy="130" r="40" stroke="var(--day)" stroke-width="3" fill="var(--day)" fill-opacity=".1"/>
+          <circle cx="170" cy="130" r="12" stroke="var(--day)" stroke-width="3"/>
+          <circle cx="170" cy="130" r="8" stroke="var(--day)" stroke-width="3"/>
+        </g>
+        <circle cx="170" cy="130" r="4" fill="var(--bad)"/>
+        <text x="170" y="22" text-anchor="middle" class="t-day">30 km</text><text x="170" y="62" text-anchor="middle" class="t-day t-bold">20 km</text><text x="170" y="102" text-anchor="middle" class="t-day">10 km</text>
+        <g>
+          <text x="340" y="40" class="t-ink t-bold">11/3 · 20:50</text><text x="460" y="40">sơ tán 2 km (tỉnh ra lệnh)</text>
+          <text x="340" y="70" class="t-ink t-bold">11/3 · 21:23</text><text x="460" y="70">sơ tán 3 km (chính phủ)</text>
+          <text x="340" y="100" class="t-ink t-bold">12/3 · 05:44</text><text x="460" y="100">sơ tán 10 km</text>
+          <text x="340" y="130" class="t-day t-bold">12/3 · 18:25</text><text x="460" y="130" class="t-day t-bold">sơ tán 20 km</text>
+          <text x="340" y="160" class="t-ink t-bold">15/3</text><text x="460" y="160">20–30 km: ở trong nhà</text>
+          <text x="340" y="206" class="t-ink t-bold">~150.000 người sơ tán</text>
+          <text x="340" y="226">mỗi lần vùng nới rộng, dân lại phải chuyển chỗ</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Bốn lệnh sơ tán trong chưa đầy 24 giờ.</b> Ủy ban Quốc hội viết nhiều người dân "phải chạy chỉ với những thứ tối thiểu và bị buộc chuyển chỗ nhiều lần". Ở các bệnh viện và viện dưỡng lão trong vùng 20 km, "60 bệnh nhân đã chết trong tháng Ba vì biến chứng liên quan đến cuộc sơ tán".<span class="nguon">Nguồn: NAIIC (2012), tr. 19 và 38 (150.000 người, trích dẫn, 60 bệnh nhân); giờ các lệnh sơ tán: World Nuclear Association, dẫn theo NAIIC. IAEA (2015) ghi "hơn 100.000 người".</span></figcaption>
+  </figure>
+
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="dc">
+        <title id="dc">Ba con số tử vong cần tách bạch. Động đất và sóng thần trên toàn Nhật Bản: 15.901 người chết và 2.519 người mất tích. Tử vong liên quan đến thảm họa ở tỉnh Fukushima, gồm cả do sơ tán và đời sống lánh nạn: 2.350 người. Chết vì hội chứng nhiễm xạ cấp tính: 0.</title>
+        <text x="200" y="40" text-anchor="end" class="t-ink">động đất + sóng thần</text><text x="200" y="54" text-anchor="end">toàn Nhật Bản</text>
+        <rect x="210" y="28" width="462" height="26" fill="var(--night)" fill-opacity=".85"/><text x="666" y="46" text-anchor="end" style="fill:var(--paper)" class="t-bold">15.901 chết · 2.519 mất tích</text>
+        <text x="200" y="100" text-anchor="end" class="t-ink">tử vong liên quan thảm họa</text><text x="200" y="114" text-anchor="end">tỉnh Fukushima</text>
+        <rect x="210" y="88" width="68" height="26" fill="var(--day)" fill-opacity=".85"/><text x="286" y="106" class="t-day t-bold">2.350</text>
+        <text x="200" y="160" text-anchor="end" class="t-ink">nhiễm xạ cấp tính</text><text x="200" y="174" text-anchor="end">công nhân và dân</text>
+        <line x1="210" y1="148" x2="210" y2="174" stroke="var(--ink)" stroke-width="2"/><text x="220" y="166" class="t-ink t-bold">0</text>
+      </svg>
+    </div>
+    <figcaption><b>Đừng cộng ba con số này lại với nhau.</b> Gần 16.000 người chết vì động đất và sóng thần, không phải vì nhà máy. 2.350 là "tử vong liên quan thảm họa" ở Fukushima: người chết vì kiệt sức, bệnh nặng thêm khi sơ tán và sống lánh nạn. Con số này gồm cả hệ lụy chung của động đất, nhưng cao gấp hơn hai lần Miyagi (932) dù Miyagi chịu sóng thần nặng hơn nhiều. Không ai chết vì nhiễm xạ cấp tính.<span class="nguon">Nguồn: Cục Cảnh sát Quốc gia Nhật, số liệu công bố 9/3/2026 (qua Jiji); Cơ quan Tái thiết Nhật, tử vong liên quan thảm họa tính đến 31/12/2025; IAEA (2015), tr. 16 và UNSCEAR (2013) về nhiễm xạ cấp tính.</span></figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">M9,0</span><span class="chip">13–15 m</span><span class="chip">mất điện toàn bộ</span><span class="chip">ba loại cái chết</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">đồi bị hạ thấp</span><span class="chip">15,7 m</span><span class="chip">bắt giữ quản lý</span><span class="chip">"Made in Japan"</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">cảnh báo đắt tiền</span><span class="chip">người kiểm tra độc lập</span><span class="chip">kế hoạch cho điều "không thể"</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Vì sao: năm lớp nguyên nhân</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp địa hình: nhà máy được hạ thấp xuống gần biển</h3><span class="en">site grade · 10 m</span><span class="pg">IAEA, Tập kỹ thuật 2, tr. 5–7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="dh">
+          <title id="dh">Mặt cắt địa hình, không theo tỷ lệ chính xác. Mặt đất tự nhiên ở khu nhà máy cao khoảng 30 đến 35 m. TEPCO đào xuống, đặt các tòa lò phản ứng 1 đến 4 ở cao độ 10 m. Bơm nước biển đặt sát mép nước, khoảng 4 m. Sóng thần 13 đến 15 m tràn qua mặt bằng 10 m.</title>
+          <rect x="0" y="200" width="250" height="40" fill="var(--night)" fill-opacity=".25"/>
+          <text x="20" y="225" class="t-night">biển</text>
+          <path d="M260 60 H560" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+          <text x="410" y="50" text-anchor="middle" class="t-ink">mặt đất tự nhiên ~30–35 m (đã đào đi)</text>
+          <polygon points="250,240 250,184 300,184 300,160 580,160 640,60 720,60 720,240" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="255" y="172" width="34" height="12" fill="var(--ink)"/><text x="272" y="232" text-anchor="middle">bơm ~4 m</text>
+          <rect x="360" y="108" width="110" height="52" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/><text x="415" y="138" text-anchor="middle" class="t-ink t-bold">tòa lò 1–4</text>
+          <rect x="250" y="140" width="290" height="20" fill="var(--night)" fill-opacity=".45"/>
+          <path d="M0 200 C80 200 120 130 210 128 C240 128 250 140 250 140" fill="var(--night)" fill-opacity=".55"/>
+          <text x="80" y="120" class="t-night t-bold">sóng ~13–15 m</text>
+          <text x="590" y="182" class="t-ink t-bold">mặt bằng 10 m</text>
+          <line x1="580" y1="160" x2="580" y2="170" class="axis"/>
+        </svg>
+      </div>
+      <figcaption><b>Một quyết định từ thập niên 1960.</b> IAEA ghi: mặt đất tự nhiên cao khoảng 30–35 m, nhưng "TEPCO quyết định xây nhà máy ở cao độ 10 m, tức gần mực nước biển hơn nhiều". IAEA gọi hệ quả là một khu đất "được coi là khô trong thiết kế ban đầu đã trở thành khu đất ướt".<span class="nguon">Nguồn: IAEA, The Fukushima Daiichi Accident, Tập kỹ thuật 2 (2015), tr. 5–7; bơm nước biển ~4 m: World Nuclear Association.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp cảnh báo: con số 15,7 m nằm trong ngăn kéo</h3><span class="en">ignored estimate</span><span class="pg">TEPCO 2012; NAIIC tr. 16, 27</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="cw">
+          <title id="cw">Bậc thang cảnh báo. 7/2002: cơ quan nghiên cứu động đất của chính phủ nói động đất M8 có thể xảy ra ở bất cứ đâu dọc rãnh từ Sanriku đến Boso. 2006: TEPCO và cơ quan quản lý biết sóng tới mặt bằng sẽ gây mất điện toàn bộ. 2007: hội đồng phòng chống thiên tai quyết định không tính động đất M8 ngoài khơi Fukushima. 6/2008: nhóm của TEPCO báo cáo sóng tối đa 15,7 m. 7/2008: lãnh đạo không áp dụng con số này. 2009: TEPCO tự dời hạn kiểm tra chống động đất sang 2016. 7/3/2011: TEPCO báo cơ quan quản lý bằng văn bản rằng sóng có thể vượt 10 m.</title>
+          <g fill="var(--day)">
+            <rect x="30" y="170" width="90" height="20" fill-opacity=".15"/><rect x="125" y="150" width="90" height="40" fill-opacity=".25"/><rect x="220" y="130" width="90" height="60" fill-opacity=".35"/><rect x="315" y="110" width="90" height="80" fill-opacity=".45"/><rect x="410" y="90" width="90" height="100" fill-opacity=".55"/><rect x="505" y="70" width="90" height="120" fill-opacity=".7"/><rect x="600" y="40" width="90" height="150" fill-opacity=".9"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="75" y="160" class="t-ink t-bold">7/2002</text><text x="75" y="206">"M8 khắp rãnh"</text>
+            <text x="170" y="140" class="t-ink t-bold">2006</text><text x="170" y="222">biết rủi ro mất điện</text>
+            <text x="265" y="120" class="t-ink t-bold">2007</text><text x="265" y="206">"không cần tính"</text>
+            <text x="360" y="100" class="t-ink t-bold">6/2008</text><text x="360" y="222">tính ra 15,7 m</text>
+            <text x="455" y="80" class="t-ink t-bold">7/2008</text><text x="455" y="206">không áp dụng</text>
+            <text x="550" y="60" class="t-ink t-bold">2009</text><text x="550" y="222">dời hạn sang 2016</text>
+            <text x="645" y="30" class="t-day t-bold">7/3/2011</text><text x="645" y="206">báo cơ quan QL</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Không ai giấu con số.</b> TEPCO tự công bố phép tính 15,7 m năm 2012, kèm lời giải thích rằng "độ tin cậy của mô hình nguồn sóng này còn bị nghi vấn". Ủy ban Quốc hội viết: từ năm 2006, cơ quan quản lý và TEPCO "đã biết nguy cơ mất điện toàn bộ" nếu sóng tới mặt bằng nhà máy, và cơ quan quản lý biết TEPCO chưa chuẩn bị biện pháp nào. Bốn ngày trước thảm họa, TEPCO mới gửi văn bản báo sóng có thể vượt 10 m.<span class="nguon">Nguồn: TEPCO, 24/4/2012 (HERP 2002, phép tính 15,7 m); IAEA, Tập kỹ thuật 2, tr. 38–39 (quyết định 2007); NAIIC (2012), tr. 16 và 27; lời khai tại phiên tòa hình sự 10/4/2018 (Asahi) và 19/10/2018 (Mainichi), nguồn thứ cấp, về tháng 6 và 7/2008 và việc nhờ chuyên gia đánh giá lại; văn bản 7/3/2011: Asahi (8/2011, nguồn thứ cấp) dẫn lời cơ quan an toàn hạt nhân NISA.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp quản lý: người bị giám sát dẫn đường cho người giám sát</h3><span class="en">regulatory capture</span><span class="pg">NAIIC tr. 9, 20</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="rc">
+          <title id="rc">Trước 2011: cùng một bộ máy nhà nước vừa thúc đẩy điện hạt nhân vừa quản lý an toàn. Cơ quan quản lý thiếu chuyên môn nên dựa vào nhà điều hành, gọi là bắt giữ quản lý. Sau 2012: Nhật lập Cơ quan Quản lý Hạt nhân NRA mới, tách chức năng thúc đẩy và quản lý.</title>
+          <rect x="20" y="20" width="320" height="160" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="36" y="46" class="t-ink t-bold">Trước 2011</text>
+          <rect x="40" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="105" y="84" text-anchor="middle" class="t-ink">thúc đẩy</text><text x="105" y="100" text-anchor="middle" class="t-ink">điện hạt nhân</text>
+          <rect x="190" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="255" y="84" text-anchor="middle" class="t-ink">quản lý</text><text x="255" y="100" text-anchor="middle" class="t-ink">an toàn</text>
+          <text x="180" y="134" text-anchor="middle" class="t-bold" style="fill:var(--bad)">cùng một bộ máy</text>
+          <text x="180" y="158" text-anchor="middle">nhà điều hành biết nhiều hơn người kiểm tra</text>
+          <rect x="380" y="20" width="320" height="160" rx="8" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="396" y="46" class="t-ink t-bold">Từ 19/9/2012</text>
+          <rect x="400" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="465" y="84" text-anchor="middle" class="t-ink">thúc đẩy</text><text x="465" y="100" text-anchor="middle" class="t-ink">(bộ ngành)</text>
+          <rect x="550" y="62" width="130" height="50" rx="6" fill="var(--paper)" stroke="var(--ok)" stroke-width="2"/><text x="615" y="84" text-anchor="middle" class="t-ink">NRA</text><text x="615" y="100" text-anchor="middle" class="t-ink">quản lý riêng</text>
+          <text x="540" y="140" text-anchor="middle" class="t-ok t-bold">tách hai chức năng</text>
+        </svg>
+      </div>
+      <figcaption><b>"Việc quản lý được giao cho chính bộ máy chịu trách nhiệm thúc đẩy nó."</b> Ủy ban Quốc hội kết luận sự thiếu chuyên môn đã dẫn tới "bắt giữ quản lý", và sự độc lập của cơ quan quản lý là "một trò hề". Một ví dụ: hạn hoàn thành kiểm tra chống động đất là 6/2009; TEPCO "tự quyết định nội bộ và đơn phương" dời sang 1/2016, và cơ quan quản lý không theo dõi.<span class="nguon">Nguồn: NAIIC (2012), tr. 9, 20 và 27; Cơ quan Quản lý Hạt nhân Nhật (NRA), báo cáo thường niên, ngày thành lập 19/9/2012.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp niềm tin: "đơn giản là không thể nghĩ tới"</h3><span class="en">safety myth</span><span class="pg">IAEA 2015, lời nói đầu</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="on">
+          <title id="on">So sánh hai nhà máy cùng bờ biển. Onagawa của Tohoku Electric, gần tâm chấn hơn: tòa lò ở 14,7 m, sóng 14,3 m, nhà máy dừng an toàn. Fukushima Daiichi của TEPCO: tòa lò ở 10 m, sóng 13,1 m, ba lò tan chảy.</title>
+          <line x1="40" y1="180" x2="700" y2="180" class="axis"/>
+          <g text-anchor="middle">
+            <rect x="80" y="33" width="90" height="147" fill="var(--rule)"/><text x="125" y="25" class="t-ink t-bold">14,7 m</text><text x="125" y="196">mặt bằng</text>
+            <rect x="180" y="37" width="90" height="143" fill="var(--night)" fill-opacity=".8"/><text x="225" y="29" class="t-night t-bold">14,3 m</text><text x="225" y="196">sóng</text>
+            <text x="175" y="214" class="t-ok t-bold">Onagawa · dừng an toàn</text>
+            <rect x="420" y="80" width="90" height="100" fill="var(--rule)"/><text x="465" y="72" class="t-ink t-bold">10 m</text><text x="465" y="196">mặt bằng</text>
+            <rect x="520" y="49" width="90" height="131" fill="var(--night)" fill-opacity=".8"/><text x="565" y="41" class="t-night t-bold">13,1 m</text><text x="565" y="196">sóng</text>
+            <text x="515" y="214" class="t-bold" style="fill:var(--bad)">Fukushima Daiichi · 3 lò tan chảy</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Cùng đất nước, cùng con sóng, khác kết quả.</b> Tổng giám đốc IAEA viết: một yếu tố chính là "giả định phổ biến ở Nhật rằng các nhà máy điện hạt nhân an toàn đến mức một tai nạn cỡ này đơn giản là không thể nghĩ tới". Giả định đó được nhà điều hành chấp nhận "và không bị cơ quan quản lý hay chính phủ thách thức". Nhà máy Onagawa, gần tâm chấn hơn, đứng cao hơn con sóng.<span class="nguon">Nguồn: IAEA, báo cáo của Tổng giám đốc (2015), lời nói đầu, trích theo World Nuclear News (2/9/2015); số liệu Onagawa: A. Ryu và N. Meshkati, Bulletin of the Atomic Scientists (10/3/2014), một phân tích độc lập.</span></figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Tin là an toàn</h3><span class="muted">Ủy ban Quốc hội: họ "đã cam kết chắc chắn với ý nghĩ rằng nhà máy hạt nhân là an toàn", nên chuẩn bị cho tai nạn nặng bị coi là thừa.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Cảnh báo đắt tiền</h3><span class="muted">Chấp nhận 15,7 m nghĩa là phải xây đê, chống ngập, xin phép. Bị cáo sau này gọi con số đó là "chỉ là một ước tính".</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hoãn thay vì từ chối</h3><span class="muted">Không ai nói "không". Cảnh báo được gửi đi nghiên cứu thêm, hạn được dời, cho đến khi sóng đến trước.</span></div>
+    </div>
+    <p class="nguon">Nguồn: NAIIC (2012), tr. 17 và 27; câu "chỉ là một ước tính": lời bào chữa tại phiên tòa hình sự, theo Asahi (4/2018, nguồn thứ cấp).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp ứng phó: khi mất điện, mọi kịch bản đều hết hiệu lực</h3><span class="en">station blackout</span><span class="pg">NAIIC tr. 16–18</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Không có kịch bản mất điện dài</h3><span class="muted">Ủy ban viết: với sự thiếu sót trong huấn luyện và chuẩn bị, một khi mất điện toàn bộ, kể cả nguồn điện một chiều, "không thể thay đổi diễn biến".</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Chuỗi chỉ huy rối</h3><span class="muted">Thủ tướng đích thân đến hiện trường để chỉ đạo công nhân. Ủy ban gọi đó là sự can thiệp trực tiếp làm rối chuỗi chỉ huy.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Dân không được báo kịp</h3><span class="muted">Ủy ban cho rằng sự hỗn loạn khi sơ tán bắt nguồn từ sự cẩu thả của cơ quan quản lý trong chuẩn bị ứng phó.</span></div>
+    </div>
+    <p class="nguon">Nguồn: NAIIC (2012), tr. 16–19; câu về mất điện trích theo World Nuclear News (5/7/2012).</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">13 điều hay được nói về Fukushima, đối chiếu với báo cáo gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="4 vững, 6 cần thận trọng, 3 sai">
+    <div class="o" style="flex:4">4 VỮNG</div><div class="w" style="flex:6">6 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Sóng thần vượt mức thiết kế làm nhà máy mất điện toàn bộ</span></summary><p class="note">Mức thiết kế 5,7 m, mặt bằng 10 m, sóng khoảng 13–15 m. IAEA: mực sóng "vượt xa các giả định về rủi ro". Ủy ban Quốc hội: mất điện toàn bộ là điểm không thể quay lại.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>TEPCO đã có ước tính sóng 15,7 m từ năm 2008</span></summary><p class="note">Chính TEPCO công bố phép tính này (24/4/2012), kèm lời bào chữa rằng mô hình nguồn sóng "còn bị nghi vấn". Lời khai tại tòa cho biết lãnh đạo quyết định không áp dụng vào tháng 7/2008.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Không ai chết vì hội chứng nhiễm xạ cấp tính</span></summary><p class="note">IAEA (2015): không quan sát thấy tác động sức khỏe sớm nào do phóng xạ gây ra ở công nhân hay dân chúng. Sáu công nhân nhận liều trên 250 mSv nhưng dưới ngưỡng gây bệnh phóng xạ (WNA).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chính cuộc sơ tán đã làm chết người</span></summary><p class="note">Ủy ban Quốc hội: 60 bệnh nhân ở bệnh viện và viện dưỡng lão trong vùng 20 km chết trong tháng Ba vì biến chứng liên quan đến sơ tán. Tỉnh Fukushima có 2.350 ca tử vong liên quan thảm họa đến cuối 2025 (Cơ quan Tái thiết), dù con số này không tách riêng nguyên nhân hạt nhân.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Một thảm họa Made in Japan", do văn hóa Nhật</span></summary><p class="note">Đây là lời của chính chủ tịch Ủy ban Quốc hội, Kiyoshi Kurokawa, trong bản tiếng Anh: gốc rễ là "sự vâng lời theo phản xạ, ngại chất vấn cấp trên, tính bầy đàn, sự khép kín". Nhưng theo các nhà phê bình được AP dẫn lại, đoạn này không có trong bản tiếng Nhật, và chính bản tiếng Anh ghi rằng khi hai bản khác nhau thì bản tiếng Nhật có giá trị. Giáo sư Gerald Curtis (Đại học Columbia) viết: "Đổ lỗi cho văn hóa là cách thoái thác tận cùng." IAEA thì viết các yếu tố gây tai nạn "không chỉ riêng Nhật Bản". Và nhà máy Onagawa, cùng văn hóa, vẫn đứng vững. Phần thân báo cáo nêu những lỗi cụ thể, sửa được: quản lý bị bắt giữ, hạn bị dời, không chuẩn bị cho mất điện.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Không có ai chết vì phóng xạ Fukushima"</span></summary><p class="note">Không ai chết vì nhiễm xạ cấp tính. Nhưng năm 2018 Bộ Y tế Nhật công nhận ung thư phổi của một công nhân (tổng liều khoảng 195 mSv) là do phóng xạ và gia đình được bồi thường (NPR). UNSCEAR nói tăng ung thư do phóng xạ "khó có thể phát hiện được", nghĩa là quá nhỏ để đo, không có nghĩa chắc chắn bằng 0.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Con sóng đó không ai lường trước được"</span></summary><p class="note">Các nguồn chính thức mâu thuẫn nhau. Ủy ban Quốc hội: mọi nguyên nhân trực tiếp "đều có thể lường trước". Tòa dân sự Tokyo (2022): tai nạn "có thể tránh được" nếu chống ngập các tòa nhà chính. Nhưng tòa hình sự (2019, 2023, Tòa tối cao 2025) tuyên vô tội ba lãnh đạo, và Tòa cấp cao Tokyo (6/2025) bác phán quyết dân sự, cho rằng dự báo dài hạn chưa phải dữ liệu buộc hành động ngay.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Chỉ do sóng thần, động đất không gây hư hại gì"</span></summary><p class="note">Ủy ban Quốc hội cho rằng lò 1 có thể đã hư hại vì động đất, có thể rò nước làm mát nhỏ, trước khi sóng đến. Theo WNA, Cơ quan Quản lý Hạt nhân NRA năm 2013 lại kết luận động đất không gây hư hại cho lò 1. Chưa ngã ngũ.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Ung thư tuyến giáp ở trẻ em tăng vọt vì phóng xạ"</span></summary><p class="note">Số ca phát hiện tăng thật, nhưng UNSCEAR (2021) cho rằng đó là do sàng lọc bằng siêu âm "siêu nhạy" trên toàn bộ trẻ em, và ung thư tuyến giáp do phóng xạ "khó có thể phát hiện được, ở mọi nhóm tuổi, kể cả trẻ em".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Fukushima tệ ngang Chernobyl"</span></summary><p class="note">Cùng cấp 7 trên thang INES. Nhưng lượng phóng xạ thải ra ước tính khoảng 10–15% của Chernobyl (ước tính của cơ quan Nhật năm 2011, theo WNA), và UNSCEAR (2013) kết luận rủi ro sức khỏe "thấp hơn nhiều so với Chernobyl".</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Phóng xạ Fukushima đã giết hàng nghìn, hàng chục nghìn người"</span></summary><p class="note">Đây là nhầm lẫn giữa số người chết vì động đất, sóng thần (15.901 người, Cục Cảnh sát Quốc gia) với tai nạn hạt nhân. UNSCEAR: chưa ghi nhận tác động xấu nào lên sức khỏe cư dân Fukushima trực tiếp do phơi nhiễm phóng xạ.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Lò phản ứng nổ như bom hạt nhân"</span></summary><p class="note">Các vụ nổ ở tòa lò 1, 3, 4 là nổ khí hydro: hydro sinh ra khi vỏ nhiên liệu quá nóng, rò ra tòa nhà, gặp không khí và bắt lửa. Nó thổi bay mái và tường tòa nhà, không phải phản ứng dây chuyền hạt nhân.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Xả nước đã xử lý đầu độc Thái Bình Dương"</span></summary><p class="note">IAEA (báo cáo tổng hợp 4/7/2023): cách làm của TEPCO "phù hợp với các tiêu chuẩn an toàn quốc tế" và việc xả ra biển có "tác động phóng xạ không đáng kể lên con người và môi trường". Lo ngại về niềm tin và ngư nghiệp là có thật, nhưng "đầu độc đại dương" không có cơ sở đo đạc.</p></details>
+  </div>
+  <p class="nguon">Nguồn: NAIIC (2012), tr. 9, 16–17, 38; IAEA (2015); TEPCO (2012); UNSCEAR, thông cáo 9/3/2021 về báo cáo 2020/2021; AP (13/9/2012) về tranh cãi "Made in Japan"; AFP (3/2025) và AP (6/2025) về các phán quyết; NPR (5/9/2018); IAEA về nước đã xử lý (4/7/2023), trích theo Bộ Môi trường Nhật.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Cảnh báo có từ trước</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Điều tra minh bạch</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Bài học được giữ lại</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng sau thảm họa</span><ul class="plus"><li>Quốc hội lập ủy ban điều tra độc lập đầu tiên, họp công khai</li><li>Lập cơ quan quản lý hạt nhân mới, tách khỏi bên thúc đẩy (2012)</li><li>IAEA và UNSCEAR công bố đánh giá quốc tế, cập nhật nhiều năm</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Không lãnh đạo nào bị kết án; các tòa không thống nhất về trách nhiệm</li><li>Khoảng 27.000 người vẫn chưa về được nhà (11/2025, theo WNA)</li><li>Lời giải thích "do văn hóa" làm mờ những lỗi cụ thể</li></ul></div>
+  </div>
+  <p class="verdict">Không phải thảm họa thiên nhiên đơn thuần: thiên nhiên mang sóng tới, còn con người quyết định bức tường cao bao nhiêu.</p>
+  <details class="more"><summary>Xem thêm: vì sao chấm "có thể tránh được" 4/5 chứ không phải 5/5</summary><div>
+    <p>Động đất M9 và sóng 13–15 m là cực đoan thật. Không ai biết chắc nếu TEPCO bắt đầu chống ngập năm 2008 thì xong trước 3/2011 hay không. Tòa dân sự năm 2022 cho rằng làm kín các tòa nhà chính mất khoảng hai năm và đủ để tránh tai nạn; Tòa cấp cao năm 2025 không đồng ý rằng lãnh đạo buộc phải hành động ngay.</p>
+    <p>Nhưng Onagawa cho thấy chuẩn bị tốt hơn là làm được, ngay trên cùng bờ biển. Vì vậy Mark chấm 4: tránh được phần lớn, với một chút bất định.</p>
+  </div></details>
+  <p class="nguon">Nguồn: tòa dân sự Tokyo 13/7/2022 (Asahi, nguồn thứ cấp); Tòa cấp cao Tokyo 6/6/2025 (AP); 27.000 người: World Nuclear Association.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: đừng gạt bỏ cảnh báo vì nó tốn kém</h2><p class="lead">Áp dụng khi ai đó mang đến một rủi ro mà muốn xử lý thì tốn tiền, tốn thời gian hoặc làm chậm kế hoạch: bảo mật, sao lưu, an toàn, pháp lý.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Bốn bước khi nhận một cảnh báo đắt tiền: ghi vào sổ rủi ro kèm tên người nêu và ngày; hỏi nếu nó đúng thì mất gì, so với chi phí sửa; đặt hạn cho việc nghiên cứu thêm; để người kiểm tra độc lập với bên trả tiền.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · ghi vào sổ</text><text x="110" y="100" class="t-night t-bold">ai nêu, ngày nào</text><text x="110" y="116">không để trong email</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · nếu đúng thì sao?</text><text x="300" y="100" class="t-day t-bold">mất gì, so với tốn gì</text><text x="300" y="116">không chỉ "xác suất thấp"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · đặt hạn</text><text x="490" y="100" class="t-rem t-bold">cho "nghiên cứu thêm"</text><text x="490" y="116">và việc làm tạm khi chờ</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · kiểm tra độc lập</text><text x="680" y="100" class="t-ok t-bold">không phụ thuộc bên bị kiểm</text><text x="680" y="116">và có quyền dừng</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Câu "chỉ là một ước tính" không phải là câu trả lời.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi bước vá một chỗ hỏng ở Fukushima.</b> Con số 15,7 m không có người chịu trách nhiệm theo dõi, câu hỏi "nếu đúng thì sao" bị thay bằng "mô hình còn nghi vấn", "nghiên cứu thêm" không có hạn, và người kiểm tra phụ thuộc vào người bị kiểm.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><div><b>So với kịch bản xấu nhất có căn cứ</b><span>Thiết kế 5,7 m dựa trên một trận sóng đã biết. Câu hỏi đúng là "kịch bản tệ nhất mà các chuyên gia đã viết ra là gì?"</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M11 16h10M16 11v10"/></svg><div><b>Dự phòng không được nằm cùng chỗ với rủi ro</b><span>Máy phát dự phòng ngập cùng con sóng. Ở chỗ làm: bản sao lưu ở cùng máy chủ, kế hoạch B phụ thuộc cùng một người.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Tìm một "Onagawa" để so</b><span>Đối thủ, nhóm bên cạnh, ngành khác đang xử lý cùng rủi ro ra sao? Khác biệt là bằng chứng chứ không phải "hoàn cảnh khác".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Tính cả cái giá của phản ứng</b><span>Sơ tán vội cũng giết người. Kế hoạch khẩn cấp phải được diễn tập với người yếu nhất, không chỉ trên giấy.</span></div></div>
+  </div>
+  <div class="quote"><span>Liên tục chất vấn và sẵn lòng học từ kinh nghiệm là chìa khóa của văn hóa an toàn.</span><span class="src">Yukiya Amano, Tổng giám đốc IAEA, lời nói đầu báo cáo về Fukushima Daiichi (2015), theo World Nuclear News.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Ủy ban điều tra của Quốc hội Nhật (NAIIC), bản tóm tắt tiếng Anh (2012)</b><span class="muted">Đọc phần Kết luận (từ tr. 16) là đủ thấy vì sao họ gọi đây là thảm họa "do con người".</span></div>
+    <div><b>IAEA, <i>The Fukushima Daiichi Accident: Report by the Director General</i> (2015)</b><span class="muted">Bản tổng hợp quốc tế, kèm năm tập kỹ thuật. Tập 2 có toàn bộ lịch sử các lần tính lại sóng thần.</span></div>
+    <div><b>UNSCEAR, báo cáo 2020/2021, phụ lục B</b><span class="muted">Đánh giá khoa học về liều phóng xạ và tác động sức khỏe, đọc để tách sự thật khỏi nỗi sợ.</span></div>
+    <div><b>Giải phẫu thảm họa #10: Tàu con thoi Columbia (2003)</b><span class="muted">Bài khép lại chuỗi: 17 năm sau Challenger, cùng một tổ chức, cùng một kiểu sai.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên tài liệu gốc. Chỗ nào chỉ có nguồn thứ cấp đã ghi rõ ngay cạnh con số.</p></div>
+  <ol class="srcs">
+    <li><b>The National Diet of Japan, NAIIC</b>, <i>The official report of The Fukushima Nuclear Accident Independent Investigation Commission: Executive summary</i>, 7/2012. <a href="https://www.nirs.org/wp-content/uploads/fukushima/naiic_report.pdf">bản lưu tại nirs.org</a></li>
+    <li><b>IAEA</b>, <i>The Fukushima Daiichi Accident: Report by the Director General</i>, GC(59)/14, 2015, và Tập kỹ thuật 2. <a href="https://www-pub.iaea.org/MTCD/Publications/PDF/AdditionalVolumes/P1710/Pub1710-TV2-Web.pdf">iaea.org</a></li>
+    <li><b>TEPCO</b>, giải trình về các phép tính sóng thần thử nghiệm, 24/4/2012; thông cáo 8/7/2011. <a href="https://www.tepco.co.jp/en/nu/fukushima-np/info/12042401-e.html">tepco.co.jp</a></li>
+    <li><b>UNSCEAR</b>, báo cáo 2020/2021 phụ lục B, thông cáo của Liên Hợp Quốc 9/3/2021. <a href="https://unis.unvienna.org/unis/en/pressrels/2021/unisous419.html">unis.unvienna.org</a></li>
+    <li><b>Cơ quan Tái thiết Nhật (復興庁)</b>, số người chết liên quan thảm họa, tính đến 31/12/2025. <a href="https://www.reconstruction.go.jp/files/user/topics/main-cat2/sub-cat2-6/20260213_kanrenshi.pdf">reconstruction.go.jp</a></li>
+    <li><b>Cục Cảnh sát Quốc gia Nhật</b>, số người chết và mất tích, công bố 9/3/2026, qua Jiji Press. <a href="https://english.adnkronos.com/2026/03/09/2519-still-unaccounted-for-15-yrs-after-huge-quake-tsunami/">adnkronos.com</a></li>
+    <li><b>Cơ quan Quản lý Hạt nhân Nhật (NRA)</b>, báo cáo thường niên (ngày thành lập 19/9/2012). <a href="https://www.nra.go.jp/data/000067053.pdf">nra.go.jp</a></li>
+    <li><b>A. Ryu và N. Meshkati</b>, "Onagawa: The Japanese nuclear power plant that didn't melt down on 3/11", <i>Bulletin of the Atomic Scientists</i>, 10/3/2014. <a href="https://thebulletin.org/2014/03/onagawa-the-japanese-nuclear-power-plant-that-didnt-melt-down-on-3-11/">thebulletin.org</a></li>
+    <li><b>World Nuclear Association</b>, "Fukushima Daiichi Accident" (cập nhật 9/2026), nguồn thứ cấp của ngành. <a href="https://world-nuclear.org/Information-Library/Safety-and-Security/Safety-of-plants/Fukushima-Daiichi-Accident">world-nuclear.org</a></li>
+    <li><b>Báo chí</b>: World Nuclear News (5/7/2012, 2/9/2015); AP, "Japan nuke probe head defends report" (13/9/2012); Asahi Shimbun (8/2011; 4/2018; 7/2022); AFP (3/2025); AP (6/6/2025); NPR (5/9/2018).</li>
+  </ol>
+</section>
+
+<footer>Giải phẫu thảm họa #09. Các hình là sơ đồ minh họa; số liệu lấy từ báo cáo gốc và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
