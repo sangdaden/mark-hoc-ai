@@ -3,7 +3,9 @@
 
 Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 
-- Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en"). Bài gốc:
+- Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en"). Mục "bia" lấy màu từ bìa
+  sách cho nền đầu bài (chữ đầu bài luôn màu kem nên nền phải tối): nen_1 (màu nền chính), nen_2 (màu sáng hơn ở góc), nhan (màu nhấn: viền, nhãn, chip),
+  hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam. Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
   tiếng Anh tạm dùng bài tiếng Việt và script báo). Đó là trang Artifact không có khung <html>/<head>;
   script bọc khung, thêm thanh quay về trang và giao diện chung assets/vu-tru-khac/doc.css (đặt cuối trang để phủ CSS
@@ -66,6 +68,10 @@ def trang_sach(b, goc, en=False):
     bai = lam_sach(goc, en)
     # Bỏ <title> của Artifact, dùng tiêu đề của trang
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
+    bia = b.get("bia", {})
+    mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
+    mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
+    lop_bia = f' class="bia-{esc(bia["hoa_tiet"])}"' if bia.get("hoa_tiet") else ""
     return f'''<!doctype html>
 <html lang="{"en" if en else "vi"}">
 <head>
@@ -100,10 +106,10 @@ body {{ margin: 0; }}
 .mhai-thanh .vtk-ve img {{ height: 30px; width: auto; }}
 .mhai-thanh .mhai img {{ width: 24px; height: 24px; border-radius: 50%; }}
 .mhai-thanh span {{ display: inline-flex; gap: 16px; align-items: center; }}
-@media (max-width: 420px) {{ .mhai-thanh .mhai b {{ display: none; }} }}
+@media (max-width: 420px) {{ .mhai-thanh .mhai b {{ display: none; }} }}{mau_bia}
 </style>
 </head>
-<body>
+<body{lop_bia}>
 <div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}">‹ <img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 {bai.strip()}
 <link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">

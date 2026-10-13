@@ -25,28 +25,46 @@ body { font-size: 1rem; line-height: 1.55; padding-block-end: 32px; }
 a { color: var(--cam); }
 .label { color: var(--cam); }
 
-/* Đầu bài: dải navy có sao, chữ kem, Mark áo len ở góc phải */
+/* Đầu bài: nền lấy màu bìa từng cuốn (--bia-1, --bia-2, --bia-nhan do script đặt từ data/vu-tru-khac.json,
+   mặc định là navy của thương hiệu), có sao, Mark áo len ở góc phải, thông tin sách thành chip ở cột phải */
 header {
-  position: relative; margin-inline: calc(50% - 50vw); padding: 28px max(16px, calc(50vw - 32rem)) 24px;
+  --bia-1: #0F172A; --bia-2: #1E293B; --bia-nhan: #FBBF24; --le: max(16px, calc(50vw - 32rem));
+  position: relative; margin-inline: calc(50% - 50vw); padding: 28px calc(var(--le) + 170px) 24px var(--le);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 21rem); column-gap: 28px; row-gap: 8px; align-content: start;
   background: radial-gradient(1px 1px at 12% 30%, #fff8 50%, transparent 51%), radial-gradient(1.5px 1.5px at 38% 70%, #fff6 50%, transparent 51%),
-    radial-gradient(1px 1px at 64% 22%, #fff7 50%, transparent 51%), radial-gradient(1.5px 1.5px at 82% 60%, #fff5 50%, transparent 51%),
-    radial-gradient(120% 140% at 85% 0%, #1E293B 0%, #0F172A 60%);
-  color: #FFF7ED; border-bottom: 3px solid #F59E0B; gap: 8px;
+    radial-gradient(1px 1px at 52% 18%, #fff7 50%, transparent 51%), radial-gradient(1.5px 1.5px at 66% 82%, #fff5 50%, transparent 51%),
+    radial-gradient(120% 140% at 85% 0%, var(--bia-2) 0%, var(--bia-1) 62%);
+  color: #FFF7ED; border-bottom: 3px solid var(--bia-nhan);
 }
 header::after {
-  content: ""; position: absolute; right: max(16px, calc(50vw - 32rem)); bottom: 0; width: 150px; height: 170px;
+  content: ""; position: absolute; right: var(--le); bottom: 0; width: 150px; height: 170px;
   background: url("mark-doc-sach.svg") bottom right / contain no-repeat;
 }
-header > * { position: relative; z-index: 1; max-width: calc(100% - 160px); }
-header .label, header .meta span { color: #FBBF24; }
+header > * { position: relative; z-index: 1; grid-column: 1; }
+header .label, header .meta span { color: var(--bia-nhan); }
 header h1 { font-size: clamp(2rem, 5vw, 3rem); color: #FFF7ED; }
 header .sub { color: #FDE6C8; font-size: 1rem; }
-header .meta b { color: #FFF7ED; }
-header .draft { border: 0; background: #FBBF24; color: #0F172A; border-radius: 999px; padding: 3px 10px; font-weight: 600; }
-@media (max-width: 640px) {
-  header { padding-bottom: 20px; }
+header .draft { justify-self: start; border: 0; background: var(--bia-nhan); color: var(--bia-1); border-radius: 999px; padding: 3px 10px; font-weight: 600; }
+/* Thông tin sách: chip lấp chỗ trống bên phải tiêu đề */
+header .meta { grid-column: 2; grid-row: 1 / span 5; align-self: center; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+header .meta div { display: flex; align-items: baseline; gap: 8px; padding: 6px 12px; border-radius: 999px;
+  background: rgb(255 255 255 / .08); border: 1px solid color-mix(in srgb, var(--bia-nhan) 45%, transparent); }
+header .meta span { font-size: .66rem; }
+header .meta b { color: #FFF7ED; font-size: .9rem; }
+/* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng */
+body.bia-trang header::before { content: ""; position: absolute; top: 22px; right: calc(var(--le) + 150px); width: 46px; height: 46px; border-radius: 50%;
+  box-shadow: 10px -6px 0 0 var(--bia-nhan); transform: rotate(-20deg); opacity: .9; }
+body.bia-but-chi header { border-bottom: 0; }
+body.bia-but-chi header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+  background: linear-gradient(90deg, #F2A7B8 0 40px, #C0C4CC 40px 52px, #F5C518 52px calc(100% - 28px), #E8C99A calc(100% - 28px) calc(100% - 10px), #333 calc(100% - 10px)); }
+@media (max-width: 900px) {
+  header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
+  header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
   header::after { width: 72px; height: 82px; top: 18px; bottom: auto; }
-  header > * { max-width: 100%; }
+  body.bia-trang header::before { right: calc(var(--le) + 70px); width: 30px; height: 30px; }
+}
+@media (max-width: 640px) {
+  header { padding-right: var(--le); padding-bottom: 20px; }
   header h1, header .sub, header .label, header .draft { max-width: calc(100% - 80px); }
 }
 
@@ -74,8 +92,7 @@ footer { margin-top: 28px; }
 /* Máy tính: hai cột, mục lục dính ở cột trái, mỗi phần là một thẻ trắng */
 @media (min-width: 1000px) {
   .wrap { max-width: 72rem; display: grid; grid-template-columns: 13rem 1fr; column-gap: 32px; }
-  header { grid-column: 1 / -1; padding-inline: max(16px, calc(50vw - 36rem)); }
-  header::after { right: max(16px, calc(50vw - 36rem)); }
+  header { grid-column: 1 / -1; --le: max(16px, calc(50vw - 36rem)); }
   .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: 64px; margin: 24px 0 0; padding: 14px;
     flex-direction: column; flex-wrap: nowrap; overflow: visible; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper); }
   .toc::before { content: "Trong bài"; font: 600 .72rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); padding: 0 4px 6px; }
