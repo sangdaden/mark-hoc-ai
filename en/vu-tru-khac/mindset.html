@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mindset (Carol S. Dweck): summary, review and lessons | Another Universe</title>
+<meta name="description" content="Fixed versus growth mindset: why beliefs about ability shape how we learn, and why the real-world effect is smaller than the book suggests.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/mindset.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/mindset.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/mindset.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/mindset.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mindset (Carol S. Dweck): summary, review and lessons | Another Universe">
+<meta property="og:description" content="Fixed versus growth mindset: why beliefs about ability shape how we learn, and why the real-world effect is smaller than the book suggests.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/mindset.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/mindset.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: visual-first book report (same frame as Why We Sleep); --night = tư duy phát triển (xanh lá), --day = tư duy cố định (nâu cam), --rem = phụ. Prose one line per block, depth folded into "Xem thêm". */
+:root {
+  --bg: #f3f5f2;
+  --paper: #fcfdfb;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d5dcd4;
+  --grid: #e7ebe6;
+  --night: #1d6b52;
+  --day: #a4532a;
+  --rem: #3a4f9a;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1412; --paper: #141c19; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #2a3631; --grid: #1c2622;
+    --night: #6fd3a8; --day: #ec9a6c; --rem: #9fb0ff; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1412; --paper: #141c19; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #2a3631; --grid: #1c2622;
+  --night: #6fd3a8; --day: #ec9a6c; --rem: #9fb0ff; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+/* riêng cho Mindset: màu đỏ lấy từ bìa sách */
+:root { --book: #b3262d; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --book: #f0827b; } }
+:root[data-theme="dark"] { --book: #f0827b; }
+header { border-top: 6px solid var(--book); margin-top: 0; }
+header h1 { color: var(--book); }
+.thesis { border-left-color: var(--book); }
+.toc a:hover { color: var(--book); }
+.flow4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.flow4 .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.flow4 .step b { font-family: var(--font-display); }
+.flow4 .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow4 .step.go { border-color: var(--night); }
+@media (max-width: 640px) { .flow4 { grid-template-columns: 1fr 1fr; } }
+.vs th.fx, .cmp td.fx { color: var(--day); }
+.vs th.gr, .cmp td.gr { color: var(--night); }
+.cmp td.fx, .cmp td.gr { font-weight: 600; }
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 10px; }
+.duo .fcol h3 .dot.fx { background: var(--day); }
+.pair { display: grid; gap: 4px; font-size: .9rem; }
+.pair .fx::before { content: "Cố định · "; color: var(--day); font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.pair .gr::before { content: "Phát triển · "; color: var(--night); font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.myth { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.myth s { color: var(--bad); text-decoration-thickness: 1px; font-size: .92rem; }
+.myth b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.say td:nth-child(2) { color: var(--day); }
+.say td:nth-child(3) { color: var(--night); font-weight: 600; }
+.pair .fx::before { content: "Fixed · "; } .pair .gr::before { content: "Growth · "; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Psychology · Popular science</span>
+  <h1>Mindset</h1>
+  <p class="sub">The New Psychology of Success · Carol S. Dweck · Vietnamese edition: <i>Tâm lý học thành công</i></p>
+  <div class="meta">
+    <div><span class="label">Author</span><b>Carol S. Dweck, Stanford University</b></div>
+    <div><span class="label">Published</span><b>2006 · updated 2016</b></div>
+    <div><span class="label">Length</span><b>8 chapters</b></div>
+    <div><span class="label">Rating</span><b>3.5 / 5 · good idea, small effect</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Thesis</a><a href="#bo-cuc">Structure</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 29V15"/><path d="M16 17c-6 0-9-4-9-9 5 0 9 3 9 9z"/><path d="M16 14c0-6 4-9 9-9 0 6-4 9-9 9z"/></svg><b>Two beliefs about ability</b><span>Fixed: you are born with it. Growth: you can build it.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26l8-8 5 5 11-13"/><path d="M21 10h7v7"/></svg><b>Beliefs drive choices</b><span>They decide whether you seek challenges or avoid them.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22c4 0 4-6 8-6s4 8 8 8 4-14 8-14"/><circle cx="13" cy="16" r="2"/></svg><b>Failure is an event</b><span>"I failed" is very different from "I am a failure".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 15l4-9 3 1-1 8h9a2 2 0 0 1 2 2l-2 9a2 2 0 0 1-2 2H7z"/><path d="M3 15h4v13H3z"/></svg><b>Praise the process, not the trait</b><span>"You worked hard" beats "you're so smart".</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Smaller effect than the book implies</b><span>Right direction, but don't expect miracles.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>Core thesis</h2></div>
+  <p class="thesis">What you believe about your own ability matters more than the ability you start with, because that belief decides whether you keep learning.</p>
+  <div class="flow" aria-label="Three steps of the argument">
+    <div class="step"><span class="label">Step 1</span><b>Belief</b><span>Is ability fixed, or can it grow?</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 2</span><b>Choice</b><span>Avoid challenges to protect your image, or take them on to learn.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 3</span><b>Outcome</b><span>Over the years, the two habits produce two different people.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the book is built</h2><p class="lead">Eight chapters with no formal parts. Mark groups them into four themes.</p></div>
+  <div class="chbar" role="img" aria-label="Group I 3 chapters, group II 2 chapters, group III 2 chapters, group IV 1 chapter">
+    <div class="p1" style="flex:3">I · 3</div><div class="p2" style="flex:2">II · 2</div><div class="p3" style="flex:2">III · 2</div><div class="p4" style="flex:1">IV · 1</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Chapters 1–3</span><h3>The two mindsets</h3><div class="chips"><span class="chip">definitions</span><span class="chip">failure</span><span class="chip">effort</span><span class="chip">talent</span><span class="chip">"CEO disease"</span></div></div>
+    <div class="part b2"><span class="label">Chapters 4–5</span><h3>Sports and business</h3><div class="chips"><span class="chip">champions</span><span class="chip">fallen "naturals"</span><span class="chip">leadership</span><span class="chip">company culture</span></div></div>
+    <div class="part b3"><span class="label">Chapters 6–7</span><h3>Love, parents, teachers</h3><div class="chips"><span class="chip">"destiny"</span><span class="chip">bullying</span><span class="chip">praise</span><span class="chip">great teachers</span><span class="chip">coaches</span></div></div>
+    <div class="part b4"><span class="label">Chapter 8</span><h3>Changing mindsets</h3><div class="chips"><span class="chip">brain workshop</span><span class="chip">4 steps</span><span class="chip">false growth mindset</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Fixed mindset and growth mindset</h3><span class="en">fixed mindset · growth mindset</span></div>
+    <div class="tablebox">
+      <table class="cmp vs">
+        <thead><tr><th>Faced with…</th><th class="fx">Fixed mindset</th><th class="gr">Growth mindset</th></tr></thead>
+        <tbody>
+          <tr><td>Challenges</td><td class="fx">Avoid them, fear exposure</td><td class="gr">Embrace them to learn</td></tr>
+          <tr><td>Obstacles</td><td class="fx">Give up early</td><td class="gr">Change approach, keep going</td></tr>
+          <tr><td>Effort</td><td class="fx">A sign of weakness</td><td class="gr">The path to mastery</td></tr>
+          <tr><td>Criticism</td><td class="fx">Ignore it</td><td class="gr">Treat it as data</td></tr>
+          <tr><td>Others' success</td><td class="fx">Feel threatened</td><td class="gr">Feel inspired</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Everyone is a mix of both. Dweck describes tendencies in particular areas, not two types of people.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Two paths after the first setback</h3><span class="en">trajectories</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 270" role="img" aria-labelledby="f1t">
+          <title id="f1t">Two people start the same. After the first failure, the fixed-mindset person plateaus and avoids challenges; the growth-mindset person dips slightly, then keeps climbing.</title>
+          <g class="gridl"><line x1="60" y1="50" x2="690" y2="50"/><line x1="60" y1="110" x2="690" y2="110"/><line x1="60" y1="170" x2="690" y2="170"/></g>
+          <line class="axis" x1="60" y1="225" x2="690" y2="225"/>
+          <line x1="250" y1="40" x2="250" y2="225" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <text x="256" y="44" class="t-ink t-bold">first setback</text>
+          <path d="M60 210 C120 190 190 165 250 150 C290 152 330 148 380 146 C470 144 580 145 690 146" fill="none" stroke="var(--day)" stroke-width="2.5"/>
+          <path d="M60 210 C120 190 190 165 250 150 C268 160 282 166 300 160 C380 132 520 90 690 58" fill="none" stroke="var(--night)" stroke-width="2.5"/>
+          <text x="690" y="50" text-anchor="end" class="t-night t-bold">Growth: dips, then keeps going</text>
+          <text x="690" y="166" text-anchor="end" class="t-day t-bold">Fixed: plateaus, avoids hard things</text>
+          <text x="52" y="54" text-anchor="end">skilled</text>
+          <text x="52" y="214" text-anchor="end">novice</text>
+          <g text-anchor="middle"><text x="60" y="245">start</text><text x="690" y="245">years later</text></g>
+          <text x="375" y="262" text-anchor="middle">time spent practising</text>
+        </svg>
+      </div>
+      <figcaption><b>The difference lies in how people respond to failure, not where they start.</b> An illustration of the book's idea, not measured data.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Failure: a verb or a noun</h3><span class="en">"I failed" vs "I am a failure"</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f2t">
+          <title id="f2t">The same bad grade read two ways. Fixed reading: I'm stupid, leading to hiding, blaming and dropping the subject. Growth reading: I haven't studied the right way yet, leading to review, asking the teacher and studying again.</title>
+          <rect x="20" y="88" width="150" height="44" rx="6" fill="var(--grid)"/>
+          <text x="95" y="115" text-anchor="middle" class="t-ink t-bold">Test score: 4/10</text>
+          <path d="M170 110 C210 110 210 50 250 50" fill="none" stroke="var(--day)" stroke-width="2"/>
+          <path d="M170 110 C210 110 210 170 250 170" fill="none" stroke="var(--night)" stroke-width="2"/>
+          <rect x="250" y="30" width="190" height="40" rx="6" fill="none" stroke="var(--day)" stroke-width="1.5"/>
+          <text x="345" y="55" text-anchor="middle" class="t-day t-bold">"I'm bad at this"</text>
+          <rect x="250" y="150" width="190" height="40" rx="6" fill="none" stroke="var(--night)" stroke-width="1.5"/>
+          <text x="345" y="175" text-anchor="middle" class="t-night t-bold">"I studied the wrong way"</text>
+          <line x1="440" y1="50" x2="480" y2="50" stroke="var(--day)" stroke-width="2"/>
+          <line x1="440" y1="170" x2="480" y2="170" stroke="var(--night)" stroke-width="2"/>
+          <text x="488" y="47" class="t-day">hide it · blame · drop the subject</text>
+          <text x="488" y="62">next time, cheat to avoid shame</text>
+          <text x="488" y="167" class="t-night">review · ask the teacher · retry</text>
+          <text x="488" y="182">next time, do better</text>
+        </svg>
+      </div>
+      <figcaption><b>Fixed: failure says who you are. Growth: failure says what to learn.</b></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Praising "smart" versus praising "effort"</h3><span class="en">Mueller &amp; Dweck, 1998</span></div>
+    <div class="tablebox">
+      <table class="cmp vs">
+        <thead><tr><th>After an easy test, fifth graders were told…</th><th class="fx">"You must be smart"</th><th class="gr">"You must have worked hard"</th></tr></thead>
+        <tbody>
+          <tr><td>Choosing the next task</td><td class="fx">Most chose an easy one</td><td class="gr">About 90% chose a hard one</td></tr>
+          <tr><td>Facing hard problems</td><td class="fx">Lost interest, felt dumb</td><td class="gr">Still enjoyed it, kept trying</td></tr>
+          <tr><td>Final (easy) test</td><td class="fx">Scores dropped</td><td class="gr">Scores rose</td></tr>
+          <tr><td>Reporting scores to peers</td><td class="fx">Almost 40% lied</td><td class="gr">Far fewer</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Figures as reported in the book. Some replications did not find effects this strong (see Evidence).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>One mindset, four arenas</h3><span class="en">chapters 4–7</span></div>
+    <div class="fmap" style="grid-template-columns:repeat(auto-fit,minmax(10rem,1fr))">
+      <div class="fcol"><h3><span class="dot"></span>Sports</h3><div class="pair"><span class="fx">The "natural" hates practice, blames others for losses</span><span class="gr">The champion practises hardest on the team</span></div></div>
+      <div class="fcol"><h3><span class="dot"></span>Work</h3><div class="pair"><span class="fx">The boss must look like the smartest person in the room</span><span class="gr">The boss hires people smarter than themselves</span></div></div>
+      <div class="fcol"><h3><span class="dot"></span>Love</h3><div class="pair"><span class="fx">If we're compatible it should be easy; a fight means it's over</span><span class="gr">Relationships take work; conflict helps us understand each other</span></div></div>
+      <div class="fcol"><h3><span class="dot"></span>Parenting</h3><div class="pair"><span class="fx">Judging: "you're good / bad at this"</span><span class="gr">Teaching: "which approach did you try?"</span></div></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Changing your mindset in 4 steps</h3><span class="en">chapter 8</span></div>
+    <div class="flow4">
+      <div class="step"><span class="label">Step 1</span><b>Listen</b><span>Notice the fixed voice: "What if I'm not good enough?"</span></div>
+      <div class="step"><span class="label">Step 2</span><b>Know you have a choice</b><span>How you read a challenge is up to you.</span></div>
+      <div class="step"><span class="label">Step 3</span><b>Talk back</b><span>"If I'm not good yet, that's why I need to learn."</span></div>
+      <div class="step go"><span class="label">Step 4</span><b>Act</b><span>Take the hard task, hear the feedback, try again.</span></div>
+    </div>
+    <p class="lead">The 2016 edition suggests naming your "fixed-mindset persona" so you can spot it when it speaks up.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The "false" growth mindset</h3><span class="en">false growth mindset · added in 2016</span></div>
+    <div class="rules">
+      <div class="myth"><s>Just praise effort</s><b>Praise strategies and progress too. Effort that isn't working calls for a new approach.</b></div>
+      <div class="myth"><s>Anyone can do anything</s><b>Anyone can improve, but nobody knows their limits in advance.</b></div>
+      <div class="myth"><s>I already have a growth mindset</s><b>Nobody has it fully. Everyone has fixed-mindset triggers.</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How solid is the evidence?</h2><p class="lead">The 10 most-cited claims. Tap a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="4 solid, 4 caution, 2 criticised">
+    <div class="o" style="flex:4">4 SOLID</div><div class="w" style="flex:4">4 CAUTION</div><div class="b" style="flex:2">2 CRITICISED</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="f3t">
+        <title id="f3t">Effect size scale d from 0 to 0.8. Thresholds small 0.2, medium 0.5, large 0.8. Sisk and colleagues' 2018 meta-analysis: growth mindset interventions d equals 0.08. Macnamara and Burgoyne 2023: close to 0 when only high-quality studies are counted.</title>
+        <line class="axis" x1="60" y1="120" x2="680" y2="120"/>
+        <g stroke="var(--rule)"><line x1="60" y1="112" x2="60" y2="128"/><line x1="215" y1="112" x2="215" y2="128"/><line x1="447.5" y1="112" x2="447.5" y2="128"/><line x1="680" y1="112" x2="680" y2="128"/></g>
+        <g text-anchor="middle"><text x="60" y="146">0</text><text x="215" y="146">0.2 · small</text><text x="447.5" y="146">0.5 · medium</text><text x="680" y="146">0.8 · large</text></g>
+        <rect x="60" y="100" width="62" height="20" fill="var(--day)" opacity=".85"/>
+        <circle cx="62" cy="80" r="5" fill="var(--bad)"/>
+        <line x1="122" y1="100" x2="160" y2="60" stroke="var(--day)" stroke-width="1"/>
+        <text x="164" y="58" class="t-day t-bold">d = 0.08 · mindset interventions (Sisk et al., 2018)</text>
+        <line x1="62" y1="75" x2="62" y2="30" stroke="var(--bad)" stroke-width="1"/>
+        <text x="70" y="30" class="t-ink t-bold">≈ 0 · high-quality studies only (Macnamara &amp; Burgoyne, 2023)</text>
+        <text x="60" y="178">Cohen's conventional thresholds. For low-achieving students the effect is somewhat clearer (Yeager et al., 2019).</text>
+      </svg>
+    </div>
+    <figcaption><b>Short interventions work, but only a little.</b> The real effect is much smaller than the book makes it feel.</figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Beliefs about intelligence differ between people and can be measured</span></summary><p class="note">Dweck's "implicit theories of intelligence" scale is widely used and gives stable results.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The brain changes with learning and practice</span></summary><p class="note">Neuroplasticity is mainstream neuroscience. It does not mean any skill can be trained to any level.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>A one-hour intervention slightly raises grades for struggling students</span></summary><p class="note">US national study (Yeager et al., Nature 2019, 12,000+ students): lower-achieving students gained about 0.1 GPA points. Real, but small.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Students who believe intelligence can grow score higher on PISA</span></summary><p class="note">OECD, PISA 2018: true in most countries. This is a correlation and does not prove cause.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Praising "smart" makes children avoid challenges and lie about scores</span></summary><p class="note">The original study (Mueller &amp; Dweck, 1998) had small samples. Li &amp; Bates (2019) ran three replications and found no effect of praise or mindset on responses to failure.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Brain recordings: fixed-mindset students ignore corrective feedback</span></summary><p class="note">The 2006 EEG study (Mangels et al.) had a small sample and has not been replicated at scale.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>CEO stories: Enron and Iacocca failed; Gerstner and Mulcahy succeeded</span></summary><p class="note">The examples were picked after the outcomes were known. Mindset is hard to separate from markets, luck and many other factors.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Michael Jordan was "cut from his high-school team"</span></summary><p class="note">As a sophomore he was placed on the junior varsity team, not cut entirely. The spirit of the story holds, but it has been exaggerated.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Mindset is the key to achievement</span></summary><p class="note">A meta-analysis of 273 studies (Sisk et al., 2018) found a correlation of only about r = 0.10 between mindset and achievement. A study of 5,600 Czech applicants (Bahník &amp; Vranka, 2017) found almost no link.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Teaching growth mindset clearly changes academic results</span></summary><p class="note">Average effect d ≈ 0.08 (2018), near zero after filtering for study quality and publication bias (Macnamara &amp; Burgoyne, 2023). Dweck's group responds that the effect is real for the right students in the right settings.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Persuasiveness</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>Practical value</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Readability</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>Scientific accuracy</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>One simple idea you remember for life</li><li>Changes how you praise children and colleagues</li><li>Makes failure feel less final</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Repetitive, with cherry-picked anecdotes</li><li>Splits readers into "fixed" and "growth"</li><li>Real-world effects are smaller than the tone</li></ul></div>
+  </div>
+  <p class="verdict">Keep the way it reframes failure and praise. Don't treat it as a formula for success.</p>
+  <details class="more"><summary>More: the scientific debate</summary><div><p>Since around 2016, growth mindset has become a familiar example in psychology's replication crisis. Large meta-analyses show effects in schools far smaller than hoped. Dweck acknowledges that many schools apply it badly (empty effort praise, posters) and calls this a "false growth mindset". Her group's 2019 national study argues the effect is small but real and cheap, especially for students who are struggling.</p></div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Putting it into practice</h2><p class="lead">Change the words first; habits follow.</p></div>
+  <div class="tablebox">
+    <table class="cmp say">
+      <thead><tr><th>When…</th><th>Instead of</th><th>Try</th></tr></thead>
+      <tbody>
+        <tr><td>Your child scores high</td><td>"You're so smart"</td><td>"Which part did you review so well?"</td></tr>
+        <tr><td>You mess something up</td><td>"I'm not cut out for this"</td><td>"Which step do I change next time?"</td></tr>
+        <tr><td>You can't do it</td><td>"I can't do this"</td><td>"I can't do this yet"</td></tr>
+        <tr><td>You get feedback</td><td>"They don't get me"</td><td>"Fix the parts that are right"</td></tr>
+        <tr><td>A colleague is better</td><td>"They're lucky"</td><td>"What do they do differently?"</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20v12H14l-6 5v-5H6z"/></svg><div><b>Name your fixed voice</b><span>Notice when it speaks, then answer it.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26h24"/><path d="M8 26V18M14 26V13M20 26V9M26 26V5"/></svg><div><b>Take one stretch task a week</b><span>Hard enough to learn from, not so hard you quit.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M11 16l4 4 7-8"/></svg><div><b>Praise strategy, not just effort</b><span>If effort isn't working, look for a new approach together.</span></div></div>
+  </div>
+  <div class="quote"><span>"Becoming is better than being."</span><span class="src">The whole book in one line.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Anders Ericsson &amp; Robert Pool, <i>Peak</i></b><span class="muted">Deliberate practice: a growth mindset needs the right way to train.</span></div>
+    <div><b>Angela Duckworth, <i>Grit</i></b><span class="muted">A close cousin of Mindset, facing similar criticism about effect sizes.</span></div>
+    <div><b>Stuart Ritchie, <i>Science Fictions</i></b><span class="muted">For balance: why many famous psychology effects shrink when re-tested.</span></div>
+  </div>
+</section>
+
+<footer>Analysis #002. Figures are concept illustrations; research numbers cite their sources.</footer>
+</div>
+</body>
+</html>
