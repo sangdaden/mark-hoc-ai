@@ -124,8 +124,10 @@ footer { margin-top: 28px; }
 
 /* Máy tính: hai cột, mục lục dính ở cột trái, mỗi phần là một thẻ trắng */
 @media (min-width: 1000px) {
-  .wrap { max-width: 72rem; display: grid; grid-template-columns: 13rem 1fr; column-gap: 32px; }
-  header { grid-column: 1 / -1; --le: max(16px, calc(50vw - 36rem)); }
+  /* Cột đọc rộng ra cho bớt lề trống (Sang 13/10 chọn "khung vũ trụ" + "mở rộng trang"): tối đa 88rem, chừa ít nhất 60px
+     mỗi bên để vẫn thấy bầu trời sao ở lề; --le của đầu trang khớp với mép cột */
+  .wrap { --nua: min(44rem, calc(50vw - 60px)); max-width: calc(2 * var(--nua)); display: grid; grid-template-columns: 15rem minmax(0, 1fr); column-gap: 32px; }
+  header { grid-column: 1 / -1; --le: max(16px, calc(50vw - var(--nua))); }
   .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: calc(var(--thanh-cao) + 16px); margin: 24px 0 0; padding: 14px;
     flex-direction: column; flex-wrap: nowrap; overflow: visible; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper); }
   .toc::before { content: "Trong bài"; font: 600 .72rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); padding: 0 4px 6px; }
