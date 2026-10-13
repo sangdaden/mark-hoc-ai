@@ -237,6 +237,7 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
 .srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
 .srcs b { color: var(--ink); font-weight: 600; }
 .tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
@@ -282,6 +283,7 @@ svg .t-bad { fill: var(--bad); }
     <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><b>Lệch dần thành bình thường</b><span>Mỗi chuyến bay về an toàn làm cái hư hỏng trông "chấp nhận được" hơn.</span></div>
     <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Không có kẻ ác</b><span>Người ta làm đúng quy trình. Chính quy trình đã trôi đi lúc nào không hay.</span></div>
   </div>
+  <p class="nguon">Nguồn: Báo cáo Ủy ban Rogers (1986), chương 4–6; số chuyến bay từ Dalal, Fowlkes và Hoadley (1989), bảng 1.</p>
 </section>
 
 <section id="luan-diem">
@@ -321,7 +323,7 @@ svg .t-bad { fill: var(--bad); }
         <text x="40" y="218">thang thời gian: giây kể từ lúc rời bệ phóng · nhiệt độ không khí 36°F (2°C), khớp bị lạnh dưới 0°C</text>
       </svg>
     </div>
-    <figcaption><b>Tàu suýt thoát.</b> Xỉ cháy đã tạm bịt chỗ hở trong gần một phút. Ủy ban cho rằng các đợt gió đứt có thể đã làm vỡ lớp bịt tạm đó.</figcaption>
+    <figcaption><b>Tàu suýt thoát.</b> Xỉ cháy đã tạm bịt chỗ hở trong gần một phút. Ủy ban cho rằng các đợt gió đứt có thể đã làm vỡ lớp bịt tạm đó.<span class="nguon">Nguồn: Báo cáo Ủy ban Rogers, chương 3 (mốc thời gian) và chương 4 (nhiệt độ khớp).</span></figcaption>
   </figure>
   <div class="tl">
     <div><b>1977 · Thử nghiệm áp suất</b><span>Hai nửa khớp bị đẩy ra xa nhau thay vì ép chặt vào. Thiokol cho là không đáng kể.</span></div>
@@ -332,6 +334,7 @@ svg .t-bad { fill: var(--bad); }
     <div class="hot"><b>27/1/1986, tối · Cuộc họp qua điện thoại</b><span>Kỹ sư khuyên không phóng. Sau 30 phút họp riêng, lãnh đạo Thiokol đổi khuyến nghị.</span></div>
     <div class="hot"><b>28/1/1986, 11:38 · Phóng</b><span>Băng phủ trên bệ phóng. Không có quy định nào về nhiệt độ bề mặt.</span></div>
   </div>
+  <p class="nguon">Nguồn: Báo cáo Ủy ban Rogers, chương 5 (cuộc họp, băng trên bệ phóng), chương 6 (thử nghiệm 1977, bản ghi nhớ, chuyến 51-C) và chương 7.</p>
   <div class="parts">
     <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">73 giây</span><span class="chip">2°C</span><span class="chip">7 người</span><span class="chip">đêm trước</span></div></div>
     <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">gioăng chữ O</span><span class="chip">biểu đồ thiếu số 0</span><span class="chip">lệch thành bình thường</span><span class="chip">lời đồn</span></div></div>
@@ -355,7 +358,7 @@ svg .t-bad { fill: var(--bad); }
           <circle cx="176" cy="88" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
           <circle cx="176" cy="112" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
           <path d="M20 100 h140" stroke="var(--night)" stroke-width="4"/><path d="M160 100 l-10 -6 v12 z" fill="var(--night)"/>
-          <text x="20" y="196" class="t-night t-bold">khí nóng ~3.000°C, áp suất ~60 atm</text>
+          <text x="20" y="196" class="t-night t-bold">khí nóng từ buồng đốt</text>
           <text x="246" y="92" class="t-ink">← gioăng chính</text><text x="246" y="116" class="t-ink">← gioăng phụ</text>
           <rect x="370" y="24" width="340" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
           <text x="384" y="48" class="t-ink t-bold">1 · đánh lửa: khớp "xoay", khe mở rộng</text>
@@ -366,7 +369,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="384" y="184" class="t-day t-bold">3 · lạnh: cao su cứng, nở chậm → hở</text>
         </svg>
       </div>
-      <figcaption><b>Gioăng không được thiết kế để bị mòn.</b> Feynman viết: "Sự mòn là một manh mối cho thấy có gì đó sai". Ủy ban gọi gốc rễ là "một thiết kế lỗi, nhạy cảm đến mức không thể chấp nhận" với nhiệt độ, kích thước, vật liệu và việc tái sử dụng.</figcaption>
+      <figcaption><b>Gioăng không được thiết kế để bị mòn.</b> Feynman viết: "Sự mòn là một manh mối cho thấy có gì đó sai". Ủy ban gọi gốc rễ là "một thiết kế lỗi, nhạy cảm đến mức không thể chấp nhận" với nhiệt độ, kích thước, vật liệu và việc tái sử dụng.<span class="nguon">Nguồn: Báo cáo Ủy ban Rogers, chương 4 và 6 (khe hở 0,052 inch ≈ 1,3 mm trong thử nghiệm 1977); Feynman, phụ lục F.</span></figcaption>
     </figure>
   </div>
 
@@ -399,7 +402,7 @@ svg .t-bad { fill: var(--bad); }
 <circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
         </svg>
       </div>
-      <figcaption><b>Cách nhìn đêm trước: chỉ các chuyến có sự cố.</b> Ủy ban viết rằng nhìn thế này thì "không có gì bất thường" theo nhiệt độ.</figcaption>
+      <figcaption><b>Cách nhìn đêm trước: chỉ các chuyến có sự cố.</b> Ủy ban viết rằng nhìn thế này thì "không có gì bất thường" theo nhiệt độ.<span class="nguon">Nguồn: Báo cáo Ủy ban Rogers, chương 6, hình 6; số liệu từng chuyến: Dalal, Fowlkes và Hoadley (1989), bảng 1.</span></figcaption>
     </figure>
     <figure>
       <div class="svgbox">
@@ -448,7 +451,7 @@ svg .t-bad { fill: var(--bad); }
 <circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
         </svg>
       </div>
-      <figcaption><b>Thêm các chuyến không hư hỏng, quy luật hiện ra.</b> Dữ liệu: Dalal, Fowlkes và Hoadley (1989), bảng 1. Mô hình của họ ước tính ở 31°F có ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Đây là phân tích làm sau tai nạn, không phải thứ có trên bàn đêm đó.</figcaption>
+      <figcaption><b>Thêm các chuyến không hư hỏng, quy luật hiện ra.</b> Dữ liệu: Dalal, Fowlkes và Hoadley (1989), bảng 1. Mô hình của họ ước tính ở 31°F có ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Đây là phân tích làm sau tai nạn, không phải thứ có trên bàn đêm đó.<span class="nguon">Nguồn: Dalal, Fowlkes và Hoadley, JASA 84(408), 1989, bảng 1 và tr. 957; Báo cáo Ủy ban Rogers, chương 6, hình 7. Tỷ lệ 4/4 và 3/19 đếm từ bảng của Dalal; Ủy ban Rogers ghi "3 trên 20" chuyến từ 66°F. Nhiệt độ ngày phóng: 31°F theo Dalal, 28 ± 5°F theo Ủy ban Rogers.</span></figcaption>
     </figure>
   </div>
 
@@ -481,7 +484,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="20" y="218" class="t-ink t-bold">Ngược hoàn toàn với bình thường."</text>
         </svg>
       </div>
-      <figcaption><b>Không ai mời đại diện bộ phận an toàn vào cuộc họp</b> (Rogers, chương 7). Ủy ban kết luận lãnh đạo Thiokol đổi ý, trái với kỹ sư của mình, "để chiều lòng một khách hàng lớn".</figcaption>
+      <figcaption><b>Không ai mời đại diện bộ phận an toàn vào cuộc họp</b> (Rogers, chương 7). Ủy ban kết luận lãnh đạo Thiokol đổi ý, trái với kỹ sư của mình, "để chiều lòng một khách hàng lớn".<span class="nguon">Nguồn: Báo cáo Ủy ban Rogers, chương 5 (giờ, lời nói, lời khai của Boisjoly) và chương 7.</span></figcaption>
     </figure>
   </div>
 
@@ -505,11 +508,11 @@ svg .t-bad { fill: var(--bad); }
           </g>
         </svg>
       </div>
-      <figcaption><b>Mỗi bậc chỉ cao hơn bậc trước một chút.</b> Vaughan định nghĩa: hành vi người ngoài thấy rõ là lệch chuẩn dần trở thành bình thường và chấp nhận được với người bên trong. Bà phản bác cách hiểu cho rằng quản lý cố tình đánh đổi mạng người lấy lịch bay.</figcaption>
+      <figcaption><b>Mỗi bậc chỉ cao hơn bậc trước một chút.</b> Vaughan định nghĩa: hành vi người ngoài thấy rõ là lệch chuẩn dần trở thành bình thường và chấp nhận được với người bên trong. Bà phản bác cách hiểu cho rằng quản lý cố tình đánh đổi mạng người lấy lịch bay.<span class="nguon">Nguồn: các mốc và giới hạn mòn 0,090 inch từ Báo cáo Ủy ban Rogers, chương 6; khái niệm từ Vaughan (1996, 2005).</span></figcaption>
     </figure>
     <div class="fmap">
       <div class="fcol"><h3><span class="dot"></span>Bình thường hóa</h3><span class="muted">Mỗi lần bay về an toàn được coi là bằng chứng an toàn. Feynman: chơi cò quay Nga, phát đầu không nổ chẳng an ủi được phát sau.</span></div>
-      <div class="fcol rem"><h3><span class="dot"></span>Văn hóa sản xuất</h3><span class="muted">NASA định bay 24 chuyến một năm. Năm 1986 có 15 chuyến trong lịch; tàu Challenger phải mượn 45 linh kiện từ tàu khác.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Văn hóa sản xuất</h3><span class="muted">NASA định bay 24 chuyến một năm. Năm 1986 có 15 chuyến trong lịch; tàu Challenger phải mượn 45 linh kiện từ tàu khác (Rogers, chương 8).</span></div>
       <div class="fcol body"><h3><span class="dot"></span>Bí mật do cấu trúc</h3><span class="muted">Không ai giấu ai. Thông tin bị lọc qua từng tầng nên tầng trên không thấy mức nghiêm trọng.</span></div>
     </div>
   </div>
@@ -528,7 +531,7 @@ svg .t-bad { fill: var(--bad); }
           <text x="190" y="154" text-anchor="end" class="t-ink">quản lý NASA</text><rect x="200" y="142" width="490" height="18" fill="var(--night)" fill-opacity=".7"/><text x="684" y="135" text-anchor="end" class="t-night t-bold">1/100.000</text>
         </svg>
       </div>
-      <figcaption><b>"Nguồn gốc niềm tin kỳ lạ của quản lý vào cỗ máy là gì?"</b> Feynman hỏi. Con số 1/100.000 nghĩa là phóng mỗi ngày suốt 300 năm mới mất một tàu. Thực tế: mất Challenger 1986 và Columbia 2003 trong 135 chuyến.</figcaption>
+      <figcaption><b>"Nguồn gốc niềm tin kỳ lạ của quản lý vào cỗ máy là gì?"</b> Feynman hỏi. Con số 1/100.000 nghĩa là phóng mỗi ngày suốt 300 năm mới mất một tàu. Thực tế: mất Challenger 1986 và Columbia 2003 trong 135 chuyến.<span class="nguon">Nguồn: Feynman, phụ lục F, Báo cáo Ủy ban Rogers (các ước tính 1/25, 1/100, 1/100.000 và ví dụ 300 năm); 2 lần mất tàu trong 135 chuyến 1981–2011: NASA.</span></figcaption>
     </figure>
   </div>
 </section>
@@ -557,6 +560,7 @@ svg .t-bad { fill: var(--bad); }
 
 <section id="danh-gia">
   <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 8, không phải số liệu của một nghiên cứu.</p>
   <div class="scores">
     <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
     <div class="score"><span>Cảnh báo có từ trước</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
@@ -609,7 +613,7 @@ svg .t-bad { fill: var(--bad); }
     <div><b>Richard Feynman, <i>What Do You Care What Other People Think?</i> (1988)</b><span class="muted">Nửa sau cuốn sách là hồi ký Feynman trong Ủy ban Rogers, dễ đọc như truyện.</span></div>
     <div><b>Diane Vaughan, <i>The Challenger Launch Decision</i> (1996)</b><span class="muted">Cuốn sách đặt ra khái niệm "bình thường hóa sự lệch chuẩn". Dày, nhưng là tác phẩm gốc.</span></div>
     <div><b>Edward Tufte, <i>Visual Explanations</i> (1997), và bài phản biện của Robison, Boisjoly và cộng sự (2002)</b><span class="muted">Đọc cả hai để thấy một cuộc tranh luận về dữ liệu đúng nghĩa.</span></div>
-    <div><b>Giải phẫu thảm họa #02: Mars Climate Orbiter (1999)</b><span class="muted">Một con tàu 125 triệu USD mất vì hai nhóm dùng hai đơn vị đo khác nhau.</span></div>
+    <div><b>Giải phẫu thảm họa #02: Mars Climate Orbiter (1999)</b><span class="muted">Một con tàu khoảng 125 triệu USD (theo NASA) mất vì hai nhóm dùng hai đơn vị đo khác nhau.</span></div>
   </div>
 </section>
 
