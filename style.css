@@ -1183,7 +1183,8 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 .pl-khung { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid var(--edge); box-shadow: 0 10px 30px rgba(15, 23, 42, .12); background: #7DD3FC; }
 .pl-canvas { display: block; width: 100%; aspect-ratio: 16 / 9; touch-action: none; outline: none; }
 .pl-khung:has(.pl-canvas:focus-visible) { border-color: var(--blue); }
-.pl-menu { position: absolute; top: 10px; right: 10px; padding: 8px 12px; border-radius: 12px; border: 0; background: rgba(15, 23, 42, .6); color: #fff; font: 700 14px/1 var(--f-body); cursor: pointer; }
+.pl-nut-tren { position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; }
+.pl-menu { padding: 8px 12px; border-radius: 12px; border: 0; background: rgba(15, 23, 42, .6); color: #fff; font: 700 14px/1 var(--f-body); cursor: pointer; }
 .pl-man { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(15, 23, 42, .45); overflow: auto; }
 .pl-man[hidden] { display: none; }
 .pl-man > * { width: min(560px, 100%); box-sizing: border-box; padding: 18px 20px; border-radius: 20px; background: var(--panel); color: var(--ink); border: 2px solid var(--edge); }
@@ -1222,6 +1223,42 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 .pl-de .pl-phan-hoi { margin-top: 10px; }
 .pl-dk .is-ban { flex: .9; background: #FEF9C3; border-color: #CA8A04; }
 @media (max-width: 700px) { .pl-de { padding: 10px 12px; } .pl-de-ds { grid-template-columns: 1fr; gap: 6px; } .pl-de-ds li { padding: 6px 8px; font-size: 14px; } .pl-de-cau { font-size: 15.5px; } }
+/* Nút thu gọn câu hỏi và nút toàn màn hình chỉ dùng trên điện thoại. */
+.pl-de-hang { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.pl-de-gon { display: none; flex: none; padding: 4px 8px; border-radius: 10px; border: 1.5px solid var(--edge); background: var(--bg2); color: var(--ink); font: 700 12.5px/1.2 var(--f-body); cursor: pointer; }
+.pl-toan { display: none; min-width: 36px; padding: 8px 10px; border-radius: 12px; border: 0; background: rgba(15, 23, 42, .6); color: #fff; font: 700 15px/1 var(--f-body); cursor: pointer; }
+@media (pointer: coarse), (max-width: 700px) { .pl-toan { display: block; } }
+/* Chế độ toàn màn hình: chỉ còn game, nút bấm cố định ở đáy, câu hỏi là popup nổi phía trên. */
+html.pl-mo-toan, html.pl-mo-toan body { overflow: hidden; overscroll-behavior: none; }
+.pl.pl-game.is-toan { position: fixed; inset: 0; z-index: 1000; max-width: none; margin: 0; padding: env(safe-area-inset-top) 8px calc(8px + env(safe-area-inset-bottom)); background: #0F172A; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; }
+.pl.is-toan .pl-dau, .pl.is-toan .pl-huong, .pl.is-toan .pl-ghi { display: none; }
+.pl.is-toan .pl-khung { flex: none; border-radius: 14px; }
+.pl.is-toan .pl-dk { display: flex; flex: none; margin-top: 0; }
+.pl.is-toan .pl-dk button { min-height: 60px; }
+.pl.is-toan .pl-de { position: absolute; z-index: 5; top: calc(8px + env(safe-area-inset-top)); left: 8px; right: 8px; margin: 0; max-height: calc(100% - 100vw * .75 - 100px); min-height: 0; overflow: auto; overscroll-behavior: contain; box-shadow: 0 12px 30px rgba(0, 0, 0, .45); }
+.pl.is-toan .pl-de-gon { display: block; }
+.pl.is-toan .pl-de { padding: 8px 10px; }
+.pl.is-toan .pl-de-dau { font-size: 11px; }
+.pl.is-toan .pl-de-cau { font-size: 14.5px; margin-bottom: 6px; }
+.pl.is-toan .pl-de-ds { gap: 5px; }
+.pl.is-toan .pl-de-ds li { padding: 4px 8px; font-size: 13.5px; line-height: 1.3; align-items: center; }
+.pl.is-toan .pl-de-chu { width: 24px; height: 24px; font-size: 14px; }
+.pl.is-toan .pl-de.is-gon .pl-de-cau, .pl.is-toan .pl-de.is-gon .pl-de-ds, .pl.is-toan .pl-de.is-gon .pl-phan-hoi { display: none; }
+.pl.is-toan .pl-de .pl-phan-hoi { grid-template-columns: 40px 1fr; padding: 10px; margin-top: 8px; }
+.pl.is-toan .pl-de .pl-phan-hoi img { width: 40px; height: 40px; }
+.pl.is-toan .pl-de .pl-phan-hoi p { font-size: 13.5px; line-height: 1.4; margin-top: 2px; }
+.pl.is-toan .pl-bao { position: absolute; z-index: 6; left: 50%; bottom: 84px; transform: translateX(-50%); margin: 0; }
+/* Khi màn hình thấp (thường là điện thoại xoay ngang hoặc câu hỏi quá dài), popup đè lên phần trời của game. */
+@media (max-height: 640px) { .pl.is-toan .pl-de { max-height: 52%; background: color-mix(in srgb, var(--panel) 92%, transparent); } }
+@media (orientation: landscape) and (max-height: 500px) {
+  .pl.pl-game.is-toan { flex-direction: row; flex-wrap: wrap; align-content: stretch; padding: 6px calc(6px + env(safe-area-inset-right)) 6px calc(6px + env(safe-area-inset-left)); }
+  .pl.is-toan .pl-khung { flex: 1 1 100%; height: calc(100% - 66px); }
+  .pl.is-toan .pl-canvas { aspect-ratio: auto; height: 100%; }
+  .pl.is-toan .pl-dk { flex: 1 1 100%; }
+  .pl.is-toan .pl-dk button { min-height: 52px; }
+  .pl.is-toan .pl-de { left: 22%; right: 22%; top: 8px; max-height: 55%; }
+  .pl.is-toan .pl-de-ds { grid-template-columns: 1fr 1fr; }
+}
 .pl-phan-hoi { display: grid; grid-template-columns: 56px 1fr; gap: 6px 12px; align-items: start; margin-top: 16px; padding: 14px; border-radius: 16px; background: var(--bg2); }
 .pl-phan-hoi img { width: 56px; height: 56px; }
 .pl-phan-hoi p { margin: 4px 0 0; line-height: 1.5; }

@@ -28,7 +28,7 @@
     thang: "You beat the King of Hallucination!", thangTxt: function (s) { return "Total: " + s + " of 12 stars. Take the full quiz to earn your certificate."; },
     tongSao: function (s) { return s + " / 12 stars"; }, xoa: "Reset progress", xoaHoi: "Reset all levels?",
     loi: "Couldn't load the questions. Please reload the page.", dangTai: "Loading questions…",
-    menu: "☰ Levels", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
+    menu: "☰ Levels", toanVao: "Play full screen", toanRa: "Exit full screen", gon: "▾ Hide", mo: "▴ Show question", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
     danHet: "No bolts yet. Answer right to earn some."
   } : {
     dung: "Đúng", sai: "Sai", chuDS: ["✓", "✗"], dungRoi: "Chính xác!", saiRoi: "Chưa đúng rồi.",
@@ -43,7 +43,7 @@
     thang: "Bạn đã hạ Vua Ảo Giác!", thangTxt: function (s) { return "Tổng cộng " + s + " trên 12 sao. Làm bài kiểm tra đầy đủ để nhận giấy chứng nhận."; },
     tongSao: function (s) { return s + " / 12 sao"; }, xoa: "Chơi lại từ đầu", xoaHoi: "Xóa tiến độ của tất cả các ải?",
     loi: "Không tải được câu hỏi. Bạn tải lại trang nhé.", dangTai: "Đang tải câu hỏi…",
-    menu: "☰ Chọn ải", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo",
+    menu: "☰ Chọn ải", toanVao: "Chơi toàn màn hình", toanRa: "Thoát toàn màn hình", gon: "▾ Thu gọn", mo: "▴ Xem câu hỏi", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo",
     danHet: "Chưa có tia kiến thức. Trả lời đúng để nhận thêm."
   };
 
@@ -263,7 +263,7 @@
   function veBang(st, kq) {
     var b = $("#pl-de");
     if (!st) { b.hidden = true; return; }
-    b.hidden = false;
+    b.hidden = false; gonBang(false);
     $("#pl-de-dau").textContent = st.trum ? T.trum(L.trum.hp, st.o) : T.tram(st.so, L.tram.length, st.o);
     $("#pl-de-cau").textContent = st.q.cau;
     var ds = $("#pl-de-ds"); ds.innerHTML = "";
@@ -284,6 +284,8 @@
     $("#pl-de-kq-dau").textContent = kq.dung ? T.dungRoi : T.saiRoi;
     $("#pl-de-kq-dau").className = kq.dung ? "pl-ok" : "pl-no";
     $("#pl-de-kq-chu").textContent = st.q.giai_thich + (kq.dung ? "" : " " + T.goiY);
+    // Trong chế độ toàn màn hình, popup có thể phải cuộn: đưa lời giải thích vào tầm nhìn.
+    if ($("#pl").classList.contains("is-toan")) b.scrollTop = b.scrollHeight;
   }
 
   // ---------- Cập nhật ----------
@@ -627,6 +629,29 @@
     ve();
   }
 
+  // ---------- Chế độ chơi toàn màn hình trên điện thoại ----------
+  // Chỉ còn khung game và nút bấm; câu hỏi và giải thích nổi lên thành popup đè trên game.
+  var DT = window.matchMedia ? window.matchMedia("(pointer: coarse), (max-width: 700px)") : {matches: false};
+  var daThoat = false;
+  function toanMan(bat) {
+    var pl = $("#pl"), nut = $("#pl-toan");
+    pl.classList.toggle("is-toan", bat);
+    document.documentElement.classList.toggle("pl-mo-toan", bat);
+    nut.textContent = bat ? "✕" : "⛶";
+    nut.setAttribute("aria-label", bat ? T.toanRa : T.toanVao); nut.title = nut.getAttribute("aria-label");
+    nut.setAttribute("aria-pressed", bat ? "true" : "false");
+    try {
+      if (bat && pl.requestFullscreen && !document.fullscreenElement) pl.requestFullscreen({navigationUI: "hide"}).catch(function () {});
+      if (!bat && document.fullscreenElement) document.exitFullscreen().catch(function () {});
+    } catch (x) {}
+    requestAnimationFrame(coGian);
+  }
+  function gonBang(gon) {
+    var b = $("#pl-de"), n = $("#pl-de-gon");
+    b.classList.toggle("is-gon", gon);
+    n.textContent = gon ? T.mo : T.gon; n.setAttribute("aria-expanded", gon ? "false" : "true");
+  }
+
   // ---------- Màn chọn ải / kết quả ----------
   function hienMan(noiDung) {
     man.innerHTML = ""; man.appendChild(noiDung); man.hidden = false;
@@ -662,10 +687,11 @@
     veBang(null);
     man.hidden = true; $("#pl-menu").hidden = false;
     trangThai = "choi"; khung.classList.add("is-choi");
+    if (DT.matches && !daThoat && !$("#pl").classList.contains("is-toan")) toanMan(true);
     phim.trai = phim.phai = phim.nhay = phim.ban = false; demNhay = 0;
     L.bao = {chu: T.ai + " " + (i + 1) + " · " + L.a.ten, t: 2};
     var r = khung.getBoundingClientRect(), dk = $("#pl-dk").getBoundingClientRect();
-    if (r.top < 0 || Math.max(r.bottom, dk.bottom) > window.innerHeight) $("#pl").scrollIntoView({block: "start", behavior: "smooth"});
+    if (!$("#pl").classList.contains("is-toan") && (r.top < 0 || Math.max(r.bottom, dk.bottom) > window.innerHeight)) $("#pl").scrollIntoView({block: "start", behavior: "smooth"});
     cv.focus({preventScroll: true});
     chayVong();
   }
@@ -750,6 +776,12 @@
     window.addEventListener("resize", coGian);
     batPhim();
     $("#pl-menu").textContent = T.menu;
+    toanMan(false);
+    $("#pl-toan").addEventListener("click", function () {
+      var bat = !$("#pl").classList.contains("is-toan");
+      daThoat = !bat; toanMan(bat); cv.focus({preventScroll: true});
+    });
+    $("#pl-de-gon").addEventListener("click", function () { gonBang(!$("#pl-de").classList.contains("is-gon")); });
     $("#pl-menu").addEventListener("click", manChon);
     $("#pl-xoa").textContent = T.xoa;
     $("#pl-xoa").addEventListener("click", function () {
