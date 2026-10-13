@@ -6,7 +6,8 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 - Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en"). Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
   tiếng Anh tạm dùng bài tiếng Việt và script báo). Đó là trang Artifact không có khung <html>/<head>;
-  script bọc khung, thêm thanh quay về trang và ghi ra vu-tru-khac/<slug>.html và en/vu-tru-khac/<slug>.html.
+  script bọc khung, thêm thanh quay về trang và giao diện chung assets/vu-tru-khac/doc.css (đặt cuối trang để phủ CSS
+  riêng của bài: màu navy/cam, font Mark học AI, mục lục cột trái), rồi ghi ra vu-tru-khac/<slug>.html và en/vu-tru-khac/<slug>.html.
   Đừng sửa tay các file đó, sửa bài gốc rồi chạy lại.
 - Bỏ phần "Ghi chú riêng" (để Sang tự điền, không đăng công khai) và nhãn bản nháp.
 - Viết lại danh sách thẻ sách trong vu-tru-khac.html và en/vu-tru-khac.html, giữa <!-- sach:dau --> và <!-- sach:cuoi -->.
@@ -85,6 +86,9 @@ def trang_sach(b, goc, en=False):
 <meta property="og:image" content="{BASE}assets/og.png">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
 <link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 <style>
 body {{ margin: 0; }}
@@ -102,6 +106,7 @@ body {{ margin: 0; }}
 <body>
 <div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}">‹ <img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 {bai.strip()}
+<link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">
 </body>
 </html>
 '''
