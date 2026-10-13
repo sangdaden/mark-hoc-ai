@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mark's Adventure: a free AI learning game in your browser | Mark học AI</title>
-<meta name="description" content="Free game: lead Mark through 5 stations, beat challenges on AI myths, prompting, safety and AI at work, then defeat the Hallucination Cave boss. Play on your phone.">
+<meta name="description" content="Free platform game: run, jump and stomp monsters through 4 levels. Every monster and boss asks an AI question on myths, prompting, safety and AI at work. Play on your phone.">
 <link rel="canonical" href="https://markhocai.com/en/phieu-luu.html">
 <link rel="alternate" hreflang="vi" href="https://markhocai.com/phieu-luu.html">
 <link rel="alternate" hreflang="en" href="https://markhocai.com/en/phieu-luu.html">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mark's Adventure: a free AI learning game in your browser | Mark học AI">
-<meta property="og:description" content="Free game: lead Mark through 5 stations, beat challenges on AI myths, prompting, safety and AI at work, then defeat the Hallucination Cave boss. Play on your phone.">
+<meta property="og:description" content="Free platform game: run, jump and stomp monsters through 4 levels. Every monster and boss asks an AI question on myths, prompting, safety and AI at work. Play on your phone.">
 <meta property="og:url" content="https://markhocai.com/en/phieu-luu.html">
 <meta property="og:image" content="https://markhocai.com/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -46,22 +46,19 @@
 <div class="head-row"><div>
 <p class="eyebrow">Free game · play in your browser</p>
 <h1>Mark's Adventure</h1>
-<p class="lead">Lead Mark through 5 stations. At each one, Bit sets an AI challenge: answer correctly to move on, miss and you lose a heart but get the explanation right away. The Hallucination Cave boss waits at the end.</p>
+<p class="lead">Run and jump through 4 levels, stomp monsters and beat the bosses. Every time Mark meets a monster, Bit asks an AI question: answer right to defeat it, miss and you lose a heart but get the explanation right away.</p>
 </div><img class="head-art" src="../assets/mark-chao.svg" alt="" width="180" height="170"></div>
 </div>
 </div>
-<main class="pl" id="pl">
+<main class="pl pl-game" id="pl">
   <div class="pl-dau"><p class="pl-tong" id="pl-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="pl-xoa">Reset progress</button></div>
-  <div class="pl-ban" id="pl-ban">
-    <svg id="pl-svg" class="pl-svg" viewBox="0 0 400 900" aria-hidden="true">
-      <defs><linearGradient id="pl-nen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C1D95"/><stop offset=".22" stop-color="#7C3AED"/><stop offset=".3" stop-color="#7DD3FC"/><stop offset=".62" stop-color="#BBF7D0"/><stop offset="1" stop-color="#86EFAC"/></linearGradient></defs>
-      <rect width="400" height="900" fill="url(#pl-nen)"/>
-      <g class="pl-cay"><circle cx="40" cy="560" r="22"/><circle cx="360" cy="420" r="26"/><circle cx="345" cy="820" r="20"/><circle cx="55" cy="300" r="18"/><circle cx="370" cy="200" r="14"/><circle cx="30" cy="690" r="14"/></g>
-      <g class="pl-sao-troi"><circle cx="60" cy="50" r="2.5"/><circle cx="130" cy="90" r="2"/><circle cx="330" cy="60" r="2.5"/><circle cx="280" cy="30" r="1.8"/><circle cx="20" cy="150" r="2"/></g>
-    </svg>
-    <div class="pl-lop" id="pl-tram"></div>
-    <img class="pl-mark" id="pl-mark" src="../assets/mascot/mark-chi-len-tinh.webp" alt="Mark" width="64" height="64">
+  <div class="pl-khung" id="pl-khung">
+    <canvas class="pl-canvas" id="pl-canvas" tabindex="0"></canvas>
+    <button type="button" class="pl-menu" id="pl-menu" hidden></button>
+    <div class="pl-man" id="pl-man"></div>
   </div>
+  <div class="pl-dk" id="pl-dk" role="group" aria-label="Touch controls"><button type="button" data-k="trai" aria-label="Move left">◀</button><button type="button" data-k="phai" aria-label="Move right">▶</button><button type="button" data-k="nhay" class="is-nhay">Jump</button></div>
+  <p class="pl-huong"><b>Controls:</b> ← → or A D to run, Space or ↑ to jump. On a phone, use the buttons under the game. Stomp a monster and a wrong answer costs no heart.</p>
   <p class="pl-bao" id="pl-bao" role="status" hidden></p>
   <p class="pl-ghi">Questions come from the channel's <a href="kiem-tra.html">quiz</a>. Progress is saved in this browser only.</p>
   <noscript><p>The game needs JavaScript. You can still <a href="kiem-tra.html">take the quiz</a>.</p></noscript>
