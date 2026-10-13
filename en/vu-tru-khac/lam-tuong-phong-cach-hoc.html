@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Everyone has a learning style (VAK và VARK): summary, review and lessons | Another Universe</title>
+<meta name="description" content="&quot;I&#x27;m a visual learner&quot;: preferences are real, but does teaching to them help? Tracing the myth from VAK and VARK to the experiments of Pashler and Rogowsky and a 2024 meta-analysis, then designing training around the content instead.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Everyone has a learning style (VAK và VARK): summary, review and lessons | Another Universe">
+<meta property="og:description" content="&quot;I&#x27;m a visual learner&quot;: preferences are real, but does teaching to them help? Tracing the myth from VAK and VARK to the experiments of Pashler and Rogowsky and a 2024 meta-analysis, then designing training around the content instead.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/lam-tuong-phong-cach-hoc.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #1A0B16; --bia-2: #831843; --bia-nhan: #7DD3FC; }
+:root { --vtk-nhan: #7DD3FC; }
+body header { --ho-so: "Myth file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/lam-tuong-phong-cach-hoc.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Challenger. Topic "Common Myths" #3 learning styles: --night = magenta (the label stuck on a learner), --day = sky blue (the content itself). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #be185d;
+  --day: #0369a1;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f472b6; --day: #7dd3fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f472b6; --day: #7dd3fc; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Reading tools"><div class="vtk-ray-bia" aria-hidden="true"><i>Everyone has a learning style</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><g stroke="#FFF7ED" stroke-width="3">
+<path d="M10 12h30l7 9-7 9H10z"/><path d="M14 21c4-6 18-6 22 0-4 6-18 6-22 0z" stroke-width="2.5"/>
+<path d="M10 40h30l7 9-7 9H10z"/><path d="M26 54c0-3 4-3 4-8a5 5 0 0 0-10 0"/>
+<path d="M10 68h30l7 9-7 9H10z"/><path d="M20 84v-8a2 2 0 0 1 4 0v-3a2 2 0 0 1 4 0v3a2 2 0 0 1 4 0v8"/>
+</g>
+<circle cx="25" cy="21" r="2.6" fill="var(--bia-nhan, #F472B6)"/>
+<g stroke="var(--bia-nhan, #F472B6)" stroke-width="4"><path d="M54 40h10M54 54h10M66 34l-14 26"/></g>
+<rect x="70" y="30" width="24" height="40" rx="3" stroke="#FFF7ED" stroke-width="3"/>
+<path d="M75 60l5-6 4 3 6-9" stroke="var(--bia-nhan, #F472B6)" stroke-width="3"/>
+</svg></span><img src="../../assets/vu-tru-khac/mark/doc-sach.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Time left</small><b class="vtk-con-lai" data-phut="14" data-chu="en">about 14 min read</b></p><a class="vtk-ray-choi" href="#choi-nhap-vai"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-gamepad"/></svg><span><small>Play</small>You run training</span></a><a class="vtk-ray-o vtk-ray-tiep" href="lam-tuong-7-38-55.html"><small>Up next</small><b>Words are only 7%</b><span>Myth #004 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Common Myths · Learning · Training</span>
+  <h1>Common Myths #3: Everyone has a "learning style"</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Three labels: an eye, an ear, a hand, and a not-equal sign">
+    <g fill="none" stroke="#8a94a6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M6 10h50l10 16-10 16H6z"/><path d="M76 10h50l10 16-10 16H76z"/><path d="M146 10h50l10 16-10 16h-50z"/>
+    </g>
+    <g fill="none" stroke="#be185d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 26c6-8 22-8 28 0-6 8-22 8-28 0z"/><circle cx="30" cy="26" r="3.5" fill="#be185d"/>
+      <path d="M96 34c0-4 6-5 6-12a7 7 0 0 0-14 0"/><path d="M98 24a3 3 0 0 0-6 0"/>
+      <path d="M162 34v-12a2.5 2.5 0 0 1 5 0v-4a2.5 2.5 0 0 1 5 0v4a2.5 2.5 0 0 1 5 0v2a2.5 2.5 0 0 1 5 0v6c0 4-3 6-7 6h-6c-4 0-7-2-7-6z"/>
+    </g>
+    <g stroke="#0369a1" stroke-width="3" stroke-linecap="round"><path d="M222 20h16M222 32h16M236 14l-12 24"/></g>
+    <g fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linejoin="round"><rect x="256" y="8" width="56" height="36" rx="4"/><path d="M264 34l10-10 8 6 14-14"/></g>
+  </svg>
+  <p class="sub">"I'm a visual learner." The most familiar line in every classroom and training room.</p>
+  <div class="meta">
+    <div><span class="label">The claim</span><b>people learn better when taught in their style: visual, auditory or kinesthetic</b></div>
+    <div><span class="label">Spread by</span><b>the VAK model (1979) and the VARK questionnaire (1992)</b></div>
+    <div><span class="label">Short verdict</span><b>preferences are real, the benefit of "matching" is not</b></div>
+    <div><span class="label">Main source</span><b>Pashler and colleagues, 2008</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essentials</a><a href="#luan-diem">Question</a><a href="#bo-cuc">Origins</a><a href="#khai-niem">Evidence</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lesson</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark is reading with you</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">One-minute recap</span><h2>Essentials</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 16c6-8 18-8 24 0-6 8-18 8-24 0z"/><circle cx="16" cy="16" r="3"/></svg><b>Preferences are real</b><span>Everyone has ways of learning they find more comfortable. That part is not wrong.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M9 23L23 9"/></svg><b>Matching doesn't help</b><span>Properly designed tests find almost no gain from teaching people "in their style".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l20 16M6 24L26 8"/></svg><b>No crossover</b><span>To believe it, each style must win under its own method. Very few studies show that.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="2"/><path d="M9 20l5-5 4 3 6-7"/></svg><b>Content picks the format</b><span>A map needs a picture, a skill needs practice. For everyone, not by "type".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><b>Still hugely popular</b><span>93% of UK and 96% of Dutch teachers surveyed believed it.</span></div>
+  </div>
+  <p class="nguon">Source: Pashler, McDaniel, Rohrer and Bjork (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Dekker and colleagues (2012), Frontiers in Psychology 3: 429 (93% and 96%).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question behind the myth</h2></div>
+  <p class="thesis">If you ask someone "do you prefer to learn from pictures or words?" and then teach them that way, do they learn more? The experiments' answer: almost never. What should decide how you teach is the content, not the learner's label.</p>
+  <div class="flow" aria-label="Three links of the myth">
+    <div class="step"><span class="label">Link 1 · solid</span><b>People have preferences</b><span>Ask and they answer at once: I like to watch, to listen, to do.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Link 2 · weak</span><b>A preference is a fixed "type"</b><span>Dozens of competing models, unreliable measures.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Link 3 · broken</span><b>Matched teaching works better</b><span>Properly designed tests almost never find it.</span></div>
+  </div>
+  <p class="nguon">Source: Pashler and colleagues (2008); Coffield and colleagues (2004), Learning and Skills Research Centre.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>Where the myth came from</h2><p class="lead">There is no single "first person who said it". There is a chain of models, questionnaires and training courses, each step a little more confident than the last.</p></div>
+  <div class="tl">
+    <div><b>1978 · Rita and Kenneth Dunn</b><span>The book <i>Teaching Students Through Their Individual Learning Styles</i>: teach each child through their own learning style.</span></div>
+    <div class="hot"><b>1979 · Barbe and Swassing: three "modalities", visual, auditory, kinesthetic</b><span>The book <i>Teaching Through Modality Strengths</i> and a test to find each person's "most efficient learning mode". The VAK model is usually credited to this group, though some sources trace it earlier.</span></div>
+    <div><b>1984 · David Kolb</b><span>The book <i>Experiential Learning</i> and the Kolb learning style inventory, still one of the two most used.</span></div>
+    <div class="hot"><b>1992 · Neil Fleming and Colleen Mills: VARK</b><span>They added "read/write" to make four types. The paper's title states its purpose: "Not Another Inventory, Rather a Catalyst for Reflection".</span></div>
+    <div><b>2004 · Coffield and colleagues count 71 models</b><span>13 major, 58 minor. Many of the instruments have serious weaknesses in reliability.</span></div>
+    <div><b>2006 · Fleming himself is worried</b><span>He wrote that "students and teachers invest more belief in VARK than it warrants" (secondary source).</span></div>
+    <div class="hot"><b>2008 · Pashler and colleagues</b><span>Four cognitive psychologists review all the evidence: not enough basis to build teaching around learning styles.</span></div>
+    <div><b>2012 · Dekker and colleagues</b><span>93% of UK and 96% of Dutch teachers in the survey still believe it. It is the most-believed brain myth in the study.</span></div>
+    <div><b>2015 · Newton</b><span>89% of recent research papers on learning styles in higher education still endorse using them.</span></div>
+    <div><b>3/2017 · A letter from about 30 scientists in The Guardian</b><span>It calls learning styles a "neuromyth", wasteful and potentially harmful (secondary source).</span></div>
+  </div>
+  <p class="nguon">Source: library catalogues (Dunn and Dunn 1978, Reston; Barbe, Swassing and Milone 1979, Zaner-Bloser); Kolb (1984), Prentice-Hall; Fleming and Mills (1992), To Improve the Academy 11; Coffield and colleagues (2004); Pashler and colleagues (2008); Dekker and colleagues (2012); Newton (2015), Frontiers in Psychology 6: 1908. Fleming's 2006 line and the 2017 letter: secondary sources (press; Centre for Educational Neuroscience, 20 March 2017).</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 190" role="img" aria-labelledby="bd">
+        <title id="bd">One sentence distorted in four steps. Step 1: I like looking at pictures, a preference. Step 2: I am a visual learner, a label. Step 3: I can only learn from pictures, a limit. Step 4: teaching me with words is teaching me wrong, a demand.</title>
+        <g>
+          <rect x="10" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="22" y="64" class="t-ok t-bold">1 · preference</text><text x="22" y="90" class="t-ink">"I like looking</text><text x="22" y="108" class="t-ink">at pictures."</text>
+          <rect x="190" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="202" y="64" class="t-bold" style="fill:var(--warn)">2 · label</text><text x="202" y="90" class="t-ink">"I am a</text><text x="202" y="108" class="t-ink">visual learner."</text>
+          <rect x="370" y="40" width="160" height="90" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+          <text x="382" y="64" class="t-night t-bold">3 · limit</text><text x="382" y="90" class="t-ink">"I can only learn</text><text x="382" y="108" class="t-ink">from pictures."</text>
+          <rect x="550" y="40" width="160" height="90" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="562" y="64" class="t-bold t-bad">4 · demand</text><text x="562" y="90" class="t-ink">"Words are the</text><text x="562" y="108" class="t-ink">wrong way for me."</text>
+          <g stroke="var(--muted)" stroke-width="2"><path d="M172 85h16M352 85h16M532 85h16"/></g>
+        </g>
+        <text x="10" y="160" class="t-ok">evidence</text><text x="710" y="160" text-anchor="end" class="t-bad">no evidence</text>
+        <line x1="80" y1="156" x2="610" y2="156" stroke="var(--rule)" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="360" y="182" text-anchor="middle">illustrative diagram: each step sounds reasonable, only step 1 has data behind it</text>
+      </svg>
+    </div>
+    <figcaption><b>The myth wasn't invented from nothing.</b> It starts from something true (everyone has preferences) and slides into a demand nobody tested.<span class="nguon">Source: the distinction between preference and learning benefit follows Pashler and colleagues (2008) and Knoll and colleagues (2017), British Journal of Psychology 108(3).</span></figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>It sounds like respecting difference</h3><span class="muted">Who would object to teaching each person their own way? The claim carries a good value, so few people check it.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>The feeling of ease is real</h3><span class="muted">Knoll and colleagues (2017): studying "in your style" makes you believe you'll remember more, though you don't.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>Quick test, catchy label</h3><span class="muted">A few minutes of questions, one label. Easy to sell as a workshop, easy to put in a file.</span></div>
+  </div>
+  <p class="nguon">Source: Knoll, Otani, Skeel and Van Horn (2017), British Journal of Psychology 108(3): 544–563.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Post 1</span><h3>Where the myth came from</h3><div class="chips"><span class="chip">VAK 1979</span><span class="chip">VARK 1992</span><span class="chip">71 models</span><span class="chip">93% of teachers</span></div></div>
+    <div class="part b2"><span class="label">Post 2</span><h3>What the evidence says</h3><div class="chips"><span class="chip">crossover test</span><span class="chip">audiobook vs e-text</span><span class="chip">426 students</span><span class="chip">2024 meta-analysis</span></div></div>
+    <div class="part b3"><span class="label">Post 3</span><h3>Work lesson</h3><div class="chips"><span class="chip">content picks the format</span><span class="chip">5-day onboarding</span><span class="chip">measure with tests</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>What the evidence says</h2><p class="lead">One idea, one picture. Figures marked "illustrative" show the idea, not measured data.</p></div>
+
+  <div class="concept">
+    <div class="term"><h3>The crossover test: what you'd need to see</h3><span class="en">crossover interaction</span><span class="pg">Pashler 2008</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="kc">
+          <title id="kc">Two illustrative charts. Left, what you'd need to see to believe in learning styles: visual-preferring people do better with pictures, verbal-preferring people do better with words, and the lines cross. Right, what experiments usually find: parallel lines, one method better for both groups, or no difference.</title>
+          <text x="180" y="20" text-anchor="middle" class="t-ink t-bold">needed: the lines cross</text>
+          <text x="540" y="20" text-anchor="middle" class="t-ink t-bold">usually found: no crossing</text>
+          <g>
+            <line x1="60" y1="180" x2="320" y2="180" class="axis"/><line x1="60" y1="40" x2="60" y2="180" class="axis"/>
+            <text x="110" y="200" text-anchor="middle">taught with pictures</text><text x="270" y="200" text-anchor="middle">taught with words</text>
+            <text x="20" y="110" transform="rotate(-90 20 110)" text-anchor="middle">test score</text>
+            <line x1="110" y1="60" x2="270" y2="150" stroke="var(--night)" stroke-width="4"/><circle cx="110" cy="60" r="6" fill="var(--night)"/><circle cx="270" cy="150" r="6" fill="var(--night)"/>
+            <line x1="110" y1="150" x2="270" y2="60" stroke="var(--day)" stroke-width="4"/><circle cx="110" cy="150" r="6" fill="var(--day)"/><circle cx="270" cy="60" r="6" fill="var(--day)"/>
+            <text x="280" y="154" class="t-night t-bold">visual</text><text x="280" y="64" class="t-day t-bold">verbal</text>
+          </g>
+          <g>
+            <line x1="420" y1="180" x2="680" y2="180" class="axis"/><line x1="420" y1="40" x2="420" y2="180" class="axis"/>
+            <text x="470" y="200" text-anchor="middle">taught with pictures</text><text x="630" y="200" text-anchor="middle">taught with words</text>
+            <line x1="470" y1="70" x2="630" y2="110" stroke="var(--night)" stroke-width="4"/><circle cx="470" cy="70" r="6" fill="var(--night)"/><circle cx="630" cy="110" r="6" fill="var(--night)"/>
+            <line x1="470" y1="90" x2="630" y2="130" stroke="var(--day)" stroke-width="4"/><circle cx="470" cy="90" r="6" fill="var(--day)"/><circle cx="630" cy="130" r="6" fill="var(--day)"/>
+            <text x="640" y="106" class="t-night t-bold">visual</text><text x="640" y="134" class="t-day t-bold">verbal</text><text x="550" y="168" text-anchor="middle">one method wins for both groups</text>
+          </g>
+          <text x="360" y="224" text-anchor="middle">illustrative diagram</text>
+        </svg>
+      </div>
+      <figcaption><b>Seeing "visual people learn well from pictures" is not enough.</b> Pictures might help everyone. To prove learning styles, you must randomly assign people of each style to both methods and see the lines cross. Pashler and colleagues wrote that they "found virtually no evidence" for this interaction, and several properly designed studies pointed the other way.<span class="nguon">Source: Pashler, McDaniel, Rohrer and Bjork (2008), Psychological Science in the Public Interest 9(3): 105–119.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Audiobook or e-text: "auditory learners" do no better</h3><span class="en">audiobook vs e-text</span><span class="pg">Rogowsky 2015, 2020</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kr">
+          <title id="kr">A two by two table. Rows: prefers listening, prefers reading. Columns: learned by audiobook, learned by e-text. All four cells show roughly equal: no significant difference between matched and mismatched cells.</title>
+          <text x="330" y="24" text-anchor="middle" class="t-ink t-bold">learned by audiobook</text><text x="530" y="24" text-anchor="middle" class="t-ink t-bold">learned by e-text</text>
+          <text x="210" y="80" text-anchor="end" class="t-ink t-bold">prefers listening</text><text x="210" y="150" text-anchor="end" class="t-ink t-bold">prefers reading</text>
+          <rect x="240" y="40" width="180" height="60" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="330" y="70" text-anchor="middle" class="t-night t-bold">matched</text><text x="330" y="88" text-anchor="middle">score ≈</text>
+          <rect x="440" y="40" width="180" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="530" y="70" text-anchor="middle" class="t-ink">mismatched</text><text x="530" y="88" text-anchor="middle">score ≈</text>
+          <rect x="240" y="110" width="180" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="330" y="140" text-anchor="middle" class="t-ink">mismatched</text><text x="330" y="158" text-anchor="middle">score ≈</text>
+          <rect x="440" y="110" width="180" height="60" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/><text x="530" y="140" text-anchor="middle" class="t-night t-bold">matched</text><text x="530" y="158" text-anchor="middle">score ≈</text>
+          <text x="430" y="194" text-anchor="middle">tested at once and after 2 weeks: no significant link between preference and method</text>
+        </svg>
+      </div>
+      <figcaption><b>Same book passage, two ways to learn it, random assignment.</b> College-educated adults had their listening or reading preference measured, then learned from an audiobook or an e-text. In 2020 the team repeated it with 125 fifth graders and found similar results.<span class="nguon">Source: Rogowsky, Calhoun and Tallal (2015), Journal of Educational Psychology 107(1): 64–78; Rogowsky, Calhoun and Tallal (2020), Frontiers in Psychology 11: 164 (n = 125).</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>426 students: most didn't study "in their style", and grades didn't depend on style</h3><span class="en">VARK vs grades</span><span class="pg">Husmann and O'Loughlin 2019</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="kh">
+          <title id="kh">426 anatomy students took the VARK questionnaire. About 67 percent did not study in line with their style. Course grades did not correlate with scores in any VARK category.</title>
+          <text x="20" y="30" class="t-ink t-bold">426 anatomy students took VARK</text>
+          <rect x="20" y="46" width="680" height="34" rx="6" fill="var(--grid)"/>
+          <rect x="20" y="46" width="456" height="34" rx="6" fill="var(--night)" fill-opacity=".75"/>
+          <text x="34" y="68" style="fill:var(--paper)" class="t-bold">~67% did not study "in their style"</text>
+          <text x="690" y="68" text-anchor="end" class="t-ink t-bold">~33%</text>
+          <rect x="20" y="104" width="680" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="36" y="131" class="t-ink t-bold">course grade × score in V, A, R, K:</text><text x="420" y="131" class="t-bad t-bold">no correlation</text>
+        </svg>
+      </div>
+      <figcaption><b>What did relate to grades were specific study habits</b>, such as practising with the microscope, not the label. The authors called the results "strong evidence" that learning styles should not be promoted.<span class="nguon">Source: Husmann and O'Loughlin (2019), Anatomical Sciences Education 12(1): 6–19 (426 students, no correlation). The ~67% share and the quote: secondary source, BPS Research Digest.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Learning "in your style" feels easier, but you don't remember more</h3><span class="en">judgements of learning</span><span class="pg">Knoll 2017</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="kk">
+          <title id="kk">Two illustrative pairs of bars. First pair, how much you think you'll remember: higher when studying in your preferred style. Second pair, how much you actually recall when tested: equal.</title>
+          <line x1="60" y1="160" x2="680" y2="160" class="axis"/>
+          <rect x="110" y="50" width="70" height="110" fill="var(--night)" fill-opacity=".8"/><rect x="190" y="90" width="70" height="70" fill="var(--muted)" fill-opacity=".45"/>
+          <rect x="440" y="80" width="70" height="80" fill="var(--night)" fill-opacity=".8"/><rect x="520" y="80" width="70" height="80" fill="var(--muted)" fill-opacity=".45"/>
+          <text x="185" y="184" text-anchor="middle" class="t-ink t-bold">"I'll remember this"</text><text x="515" y="184" text-anchor="middle" class="t-ink t-bold">actual recall on test</text>
+          <text x="145" y="40" text-anchor="middle" class="t-night t-bold">your style</text><text x="225" y="80" text-anchor="middle">other style</text>
+          <text x="475" y="70" text-anchor="middle" class="t-night t-bold">your style</text><text x="555" y="70" text-anchor="middle">other style</text>
+          <text x="680" y="20" text-anchor="end">illustrative diagram</text>
+        </svg>
+      </div>
+      <figcaption><b>This is why the myth survives.</b> Verbal-preferring people predicted they'd remember words better, visual-preferring people predicted they'd remember pictures better. But preference scores were unrelated to what they actually recalled. The feeling that "this way sinks in" is real; it just isn't evidence.<span class="nguon">Source: Knoll, Otani, Skeel and Van Horn (2017), British Journal of Psychology 108(3): 544–563.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The 2024 meta-analysis: a small effect, rarely in the right shape</h3><span class="en">meta-analysis</span><span class="pg">Clinton-Lisell and Litzinger 2024</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="km">
+          <title id="km">The 2024 meta-analysis: 21 studies, 1,712 participants. Overall benefit of matched instruction g equals 0.31, small. Only 26 percent of learning outcome measures showed a crossover pattern.</title>
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="100" y="56" class="t-ink t-bold" style="font-size:22px">21</text><text x="100" y="82">studies</text>
+            <rect x="200" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="280" y="56" class="t-ink t-bold" style="font-size:22px">1,712</text><text x="280" y="82">participants</text>
+            <rect x="380" y="20" width="160" height="80" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/><text x="460" y="56" class="t-night t-bold" style="font-size:22px">g = 0.31</text><text x="460" y="82">overall benefit, small</text>
+            <rect x="560" y="20" width="140" height="80" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/><text x="630" y="56" class="t-bad t-bold" style="font-size:22px">26%</text><text x="630" y="82">show crossover</text>
+          </g>
+          <rect x="20" y="124" width="680" height="26" rx="5" fill="var(--grid)"/><rect x="20" y="124" width="177" height="26" rx="5" fill="var(--bad)" fill-opacity=".7"/>
+          <text x="30" y="142" style="fill:var(--paper)" class="t-bold">26%</text><text x="690" y="142" text-anchor="end" class="t-ink">74% of outcome measures: no crossover</text>
+          <text x="20" y="178">the authors: too small and too infrequent to adopt widely; many low-quality studies</text>
+        </svg>
+      </div>
+      <figcaption><b>This is where the sources don't fully agree.</b> The latest meta-analysis does find a small benefit from matching, so "completely debunked" overstates it. But only about a quarter of outcomes show the crossover the hypothesis needs, and the authors don't recommend adopting it. In 2025 papers were still debating why some meta-analyses find an effect.<span class="nguon">Source: Clinton-Lisell and Litzinger (2024), Frontiers in Psychology 15: 1428732 (21 studies, 1,712 people, g = 0.31, 26%); Educational Psychology Review (2025), "Learning Styles, Preferences, or Strategies?".</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The true kernel: format matters, but by content</h3><span class="en">content modality</span><span class="pg">Mayer 2009 · Willingham 2005</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kn">
+          <title id="kn">Choosing format by content. Things with a shape, like maps, processes, org charts: pictures with explanation. Hands-on skills, like using software or talking to customers: practice with feedback. Pronunciation and tone: listening. Reasoning and policy: reading with examples. For everyone.</title>
+          <g>
+            <text x="20" y="24" class="t-ink t-bold">if the content is…</text><text x="380" y="24" class="t-ink t-bold">teach it with…</text>
+            <rect x="20" y="36" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="60" class="t-ink">maps, processes, org charts</text>
+            <rect x="380" y="36" width="320" height="38" rx="6" fill="var(--day)" fill-opacity=".14" stroke="var(--day)"/><text x="394" y="60" class="t-day t-bold">pictures + explanation</text>
+            <rect x="20" y="82" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="106" class="t-ink">using software, talking to customers</text>
+            <rect x="380" y="82" width="320" height="38" rx="6" fill="var(--night)" fill-opacity=".14" stroke="var(--night)"/><text x="394" y="106" class="t-night t-bold">practice + instant feedback</text>
+            <rect x="20" y="128" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="152" class="t-ink">pronunciation, tone on calls</text>
+            <rect x="380" y="128" width="320" height="38" rx="6" fill="var(--rem)" fill-opacity=".14" stroke="var(--rem)"/><text x="394" y="152" class="t-rem t-bold">listen to a model + say it back</text>
+            <rect x="20" y="174" width="330" height="38" rx="6" fill="var(--paper)" stroke="var(--rule)"/><text x="34" y="198" class="t-ink">reasoning, policy, contracts</text>
+            <rect x="380" y="174" width="320" height="38" rx="6" fill="var(--ok)" fill-opacity=".14" stroke="var(--ok)"/><text x="394" y="198" class="t-ok t-bold">read + examples + self-quiz</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>The right question is "what shape is this content?", not "what type is this person?".</b> Mayer sums up many experiments: "people learn better from words and pictures than from words alone", for learners in general. Willingham concludes that what matters is the content's best format, not the student's strongest modality.<span class="nguon">Source: Mayer (2009), Multimedia Learning, Cambridge University Press, chapter "Multimedia Principle"; Willingham (2005, 2018), "Ask the Cognitive Scientist", American Educator. The table is Mark's example based on these sources.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: Solid, Caution, False</h2><p class="lead">10 common versions of the myth, checked against the original sources. Click each row to see why.</p></div>
+  <div class="tally" role="img" aria-label="3 solid, 3 caution, 4 false">
+    <div class="o" style="flex:3">3 SOLID</div><div class="w" style="flex:3">3 CAUTION</div><div class="b" style="flex:4">4 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>People have their own preferences for taking in information</span></summary><p class="note">You can measure them by asking, and they shape how learning feels (Knoll and colleagues, 2017). Pashler and colleagues (2008) don't deny preferences; they show preferences don't prove a benefit from matching.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Words plus pictures usually beat words alone</span></summary><p class="note">Mayer's multimedia principle (2009), for learners in general, not split by "type". This is the true part the myth borrows to sound reasonable.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Beginners and experts need different teaching</span></summary><p class="note">Detailed step-by-step guidance helps novices but can slow down people who already know the material (the expertise reversal effect, Kalyuga and colleagues, Educational Psychologist, 2003). The difference here is prior knowledge, not "visual or auditory".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Some studies found matched teaching works"</span></summary><p class="note">True: the 2024 meta-analysis found a small benefit (g = 0.31) across 21 studies. But only 26% of measures showed crossover, study quality was low, and the authors themselves don't recommend wide adoption.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Taking the VARK quiz helps you understand yourself"</span></summary><p class="note">Fleming and Mills (1992) made VARK as "a catalyst for reflection", and thinking about how you learn can be useful. But using the result as a diagnosis to choose how to learn has no supporting evidence, and Fleming himself worried people believe VARK too much (secondary source).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Learning with more senses makes it stick"</span></summary><p class="note">Often true when the format fits the content (words with pictures, practice for skills). Piling on channels that don't fit can just add clutter. And if it's true, it's true for everyone, which is a reason to drop learning styles, not to support them.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>Teaching in someone's style makes them learn better</span></summary><p class="note">The core of the myth. Pashler and colleagues (2008) found virtually no evidence; Rogowsky and colleagues (2015, 2020) tested it properly with adults and fifth graders and found no difference.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>Everyone belongs to one of three (or four) fixed types</span></summary><p class="note">Coffield and colleagues (2004) counted 71 models that sort people in different ways, many with unreliable measures. Of Husmann and O'Loughlin's 426 students (2019), most didn't study in their own style.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>You should avoid ways of learning that "aren't your style"</span></summary><p class="note">This is the harmful part: a self-described "auditory learner" who skips the diagram misses what the diagram holds. The 2017 letter from about 30 scientists called this approach wasteful and potentially damaging (secondary source).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"It's a finding of neuroscience"</span></summary><p class="note">Learning styles are on the list of "neuromyths" in Dekker and colleagues (2012), and the most believed one in that survey. Knowing more about the brain in general didn't protect teachers from it.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessing the myth</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 8, not figures from a study.</p>
+  <div class="scores">
+    <div class="score"><span>How wrong</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>How persistent</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>How harmful</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">The true kernel</span><ul class="plus"><li>People do have preferences</li><li>Format matters, by content</li><li>Learners differ in prior knowledge</li></ul></div>
+    <div><span class="label">The false part</span><ul class="minus"><li>Matched teaching doesn't improve learning</li><li>People don't sort into 3–4 fixed types</li><li>Labels can make people avoid useful methods</li></ul></div>
+  </div>
+  <p class="verdict">A kind idea with one broken link: respecting learners' preferences is good, but using preferences to decide how to teach has no evidence behind it.</p>
+  <details class="more"><summary>More: why Mark didn't give 5/5 for wrongness</summary><div>
+    <p>The 2024 meta-analysis does find a small effect, and in 2025 papers were still debating why. Saying "learning styles are complete nonsense" goes beyond the evidence. More precisely: after more than 40 years, the matching hypothesis still hasn't passed the test it set for itself.</p>
+    <p>Harm is 3/5 because the cost is mostly money, time and opportunity: three versions of every material, split classes, and people who limit themselves with a label.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lesson: design training around the content</h2><p class="lead">For onboarding new hires, internal training, or teaching yourself a new skill.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 850 190" role="img" aria-labelledby="ko">
+        <title id="ko">A five-day onboarding plan built around content. Day 1: org chart and processes, taught with pictures and explanation. Day 2: try a real task with a buddy. Day 3: answer questions about rules from memory, no rereading. Day 4: redo day 2's task alone and get feedback. Day 5: short test and Q&amp;A.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <g text-anchor="middle">
+          <circle cx="90" cy="60" r="14" fill="var(--day)"/><text x="90" y="30" class="t-ink t-bold">day 1 · pictures</text><text x="90" y="98" class="t-day t-bold">org chart,</text><text x="90" y="114">processes, systems</text>
+          <circle cx="260" cy="60" r="14" fill="var(--night)"/><text x="260" y="30" class="t-ink t-bold">day 2 · try it</text><text x="260" y="98" class="t-night t-bold">a real task</text><text x="260" y="114">with a buddy</text>
+          <circle cx="430" cy="60" r="14" fill="var(--ok)"/><text x="430" y="30" class="t-ink t-bold">day 3 · self-quiz</text><text x="430" y="98" class="t-ok t-bold">rules, terms</text><text x="430" y="114">answer from memory</text>
+          <circle cx="600" cy="60" r="14" fill="var(--night)"/><text x="600" y="30" class="t-ink t-bold">day 4 · redo</text><text x="600" y="98" class="t-night t-bold">day 2's task, alone</text><text x="600" y="114">get feedback</text>
+          <circle cx="760" cy="60" r="14" fill="var(--rem)"/><text x="760" y="30" class="t-ink t-bold">day 5 · measure</text><text x="760" y="98" class="t-rem t-bold">short test</text><text x="760" y="114">then ask how it felt</text>
+        </g>
+        <text x="410" y="166" text-anchor="middle" class="t-ink">No "learning style quiz" step. Everyone follows the same path.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each day picks its format from what has to be learned.</b> Day 3 uses self-testing instead of rereading because active recall beats rereading for long-term memory (Roediger and Karpicke, Psychological Science, 2006). The plan is Mark's example; adjust it to your job.<span class="nguon">Source: Roediger and Karpicke (2006), "Test-enhanced learning", Psychological Science 17(3); Mayer (2009).</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="6" width="22" height="20" rx="2"/><path d="M9 20l5-5 4 3 6-7"/></svg><div><b>Ask about the content, not the person</b><span>"Does this have a shape? Is it a skill or knowledge?" instead of "What's your learning style?".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M9 23L23 9"/></svg><div><b>Drop the style quiz from onboarding</b><span>Don't write "visual learner" in files, don't split classes by label, don't make three versions of materials.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 27s-10-6-10-13a5 5 0 0 1 10-2 5 5 0 0 1 10 2c0 7-10 13-10 13z"/></svg><div><b>Use preferences for motivation, not design</b><span>Letting people listen to a recording on the commute is fine, as long as they still look at the diagram.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24V8M6 24h20"/><path d="M10 20h3M10 14h12"/></svg><div><b>Measure with tests, not feelings</b><span>"This way sinks in" is not evidence (Knoll, 2017). Test a week later to find out.</span></div></div>
+  </div>
+  <div class="quote"><span>There is no adequate evidence base to justify incorporating learning style assessments into general educational practice.</span><span class="src">Pashler, McDaniel, Rohrer and Bjork (2008), Psychological Science in the Public Interest 9(3), p. 105.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>Pashler, McDaniel, Rohrer and Bjork, "Learning Styles: Concepts and Evidence" (2008)</b><span class="muted">The original. Read the section on the crossover test: short and very clear.</span></div>
+    <div><b>Daniel Willingham, "Ask the Cognitive Scientist", American Educator (2005, 2018)</b><span class="muted">Written for teachers, easy to read, with examples of "the format of the content".</span></div>
+    <div><b>Richard Mayer, <i>Multimedia Learning</i> (2009)</b><span class="muted">If you make training slides or videos, this is the book to have.</span></div>
+    <div><b>Common Myths #04: "Only 7% of communication is words"</b><span class="muted">A famous number that its own researcher had to correct.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Original papers first. Wherever only a secondary source exists, it is flagged next to the figure.</p></div>
+  <ol class="srcs">
+    <li><b>H. Pashler, M. McDaniel, D. Rohrer and R. Bjork</b>, "Learning Styles: Concepts and Evidence", <i>Psychological Science in the Public Interest</i> 9(3): 105–119, 2008. <a href="https://journals.sagepub.com/doi/full/10.1111/j.1539-6053.2009.01038.x">sagepub.com</a></li>
+    <li><b>B. Rogowsky, B. Calhoun and P. Tallal</b>, "Matching Learning Style to Instructional Method: Effects on Comprehension", <i>Journal of Educational Psychology</i> 107(1): 64–78, 2015. <a href="https://eric.ed.gov/?id=EJ1055886">eric.ed.gov</a></li>
+    <li><b>B. Rogowsky, B. Calhoun and P. Tallal</b>, "Providing Instruction Based on Students' Learning Style Preferences Does Not Improve Learning", <i>Frontiers in Psychology</i> 11: 164, 2020 (n = 125 fifth graders). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full">frontiersin.org</a></li>
+    <li><b>P. Husmann and V. O'Loughlin</b>, "Another Nail in the Coffin for Learning Styles?", <i>Anatomical Sciences Education</i> 12(1): 6–19, 2019 (426 students). <a href="https://anatomypubs.onlinelibrary.wiley.com/doi/10.1002/ase.1777">wiley.com</a>. The ~67% share: BPS Research Digest (secondary source).</li>
+    <li><b>A. Knoll, H. Otani, R. Skeel and K. R. Van Horn</b>, "Learning style, judgements of learning, and learning of verbal and visual information", <i>British Journal of Psychology</i> 108(3): 544–563, 2017.</li>
+    <li><b>A. Clinton-Lisell and C. Litzinger</b>, "Is it really a neuromyth? A meta-analysis of the learning styles matching hypothesis", <i>Frontiers in Psychology</i> 15: 1428732, 2024 (21 studies, 1,712 people, g = 0.31, 26%). <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">frontiersin.org</a></li>
+    <li><b>F. Coffield, D. Moseley, E. Hall and K. Ecclestone</b>, <i>Learning styles and pedagogy in post-16 learning: A systematic and critical review</i>, Learning and Skills Research Centre, 2004 (71 models; a report, not a peer-reviewed paper).</li>
+    <li><b>S. Dekker, N. Lee, P. Howard-Jones and J. Jolles</b>, "Neuromyths in education: Prevalence and predictors of misconceptions among teachers", <i>Frontiers in Psychology</i> 3: 429, 2012 (242 teachers; 93% UK, 96% Netherlands). <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2012.00429/full">frontiersin.org</a></li>
+    <li><b>P. Newton</b>, "The Learning Styles Myth is Thriving in Higher Education", <i>Frontiers in Psychology</i> 6: 1908, 2015 (89%). <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01908/full">frontiersin.org</a></li>
+    <li><b>N. Fleming and C. Mills</b>, "Not Another Inventory, Rather a Catalyst for Reflection", <i>To Improve the Academy</i> 11: 137, 1992. <b>W. Barbe, R. Swassing and M. Milone</b>, <i>Teaching Through Modality Strengths</i>, Zaner-Bloser, 1979. <b>R. Dunn and K. Dunn</b>, <i>Teaching Students Through Their Individual Learning Styles</i>, Reston, 1978. <b>D. Kolb</b>, <i>Experiential Learning</i>, Prentice-Hall, 1984.</li>
+    <li><b>R. Mayer</b>, <i>Multimedia Learning</i>, Cambridge University Press, 2009. <b>D. Willingham</b>, "Ask the Cognitive Scientist", <i>American Educator</i>, 2005 and 2018. <b>H. Roediger and J. Karpicke</b>, "Test-enhanced learning", <i>Psychological Science</i> 17(3), 2006. <b>S. Kalyuga, P. Ayres, P. Chandler and J. Sweller</b>, "The expertise reversal effect", <i>Educational Psychologist</i> 38(1), 2003.</li>
+    <li>Secondary sources: the March 2017 letter in The Guardian (Centre for Educational Neuroscience, 20 March 2017); Fleming's 2006 line (via press coverage); BPS Research Digest on Husmann and O'Loughlin.</li>
+  </ol>
+</section>
+
+<footer>Common Myths #03. Figures marked "illustrative" show ideas; numbers come from the original papers and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "bac-thang", "id": "choi-nhap-vai", "truoc": "tinh-hoa", "buoc": 1, "toi_da": 8, "nguy": 3, "keu_tu": 0, "keu_den": 0, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn phụ trách đào tạo", "hoi": "Công ty sắp đón một đợt nhân viên mới. Một nhà cung cấp chào gói \"đào tạo theo phong cách học\". Mỗi lần bấm, bạn đi thêm một bậc. Bạn dừng ở đâu?", "nhan_bang": ["Bậc 1 · Trắc nghiệm", "Bắt đầu tốn kém", "Bậc 8 · Tuyển theo kiểu"], "mo": "Nhà cung cấp: \"Bước đầu đơn giản thôi: cho cả phòng làm trắc nghiệm phong cách học.\"", "nut_bam": "Lên bậc {v}", "nut_dung": "Tôi dừng", "nut_van_dung": "Vẫn dừng", "nut_nhat": "Tôi nhất quyết dừng", "nut_thoi": "Thôi, lên bậc {v}", "nut_lai": "Chơi lại", "su_kien": {"1": "Bậc 1 · Cả phòng làm VARK, mỗi người nhận một nhãn. Bằng chứng: Fleming và Mills (1992) làm bảng hỏi này làm \"chất xúc tác để suy ngẫm\", không phải để chẩn đoán.", "2": "Bậc 2 · Nhãn được ghi vào hồ sơ nhân sự. Bằng chứng: Husmann và O'Loughlin (2019), 426 sinh viên, điểm số không tương quan với nhóm VARK nào.", "3": "Bậc 3 · Chia lớp theo nhãn: nhóm nhìn, nhóm nghe, nhóm vận động. Bằng chứng: Rogowsky và cộng sự (2015), người \"thích nghe\" học bằng sách nói không hơn học bằng sách điện tử.", "4": "Bậc 4 · Mỗi khóa làm ba bản: video, bản ghi âm, bài thực hành. Bằng chứng: Pashler và cộng sự (2008) gần như không tìm thấy kiểu tương tác chéo mà việc này cần.", "5": "Bậc 5 · Nhóm \"nghe\" được bỏ qua sơ đồ quy trình. Bằng chứng: sơ đồ là nội dung; Mayer (2009): lời kèm hình giúp người học hơn chỉ có lời.", "6": "Bậc 6 · Giảng viên bị chấm theo việc \"dạy đúng kiểu\". Bằng chứng: Knoll và cộng sự (2017), học đúng kiểu làm người ta thấy dễ hơn, không làm nhớ nhiều hơn.", "7": "Bậc 7 · Mua phần mềm \"cá nhân hóa theo phong cách học\". Bằng chứng: phân tích gộp 2024 thấy lợi ích nhỏ, chỉ 26% kết quả có dạng chéo, nghiên cứu chất lượng thấp.", "8": "Bậc 8 · Tuyển người theo \"phong cách học hợp vị trí\"."}, "thuc": ["Sếp: \"Nhưng ai cũng biết mỗi người học một kiểu mà.\"", "Nhà cung cấp: \"93% giáo viên ở Anh tin vào điều này đấy.\"", "Sếp: \"Nhân viên thích được hỏi họ học kiểu gì.\"", "Nhà cung cấp: \"Đối thủ của anh chị đã mua gói này rồi.\""], "het": "Bạn lên đến bậc 8. Mọi bậc đều dựa trên một giả thuyết mà Pashler và cộng sự (2008) thấy không đủ bằng chứng để dùng trong giáo dục. Cách tốt hơn: chọn hình thức theo nội dung, ví dụ sơ đồ cho quy trình, làm thử cho kỹ năng.", "dung_o": "Bạn dừng ở bậc {v}.", "khong_bam": "Bạn không bước lên bậc nào.", "som": "Bạn dừng trước khi chia lớp theo nhãn, trước khi tiền và thời gian bắt đầu đổ vào. Đúng hướng: sở thích có thật, nhưng thử nghiệm đúng cách gần như không thấy lợi ích khi dạy khớp kiểu. Cách tốt hơn: chọn hình thức theo nội dung.", "muon": "Từ bậc 3 trở đi là tiền và thời gian bỏ vào một giả thuyết chưa vượt qua phép thử: Rogowsky (2015, 2020) và Pashler (2008) không thấy lợi ích khi dạy khớp kiểu. Cách tốt hơn: chọn hình thức theo nội dung, cho mọi người.", "nguon": "Nguồn: Fleming và Mills (1992), To Improve the Academy 11; Husmann và O'Loughlin (2019), Anatomical Sciences Education 12(1): 426 sinh viên; Rogowsky, Calhoun và Tallal (2015), Journal of Educational Psychology 107(1); Pashler và cộng sự (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Knoll và cộng sự (2017), British Journal of Psychology 108(3); Clinton-Lisell và Litzinger (2024), Frontiers in Psychology 15: 26% có dạng chéo; Dekker và cộng sự (2012), Frontiers in Psychology 3: 93% giáo viên Anh. Kịch bản công ty là giả định."}, "en": {"muc": "Play before you read", "nhan": "You run training", "hoi": "Your company is about to welcome a batch of new hires. A vendor pitches a \"learning-styles training\" package. Each press takes you one step further. Where do you stop?", "nhan_bang": ["Step 1 · Quiz", "Costs begin", "Step 8 · Hire by style"], "mo": "Vendor: \"Let's start simple: have the whole team take a learning-style quiz.\"", "nut_bam": "Go to step {v}", "nut_dung": "I'll stop", "nut_van_dung": "Still stopping", "nut_nhat": "I refuse to go on", "nut_thoi": "Fine, go to step {v}", "nut_lai": "Play again", "su_kien": {"1": "Step 1 · Everyone takes VARK and gets a label. Evidence: Fleming and Mills (1992) built the questionnaire as \"a catalyst for reflection\", not a diagnosis.", "2": "Step 2 · Labels go into HR files. Evidence: Husmann and O'Loughlin (2019), 426 students, grades unrelated to any VARK category.", "3": "Step 3 · Classes split by label: visual, auditory, kinesthetic. Evidence: Rogowsky and colleagues (2015), \"auditory\" people learned no better from audiobooks than from e-text.", "4": "Step 4 · Every course made in three versions: video, audio, hands-on. Evidence: Pashler and colleagues (2008) found virtually no evidence for the crossover this requires.", "5": "Step 5 · The \"auditory\" group skips the process diagram. Evidence: the diagram is the content; Mayer (2009): words with pictures beat words alone.", "6": "Step 6 · Trainers are rated on \"teaching to style\". Evidence: Knoll and colleagues (2017), studying in your style feels easier but doesn't improve recall.", "7": "Step 7 · Buy \"learning-style personalisation\" software. Evidence: the 2024 meta-analysis found a small benefit, only 26% of outcomes with crossover, low-quality studies.", "8": "Step 8 · Hire people for a \"learning style that fits the role\"."}, "thuc": ["Boss: \"But everyone knows people learn differently.\"", "Vendor: \"93% of teachers in the UK believe in this.\"", "Boss: \"Staff like being asked how they learn.\"", "Vendor: \"Your competitor already bought this package.\""], "het": "You reached step 8. Every step rests on a hypothesis that Pashler and colleagues (2008) found lacked the evidence to be used in education. A better way: choose the format by content, such as diagrams for processes and practice for skills.", "dung_o": "You stopped at step {v}.", "khong_bam": "You never took a step.", "som": "You stopped before splitting classes by label, before money and time started pouring in. Right call: preferences are real, but properly designed tests find almost no benefit from matching. A better way: choose the format by content.", "muon": "From step 3 on, money and time went into a hypothesis that hasn't passed its test: Rogowsky (2015, 2020) and Pashler (2008) found no benefit from matching. A better way: choose the format by content, for everyone.", "nguon": "Source: Fleming and Mills (1992), To Improve the Academy 11; Husmann and O'Loughlin (2019), Anatomical Sciences Education 12(1): 426 students; Rogowsky, Calhoun and Tallal (2015), Journal of Educational Psychology 107(1); Pashler and colleagues (2008), Psychological Science in the Public Interest 9(3); Mayer (2009), Multimedia Learning; Knoll and colleagues (2017), British Journal of Psychology 108(3); Clinton-Lisell and Litzinger (2024), Frontiers in Psychology 15: 26% with crossover; Dekker and colleagues (2012), Frontiers in Psychology 3: 93% of UK teachers. The company scenario is hypothetical."}}]</script>
+<script src="../../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
