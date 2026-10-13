@@ -5,6 +5,8 @@
 :root[data-theme="dark"] { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD; }
 
 .tc-khoi { display: flex; flex-direction: column; gap: 12px; }
+/* Thuộc tính hidden phải thắng mọi lớp có display (tc-hang, tc-phu...), nếu không phần che/hỏi không bao giờ ẩn. */
+.tc-khoi [hidden] { display: none !important; }
 .tc-khoi > * { margin: 0; min-width: 0; }
 .tc-khoi h2 { margin: 0; }
 .tc-muc { font: 600 .74rem/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); }
