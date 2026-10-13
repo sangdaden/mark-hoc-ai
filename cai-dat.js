@@ -52,7 +52,12 @@
   } catch (e) {}
   const hop = document.createElement("div");
   hop.className = "top-tools";
-  hop.innerHTML = (doiNgu ? '<a class="nut-lang" lang="' + (EN ? "vi" : "en") + '" hreflang="' + (EN ? "vi" : "en") + '" href="' + doiNgu.replace(/"/g, "%22") + '" aria-label="' +
+  // Nút "Vũ Trụ Khác" (góc đọc sách ngoài AI) ở góc phải đầu trang, trước nút ngôn ngữ (Sang 13/10: chỗ đó đang trống);
+  // nút ở chân trang vẫn giữ. Điện thoại chỉ còn biểu tượng quỹ đạo như các nút bên cạnh
+  const vtk = icGoc ? icGoc + (EN ? "en/" : "") + "vu-tru-khac.html" : "";
+  const oVtk = /\/vu-tru-khac(\.html)?$/.test(location.pathname);
+  hop.innerHTML = (vtk ? '<a class="nut-vtk" href="' + vtk + '"' + (oVtk ? ' aria-current="page"' : "") + ' title="' + (EN ? "Another Universe: Mark's reading corner" : "Vũ Trụ Khác: góc đọc sách của Mark") + '" aria-label="' + (EN ? "Another Universe: Mark's reading corner" : "Vũ Trụ Khác: góc đọc sách của Mark") +
+    '"><img src="' + icGoc + 'assets/vu-tru-khac/logo-bieu-tuong-toi.svg" alt="" width="20" height="20"><span class="nhan">' + (EN ? "Another Universe" : "Vũ Trụ Khác") + "</span></a>" : "") + (doiNgu ? '<a class="nut-lang" lang="' + (EN ? "vi" : "en") + '" hreflang="' + (EN ? "vi" : "en") + '" href="' + doiNgu.replace(/"/g, "%22") + '" aria-label="' +
     (EN ? "Chuyển sang tiếng Việt" : "Switch to English") + '">' + ic("languages") + (EN ? "VI" : "EN") + "</a>" : "") +
     '<button type="button" class="nut-theme"></button>' +
     '<button type="button" class="nut-menu" aria-expanded="false">' + ic("menu") + '<span class="nhan">Menu</span></button>';
@@ -86,6 +91,8 @@
   const nav = top.querySelector(".top-links"), nutMenu = hop.querySelector(".nut-menu");
   if (nav) {
     nav.id = nav.id || "menu-trang";
+    // Điện thoại: đầu trang không còn chỗ nên nút Vũ Trụ Khác nằm cuối menu
+    if (vtk) nav.insertAdjacentHTML("beforeend", '<a class="nav-vtk" href="' + vtk + '"><img src="' + icGoc + 'assets/vu-tru-khac/logo-bieu-tuong-toi.svg" alt="" width="20" height="20">' + (EN ? "Another Universe" : "Vũ Trụ Khác") + "</a>");
     nutMenu.setAttribute("aria-controls", nav.id);
     nutMenu.setAttribute("aria-label", EN ? "Open the menu" : "Mở menu");
     const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); };
