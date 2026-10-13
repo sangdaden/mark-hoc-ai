@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đường thẳng của Asch (Solomon Asch): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Cả nhóm cố ý nói sai một câu hỏi dễ: bao nhiêu người theo? Thí nghiệm gốc, sức mạnh của một đồng minh, và vì sao lời kể &quot;con người là bầy cừu&quot; bỏ quên 2/3 câu trả lời vẫn đúng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/thi-nghiem-asch.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-asch.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-asch.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-asch.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Đường thẳng của Asch (Solomon Asch): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Cả nhóm cố ý nói sai một câu hỏi dễ: bao nhiêu người theo? Thí nghiệm gốc, sức mạnh của một đồng minh, và vì sao lời kể &quot;con người là bầy cừu&quot; bỏ quên 2/3 câu trả lời vẫn đúng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/thi-nghiem-asch.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #190F01; --bia-2: #A16207; --bia-nhan: #FEF3C7; }
+:root { --vtk-nhan: #FEF3C7; }
+body header { --ho-so: "Sổ thí nghiệm"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/thi-nghiem-asch.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Thí nghiệm nổi tiếng #07: Asch line study, --night = amber gold (the lone voice), --day = deep blue (the group). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #a16207;
+  --day: #1e40af;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #f2c14e; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #f2c14e; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Thí nghiệm nổi tiếng · Tâm lý học xã hội</span>
+  <h1>Đường thẳng của Asch</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Một đường mẫu bên trái, ba đường so sánh A, B, C bên phải">
+    <line x1="30" y1="10" x2="30" y2="50" stroke="#a16207" stroke-width="5" stroke-linecap="round"/>
+    <text x="52" y="38" font-family="monospace" font-size="16" fill="#8a94a6">giống đường nào?</text>
+    <line x1="230" y1="20" x2="230" y2="50" stroke="#1e40af" stroke-width="5" stroke-linecap="round"/>
+    <line x1="260" y1="10" x2="260" y2="50" stroke="#a16207" stroke-width="5" stroke-linecap="round"/>
+    <line x1="290" y1="2" x2="290" y2="50" stroke="#1e40af" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <p class="sub">The Asch Conformity Experiments · Solomon Asch, Swarthmore College</p>
+  <div class="meta">
+    <div><span class="label">Người làm</span><b>Solomon Asch · Swarthmore College, Mỹ</b></div>
+    <div><span class="label">Thời gian</span><b>1951–1956 · làm lại đến nay</b></div>
+    <div><span class="label">Quy mô</span><b>123 nam sinh viên, 3 trường (Asch, 1955) · phân tích gộp 133 nghiên cứu, 17 nước (Bond và Smith, 1996)</b></div>
+    <div><span class="label">Kết luận</span><b>hiệu ứng thật, lời kể phóng đại · độ vững 7 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Diễn ra thế nào</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6v20M18 12v14M23 8v18M28 4v22"/></svg><b>Câu hỏi dễ, nhóm cố ý sai</b><span>Làm một mình, người ta sai dưới 1% (Asch, 1955).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="12" r="4"/><circle cx="22" cy="12" r="4"/><path d="M4 26c0-4 3-7 6-7s6 3 6 7M16 26c0-4 3-7 6-7s6 3 6 7"/></svg><b>Khoảng 1/3 câu trả lời theo nhóm</b><span>36,8% câu trả lời đi theo đáp án sai của nhóm (Asch, 1955).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 17l6 6 14-14"/></svg><b>Nhưng 2/3 vẫn giữ đúng</b><span>Khoảng 1/4 người không theo nhóm lần nào. Lời kể phổ biến hay bỏ qua điều này.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="4"/><circle cx="21" cy="11" r="4"/><path d="M4 27c1-5 4-8 7-8M28 27c-1-5-4-8-7-8M11 19h10"/></svg><b>Một đồng minh là đủ</b><span>Chỉ cần 1 người nói đúng, mức theo sai còn khoảng 1/4 (Asch, 1955).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M8 24L24 8"/></svg><b>Không phải "bầy cừu"</b><span>Mức a dua đổi theo văn hóa, thời đại, và cách hỏi (Bond và Smith, 1996).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của thí nghiệm</h2></div>
+  <p class="thesis">Khi cả nhóm nói một điều rõ ràng là sai, ta có dám nói điều mình thấy không? Câu trả lời của Asch: phần lớn thời gian là có, nhưng áp lực nhóm đủ mạnh để kéo khoảng một phần ba câu trả lời đi theo cái sai.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">1951–1956</span><b>Thí nghiệm</b><span>Asch muốn xem người ta giữ được ý mình đến đâu trước một nhóm nhất trí.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1960–nay</span><b>Thành biểu tượng</b><span>Sách giáo khoa kể thành "con người a dua theo đám đông".</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1990–2023</span><b>Kiểm chứng lại</b><span>Hiệu ứng lặp lại được, nhưng nhỏ dần theo thời gian và khác theo văn hóa.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Thí nghiệm diễn ra thế nào</h2><p class="lead">Người tham gia tưởng mình làm bài kiểm tra thị giác. Thật ra mọi người còn lại trong phòng đều là người của Asch.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 240" role="img" aria-labelledby="k0t">
+        <title id="k0t">Bảy đến chín người ngồi thành hàng trước một tấm bảng. Bảng trái có một đường mẫu, bảng phải có ba đường A, B, C, chỉ một đường dài bằng đường mẫu. Mọi người lần lượt nói to đáp án. Chỉ một người là người tham gia thật, ngồi gần cuối hàng; những người khác là diễn viên, ở 12 trong 18 lượt họ cố ý nói cùng một đáp án sai.</title>
+        <rect x="40" y="16" width="120" height="110" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <line x1="100" y1="36" x2="100" y2="106" stroke="var(--night)" stroke-width="6" stroke-linecap="round"/>
+        <text x="100" y="142" text-anchor="middle">đường mẫu</text>
+        <rect x="200" y="16" width="200" height="110" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <line x1="250" y1="56" x2="250" y2="106" stroke="var(--day)" stroke-width="6" stroke-linecap="round"/>
+        <line x1="300" y1="36" x2="300" y2="106" stroke="var(--night)" stroke-width="6" stroke-linecap="round"/>
+        <line x1="350" y1="22" x2="350" y2="106" stroke="var(--day)" stroke-width="6" stroke-linecap="round"/>
+        <text x="250" y="122" text-anchor="middle" class="t-ink t-bold">A</text><text x="300" y="122" text-anchor="middle" class="t-night t-bold">B</text><text x="350" y="122" text-anchor="middle" class="t-ink t-bold">C</text>
+        <text x="300" y="142" text-anchor="middle">ba đường so sánh</text>
+        <g>
+          <circle cx="440" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/><circle cx="476" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/><circle cx="512" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/><circle cx="548" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/><circle cx="584" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/><circle cx="620" cy="40" r="13" fill="var(--night)"/><circle cx="656" cy="40" r="13" fill="var(--day)" fill-opacity=".45"/>
+        </g>
+        <text x="512" y="74" text-anchor="middle" class="t-day t-bold">"A" "A" "A" "A" "A"</text>
+        <text x="620" y="74" text-anchor="middle" class="t-night t-bold">?</text>
+        <text x="548" y="98" text-anchor="middle" class="t-ink">diễn viên nói trước, cùng một đáp án sai</text>
+        <text x="548" y="118" text-anchor="middle">người thật ngồi gần cuối, nói sau</text>
+        <rect x="40" y="166" width="640" height="54" rx="8" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+        <text x="360" y="190" text-anchor="middle" class="t-ink t-bold">18 lượt · 12 lượt "then chốt" nhóm cố ý sai</text>
+        <text x="360" y="210" text-anchor="middle">trả lời to, lần lượt · làm một mình thì sai dưới 1% (Asch, 1955; 1956)</text>
+      </svg>
+    </div>
+    <figcaption><b>Câu hỏi dễ đến mức không ai cần nghĩ.</b> Vì vậy, khi một người trả lời sai, gần như chắc chắn là vì nhóm, không phải vì mắt kém.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Thí nghiệm và lời kể</h3><div class="chips"><span class="chip">ba đường thẳng</span><span class="chip">36,8%</span><span class="chip">2/3 vẫn đúng</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 2</span><h3>Vì sao ta theo nhóm</h3><div class="chips"><span class="chip">hai loại áp lực</span><span class="chip">một đồng minh</span><span class="chip">viết kín</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 3</span><h3>Kiểm chứng lại</h3><div class="chips"><span class="chip">làm lại 2023</span><span class="chip">133 nghiên cứu</span><span class="chip">văn hóa</span><span class="chip">cuộc họp</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Câu chuyện bị kể lệch</h3><span class="en">conformity vs independence</span><span class="pg">Asch, 1955 · Griggs, 2015</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k1t">
+          <title id="k1t">Trong các lượt nhóm cố ý sai, 63,2% câu trả lời vẫn đúng và 36,8% theo nhóm. Theo người: khoảng một phần tư không theo nhóm lần nào, khoảng 5% theo nhóm ở mọi lượt, số còn lại lúc theo lúc không.</title>
+          <text x="40" y="26" class="t-ink t-bold">Theo câu trả lời (lượt then chốt)</text>
+          <rect x="40" y="36" width="404" height="38" fill="var(--night)" fill-opacity=".8"/><rect x="444" y="36" width="236" height="38" fill="var(--day)" fill-opacity=".6"/>
+          <text x="56" y="61" style="fill:#fff" class="t-bold">63,2% vẫn đúng</text><text x="460" y="61" style="fill:#fff" class="t-bold">36,8% theo nhóm</text>
+          <text x="40" y="112" class="t-ink t-bold">Theo người</text>
+          <rect x="40" y="122" width="160" height="38" fill="var(--night)" fill-opacity=".8"/><rect x="200" y="122" width="448" height="38" fill="var(--muted)" fill-opacity=".35"/><rect x="648" y="122" width="32" height="38" fill="var(--day)" fill-opacity=".6"/>
+          <text x="52" y="147" style="fill:#fff" class="t-bold">~1/4 không lần nào</text><text x="424" y="147" text-anchor="middle" class="t-ink">lúc theo, lúc không</text>
+          <text x="680" y="180" text-anchor="end" class="t-day t-bold">~5% theo mọi lượt</text>
+          <text x="40" y="194">Asch, 1955 (123 người); tỷ lệ 5% và 95% theo tổng hợp của Griggs, 2015</text>
+        </svg>
+      </div>
+      <figcaption><b>Cùng một dữ liệu, hai câu chuyện.</b> "3/4 người từng a dua" và "95% người từng cãi lại nhóm" đều đúng. Sách giáo khoa gần như chỉ kể vế đầu (Griggs, 2015).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Hai loại áp lực</h3><span class="en">normative · informational influence</span><span class="pg">Deutsch và Gerard, 1955</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Sợ lạc lõng</h3><span class="muted">Áp lực chuẩn mực: biết nhóm sai nhưng vẫn theo để không bị nhìn như người lạ. Giảm mạnh khi trả lời kín.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Nghĩ nhóm biết hơn</h3><span class="muted">Áp lực thông tin: bắt đầu nghi mắt mình. Mạnh hơn khi câu hỏi khó, mơ hồ.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Ở chỗ làm, cả hai lẫn vào nhau</h3><span class="muted">Sếp đã nói, cả phòng gật: vừa ngại khác, vừa nghĩ "chắc họ biết điều mình không biết".</span></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Đông bao nhiêu thì đủ</h3><span class="en">majority size</span><span class="pg">Asch, 1955</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="k2t">
+          <title id="k2t">Tỷ lệ câu trả lời theo nhóm sai theo số người nói sai: một người gần như không ảnh hưởng; hai người 13,6%; ba người 31,8%; thêm người nữa thì không tăng thêm nhiều.</title>
+          <line x1="60" y1="170" x2="680" y2="170" class="axis"/>
+          <line x1="60" y1="110" x2="680" y2="110" class="gridl"/><line x1="60" y1="50" x2="680" y2="50" class="gridl"/>
+          <text x="52" y="174" text-anchor="end">0</text><text x="52" y="114" text-anchor="end">20%</text><text x="52" y="54" text-anchor="end">40%</text>
+          <rect x="100" y="166" width="80" height="4" fill="var(--day)" fill-opacity=".6"/><text x="140" y="156" text-anchor="middle" class="t-ink t-bold">gần 0</text><text x="140" y="190" text-anchor="middle">1 người</text>
+          <rect x="240" y="129" width="80" height="41" fill="var(--day)" fill-opacity=".6"/><text x="280" y="121" text-anchor="middle" class="t-ink t-bold">13,6%</text><text x="280" y="190" text-anchor="middle">2 người</text>
+          <rect x="380" y="75" width="80" height="95" fill="var(--night)" fill-opacity=".8"/><text x="420" y="67" text-anchor="middle" class="t-night t-bold">31,8%</text><text x="420" y="190" text-anchor="middle">3 người</text>
+          <rect x="520" y="70" width="80" height="100" fill="var(--muted)" fill-opacity=".25" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="560" y="62" text-anchor="middle" class="t-ink">~ như cũ</text><text x="560" y="190" text-anchor="middle">4 người trở lên</text>
+          <text x="370" y="212" text-anchor="middle" class="t-ink">tỷ lệ câu trả lời theo nhóm sai · Asch, 1955</text>
+        </svg>
+      </div>
+      <figcaption><b>Ba người nhất trí đã đủ tạo áp lực gần tối đa.</b> Một cuộc họp nhỏ cũng đủ "đông" để người ta im lặng.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Sức mạnh của một đồng minh</h3><span class="en">a single dissenter breaks unanimity</span><span class="pg">Asch, 1955; 1956</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Khi cả nhóm nhất trí sai, 36,8% câu trả lời theo nhóm. Khi có một người nói đúng, mức theo sai còn khoảng một phần tư. Khi có một người nói sai theo kiểu khác nhóm, mức theo sai còn khoảng 9%.</title>
+          <line x1="60" y1="170" x2="60" y2="20" class="axis"/>
+          <text x="70" y="34" class="t-ink">cả nhóm nhất trí sai</text>
+          <rect x="70" y="42" width="552" height="30" rx="4" fill="var(--day)" fill-opacity=".6"/><text x="632" y="63" class="t-day t-bold">36,8%</text>
+          <text x="70" y="94" class="t-ink">có 1 người nói đúng</text>
+          <rect x="70" y="102" width="138" height="30" rx="4" fill="var(--night)" fill-opacity=".85"/><text x="218" y="123" class="t-night t-bold">còn ~1/4</text>
+          <text x="70" y="154" class="t-ink">có 1 người nói sai kiểu khác</text>
+          <rect x="70" y="162" width="135" height="22" rx="4" fill="var(--night)" fill-opacity=".45"/><text x="215" y="178" class="t-night t-bold">~9%</text>
+        </svg>
+      </div>
+      <figcaption><b>Không cần người đó đúng, chỉ cần nhóm hết nhất trí.</b> Phá vỡ sự đồng thanh là đủ để người khác dám nói thật.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Văn hóa và thời đại</h3><span class="en">culture · cohort</span><span class="pg">Bond và Smith, 1996 · Perrin và Spencer, 1980 · Mori và Arai, 2010</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Nước đề cao tập thể: a dua hơn</h3><span class="muted">133 nghiên cứu ở 17 nước: nơi coi trọng hòa hợp nhóm có mức theo nhóm cao hơn (Bond và Smith, 1996).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Ở Mỹ, giảm dần từ thập niên 1950</h3><span class="muted">Các nghiên cứu Mỹ về sau cho mức a dua thấp hơn thời Asch (Bond và Smith, 1996).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Có lần gần như biến mất</h3><span class="muted">Sinh viên kỹ thuật ở Anh: 1 lần theo nhóm trong 396 lượt (Perrin và Spencer, 1980). Ở Nhật không cần diễn viên: nữ theo nhóm gần mức Asch, nam thì không (Mori và Arai, 2010).</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: tin được đến đâu</h2><p class="lead">10 điều hay được nói về thí nghiệm, đối chiếu với nghiên cứu hiện nay. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 3 cần thận trọng, 2 bị phê bình">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Khi cả nhóm nhất trí nói sai, khoảng 1/3 câu trả lời đi theo nhóm</span></summary><p class="note">Asch (1955) báo cáo 36,8% với 123 người. Lần làm lại có kiểm soát của Franzen và Mader (2023) với khoảng 200 sinh viên ở Bern cho 33%, rất gần con số gốc.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chỉ cần một người nói khác, mức a dua giảm mạnh</span></summary><p class="note">Trong biến thể có một "đồng minh" nói đúng, mức theo sai còn khoảng một phần tư (Asch, 1955). Kể cả khi người nói khác cũng sai, chỉ là sai kiểu khác, mức theo nhóm còn khoảng 9% (Asch, 1956). Kết quả cùng chiều được thấy lại ở nhiều nghiên cứu sau.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Từ 1 lên 3 người nói sai, áp lực tăng nhanh rồi chững lại</span></summary><p class="note">Asch (1955): gần như không ảnh hưởng với 1 người, 13,6% với 2 người, 31,8% với 3 người, thêm nữa không tăng nhiều. Phân tích gộp của Bond và Smith (1996) cũng thấy nhóm lớn hơn gây áp lực lớn hơn.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Trả lời kín, ẩn danh thì ít a dua hơn</span></summary><p class="note">Khi người tham gia viết đáp án thay vì nói to, mức theo nhóm giảm rõ (Asch, 1956). Deutsch và Gerard (1955) cũng thấy trả lời ẩn danh làm giảm áp lực "sợ lạc lõng".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Mức a dua khác nhau theo văn hóa</span></summary><p class="note">Bond và Smith (1996) gộp 133 nghiên cứu ở 17 nước: các nước đề cao tập thể có mức theo nhóm cao hơn các nước đề cao cá nhân. Đây là tương quan giữa các nước, không phải thí nghiệm, nhưng nhất quán qua ba thang đo văn hóa khác nhau.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ở Mỹ, con người ngày nay ít a dua hơn thời 1950</span></summary><p class="note">Bond và Smith (1996) thấy mức a dua trong các nghiên cứu Mỹ giảm dần từ thập niên 1950. Nhưng các nghiên cứu khác nhau về người tham gia và cách làm, nên khó tách nguyên nhân. Lần làm lại 2023 ở Thụy Sĩ vẫn cho mức gần như Asch.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Hiệu ứng Asch chỉ là sản phẩm của nước Mỹ thời đó"</span></summary><p class="note">Perrin và Spencer (1980) chỉ thấy 1 lần theo nhóm trong 396 lượt với sinh viên kỹ thuật ở Anh. Nhưng đây là một nhóm đặc biệt (quen đo đạc chính xác), và các lần làm lại khác vẫn thấy hiệu ứng. Đúng hơn: mức a dua phụ thuộc người và hoàn cảnh.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Phụ nữ a dua nhiều hơn nam giới</span></summary><p class="note">Bond và Smith (1996) thấy khác biệt nhỏ; Mori và Arai (2010) ở Nhật thấy nữ theo nhóm trung bình 3,44 trong 12 lượt, gần mức 4,41 của Asch, còn nam thì không bị lung lay. Khác biệt giới phụ thuộc nhiều vào văn hóa, cách đo và người làm thí nghiệm; nhiều nhà nghiên cứu còn tranh cãi.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>"Phần lớn con người a dua theo đám đông"</span></summary><p class="note">Trong số liệu của Asch, khoảng 2/3 câu trả lời vẫn đúng, khoảng 1/4 người không theo nhóm lần nào, và chỉ khoảng 5% theo nhóm ở mọi lượt. Griggs (2015) xem 20 sách giáo khoa: 14 cuốn nêu tỷ lệ theo nhóm, chỉ 1 cuốn nêu rằng phần lớn câu trả lời là độc lập.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Asch chứng minh con người là "bầy cừu"</span></summary><p class="note">Chính Asch quan tâm đến sự độc lập và ngạc nhiên vì nhiều người giữ được ý mình. Friend, Rafferty và Bramel (1990) gọi cách kể "nghiên cứu a dua" là một sự hiểu lầm. Hodges và Geyer (2006) còn cho rằng người theo nhóm đôi khi đang cân nhắc giữa nói thật và tôn trọng người khác, không chỉ là sợ.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Hiệu ứng áp lực nhóm</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Thiết kế thí nghiệm gốc</span><div class="bar"><i style="width:70%"></i></div><b>3,5/5</b></div>
+    <div class="score"><span>Câu "ai cũng a dua"</span><div class="bar"><i class="low" style="width:30%"></i></div><b>1,5/5</b></div>
+    <div class="score"><span>Giá trị bài học</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Thiết kế gọn, câu hỏi có đáp án rõ</li><li>Nhiều biến thể cho thấy cái gì làm a dua tăng, giảm</li><li>Đã được làm lại nhiều lần, ở nhiều nước</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Mẫu gốc chỉ là nam sinh viên Mỹ thập niên 1950</li><li>Đường thẳng không giống quyết định thật ở chỗ làm</li><li>Lời kể phổ biến bỏ quên phần độc lập</li></ul></div>
+  </div>
+  <p class="verdict">Áp lực nhóm là thật và lặp lại được. Nhưng con người không phải bầy cừu: đa số câu trả lời vẫn độc lập, và chỉ một đồng minh là đủ đổi cục diện.</p>
+  <details class="more"><summary>Xem thêm: vì sao câu chuyện "bầy cừu" lan nhanh</summary><div>
+    <p>Kết quả của Asch ra đời ở nước Mỹ đầu thập niên 1950, khi nỗi lo về sự đồng thuận và nghi kỵ chính trị đang lớn. Câu chuyện "người ta nói theo đám đông dù mắt thấy rõ" khớp với nỗi lo đó, nên được kể đi kể lại.</p>
+    <p>Khi vào sách giáo khoa, con số "3/4 người từng theo nhóm ít nhất một lần" dễ nhớ hơn "2/3 câu trả lời vẫn độc lập". Griggs (2015) cho thấy qua thời gian, phần độc lập gần như biến mất khỏi lời kể.</p>
+    <p>Lần làm lại năm 2023 vẫn cho mức khoảng 33%. Vậy hiệu ứng không biến mất. Bài học đúng nằm ở giữa: áp lực nhóm đủ mạnh để làm hỏng một cuộc họp, nhưng cũng đủ yếu để bị phá vỡ bởi một người dám nói.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Kỹ năng làm việc: dám nói khác trong cuộc họp, và nếu bạn dẫn họp, biết cách mời ý kiến trái chiều.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 200" role="img" aria-labelledby="k7t">
+        <title id="k7t">Bốn bước cho người dẫn họp: thu ý kiến kín trước khi bàn; cho người ít thâm niên nói trước, sếp nói sau cùng; làm đồng minh đầu tiên bằng cách cảm ơn người nói khác; và tìm phản biện thật thay vì chỉ giao vai phản biện.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · viết kín trước</text><text x="110" y="100" class="t-night t-bold">2 phút im lặng</text><text x="110" y="116">mỗi người ghi ý mình</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · nhỏ nói trước</text><text x="300" y="100" class="t-day t-bold">ít thâm niên trước</text><text x="300" y="116">sếp nói sau cùng</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · làm đồng minh</text><text x="490" y="100" class="t-rem t-bold">"cảm ơn, nói thêm đi"</text><text x="490" y="116">với người nói khác</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · phản biện thật</text><text x="680" y="100" class="t-ok t-bold">hỏi người thật sự</text><text x="680" y="116">nghĩ khác</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Ba người nhất trí nói trước đã tạo áp lực gần tối đa. Đổi thứ tự, đổi kết quả.</text>
+        <text x="410" y="182" text-anchor="middle">dựa trên Asch, 1955; 1956 · Deutsch và Gerard, 1955 · Nemeth và cộng sự, 2001</text>
+      </svg>
+    </div>
+    <figcaption><b>Im lặng trong họp chưa chắc là đồng ý.</b> Nếu ai cũng gật, hãy hỏi xem đã có ai được nói trước khi biết sếp nghĩ gì chưa.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4h12l6 6v18H8z"/><path d="M12 16h10M12 21h7"/></svg><div><b>Ghi ý mình trước khi nghe</b><span>Viết ra kết luận của bạn trước khi họp. Khó bị kéo đi hơn khi đã cam kết trên giấy.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="4"/><circle cx="21" cy="11" r="4"/><path d="M4 27c1-5 4-8 7-8M28 27c-1-5-4-8-7-8"/></svg><div><b>Tìm một đồng minh</b><span>Trao đổi trước với một đồng nghiệp. Một người đứng cùng là đủ phá sự nhất trí.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h22v13H14l-6 5v-5H5z"/></svg><div><b>Nói khác bằng dữ kiện</b><span>"Mình thấy khác, vì số liệu tuần trước cho thấy…" Mở bằng điều ai cũng kiểm tra được.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V10l10-6 10 6v16"/><path d="M12 26v-8h8v8"/></svg><div><b>Sếp nói sau cùng</b><span>Người dẫn họp giữ ý mình đến cuối, mời người ít thâm niên nói trước.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M11 13h10M11 19h6"/></svg><div><b>Thu ý kiến kín</b><span>Phiếu, form ẩn danh hoặc ghi giấy trước khi bàn. Ẩn danh làm giảm áp lực "sợ lạc lõng".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 17l6 6 14-14"/></svg><div><b>Cảm ơn người nói khác</b><span>Phản ứng đầu tiên của bạn quyết định người sau có dám nói không.</span></div></div>
+  </div>
+  <div class="quote"><span>Điều đáng chú ý không phải là nhiều người theo nhóm, mà là nhiều người, dưới áp lực rõ ràng, vẫn nói điều họ thấy.</span><span class="src">Diễn ý tinh thần các bài viết của Asch (1955, 1956), không phải trích nguyên văn.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Solomon Asch, "Opinions and Social Pressure" (Scientific American, 1955)</b><span class="muted">Chính Asch kể lại thí nghiệm và các biến thể, ngắn, dễ đọc.</span></div>
+    <div><b>Franzen và Mader, "The power of social influence" (PLOS ONE, 2023)</b><span class="muted">Lần làm lại hiện đại, truy cập mở.</span></div>
+    <div><b>Amy Edmondson, <i>The Fearless Organization</i> (2018)</b><span class="muted">Về "an toàn tâm lý": vì sao nhóm cần nơi để người ta dám nói khác.</span></div>
+    <div><b>Charlan Nemeth, <i>In Defense of Troublemakers</i> (2018)</b><span class="muted">Về giá trị của người phản biện thật sự trong nhóm.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn số liệu</h2></div>
+  <p class="muted">Mọi con số trong bài, bộ ảnh Facebook và chú thích đều lấy từ các nghiên cứu dưới đây.</p>
+  <div class="reads">
+    <div><b>Asch (1951)</b><span class="muted">“Effects of group pressure upon the modification and distortion of judgments”, trong H. Guetzkow (chủ biên), <i>Groups, Leadership and Men</i>, Carnegie Press, 177–190 · <b>Số liệu dùng:</b> nhóm 7–9 người, một người thật; 18 lượt, 12 lượt then chốt</span></div>
+    <div><b>Asch (1955)</b><span class="muted">“Opinions and social pressure”, <i>Scientific American</i> 193(5), 31–35 · <b>Số liệu dùng:</b> 123 nam sinh viên ở 3 trường; 36,8% câu trả lời theo nhóm; khoảng 1/4 không theo lần nào; làm một mình sai dưới 1%; 13,6% với 2 người, 31,8% với 3 người; có đồng minh thì còn khoảng 1/4</span></div>
+    <div><b>Asch (1956)</b><span class="muted">“Studies of independence and conformity: I. A minority of one against a unanimous majority”, <i>Psychological Monographs: General and Applied</i> 70(9, số 416), 1–70 · <b>Số liệu dùng:</b> người nói sai kiểu khác thì còn khoảng 9%; viết đáp án làm giảm theo nhóm; trung bình 4,41 trong 12 lượt (theo Mori và Arai, 2010)</span></div>
+    <div><b>Deutsch và Gerard (1955)</b><span class="muted">“A study of normative and informational social influences upon individual judgment”, <i>Journal of Abnormal and Social Psychology</i> 51(3), 629–636 · <b>Số liệu dùng:</b> hai loại áp lực; ẩn danh làm giảm theo nhóm</span></div>
+    <div><b>Perrin và Spencer (1980)</b><span class="muted">“The Asch effect: a child of its time?”, <i>Bulletin of the British Psychological Society</i> 33, 405–406 · <b>Số liệu dùng:</b> 1 lần theo nhóm trong 396 lượt, sinh viên kỹ thuật ở Anh</span></div>
+    <div><b>Friend, Rafferty và Bramel (1990)</b><span class="muted">“A puzzling misinterpretation of the Asch ‘conformity’ study”, <i>European Journal of Social Psychology</i> 20(1), 29–44 · <b>Số liệu dùng:</b> không có số; lập luận rằng Asch nhấn mạnh sự độc lập</span></div>
+    <div><b>Bond và Smith (1996)</b><span class="muted">“Culture and conformity: a meta-analysis of studies using Asch’s (1952b, 1956) line judgment task”, <i>Psychological Bulletin</i> 119(1), 111–137 · <b>Số liệu dùng:</b> 133 nghiên cứu, 17 nước; nước đề cao tập thể a dua hơn; ở Mỹ giảm từ thập niên 1950; nhóm lớn hơn gây áp lực lớn hơn</span></div>
+    <div><b>Edmondson (1999)</b><span class="muted">“Psychological safety and learning behavior in work teams”, <i>Administrative Science Quarterly</i> 44(2), 350–383 · <b>Số liệu dùng:</b> không có số; khái niệm an toàn tâm lý trong nhóm làm việc</span></div>
+    <div><b>Nemeth, Brown và Rogers (2001)</b><span class="muted">“Devil’s advocate versus authentic dissent: stimulating quantity and quality”, <i>European Journal of Social Psychology</i> 31(6), 707–720 · <b>Số liệu dùng:</b> không có số; phản biện thật kích thích suy nghĩ hơn phản biện đóng vai</span></div>
+    <div><b>Hodges và Geyer (2006)</b><span class="muted">“A nonconformist account of the Asch experiments: values, pragmatics, and moral dilemmas”, <i>Personality and Social Psychology Review</i> 10(1), 2–19 · <b>Số liệu dùng:</b> không có số; cách đọc khác về lý do theo nhóm</span></div>
+    <div><b>Mori và Arai (2010)</b><span class="muted">“No need to fake it: reproduction of the Asch experiment without confederates”, <i>International Journal of Psychology</i> 45(5), 390–397 · <b>Số liệu dùng:</b> 104 sinh viên Nhật; nữ theo nhóm trung bình 3,44 trong 12 lượt, nam không bị lung lay</span></div>
+    <div><b>Griggs (2015)</b><span class="muted">“The disappearance of independence in textbook coverage of Asch’s social pressure experiments”, <i>Teaching of Psychology</i> 42(2), 137–142 · <b>Số liệu dùng:</b> 20 sách giáo khoa, 14 cuốn nêu tỷ lệ theo nhóm, chỉ 1 cuốn nêu tỷ lệ độc lập; 63,2% câu trả lời độc lập, khoảng 5% theo nhóm mọi lượt, 95% cãi lại ít nhất một lần</span></div>
+    <div><b>Franzen và Mader (2023)</b><span class="muted">“The power of social influence: a replication and extension of the Asch experiment”, <i>PLOS ONE</i> 18(11), e0294325 · <b>Số liệu dùng:</b> 210 sinh viên ở Bern; 33% theo nhóm; 25% khi được thưởng 1 franc mỗi câu đúng</span></div>
+  </div>
+</section>
+
+<footer>Thí nghiệm nổi tiếng #07. Các hình là sơ đồ minh họa; số liệu lấy từ các nghiên cứu gốc, ghi rõ ở phần Nguồn số liệu và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

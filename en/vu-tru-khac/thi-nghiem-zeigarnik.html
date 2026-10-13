@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unfinished Tasks Stick in the Mind (Bluma Zeigarnik): summary, review and lessons | Another Universe</title>
+<meta name="description" content="Do unfinished tasks linger in memory? The original study, a 2025 meta-analysis of 59 publications, and how to stop work on purpose so your mind can let go.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unfinished Tasks Stick in the Mind (Bluma Zeigarnik): summary, review and lessons | Another Universe">
+<meta property="og:description" content="Do unfinished tasks linger in memory? The original study, a 2025 meta-analysis of 59 publications, and how to stop work on purpose so your mind can let go.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #021211; --bia-2: #0F766E; --bia-nhan: #CCFBF1; }
+:root { --vtk-nhan: #CCFBF1; }
+body header { --ho-so: "Lab notebook"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/thi-nghiem-zeigarnik.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. "Thí nghiệm nổi tiếng" #02: Zeigarnik effect, --night = deep teal (the open loop, unfinished task), --day = amber brown (closure, the finished task). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0f766e;
+  --day: #b45309;
+  --rem: #4f5bd5;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #5eead4; --day: #f2b263; --rem: #a3acf5; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #5eead4; --day: #f2b263; --rem: #a3acf5; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Famous experiments · Psychology of memory and motivation</span>
+  <h1>Unfinished tasks stick in the mind</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Three tasks ticked off, one task only half done">
+    <rect x="4" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M10 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="42" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M48 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="80" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M86 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="130" y="10" width="34" height="34" rx="7" fill="none" stroke="#0f766e" stroke-width="3" stroke-dasharray="6 4"/>
+    <text x="180" y="34" font-family="monospace" font-size="16" fill="#0f766e">unfinished…</text>
+    <circle cx="296" cy="27" r="15" fill="none" stroke="#d6dce5" stroke-width="5"/><path d="M296 12 a15 15 0 0 1 0 30" fill="none" stroke="#b45309" stroke-width="5"/>
+  </svg>
+  <p class="sub">The Zeigarnik effect · Bluma Zeigarnik, Kurt Lewin's group, Psychological Institute, Berlin</p>
+  <div class="meta">
+    <div><span class="label">Who</span><b>Bluma Zeigarnik · Kurt Lewin's group, Berlin</b></div>
+    <div><span class="label">When</span><b>published 1927 · latest meta-analysis 2025</b></div>
+    <div><span class="label">Size</span><b>164 people tested individually, 47 adults and 45 children in groups (Zeigarnik, 1927) · 59 publications pooled (Ghibellini and Meier, 2025)</b></div>
+    <div><span class="label">Verdict</span><b>"remember unfinished tasks" is weak, "want to resume" is solid · robustness 5 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Question</a><a href="#bo-cuc">How it worked</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" stroke-dasharray="4 3"/><path d="M11 16h6"/></svg><b>Start, get interrupted, then recall</b><span>Each person did 18–22 small tasks; about half were interrupted midway (Zeigarnik, 1927).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M11 26V16M21 26V7"/></svg><b>Original result: almost twice the recall</b><span>The ratio of unfinished to finished tasks recalled was 1.9 in the first 32 people (Zeigarnik, 1927).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 16h10"/></svg><b>Pooled: about even</b><span>With the most common measure, the ratio is 0.99 across 38 publications (Ghibellini and Meier, 2025).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 16a8 8 0 1 1 3 6"/><path d="M8 24v-6h6"/></svg><b>The solid part: wanting to resume</b><span>Left free, people go back to an interrupted task about 67% of the time (Ghibellini and Meier, 2025).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h8M12 22h4"/></svg><b>Unfinished task nagging you? Write it down</b><span>A specific plan reduces intrusive thoughts (Masicampo and Baumeister, 2011).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question behind the experiment</h2></div>
+  <p class="thesis">Do unfinished tasks stay in memory longer than finished ones? Today's answer: the "better memory" part is shaky, but unfinished tasks really do pull us back, and keep the mind busy until we give them a place.</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">1927</span><b>The experiment</b><span>Zeigarnik interrupts people's tasks, then asks which tasks they remember.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1928–today</span><b>It becomes an "effect"</b><span>Her name gets attached to cliffhangers, progress bars, study tips, ads.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2025</span><b>Pooled</b><span>59 publications: recall is even, resumption is clear.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the experiment worked</h2><p class="lead">The idea came from Kurt Lewin's theory of "tension": starting a task creates a need, and only finishing releases it.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="k0t">
+        <title id="k0t">Participants did 18 to 22 small tasks in turn, such as clay modelling, puzzles and mental arithmetic. About half the tasks were cut off by the experimenter, who moved them to another task. At the end they were asked without warning to list the tasks they had done. Zeigarnik counted how many unfinished and finished tasks were recalled.</title>
+        <g>
+          <rect x="30" y="30" width="56" height="40" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><path d="M48 50 l7 7 l14 -15" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <rect x="96" y="30" width="56" height="40" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="6 4"/><text x="124" y="55" text-anchor="middle" class="t-night t-bold">open</text>
+          <rect x="162" y="30" width="56" height="40" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><path d="M180 50 l7 7 l14 -15" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <rect x="228" y="30" width="56" height="40" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="6 4"/><text x="256" y="55" text-anchor="middle" class="t-night t-bold">open</text>
+          <text x="300" y="55" class="t-ink t-bold">… 18–22 tasks</text>
+        </g>
+        <text x="30" y="96">clay figures · puzzles · arithmetic · beads…</text>
+        <rect x="30" y="118" width="300" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="45" y="145" class="t-night t-bold">"Stop there, let's move on to this"</text>
+        <line x1="350" y1="100" x2="410" y2="100" stroke="var(--muted)" stroke-width="2"/><path d="M410 100 l-9 -6 v12 z" fill="var(--muted)"/>
+        <rect x="425" y="40" width="270" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="440" y="67" class="t-ink t-bold">end of session, surprise question:</text>
+        <rect x="425" y="96" width="270" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="440" y="123" class="t-ink">"Which tasks did you just do?"</text>
+        <rect x="425" y="152" width="270" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="440" y="179" class="t-night t-bold">count unfinished vs finished</text>
+        <text x="30" y="210">each person worked alone with the experimenter; everyone had both finished and unfinished tasks</text>
+      </svg>
+    </div>
+    <figcaption><b>Simple and easy to rerun.</b> That is why, over almost a century, it was rerun many times, and the results did not always match the original.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Episode 1</span><h3>The experiment and the myth</h3><div class="chips"><span class="chip">the waiter</span><span class="chip">ratio 1.9</span><span class="chip">who remembers, who forgets</span></div></div>
+    <div class="part b3"><span class="label">Episode 2</span><h3>Unfinished tasks in your head</h3><div class="chips"><span class="chip">Lewin's tension</span><span class="chip">attention residue</span><span class="chip">write it down</span></div></div>
+    <div class="part b2"><span class="label">Episode 3</span><h3>Rechecking</h3><div class="chips"><span class="chip">59 publications</span><span class="chip">recall or resume</span><span class="chip">stopping on purpose</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>An unfinished task creates "tension"</h3><span class="en">tension system · Lewin</span><span class="pg">Lewin, 1935</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="k1t">
+          <title id="k1t">According to Kurt Lewin, starting a task raises tension. If the task is finished, the tension is released and the mind lets go. If it is interrupted, the tension stays, so the task keeps returning to mind and is easier to recall.</title>
+          <line x1="40" y1="150" x2="690" y2="150" class="axis"/>
+          <text x="40" y="172">start</text><text x="300" y="172" text-anchor="middle">midway</text><text x="690" y="172" text-anchor="end">afterwards</text>
+          <path d="M40 150 C120 150 200 70 300 60 C360 55 380 140 440 148 L690 148" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <text x="470" y="136" class="t-day t-bold">finished → tension released</text>
+          <path d="M300 60 L690 60" fill="none" stroke="var(--night)" stroke-width="3" stroke-dasharray="8 6"/>
+          <text x="470" y="50" class="t-night t-bold">interrupted → tension stays</text>
+          <circle cx="300" cy="60" r="6" fill="var(--night)"/>
+          <text x="40" y="30" class="t-ink">task "tension" (illustration, not a measurement)</text>
+        </svg>
+      </div>
+      <figcaption><b>This is a hypothesis, not something measured.</b> Lewin was Zeigarnik's supervisor. Her experiment was a way to test the idea through memory.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The original result, and who remembers what</h3><span class="en">IR/CR ratio</span><span class="pg">Zeigarnik, 1927</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 790 230" role="img" aria-labelledby="k2t">
+          <title id="k2t">Ratio of unfinished tasks recalled to finished tasks recalled in Zeigarnik's original paper. Tired people: 0.61, meaning they recalled finished tasks better. Average adults: 1.9. Children tested in groups: 2.1. People she classed as ambitious: about 2.75. A value of 1 means equal recall.</title>
+          <line x1="60" y1="180" x2="680" y2="180" class="axis"/>
+          <line x1="60" y1="140" x2="680" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="684" y="144" class="t-ink">1 = equal</text>
+          <text x="52" y="184" text-anchor="end">0</text><text x="52" y="144" text-anchor="end">1</text><text x="52" y="104" text-anchor="end">2</text><text x="52" y="64" text-anchor="end">3</text>
+          <line x1="60" y1="100" x2="680" y2="100" class="gridl"/><line x1="60" y1="60" x2="680" y2="60" class="gridl"/>
+          <rect x="100" y="156" width="80" height="24" fill="var(--day)" fill-opacity=".75"/><text x="140" y="132" text-anchor="middle" class="t-day t-bold">0.61</text><text x="140" y="200" text-anchor="middle">tired people</text>
+          <rect x="240" y="104" width="80" height="76" fill="var(--night)" fill-opacity=".7"/><text x="280" y="96" text-anchor="middle" class="t-night t-bold">1.9</text><text x="280" y="200" text-anchor="middle">first 32 adults</text>
+          <rect x="380" y="96" width="80" height="84" fill="var(--night)" fill-opacity=".7"/><text x="420" y="88" text-anchor="middle" class="t-night t-bold">2.1</text><text x="420" y="200" text-anchor="middle">45 children (groups)</text>
+          <rect x="520" y="70" width="80" height="110" fill="var(--night)" fill-opacity=".7"/><text x="560" y="62" text-anchor="middle" class="t-night t-bold">~2.75</text><text x="560" y="200" text-anchor="middle">"ambitious" people</text>
+          <text x="60" y="222">ratio = unfinished recalled ÷ finished recalled · ~2.75 converted from the paper's "175% advantage"</text>
+        </svg>
+      </div>
+      <figcaption><b>Even in the original paper, the effect depended on the person.</b> Tired people recalled finished tasks better; people who were involved and keen to do well recalled unfinished ones far better. That is a clue to the uneven replications later.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Wanting to resume: the Ovsiankina effect</h3><span class="en">resumption · Ovsiankina effect</span><span class="pg">Ovsiankina, 1928</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>A colleague in the same group</h3><span class="muted">Maria Ovsiankina, also in Lewin's group, measured something else: after an interruption, left alone, do people go back to the task on their own?</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Nobody asks, they resume anyway</h3><span class="muted">Pooling 21 publications, the resumption rate is about 67% (Ghibellini and Meier, 2025).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Less famous, more solid</h3><span class="muted">Zeigarnik's name is better known, but the part that survives rechecking is Ovsiankina's.</span></div>
+    </div>
+    <p class="lead">At work this matters more than memory: unfinished tasks pull us back, even when we need to be doing something else.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Attention residue</h3><span class="en">attention residue · Leroy 2009</span><span class="pg">Leroy, 2009 · Leroy and Glomb, 2018</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Switching from task A to task B while A is unfinished: part of your attention stays stuck on A, called attention residue, and task B suffers. Writing a ready-to-resume note before switching reduces the residue.</title>
+          <rect x="30" y="40" width="190" height="90" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="7 5"/>
+          <text x="125" y="80" text-anchor="middle" class="t-night t-bold">Task A (unfinished)</text>
+          <text x="125" y="104" text-anchor="middle">called into a meeting</text>
+          <line x1="230" y1="85" x2="300" y2="85" stroke="var(--muted)" stroke-width="2"/><path d="M300 85 l-9 -6 v12 z" fill="var(--muted)"/>
+          <rect x="310" y="40" width="190" height="90" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <rect x="310" y="40" width="70" height="90" rx="10" fill="var(--night)" fill-opacity=".18"/>
+          <text x="345" y="90" text-anchor="middle" class="t-night t-bold">residue</text>
+          <text x="440" y="80" text-anchor="middle" class="t-ink t-bold">Task B</text>
+          <text x="440" y="104" text-anchor="middle">done worse</text>
+          <rect x="530" y="40" width="170" height="90" rx="10" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+          <text x="615" y="72" text-anchor="middle" class="t-day t-bold">"ready-to-resume"</text>
+          <text x="615" y="92" text-anchor="middle" class="t-day t-bold">note</text>
+          <text x="615" y="114" text-anchor="middle">less residue</text>
+          <text x="30" y="166" class="t-ink">2009: 84 and 78 students, two experiments · 2018: four studies on the "ready-to-resume" plan</text>
+        </svg>
+      </div>
+      <figcaption><b>This is the office version of Zeigarnik.</b> Leroy (2009) found people who switch while the first task is unfinished do worse on the next; Leroy and Glomb (2018) found a quick plan for coming back limits that damage.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Write it down, lighten your head</h3><span class="en">plan making · Masicampo &amp; Baumeister 2011</span><span class="pg">2011 · 2017</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Unfinished goals intrude</h3><span class="muted">Across 6 studies, unfinished goals made people's minds wander while reading and hurt performance on other tasks (Masicampo and Baumeister, 2011).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Write a specific plan</h3><span class="muted">Writing down what, when and where removed those effects, even though the task was still not done.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Unfinished at the weekend</h3><span class="muted">59 employees, 12 weeks: weeks with more unfinished tasks meant more weekend rumination and worse sleep (Syrek et al., 2017).</span></div>
+    </div>
+    <p class="lead">The brain does not need the task done. It needs to know the task has a place and a time.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Pooled after almost 100 years</h3><span class="en">meta-analysis · Ghibellini &amp; Meier 2025</span><span class="pg">University of Bern, 2025</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="k4t">
+          <title id="k4t">Comparing the ratio of unfinished to finished tasks recalled. Original 1927 paper: 1.9. Pooling 7 publications using Zeigarnik's own measure: 1.13. Pooling 38 publications using the most common measure: 0.99, essentially even.</title>
+          <line x1="60" y1="170" x2="680" y2="170" class="axis"/>
+          <line x1="60" y1="120" x2="680" y2="120" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="684" y="124" class="t-ink">1</text>
+          <line x1="60" y1="70" x2="680" y2="70" class="gridl"/>
+          <text x="52" y="174" text-anchor="end">0</text><text x="52" y="124" text-anchor="end">1</text><text x="52" y="74" text-anchor="end">2</text>
+          <rect x="110" y="75" width="90" height="95" fill="var(--muted)" fill-opacity=".45"/><text x="155" y="67" text-anchor="middle" class="t-ink t-bold">1.9</text><text x="155" y="190" text-anchor="middle">Zeigarnik 1927</text>
+          <rect x="320" y="113" width="90" height="57" fill="var(--night)" fill-opacity=".7"/><text x="365" y="105" text-anchor="middle" class="t-night t-bold">1.13</text><text x="365" y="190" text-anchor="middle">7 pubs, original measure</text>
+          <rect x="530" y="120" width="90" height="50" fill="var(--night)" fill-opacity=".7"/><text x="575" y="112" text-anchor="middle" class="t-night t-bold">0.99</text><text x="575" y="190" text-anchor="middle">38 pubs, common measure</text>
+          <text x="60" y="214" class="t-ink">the pooled figures already include Zeigarnik's original result</text>
+        </svg>
+      </div>
+      <figcaption><b>Unfinished tasks are not universally better remembered.</b> The authors suggest the effect may appear only under particular conditions: an authoritative experimenter, involved participants, demanding tasks. Such conditions were more common in older experiments than today.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Evidence: how far can we trust it</h2><p class="lead">10 common claims about the Zeigarnik effect, checked against current research. Tap each row to see why.</p></div>
+  <div class="tally" role="img" aria-label="2 solid, 5 need caution, 3 criticised">
+    <div class="o" style="flex:2">2 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:3">3 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>After an interruption, people tend to go back and finish on their own</span></summary><p class="note">This is the Ovsiankina effect (1928). A meta-analysis of 21 publications gives a resumption rate of about 67% (Ghibellini and Meier, 2025). The authors call it "a general tendency".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Switching to a new task while the old one is unfinished hurts the new task</span></summary><p class="note">Leroy (2009) measured this in two groups of students (84 and 78) and called it "attention residue". Leroy and Glomb (2018) extended the idea across four studies. The effect is moderate and mostly measured in the lab.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Original paper: unfinished tasks recalled about 90% more</span></summary><p class="note">The 1.9 comes from the first 32 people, 26 of whom recalled unfinished tasks better (Zeigarnik, 1927). The result is real in the paper, but modern statistical testing did not exist then, and the experimenter sat right next to each participant.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The effect is strong or weak depending on the person and the moment</span></summary><p class="note">Already in the original: tired people scored 0.61 (they recalled finished tasks better), ambitious people far higher. Rosenzweig (1943) found that when the interruption feels like failure, people recall finished tasks better. Plausible, but these factors have not been tested enough to make rules.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Writing a specific plan stops an unfinished task from nagging you</span></summary><p class="note">Masicampo and Baumeister (2011), 6 studies, mostly with students. Clear results that fit research on if… then… plans, but no large independent replication yet.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>A "ready-to-resume" note before switching improves the next task</span></summary><p class="note">Leroy and Glomb (2018), four studies, published in Organization Science. Worth trying because it costs almost nothing, but it comes from a single team so far.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Unfinished work at the weekend hurts sleep</span></summary><p class="note">Syrek et al. (2017): 59 employees, 357 matched Friday and Monday observations over 12 weeks. The link runs through negative rumination. It is a diary study: it shows a link, not proof of cause.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Unfinished tasks are always remembered better than finished ones</span></summary><p class="note">A meta-analysis of 38 publications using the most common measure gives a ratio of 0.99, essentially even (Ghibellini and Meier, 2025). Many reruns since the 1960s also found no difference.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Cliffhangers and unfinished ads make customers remember brands better "thanks to Zeigarnik"</span></summary><p class="note">A popular use in marketing and social media. The original experiment measured tasks you yourself left unfinished, not stories someone else left hanging. With a shaky memory effect, this is a double leap.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Zeigarnik came up with the study after seeing a waiter who only remembered unpaid orders</span></summary><p class="note">The Berlin café story is retold often, linked to Lewin. It is an illustrative anecdote, not data, and it is not part of the results in the 1927 paper. Fine to tell for fun, not to use as evidence.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>"Want to resume" (Ovsiankina)</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>"Remember unfinished better"</span><div class="bar"><i class="low" style="width:30%"></i></div><b>1.5/5</b></div>
+    <div class="score"><span>Original design</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2.5/5</b></div>
+    <div class="score"><span>Value of the lesson</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Good question, simple method</li><li>Opened a whole line of research on unfinished tasks and motivation</li><li>The original already reported that the effect varies by person</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Small samples, no modern statistical testing</li><li>Experimenter present, could sway results</li><li>Many reruns found nothing; pooled, it is near zero</li></ul></div>
+  </div>
+  <p class="verdict">Robustness 5/10. The famous name is attached to the weakest part (better memory), while the solid parts (wanting to resume, a mind kept busy by open tasks) are rarely told. The office lesson still works, because it rests on the solid part.</p>
+  <details class="more"><summary>More: why it showed up then and not now</summary><div>
+    <p>Ghibellini and Meier (2025) suggest a few reasons. Experiments in the 1920s were often one to one, the experimenter had authority, and participants (often students or colleagues) were deeply involved in the tasks. A task has to matter to the person before an interruption leaves it "hanging".</p>
+    <p>They also split results by the atmosphere of the experiment: in a relaxed setting the ratio was 1.07; in an achievement, test-like setting only 0.88. When an interruption feels like failure, people may prefer to forget the task. That fits Rosenzweig (1943).</p>
+    <p>The broader lesson: a catchy label ("the Zeigarnik effect") can outlive its data. The less famous part, Ovsiankina's, is the part that holds up.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Lessons to apply: stopping on purpose</h2><p class="lead">Unfinished tasks will pull you back and take up a corner of your mind. Don't fight that, use it: stop in the right place, and write things down so your mind can let go.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="k7t">
+        <title id="k7t">Four steps when you have to stop: stop where you know the next step; write a ready-to-resume note with where you are, the next step, and when you'll be back; switch tasks with a clear head; at the end of the day, empty all open tasks onto a list with times.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · stop well</text><text x="110" y="100" class="t-night t-bold">when you know the next step</text><text x="110" y="116">not when you're stuck</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · write 3 lines</text><text x="300" y="100" class="t-day t-bold">where I am · next step</text><text x="300" y="116">· when I'm back</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · switch</text><text x="490" y="100" class="t-rem t-bold">meeting, phone call</text><text x="490" y="116">old task already parked</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · close the day</text><text x="680" y="100" class="t-ok t-bold">open tasks on paper</text><text x="680" y="116">with a time to resume</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Unfinished is fine. Tasks without a place are what keep the mind busy.</text>
+      </svg>
+    </div>
+    <figcaption><b>Stop at an easy spot, not a hard one.</b> If you stop when you're stuck, tomorrow starts with the hardest part. If you stop knowing the next step, it is easier to come back.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h14"/><path d="M16 10l6 6-6 6"/><path d="M26 6v20"/></svg><div><b>Meetings, emails, calls that cut in</b><span>Ask for 60 seconds to write a "ready-to-resume" note before switching (Leroy and Glomb, 2018).</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="5" width="20" height="22" rx="3"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>End of a meeting</b><span>Settle "who does what, by when" for each open item, so nobody takes a dangling task home.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 6a10 10 0 1 0 4 12A8 8 0 0 1 22 6z"/></svg><div><b>Friday afternoon</b><span>15 minutes listing open tasks with a time to resume. Writing a plan reduces intrusive thoughts (Masicampo and Baumeister, 2011).</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 26V8l8 5 8-5v18"/></svg><div><b>When you manage others</b><span>Avoid pulling people out of deep work. If you must, give them a minute to note where they stopped.</span></div></div>
+  </div>
+  <div class="quote"><span>Always stop while it's going well, when you know what will happen next.</span><span class="src">Paraphrase of Ernest Hemingway's writing advice in "Monologue to the Maestro" (Esquire, 1935), not an exact quote. Oyama et al. (2018) call this the "Hemingway effect".</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Ghibellini and Meier, "Interruption, recall and resumption" (2025)</b><span class="muted">The latest meta-analysis, open access. The abstract and discussion are enough.</span></div>
+    <div><b>Masicampo and Baumeister, "Consider it done!" (2011)</b><span class="muted">The basis for the "empty it onto paper" habit in task-management methods.</span></div>
+    <div><b>Leroy and Glomb, "Tasks interrupted" (2018)</b><span class="muted">The "ready-to-resume" plan, for office workers who are interrupted all day.</span></div>
+    <div><b>The Marshmallow Test, famous experiment #1</b><span class="muted">If… then… plans: a close relative of planning for unfinished tasks.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources for the figures</h2></div>
+  <p class="muted">Every number in the article, the Facebook images and the captions comes from the studies below.</p>
+  <div class="reads">
+    <div><b>Zeigarnik (1927)</b><span class="muted">“Das Behalten erledigter und unerledigter Handlungen”, <i>Psychologische Forschung</i> 9, 1–85; English condensed version “On finished and unfinished tasks” in W. D. Ellis (ed.), <i>A Source Book of Gestalt Psychology</i>, 1938 · <b>Figures used:</b> 164 people tested individually, 18–22 tasks each, about half interrupted; first 32 people: ratio 1.9, 26 recalled unfinished tasks better; group tests with 47 adults (1.9) and 45 children (2.1); tired people 0.61; "ambitious" people an advantage of over 175%</span></div>
+    <div><b>Ovsiankina (1928)</b><span class="muted">“Die Wiederaufnahme unterbrochener Handlungen”, <i>Psychologische Forschung</i> 11, 302–379 · <b>Figures used:</b> the concept of a tendency to resume interrupted tasks</span></div>
+    <div><b>Kurt Lewin (1935)</b><span class="muted">book <i>A Dynamic Theory of Personality</i>, McGraw-Hill · <b>Figures used:</b> the “tension system” hypothesis; the waiter anecdote is a later retelling, not data</span></div>
+    <div><b>Rosenzweig (1943)</b><span class="muted">“An experimental study of ‘repression’ with special reference to need-persistive and ego-defensive reactions to frustration”, <i>Journal of Experimental Psychology</i> 32(1), 64–74 · <b>Figures used:</b> when interruption feels like failure, finished tasks are recalled better (no numbers used)</span></div>
+    <div><b>Leroy (2009)</b><span class="muted">“Why is it so hard to do my work? The challenge of attention residue when switching between work tasks”, <i>Organizational Behavior and Human Decision Processes</i> 109(2), 168–181 · <b>Figures used:</b> two experiments, 84 and 78 students; attention residue hurts the next task</span></div>
+    <div><b>Masicampo and Baumeister (2011)</b><span class="muted">“Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals”, <i>Journal of Personality and Social Psychology</i> 101(4), 667–683 · <b>Figures used:</b> 6 studies; a specific plan removes the effects of unfulfilled goals</span></div>
+    <div><b>Syrek, Weigelt, Peifer and Antoni (2017)</b><span class="muted">“Zeigarnik's sleepless nights: How unfinished tasks at the end of the week impair employee sleep on the weekend through rumination”, <i>Journal of Occupational Health Psychology</i> 22(2), 225–238 · <b>Figures used:</b> 59 employees, 357 matched Friday and Monday observations, 12 weeks</span></div>
+    <div><b>Leroy and Glomb (2018)</b><span class="muted">“Tasks interrupted: How anticipating time pressure on resumption of an interrupted task causes attention residue and low performance on interrupting tasks and how a ‘ready-to-resume’ plan mitigates the effects”, <i>Organization Science</i> 29(3), 380–397 · <b>Figures used:</b> four studies; a “ready-to-resume” plan reduces attention residue</span></div>
+    <div><b>Oyama, Manalo and Nakatani (2018)</b><span class="muted">“The Hemingway effect: How failing to finish a task can have a positive effect on motivation”, <i>Thinking Skills and Creativity</i> 30, 7–18 · <b>Figures used:</b> the closer to done, the stronger the wish to continue; stronger when the remaining steps are clear (no numbers used)</span></div>
+    <div><b>Ghibellini and Meier (2025)</b><span class="muted">“Interruption, recall and resumption: a meta-analysis of the Zeigarnik and Ovsiankina effects”, <i>Humanities and Social Sciences Communications</i> 12, article 962 · <b>Figures used:</b> 59 publications; ratio with the original measure 1.13 (7 publications), with the common measure 0.99 (38 publications); resumption 67% (21 publications); relaxed setting 1.07, achievement setting 0.88</span></div>
+    <div><b>Ernest Hemingway (1935)</b><span class="muted">“Monologue to the Maestro: A High Seas Letter”, <i>Esquire</i> · <b>Used:</b> advice to stop when you know what comes next, paraphrased</span></div>
+  </div>
+</section>
+
+<footer>Famous Experiments #02. Figures are illustrative diagrams; numbers come from the original studies, listed in Sources and checked in the Evidence section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
