@@ -305,10 +305,10 @@ def nut_nen_tang(k, p, cls="nt"):
 
 def footer(p, q=None):
     q = p if q is None else q
-    # Góc đọc sách ngoài AI (vu-tru-khac.html): nút tròn quỹ đạo kèm chữ, đứng đầu hàng ngay trước YouTube, cách nhóm mạng xã hội một khoảng (Sang 13/10)
+    # Góc đọc sách ngoài AI (vu-tru-khac.html): nút tròn có logo biểu tượng "Mark ở vũ trụ khác" kèm chữ, đứng đầu hàng ngay trước YouTube, cách nhóm mạng xã hội một khoảng (Sang 13/10)
     ten_vtk = t("Vũ Trụ Khác", "Another Universe")
     links = (f'\n      <a class="vtk-nut" href="{q}vu-tru-khac.html"><span class="nt nt-vtk" aria-hidden="true">'
-             f'<svg><use href="{p}assets/icons.svg#i-orbit"/></svg></span>{ten_vtk}</a>')
+             f'<img src="{p}assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>{ten_vtk}</a>')
     links += "".join("\n      " + nut_nen_tang(k, p) for k in NEN_TANG if kenh.get(k))
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
