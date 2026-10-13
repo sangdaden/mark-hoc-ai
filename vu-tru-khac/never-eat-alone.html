@@ -27,19 +27,27 @@ body { margin: 0; }
 .mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
   margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
   font: 600 .92rem/1.2 system-ui, sans-serif; }
-.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-.mhai-thanh a:hover { color: #FBBF24; }
-.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
-.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
-@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
 body header { --bia-1: #0A0F78; --bia-2: #7F0000; --bia-nhan: #8EC5FF; }
 :root { --vtk-nhan: #8EC5FF; }
 body header { --ho-so: "Thẻ sách"; }
 </style>
 </head>
 <body>
-<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/never-eat-alone.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/never-eat-alone.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -244,7 +252,11 @@ svg .t-bad { fill: var(--bad); }
   <span class="draft">Mark ở vũ trụ khác</span>
   <span class="label">Kỹ năng sống · Quan hệ và sự nghiệp</span>
   <h1>Đừng bao giờ đi ăn một mình</h1>
-  <svg viewBox="0 0 320 54" width="320" height="54" style="max-width:100%" role="img" aria-label="Dải màu đỏ, xanh đậm, xanh dương"><rect x="0" y="22" width="190" height="10" rx="5" fill="#C40000"/><rect x="200" y="22" width="60" height="10" rx="5" fill="#5B63E8"/><rect x="270" y="22" width="50" height="10" rx="5" fill="#3B9BFF"/></svg>
+  <svg class="minh-hoa" style="max-width:100%" role="img" aria-label="Hàng người hình ngôi sao nắm tay nhau, lấy ý từ bìa sách, tự vẽ lại" viewBox="0 0 320 52" width="320" height="52" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M11 17 L49 17 L37 29 L42 49 L30 40 L18 49 L23 29 Z" fill="#E5484D" stroke="#E5484D" stroke-width="3"/><circle cx="30" cy="8" r="6" fill="#E5484D"/><path d="M49 17 L87 17 L75 29 L80 49 L68 40 L56 49 L61 29 Z" fill="#FFF7ED" stroke="#FFF7ED" stroke-width="3"/><circle cx="68" cy="8" r="6" fill="#FFF7ED"/><path d="M87 17 L125 17 L113 29 L118 49 L106 40 L94 49 L99 29 Z" fill="#8EC5FF" stroke="#8EC5FF" stroke-width="3"/><circle cx="106" cy="8" r="6" fill="#8EC5FF"/><path d="M125 17 L163 17 L151 29 L156 49 L144 40 L132 49 L137 29 Z" fill="#E5484D" stroke="#E5484D" stroke-width="3"/><circle cx="144" cy="8" r="6" fill="#E5484D"/><path d="M163 17 L201 17 L189 29 L194 49 L182 40 L170 49 L175 29 Z" fill="#FFF7ED" stroke="#FFF7ED" stroke-width="3"/><circle cx="182" cy="8" r="6" fill="#FFF7ED"/>
+<g fill="#FFF7ED" fill-opacity=".6"><circle cx="232" cy="17" r="3"/><circle cx="248" cy="17" r="3"/><circle cx="264" cy="17" r="3"/></g>
+<rect x="226" y="34" width="88" height="5" rx="2.5" fill="#E5484D"/>
+</svg>
   <p class="sub">Never Eat Alone: And Other Secrets to Success, One Relationship at a Time · Keith Ferrazzi, Tahl Raz</p>
   <div class="meta">
     <div><span class="label">Tác giả</span><b>Keith Ferrazzi · từng là giám đốc marketing ở Deloitte và Starwood · viết cùng nhà báo Tahl Raz</b></div>

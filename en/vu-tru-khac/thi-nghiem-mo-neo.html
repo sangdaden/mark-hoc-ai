@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Anchoring Wheel (Tversky &amp; Kahneman): summary, review and lessons | Another Universe</title>
+<meta name="description" content="A wheel stopping at 10 or 65 is enough to shift guesses by 20 percentage points. The original study, why the first number often wins in salary talks and quotes, and the replication across 36 samples.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-mo-neo.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-mo-neo.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Anchoring Wheel (Tversky &amp; Kahneman): summary, review and lessons | Another Universe">
+<meta property="og:description" content="A wheel stopping at 10 or 65 is enough to shift guesses by 20 percentage points. The original study, why the first number often wins in salary talks and quotes, and the replication across 36 samples.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/thi-nghiem-mo-neo.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body header { --bia-1: #080A0D; --bia-2: #334155; --bia-nhan: #E2E8F0; }
+:root { --vtk-nhan: #E2E8F0; }
+body header { --ho-so: "Lab notebook"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/thi-nghiem-mo-neo.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Series "Thí nghiệm nổi tiếng" #4: anchoring, --night = slate (the anchor), --day = amber (the first number, the wheel). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #334155;
+  --day: #d97706;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #a9b8cc; --day: #f2b155; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #a9b8cc; --day: #f2b155; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Famous experiments · Cognitive psychology</span>
+  <h1>The Anchoring Wheel</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="A small wheel of fortune, with 10 leading to 25 percent and 65 leading to 45 percent, and an anchor">
+    <circle cx="26" cy="26" r="20" fill="#e2e8f0" stroke="#334155" stroke-width="2"/><path d="M26 26 L26 6 A20 20 0 0 1 38 10 Z" fill="#d97706"/><circle cx="26" cy="26" r="3" fill="#334155"/>
+    <text x="60" y="22" font-family="monospace" font-size="15" fill="#8a94a6">10 → 25%</text>
+    <text x="60" y="44" font-family="monospace" font-size="15" fill="#d97706">65 → 45%</text>
+    <g transform="translate(250 26)" fill="none" stroke="#334155" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-15" r="4"/><path d="M0 -11 V18 M-8 -5 H8 M-15 5 Q-14 18 0 18 Q14 18 15 5"/></g>
+  </svg>
+  <p class="sub">Anchoring · Amos Tversky and Daniel Kahneman, Science, 1974</p>
+  <div class="meta">
+    <div><span class="label">Who</span><b>Amos Tversky and Daniel Kahneman</b></div>
+    <div><span class="label">When</span><b>1974 paper · replicated and extended to this day</b></div>
+    <div><span class="label">Size</span><b>large replication: 6,344 people in 36 samples (Klein et al., 2014)</b></div>
+    <div><span class="label">Verdict</span><b>real effect, replicates well · robustness 8 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Question</a><a href="#bo-cuc">How it worked</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 16V5M16 16l8 6"/></svg><b>A meaningless number still pulls</b><span>Wheel stops at 10: people guess 25%. Stops at 65: they guess 45% (Tversky and Kahneman, 1974).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M10 26V14M16 26V8M22 26V18"/></svg><b>Replicates very well</b><span>Redone with 6,344 people in 36 samples, anchoring was still clear (Klein et al., 2014).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22h22M9 22l3-10h8l3 10"/><path d="M16 12V6"/></svg><b>First offer pulls the deal</b><span>Across 90 studies: correlation of 0.62 between first offer and final price (Petrowsky et al., 2025).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 16h16M16 8v16"/><circle cx="16" cy="16" r="12"/></svg><b>Unhook by doing</b><span>Think of your own target and reasons the number is wrong; just "knowing" is not enough.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Careful with random numbers</b><span>Price anchoring is moderate, smaller than in early papers; random anchors pull less (Li et al., 2021).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question</h2></div>
+  <p class="thesis">When we estimate a number, does the number we just saw drag us along, even when we know it means nothing? The answer after 50 years: yes, quite reliably. And at the negotiating table, the first number often wins.</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">1974</span><b>The experiment</b><span>A wheel showing 10 or 65 shifts answers by 20 percentage points.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1987–2001</span><b>Real life</b><span>Estate agents, judges and negotiators are all pulled.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2014–2025</span><b>Re-checked</b><span>Replicated in 36 samples. Only purely random anchors are weaker than the story.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the experiment worked</h2><p class="lead">A wheel numbered 0 to 100, spun in front of participants, then two questions.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="k0t">
+        <title id="k0t">A wheel numbered 0 to 100, rigged to stop only at 10 or 65. Question 1: is the share of African countries in the United Nations higher or lower than that number? Question 2: estimate the exact share. Those who saw 10 gave a median of 25 percent; those who saw 65 gave 45 percent.</title>
+        <circle cx="100" cy="100" r="70" fill="var(--grid)" stroke="var(--night)" stroke-width="3"/>
+        <path d="M100 100 L100 30 A70 70 0 0 1 141 43 Z" fill="var(--day)" fill-opacity=".8"/>
+        <path d="M100 100 L59 43 A70 70 0 0 1 100 30 Z" fill="var(--night)" fill-opacity=".25"/>
+        <circle cx="100" cy="100" r="6" fill="var(--night)"/>
+        <path d="M92 18 h16 l-8 14 z" fill="var(--day)"/>
+        <text x="100" y="195" text-anchor="middle" class="t-ink t-bold">stops only at 10 or 65</text>
+        <rect x="220" y="20" width="480" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="235" y="47" class="t-night t-bold">Q1: higher or lower than this number?</text>
+        <rect x="220" y="76" width="480" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="235" y="103" class="t-ink t-bold">Q2: what % of UN members are African?</text>
+        <rect x="220" y="132" width="230" height="44" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+        <text x="335" y="159" text-anchor="middle" class="t-night t-bold">saw 10 → said 25%</text>
+        <rect x="470" y="132" width="230" height="44" rx="8" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+        <text x="585" y="159" text-anchor="middle" class="t-day t-bold">saw 65 → said 45%</text>
+        <text x="220" y="200">median answers · Tversky and Kahneman, Science, 1974</text>
+      </svg>
+    </div>
+    <figcaption><b>Everyone could see the number was random.</b> It still pulled the answers. The paper also notes that paying for accuracy did not reduce the effect.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1</span><h3>The wheel and the number 65</h3><div class="chips"><span class="chip">10 or 65</span><span class="chip">5-second multiplication</span><span class="chip">why it got famous</span></div></div>
+    <div class="part b3"><span class="label">Part 2</span><h3>Who names the number first?</h3><div class="chips"><span class="chip">mechanism</span><span class="chip">first offers</span><span class="chip">unhooking</span></div></div>
+    <div class="part b2"><span class="label">Part 3</span><h3>Re-checked</h3><div class="chips"><span class="chip">Many Labs</span><span class="chip">random anchors</span><span class="chip">apply</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Anchoring and insufficient adjustment</h3><span class="en">anchoring and adjustment</span><span class="pg">Tversky and Kahneman, 1974</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="k1t">
+          <title id="k1t">A number line from 0 to 100. From the anchor 10, people move up and stop at 25. From the anchor 65, people move down and stop at 45. The two groups stop in different places, each close to its own anchor.</title>
+          <line x1="40" y1="90" x2="680" y2="90" class="axis" stroke-width="2"/>
+          <g text-anchor="middle"><text x="40" y="112">0</text><text x="360" y="112">50</text><text x="680" y="112">100</text></g>
+          <circle cx="104" cy="90" r="9" fill="var(--night)"/><text x="104" y="68" text-anchor="middle" class="t-night t-bold">anchor 10</text>
+          <circle cx="456" cy="90" r="9" fill="var(--day)"/><text x="456" y="68" text-anchor="middle" class="t-day t-bold">anchor 65</text>
+          <path d="M114 130 H190" stroke="var(--night)" stroke-width="3"/><path d="M200 130 l-10 -6 v12 z" fill="var(--night)"/>
+          <text x="200" y="152" text-anchor="middle" class="t-night t-bold">stops at 25</text>
+          <path d="M446 130 H338" stroke="var(--day)" stroke-width="3"/><path d="M328 130 l10 -6 v12 z" fill="var(--day)"/>
+          <text x="328" y="152" text-anchor="middle" class="t-day t-bold">stops at 45</text>
+          <text x="40" y="24" class="t-ink">Start from the given number, move away step by step, stop too soon.</text>
+        </svg>
+      </div>
+      <figcaption><b>This is Tversky and Kahneman's original explanation.</b> Epley and Gilovich (2006) showed insufficient adjustment is especially clear when people generate the anchor themselves, for example starting from a number they already know.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Searching for reasons that fit</h3><span class="en">selective accessibility</span><span class="pg">Mussweiler and Strack, 1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>The comparison question</h3><span class="muted">"Is it higher than 65?" To answer, the mind tries out "maybe it is 65".</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Selected evidence</h3><span class="muted">We first recall things that fit that number. They are ready at hand when we estimate.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>The antidote</h3><span class="muted">Actively think of reasons the number might be wrong. This reduces anchoring (Mussweiler, Strack and Pfeiffer, 2000).</span></div>
+    </div>
+    <p class="lead">The two explanations do not exclude each other. Both pull the answer toward the anchor.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Multiplying in 5 seconds</h3><span class="en">8×7×6×5×4×3×2×1</span><span class="pg">Tversky and Kahneman, 1974</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="k2t">
+          <title id="k2t">High-school students had 5 seconds to estimate the product of eight numbers. Those who saw the ascending sequence from 1 gave a median of 512. Those who saw the descending sequence from 8 gave a median of 2,250. The correct answer is 40,320.</title>
+          <text x="40" y="34" class="t-ink t-bold">1×2×3×…×8</text>
+          <rect x="200" y="20" width="6" height="22" fill="var(--night)"/><text x="216" y="36" class="t-night t-bold">512</text>
+          <text x="40" y="84" class="t-ink t-bold">8×7×6×…×1</text>
+          <rect x="200" y="70" width="25" height="22" fill="var(--day)"/><text x="235" y="86" class="t-day t-bold">2,250</text>
+          <text x="40" y="134" class="t-ink t-bold">correct answer</text>
+          <rect x="200" y="120" width="460" height="22" fill="var(--ok)" fill-opacity=".6"/><text x="650" y="136" text-anchor="end" class="t-bold" style="fill:var(--paper)">40,320</text>
+          <text x="40" y="176">median estimates · high-school students · 5 seconds · bars drawn to scale</text>
+        </svg>
+      </div>
+      <figcaption><b>The first few steps anchor the whole sum.</b> Starting with large numbers gave bigger estimates, but both groups guessed far too low.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The first offer in a negotiation</h3><span class="en">first-offer effect</span><span class="pg">Galinsky and Mussweiler, 2001 · Petrowsky et al., 2025</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Meta-analysis of 90 studies, 16,334 people: the correlation between first offer and final agreement is 0.62. An ambitious first offer gets a better price, but makes impasses more likely and leaves the recipient less satisfied.</title>
+          <rect x="20" y="20" width="200" height="150" rx="10" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="2"/>
+          <text x="120" y="80" text-anchor="middle" class="t-night" style="font-size:34px;font-weight:600">0.62</text>
+          <text x="120" y="112" text-anchor="middle" class="t-ink">correlation, first</text><text x="120" y="130" text-anchor="middle" class="t-ink">offer and final price</text>
+          <text x="120" y="156" text-anchor="middle">90 studies · 16,334 people</text>
+          <rect x="250" y="20" width="210" height="150" rx="10" fill="var(--ok-bg)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="355" y="56" text-anchor="middle" class="t-ok t-bold">+ ambitious first offer</text>
+          <text x="355" y="90" text-anchor="middle" class="t-ink">better price</text>
+          <text x="355" y="112" text-anchor="middle" class="t-ink">when a deal is made</text>
+          <rect x="490" y="20" width="210" height="150" rx="10" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="595" y="56" text-anchor="middle" class="t-bad t-bold">− the cost</text>
+          <text x="595" y="90" text-anchor="middle" class="t-ink">fewer deals</text>
+          <text x="595" y="112" text-anchor="middle" class="t-ink">less satisfied recipient</text>
+          <text x="595" y="134" text-anchor="middle" class="t-ink">(anger, per the authors)</text>
+          <text x="20" y="194">Petrowsky et al., Organizational Behavior and Human Decision Processes, 2025</text>
+        </svg>
+      </div>
+      <figcaption><b>Whoever makes the first offer usually gains, buyer or seller.</b> Galinsky and Mussweiler (2001) found this in all 3 experiments, face to face and by email. The advantage shrinks when many issues are negotiated at once (Petrowsky et al., 2025).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Plausible numbers and random numbers</h3><span class="en">incidental vs plausible anchors</span><span class="pg">Maniadis 2014 · Li 2021</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>The shocking original</h3><span class="muted">Ariely, Loewenstein and Prelec (2003): the last two digits of a social security number pulled what MBA students were willing to pay.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Weaker on replication</h3><span class="muted">Fudenberg, Levine and Maniadis (2012) redid it in the lab: very weak anchoring for goods, none for lotteries. Maniadis, Tufano and List (2014) redid Ariely's unpleasant-sounds experiment: weaker and not statistically significant.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>53 studies pooled</h3><span class="muted">Li, Maniadis and Sedikides (2021): price anchoring is moderate, smaller than in early studies; non-random anchors pull harder.</span></div>
+    </div>
+    <p class="lead">At the negotiating table, numbers always look relevant. That is why anchoring there stays strong.</p>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Evidence check: how far to trust it</h2><p class="lead">10 common claims about anchoring, checked against current research. Click a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 4 cautious, 1 criticised">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:4">4 CAUTIOUS</div><div class="b" style="flex:1">1 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>A number shown first pulls estimates toward it</span></summary><p class="note">The original experiment (Tversky and Kahneman, 1974) and hundreds of studies since. Many Labs (Klein et al., 2014) redid four anchoring questions in 36 samples: all four replicated, among the clearest effects of the project.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The effect holds across countries, in the lab and online</span></summary><p class="note">Many Labs had 6,344 people. The authors found that setting (lab or online, US or elsewhere) mostly did not change effect size. Note: Many Labs used fixed anchors in comparison questions, not a wheel.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Paying for accuracy or warning people does not remove the anchor</span></summary><p class="note">Tversky and Kahneman (1974) report that paying for accuracy did not reduce the effect. Wilson et al. (1996) found that neither an incentive nor detailed warnings about anchoring made the effect smaller.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Experts are pulled too</span></summary><p class="note">Estate agents' valuations followed the listing price they were given (Northcraft and Neale, 1987). Experienced judges were pulled by a number from dice when proposing a sentence (Englich, Mussweiler and Strack, 2006). Individual samples are not large, but many studies point the same way.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Whoever makes the first offer usually gains</span></summary><p class="note">Galinsky and Mussweiler (2001), 3 experiments. A meta-analysis of 90 studies, 16,334 people (Petrowsky et al., 2025): there is a first-mover advantage, and first-offer level correlates 0.62 with the final price. Two preregistered experiments with 2,121 people replicated this.</p></details>
+    <details><summary><span class="tag warn">CAUTIOUS</span><span>Purely random numbers pull as hard as plausible ones</span></summary><p class="note">Ariely et al. (2003) results were much weaker on replication: very weak anchoring for goods, none for lotteries (Fudenberg, Levine and Maniadis, 2012); the unpleasant-sounds experiment gave a weak, non-significant effect (Maniadis, Tufano and List, 2014). A meta-analysis of 53 price studies (Li, Maniadis and Sedikides, 2021): non-random anchors pull harder.</p></details>
+    <details><summary><span class="tag warn">CAUTIOUS</span><span>The higher the first offer, the better</span></summary><p class="note">Petrowsky et al. (2025): ambitious first offers give better final prices, but mean fewer deals and less satisfied recipients. The advantage depends on the deal happening at all.</p></details>
+    <details><summary><span class="tag warn">CAUTIOUS</span><span>The first-offer advantage holds in every negotiation</span></summary><p class="note">In the same meta-analysis, first-offer effects shrink when many issues are negotiated at once. If you lack market information, going first can anchor yourself low; this is a rule of thumb from the Harvard Program on Negotiation, not a measured number.</p></details>
+    <details><summary><span class="tag warn">CAUTIOUS</span><span>Precise numbers (1,865) pull harder than round ones (2,000)</span></summary><p class="note">Mason et al. (2013): recipients of precise offers counter closer to them. Leib et al. (2022) still found the effect but confirmed only part of the mechanism. A small effect, use it as a minor tip.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Knowing about anchoring makes you immune</span></summary><p class="note">Wilson et al. (1996): warnings, whatever their form or timing, did not remove the anchor. What works is a concrete step: think of reasons for the opposite (Mussweiler, Strack and Pfeiffer, 2000), or focus on your own target, the other side's reservation price and their alternatives (Galinsky and Mussweiler, 2001).</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Basic anchoring effect</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>"Meaningless" random numbers</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>First-offer advantage</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Value of the lesson</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Simple, easy to redo anywhere</li><li>Replicated in 36 samples, many countries</li><li>Applies directly to prices, pay and estimates</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>The original is a short report with few sample details</li><li>Purely random numbers pull less than the story says</li><li>The mechanism is still debated</li></ul></div>
+  </div>
+  <p class="verdict">Robustness 8/10. One of the most robust effects in psychology. Be careful only with "random numbers pull the value of everything" stories.</p>
+  <details class="more"><summary>More: why anchoring stood firm when other effects fell</summary><div>
+    <p>In psychology's "replication crisis", many famous effects shrank or vanished when redone with large samples. Anchoring is different: in Many Labs, the anchoring questions gave clear results at almost every site.</p>
+    <p>One likely reason is that the effect is large and easy to measure: all you need is a number and a question. The more surprising versions, like a social security number pulling the price of a bottle of wine, depend a lot on method and are smaller on replication.</p>
+    <p>The lesson for readers: trust the basic effect, be wary of too-good stories built on it.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Applying the lesson</h2><p class="lead">Work skill: salary talks, quotes, budget sign-off. Who names the number first, and how to handle someone else's anchor.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="k7t">
+        <title id="k7t">Four steps: prepare your own numbers first, meaning target, floor and alternatives; if you know the market price, go first, ambitious and with reasons; if you do not, ask first and let the other side name a number; if you get anchored, re-anchor with your own number and think of reasons the other number might be wrong.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · your numbers</text><text x="110" y="100" class="t-night t-bold">target, floor</text><text x="110" y="116">alternatives</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · know it: go first</text><text x="300" y="100" class="t-day t-bold">ambitious</text><text x="300" y="116">with reasons</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · unsure: ask first</text><text x="490" y="100" class="t-rem t-bold">let them name it</text><text x="490" y="116">don't guess blindly</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · anchored: re-anchor</text><text x="680" y="100" class="t-ok t-bold">restate your number</text><text x="680" y="116">don't haggle around theirs</text></g>
+        <text x="410" y="166" text-anchor="middle" class="t-ink">The first number is a right. Use it once you are prepared.</text>
+      </svg>
+    </div>
+    <figcaption><b>Salary example:</b> look up the market pay range before the talk. If you have it, name a number at the top of the range with two reasons (experience, results). If not, ask "what is the budget range for this role?" before naming a number.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="1"/></svg><div><b>Write your numbers down first</b><span>Target, floor, alternatives. Your own anchor must exist before you hear theirs.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h20M18 8l8 8-8 8"/></svg><div><b>Quotes: lead with the number and the reason</b><span>Send a quote with a clear figure and its basis; don't let the client invent one.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 8l16 16M24 8L8 24"/></svg><div><b>Absurd number? Don't counter right away</b><span>Say clearly it is not a starting point, then give your own number.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 6v14"/><circle cx="16" cy="25" r="1.5"/></svg><div><b>Estimation meetings: write privately first</b><span>Everyone notes their number before anyone speaks, so the first speaker doesn't anchor the room.</span></div></div>
+  </div>
+  <div class="quote"><span>If the other side opens with an outrageous number, don't answer with an equally outrageous one. Make it clear you will not negotiate around that number.</span><span class="src">Paraphrase of Daniel Kahneman's advice in Thinking, Fast and Slow (2011), chapter on anchors, not a verbatim quote.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Daniel Kahneman, <i>Thinking, Fast and Slow</i> (2011), chapter 11 "Anchors"</b><span class="muted">The experimenter himself retells the wheel and real-life examples. Volume 3 of the book corner.</span></div>
+    <div><b>Tversky and Kahneman, "Judgment under Uncertainty: Heuristics and Biases" (1974)</b><span class="muted">The original paper, short enough for one evening.</span></div>
+    <div><b>Galinsky and Mussweiler, "First offers as anchors" (2001)</b><span class="muted">The basis for "who goes first" advice and for unhooking.</span></div>
+    <div><b>Klein et al., "Investigating variation in replicability" (2014)</b><span class="muted">The Many Labs project; read it to see what a robust effect looks like.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Data sources</h2></div>
+  <p class="muted">Every number in this page, the Facebook carousel and the captions comes from the studies below.</p>
+  <div class="reads">
+    <div><b>Tversky and Kahneman (1974)</b><span class="muted">“Judgment under uncertainty: Heuristics and biases”, <i>Science</i> 185(4157), 1124–1131 · <b>Figures used:</b> wheel at 10 and 65, medians 25% and 45%; 5-second multiplication, medians 512 and 2,250, answer 40,320; paying for accuracy did not reduce the effect</span></div>
+    <div><b>Daniel Kahneman (2011)</b><span class="muted"><i>Thinking, Fast and Slow</i>, Farrar, Straus and Giroux, chapter 11 · <b>Figures used:</b> wheel rigged to stop only at 10 or 65; advice on absurd numbers (paraphrase)</span></div>
+    <div><b>Northcraft and Neale (1987)</b><span class="muted">“Experts, amateurs, and real estate: An anchoring-and-adjustment perspective on property pricing decisions”, <i>Organizational Behavior and Human Decision Processes</i> 39(1), 84–97 · <b>Figures used:</b> estate agents pulled by the listing price</span></div>
+    <div><b>Wilson, Houston, Etling and Brekke (1996)</b><span class="muted">“A new look at anchoring effects: Basic anchoring and its antecedents”, <i>Journal of Experimental Psychology: General</i> 125(4), 387–402 · <b>Figures used:</b> warnings and incentives did not remove anchoring</span></div>
+    <div><b>Mussweiler and Strack (1999)</b><span class="muted">“Hypothesis-consistent testing and semantic priming in the anchoring paradigm: A selective accessibility model”, <i>Journal of Experimental Social Psychology</i> 35(2), 136–164 · <b>Figures used:</b> selective accessibility model</span></div>
+    <div><b>Mussweiler, Strack and Pfeiffer (2000)</b><span class="muted">“Overcoming the inevitable anchoring effect: Considering the opposite compensates for selective accessibility”, <i>Personality and Social Psychology Bulletin</i> 26(9), 1142–1150 · <b>Figures used:</b> considering the opposite reduces anchoring</span></div>
+    <div><b>Galinsky and Mussweiler (2001)</b><span class="muted">“First offers as anchors: The role of perspective-taking and negotiator focus”, <i>Journal of Personality and Social Psychology</i> 81(4), 657–669 · <b>Figures used:</b> 3 experiments; first offerer gains, buyer or seller, face to face and by email; three kinds of focus cancel the advantage</span></div>
+    <div><b>Ariely, Loewenstein and Prelec (2003)</b><span class="muted">“Coherent arbitrariness: Stable demand curves without stable preferences”, <i>Quarterly Journal of Economics</i> 118(1), 73–105 · <b>Figures used:</b> last two digits of a social security number pulled willingness to pay (MBA students)</span></div>
+    <div><b>Englich, Mussweiler and Strack (2006)</b><span class="muted">“Playing dice with criminal sentences: The influence of irrelevant anchors on experts’ judicial decision making”, <i>Personality and Social Psychology Bulletin</i> 32(2), 188–200 · <b>Figures used:</b> experienced judges pulled by a number from dice</span></div>
+    <div><b>Epley and Gilovich (2006)</b><span class="muted">“The anchoring-and-adjustment heuristic: Why the adjustments are insufficient”, <i>Psychological Science</i> 17(4), 311–318 · <b>Figures used:</b> insufficient adjustment from self-generated anchors</span></div>
+    <div><b>Fudenberg, Levine and Maniadis (2012)</b><span class="muted">“On the robustness of anchoring effects in WTP and WTA experiments”, <i>American Economic Journal: Microeconomics</i> 4(2), 131–145 · <b>Figures used:</b> lab replication: very weak anchoring for goods, none for lotteries</span></div>
+    <div><b>Mason, Lee, Wiley and Ames (2013)</b><span class="muted">“Precise offers are potent anchors: Conciliatory counteroffers and attributions of knowledge in negotiations”, <i>Journal of Experimental Social Psychology</i> 49(4), 759–763 · <b>Figures used:</b> precise offers (e.g. 1,865 vs 2,000) get closer counteroffers</span></div>
+    <div><b>Klein et al. (2014)</b><span class="muted">“Investigating variation in replicability: A ‘Many Labs’ replication project”, <i>Social Psychology</i> 45(3), 142–152 · <b>Figures used:</b> 13 effects, 36 samples, 6,344 people, 10 effects replicated; four anchoring questions</span></div>
+    <div><b>Maniadis, Tufano and List (2014)</b><span class="muted">“One swallow doesn’t make a summer: New evidence on anchoring effects”, <i>American Economic Review</i> 104(1), 277–290 · <b>Figures used:</b> replication of Ariely et al.'s unpleasant-sounds experiment, weaker and non-significant effect</span></div>
+    <div><b>Li, Maniadis and Sedikides (2021)</b><span class="muted">“Anchoring in economics: A meta-analysis of studies on willingness-to-pay and willingness-to-accept”, <i>Journal of Behavioral and Experimental Economics</i> 90 · <b>Figures used:</b> 53 studies; moderate effect, smaller than early studies; non-random anchors pull harder</span></div>
+    <div><b>Leib, Kee, Loschelder and Roskes (2022)</b><span class="muted">“Perspective taking does not moderate the price precision effect, but indirectly affects counteroffers to asking prices”, <i>Journal of Experimental Social Psychology</i> 101, 104323 · <b>Figures used:</b> precision effect found again, only part of the mechanism confirmed</span></div>
+    <div><b>Petrowsky et al. (2025)</b><span class="muted">“The power and peril of first offers in negotiations: A conceptual, meta-analytic, and experimental synthesis”, <i>Organizational Behavior and Human Decision Processes</i> 191, 104448 · <b>Figures used:</b> 90 studies, 16,334 people; first offer and final price r = 0.62; ambitious offers mean fewer deals and less satisfied recipients; 2 experiments, 2,121 people; effects shrink with more issues</span></div>
+    <div><b>Harvard Program on Negotiation (PON)</b><span class="muted">article “When to make the first offer in negotiations”, pon.harvard.edu · <b>Figures used:</b> no figures; rule of thumb "go first if you know the market, let them go first if you don't"</span></div>
+  </div>
+</section>
+
+<footer>Famous Experiments #04. Figures are illustrative diagrams; data come from the original studies, listed under Data sources and checked in the Evidence section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

@@ -5,7 +5,10 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 
 - Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en", kể cả "ten" khi tên sách tiếng Việt khác tên tiếng Anh). Mục "bia" lấy màu từ bìa
   sách cho nền đầu bài (chữ đầu bài luôn màu kem nên nền phải tối): nen_1 (màu nền chính), nen_2 (màu sáng hơn ở góc), nhan (màu nhấn: viền, nhãn, chip),
-  hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, "song" = dải sóng nước, "hong-tam" = hồng tâm đỏ trắng, "bon-mau" = dải bốn màu xanh/đỏ/vàng/lục, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam. Bài gốc:
+  hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, "song" = dải sóng nước, "hong-tam" = hồng tâm đỏ trắng, "bon-mau" = dải bốn màu xanh/đỏ/vàng/lục, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam.
+  Bìa thật: lấy màu và một hình đơn giản gợi nhớ bìa (Sang 13/10: hình phải nhận ra được cuốn sách), tự vẽ lại; không chép bố cục, chữ tựa hay tranh của bìa.
+  "minh_hoa" (chữ mô tả hình, tiếng Anh trong "en") = hình tự vẽ ở assets/vu-tru-khac/minh-hoa/<slug>.svg,
+  script chèn thay dải SVG dưới tiêu đề của bài gốc (hoặc thêm sau tiêu đề nếu bài không có). Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
   tiếng Anh tạm dùng bài tiếng Việt và script báo). Đó là trang Artifact không có khung <html>/<head>;
   script bọc khung, thêm thanh quay về trang và giao diện chung assets/vu-tru-khac/doc.css (đặt cuối trang để phủ CSS
@@ -17,7 +20,7 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, ho_so = chữ trên tab thẻ thông tin
   ở đầu bài, tiếng Anh trong "en"),
   mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
-  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết) và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
+  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết), hình tự vẽ assets/vu-tru-khac/bia/<slug>.svg nếu có và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
   vui-mung, ngac-nhien, like, chao, buon-ngu), bên dưới chỉ có số bài, tên, tác giả · năm · điểm. Mỗi khối chỉ hiện một hàng (ít nhất 4 thẻ), còn lại sau nút "Xem thêm". Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
 - Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
@@ -66,6 +69,21 @@ def lam_sach(s, en=False):
     return s
 
 
+def chen_minh_hoa(bai, b, mo_ta):
+    """Thay dải SVG dưới tiêu đề bài bằng hình tự vẽ (chỉ sửa bản bọc, không sửa bài gốc)."""
+    hinh = (R / "assets/vu-tru-khac/minh-hoa" / f'{b["slug"]}.svg').read_text(encoding="utf-8").strip()
+    hinh = hinh.replace(' xmlns="http://www.w3.org/2000/svg"', "").replace(
+        "<svg ", f'<svg class="minh-hoa" style="max-width:100%" role="img" aria-label="{esc(mo_ta)}" ', 1)
+    dau = re.search(r"<header\b.*?</header>", bai, re.S)
+    if not dau:
+        sys.exit(f'{b["slug"]}: bài không có <header> để chèn hình minh hoạ')
+    h = dau.group(0)
+    h2, n = re.subn(r"<svg\b.*?</svg>", lambda m: hinh, h, count=1, flags=re.S)
+    if not n:
+        h2 = re.sub(r"(</h1>)", lambda m: m.group(1) + "\n" + hinh, h, count=1)
+    return bai[:dau.start()] + h2 + bai[dau.end():]
+
+
 def trang_sach(b, goc, en=False, cd=None):
     e = b.get("en", {}) if en else b
     ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
@@ -75,6 +93,8 @@ def trang_sach(b, goc, en=False, cd=None):
     bai = lam_sach(goc, en)
     # Bỏ <title> của Artifact, dùng tiêu đề của trang
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
+    if b.get("minh_hoa"):
+        bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
     mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
@@ -114,16 +134,24 @@ body {{ margin: 0; }}
 .mhai-thanh {{ position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
   margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
   font: 600 .92rem/1.2 system-ui, sans-serif; }}
-.mhai-thanh a {{ color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }}
-.mhai-thanh a:hover {{ color: #FBBF24; }}
-.mhai-thanh .vtk-ve img {{ height: 30px; width: auto; }}
+.mhai-thanh a, .mhai-thanh button {{ color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }}
+.mhai-thanh a:hover, .mhai-thanh button:hover {{ color: #FBBF24; }}
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme {{ min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }}
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover {{ background: rgb(251 191 36 / .14); border-color: #FBBF24; }}
+.mhai-thanh .vtk-ve > i {{ font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }}
+.mhai-thanh .vtk-ve img {{ height: 38px; width: auto; }}
+.mhai-thanh .mhai-theme {{ padding: 4px 14px; }}
+.mhai-thanh .mhai-theme svg {{ width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }}
 .mhai-thanh .mhai img {{ width: 24px; height: 24px; border-radius: 50%; }}
-.mhai-thanh span {{ display: inline-flex; gap: 16px; align-items: center; }}
-@media (max-width: 420px) {{ .mhai-thanh .mhai b {{ display: none; }} }}{mau_bia}
+.mhai-thanh span {{ display: inline-flex; gap: 14px; align-items: center; }}
+@media (max-width: 560px) {{ .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b {{ display: none; }} .mhai-thanh .mhai-theme {{ padding: 4px 11px; }} }}
+@media (max-width: 380px) {{ .mhai-thanh .vtk-ve img {{ height: 30px; }} .mhai-thanh span {{ gap: 10px; }} }}{mau_bia}
 </style>
 </head>
 <body{lop_bia}>
-<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}">‹ <img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}"><i aria-hidden="true">‹</i><img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 {bai.strip()}
 <link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">
 <script src="{p}assets/vu-tru-khac/doc.js?v=dev" defer></script>
@@ -145,8 +173,14 @@ def the_bai(b, cd, en=False):
     tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
     mark = b.get("mark") if b.get("mark") in TU_THE else TU_THE[(b["so"] - 1) % len(TU_THE)]
     lop = (" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else "") + (" dai" if max(map(len, str(ten).split())) > 8 else "")
+    # Bìa tự vẽ cho bài không phải sách (thí nghiệm, thảm hoạ...): có assets/vu-tru-khac/bia/<slug>.svg thì chèn hình đó lên bìa thẻ
+    tep_hinh = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
+    hinh = ""
+    if tep_hinh.exists():
+        hinh = '<span class="vtk-hinh">' + tep_hinh.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', "") + "</span>"
+        lop += " co-hinh"
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>'
+            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
             f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d}</span>'
             f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')

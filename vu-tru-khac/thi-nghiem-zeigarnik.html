@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Việc dở dang nhớ lâu hơn (Bluma Zeigarnik): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Việc làm dở có bám trong đầu lâu hơn? Thí nghiệm gốc, phân tích gộp 59 công bố năm 2025, và cách dừng việc có chủ đích để đầu óc nhẹ.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Việc dở dang nhớ lâu hơn (Bluma Zeigarnik): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Việc làm dở có bám trong đầu lâu hơn? Thí nghiệm gốc, phân tích gộp 59 công bố năm 2025, và cách dừng việc có chủ đích để đầu óc nhẹ.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/thi-nghiem-zeigarnik.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body header { --bia-1: #021211; --bia-2: #0F766E; --bia-nhan: #CCFBF1; }
+:root { --vtk-nhan: #CCFBF1; }
+body header { --ho-so: "Sổ thí nghiệm"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/thi-nghiem-zeigarnik.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. "Thí nghiệm nổi tiếng" #02: Zeigarnik effect, --night = deep teal (the open loop, unfinished task), --day = amber brown (closure, the finished task). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0f766e;
+  --day: #b45309;
+  --rem: #4f5bd5;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #5eead4; --day: #f2b263; --rem: #a3acf5; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #5eead4; --day: #f2b263; --rem: #a3acf5; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Thí nghiệm nổi tiếng · Tâm lý học trí nhớ và động lực</span>
+  <h1>Việc dở dang nhớ lâu hơn</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Ba ô việc đã đánh dấu xong, một ô việc mới làm được một nửa">
+    <rect x="4" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M10 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="42" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M48 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="80" y="14" width="26" height="26" rx="6" fill="none" stroke="#8a94a6" stroke-width="2"/><path d="M86 27 l5 5 l10 -11" fill="none" stroke="#8a94a6" stroke-width="3"/>
+    <rect x="130" y="10" width="34" height="34" rx="7" fill="none" stroke="#0f766e" stroke-width="3" stroke-dasharray="6 4"/>
+    <text x="180" y="34" font-family="monospace" font-size="16" fill="#0f766e">đang dở…</text>
+    <circle cx="296" cy="27" r="15" fill="none" stroke="#d6dce5" stroke-width="5"/><path d="M296 12 a15 15 0 0 1 0 30" fill="none" stroke="#b45309" stroke-width="5"/>
+  </svg>
+  <p class="sub">The Zeigarnik effect · Bluma Zeigarnik, nhóm Kurt Lewin, Viện Tâm lý học Berlin</p>
+  <div class="meta">
+    <div><span class="label">Người làm</span><b>Bluma Zeigarnik · nhóm của Kurt Lewin, Berlin</b></div>
+    <div><span class="label">Thời gian</span><b>công bố 1927 · phân tích gộp mới nhất 2025</b></div>
+    <div><span class="label">Quy mô</span><b>164 người làm riêng, 47 người lớn và 45 trẻ làm theo nhóm (Zeigarnik, 1927) · 59 công bố được gộp (Ghibellini và Meier, 2025)</b></div>
+    <div><span class="label">Kết luận</span><b>"nhớ việc dở" không vững, "muốn làm tiếp" thì vững · độ vững 5 / 10</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Diễn ra thế nào</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" stroke-dasharray="4 3"/><path d="M11 16h6"/></svg><b>Làm dở, bị ngắt, rồi hỏi lại</b><span>Mỗi người làm 18–22 việc nhỏ, khoảng một nửa bị ngắt giữa chừng (Zeigarnik, 1927).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M11 26V16M21 26V7"/></svg><b>Kết quả gốc: nhớ việc dở gần gấp đôi</b><span>Tỉ lệ nhớ việc dở so với việc xong là 1,9 ở 32 người đầu tiên (Zeigarnik, 1927).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 16h10"/></svg><b>Gộp lại: gần như ngang nhau</b><span>Với cách đo phổ biến nhất, tỉ lệ là 0,99 trên 38 công bố (Ghibellini và Meier, 2025).</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 16a8 8 0 1 1 3 6"/><path d="M8 24v-6h6"/></svg><b>Phần vững: muốn làm tiếp</b><span>Được để tự do, khoảng 67% lần người ta quay lại việc bị ngắt (Ghibellini và Meier, 2025).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h8M12 22h4"/></svg><b>Việc dở lởn vởn? Ghi ra</b><span>Viết kế hoạch cụ thể làm bớt ý nghĩ chen ngang (Masicampo và Baumeister, 2011).</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của thí nghiệm</h2></div>
+  <p class="thesis">Việc làm dở có bám trong trí nhớ lâu hơn việc đã xong không? Câu trả lời hiện nay: chuyện "nhớ hơn" không chắc, nhưng việc dở thì đúng là kéo ta quay lại, và làm đầu óc bận cho đến khi ta xếp chỗ cho nó.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">1927</span><b>Thí nghiệm</b><span>Zeigarnik ngắt ngang việc của người tham gia, rồi hỏi họ nhớ được việc nào.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1928–nay</span><b>Thành "hiệu ứng"</b><span>Tên bà gắn vào phim bỏ lửng, thanh tiến độ, mẹo học, quảng cáo.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2025</span><b>Gộp lại</b><span>59 công bố: nhớ thì ngang nhau, muốn làm tiếp thì rõ.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Thí nghiệm diễn ra thế nào</h2><p class="lead">Ý tưởng xuất phát từ thuyết "căng thẳng" của Kurt Lewin: bắt đầu một việc là tạo ra một nhu cầu, chỉ làm xong mới xả được.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="k0t">
+        <title id="k0t">Người tham gia làm lần lượt 18 đến 22 việc nhỏ như nặn tượng, giải đố, tính nhẩm. Khoảng một nửa số việc bị người làm thí nghiệm ngắt ngang và chuyển sang việc khác. Cuối buổi, họ được hỏi bất ngờ: hãy kể lại các việc vừa làm. Zeigarnik đếm số việc dở và việc xong được nhớ lại.</title>
+        <g>
+          <rect x="30" y="30" width="56" height="40" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><path d="M48 50 l7 7 l14 -15" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <rect x="96" y="30" width="56" height="40" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="6 4"/><text x="124" y="55" text-anchor="middle" class="t-night t-bold">dở</text>
+          <rect x="162" y="30" width="56" height="40" rx="8" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><path d="M180 50 l7 7 l14 -15" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <rect x="228" y="30" width="56" height="40" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="6 4"/><text x="256" y="55" text-anchor="middle" class="t-night t-bold">dở</text>
+          <text x="300" y="55" class="t-ink t-bold">… 18–22 việc</text>
+        </g>
+        <text x="30" y="96">nặn tượng · giải đố · tính nhẩm · xâu hạt…</text>
+        <rect x="30" y="118" width="300" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="45" y="145" class="t-night t-bold">"Dừng lại, chuyển sang việc này nhé"</text>
+        <line x1="350" y1="100" x2="410" y2="100" stroke="var(--muted)" stroke-width="2"/><path d="M410 100 l-9 -6 v12 z" fill="var(--muted)"/>
+        <rect x="425" y="40" width="270" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="440" y="67" class="t-ink t-bold">cuối buổi, hỏi bất ngờ:</text>
+        <rect x="425" y="96" width="270" height="44" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+        <text x="440" y="123" class="t-ink">"Bạn vừa làm những việc gì?"</text>
+        <rect x="425" y="152" width="270" height="44" rx="8" fill="var(--night)" fill-opacity=".14" stroke="var(--night)" stroke-width="2"/>
+        <text x="440" y="179" class="t-night t-bold">đếm việc dở, việc xong nhớ được</text>
+        <text x="30" y="210">mỗi người làm riêng với người làm thí nghiệm; ai cũng có cả việc xong lẫn việc dở</text>
+      </svg>
+    </div>
+    <figcaption><b>Đơn giản và dễ làm lại.</b> Chính vì vậy, trong gần một thế kỷ, nó được làm lại rất nhiều lần, và kết quả không phải lúc nào cũng giống bản gốc.</figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Thí nghiệm và lời đồn</h3><div class="chips"><span class="chip">người bồi bàn</span><span class="chip">tỉ lệ 1,9</span><span class="chip">ai nhớ, ai quên</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 2</span><h3>Việc dở trong đầu</h3><div class="chips"><span class="chip">căng thẳng của Lewin</span><span class="chip">dư âm chú ý</span><span class="chip">ghi ra cho nhẹ</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 3</span><h3>Kiểm chứng lại</h3><div class="chips"><span class="chip">59 công bố</span><span class="chip">nhớ hay làm tiếp</span><span class="chip">dừng có chủ đích</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Việc dở tạo ra "căng thẳng"</h3><span class="en">tension system · Lewin</span><span class="pg">Lewin, 1935</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 190" role="img" aria-labelledby="k1t">
+          <title id="k1t">Theo Kurt Lewin: bắt đầu một việc làm căng thẳng tăng lên. Nếu làm xong, căng thẳng xả hết và đầu óc buông việc đó. Nếu bị ngắt, căng thẳng còn treo lại, nên việc đó dễ quay lại trong đầu và dễ được nhớ.</title>
+          <line x1="40" y1="150" x2="690" y2="150" class="axis"/>
+          <text x="40" y="172">bắt đầu</text><text x="300" y="172" text-anchor="middle">giữa chừng</text><text x="690" y="172" text-anchor="end">sau đó</text>
+          <path d="M40 150 C120 150 200 70 300 60 C360 55 380 140 440 148 L690 148" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <text x="470" y="136" class="t-day t-bold">làm xong → căng thẳng xả hết</text>
+          <path d="M300 60 L690 60" fill="none" stroke="var(--night)" stroke-width="3" stroke-dasharray="8 6"/>
+          <text x="470" y="50" class="t-night t-bold">bị ngắt → căng thẳng treo lại</text>
+          <circle cx="300" cy="60" r="6" fill="var(--night)"/>
+          <text x="40" y="30" class="t-ink">mức "căng thẳng" của việc (minh họa, không phải số đo)</text>
+        </svg>
+      </div>
+      <figcaption><b>Đây là giả thuyết, không phải điều đã đo được.</b> Lewin là thầy hướng dẫn của Zeigarnik. Thí nghiệm của bà là cách kiểm tra ý tưởng này qua trí nhớ.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Kết quả gốc và ai nhớ, ai quên</h3><span class="en">IR/CR ratio</span><span class="pg">Zeigarnik, 1927</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 790 230" role="img" aria-labelledby="k2t">
+          <title id="k2t">Tỉ lệ số việc dở được nhớ chia số việc xong được nhớ, trong bài gốc của Zeigarnik. Người mệt: 0,61, tức nhớ việc xong hơn. Người lớn trung bình: 1,9. Trẻ em làm theo nhóm: 2,1. Người được bà xếp là có tham vọng: khoảng 2,75. Mốc 1 nghĩa là nhớ ngang nhau.</title>
+          <line x1="60" y1="180" x2="680" y2="180" class="axis"/>
+          <line x1="60" y1="140" x2="680" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="684" y="144" class="t-ink">1 = ngang nhau</text>
+          <text x="52" y="184" text-anchor="end">0</text><text x="52" y="144" text-anchor="end">1</text><text x="52" y="104" text-anchor="end">2</text><text x="52" y="64" text-anchor="end">3</text>
+          <line x1="60" y1="100" x2="680" y2="100" class="gridl"/><line x1="60" y1="60" x2="680" y2="60" class="gridl"/>
+          <rect x="100" y="156" width="80" height="24" fill="var(--day)" fill-opacity=".75"/><text x="140" y="132" text-anchor="middle" class="t-day t-bold">0,61</text><text x="140" y="200" text-anchor="middle">người mệt</text>
+          <rect x="240" y="104" width="80" height="76" fill="var(--night)" fill-opacity=".7"/><text x="280" y="96" text-anchor="middle" class="t-night t-bold">1,9</text><text x="280" y="200" text-anchor="middle">32 người lớn</text>
+          <rect x="380" y="96" width="80" height="84" fill="var(--night)" fill-opacity=".7"/><text x="420" y="88" text-anchor="middle" class="t-night t-bold">2,1</text><text x="420" y="200" text-anchor="middle">45 trẻ, theo nhóm</text>
+          <rect x="520" y="70" width="80" height="110" fill="var(--night)" fill-opacity=".7"/><text x="560" y="62" text-anchor="middle" class="t-night t-bold">~2,75</text><text x="560" y="200" text-anchor="middle">người "tham vọng"</text>
+          <text x="60" y="222">tỉ lệ = số việc dở nhớ được ÷ số việc xong nhớ được · ~2,75 quy từ mức "hơn 175%" trong bài</text>
+        </svg>
+      </div>
+      <figcaption><b>Ngay trong bài gốc, hiệu ứng đã tùy người.</b> Người mệt nhớ việc xong hơn; người nhập tâm, muốn làm tốt thì nhớ việc dở hơn nhiều. Đây là manh mối cho chuyện làm lại không đều về sau.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Muốn làm tiếp: hiệu ứng Ovsiankina</h3><span class="en">resumption · Ovsiankina effect</span><span class="pg">Ovsiankina, 1928</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Đồng nghiệp cùng nhóm</h3><span class="muted">Maria Ovsiankina, cũng trong nhóm Lewin, đo việc khác: bị ngắt rồi được để yên, người ta có tự quay lại làm tiếp không.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Không ai bảo, vẫn làm tiếp</h3><span class="muted">Gộp 21 công bố, tỉ lệ quay lại làm tiếp là khoảng 67% (Ghibellini và Meier, 2025).</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Ít nổi tiếng, vững hơn</h3><span class="muted">Cái tên Zeigarnik nổi tiếng hơn, nhưng phần đứng vững qua kiểm chứng lại là phần của Ovsiankina.</span></div>
+    </div>
+    <p class="lead">Ở chỗ làm, điều này quan trọng hơn chuyện nhớ: việc dở kéo ta quay lại, kể cả khi ta đang cần làm việc khác.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Dư âm chú ý</h3><span class="en">attention residue · Leroy 2009</span><span class="pg">Leroy, 2009 · Leroy và Glomb, 2018</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="k3t">
+          <title id="k3t">Chuyển từ việc A sang việc B khi A chưa xong: một phần chú ý còn kẹt ở A, gọi là dư âm chú ý, và việc B làm kém hơn. Ghi một phiếu sẵn sàng quay lại trước khi chuyển giúp giảm dư âm.</title>
+          <rect x="30" y="40" width="190" height="90" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="2" stroke-dasharray="7 5"/>
+          <text x="125" y="80" text-anchor="middle" class="t-night t-bold">Việc A (chưa xong)</text>
+          <text x="125" y="104" text-anchor="middle">bị gọi đi họp</text>
+          <line x1="230" y1="85" x2="300" y2="85" stroke="var(--muted)" stroke-width="2"/><path d="M300 85 l-9 -6 v12 z" fill="var(--muted)"/>
+          <rect x="310" y="40" width="190" height="90" rx="10" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <rect x="310" y="40" width="70" height="90" rx="10" fill="var(--night)" fill-opacity=".18"/>
+          <text x="345" y="90" text-anchor="middle" class="t-night t-bold">dư âm</text>
+          <text x="440" y="80" text-anchor="middle" class="t-ink t-bold">Việc B</text>
+          <text x="440" y="104" text-anchor="middle">làm kém hơn</text>
+          <rect x="530" y="40" width="170" height="90" rx="10" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+          <text x="615" y="72" text-anchor="middle" class="t-day t-bold">phiếu "sẵn sàng</text>
+          <text x="615" y="92" text-anchor="middle" class="t-day t-bold">quay lại"</text>
+          <text x="615" y="114" text-anchor="middle">giảm dư âm</text>
+          <text x="30" y="166" class="t-ink">2009: 84 và 78 sinh viên, hai thí nghiệm · 2018: bốn nghiên cứu về phiếu "sẵn sàng quay lại"</text>
+        </svg>
+      </div>
+      <figcaption><b>Đây là phiên bản công sở của Zeigarnik.</b> Leroy (2009) thấy người chuyển việc khi việc trước còn dở làm việc sau kém hơn; Leroy và Glomb (2018) thấy ghi nhanh kế hoạch quay lại giúp giảm thiệt hại đó.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Ghi ra thì đầu nhẹ</h3><span class="en">plan making · Masicampo &amp; Baumeister 2011</span><span class="pg">2011 · 2017</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Việc dở chen vào đầu</h3><span class="muted">Trong 6 nghiên cứu, mục tiêu còn dở làm người ta nghĩ lan man khi đọc và làm kém việc khác (Masicampo và Baumeister, 2011).</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Viết kế hoạch cụ thể</h3><span class="muted">Cho viết rõ làm gì, khi nào, ở đâu: các ảnh hưởng đó biến mất, dù việc vẫn chưa làm.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Việc dở cuối tuần</h3><span class="muted">59 nhân viên, 12 tuần: tuần nào còn nhiều việc dở thì cuối tuần nghiền ngẫm nhiều hơn và ngủ kém hơn (Syrek và cộng sự, 2017).</span></div>
+    </div>
+    <p class="lead">Não không đòi việc phải xong. Nó cần biết việc đã có chỗ, có giờ.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gộp lại sau gần 100 năm</h3><span class="en">meta-analysis · Ghibellini &amp; Meier 2025</span><span class="pg">Đại học Bern, 2025</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="k4t">
+          <title id="k4t">So sánh tỉ lệ nhớ việc dở so với việc xong. Bài gốc 1927: 1,9. Gộp 7 công bố dùng đúng cách đo của Zeigarnik: 1,13. Gộp 38 công bố dùng cách đo phổ biến nhất: 0,99, tức gần như ngang nhau.</title>
+          <line x1="60" y1="170" x2="680" y2="170" class="axis"/>
+          <line x1="60" y1="120" x2="680" y2="120" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="684" y="124" class="t-ink">1</text>
+          <line x1="60" y1="70" x2="680" y2="70" class="gridl"/>
+          <text x="52" y="174" text-anchor="end">0</text><text x="52" y="124" text-anchor="end">1</text><text x="52" y="74" text-anchor="end">2</text>
+          <rect x="110" y="75" width="90" height="95" fill="var(--muted)" fill-opacity=".45"/><text x="155" y="67" text-anchor="middle" class="t-ink t-bold">1,9</text><text x="155" y="190" text-anchor="middle">Zeigarnik 1927</text>
+          <rect x="320" y="113" width="90" height="57" fill="var(--night)" fill-opacity=".7"/><text x="365" y="105" text-anchor="middle" class="t-night t-bold">1,13</text><text x="365" y="190" text-anchor="middle">7 công bố, cách đo gốc</text>
+          <rect x="530" y="120" width="90" height="50" fill="var(--night)" fill-opacity=".7"/><text x="575" y="112" text-anchor="middle" class="t-night t-bold">0,99</text><text x="575" y="190" text-anchor="middle">38 công bố, cách đo phổ biến</text>
+          <text x="60" y="214" class="t-ink">các con số gộp đã tính cả kết quả gốc của Zeigarnik</text>
+        </svg>
+      </div>
+      <figcaption><b>Việc dở không được nhớ tốt hơn một cách phổ quát.</b> Tác giả cho rằng hiệu ứng có thể chỉ hiện ra trong điều kiện riêng: người làm thí nghiệm có uy, người tham gia nhập tâm, việc đòi hỏi cao. Điều kiện như vậy phổ biến ở thí nghiệm thời xưa hơn bây giờ.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: tin được đến đâu</h2><p class="lead">10 điều hay được nói về hiệu ứng Zeigarnik, đối chiếu với nghiên cứu hiện nay. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="2 vững, 5 cần thận trọng, 3 bị phê bình">
+    <div class="o" style="flex:2">2 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Bị ngắt giữa chừng, người ta có xu hướng tự quay lại làm tiếp</span></summary><p class="note">Đây là hiệu ứng Ovsiankina (1928). Phân tích gộp 21 công bố cho tỉ lệ quay lại khoảng 67% (Ghibellini và Meier, 2025). Tác giả gọi đây là "một xu hướng chung".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chuyển sang việc mới khi việc cũ còn dở làm việc mới kém đi</span></summary><p class="note">Leroy (2009) đo trên hai nhóm sinh viên (84 và 78 người) và gọi đây là "dư âm chú ý". Leroy và Glomb (2018) lặp lại ý này trong bốn nghiên cứu. Mức độ vừa phải, chủ yếu đo trong phòng thí nghiệm.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Bài gốc: việc dở được nhớ nhiều hơn khoảng 90%</span></summary><p class="note">Con số 1,9 đến từ 32 người đầu tiên, 26 người trong số đó nhớ việc dở hơn (Zeigarnik, 1927). Kết quả có thật trong bài, nhưng thời đó chưa có kiểm định thống kê như bây giờ, và người làm thí nghiệm ngồi ngay cạnh người tham gia.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Hiệu ứng mạnh hay yếu tùy người, tùy lúc</span></summary><p class="note">Ngay trong bài gốc: người mệt có tỉ lệ 0,61 (nhớ việc xong hơn), người tham vọng thì cao hơn hẳn. Rosenzweig (1943) thấy khi bị ngắt bị hiểu là thất bại, người ta lại nhớ việc xong hơn. Hợp lý, nhưng các yếu tố này chưa được kiểm tra đủ để làm luật.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Viết kế hoạch cụ thể làm việc dở thôi lởn vởn trong đầu</span></summary><p class="note">Masicampo và Baumeister (2011), 6 nghiên cứu, phần lớn với sinh viên. Kết quả rõ và hợp với nghiên cứu về kế hoạch "nếu… thì…", nhưng chưa có lần làm lại lớn, độc lập.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ghi phiếu "sẵn sàng quay lại" trước khi chuyển việc giúp làm việc mới tốt hơn</span></summary><p class="note">Leroy và Glomb (2018), bốn nghiên cứu, đăng trên Organization Science. Đáng thử vì gần như không tốn gì, nhưng mới có một nhóm tác giả.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Việc dở cuối tuần làm ngủ kém</span></summary><p class="note">Syrek và cộng sự (2017): 59 nhân viên, 357 cặp quan sát thứ Sáu và thứ Hai trong 12 tuần. Liên hệ đi qua nghiền ngẫm tiêu cực. Đây là nghiên cứu nhật ký, cho thấy liên hệ, chưa chứng minh nguyên nhân.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Việc dở dang luôn được nhớ tốt hơn việc đã xong</span></summary><p class="note">Phân tích gộp 38 công bố với cách đo phổ biến nhất cho tỉ lệ 0,99, gần như ngang nhau (Ghibellini và Meier, 2025). Nhiều lần làm lại từ thập niên 1960 cũng không thấy khác biệt.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Phim bỏ lửng, quảng cáo dở dang làm khách nhớ thương hiệu hơn "nhờ Zeigarnik"</span></summary><p class="note">Cách dùng phổ biến trong marketing và mạng xã hội. Thí nghiệm gốc đo việc tự tay làm dở, không đo việc xem người khác kể dở. Với hiệu ứng nhớ không vững, đây là suy diễn hai lần.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Zeigarnik nghĩ ra thí nghiệm sau khi thấy người bồi bàn chỉ nhớ đơn chưa trả tiền</span></summary><p class="note">Chuyện quán cà phê ở Berlin được kể lại nhiều về sau, gắn với Lewin. Nó là giai thoại minh họa, không phải dữ liệu, và không có trong phần số liệu của bài 1927. Kể cho vui thì được, đừng dùng làm bằng chứng.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>"Muốn làm tiếp" (Ovsiankina)</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>"Nhớ việc dở hơn"</span><div class="bar"><i class="low" style="width:30%"></i></div><b>1,5/5</b></div>
+    <div class="score"><span>Thiết kế thí nghiệm gốc</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2,5/5</b></div>
+    <div class="score"><span>Giá trị bài học</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Câu hỏi hay, cách làm đơn giản</li><li>Mở ra cả một hướng nghiên cứu về việc dở và động lực</li><li>Bài gốc đã ghi rõ hiệu ứng thay đổi theo người</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Mẫu nhỏ, chưa có kiểm định thống kê hiện đại</li><li>Người làm thí nghiệm có mặt, dễ ảnh hưởng kết quả</li><li>Làm lại nhiều lần không thấy, gộp lại gần như bằng 0</li></ul></div>
+  </div>
+  <p class="verdict">Độ vững 5/10. Cái tên nổi tiếng gắn với phần yếu nhất (nhớ việc dở), còn phần vững (muốn làm tiếp, đầu óc bận vì việc dở) lại ít được kể. Bài học công sở vẫn dùng được, vì nó dựa trên phần vững.</p>
+  <details class="more"><summary>Xem thêm: vì sao thời xưa thấy, bây giờ không thấy</summary><div>
+    <p>Ghibellini và Meier (2025) gợi ý vài lý do. Thí nghiệm thập niên 1920 thường làm một người một, người làm thí nghiệm là người có uy, người tham gia (nhiều khi là sinh viên, đồng nghiệp) rất nhập tâm vào việc. Khi việc trở nên quan trọng với người làm, việc bị ngắt mới "treo" lại trong đầu.</p>
+    <p>Họ cũng tách theo bầu không khí thí nghiệm: trong không khí thoải mái, tỉ lệ là 1,07; trong không khí bị chấm điểm, thi thố, chỉ 0,88. Nghĩa là khi bị ngắt giống như thất bại, người ta có thể muốn quên việc đó đi. Điều này khớp với Rosenzweig (1943).</p>
+    <p>Bài học rộng hơn: một tên gọi dễ nhớ ("hiệu ứng Zeigarnik") có thể sống lâu hơn dữ liệu của nó. Phần ít tên tuổi hơn, của Ovsiankina, lại là phần đứng vững.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng: dừng việc có chủ đích</h2><p class="lead">Việc dở sẽ kéo bạn quay lại và chiếm một góc đầu óc. Đừng chống lại nó, hãy dùng nó: dừng đúng chỗ, và ghi lại để đầu óc được thả.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="k7t">
+        <title id="k7t">Bốn bước khi phải dừng việc: dừng ở chỗ biết bước tiếp theo; ghi phiếu sẵn sàng quay lại gồm đang ở đâu, bước tiếp, khi nào quay lại; chuyển việc với đầu óc sạch; cuối ngày đổ hết việc dở ra danh sách có giờ làm.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · dừng đúng chỗ</text><text x="110" y="100" class="t-night t-bold">khi biết bước tiếp</text><text x="110" y="116">đừng dừng lúc bí</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · ghi 3 dòng</text><text x="300" y="100" class="t-day t-bold">đang ở đâu · bước tiếp</text><text x="300" y="116">· khi nào quay lại</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · chuyển việc</text><text x="490" y="100" class="t-rem t-bold">vào họp, nghe điện</text><text x="490" y="116">đầu óc đã gửi việc cũ lại</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · đóng ngày</text><text x="680" y="100" class="t-ok t-bold">việc dở ra giấy</text><text x="680" y="116">kèm giờ làm tiếp</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Việc chưa xong không sao. Việc chưa có chỗ mới làm đầu óc bận.</text>
+      </svg>
+    </div>
+    <figcaption><b>Dừng ở chỗ dễ, không dừng ở chỗ khó.</b> Nếu dừng đúng lúc đang bí, hôm sau bạn phải bắt đầu bằng phần khó nhất. Nếu dừng khi biết rõ bước tiếp, bạn quay lại dễ hơn.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16h14"/><path d="M16 10l6 6-6 6"/><path d="M26 6v20"/></svg><div><b>Họp, email, gọi điện chen ngang</b><span>Xin 60 giây ghi phiếu "sẵn sàng quay lại" rồi mới chuyển (Leroy và Glomb, 2018).</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="5" width="20" height="22" rx="3"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>Cuối buổi họp</b><span>Chốt "ai làm gì, khi nào" cho từng việc treo, để không ai mang việc lơ lửng về nhà.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 6a10 10 0 1 0 4 12A8 8 0 0 1 22 6z"/></svg><div><b>Chiều thứ Sáu</b><span>15 phút ghi việc dở kèm giờ làm tiếp. Viết kế hoạch giúp bớt ý nghĩ chen ngang (Masicampo và Baumeister, 2011).</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 26V8l8 5 8-5v18"/></svg><div><b>Khi quản lý người khác</b><span>Hạn chế gọi người đang làm việc sâu. Nếu phải gọi, cho họ một phút để ghi lại chỗ đang dừng.</span></div></div>
+  </div>
+  <div class="quote"><span>Luôn dừng khi đang trôi chảy và khi đã biết đoạn tiếp theo sẽ thế nào.</span><span class="src">Diễn ý lời khuyên viết của Ernest Hemingway trong "Monologue to the Maestro" (Esquire, 1935), không phải trích nguyên văn. Oyama và cộng sự (2018) gọi đây là "hiệu ứng Hemingway".</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Ghibellini và Meier, "Interruption, recall and resumption" (2025)</b><span class="muted">Phân tích gộp mới nhất, truy cập mở. Đọc phần tóm tắt và thảo luận là đủ.</span></div>
+    <div><b>Masicampo và Baumeister, "Consider it done!" (2011)</b><span class="muted">Nền tảng cho thói quen "đổ việc ra giấy" của các phương pháp quản lý việc.</span></div>
+    <div><b>Leroy và Glomb, "Tasks interrupted" (2018)</b><span class="muted">Phiếu "sẵn sàng quay lại" dành cho dân văn phòng bị ngắt liên tục.</span></div>
+    <div><b>Thí nghiệm kẹo dẻo, thí nghiệm nổi tiếng #1</b><span class="muted">Kế hoạch "nếu… thì…": họ hàng gần của việc ghi kế hoạch cho việc dở.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn số liệu</h2></div>
+  <p class="muted">Mọi con số trong bài, bộ ảnh Facebook và chú thích đều lấy từ các nghiên cứu dưới đây.</p>
+  <div class="reads">
+    <div><b>Zeigarnik (1927)</b><span class="muted">“Das Behalten erledigter und unerledigter Handlungen”, <i>Psychologische Forschung</i> 9, 1–85; bản tóm lược tiếng Anh “On finished and unfinished tasks” trong W. D. Ellis (biên tập), <i>A Source Book of Gestalt Psychology</i>, 1938 · <b>Số liệu dùng:</b> 164 người làm riêng, 18–22 việc mỗi người, khoảng một nửa bị ngắt; 32 người đầu tiên: tỉ lệ 1,9, 26 người nhớ việc dở hơn; làm theo nhóm 47 người lớn (1,9) và 45 trẻ (2,1); người mệt 0,61; người "tham vọng" hơn 175%</span></div>
+    <div><b>Ovsiankina (1928)</b><span class="muted">“Die Wiederaufnahme unterbrochener Handlungen”, <i>Psychologische Forschung</i> 11, 302–379 · <b>Số liệu dùng:</b> khái niệm xu hướng làm tiếp việc bị ngắt</span></div>
+    <div><b>Kurt Lewin (1935)</b><span class="muted">sách <i>A Dynamic Theory of Personality</i>, McGraw-Hill · <b>Số liệu dùng:</b> giả thuyết “hệ căng thẳng”; giai thoại người bồi bàn được kể lại về sau, không phải dữ liệu</span></div>
+    <div><b>Rosenzweig (1943)</b><span class="muted">“An experimental study of ‘repression’ with special reference to need-persistive and ego-defensive reactions to frustration”, <i>Journal of Experimental Psychology</i> 32(1), 64–74 · <b>Số liệu dùng:</b> khi bị ngắt giống thất bại, người ta nhớ việc xong hơn (không dùng số)</span></div>
+    <div><b>Leroy (2009)</b><span class="muted">“Why is it so hard to do my work? The challenge of attention residue when switching between work tasks”, <i>Organizational Behavior and Human Decision Processes</i> 109(2), 168–181 · <b>Số liệu dùng:</b> hai thí nghiệm, 84 và 78 sinh viên; dư âm chú ý làm việc sau kém hơn</span></div>
+    <div><b>Masicampo và Baumeister (2011)</b><span class="muted">“Consider it done! Plan making can eliminate the cognitive effects of unfulfilled goals”, <i>Journal of Personality and Social Psychology</i> 101(4), 667–683 · <b>Số liệu dùng:</b> 6 nghiên cứu; viết kế hoạch cụ thể xóa ảnh hưởng của mục tiêu dở dang</span></div>
+    <div><b>Syrek, Weigelt, Peifer và Antoni (2017)</b><span class="muted">“Zeigarnik's sleepless nights: How unfinished tasks at the end of the week impair employee sleep on the weekend through rumination”, <i>Journal of Occupational Health Psychology</i> 22(2), 225–238 · <b>Số liệu dùng:</b> 59 nhân viên, 357 cặp quan sát thứ Sáu và thứ Hai, 12 tuần</span></div>
+    <div><b>Leroy và Glomb (2018)</b><span class="muted">“Tasks interrupted: How anticipating time pressure on resumption of an interrupted task causes attention residue and low performance on interrupting tasks and how a ‘ready-to-resume’ plan mitigates the effects”, <i>Organization Science</i> 29(3), 380–397 · <b>Số liệu dùng:</b> bốn nghiên cứu; phiếu “sẵn sàng quay lại” giảm dư âm chú ý</span></div>
+    <div><b>Oyama, Manalo và Nakatani (2018)</b><span class="muted">“The Hemingway effect: How failing to finish a task can have a positive effect on motivation”, <i>Thinking Skills and Creativity</i> 30, 7–18 · <b>Số liệu dùng:</b> càng gần xong, càng muốn làm tiếp; rõ hơn khi biết các bước còn lại (không dùng số)</span></div>
+    <div><b>Ghibellini và Meier (2025)</b><span class="muted">“Interruption, recall and resumption: a meta-analysis of the Zeigarnik and Ovsiankina effects”, <i>Humanities and Social Sciences Communications</i> 12, bài 962 · <b>Số liệu dùng:</b> 59 công bố; tỉ lệ theo cách đo gốc 1,13 (7 công bố), theo cách đo phổ biến 0,99 (38 công bố); làm tiếp 67% (21 công bố); không khí thoải mái 1,07, thi thố 0,88</span></div>
+    <div><b>Ernest Hemingway (1935)</b><span class="muted">“Monologue to the Maestro: A High Seas Letter”, tạp chí <i>Esquire</i> · <b>Dùng:</b> lời khuyên dừng khi biết đoạn tiếp theo, diễn ý</span></div>
+  </div>
+</section>
+
+<footer>Thí nghiệm nổi tiếng #02. Các hình là sơ đồ minh họa; số liệu lấy từ các nghiên cứu gốc, ghi rõ ở phần Nguồn số liệu và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
