@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sự cố Y2K (Lỗi năm 2 chữ số · 1999–2000): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Mỹ chi khoảng 100 tỷ USD để sửa một lỗi năm 2 chữ số, rồi đêm giao thừa êm đến mức nhiều người gọi là trò lừa. Nhìn lại từ báo cáo Thượng viện Mỹ &quot;Y2K Aftermath&quot;, số liệu Bộ Thương mại và OMB, có màn nhập vai trưởng IT ngân hàng và 14 lời đồn được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sự cố Y2K (Lỗi năm 2 chữ số · 1999–2000): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Mỹ chi khoảng 100 tỷ USD để sửa một lỗi năm 2 chữ số, rồi đêm giao thừa êm đến mức nhiều người gọi là trò lừa. Nhìn lại từ báo cáo Thượng viện Mỹ &quot;Y2K Aftermath&quot;, số liệu Bộ Thương mại và OMB, có màn nhập vai trưởng IT ngân hàng và 14 lời đồn được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #06120A; --bia-2: #14532D; --bia-nhan: #4ADE80; }
+:root { --vtk-nhan: #4ADE80; }
+body header { --ho-so: "Hồ sơ sự kiện"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/su-kien-y2k.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Nhìn lại sự kiện lớn" #2: Y2K, --night = screen green #16A34A, --day = amber #F59E0B (warning). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #16A34A;
+  --day: #F59E0B;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #4ADE80; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #4ADE80; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Sự cố Y2K</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><rect x="8" y="16" width="66" height="50" rx="5" fill="#FFF7ED" fill-opacity=".55"/>
+<rect x="13" y="21" width="56" height="38" rx="3" fill="#06120A" fill-opacity=".85"/>
+<g fill="#FFF7ED" fill-opacity=".35"><rect x="17" y="28" width="3" height="3"/><rect x="20" y="28" width="3" height="3"/><rect x="23" y="28" width="3" height="3"/><rect x="17" y="31" width="3" height="3"/><rect x="23" y="31" width="3" height="3"/><rect x="17" y="34" width="3" height="3"/><rect x="20" y="34" width="3" height="3"/><rect x="23" y="34" width="3" height="3"/><rect x="23" y="37" width="3" height="3"/><rect x="17" y="40" width="3" height="3"/><rect x="20" y="40" width="3" height="3"/><rect x="23" y="40" width="3" height="3"/><rect x="29" y="28" width="3" height="3"/><rect x="32" y="28" width="3" height="3"/><rect x="35" y="28" width="3" height="3"/><rect x="29" y="31" width="3" height="3"/><rect x="35" y="31" width="3" height="3"/><rect x="29" y="34" width="3" height="3"/><rect x="32" y="34" width="3" height="3"/><rect x="35" y="34" width="3" height="3"/><rect x="35" y="37" width="3" height="3"/><rect x="29" y="40" width="3" height="3"/><rect x="32" y="40" width="3" height="3"/><rect x="35" y="40" width="3" height="3"/></g>
+<path d="M42 35.5 h6" stroke="#F59E0B" stroke-width="2"/><path d="M50 35.5 l-3 -2.4 v4.8 z" fill="#F59E0B"/>
+<g fill="var(--bia-nhan, #4ADE80)"><rect x="53.0" y="26.0" width="2.4" height="2.4"/><rect x="55.4" y="26.0" width="2.4" height="2.4"/><rect x="57.8" y="26.0" width="2.4" height="2.4"/><rect x="53.0" y="28.4" width="2.4" height="2.4"/><rect x="57.8" y="28.4" width="2.4" height="2.4"/><rect x="53.0" y="30.8" width="2.4" height="2.4"/><rect x="57.8" y="30.8" width="2.4" height="2.4"/><rect x="53.0" y="33.2" width="2.4" height="2.4"/><rect x="57.8" y="33.2" width="2.4" height="2.4"/><rect x="53.0" y="35.6" width="2.4" height="2.4"/><rect x="55.4" y="35.6" width="2.4" height="2.4"/><rect x="57.8" y="35.6" width="2.4" height="2.4"/><rect x="61.0" y="26.0" width="2.4" height="2.4"/><rect x="63.4" y="26.0" width="2.4" height="2.4"/><rect x="65.8" y="26.0" width="2.4" height="2.4"/><rect x="61.0" y="28.4" width="2.4" height="2.4"/><rect x="65.8" y="28.4" width="2.4" height="2.4"/><rect x="61.0" y="30.8" width="2.4" height="2.4"/><rect x="65.8" y="30.8" width="2.4" height="2.4"/><rect x="61.0" y="33.2" width="2.4" height="2.4"/><rect x="65.8" y="33.2" width="2.4" height="2.4"/><rect x="61.0" y="35.6" width="2.4" height="2.4"/><rect x="63.4" y="35.6" width="2.4" height="2.4"/><rect x="65.8" y="35.6" width="2.4" height="2.4"/></g>
+<path d="M33 66 h16 l3 8 h-22 z" fill="#FFF7ED" fill-opacity=".45"/>
+<rect x="20" y="76" width="42" height="7" rx="2" fill="#FFF7ED" fill-opacity=".35"/>
+<path d="M84 18 l12 22 h-24 z" fill="#F59E0B"/><path d="M84 26 v7 M84 36.5 v.5" stroke="#06120A" stroke-width="2.6"/>
+<path d="M78 52 a14 14 0 1 1 0 28 a14 14 0 1 1 0 -28 z" stroke="var(--bia-nhan, #4ADE80)" stroke-width="3"/><path d="M78 58 v8 l5 4" stroke="var(--bia-nhan, #4ADE80)" stroke-width="3"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="21" data-chu="vi">khoảng 21 phút đọc</b></p><a class="vtk-ray-choi" href="#nhap-vai-y2k"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Bạn là trưởng IT một ngân hàng Mỹ</span></a><a class="vtk-ray-o vtk-ray-tiep" href="su-kien-dot-com.html"><small>Bài tiếp theo</small><b>Bong bóng dot-com</b><span>Sự kiện #003 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Nhìn lại sự kiện lớn #2 · Công nghệ · Phòng ngừa</span>
+  <h1>Sự cố Y2K</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Một màn hình máy tính cũ hiện năm 99, mũi tên sang năm 00 màu hổ phách kèm dấu cảnh báo">
+    <rect x="4" y="4" width="132" height="44" rx="6" fill="#0B1F12" stroke="#16A34A" stroke-width="3"/>
+    <text x="70" y="36" text-anchor="middle" style="font:700 26px 'JetBrains Mono',monospace;fill:#4ADE80">31/12/99</text>
+    <rect x="58" y="48" width="24" height="6" fill="#16A34A"/><rect x="44" y="54" width="52" height="4" rx="2" fill="#16A34A"/>
+    <path d="M146 26 h38" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/><path d="M190 26 l-12 -7 v14 z" fill="#F59E0B"/>
+    <rect x="198" y="4" width="84" height="44" rx="6" fill="#0B1F12" stroke="#F59E0B" stroke-width="3"/>
+    <text x="240" y="36" text-anchor="middle" style="font:700 26px 'JetBrains Mono',monospace;fill:#FBBF24">00</text>
+    <path d="M302 8 l14 26 h-28 z" fill="#F59E0B"/><rect x="301" y="16" width="2.6" height="10" fill="#0B1F12"/><rect x="301" y="28" width="2.6" height="3" fill="#0B1F12"/>
+  </svg>
+  <p class="sub">Lỗi năm hai chữ số · cả thế giới sửa từ khoảng 1995 đến 2000 · giao thừa 31/12/1999</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>máy tính lưu năm bằng 2 chữ số, "00" có thể bị hiểu là 1900</b></div>
+    <div><span class="label">Quy mô</span><b>khoảng 100 tỷ USD chi để sửa ở Mỹ, 1995–2001</b></div>
+    <div><span class="label">Nghịch lý</span><b>sửa tốt đến mức nhiều người tin là chưa từng có lỗi</b></div>
+    <div><span class="label">Nguồn chính</span><b>báo cáo Thượng viện Mỹ "Y2K Aftermath" (2000), Bộ Thương mại Mỹ, OMB, Hội đồng Y2K của Tổng thống</b></div>
+  </div>
+  <p class="nguon">Nguồn: Bộ Thương mại Mỹ, "The Economics of Y2K and the Impact on the United States" (17/11/1999); Ủy ban Đặc biệt về Vấn đề Năm 2000 của Thượng viện Mỹ, "Y2K Aftermath – Crisis Averted" (29/2/2000). Toàn văn bị chặn trong môi trường làm bài, đã kiểm qua trích đoạn.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#dong-thoi-gian">Dòng thời gian</a><a href="#quyet-dinh">Quyết định then chốt</a><a href="#hoc-duoc">Thế giới học được gì</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#bai-hoc">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="2"/><path d="M12 27h8M16 22v5"/><path d="M9 14h4M16 14h7"/></svg><b>Một lối tắt cũ</b><span>Thập niên 1960, bộ nhớ rất đắt nên năm được lưu là "68", không phải "1968".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V16M13 26V10M20 26V6M27 26V12"/></svg><b>Khoảng 100 tỷ USD</b><span>Doanh nghiệp và chính phủ Mỹ chi để sửa, từ 1995 đến 2001.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22M5 16h22M5 23h14"/><path d="M22 21l3 3 5-6"/></svg><b>Mốc có hậu quả</b><span>Ngân hàng Mỹ phải thử xong hệ thống trọng yếu trước 30/6/1999, trễ thì bị hạ xếp hạng.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><b>Giao thừa êm</b><span>Hơn 250 sự cố ở khoảng 75 nước, được sửa nhanh, không cái nào gây gián đoạn nghiêm trọng.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 22H4z"/><path d="M16 13v6M16 23v1"/></svg><b>Nghịch lý phòng ngừa</b><span>Không có gì xảy ra, nên nhiều người kết luận là "trò lừa".</span></div>
+  </div>
+  <p class="nguon">Nguồn: bộ nhớ đắt theo New York Review of Books 23/9/1999 (nguồn thứ cấp); 100 tỷ USD theo Bộ Thương mại Mỹ (11/1999); mốc 30/6/1999 theo FFIEC qua thư FDIC (FIL-98-38, FIL-98-93); hơn 250 sự cố theo báo cáo Thượng viện 29/2/2000 do CBS News đưa lại (nguồn thứ cấp).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của sự kiện</h2></div>
+  <p class="thesis">Thế giới chi hàng trăm tỷ USD cho một ngày rồi không có gì xảy ra. Tiền đó bị phí, hay chính nó làm cho không có gì xảy ra? Câu trả lời ngắn: phần lớn là vế sau, nhưng không ai chứng minh được 100%, và đó chính là cái khó của mọi việc phòng ngừa.</p>
+  <p class="nguon">Câu trả lời là nhận định của Mark, dựa trên báo cáo Thượng viện Mỹ (2000) và các nguồn ở Phần 9. Con số "hàng trăm tỷ" toàn cầu là dự báo của Gartner (300–600 tỷ USD) và IDC (297 tỷ USD), nguồn thứ cấp.</p>
+  <div class="flow" aria-label="Ba chặng của sự kiện">
+    <div class="step"><span class="label">1960s–1996</span><b>Lối tắt và lời cảnh báo</b><span>Năm 2 chữ số tiết kiệm bộ nhớ. Năm 1993, bài "Doomsday 2000" gióng chuông.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1997–1999</span><b>Huy động</b><span>Mốc cho ngân hàng, hội đồng của Tổng thống, luật chia sẻ thông tin, Fed chuẩn bị tiền.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2000–2001</span><b>Êm, rồi bị nghi</b><span>Vài trăm sự cố nhỏ. Nhiều người gọi đó là trò lừa.</span></div>
+  </div>
+</section>
+
+<section id="dong-thoi-gian">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Dòng thời gian</h2><p class="lead">Từ một lối tắt tiết kiệm bộ nhớ đến đêm giao thừa được theo dõi từng giờ.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 760 270" role="img" aria-labelledby="ytl">
+        <title id="ytl">Dòng thời gian Y2K từ 1993 đến 2001, chia bốn chặng: cảnh báo (1993 đến 1996), huy động (1997 đến 1998), thử và chốt (1999), sau giao thừa (2000 đến 2001). Các mốc: 6/9/1993 bài Doomsday 2000; 5/5/1997 FFIEC ra 5 giai đoạn; 4/2/1998 sắc lệnh 13073; 2/4/1998 Thượng viện lập ủy ban; 19/10/1998 luật chia sẻ thông tin; 30/6/1999 hạn thử của ngân hàng; 1/10/1999 Fed mở kênh thanh khoản; 31/12/1999 giao thừa; 29/2/2000 báo cáo cuối của Thượng viện; 9/2001 lỗi sàng lọc ở Sheffield được công bố.</title>
+        <rect x="40" y="110" width="250" height="26" rx="4" fill="var(--grid)"/>
+        <rect x="290" y="110" width="170" height="26" rx="4" fill="var(--night)" fill-opacity=".35"/>
+        <rect x="460" y="110" width="110" height="26" rx="4" fill="var(--night)" fill-opacity=".7"/>
+        <rect x="570" y="110" width="150" height="26" rx="4" fill="var(--day)" fill-opacity=".55"/>
+        <g text-anchor="middle">
+          <text x="165" y="128" class="t-ink t-bold">cảnh báo 1993–1996</text>
+          <text x="375" y="128" class="t-ink t-bold">huy động 1997–98</text>
+          <text x="515" y="128" class="t-ink t-bold">thử 1999</text>
+          <text x="645" y="128" class="t-ink t-bold">sau 2000–01</text>
+        </g>
+        <g class="t-ink">
+          <circle cx="70" cy="110" r="6" fill="var(--night)"/><path d="M70 104 V70" class="axis"/><text x="70" y="44" text-anchor="middle" class="t-bold">6/9/1993</text><text x="70" y="60" text-anchor="middle">"Doomsday 2000"</text>
+          <circle cx="300" cy="110" r="6" fill="var(--night)"/><path d="M300 104 V70" class="axis"/><text x="300" y="44" text-anchor="middle" class="t-bold">5/5/1997</text><text x="300" y="60" text-anchor="middle">FFIEC: 5 giai đoạn</text>
+          <circle cx="380" cy="136" r="6" fill="var(--night)"/><path d="M380 142 V226" class="axis"/><text x="380" y="242" text-anchor="middle" class="t-bold">2/1998–4/1998</text><text x="380" y="258" text-anchor="middle">hội đồng + ủy ban</text>
+          <circle cx="440" cy="136" r="6" fill="var(--night)"/><path d="M440 142 V176" class="axis"/><text x="440" y="192" text-anchor="middle" class="t-bold">19/10/1998</text><text x="440" y="208" text-anchor="middle">luật chia sẻ tin</text>
+          <circle cx="500" cy="110" r="6" fill="var(--night)"/><path d="M500 104 V70" class="axis"/><text x="500" y="44" text-anchor="middle" class="t-bold">30/6/1999</text><text x="500" y="60" text-anchor="middle">hạn thử ngân hàng</text>
+          <circle cx="545" cy="136" r="6" fill="var(--night)"/><path d="M545 142 V226" class="axis"/><text x="545" y="242" text-anchor="middle" class="t-bold">1/10/1999</text><text x="545" y="258" text-anchor="middle">Fed mở kênh tiền</text>
+          <circle cx="570" cy="110" r="9" fill="var(--day)"/><path d="M570 101 V70" class="axis"/><text x="618" y="44" text-anchor="middle" class="t-bold">31/12/1999</text><text x="618" y="60" text-anchor="middle">giao thừa</text>
+          <circle cx="600" cy="136" r="6" fill="var(--day)"/><path d="M600 142 V176" class="axis"/><text x="620" y="192" text-anchor="middle" class="t-bold">29/2/2000</text><text x="620" y="208" text-anchor="middle">báo cáo cuối</text>
+          <circle cx="700" cy="136" r="6" fill="var(--day)"/><path d="M700 142 V226" class="axis"/><text x="700" y="242" text-anchor="middle" class="t-bold">9/2001</text><text x="700" y="258" text-anchor="middle">lỗi sót: Sheffield</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Bảy năm cảnh báo, hai năm làm thật.</b> Phần lớn công việc dồn vào 1997–1999, khi các cơ quan đặt mốc có hậu quả. Sơ đồ không theo tỷ lệ thời gian đều.<span class="nguon">Nguồn: Computerworld 6/9/1993 (nguồn thứ cấp); FFIEC 5/5/1997 qua FDIC FIL-50-97; Sắc lệnh 13073 (4/2/1998); Nghị quyết Thượng viện S.Res.208 (2/4/1998); Public Law 105-271 (19/10/1998); FDIC FIL-98-38; Fed (Special Liquidity Facility); báo cáo Thượng viện 29/2/2000; BBC 9/2001 qua Slashdot (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>Thập niên 1960 · Lối tắt</b><span>Bộ nhớ năm 1960 đắt gấp khoảng một triệu lần mỗi đơn vị so với cuối thập niên 1990. Lưu "68" thay vì "1968" là tiết kiệm có lý.</span></div>
+    <div><b>6/9/1993 · "Doomsday 2000"</b><span>Peter de Jager viết trên tạp chí Computerworld, một trong những cảnh báo lớn đầu tiên trên báo chí.</span></div>
+    <div><b>5/5/1997 · Ngân hàng nhận lịch</b><span>Hội đồng thanh tra tài chính liên bang (FFIEC) chia việc thành 5 giai đoạn: nhận thức, đánh giá, sửa, kiểm định, triển khai. Kiểm kê hệ thống trọng yếu trước 30/9/1997.</span></div>
+    <div><b>4/2/1998 · Hội đồng của Tổng thống</b><span>Sắc lệnh 13073 lập Hội đồng Chuyển đổi Năm 2000, chủ tịch John Koskinen báo cáo trực tiếp Tổng thống.</span></div>
+    <div><b>2/4/1998 · Thượng viện lập ủy ban</b><span>Ủy ban Đặc biệt về Vấn đề Năm 2000, chủ tịch Robert Bennett, phó chủ tịch Christopher Dodd.</span></div>
+    <div><b>19/10/1998 · Luật chia sẻ thông tin</b><span>Luật Công bố Thông tin và Mức sẵn sàng Năm 2000 (P.L. 105-271): chia sẻ thông tin Y2K với thiện chí thì được che chắn khỏi kiện tụng.</span></div>
+    <div class="hot"><b>30/6/1999 · Hạn chót của ngân hàng</b><span>Thử xong hệ thống trọng yếu. Đến 9/1999, 99% tổ chức tài chính được bảo hiểm liên bang đã thử xong.</span></div>
+    <div><b>1/10/1999 · Fed chuẩn bị tiền</b><span>Mở kênh thanh khoản đặc biệt đến 7/4/2000 và đặt in thêm tiền mặt cho năm 1999.</span></div>
+    <div><b>11/1999 – 12/1999 · Đếm chi phí</b><span>Bộ Thương mại: khoảng 100 tỷ USD ở Mỹ (1995–2001). OMB: liên bang chi 8,38 tỷ USD, hệ thống trọng yếu tuân thủ 99,9%.</span></div>
+    <div class="hot"><b>31/12/1999 · Giao thừa</b><span>Trạm mặt đất xử lý ảnh của một hệ thống vệ tinh trinh sát Mỹ hỏng khoảng 2–3 giờ, phải chạy hệ dự phòng.</span></div>
+    <div><b>29/2/2000 · "Khủng hoảng đã được ngăn"</b><span>Báo cáo cuối của Thượng viện: hơn 250 sự cố ở khoảng 75 nước, sửa nhanh, không gián đoạn nghiêm trọng. Cùng ngày là ngày nhuận 29/2/2000, mốc thử thứ hai.</span></div>
+    <div><b>9/2001 · Lỗi sót lại</b><span>Bệnh viện Northern General (Sheffield, Anh) công bố khoảng 150 kết quả sàng lọc trước sinh bị tính sai mức nguy cơ, do lỗi Y2K trong phần mềm.</span></div>
+  </div>
+  <p class="nguon">Nguồn: New York Review of Books 23/9/1999 (bộ nhớ; nguồn thứ cấp); Computerworld 6/9/1993 (nguồn thứ cấp); FDIC FIL-50-97 (9/5/1997); Sắc lệnh 13073; S.Res.208; Public Law 105-271; FDIC FIL-98-38 và tài liệu FDIC/Fed 9/1999 (99%); Fed: Special Liquidity Facility và phát biểu Thống đốc Kelley 29/7/1999; Bộ Thương mại 17/11/1999; OMB báo cáo quý 11 (12/1999); họp báo Bộ Quốc phòng 4/1/2000 qua UPI, NYT (nguồn thứ cấp; thời lượng các nguồn ghi khác nhau từ 2–3 giờ đến "vài giờ"); báo cáo Thượng viện 29/2/2000 qua CBS News (nguồn thứ cấp); BBC 9/2001 qua Slashdot và Computer Weekly (nguồn thứ cấp). Đã kiểm qua trích đoạn tìm kiếm.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="ycost">
+        <title id="ycost">Chi phí Y2K. Chính phủ liên bang Mỹ: 8,38 tỷ USD (OMB). Cả nước Mỹ: khoảng 100 tỷ USD (Bộ Thương mại). Toàn thế giới: dự báo 300 đến 600 tỷ USD (Gartner, nguồn thứ cấp), vẽ bằng nét đứt vì là dự báo.</title>
+        <text x="20" y="44" class="t-ink">liên bang Mỹ (OMB)</text><rect x="220" y="28" width="8" height="24" rx="3" fill="var(--night)"/><text x="236" y="45" class="t-ink t-bold">8,38 tỷ USD</text>
+        <text x="20" y="94" class="t-ink">cả nước Mỹ (Bộ Thương mại)</text><rect x="220" y="78" width="78" height="24" rx="3" fill="var(--night)"/><text x="306" y="95" class="t-ink t-bold">khoảng 100 tỷ USD</text>
+        <text x="20" y="144" class="t-ink">thế giới (dự báo)</text><rect x="220" y="128" width="234" height="24" rx="3" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"/><rect x="454" y="128" width="234" height="24" rx="3" fill="var(--day)" fill-opacity=".35" stroke="var(--day)" stroke-dasharray="5 4"/><text x="570" y="145" text-anchor="middle" class="t-ink t-bold">300–600 tỷ USD?</text>
+        <text x="20" y="186">cùng một thước đo cho cả ba dòng. Dải nét đứt là dự báo, không phải số đo.</text>
+      </svg>
+    </div>
+    <figcaption><b>Số Mỹ có cơ quan đếm, số thế giới chỉ là dự báo.</b> Khi ai đó nói "thế giới chi 600 tỷ", hãy nhớ đó là đầu trên của một dự báo cuối thập niên 1990.<span class="nguon">Nguồn: OMB, báo cáo quý 11 về Y2K (12/1999): 8,38 tỷ USD, năm tài khóa 1996–2000 (GAO có ước tính khác, khoảng 8,7 tỷ; nguồn thứ cấp); Bộ Thương mại Mỹ 17/11/1999: khoảng 100 tỷ USD, 1995–2001; Gartner 300–600 tỷ USD và IDC 297 tỷ USD (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Dòng thời gian</h3><div class="chips"><span class="chip">năm 2 chữ số</span><span class="chip">1993</span><span class="chip">100 tỷ USD</span><span class="chip">giao thừa</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Quyết định then chốt</h3><div class="chips"><span class="chip">mốc ngân hàng</span><span class="chip">hội đồng</span><span class="chip">luật chia sẻ</span><span class="chip">nhập vai</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Thế giới học được gì</h3><div class="chips"><span class="chip">nghịch lý phòng ngừa</span><span class="chip">sổ "đã tránh được"</span><span class="chip">2038</span></div></div>
+  </div>
+</section>
+
+<section id="quyet-dinh">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Quyết định then chốt</h2><p class="lead">Nhìn bằng con mắt lúc đó: không ai biết chắc bao nhiêu chương trình sẽ hỏng, chỉ biết hạn chót không dời được.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 760 170" role="img" aria-labelledby="yffiec">
+        <title id="yffiec">Năm giai đoạn FFIEC giao cho ngân hàng: nhận thức, đánh giá (kiểm kê và ưu tiên trước 30/9/1997), sửa (phần lớn xong trước 31/12/1998), kiểm định (thử xong hệ thống trọng yếu trước 30/6/1999), triển khai. Trễ hạn thử thì bị xếp Cần cải thiện, trễ quá 30 ngày có thể bị xếp Không đạt.</title>
+        <g text-anchor="middle">
+          <rect x="10" y="30" width="134" height="56" rx="8" fill="var(--grid)"/><text x="77" y="54" class="t-ink t-bold">1 · nhận thức</text><text x="77" y="72">ai cũng biết vấn đề</text>
+          <rect x="160" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".25"/><text x="227" y="54" class="t-ink t-bold">2 · đánh giá</text><text x="227" y="72">kiểm kê · 30/9/1997</text>
+          <rect x="310" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".45"/><text x="377" y="54" class="t-ink t-bold">3 · sửa</text><text x="377" y="72" class="t-ink">31/12/1998</text>
+          <rect x="460" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".7"/><text x="527" y="54" class="t-ink t-bold">4 · kiểm định</text><text x="527" y="72" class="t-ink">30/6/1999</text>
+          <rect x="610" y="30" width="134" height="56" rx="8" fill="var(--day)" fill-opacity=".6"/><text x="677" y="54" class="t-ink t-bold">5 · triển khai</text><text x="677" y="72" class="t-ink">trước 1/1/2000</text>
+          <text x="380" y="122" class="t-ink t-bold">trễ hạn thử: "Cần cải thiện" · trễ quá 30 ngày: có thể "Không đạt"</text>
+          <text x="380" y="148">đến 9/1999: 99% tổ chức được bảo hiểm liên bang đã thử xong hệ thống trọng yếu</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Biến một nỗi lo mơ hồ thành lịch có hạn chót.</b> Mốc chỉ có sức nặng vì gắn với xếp hạng thanh tra.<span class="nguon">Nguồn: FFIEC, "Year 2000 Project Management Awareness" (5/5/1997) qua FDIC FIL-50-97; hướng dẫn thử nghiệm và khung xếp hạng qua FDIC FIL-98-38, FIL-98-93 và thông tư Fed New York 11052; tỷ lệ 99% theo tài liệu FDIC/Fed 9/1999. Kiểm qua trích đoạn.</span></figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term"><h3>1 · Biến lời khuyên thành mốc có hậu quả</h3><span class="en">FFIEC · 1997–1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Ai quyết, biết gì</h3><span class="muted">Các cơ quan thanh tra ngân hàng (FFIEC), 5/1997. Họ biết lỗi có thật, nhưng chưa ai biết mỗi ngân hàng có bao nhiêu chương trình dùng năm 2 chữ số.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Chọn gì</h3><span class="muted">Bắt kiểm kê trước, rồi đặt từng mốc: kế hoạch thử (30/6/1998), bắt đầu thử (1/9/1998), thử xong (30/6/1999), gắn với xếp hạng thanh tra.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hệ quả</h3><span class="muted">Đến 9/1999, 99% tổ chức được bảo hiểm liên bang đã thử xong hệ thống trọng yếu. Rạng sáng 1/1/2000, ngành ngân hàng Mỹ không có gián đoạn lớn.</span></div>
+    </div>
+    <p class="nguon">Nguồn: FDIC FIL-50-97, FIL-98-38, FIL-98-93; tài liệu FDIC/Fed 9/1999 (99%); báo cáo Thượng viện 29/2/2000 qua CBS News (không gián đoạn nghiêm trọng; nguồn thứ cấp).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>2 · Một người chịu trách nhiệm, báo cáo theo quý</h3><span class="en">Executive Order 13073 · 4/2/1998</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Ai quyết, biết gì</h3><span class="muted">Tổng thống Clinton, 2/1998. Còn chưa đầy 23 tháng. Mỗi bộ tự sửa theo cách riêng, không ai nhìn toàn cảnh.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Chọn gì</h3><span class="muted">Lập Hội đồng Chuyển đổi Năm 2000, chủ tịch John Koskinen báo cáo thẳng Tổng thống, mỗi bộ một đại diện, OMB công bố tiến độ theo quý.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hệ quả</h3><span class="muted">Báo cáo quý 11 của OMB: hệ thống trọng yếu liên bang tuân thủ 99,9%, tổng chi 8,38 tỷ USD (năm tài khóa 1996–2000).</span></div>
+    </div>
+    <p class="nguon">Nguồn: Sắc lệnh 13073 (American Presidency Project, lưu trữ Nhà Trắng thời Clinton); OMB báo cáo quý 11 (12/1999). Kiểm qua trích đoạn.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>3 · Cho phép nói thật mà không sợ bị kiện</h3><span class="en">Public Law 105-271 · 19/10/1998</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Ai quyết, biết gì</h3><span class="muted">Quốc hội và Nhà Trắng (dự luật do OMB và Koskinen gửi 27/7/1998). Doanh nghiệp ngại công bố mức sẵn sàng vì sợ bị kiện nếu thông tin sai.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Chọn gì</h3><span class="muted">Luật "Người Samari nhân hậu": thông tin Y2K chia sẻ với thiện chí được che chắn; miễn trừ chống độc quyền tạm thời đến 14/7/2001. Không che lỗi hệ thống thật sự hỏng.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hệ quả</h3><span class="muted">Đối tác, nhà cung cấp có cơ sở pháp lý để trao đổi kết quả thử với nhau. Mức tác động cụ thể chưa có số đo (nhận định của Mark).</span></div>
+    </div>
+    <p class="nguon">Nguồn: tuyên bố ký luật S. 2392 ngày 19/10/1998 (American Presidency Project); lưu trữ Nhà Trắng thời Clinton; Florida Bar Journal và FindLaw (nguồn thứ cấp).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>4 · Chuẩn bị cho nỗi sợ, không chỉ cho lỗi</h3><span class="en">Federal Reserve · 1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Ai quyết, biết gì</h3><span class="muted">Cục Dự trữ Liên bang Mỹ, 1999. Hệ thống ngân hàng đã thử gần xong, nhưng người dân và thị trường có thể rút tiền vì lo, kể cả khi máy không hỏng.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Chọn gì</h3><span class="muted">Đặt in thêm tiền mặt (dự trữ xong tháng 8/1999), mở kênh thanh khoản đặc biệt 1/10/1999 đến 7/4/2000, bán quyền chọn vay qua đêm cho đại lý.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Hệ quả</h3><span class="muted">Một báo cáo của Fed New York (2006) cho rằng quyền chọn Y2K đã làm dịu nỗi lo của giới đại lý trái phiếu cuối năm.</span></div>
+    </div>
+    <p class="nguon">Nguồn: Fed, phát biểu Thống đốc Kelley 29/7/1999; tài liệu Special Liquidity Facility; Fed New York, staff report 266 (2006). Kiểm qua trích đoạn. Bài không dùng con số "50 tỷ USD tiền mặt thêm" vì không tìm được nguồn.</p>
+  </div>
+</section>
+
+<section id="hoc-duoc">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Thế giới học được gì</h2><p class="lead">Điều đã đổi sau Y2K, và một điều thế giới học ngược.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="ynghich">
+        <title id="ynghich">Nghịch lý phòng ngừa. Nhánh trên: không sửa, nhiều hệ thống hỏng, mọi người thấy rõ thảm họa. Nhánh dưới: sửa trước, gần như không có gì xảy ra, và nhiều người kết luận là chưa từng có vấn đề. Kết quả tốt nhất lại là kết quả khó chứng minh nhất.</title>
+        <rect x="20" y="88" width="130" height="44" rx="8" fill="var(--grid)"/><text x="85" y="115" text-anchor="middle" class="t-ink t-bold">lỗi năm 00</text>
+        <path d="M150 100 L250 50 M150 120 L250 170" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="250" y="28" width="180" height="44" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/><text x="340" y="55" text-anchor="middle" class="t-ink t-bold">không sửa</text>
+        <path d="M430 50 H480" stroke="var(--muted)" stroke-width="2"/><text x="490" y="46" class="t-ink t-bold">hỏng hàng loạt</text><text x="490" y="62">ai cũng thấy, ai cũng tin</text>
+        <rect x="250" y="148" width="180" height="44" rx="8" fill="var(--night)" fill-opacity=".25" stroke="var(--night)" stroke-width="2"/><text x="340" y="175" text-anchor="middle" class="t-ink t-bold">sửa trước</text>
+        <path d="M430 170 H480" stroke="var(--muted)" stroke-width="2"/><text x="490" y="166" class="t-ink t-bold">gần như không có gì</text><text x="490" y="182">"chắc là trò lừa"</text>
+        <text x="20" y="214">sơ đồ minh họa, không có số</text>
+      </svg>
+    </div>
+    <figcaption><b>Làm tốt thì trông như thừa.</b> Không có thí nghiệm đối chứng cho cả thế giới, nên phía "trò lừa" luôn có chỗ đứng. Cách duy nhất là ghi lại những gì đã sửa được.<span class="nguon">Phần diễn giải là của Mark. Sự kiện: báo cáo Thượng viện "Y2K Aftermath – Crisis Averted" (29/2/2000); National Geographic Education về quan niệm "trò lừa" (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 6h18v22H7z"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>Biết mình có gì</b><span>Nhiều tổ chức lần đầu kiểm kê toàn bộ hệ thống và phần mềm, vì FFIEC bắt kiểm kê trước 30/9/1997.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Kế hoạch dự phòng</b><span>FFIEC ra hướng dẫn về rủi ro kinh doanh Y2K (12/1997); "lỡ hỏng thì làm gì" thành một phần bắt buộc.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="16" r="5"/><circle cx="22" cy="16" r="5"/><path d="M15 16h2"/></svg><div><b>Chia sẻ công tư</b><span>Luật 1998 cho thấy một vùng an toàn pháp lý có thể mở miệng cho doanh nghiệp. Mark xem đây là mẫu cho việc chia sẻ thông tin rủi ro về sau.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Lỗi kế tiếp: năm 2038</b><span>Đồng hồ Unix đếm giây bằng số nguyên 32 bit có dấu sẽ tràn lúc 03:14:07 UTC ngày 19/1/2038. Nhiều hệ đã chuyển sang 64 bit, hệ nhúng cũ vẫn là rủi ro.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: FDIC FIL-50-97 (kiểm kê 30/9/1997); FFIEC, tuyên bố về rủi ro kinh doanh Y2K tháng 12/1997 qua thông tư Fed New York 10958; Public Law 105-271. Mốc 2038 là phép tính: 2³¹ − 1 giây sau 0:00 UTC 1/1/1970. Nhận định "mẫu cho về sau" là của Mark.</p>
+  <details class="more"><summary>Xem thêm: điều thế giới học ngược</summary><div>
+    <p>Bài học được nhắc nhiều nhất sau Y2K lại là "lần sau đừng hoảng". Đó là bài học sai: lần này không hoảng được là vì đã hoảng đúng lúc, sớm hai năm.</p>
+    <p>Báo cáo Thượng viện cũng ghi một điểm ít người nhớ: 32 nước, gồm Úc, Anh, Canada, Đức, báo "không có sự cố" lên trang của Trung tâm Hợp tác Y2K Quốc tế, dù báo chí có đưa tin sự cố ở chính những nước đó. Con số "chẳng có gì xảy ra" một phần đến từ việc báo cáo thiếu.</p>
+  </div></details>
+  <p class="nguon">Nguồn: báo cáo Thượng viện 29/2/2000, trích lại trên Deseret News 29/2/2000 (nguồn thứ cấp). Phần "học ngược" là nhận định của Mark.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được kể về Y2K, đối chiếu với tài liệu chính phủ Mỹ và nguồn có ghi rõ. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 5 cần thận trọng, 4 sai">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Doanh nghiệp và chính phủ Mỹ chi khoảng 100 tỷ USD cho Y2K</span></summary><p class="note">Bộ Thương mại Mỹ (17/11/1999): khoảng 100 tỷ USD trong giai đoạn 1995–2001, khoảng 365 USD mỗi người Mỹ (số đầu người qua Nextgov, nguồn thứ cấp). Computerworld (thứ cấp) ghi có thể tới 114 tỷ USD.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chính phủ liên bang Mỹ chi khoảng 8,4 tỷ USD</span></summary><p class="note">OMB, báo cáo quý 11 (12/1999): 8,38 tỷ USD, năm tài khóa 1996–2000. GAO có ước tính khác khoảng 8,7 tỷ USD (nguồn thứ cấp). Hai số khác phạm vi, không phải một số sai.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ngân hàng bị ép theo mốc có hậu quả thật</span></summary><p class="note">FFIEC: thử xong hệ thống trọng yếu trước 30/6/1999; trễ thì bị xếp "Cần cải thiện", trễ quá 30 ngày có thể "Không đạt" (FDIC FIL-98-93). Đến 9/1999, 99% đã thử xong.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Fed chuẩn bị tiền riêng cho giao thừa</span></summary><p class="note">Kênh thanh khoản đặc biệt từ 1/10/1999 đến 7/4/2000, lãi cao hơn mục tiêu lãi suất quỹ liên bang 150 điểm cơ bản; đặt in thêm tiền mặt năm 1999. Con số "50 tỷ USD" hay được kể thì không tìm được nguồn.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Mỹ ra luật để doanh nghiệp dám chia sẻ thông tin Y2K</span></summary><p class="note">Public Law 105-271, ký 19/10/1998. Che chắn thông tin chia sẻ với thiện chí, nhưng không miễn trách nhiệm khi hệ thống thật sự hỏng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Ý, Nga, Hàn Quốc chi ít mà cũng không sao, vậy Mỹ chi thừa"</span></summary><p class="note">Đúng là các nước này không gặp nhiều sự cố hơn (National Geographic Education; Nga chi ít hơn Mỹ tới 100 lần theo Gartner qua ACM TechNews; nguồn thứ cấp). Nhưng mức phụ thuộc máy tính khác nhau, Koskinen cho rằng hệ thống Mỹ phức tạp hơn, và 32 nước báo "không có sự cố" dù báo chí đưa tin có. Chưa có nghiên cứu nhân quả.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Lập trình viên ngày xưa cẩu thả"</span></summary><p class="note">Năm 1960 bộ nhớ đắt gấp khoảng một triệu lần so với cuối thập niên 1990; lưu 2 chữ số là tiết kiệm có lý (NYRB 1999, nguồn thứ cấp). Cái sai là chương trình sống lâu hơn mọi người tưởng, và không ai sửa khi bộ nhớ đã rẻ.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Thế giới chi 300–600 tỷ USD"</span></summary><p class="note">Đây là dự báo của Gartner cuối thập niên 1990, không phải số đo. IDC ước khoảng 297 tỷ USD (1995–2001). Cả hai là nguồn thứ cấp.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Peter de Jager là người đầu tiên cảnh báo"</span></summary><p class="note">Bài "Doomsday 2000" (Computerworld 6/9/1993) là cảnh báo nổi tiếng nhất trên báo chí. "Đầu tiên" là cách gọi phổ biến, không phải điều đã được chứng minh.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Năm 2038 sẽ có một Y2K nữa"</span></summary><p class="note">Đồng hồ Unix 32 bit có dấu tràn lúc 03:14:07 UTC ngày 19/1/2038 (phép tính). Rủi ro có thật với hệ cũ, nhưng nhiều hệ đã chuyển sang 64 bit. Chưa thể nói sẽ lớn như Y2K.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Y2K là trò lừa, rốt cuộc chẳng có gì"</span></summary><p class="note">Lỗi có thật và đã được sửa với chi phí khoảng 100 tỷ USD ở Mỹ. Kể cả vậy, báo cáo Thượng viện vẫn ghi hơn 250 sự cố ở khoảng 75 nước. "Chẳng có gì" là kết quả của việc sửa, không phải bằng chứng là lỗi không có.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Đêm giao thừa không có sự cố nào"</span></summary><p class="note">Trạm mặt đất của một hệ thống vệ tinh trinh sát Mỹ hỏng khoảng 2–3 giờ (Bộ Quốc phòng, họp báo 4/1/2000, qua UPI và NYT; nguồn thứ cấp). Có cả sự cố ở một hệ thống điện hạt nhân Ukraine và vài hệ thống 911 ở Mỹ (báo cáo Thượng viện qua CBS News, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Máy bay sẽ rơi, điện sẽ tắt toàn cầu"</span></summary><p class="note">Không xảy ra. Báo cáo Thượng viện: các sự cố được sửa nhanh và không cái nào gây gián đoạn nghiêm trọng.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Hết ngày 1/1/2000 là hết Y2K"</span></summary><p class="note">Năm 2000 là năm nhuận (chia hết cho 400), nên 29/2/2000 là mốc thử thứ hai. Tháng 9/2001, bệnh viện Northern General ở Sheffield (Anh) công bố khoảng 150 kết quả sàng lọc trước sinh bị tính sai do lỗi Y2K (BBC qua Slashdot, Computer Weekly; nguồn thứ cấp).</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở Phần 9.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Đánh giá: thế giới phản ứng ra sao</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 9, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Phát hiện sớm</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Minh bạch</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Phối hợp</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Rút kinh nghiệm</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span><b>Tổng</b></span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng</span><ul class="plus"><li>Mốc có hậu quả cho ngân hàng, gắn với thanh tra</li><li>Một người chịu trách nhiệm, báo cáo tiến độ công khai theo quý</li><li>Luật cho phép chia sẻ thông tin, Fed chuẩn bị cho nỗi sợ</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Cảnh báo từ 1993, hành động mạnh từ 1997–1998</li><li>Nhiều nước báo thiếu sự cố, khó so sánh</li><li>Không ghi đủ "cái đã tránh được", nên chuyện "trò lừa" lan rộng</li></ul></div>
+  </div>
+  <p class="verdict">Y2K là một trong những lần phòng ngừa thành công nhất của thời máy tính. Điểm trừ lớn nhất không nằm ở việc sửa, mà ở việc kể lại: thế giới không chứng minh được thành công của chính mình.</p>
+  <details class="more"><summary>Xem thêm: vì sao câu chuyện "trò lừa" dễ tin</summary><div>
+    <p>Báo chí cuối 1999 có cả những dự báo tận thế: máy bay rơi, mất điện diện rộng. Khi những điều đó không xảy ra, người ta so với dự báo xấu nhất chứ không so với "nếu không sửa".</p>
+    <p>Cũng có người làm nghề nghi ngờ thật: cựu giám đốc thông tin Lầu Năm Góc Paul Strassmann nói "tôi nghĩ ta đã bị lừa" (nguồn thứ cấp). Câu hỏi đáng giá không phải "có lỗi không" mà là "tiêu đúng chỗ chưa": nhiều khoản chi Y2K còn được dùng để thay luôn hệ thống cũ.</p>
+  </div></details>
+  <p class="nguon">Phần "Xem thêm" là nhận xét của Mark; lời Strassmann theo ACM TechNews 1/2000 (nguồn thứ cấp).</p>
+</section>
+
+<section id="bai-hoc">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Bài học làm việc: làm tốt thì trông như thừa, nên hãy ghi lại cái đã tránh được</h2><p class="lead">Áp dụng cho mọi việc phòng ngừa: bảo mật, sao lưu, kiểm thử, bảo trì, an toàn lao động.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="yb4">
+        <title id="yb4">Bốn thói quen: kiểm kê trước khi sửa; đặt mốc có hậu quả; ghi sổ đã tránh được; viết báo cáo sau sự kiện bằng con số.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · kiểm kê trước</text><text x="110" y="100" class="t-ink t-bold">biết mình có gì</text><text x="110" y="116">rồi mới ước tiền</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · mốc có hậu quả</text><text x="300" y="100" class="t-ink t-bold">ngày + người + hệ quả</text><text x="300" y="116">không chỉ "cố gắng"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · sổ "đã tránh được"</text><text x="490" y="100" class="t-rem t-bold">mỗi lỗi sửa một dòng</text><text x="490" y="116">không sửa thì sao</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · báo cáo sau sự kiện</text><text x="680" y="100" class="t-ok t-bold">kể bằng con số</text><text x="680" y="116">kể cả khi êm</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"Không có gì xảy ra" cũng là một kết quả cần chứng minh.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi thói quen lấy từ một việc làm đúng của năm 1997–2000.</b> Kiểm kê của FFIEC, mốc 30/6/1999, và báo cáo "Crisis Averted" của Thượng viện. Thói quen số 3 là thứ còn thiếu.<span class="nguon">Nguồn: FDIC FIL-50-97, FIL-98-93; báo cáo Thượng viện 29/2/2000. Các thói quen là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 6h18v22H7z"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>Kiểm kê trước khi xin tiền</b><span>Liệt kê thứ có thể hỏng và thứ nào trọng yếu. Ngân sách dựa trên danh sách, không dựa trên nỗi lo.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22M5 16h22M5 23h14"/><path d="M22 21l3 3 5-6"/></svg><div><b>Mốc có hậu quả</b><span>Mỗi mốc có ngày, người chịu trách nhiệm, và điều gì xảy ra nếu trễ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5h12l5 5v17H8z"/><path d="M12 15h9M12 20h9"/></svg><div><b>Sổ "đã tránh được"</b><span>Mỗi lỗi tìm thấy: ghi ngày, ở đâu, nếu không sửa thì ai bị ảnh hưởng, ước bao nhiêu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V16M13 26V10M20 26V6M27 26V12"/></svg><div><b>Báo cáo sau sự kiện, kể cả khi êm</b><span>Bao nhiêu lỗi đã sửa, bao nhiêu lọt, xử lý mất bao lâu. Đó là bằng chứng cho lần xin ngân sách sau.</span></div></div>
+  </div>
+  <details class="more"><summary>Tự kiểm tra trong nhóm mình: 5 câu hỏi</summary><div>
+    <p>1. Việc phòng ngừa gần nhất nhóm mình làm tốt, có ai ngoài nhóm biết nó đã tránh được gì không?</p>
+    <p>2. Nhóm có danh sách hệ thống, tài khoản, hợp đồng sắp hết hạn không? Cái nào "trọng yếu"?</p>
+    <p>3. Mốc gần nhất của việc phòng ngừa có người chịu trách nhiệm và hậu quả nếu trễ chưa?</p>
+    <p>4. Nếu sếp hỏi "năm ngoái không có sự cố, sao năm nay vẫn xin tiền?", mình đưa ra được con số nào?</p>
+    <p>5. "Năm 2038" của nhóm mình là gì: chứng chỉ hết hạn, thư viện ngừng hỗ trợ, người duy nhất biết hệ thống sắp nghỉ?</p>
+  </div></details>
+  <div class="quote"><span>Y2K Aftermath: Crisis Averted (Hậu Y2K: khủng hoảng đã được ngăn chặn).</span><span class="src">Tên báo cáo cuối của Ủy ban Đặc biệt về Vấn đề Năm 2000, Thượng viện Mỹ, 29/2/2000. Mark dịch.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Thượng viện Mỹ, "Y2K Aftermath – Crisis Averted" (2000)</b><span class="muted">52 trang, có danh sách sự cố theo ngành và theo nước, kèm bài học của ủy ban.</span></div>
+    <div><b>"The Journey to Y2K: Final Report of the President's Council on Year 2000 Conversion" (29/3/2000)</b><span class="muted">Hội đồng của Koskinen tự kể cách điều phối hàng chục cơ quan và ngành.</span></div>
+    <div><b>Bộ Thương mại Mỹ, "The Economics of Y2K and the Impact on the United States" (1999)</b><span class="muted">Cách ước chi phí và vì sao Y2K không làm chậm tăng trưởng.</span></div>
+    <div><b>Nhìn lại sự kiện lớn #03: Bong bóng dot-com (1995–2002)</b><span class="muted">Tách công nghệ thật khỏi giá bị thổi; đo bằng tiền thật, không bằng "lượt xem".</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên tài liệu của Quốc hội, Nhà Trắng, Bộ Thương mại, OMB, FFIEC và Fed. Môi trường làm bài chặn các trang chính phủ, nên tài liệu gốc được đối chiếu qua trích đoạn của chính các trang đó trong kết quả tìm kiếm, chưa mở toàn văn. Nguồn thứ cấp ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Thượng viện Mỹ, Ủy ban Đặc biệt về Vấn đề Công nghệ Năm 2000</b>, "Y2K Aftermath – Crisis Averted: Final Committee Report", 29/2/2000, S. Prt. 106-42. <a href="https://www.govinfo.gov/content/pkg/GOVPUB-Y1_3-PURL-LPS90964/pdf/GOVPUB-Y1_3-PURL-LPS90964.pdf">govinfo.gov</a></li>
+    <li><b>Thượng viện Mỹ</b>, Nghị quyết S.Res.208 (105th Congress), 2/4/1998, lập ủy ban. <a href="https://www.govinfo.gov/committee/senate-y2k">govinfo.gov</a></li>
+    <li><b>Bộ Thương mại Mỹ, Economics and Statistics Administration</b>, "The Economics of Y2K and the Impact on the United States", 17/11/1999. <a href="https://2017-2021.commerce.gov/sites/default/files/migrated/reports/y2k_1.pdf">commerce.gov</a></li>
+    <li><b>OMB</b>, "Progress on Year 2000 Conversion", báo cáo quý 11 (12/1999). <a href="https://clintonwhitehouse4.archives.gov/non-html/media/pdf/11thy2k.pdf">archives.gov</a></li>
+    <li><b>Sắc lệnh 13073</b>, "Year 2000 Conversion", 4/2/1998. <a href="https://www.govinfo.gov/link/cpd/executiveorder/13073">govinfo.gov</a></li>
+    <li><b>Hội đồng Chuyển đổi Năm 2000 của Tổng thống</b>, "The Journey to Y2K: Final Report", 29/3/2000.</li>
+    <li><b>Year 2000 Information and Readiness Disclosure Act</b>, S. 2392, Public Law 105-271, 19/10/1998; tuyên bố ký luật. <a href="https://www.presidency.ucsb.edu/documents/statement-signing-the-year-2000-information-and-readiness-disclosure-act">presidency.ucsb.edu</a></li>
+    <li><b>FFIEC/FDIC</b>, FIL-50-97 (9/5/1997, "Year 2000 Project Management Awareness"); FIL-98-38; FIL-98-93; thông tư Fed New York 10951, 10958, 11052. <a href="https://www.fdic.gov/news/inactive-financial-institution-letters/1997/fil9750.html">fdic.gov</a> · <a href="https://www.fdic.gov/news/inactive-financial-institution-letters/1998/fil9893.html">fdic.gov</a></li>
+    <li><b>Cục Dự trữ Liên bang</b>, phát biểu Thống đốc Edward Kelley 29/7/1999; Special Liquidity Facility; Fed New York staff report 266 (2006). <a href="https://www.federalreserve.gov/boarddocs/speeches/1999/19990729.htm">federalreserve.gov</a> · <a href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr266.html">newyorkfed.org</a></li>
+    <li><b>Bộ Quốc phòng Mỹ</b>, họp báo Thứ trưởng John Hamre 4/1/2000 (lưu bởi FAS). <a href="https://sgp.fas.org/news/2000/01/dody2k.html">fas.org</a></li>
+    <li>Nguồn thứ cấp: CBS News và Deseret News 29/2/2000 (báo cáo Thượng viện); Nextgov 11/1999 và Computerworld (chi phí); GovExec (OMB, GAO); UPI, New York Times, Route Fifty (vệ tinh); Peter de Jager, "Doomsday 2000", Computerworld 6/9/1993; New York Review of Books 23/9/1999 (bộ nhớ); Iowa Legislative Fiscal Bureau 1996 và American Banker (Gartner, IDC); National Geographic Education và ACM TechNews 1/2000 (Ý, Nga, Hàn Quốc, Strassmann, Koskinen); BBC 9/2001 qua Slashdot và Computer Weekly (Sheffield); Florida Bar Journal, FindLaw (luật 1998).</li>
+  </ol>
+</section>
+
+<footer>Nhìn lại sự kiện lớn #02. Các hình là sơ đồ minh họa; số liệu lấy từ tài liệu của Quốc hội, Nhà Trắng, Bộ Thương mại, OMB, FFIEC và Fed (kiểm qua trích đoạn), nguồn thứ cấp được ghi rõ, đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "nhap-vai", "id": "nhap-vai-y2k", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là trưởng IT một ngân hàng Mỹ", "hoi": "Cuối thập niên 1990, bạn phụ trách máy tính của một ngân hàng vừa. Mọi chương trình cũ lưu năm bằng 2 chữ số. Bạn phải xin ngân sách sửa một lỗi chưa từng làm hỏng gì.", "canh": [{"moc": "5/1997", "biet": "Cơ quan thanh tra (FFIEC) vừa gửi hướng dẫn 5 giai đoạn. Bạn không biết ngân hàng mình có bao nhiêu chương trình dùng năm 2 chữ số.", "hoi": "Bạn làm gì trước?", "chon": [{"nhan": "Kiểm kê toàn bộ hệ thống", "dap": "Chậm vài tháng đầu, nhưng bạn biết cái gì trọng yếu và xin tiền theo danh sách thật."}, {"nhan": "Sửa ngay chỗ nào thấy lỗi", "dap": "Có việc để báo cáo, nhưng dễ bỏ sót hệ thống trọng yếu mà chưa ai nhìn tới."}, {"nhan": "Chờ nhà cung cấp phần mềm vá", "dap": "Đỡ tốn lúc đầu, nhưng bạn không biết chương trình tự viết nào sẽ hỏng, và nhà cung cấp cũng đang quá tải."}], "that": 0, "chuyen_that": "FFIEC yêu cầu kiểm kê và xếp ưu tiên ứng dụng trọng yếu trước 30/9/1997, rồi mới sửa. Nhà cung cấp thì vẫn phải thử lại, vì ngân hàng chịu trách nhiệm với thanh tra."}, {"moc": "Giữa 1998", "biet": "Ban giám đốc hỏi: chưa có gì hỏng, sao tốn nhiều vậy? Hạn thử xong hệ thống trọng yếu là 30/6/1999. Trễ thì bị xếp \"Cần cải thiện\".", "hoi": "Bạn trả lời thế nào?", "chon": [{"nhan": "Cắt bớt, chỉ sửa hệ lớn", "dap": "Tiết kiệm được ngay, nhưng các hệ nhỏ như máy ATM, hệ tính lãi phụ có thể lọt lưới, và bạn khó qua đợt thanh tra."}, {"nhan": "Giữ ngân sách, ưu tiên hệ trọng yếu", "dap": "Tốn kém, nhưng bạn đưa ra danh sách: nếu không sửa thì hệ nào hỏng, ai bị ảnh hưởng, và hậu quả với xếp hạng thanh tra."}], "that": 1, "chuyen_that": "Ngân hàng Mỹ nhìn chung chọn giữ tiến độ: đến 9/1999, 99% tổ chức được bảo hiểm liên bang đã thử xong hệ thống trọng yếu. Cắt bớt cũng có lý về tiền, nhưng hạn chót gắn với xếp hạng khiến lựa chọn đó rất rủi ro."}, {"moc": "10/1998", "biet": "Đối tác hỏi kết quả thử của bạn. Luật sư lo: nếu nói sai, ngân hàng có thể bị kiện. Ngày 19/10/1998 có luật mới che chắn thông tin Y2K chia sẻ với thiện chí.", "hoi": "Bạn chia sẻ hay im lặng?", "chon": [{"nhan": "Chia sẻ, dựa vào luật mới", "dap": "Hai bên biết chỗ yếu của nhau để thử chung. Luật không che nếu hệ thống thật sự hỏng."}, {"nhan": "Im lặng cho chắc", "dap": "Không rủi ro pháp lý, nhưng đối tác không biết bạn sẵn sàng tới đâu, và bạn cũng không biết họ thế nào."}], "that": 0, "chuyen_that": "Luật Công bố Thông tin và Mức sẵn sàng Năm 2000 (P.L. 105-271) được ký ngày 19/10/1998 chính để doanh nghiệp dám chia sẻ. Mức tác động thật chưa có số đo."}, {"moc": "Sáng 1/1/2000", "biet": "Đêm qua hệ thống chạy êm. Cả nước Mỹ đã chi khoảng 100 tỷ USD. Có người nói: \"Chẳng có gì xảy ra, vậy là tiền phí\".", "hoi": "Bạn báo cáo gì với ban giám đốc?", "chon": [{"nhan": "Nhận là có lẽ làm thừa", "dap": "Ban giám đốc nhẹ lòng, nhưng lần sau xin tiền phòng ngừa sẽ khó hơn nhiều."}, {"nhan": "Báo cáo những lỗi đã sửa được", "dap": "Bạn liệt kê lỗi tìm thấy, nếu không sửa thì hỏng gì. \"Không có gì xảy ra\" thành một kết quả có bằng chứng."}], "that": 1, "chuyen_that": "Ngày 29/2/2000, Ủy ban Y2K của Thượng viện Mỹ đặt tên báo cáo cuối là \"Khủng hoảng đã được ngăn chặn\": hơn 250 sự cố ở khoảng 75 nước, sửa nhanh, không gián đoạn nghiêm trọng. Dù vậy, chuyện \"trò lừa\" vẫn lan rộng."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Phòng ngừa làm tốt thì trông như thừa, nên hãy ghi lại cái đã tránh được ngay từ ngày đầu.", "nguon": "Nguồn: FFIEC, \"Year 2000 Project Management Awareness\" (5/5/1997) qua FDIC FIL-50-97 (kiểm kê trước 30/9/1997); FDIC FIL-98-38 và FIL-98-93 (thử xong trước 30/6/1999, xếp \"Cần cải thiện\" nếu trễ); tài liệu FDIC/Fed 9/1999 (99%); Public Law 105-271 ký 19/10/1998; Bộ Thương mại Mỹ 17/11/1999 (khoảng 100 tỷ USD, 1995–2001); báo cáo Thượng viện \"Y2K Aftermath – Crisis Averted\" 29/2/2000, số sự cố qua CBS News (nguồn thứ cấp). Kiểm qua trích đoạn tìm kiếm. Ngân hàng trong trò chơi là nhân vật giả định.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You run IT at a US bank", "hoi": "In the late 1990s you are in charge of the computers at a mid-sized bank. Every old program stores the year in 2 digits. You must ask for money to fix a bug that has never broken anything.", "canh": [{"moc": "May 1997", "biet": "The regulators (FFIEC) have just sent five-phase guidance. You do not know how many of your bank's programs use two-digit years.", "hoi": "What do you do first?", "chon": [{"nhan": "Inventory every system", "dap": "Slower in the first months, but you know what is critical and ask for money based on a real list."}, {"nhan": "Fix bugs as you spot them", "dap": "You have progress to report, but critical systems nobody has looked at yet may slip through."}, {"nhan": "Wait for vendors to patch", "dap": "Cheaper at first, but you do not know which in-house programs will fail, and vendors are overloaded too."}], "that": 0, "chuyen_that": "The FFIEC required banks to inventory and prioritise critical applications by 30 Sep 1997, before fixing. Vendor fixes still had to be retested, because the bank answered to the examiners."}, {"moc": "Mid-1998", "biet": "The board asks: nothing has broken, why is this so expensive? Critical systems must be tested by 30 Jun 1999. Late means a \"Needs Improvement\" rating.", "hoi": "How do you answer?", "chon": [{"nhan": "Cut back, fix big systems only", "dap": "Immediate savings, but smaller systems such as ATMs or side interest calculators may slip through, and the examination gets hard."}, {"nhan": "Keep the budget, critical first", "dap": "Expensive, but you bring a list: which systems fail without a fix, who is hit, and what it means for the rating."}], "that": 1, "chuyen_that": "US banks broadly kept to schedule: by Sep 1999, 99% of federally insured institutions had tested critical systems. Cutting back made financial sense, but deadlines tied to ratings made it very risky."}, {"moc": "Oct 1998", "biet": "A partner asks for your test results. Your lawyers worry: if you say something wrong, the bank could be sued. On 19 Oct 1998 a new law shields Y2K information shared in good faith.", "hoi": "Share or stay silent?", "chon": [{"nhan": "Share, relying on the new law", "dap": "Both sides know each other's weak spots and can test together. The law does not cover systems that actually fail."}, {"nhan": "Stay silent to be safe", "dap": "No legal risk, but your partner does not know how ready you are, and you do not know about them."}], "that": 0, "chuyen_that": "The Year 2000 Information and Readiness Disclosure Act (P.L. 105-271) was signed on 19 Oct 1998 precisely so companies would dare to share. Its real impact has not been measured."}, {"moc": "Morning, 1 Jan 2000", "biet": "Overnight the systems ran smoothly. The US as a whole spent about $100 billion. Someone says: \"Nothing happened, so the money was wasted\".", "hoi": "What do you report to the board?", "chon": [{"nhan": "Admit it was probably overdone", "dap": "The board relaxes, but the next request for prevention money will be much harder."}, {"nhan": "Report the bugs you fixed", "dap": "You list the bugs found and what would have failed. \"Nothing happened\" becomes a result with evidence."}], "that": 1, "chuyen_that": "On 29 Feb 2000 the US Senate Y2K committee titled its final report \"Crisis Averted\": more than 250 glitches in about 75 countries, fixed quickly, no serious disruption. Even so, the \"hoax\" story spread."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You chose like the real people {d}/{n} times. Prevention done well looks unnecessary, so record what you avoided from day one.", "nguon": "Source: FFIEC, \"Year 2000 Project Management Awareness\" (5 May 1997) via FDIC FIL-50-97 (inventory by 30 Sep 1997); FDIC FIL-98-38 and FIL-98-93 (testing complete by 30 Jun 1999, \"Needs Improvement\" if late); FDIC/Fed documents of Sep 1999 (99%); Public Law 105-271 signed 19 Oct 1998; US Department of Commerce, 17 Nov 1999 (about $100 billion, 1995–2001); Senate report \"Y2K Aftermath – Crisis Averted\", 29 Feb 2000, glitch count via CBS News (secondary source). Checked through search excerpts. The bank in the game is fictional.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

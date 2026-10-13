@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Y2K Bug (Lỗi năm 2 chữ số · 1999–2000): summary, review and lessons | Another Universe</title>
+<meta name="description" content="The US spent about $100 billion fixing a two-digit year bug, and New Year&#x27;s Eve went so quietly that many called it a hoax. Revisited from the US Senate report &quot;Y2K Aftermath&quot; and Commerce and OMB figures, with a role-play as a bank&#x27;s IT chief and 14 myths fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/su-kien-y2k.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/su-kien-y2k.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Y2K Bug (Lỗi năm 2 chữ số · 1999–2000): summary, review and lessons | Another Universe">
+<meta property="og:description" content="The US spent about $100 billion fixing a two-digit year bug, and New Year&#x27;s Eve went so quietly that many called it a hoax. Revisited from the US Senate report &quot;Y2K Aftermath&quot; and Commerce and OMB figures, with a role-play as a bank&#x27;s IT chief and 14 myths fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/su-kien-y2k.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #06120A; --bia-2: #14532D; --bia-nhan: #4ADE80; }
+:root { --vtk-nhan: #4ADE80; }
+body header { --ho-so: "Event file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/su-kien-y2k.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Nhìn lại sự kiện lớn" #2: Y2K, --night = screen green #16A34A, --day = amber #F59E0B (warning). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #16A34A;
+  --day: #F59E0B;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #4ADE80; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #4ADE80; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Reading tools"><div class="vtk-ray-bia" aria-hidden="true"><i>The Y2K Bug</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><rect x="8" y="16" width="66" height="50" rx="5" fill="#FFF7ED" fill-opacity=".55"/>
+<rect x="13" y="21" width="56" height="38" rx="3" fill="#06120A" fill-opacity=".85"/>
+<g fill="#FFF7ED" fill-opacity=".35"><rect x="17" y="28" width="3" height="3"/><rect x="20" y="28" width="3" height="3"/><rect x="23" y="28" width="3" height="3"/><rect x="17" y="31" width="3" height="3"/><rect x="23" y="31" width="3" height="3"/><rect x="17" y="34" width="3" height="3"/><rect x="20" y="34" width="3" height="3"/><rect x="23" y="34" width="3" height="3"/><rect x="23" y="37" width="3" height="3"/><rect x="17" y="40" width="3" height="3"/><rect x="20" y="40" width="3" height="3"/><rect x="23" y="40" width="3" height="3"/><rect x="29" y="28" width="3" height="3"/><rect x="32" y="28" width="3" height="3"/><rect x="35" y="28" width="3" height="3"/><rect x="29" y="31" width="3" height="3"/><rect x="35" y="31" width="3" height="3"/><rect x="29" y="34" width="3" height="3"/><rect x="32" y="34" width="3" height="3"/><rect x="35" y="34" width="3" height="3"/><rect x="35" y="37" width="3" height="3"/><rect x="29" y="40" width="3" height="3"/><rect x="32" y="40" width="3" height="3"/><rect x="35" y="40" width="3" height="3"/></g>
+<path d="M42 35.5 h6" stroke="#F59E0B" stroke-width="2"/><path d="M50 35.5 l-3 -2.4 v4.8 z" fill="#F59E0B"/>
+<g fill="var(--bia-nhan, #4ADE80)"><rect x="53.0" y="26.0" width="2.4" height="2.4"/><rect x="55.4" y="26.0" width="2.4" height="2.4"/><rect x="57.8" y="26.0" width="2.4" height="2.4"/><rect x="53.0" y="28.4" width="2.4" height="2.4"/><rect x="57.8" y="28.4" width="2.4" height="2.4"/><rect x="53.0" y="30.8" width="2.4" height="2.4"/><rect x="57.8" y="30.8" width="2.4" height="2.4"/><rect x="53.0" y="33.2" width="2.4" height="2.4"/><rect x="57.8" y="33.2" width="2.4" height="2.4"/><rect x="53.0" y="35.6" width="2.4" height="2.4"/><rect x="55.4" y="35.6" width="2.4" height="2.4"/><rect x="57.8" y="35.6" width="2.4" height="2.4"/><rect x="61.0" y="26.0" width="2.4" height="2.4"/><rect x="63.4" y="26.0" width="2.4" height="2.4"/><rect x="65.8" y="26.0" width="2.4" height="2.4"/><rect x="61.0" y="28.4" width="2.4" height="2.4"/><rect x="65.8" y="28.4" width="2.4" height="2.4"/><rect x="61.0" y="30.8" width="2.4" height="2.4"/><rect x="65.8" y="30.8" width="2.4" height="2.4"/><rect x="61.0" y="33.2" width="2.4" height="2.4"/><rect x="65.8" y="33.2" width="2.4" height="2.4"/><rect x="61.0" y="35.6" width="2.4" height="2.4"/><rect x="63.4" y="35.6" width="2.4" height="2.4"/><rect x="65.8" y="35.6" width="2.4" height="2.4"/></g>
+<path d="M33 66 h16 l3 8 h-22 z" fill="#FFF7ED" fill-opacity=".45"/>
+<rect x="20" y="76" width="42" height="7" rx="2" fill="#FFF7ED" fill-opacity=".35"/>
+<path d="M84 18 l12 22 h-24 z" fill="#F59E0B"/><path d="M84 26 v7 M84 36.5 v.5" stroke="#06120A" stroke-width="2.6"/>
+<path d="M78 52 a14 14 0 1 1 0 28 a14 14 0 1 1 0 -28 z" stroke="var(--bia-nhan, #4ADE80)" stroke-width="3"/><path d="M78 58 v8 l5 4" stroke="var(--bia-nhan, #4ADE80)" stroke-width="3"/>
+</svg></span><img src="../../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Time left</small><b class="vtk-con-lai" data-phut="18" data-chu="en">about 18 min read</b></p><a class="vtk-ray-choi" href="#nhap-vai-y2k"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-gamepad"/></svg><span><small>Play</small>You run IT at a US bank</span></a><a class="vtk-ray-o vtk-ray-tiep" href="su-kien-dot-com.html"><small>Up next</small><b>The dot-com bubble</b><span>Event #003 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Big Events Revisited #2 · Technology · Prevention</span>
+  <h1>The Y2K Bug</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="An old computer screen showing the year 99, an amber arrow to the year 00 and a warning sign">
+    <rect x="4" y="4" width="132" height="44" rx="6" fill="#0B1F12" stroke="#16A34A" stroke-width="3"/>
+    <text x="70" y="36" text-anchor="middle" style="font:700 26px 'JetBrains Mono',monospace;fill:#4ADE80">31/12/99</text>
+    <rect x="58" y="48" width="24" height="6" fill="#16A34A"/><rect x="44" y="54" width="52" height="4" rx="2" fill="#16A34A"/>
+    <path d="M146 26 h38" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/><path d="M190 26 l-12 -7 v14 z" fill="#F59E0B"/>
+    <rect x="198" y="4" width="84" height="44" rx="6" fill="#0B1F12" stroke="#F59E0B" stroke-width="3"/>
+    <text x="240" y="36" text-anchor="middle" style="font:700 26px 'JetBrains Mono',monospace;fill:#FBBF24">00</text>
+    <path d="M302 8 l14 26 h-28 z" fill="#F59E0B"/><rect x="301" y="16" width="2.6" height="10" fill="#0B1F12"/><rect x="301" y="28" width="2.6" height="3" fill="#0B1F12"/>
+  </svg>
+  <p class="sub">The two-digit year bug · the world fixed it from about 1995 to 2000 · New Year's Eve 1999</p>
+  <div class="meta">
+    <div><span class="label">What</span><b>computers stored years as 2 digits, so "00" could be read as 1900</b></div>
+    <div><span class="label">Scale</span><b>about $100 billion spent on fixes in the US, 1995–2001</b></div>
+    <div><span class="label">Paradox</span><b>fixed so well that many people believe there was never a bug</b></div>
+    <div><span class="label">Main sources</span><b>US Senate report "Y2K Aftermath" (2000), US Commerce Department, OMB, the President's Y2K Council</b></div>
+  </div>
+  <p class="nguon">Source: US Department of Commerce, "The Economics of Y2K and the Impact on the United States" (17 Nov 1999); US Senate Special Committee on the Year 2000 Technology Problem, "Y2K Aftermath – Crisis Averted" (29 Feb 2000). The full texts were blocked in the working environment and were checked through search excerpts.</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#dong-thoi-gian">Timeline</a><a href="#quyet-dinh">Key decisions</a><a href="#hoc-duoc">What the world learned</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Verdict</a><a href="#bai-hoc">Work lesson</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark is reading with you</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">One-minute recap</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="2"/><path d="M12 27h8M16 22v5"/><path d="M9 14h4M16 14h7"/></svg><b>An old shortcut</b><span>In the 1960s memory was very expensive, so the year was stored as "68", not "1968".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V16M13 26V10M20 26V6M27 26V12"/></svg><b>About $100 billion</b><span>Spent by US businesses and government on fixes, from 1995 to 2001.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22M5 16h22M5 23h14"/><path d="M22 21l3 3 5-6"/></svg><b>Deadlines with teeth</b><span>US banks had to finish testing critical systems by 30 June 1999, or face a lower rating.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><b>A quiet New Year</b><span>More than 250 glitches in about 75 countries, fixed quickly, none causing serious disruption.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 22H4z"/><path d="M16 13v6M16 23v1"/></svg><b>The prevention paradox</b><span>Nothing happened, so many people concluded it was "a hoax".</span></div>
+  </div>
+  <p class="nguon">Source: memory cost from the New York Review of Books, 23 Sep 1999 (secondary source); $100 billion from the US Department of Commerce (Nov 1999); the 30 June 1999 deadline from the FFIEC via FDIC letters (FIL-98-38, FIL-98-93); more than 250 glitches from the Senate report of 29 Feb 2000 as reported by CBS News (secondary source).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question of the event</h2></div>
+  <p class="thesis">The world spent hundreds of billions of dollars on a single date, and then nothing happened. Was the money wasted, or was it the reason nothing happened? The short answer: mostly the second, but nobody can prove it 100%, and that is exactly what makes all prevention work hard.</p>
+  <p class="nguon">The answer is Mark's assessment, based on the US Senate report (2000) and the sources in Part 9. The global "hundreds of billions" is a forecast by Gartner ($300–600 billion) and IDC ($297 billion), secondary sources.</p>
+  <div class="flow" aria-label="Three stages of the event">
+    <div class="step"><span class="label">1960s–1996</span><b>Shortcut and warning</b><span>Two-digit years saved memory. In 1993 the article "Doomsday 2000" sounded the alarm.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1997–1999</span><b>Mobilisation</b><span>Deadlines for banks, a presidential council, an information-sharing law, the Fed prepares cash.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2000–2001</span><b>Quiet, then doubted</b><span>A few hundred small glitches. Many people called it a hoax.</span></div>
+  </div>
+</section>
+
+<section id="dong-thoi-gian">
+  <div class="sec-head"><span class="label">Part 2</span><h2>Timeline</h2><p class="lead">From a memory-saving shortcut to a New Year's Eve watched hour by hour.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 760 270" role="img" aria-labelledby="ytl">
+        <title id="ytl">Y2K timeline from 1993 to 2001 in four stages: warning (1993 to 1996), mobilisation (1997 to 1998), testing (1999), after the rollover (2000 to 2001). Milestones: 6 Sep 1993 Doomsday 2000 article; 5 May 1997 FFIEC five phases; 4 Feb 1998 Executive Order 13073; 2 Apr 1998 Senate committee; 19 Oct 1998 information-sharing law; 30 Jun 1999 bank testing deadline; 1 Oct 1999 Fed liquidity facility; 31 Dec 1999 rollover; 29 Feb 2000 Senate final report; Sep 2001 Sheffield screening error disclosed.</title>
+        <rect x="40" y="110" width="250" height="26" rx="4" fill="var(--grid)"/>
+        <rect x="290" y="110" width="170" height="26" rx="4" fill="var(--night)" fill-opacity=".35"/>
+        <rect x="460" y="110" width="110" height="26" rx="4" fill="var(--night)" fill-opacity=".7"/>
+        <rect x="570" y="110" width="150" height="26" rx="4" fill="var(--day)" fill-opacity=".55"/>
+        <g text-anchor="middle">
+          <text x="165" y="128" class="t-ink t-bold">warning 1993–1996</text>
+          <text x="375" y="128" class="t-ink t-bold">mobilise 1997–98</text>
+          <text x="515" y="128" class="t-ink t-bold">test 1999</text>
+          <text x="645" y="128" class="t-ink t-bold">after 2000–01</text>
+        </g>
+        <g class="t-ink">
+          <circle cx="70" cy="110" r="6" fill="var(--night)"/><path d="M70 104 V70" class="axis"/><text x="70" y="44" text-anchor="middle" class="t-bold">6 Sep 1993</text><text x="70" y="60" text-anchor="middle">"Doomsday 2000"</text>
+          <circle cx="300" cy="110" r="6" fill="var(--night)"/><path d="M300 104 V70" class="axis"/><text x="300" y="44" text-anchor="middle" class="t-bold">5 May 1997</text><text x="300" y="60" text-anchor="middle">FFIEC: 5 phases</text>
+          <circle cx="380" cy="136" r="6" fill="var(--night)"/><path d="M380 142 V226" class="axis"/><text x="380" y="242" text-anchor="middle" class="t-bold">Feb–Apr 1998</text><text x="380" y="258" text-anchor="middle">council + committee</text>
+          <circle cx="440" cy="136" r="6" fill="var(--night)"/><path d="M440 142 V176" class="axis"/><text x="440" y="192" text-anchor="middle" class="t-bold">19 Oct 1998</text><text x="440" y="208" text-anchor="middle">info-sharing law</text>
+          <circle cx="500" cy="110" r="6" fill="var(--night)"/><path d="M500 104 V70" class="axis"/><text x="500" y="44" text-anchor="middle" class="t-bold">30 Jun 1999</text><text x="500" y="60" text-anchor="middle">bank test deadline</text>
+          <circle cx="545" cy="136" r="6" fill="var(--night)"/><path d="M545 142 V226" class="axis"/><text x="545" y="242" text-anchor="middle" class="t-bold">1 Oct 1999</text><text x="545" y="258" text-anchor="middle">Fed cash facility</text>
+          <circle cx="570" cy="110" r="9" fill="var(--day)"/><path d="M570 101 V70" class="axis"/><text x="625" y="44" text-anchor="middle" class="t-bold">31 Dec 1999</text><text x="625" y="60" text-anchor="middle">rollover</text>
+          <circle cx="600" cy="136" r="6" fill="var(--day)"/><path d="M600 142 V176" class="axis"/><text x="620" y="192" text-anchor="middle" class="t-bold">29 Feb 2000</text><text x="620" y="208" text-anchor="middle">final report</text>
+          <circle cx="700" cy="136" r="6" fill="var(--day)"/><path d="M700 142 V226" class="axis"/><text x="700" y="242" text-anchor="middle" class="t-bold">Sep 2001</text><text x="700" y="258" text-anchor="middle">missed: Sheffield</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Seven years of warnings, two years of real work.</b> Most of the effort was packed into 1997–1999, once agencies set deadlines with consequences. The diagram is not to an even time scale.<span class="nguon">Source: Computerworld, 6 Sep 1993 (secondary source); FFIEC, 5 May 1997, via FDIC FIL-50-97; Executive Order 13073 (4 Feb 1998); Senate Resolution S.Res.208 (2 Apr 1998); Public Law 105-271 (19 Oct 1998); FDIC FIL-98-38; Federal Reserve (Special Liquidity Facility); Senate report of 29 Feb 2000; BBC, Sep 2001, via Slashdot (secondary source).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1960s · The shortcut</b><span>Memory in 1960 cost roughly a million times more per unit than in the late 1990s. Storing "68" instead of "1968" was a sensible saving.</span></div>
+    <div><b>6 Sep 1993 · "Doomsday 2000"</b><span>Peter de Jager writes in Computerworld, one of the first major warnings in the press.</span></div>
+    <div><b>5 May 1997 · Banks get a schedule</b><span>The Federal Financial Institutions Examination Council (FFIEC) splits the work into five phases: awareness, assessment, renovation, validation, implementation. Inventory critical systems by 30 Sep 1997.</span></div>
+    <div><b>4 Feb 1998 · The President's Council</b><span>Executive Order 13073 creates the President's Council on Year 2000 Conversion, chaired by John Koskinen, who reports directly to the President.</span></div>
+    <div><b>2 Apr 1998 · The Senate sets up a committee</b><span>The Special Committee on the Year 2000 Technology Problem, chaired by Robert Bennett, vice-chaired by Christopher Dodd.</span></div>
+    <div><b>19 Oct 1998 · Information-sharing law</b><span>The Year 2000 Information and Readiness Disclosure Act (P.L. 105-271): Y2K information shared in good faith is shielded from lawsuits.</span></div>
+    <div class="hot"><b>30 Jun 1999 · The banks' deadline</b><span>Testing of critical systems complete. By Sep 1999, 99% of federally insured financial institutions had finished.</span></div>
+    <div><b>1 Oct 1999 · The Fed prepares cash</b><span>Opens a special liquidity facility until 7 Apr 2000 and increases its 1999 currency order.</span></div>
+    <div><b>Nov – Dec 1999 · Counting the cost</b><span>Commerce: about $100 billion in the US (1995–2001). OMB: federal agencies spend $8.38 billion; critical systems 99.9% compliant.</span></div>
+    <div class="hot"><b>31 Dec 1999 · The rollover</b><span>A ground processing station for a US reconnaissance satellite system fails for about 2–3 hours and switches to a backup.</span></div>
+    <div><b>29 Feb 2000 · "Crisis averted"</b><span>The Senate's final report: more than 250 glitches in about 75 countries, fixed quickly, no serious disruption. The same day is the leap day 29 Feb 2000, a second test date.</span></div>
+    <div><b>Sep 2001 · A missed bug</b><span>Northern General Hospital (Sheffield, UK) discloses that about 150 prenatal screening results had the wrong risk level because of a Y2K bug in its software.</span></div>
+  </div>
+  <p class="nguon">Source: New York Review of Books, 23 Sep 1999 (memory; secondary source); Computerworld, 6 Sep 1993 (secondary source); FDIC FIL-50-97 (9 May 1997); Executive Order 13073; S.Res.208; Public Law 105-271; FDIC FIL-98-38 and FDIC/Fed documents of Sep 1999 (99%); Federal Reserve: Special Liquidity Facility and Governor Kelley's speech of 29 Jul 1999; Commerce, 17 Nov 1999; OMB 11th quarterly report (Dec 1999); Defense Department briefing of 4 Jan 2000 via UPI and NYT (secondary source; reported duration varies from 2–3 hours to "several hours"); Senate report of 29 Feb 2000 via CBS News (secondary source); BBC, Sep 2001, via Slashdot and Computer Weekly (secondary source). Checked through search excerpts.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="ycost">
+        <title id="ycost">Y2K costs. US federal government: $8.38 billion (OMB). Whole US: about $100 billion (Commerce Department). Whole world: forecast of $300 to $600 billion (Gartner, secondary source), drawn dashed because it is a forecast.</title>
+        <text x="20" y="44" class="t-ink">US federal (OMB)</text><rect x="220" y="28" width="8" height="24" rx="3" fill="var(--night)"/><text x="236" y="45" class="t-ink t-bold">$8.38 billion</text>
+        <text x="20" y="94" class="t-ink">whole US (Commerce)</text><rect x="220" y="78" width="78" height="24" rx="3" fill="var(--night)"/><text x="306" y="95" class="t-ink t-bold">about $100 billion</text>
+        <text x="20" y="144" class="t-ink">world (forecast)</text><rect x="220" y="128" width="234" height="24" rx="3" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"/><rect x="454" y="128" width="234" height="24" rx="3" fill="var(--day)" fill-opacity=".35" stroke="var(--day)" stroke-dasharray="5 4"/><text x="570" y="145" text-anchor="middle" class="t-ink t-bold">$300–600 billion?</text>
+        <text x="20" y="186">one scale for all three rows. The dashed band is a forecast, not a measurement.</text>
+      </svg>
+    </div>
+    <figcaption><b>The US number was counted by agencies, the world number is only a forecast.</b> When someone says "the world spent $600 billion", remember it is the top of a late-1990s forecast.<span class="nguon">Source: OMB, 11th quarterly report on Y2K (Dec 1999): $8.38 billion, fiscal years 1996–2000 (GAO had a different estimate, about $8.7 billion; secondary source); US Department of Commerce, 17 Nov 1999: about $100 billion, 1995–2001; Gartner $300–600 billion and IDC $297 billion (secondary sources).</span></figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Post 1</span><h3>Timeline</h3><div class="chips"><span class="chip">2-digit years</span><span class="chip">1993</span><span class="chip">$100 billion</span><span class="chip">rollover</span></div></div>
+    <div class="part b2"><span class="label">Post 2</span><h3>Key decisions</h3><div class="chips"><span class="chip">bank deadlines</span><span class="chip">council</span><span class="chip">sharing law</span><span class="chip">role-play</span></div></div>
+    <div class="part b3"><span class="label">Post 3</span><h3>What the world learned</h3><div class="chips"><span class="chip">prevention paradox</span><span class="chip">"avoided" log</span><span class="chip">2038</span></div></div>
+  </div>
+</section>
+
+<section id="quyet-dinh">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key decisions</h2><p class="lead">Seen through the eyes of the time: nobody knew how many programs would break, only that the deadline could not move.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 760 170" role="img" aria-labelledby="yffiec">
+        <title id="yffiec">The FFIEC's five phases for banks: awareness, assessment (inventory and priorities by 30 Sep 1997), renovation (largely done by 31 Dec 1998), validation (critical systems tested by 30 Jun 1999), implementation. Missing the testing deadline meant a Needs Improvement rating, more than 30 days late could mean Unsatisfactory.</title>
+        <g text-anchor="middle">
+          <rect x="10" y="30" width="134" height="56" rx="8" fill="var(--grid)"/><text x="77" y="54" class="t-ink t-bold">1 · awareness</text><text x="77" y="72">everyone knows</text>
+          <rect x="160" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".25"/><text x="227" y="54" class="t-ink t-bold">2 · assessment</text><text x="227" y="72">inventory · 30/9/1997</text>
+          <rect x="310" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".45"/><text x="377" y="54" class="t-ink t-bold">3 · renovation</text><text x="377" y="72" class="t-ink">31/12/1998</text>
+          <rect x="460" y="30" width="134" height="56" rx="8" fill="var(--night)" fill-opacity=".7"/><text x="527" y="54" class="t-ink t-bold">4 · validation</text><text x="527" y="72" class="t-ink">30/6/1999</text>
+          <rect x="610" y="30" width="134" height="56" rx="8" fill="var(--day)" fill-opacity=".6"/><text x="677" y="54" class="t-ink t-bold">5 · implementation</text><text x="677" y="72" class="t-ink">before 1/1/2000</text>
+          <text x="380" y="122" class="t-ink t-bold">late on testing: "Needs Improvement" · 30+ days late: possibly "Unsatisfactory"</text>
+          <text x="380" y="148">by Sep 1999: 99% of federally insured institutions had tested critical systems</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Turning a vague worry into a dated schedule.</b> The deadlines only carried weight because they were tied to examination ratings.<span class="nguon">Source: FFIEC, "Year 2000 Project Management Awareness" (5 May 1997) via FDIC FIL-50-97; testing guidance and rating framework via FDIC FIL-98-38, FIL-98-93 and New York Fed circular 11052; the 99% figure from FDIC/Fed documents of Sep 1999. Checked through excerpts.</span></figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term"><h3>1 · Turning advice into deadlines with consequences</h3><span class="en">FFIEC · 1997–1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Who decided, what they knew</h3><span class="muted">The bank regulators (FFIEC), May 1997. They knew the bug was real, but nobody knew how many programs in each bank used two-digit years.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>What they chose</h3><span class="muted">Inventory first, then dated steps: test plan (30 Jun 1998), start testing (1 Sep 1998), finish testing (30 Jun 1999), tied to examination ratings.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Outcome</h3><span class="muted">By Sep 1999, 99% of federally insured institutions had tested critical systems. On 1 Jan 2000, US banking had no major disruption.</span></div>
+    </div>
+    <p class="nguon">Source: FDIC FIL-50-97, FIL-98-38, FIL-98-93; FDIC/Fed documents of Sep 1999 (99%); Senate report of 29 Feb 2000 via CBS News (no serious disruption; secondary source).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>2 · One person in charge, quarterly reports</h3><span class="en">Executive Order 13073 · 4 Feb 1998</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Who decided, what they knew</h3><span class="muted">President Clinton, Feb 1998. Less than 23 months to go. Each department fixed things its own way, and nobody had the full picture.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>What they chose</h3><span class="muted">A President's Council on Year 2000 Conversion, chair John Koskinen reporting directly to the President, one representative per department, OMB publishing progress each quarter.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Outcome</h3><span class="muted">OMB's 11th quarterly report: federal critical systems 99.9% compliant, total spending $8.38 billion (fiscal years 1996–2000).</span></div>
+    </div>
+    <p class="nguon">Source: Executive Order 13073 (American Presidency Project, Clinton White House archive); OMB 11th quarterly report (Dec 1999). Checked through excerpts.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>3 · Letting people tell the truth without fear of lawsuits</h3><span class="en">Public Law 105-271 · 19 Oct 1998</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Who decided, what they knew</h3><span class="muted">Congress and the White House (bill sent by OMB and Koskinen on 27 Jul 1998). Companies hesitated to disclose their readiness for fear of being sued if the information proved wrong.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>What they chose</h3><span class="muted">A "Good Samaritan" law: Y2K information shared in good faith is shielded; a temporary antitrust exemption until 14 Jul 2001. It does not cover systems that actually fail.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Outcome</h3><span class="muted">Partners and suppliers had a legal basis to exchange test results. Its exact impact has not been measured (Mark's assessment).</span></div>
+    </div>
+    <p class="nguon">Source: signing statement for S. 2392, 19 Oct 1998 (American Presidency Project); Clinton White House archive; Florida Bar Journal and FindLaw (secondary sources).</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>4 · Preparing for fear, not just for bugs</h3><span class="en">Federal Reserve · 1999</span></div>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Who decided, what they knew</h3><span class="muted">The US Federal Reserve, 1999. Banks had almost finished testing, but people and markets might pull cash out of worry, even if no machine failed.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>What they chose</h3><span class="muted">A bigger currency order (inventory built by Aug 1999), a special liquidity facility from 1 Oct 1999 to 7 Apr 2000, and options on overnight borrowing sold to dealers.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Outcome</h3><span class="muted">A New York Fed staff report (2006) concluded that the Y2K options eased bond dealers' year-end fears.</span></div>
+    </div>
+    <p class="nguon">Source: Federal Reserve, Governor Kelley's speech of 29 Jul 1999; Special Liquidity Facility documents; New York Fed staff report 266 (2006). Checked through excerpts. The article does not use the figure "$50 billion in extra cash" because no source could be found.</p>
+  </div>
+</section>
+
+<section id="hoc-duoc">
+  <div class="sec-head"><span class="label">Part 4</span><h2>What the world learned</h2><p class="lead">What changed after Y2K, and one lesson the world learned backwards.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="ynghich">
+        <title id="ynghich">The prevention paradox. Top branch: no fix, many systems fail, everyone sees the disaster. Bottom branch: fix early, almost nothing happens, and many people conclude there was never a problem. The best outcome is the hardest one to prove.</title>
+        <rect x="20" y="88" width="130" height="44" rx="8" fill="var(--grid)"/><text x="85" y="115" text-anchor="middle" class="t-ink t-bold">year-00 bug</text>
+        <path d="M150 100 L250 50 M150 120 L250 170" stroke="var(--muted)" stroke-width="2"/>
+        <rect x="250" y="28" width="180" height="44" rx="8" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/><text x="340" y="55" text-anchor="middle" class="t-ink t-bold">no fix</text>
+        <path d="M430 50 H480" stroke="var(--muted)" stroke-width="2"/><text x="490" y="46" class="t-ink t-bold">widespread failures</text><text x="490" y="62">everyone sees, everyone believes</text>
+        <rect x="250" y="148" width="180" height="44" rx="8" fill="var(--night)" fill-opacity=".25" stroke="var(--night)" stroke-width="2"/><text x="340" y="175" text-anchor="middle" class="t-ink t-bold">fix early</text>
+        <path d="M430 170 H480" stroke="var(--muted)" stroke-width="2"/><text x="490" y="166" class="t-ink t-bold">almost nothing</text><text x="490" y="182">"must have been a hoax"</text>
+        <text x="20" y="214">illustrative diagram, no numbers</text>
+      </svg>
+    </div>
+    <figcaption><b>Done well, it looks unnecessary.</b> There is no control experiment for the whole world, so the "hoax" side always has room. The only answer is to record what was fixed.<span class="nguon">The interpretation is Mark's. Facts: Senate report "Y2K Aftermath – Crisis Averted" (29 Feb 2000); National Geographic Education on the "hoax" view (secondary source).</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 6h18v22H7z"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>Know what you have</b><span>Many organisations inventoried all their systems and software for the first time, because the FFIEC required an inventory by 30 Sep 1997.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Contingency plans</b><span>The FFIEC issued guidance on Y2K business risk (Dec 1997); "what if it breaks" became a required part.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="16" r="5"/><circle cx="22" cy="16" r="5"/><path d="M15 16h2"/></svg><div><b>Public-private sharing</b><span>The 1998 law showed that a legal safe harbour can get companies talking. Mark sees it as a model for later risk-information sharing.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>The next bug: 2038</b><span>Unix clocks counting seconds in a signed 32-bit integer overflow at 03:14:07 UTC on 19 Jan 2038. Many systems have moved to 64 bits; old embedded systems remain a risk.</span></div></div>
+  </div>
+  <p class="nguon">Source: FDIC FIL-50-97 (inventory by 30 Sep 1997); FFIEC statement on Y2K business risk, Dec 1997, via New York Fed circular 10958; Public Law 105-271. The 2038 date is arithmetic: 2³¹ − 1 seconds after 00:00 UTC on 1 Jan 1970. The "model for later" view is Mark's.</p>
+  <details class="more"><summary>More: the lesson the world learned backwards</summary><div>
+    <p>The most quoted lesson after Y2K was "don't panic next time". That is the wrong lesson: there was no need to panic this time because people panicked at the right moment, two years early.</p>
+    <p>The Senate report also noted something few remember: 32 countries, including Australia, the UK, Canada and Germany, reported "no incidents" to the International Y2K Cooperation Center, even though the press reported incidents in those very countries. Part of "nothing happened" came from under-reporting.</p>
+  </div></details>
+  <p class="nguon">Source: Senate report of 29 Feb 2000, quoted in Deseret News, 29 Feb 2000 (secondary source). The "learned backwards" view is Mark's.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Fact check: what is true and what is myth</h2><p class="lead">14 things often said about Y2K, checked against US government documents and clearly labelled sources. Tap a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="5 solid, 5 caution, 4 false">
+    <div class="o" style="flex:5">5 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:4">4 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>US businesses and government spent about $100 billion on Y2K</span></summary><p class="note">US Department of Commerce (17 Nov 1999): about $100 billion over 1995–2001, about $365 per American (per-person figure via Nextgov, secondary source). Computerworld (secondary) says it could reach $114 billion.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The US federal government spent about $8.4 billion</span></summary><p class="note">OMB 11th quarterly report (Dec 1999): $8.38 billion, fiscal years 1996–2000. GAO had a different estimate of about $8.7 billion (secondary source). Different scopes, not one wrong number.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Banks were held to deadlines with real consequences</span></summary><p class="note">FFIEC: critical systems tested by 30 Jun 1999; late meant "Needs Improvement", more than 30 days late could mean "Unsatisfactory" (FDIC FIL-98-93). By Sep 1999, 99% had finished.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The Fed prepared cash specifically for the rollover</span></summary><p class="note">A special liquidity facility from 1 Oct 1999 to 7 Apr 2000, priced 150 basis points above the federal funds target; a larger currency order for 1999. The often-quoted "$50 billion" could not be sourced.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The US passed a law so companies would dare to share Y2K information</span></summary><p class="note">Public Law 105-271, signed 19 Oct 1998. It shields information shared in good faith, but not liability for systems that actually fail.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Italy, Russia and South Korea spent little and were fine, so the US overspent"</span></summary><p class="note">These countries did not see more problems (National Geographic Education; Russia spent up to 100 times less than the US per Gartner via ACM TechNews; secondary sources). But dependence on computers differed, Koskinen argued US systems were more complex, and 32 countries reported "no incidents" despite press reports. No causal study exists.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Programmers back then were sloppy"</span></summary><p class="note">Memory in 1960 cost roughly a million times more than in the late 1990s; storing two digits was a sensible saving (NYRB 1999, secondary source). The mistake was that programs lived far longer than anyone expected, and nobody fixed them once memory got cheap.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The world spent $300–600 billion"</span></summary><p class="note">That is a late-1990s Gartner forecast, not a measurement. IDC estimated about $297 billion (1995–2001). Both are secondary sources.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Peter de Jager was the first to warn"</span></summary><p class="note">"Doomsday 2000" (Computerworld, 6 Sep 1993) is the best-known warning in the press. "First" is a common label, not a proven fact.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"2038 will be another Y2K"</span></summary><p class="note">Signed 32-bit Unix clocks overflow at 03:14:07 UTC on 19 Jan 2038 (arithmetic). The risk is real for old systems, but many have moved to 64 bits. It is too early to say it will be as big as Y2K.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Y2K was a hoax, nothing happened in the end"</span></summary><p class="note">The bug was real and was fixed at a cost of about $100 billion in the US. Even so, the Senate report still recorded more than 250 glitches in about 75 countries. "Nothing" was the result of the fixing, not proof there was no bug.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"There were no incidents on New Year's Eve"</span></summary><p class="note">A ground station for a US reconnaissance satellite system failed for about 2–3 hours (Defense Department briefing, 4 Jan 2000, via UPI and NYT; secondary sources). There were also problems at a nuclear power system in Ukraine and a few 911 systems in the US (Senate report via CBS News, secondary source).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Planes would fall and power would go out worldwide"</span></summary><p class="note">It did not happen. The Senate report: glitches were fixed quickly and none caused serious disruption.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Once 1 Jan 2000 passed, Y2K was over"</span></summary><p class="note">2000 was a leap year (divisible by 400), so 29 Feb 2000 was a second test date. In Sep 2001, Northern General Hospital in Sheffield (UK) disclosed that about 150 prenatal screening results had been miscalculated because of a Y2K bug (BBC via Slashdot, Computer Weekly; secondary sources).</p></details>
+  </div>
+  <p class="nguon">Source: as noted in each row; full list in Part 9.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Verdict: how the world responded</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 9, not figures from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Early detection</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Transparency</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Coordination</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Learning afterwards</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span><b>Overall</b></span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right</span><ul class="plus"><li>Bank deadlines with consequences, tied to examinations</li><li>One person in charge, progress published each quarter</li><li>A law that allowed sharing, a Fed that prepared for fear</li></ul></div>
+    <div><span class="label">Done wrong</span><ul class="minus"><li>Warnings from 1993, strong action only from 1997–1998</li><li>Many countries under-reported glitches, hard to compare</li><li>Not enough record of "what was avoided", so the "hoax" story spread</li></ul></div>
+  </div>
+  <p class="verdict">Y2K was one of the most successful acts of prevention of the computer age. Its biggest weakness was not the fixing but the telling: the world could not prove its own success.</p>
+  <details class="more"><summary>More: why the "hoax" story is easy to believe</summary><div>
+    <p>Press coverage in late 1999 included doomsday forecasts: planes falling, wide blackouts. When those did not happen, people compared the outcome with the worst forecast, not with "what if nothing had been fixed".</p>
+    <p>Some professionals had real doubts: former Pentagon CIO Paul Strassmann said "I think we have been had" (secondary source). The useful question is not "was there a bug" but "was the money well spent": many Y2K budgets also paid to replace old systems altogether.</p>
+  </div></details>
+  <p class="nguon">The "More" section is Mark's commentary; Strassmann quoted from ACM TechNews, Jan 2000 (secondary source).</p>
+</section>
+
+<section id="bai-hoc">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Work lesson: done well, prevention looks unnecessary, so record what you avoided</h2><p class="lead">For any prevention work: security, backups, testing, maintenance, workplace safety.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="yb4">
+        <title id="yb4">Four habits: inventory before fixing; deadlines with consequences; keep an avoided log; write a post-event report with numbers.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · inventory first</text><text x="110" y="100" class="t-ink t-bold">know what you have</text><text x="110" y="116">then estimate cost</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · deadlines with teeth</text><text x="300" y="100" class="t-ink t-bold">date + owner + consequence</text><text x="300" y="116">not just "try hard"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · "avoided" log</text><text x="490" y="100" class="t-rem t-bold">one line per fix</text><text x="490" y="116">what if not fixed</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · post-event report</text><text x="680" y="100" class="t-ok t-bold">tell it in numbers</text><text x="680" y="116">even when quiet</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"Nothing happened" is also a result that needs proof.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each habit comes from something done right in 1997–2000.</b> The FFIEC inventory, the 30 June 1999 deadline, and the Senate's "Crisis Averted" report. Habit 3 is the missing piece.<span class="nguon">Source: FDIC FIL-50-97, FIL-98-93; Senate report of 29 Feb 2000. The habits are Mark's suggestions.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 6h18v22H7z"/><path d="M11 12h10M11 17h10M11 22h6"/></svg><div><b>Inventory before asking for money</b><span>List what could break and which items are critical. Base the budget on the list, not on the worry.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 9h22M5 16h22M5 23h14"/><path d="M22 21l3 3 5-6"/></svg><div><b>Deadlines with consequences</b><span>Each milestone has a date, an owner, and what happens if it slips.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5h12l5 5v17H8z"/><path d="M12 15h9M12 20h9"/></svg><div><b>An "avoided" log</b><span>For each bug found: date, where, who would have been hit if it were not fixed, and a rough cost.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V16M13 26V10M20 26V6M27 26V12"/></svg><div><b>A post-event report, even when quiet</b><span>How many bugs fixed, how many slipped through, how long they took. That is the evidence for the next budget request.</span></div></div>
+  </div>
+  <details class="more"><summary>Check your own team: 5 questions</summary><div>
+    <p>1. The last prevention work your team did well: does anyone outside the team know what it avoided?</p>
+    <p>2. Does the team have a list of systems, accounts and contracts about to expire? Which ones are "critical"?</p>
+    <p>3. Does the next prevention milestone have an owner and a consequence if it slips?</p>
+    <p>4. If your manager asks "there were no incidents last year, why do you still need budget?", what number can you show?</p>
+    <p>5. What is your team's "2038": an expiring certificate, an unsupported library, the only person who knows a system about to leave?</p>
+  </div></details>
+  <div class="quote"><span>Y2K Aftermath: Crisis Averted.</span><span class="src">Title of the final report of the Special Committee on the Year 2000 Technology Problem, US Senate, 29 Feb 2000.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>US Senate, "Y2K Aftermath – Crisis Averted" (2000)</b><span class="muted">52 pages, with glitches listed by sector and by country, plus the committee's lessons.</span></div>
+    <div><b>"The Journey to Y2K: Final Report of the President's Council on Year 2000 Conversion" (29 Mar 2000)</b><span class="muted">Koskinen's council on how it coordinated dozens of agencies and industries.</span></div>
+    <div><b>US Department of Commerce, "The Economics of Y2K and the Impact on the United States" (1999)</b><span class="muted">How the cost was estimated and why Y2K did not slow growth.</span></div>
+    <div><b>Big Events Revisited #03: The dot-com bubble (1995–2002)</b><span class="muted">Separate real technology from inflated prices; measure in real money, not "page views".</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 9</span><h2>Primary sources</h2><p class="lead">Priority to documents from Congress, the White House, Commerce, OMB, the FFIEC and the Fed. The working environment blocked government sites, so the primary documents were checked through those sites' own excerpts in search results, without opening the full texts. Secondary sources are labelled.</p></div>
+  <ol class="srcs">
+    <li><b>US Senate, Special Committee on the Year 2000 Technology Problem</b>, "Y2K Aftermath – Crisis Averted: Final Committee Report", 29 Feb 2000, S. Prt. 106-42. <a href="https://www.govinfo.gov/content/pkg/GOVPUB-Y1_3-PURL-LPS90964/pdf/GOVPUB-Y1_3-PURL-LPS90964.pdf">govinfo.gov</a></li>
+    <li><b>US Senate</b>, Resolution S.Res.208 (105th Congress), 2 Apr 1998, creating the committee. <a href="https://www.govinfo.gov/committee/senate-y2k">govinfo.gov</a></li>
+    <li><b>US Department of Commerce, Economics and Statistics Administration</b>, "The Economics of Y2K and the Impact on the United States", 17 Nov 1999. <a href="https://2017-2021.commerce.gov/sites/default/files/migrated/reports/y2k_1.pdf">commerce.gov</a></li>
+    <li><b>OMB</b>, "Progress on Year 2000 Conversion", 11th quarterly report (Dec 1999). <a href="https://clintonwhitehouse4.archives.gov/non-html/media/pdf/11thy2k.pdf">archives.gov</a></li>
+    <li><b>Executive Order 13073</b>, "Year 2000 Conversion", 4 Feb 1998. <a href="https://www.govinfo.gov/link/cpd/executiveorder/13073">govinfo.gov</a></li>
+    <li><b>President's Council on Year 2000 Conversion</b>, "The Journey to Y2K: Final Report", 29 Mar 2000.</li>
+    <li><b>Year 2000 Information and Readiness Disclosure Act</b>, S. 2392, Public Law 105-271, 19 Oct 1998; signing statement. <a href="https://www.presidency.ucsb.edu/documents/statement-signing-the-year-2000-information-and-readiness-disclosure-act">presidency.ucsb.edu</a></li>
+    <li><b>FFIEC/FDIC</b>, FIL-50-97 (9 May 1997, "Year 2000 Project Management Awareness"); FIL-98-38; FIL-98-93; New York Fed circulars 10951, 10958, 11052. <a href="https://www.fdic.gov/news/inactive-financial-institution-letters/1997/fil9750.html">fdic.gov</a> · <a href="https://www.fdic.gov/news/inactive-financial-institution-letters/1998/fil9893.html">fdic.gov</a></li>
+    <li><b>Federal Reserve</b>, Governor Edward Kelley's speech of 29 Jul 1999; Special Liquidity Facility; New York Fed staff report 266 (2006). <a href="https://www.federalreserve.gov/boarddocs/speeches/1999/19990729.htm">federalreserve.gov</a> · <a href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr266.html">newyorkfed.org</a></li>
+    <li><b>US Department of Defense</b>, Deputy Secretary John Hamre's briefing of 4 Jan 2000 (archived by FAS). <a href="https://sgp.fas.org/news/2000/01/dody2k.html">fas.org</a></li>
+    <li>Secondary sources: CBS News and Deseret News, 29 Feb 2000 (Senate report); Nextgov, Nov 1999, and Computerworld (costs); GovExec (OMB, GAO); UPI, New York Times, Route Fifty (satellite); Peter de Jager, "Doomsday 2000", Computerworld, 6 Sep 1993; New York Review of Books, 23 Sep 1999 (memory); Iowa Legislative Fiscal Bureau 1996 and American Banker (Gartner, IDC); National Geographic Education and ACM TechNews, Jan 2000 (Italy, Russia, South Korea, Strassmann, Koskinen); BBC, Sep 2001, via Slashdot and Computer Weekly (Sheffield); Florida Bar Journal, FindLaw (1998 law).</li>
+  </ol>
+</section>
+
+<footer>Big Events Revisited #02. Figures are illustrative diagrams; numbers come from documents of Congress, the White House, Commerce, OMB, the FFIEC and the Fed (checked through excerpts), with secondary sources labelled and checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "nhap-vai", "id": "nhap-vai-y2k", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là trưởng IT một ngân hàng Mỹ", "hoi": "Cuối thập niên 1990, bạn phụ trách máy tính của một ngân hàng vừa. Mọi chương trình cũ lưu năm bằng 2 chữ số. Bạn phải xin ngân sách sửa một lỗi chưa từng làm hỏng gì.", "canh": [{"moc": "5/1997", "biet": "Cơ quan thanh tra (FFIEC) vừa gửi hướng dẫn 5 giai đoạn. Bạn không biết ngân hàng mình có bao nhiêu chương trình dùng năm 2 chữ số.", "hoi": "Bạn làm gì trước?", "chon": [{"nhan": "Kiểm kê toàn bộ hệ thống", "dap": "Chậm vài tháng đầu, nhưng bạn biết cái gì trọng yếu và xin tiền theo danh sách thật."}, {"nhan": "Sửa ngay chỗ nào thấy lỗi", "dap": "Có việc để báo cáo, nhưng dễ bỏ sót hệ thống trọng yếu mà chưa ai nhìn tới."}, {"nhan": "Chờ nhà cung cấp phần mềm vá", "dap": "Đỡ tốn lúc đầu, nhưng bạn không biết chương trình tự viết nào sẽ hỏng, và nhà cung cấp cũng đang quá tải."}], "that": 0, "chuyen_that": "FFIEC yêu cầu kiểm kê và xếp ưu tiên ứng dụng trọng yếu trước 30/9/1997, rồi mới sửa. Nhà cung cấp thì vẫn phải thử lại, vì ngân hàng chịu trách nhiệm với thanh tra."}, {"moc": "Giữa 1998", "biet": "Ban giám đốc hỏi: chưa có gì hỏng, sao tốn nhiều vậy? Hạn thử xong hệ thống trọng yếu là 30/6/1999. Trễ thì bị xếp \"Cần cải thiện\".", "hoi": "Bạn trả lời thế nào?", "chon": [{"nhan": "Cắt bớt, chỉ sửa hệ lớn", "dap": "Tiết kiệm được ngay, nhưng các hệ nhỏ như máy ATM, hệ tính lãi phụ có thể lọt lưới, và bạn khó qua đợt thanh tra."}, {"nhan": "Giữ ngân sách, ưu tiên hệ trọng yếu", "dap": "Tốn kém, nhưng bạn đưa ra danh sách: nếu không sửa thì hệ nào hỏng, ai bị ảnh hưởng, và hậu quả với xếp hạng thanh tra."}], "that": 1, "chuyen_that": "Ngân hàng Mỹ nhìn chung chọn giữ tiến độ: đến 9/1999, 99% tổ chức được bảo hiểm liên bang đã thử xong hệ thống trọng yếu. Cắt bớt cũng có lý về tiền, nhưng hạn chót gắn với xếp hạng khiến lựa chọn đó rất rủi ro."}, {"moc": "10/1998", "biet": "Đối tác hỏi kết quả thử của bạn. Luật sư lo: nếu nói sai, ngân hàng có thể bị kiện. Ngày 19/10/1998 có luật mới che chắn thông tin Y2K chia sẻ với thiện chí.", "hoi": "Bạn chia sẻ hay im lặng?", "chon": [{"nhan": "Chia sẻ, dựa vào luật mới", "dap": "Hai bên biết chỗ yếu của nhau để thử chung. Luật không che nếu hệ thống thật sự hỏng."}, {"nhan": "Im lặng cho chắc", "dap": "Không rủi ro pháp lý, nhưng đối tác không biết bạn sẵn sàng tới đâu, và bạn cũng không biết họ thế nào."}], "that": 0, "chuyen_that": "Luật Công bố Thông tin và Mức sẵn sàng Năm 2000 (P.L. 105-271) được ký ngày 19/10/1998 chính để doanh nghiệp dám chia sẻ. Mức tác động thật chưa có số đo."}, {"moc": "Sáng 1/1/2000", "biet": "Đêm qua hệ thống chạy êm. Cả nước Mỹ đã chi khoảng 100 tỷ USD. Có người nói: \"Chẳng có gì xảy ra, vậy là tiền phí\".", "hoi": "Bạn báo cáo gì với ban giám đốc?", "chon": [{"nhan": "Nhận là có lẽ làm thừa", "dap": "Ban giám đốc nhẹ lòng, nhưng lần sau xin tiền phòng ngừa sẽ khó hơn nhiều."}, {"nhan": "Báo cáo những lỗi đã sửa được", "dap": "Bạn liệt kê lỗi tìm thấy, nếu không sửa thì hỏng gì. \"Không có gì xảy ra\" thành một kết quả có bằng chứng."}], "that": 1, "chuyen_that": "Ngày 29/2/2000, Ủy ban Y2K của Thượng viện Mỹ đặt tên báo cáo cuối là \"Khủng hoảng đã được ngăn chặn\": hơn 250 sự cố ở khoảng 75 nước, sửa nhanh, không gián đoạn nghiêm trọng. Dù vậy, chuyện \"trò lừa\" vẫn lan rộng."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Phòng ngừa làm tốt thì trông như thừa, nên hãy ghi lại cái đã tránh được ngay từ ngày đầu.", "nguon": "Nguồn: FFIEC, \"Year 2000 Project Management Awareness\" (5/5/1997) qua FDIC FIL-50-97 (kiểm kê trước 30/9/1997); FDIC FIL-98-38 và FIL-98-93 (thử xong trước 30/6/1999, xếp \"Cần cải thiện\" nếu trễ); tài liệu FDIC/Fed 9/1999 (99%); Public Law 105-271 ký 19/10/1998; Bộ Thương mại Mỹ 17/11/1999 (khoảng 100 tỷ USD, 1995–2001); báo cáo Thượng viện \"Y2K Aftermath – Crisis Averted\" 29/2/2000, số sự cố qua CBS News (nguồn thứ cấp). Kiểm qua trích đoạn tìm kiếm. Ngân hàng trong trò chơi là nhân vật giả định.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You run IT at a US bank", "hoi": "In the late 1990s you are in charge of the computers at a mid-sized bank. Every old program stores the year in 2 digits. You must ask for money to fix a bug that has never broken anything.", "canh": [{"moc": "May 1997", "biet": "The regulators (FFIEC) have just sent five-phase guidance. You do not know how many of your bank's programs use two-digit years.", "hoi": "What do you do first?", "chon": [{"nhan": "Inventory every system", "dap": "Slower in the first months, but you know what is critical and ask for money based on a real list."}, {"nhan": "Fix bugs as you spot them", "dap": "You have progress to report, but critical systems nobody has looked at yet may slip through."}, {"nhan": "Wait for vendors to patch", "dap": "Cheaper at first, but you do not know which in-house programs will fail, and vendors are overloaded too."}], "that": 0, "chuyen_that": "The FFIEC required banks to inventory and prioritise critical applications by 30 Sep 1997, before fixing. Vendor fixes still had to be retested, because the bank answered to the examiners."}, {"moc": "Mid-1998", "biet": "The board asks: nothing has broken, why is this so expensive? Critical systems must be tested by 30 Jun 1999. Late means a \"Needs Improvement\" rating.", "hoi": "How do you answer?", "chon": [{"nhan": "Cut back, fix big systems only", "dap": "Immediate savings, but smaller systems such as ATMs or side interest calculators may slip through, and the examination gets hard."}, {"nhan": "Keep the budget, critical first", "dap": "Expensive, but you bring a list: which systems fail without a fix, who is hit, and what it means for the rating."}], "that": 1, "chuyen_that": "US banks broadly kept to schedule: by Sep 1999, 99% of federally insured institutions had tested critical systems. Cutting back made financial sense, but deadlines tied to ratings made it very risky."}, {"moc": "Oct 1998", "biet": "A partner asks for your test results. Your lawyers worry: if you say something wrong, the bank could be sued. On 19 Oct 1998 a new law shields Y2K information shared in good faith.", "hoi": "Share or stay silent?", "chon": [{"nhan": "Share, relying on the new law", "dap": "Both sides know each other's weak spots and can test together. The law does not cover systems that actually fail."}, {"nhan": "Stay silent to be safe", "dap": "No legal risk, but your partner does not know how ready you are, and you do not know about them."}], "that": 0, "chuyen_that": "The Year 2000 Information and Readiness Disclosure Act (P.L. 105-271) was signed on 19 Oct 1998 precisely so companies would dare to share. Its real impact has not been measured."}, {"moc": "Morning, 1 Jan 2000", "biet": "Overnight the systems ran smoothly. The US as a whole spent about $100 billion. Someone says: \"Nothing happened, so the money was wasted\".", "hoi": "What do you report to the board?", "chon": [{"nhan": "Admit it was probably overdone", "dap": "The board relaxes, but the next request for prevention money will be much harder."}, {"nhan": "Report the bugs you fixed", "dap": "You list the bugs found and what would have failed. \"Nothing happened\" becomes a result with evidence."}], "that": 1, "chuyen_that": "On 29 Feb 2000 the US Senate Y2K committee titled its final report \"Crisis Averted\": more than 250 glitches in about 75 countries, fixed quickly, no serious disruption. Even so, the \"hoax\" story spread."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You chose like the real people {d}/{n} times. Prevention done well looks unnecessary, so record what you avoided from day one.", "nguon": "Source: FFIEC, \"Year 2000 Project Management Awareness\" (5 May 1997) via FDIC FIL-50-97 (inventory by 30 Sep 1997); FDIC FIL-98-38 and FIL-98-93 (testing complete by 30 Jun 1999, \"Needs Improvement\" if late); FDIC/Fed documents of Sep 1999 (99%); Public Law 105-271 signed 19 Oct 1998; US Department of Commerce, 17 Nov 1999 (about $100 billion, 1995–2001); Senate report \"Y2K Aftermath – Crisis Averted\", 29 Feb 2000, glitch count via CBS News (secondary source). Checked through search excerpts. The bank in the game is fictional.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}]</script>
+<script src="../../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

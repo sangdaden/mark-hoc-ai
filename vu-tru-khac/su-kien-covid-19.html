@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đại dịch COVID-19 (SARS-CoV-2): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Báo động từ 31/12/2019, vắc xin được cấp phép sau 326 ngày, vậy mà 2020–2021 vẫn có 14,83 triệu người chết thêm, gấp 2,74 lần số báo cáo. Nhìn lại từ WHO, CDC, nghiên cứu bình duyệt và báo cáo SAGO, có màn nhập vai và 14 lời đồn được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/su-kien-covid-19.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/su-kien-covid-19.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/su-kien-covid-19.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/su-kien-covid-19.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Đại dịch COVID-19 (SARS-CoV-2): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Báo động từ 31/12/2019, vắc xin được cấp phép sau 326 ngày, vậy mà 2020–2021 vẫn có 14,83 triệu người chết thêm, gấp 2,74 lần số báo cáo. Nhìn lại từ WHO, CDC, nghiên cứu bình duyệt và báo cáo SAGO, có màn nhập vai và 14 lời đồn được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/su-kien-covid-19.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #06121C; --bia-2: #0C4A6E; --bia-nhan: #38BDF8; }
+:root { --vtk-nhan: #38BDF8; }
+body header { --ho-so: "Hồ sơ sự kiện"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/su-kien-covid-19.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Nhìn lại sự kiện lớn": COVID-19, --night = sky blue #0EA5E9 (science, data), --day = rose red #F43F5E (deaths, alarms). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0EA5E9;
+  --day: #F43F5E;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #38BDF8; --day: #FB7185; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #38BDF8; --day: #FB7185; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<style>
+.qd { display: grid; gap: 12px; }
+.qcard { background: var(--paper); border: 1px solid var(--rule); border-left: 4px solid var(--night); border-radius: 6px; padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.qcard.d2 { border-left-color: var(--day); }
+.qcard h3 { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.qgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 8px; }
+.qgrid div { display: grid; gap: 2px; align-content: start; min-width: 0; }
+.qgrid span { font-size: .9rem; line-height: 1.45; }
+.disc { font-size: .86rem; color: var(--muted); border: 1px dashed var(--rule); border-radius: 6px; padding: 8px 12px; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Đại dịch COVID-19</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<path d="M6 84 H94" stroke="#E0F2FE" stroke-opacity=".35" stroke-width="2"/>
+<path d="M8 84 C20 84 22 62 30 62 S40 84 48 84 C60 84 62 46 72 46 S84 84 92 84" stroke="#F43F5E" stroke-width="4.5"/>
+<g stroke="var(--bia-nhan, #38BDF8)" stroke-width="3.5"><path d="M50 8v8M50 46v8M27 31h8M65 31h8M34 15l5 5M61 42l5 5M34 47l5-5M61 20l5-5"/></g>
+<g fill="var(--bia-nhan, #38BDF8)"><circle cx="50" cy="7" r="3.6"/><circle cx="50" cy="55" r="3.6"/><circle cx="26" cy="31" r="3.6"/><circle cx="74" cy="31" r="3.6"/><circle cx="33" cy="14" r="3.6"/><circle cx="67" cy="48" r="3.6"/><circle cx="33" cy="48" r="3.6"/><circle cx="67" cy="14" r="3.6"/></g>
+<circle cx="50" cy="31" r="16" fill="var(--bia-nhan, #38BDF8)"/>
+<g fill="#06121C" fill-opacity=".35"><circle cx="44" cy="26" r="3.4"/><circle cx="56" cy="36" r="2.6"/><circle cx="55" cy="24" r="2"/></g>
+<g fill="#E0F2FE"><circle cx="8" cy="84" r="2.6"/><circle cx="48" cy="84" r="2.6"/><circle cx="92" cy="84" r="2.6"/></g>
+</svg></span><img src="../assets/vu-tru-khac/mark/thac-mac.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="22" data-chu="vi">khoảng 22 phút đọc</b></p><a class="vtk-ray-choi" href="#nhap-vai-covid"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-gamepad"/></svg><span><small>Chơi thử</small>Bạn là người phụ trách y tế một thành phố</span></a><a class="vtk-ray-o vtk-ray-tiep" href="su-kien-y2k.html"><small>Bài tiếp theo</small><b>Sự cố Y2K</b><span>Sự kiện #002 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Nhìn lại sự kiện lớn #1 · Y tế công cộng · Ra quyết định</span>
+  <h1>Đại dịch COVID-19</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một hạt virus có gai màu xanh trời, bên cạnh là đường thời gian với hai đợt sóng màu hồng đỏ">
+    <g stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"><path d="M26 6v6M26 40v6M6 26h6M40 26h6M12 12l4 4M36 36l4 4M12 40l4-4M36 16l4-4"/></g>
+    <g fill="#0EA5E9"><circle cx="26" cy="5" r="3"/><circle cx="26" cy="47" r="3"/><circle cx="5" cy="26" r="3"/><circle cx="47" cy="26" r="3"/><circle cx="11" cy="11" r="3"/><circle cx="41" cy="41" r="3"/><circle cx="11" cy="41" r="3"/><circle cx="41" cy="11" r="3"/></g>
+    <circle cx="26" cy="26" r="13" fill="#0EA5E9"/>
+    <g fill="#fff" fill-opacity=".8"><circle cx="21" cy="22" r="2.5"/><circle cx="30" cy="30" r="2"/><circle cx="29" cy="20" r="1.5"/></g>
+    <line x1="64" y1="44" x2="314" y2="44" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M64 44 C90 44 96 22 112 22 S132 44 150 44 C176 44 184 6 204 6 S228 44 248 44 C262 44 268 32 278 32 S292 44 314 44" fill="none" stroke="#F43F5E" stroke-width="3.5" stroke-linecap="round"/>
+    <g fill="#0EA5E9"><circle cx="64" cy="44" r="4"/><circle cx="150" cy="44" r="4"/><circle cx="248" cy="44" r="4"/><circle cx="314" cy="44" r="4"/></g>
+  </svg>
+  <p class="sub">SARS-CoV-2 · từ 31/12/2019 đến 5/5/2023 · toàn thế giới</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>một virus corona mới lan ra toàn thế giới</b></div>
+    <div><span class="label">Quy mô</span><b>14,9 triệu người chết thêm trong 2020–2021 (ước tính của WHO)</b></div>
+    <div><span class="label">Nghịch lý</span><b>vắc xin được cấp phép 326 ngày sau khi có trình tự gen, nhưng tháng 2/2020 bị gọi là "tháng bị mất"</b></div>
+    <div><span class="label">Nguồn chính</span><b>WHO, CDC, NEJM, Nature, Lancet, báo cáo SAGO và Hội đồng độc lập</b></div>
+  </div>
+  <p class="nguon">Nguồn: thông cáo WHO 5/5/2022 (14,9 triệu, khoảng 13,3–16,6 triệu); thông cáo Moderna 16/3/2020 (trình tự gen chia sẻ 11/1/2020); thông cáo Pfizer/BioNTech 2/12/2020 (Anh cấp phép); 326 ngày là Mark tính; Hội đồng độc lập về chuẩn bị và ứng phó đại dịch, báo cáo 5/2021 ("tháng bị mất").</p>
+  <p class="disc">Bài nhìn lại lịch sử, không phải lời khuyên y tế. Về sức khỏe của bạn, hãy hỏi nhân viên y tế và cơ quan y tế nơi bạn sống.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#cau-hoi">Câu hỏi</a><a href="#dong-thoi-gian">Dòng thời gian</a><a href="#quyet-dinh">Quyết định then chốt</a><a href="#hoc-duoc">Thế giới học được gì</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#bai-hoc">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="7"/><path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l3.5 3.5M21.5 21.5L25 25M7 25l3.5-3.5M21.5 10.5L25 7"/></svg><b>Báo động từ 31/12/2019</b><span>Vũ Hán báo một cụm viêm phổi. 10 ngày sau, WHO gửi hướng dẫn cho mọi nước.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 26h24"/><path d="M6 26C10 26 11 10 16 10s6 16 10 16"/></svg><b>71 ngày thành đại dịch</b><span>30/1/2020 khẩn cấp toàn cầu. 11/3/2020: hơn 118.000 ca ở 114 nước.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="14" width="6" height="12"/><rect x="18" y="5" width="6" height="21"/><path d="M4 26h24"/></svg><b>Số thật gấp 2,7 lần</b><span>2020–2021: 5,42 triệu ca tử vong được báo cáo, nhưng ước tính 14,83 triệu người chết thêm.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 4l8 8M24 8L10 22l-4 0 0-4L20 4"/><path d="M6 26l4-4"/></svg><b>Vắc xin trong 326 ngày</b><span>Thử trên hơn 30.000 và 43.000 người, hiệu quả 94–95% trong thử nghiệm.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><b>Bài học: quyết khi chưa đủ</b><span>Nói rõ mình chắc đến đâu, hẹn ngày xem lại. Đây là bài học Mark rút ra.</span></div>
+  </div>
+  <p class="nguon">Nguồn: WHO, dòng thời gian COVID-19 (31/12/2019, 10/1/2020); tuyên bố Ủy ban Khẩn cấp 30/1/2020; phát biểu Tổng giám đốc WHO 11/3/2020; Msemburi và cs., Nature 2023 (5,42 và 14,83 triệu, gấp 2,74 lần); Polack và cs., NEJM 2020 (43.548 người, 95%); Baden và cs., NEJM 2021 (30.420 người, 94,1%); 71 và 326 ngày là Mark tính.</p>
+</section>
+
+<section id="cau-hoi">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của sự kiện</h2></div>
+  <p class="thesis">Thế giới làm ra vắc xin nhanh chưa từng thấy, vậy vì sao vẫn có gần 15 triệu người chết thêm trong hai năm đầu? Một phần câu trả lời nằm ở những tuần đầu: khi dữ liệu còn thiếu, nhiều nơi chờ chắc chắn rồi mới làm.</p>
+  <p class="nguon">Nguồn: WHO 5/5/2022 (14,9 triệu tử vong dư 2020–2021); Hội đồng độc lập, báo cáo 5/2021 (nhiều nước "chờ xem" sau 30/1/2020). Câu trả lời là nhận định của Mark.</p>
+  <div class="flow" aria-label="Ba chặng của đại dịch">
+    <div class="step"><span class="label">12/2019–3/2020</span><b>Báo động</b><span>Cụm viêm phổi, khẩn cấp toàn cầu, rồi đại dịch.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2020–2021</span><b>Gồng mình</b><span>Đóng cửa, khẩu trang, vắc xin; năm 2021 chết nhiều nhất.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2022–2025</span><b>Sống chung và sửa luật</b><span>Hết khẩn cấp 5/2023; luật y tế quốc tế sửa năm 2024.</span></div>
+  </div>
+</section>
+
+<section id="dong-thoi-gian">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Dòng thời gian</h2><p class="lead">Ba năm bốn tháng, từ một thông báo địa phương đến ngày WHO kết thúc tình trạng khẩn cấp.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 250" role="img" aria-labelledby="cvt">
+        <title id="cvt">Dòng thời gian từ 31/12/2019 đến 5/5/2023: 31/12/2019 Vũ Hán báo cụm viêm phổi; 30/1/2020 WHO tuyên bố khẩn cấp y tế công cộng quốc tế; 11/3/2020 WHO gọi là đại dịch; 2/12/2020 Anh cấp phép vắc xin đầu tiên; năm 2021 có 10,36 triệu tử vong dư; 26/11/2021 Omicron; 5/5/2023 hết tình trạng khẩn cấp.</title>
+        <line x1="30" y1="130" x2="700" y2="130" stroke="var(--rule)" stroke-width="4"/>
+        <rect x="236" y="122" width="200" height="16" rx="8" fill="var(--day)" fill-opacity=".25"/>
+        <text x="400" y="164" text-anchor="middle" class="t-day t-bold">năm 2021: 10,36 triệu tử vong dư</text>
+        <g text-anchor="middle">
+          <circle cx="40" cy="130" r="9" fill="var(--night)"/><text x="26" y="166" text-anchor="start" class="t-night t-bold">31/12/2019 · cụm viêm phổi</text>
+          <circle cx="58" cy="130" r="7" fill="var(--day)"/><text x="26" y="188" text-anchor="start" class="t-bold" style="fill:var(--day)">30/1/2020 · khẩn cấp toàn cầu</text>
+          <circle cx="80" cy="130" r="9" fill="var(--day)"/><text x="78" y="62" text-anchor="start" class="t-bold" style="fill:var(--day)">11/3/2020 · "đại dịch"</text><path d="M80 120 V68" stroke="var(--day)" stroke-width="1" stroke-dasharray="2 3"/>
+          <circle cx="225" cy="130" r="9" fill="var(--night)"/><text x="225" y="104" class="t-night t-bold">2/12/2020</text><text x="225" y="88" class="t-ink">vắc xin đầu tiên</text>
+          <circle cx="432" cy="130" r="9" fill="var(--day)"/><text x="432" y="104" class="t-bold" style="fill:var(--day)">26/11/2021</text><text x="432" y="88" class="t-ink">Omicron</text>
+          <circle cx="690" cy="130" r="9" fill="var(--night)"/><text x="660" y="104" class="t-night t-bold">5/5/2023</text><text x="660" y="88" class="t-ink">hết khẩn cấp</text>
+        </g>
+        <g text-anchor="middle"><text x="40" y="244">2020</text><text x="236" y="244">2021</text><text x="436" y="244">2022</text><text x="636" y="244">2023</text></g>
+      </svg>
+    </div>
+    <figcaption><b>Ba mốc báo động dồn vào 71 ngày đầu, rồi hai năm gồng mình.</b> Năm 2021 có nhiều người chết thêm hơn năm 2020, dù vắc xin đã có từ cuối 2020.<span class="nguon">Nguồn: WHO, dòng thời gian COVID-19 (31/12/2019); tuyên bố Ủy ban Khẩn cấp 30/1/2020; phát biểu Tổng giám đốc WHO 11/3/2020; thông cáo Pfizer/BioNTech 2/12/2020; WHO 26/11/2021 (Omicron); Msemburi và cs., Nature 2023 (10,36 triệu năm 2021); WHO 5/5/2023 qua báo chí (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>31/12/2019 · Một cụm viêm phổi</b><span>Ủy ban Y tế thành phố Vũ Hán (Trung Quốc) báo một cụm ca viêm phổi chưa rõ nguyên nhân.</span></div>
+    <div><b>1/1/2020 · WHO bật chế độ sự cố</b><span>WHO lập nhóm hỗ trợ quản lý sự cố ở cả ba cấp: trụ sở, khu vực, quốc gia.</span></div>
+    <div><b>10/1/2020 · Hướng dẫn cho mọi nước</b><span>WHO đưa lên mạng gói hướng dẫn: cách phát hiện, xét nghiệm và điều trị ca nghi ngờ.</span></div>
+    <div><b>11/1/2020 · Trình tự gen được chia sẻ</b><span>Hai ngày sau, các nhà khoa học Mỹ (NIH) và Moderna chốt trình tự cho một vắc xin thử.</span></div>
+    <div><b>13/1/2020 · Ca đầu tiên ngoài Trung Quốc</b><span>Thái Lan xác nhận một ca bệnh.</span></div>
+    <div><b>22–23/1/2020 · Ủy ban Khẩn cấp chia rẽ</b><span>Các thành viên "có ý kiến khác nhau", chưa tuyên bố khẩn cấp toàn cầu.</span></div>
+    <div><b>29/1/2020 · Bằng chứng lây người sang người</b><span>NEJM: 425 ca đầu tiên; số ca nhân đôi sau 7,4 ngày; lây giữa người tiếp xúc gần từ giữa 12/2019.</span></div>
+    <div class="hot"><b>30/1/2020 · Khẩn cấp y tế công cộng quốc tế</b><span>Trung Quốc: 7.711 ca xác nhận, 170 người chết. 18 nước khác: 83 ca.</span></div>
+    <div class="hot"><b>11/3/2020 · "Có thể gọi là đại dịch"</b><span>Hơn 118.000 ca ở 114 nước, 4.291 người chết. WHO lo cả "mức thiếu hành động đáng báo động".</span></div>
+    <div><b>16/3/2020 · Mũi tiêm thử đầu tiên</b><span>Thử nghiệm giai đoạn 1 vắc xin mRNA-1273, 45 người tình nguyện.</span></div>
+    <div><b>Tháng 4/2020 · Cả xã hội dừng lại</b><span>Khoảng 1,6 tỷ người học bị ảnh hưởng vì trường đóng cửa. Năm 2020 mất 8,8% giờ làm, bằng 255 triệu việc làm toàn thời gian.</span></div>
+    <div class="hot"><b>2/12/2020 · Vắc xin đầu tiên được cấp phép</b><span>Anh cấp phép dùng khẩn cấp vắc xin Pfizer/BioNTech. 31/12/2020: WHO đưa vào danh mục dùng khẩn cấp.</span></div>
+    <div><b>2021 · Năm chết nhiều nhất</b><span>10,36 triệu tử vong dư, so với 4,47 triệu năm 2020.</span></div>
+    <div><b>26/11/2021 · Omicron</b><span>WHO xếp biến thể B.1.1.529 vào nhóm đáng lo ngại, đặt tên Omicron.</span></div>
+    <div class="hot"><b>5/5/2023 · Hết tình trạng khẩn cấp</b><span>WHO: COVID-19 không còn là khẩn cấp toàn cầu, nhưng "không có nghĩa đã hết là mối đe dọa".</span></div>
+  </div>
+  <p class="nguon">Nguồn: WHO, "Archived: WHO Timeline – COVID-19" (2020) (31/12, 1/1, 10/1, 13/1, 22–23/1); thông cáo Moderna 16/3/2020 (11/1, 13/1, 16/3); Li và cs., NEJM 29/1/2020; tuyên bố Ủy ban Khẩn cấp 30/1/2020; phát biểu Tổng giám đốc WHO 11/3/2020; UNESCO (1,6 tỷ người học; qua báo cáo trích lại, nguồn thứ cấp); ILO Monitor 25/1/2021 (8,8%, 255 triệu; qua báo chí, nguồn thứ cấp); thông cáo Pfizer/BioNTech 2/12/2020; WHO 31/12/2020; Msemburi và cs., Nature 2023; WHO 26/11/2021; WHO 5/5/2023 qua UPI và báo chí (nguồn thứ cấp).</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 170" role="img" aria-labelledby="cvd">
+        <title id="cvd">Năm 2020 và 2021: số ca tử vong do COVID-19 được báo cáo là 5,42 triệu; số người chết thêm theo ước tính của WHO là 14,83 triệu, gấp 2,74 lần.</title>
+        <text x="20" y="44" class="t-ink">tử vong được báo cáo</text><rect x="250" y="28" width="153" height="24" rx="4" fill="var(--night)"/><text x="412" y="45" class="t-night t-bold">5,42 triệu</text>
+        <text x="20" y="96" class="t-ink">tử vong dư (WHO ước tính)</text><rect x="250" y="80" width="420" height="24" rx="4" fill="var(--day)"/><text x="660" y="74" text-anchor="end" class="t-bold" style="fill:var(--day)">14,83 triệu (gấp 2,74 lần)</text>
+        <text x="20" y="140">2020–2021. Tử vong dư = số người chết thực tế trừ số dự kiến nếu không có đại dịch,</text>
+        <text x="20" y="158">gồm cả người chết vì bệnh khác khi hệ thống y tế quá tải. Chỉ 52% số nước có dữ liệu tử vong đầy đủ.</text>
+      </svg>
+    </div>
+    <figcaption><b>Con số được báo cáo chỉ là phần nổi.</b> Đến giữa năm 2026, tổng số ca tử vong được báo cáo cho WHO khoảng 7,1 triệu, vẫn thấp hơn xa số người chết thêm chỉ riêng hai năm đầu.<span class="nguon">Nguồn: Msemburi và cs. (nhóm WHO), Nature 613 (2023) 130–137, và thông cáo của Nature (52%, 100 nước); WHO 5/5/2022; số 7,1 triệu theo bảng theo dõi của WHO qua Wikipedia (nguồn thứ cấp).</span></figcaption>
+  </figure>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Dòng thời gian</h3><div class="chips"><span class="chip">31/12/2019</span><span class="chip">71 ngày</span><span class="chip">gấp 2,74 lần</span><span class="chip">5/5/2023</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Quyết định then chốt</h3><div class="chips"><span class="chip">khẩn cấp 30/1</span><span class="chip">tháng bị mất</span><span class="chip">khẩu trang</span><span class="chip">nhập vai</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Thế giới học được gì</h3><div class="chips"><span class="chip">luật y tế 2024</span><span class="chip">mức chắc chắn</span><span class="chip">ngày xem lại</span></div></div>
+  </div>
+</section>
+
+<section id="quyet-dinh">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Quyết định then chốt</h2><p class="lead">Bốn quyết định, nhìn bằng con mắt lúc đó: ai quyết, họ biết gì, họ chọn gì, rồi chuyện gì xảy ra.</p></div>
+  <div class="qd">
+    <div class="qcard">
+      <h3>1 · Có tuyên bố khẩn cấp toàn cầu chưa?<span class="en">22–30/1/2020</span></h3>
+      <div class="qgrid">
+        <div><span class="label">Ai quyết</span><span>Ủy ban Khẩn cấp theo Điều lệ Y tế Quốc tế (IHR) tư vấn, Tổng giám đốc WHO tuyên bố.</span></div>
+        <div><span class="label">Lúc đó biết gì</span><span>22/1: đã có ca ngoài Trung Quốc, nhưng mức lây giữa người với người còn chưa rõ. 29/1: NEJM cho thấy số ca nhân đôi sau 7,4 ngày.</span></div>
+        <div><span class="label">Chọn gì</span><span>22–23/1: ý kiến chia rẽ, chưa tuyên bố. 30/1: tuyên bố khẩn cấp y tế công cộng quốc tế, mức báo động cao nhất khi đó.</span></div>
+        <div><span class="label">Hệ quả</span><span>Hội đồng độc lập sau này: lẽ ra nên tuyên bố sớm hơn, và sau 30/1 "quá nhiều nước chọn chờ xem".</span></div>
+      </div>
+    </div>
+    <div class="qcard d2">
+      <h3>2 · Đóng cửa sớm hay chờ thêm?<span class="en">2–3/2020</span></h3>
+      <div class="qgrid">
+        <div><span class="label">Ai quyết</span><span>Chính quyền từng nước, từng thành phố.</span></div>
+        <div><span class="label">Lúc đó biết gì</span><span>Số ca tăng theo cấp số nhân; chưa có thuốc đặc hiệu, chưa có vắc xin; cái giá kinh tế chắc chắn rất lớn.</span></div>
+        <div><span class="label">Chọn gì</span><span>Nhiều nơi chờ suốt tháng 2, đến giữa và cuối tháng 3 mới cấm tụ tập, đóng trường, phong tỏa.</span></div>
+        <div><span class="label">Hệ quả</span><span>Một nghiên cứu ước tính các biện pháp ở 11 nước châu Âu tránh khoảng 3,1 triệu ca tử vong đến 4/5/2020; con số này bị phản biện về phương pháp. Năm 2020 mất 8,8% giờ làm toàn cầu.</span></div>
+      </div>
+    </div>
+    <div class="qcard">
+      <h3>3 · Khuyên người dân đeo khẩu trang?<span class="en">4–6/2020</span></h3>
+      <div class="qgrid">
+        <div><span class="label">Ai quyết</span><span>CDC (Mỹ) và WHO, mỗi bên một hướng dẫn.</span></div>
+        <div><span class="label">Lúc đó biết gì</span><span>Có dấu hiệu người không triệu chứng vẫn lây; chưa có thử nghiệm ngẫu nhiên nào về khẩu trang trong cộng đồng; khẩu trang y tế đang thiếu cho bệnh viện.</span></div>
+        <div><span class="label">Chọn gì</span><span>3/4: CDC khuyên khăn vải nơi đông người. 6/4: WHO nói "chưa có bằng chứng" và hẹn cập nhật. 5/6: WHO khuyến khích đeo nơi lây lan rộng.</span></div>
+        <div><span class="label">Hệ quả</span><span>Hai hướng dẫn khác nhau gây bối rối. Thử nghiệm lớn ở Bangladesh (2022) sau đó thấy tác dụng có thật nhưng vừa phải.</span></div>
+      </div>
+    </div>
+    <div class="qcard d2">
+      <h3>4 · Làm vắc xin kiểu chạy song song<span class="en">1–12/2020</span></h3>
+      <div class="qgrid">
+        <div><span class="label">Ai quyết</span><span>Các hãng, viện nghiên cứu, chính phủ cấp tiền, cơ quan quản lý thuốc.</span></div>
+        <div><span class="label">Lúc đó biết gì</span><span>Có trình tự gen từ 11/1; nền tảng mRNA đã được nghiên cứu nhiều năm nhưng chưa có vắc xin mRNA nào được cấp phép.</span></div>
+        <div><span class="label">Chọn gì</span><span>Làm các bước chồng lên nhau, sản xuất trước khi biết kết quả, nhưng vẫn thử giai đoạn 3 trên hàng chục nghìn người.</span></div>
+        <div><span class="label">Hệ quả</span><span>Hiệu quả 95% (43.548 người) và 94,1% (30.420 người) trong thử nghiệm. Nhưng nước giàu tiêm trước; WHO nhấn mạnh tiếp cận công bằng ngay khi cấp danh mục đầu tiên.</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="nguon">Nguồn: tuyên bố Ủy ban Khẩn cấp 30/1/2020; Li và cs., NEJM 2020; Hội đồng độc lập, báo cáo 5/2021 (câu trích qua UN News và Al Jazeera, nguồn thứ cấp); Flaxman và cs., Nature 2020, và phản biện của Soltesz và cs., Nature 2020; ILO Monitor 25/1/2021 (qua báo chí, nguồn thứ cấp); CDC 3/4/2020 (qua NPR, nguồn thứ cấp); WHO, hướng dẫn khẩu trang 6/4/2020 (câu trích qua báo chí, nguồn thứ cấp) và 5/6/2020; Abaluck và cs., Science 2022; thông cáo Moderna 16/3/2020; Polack và cs., NEJM 2020; Baden và cs., NEJM 2021; WHO 31/12/2020.</p>
+  <details class="more"><summary>Vì sao không phán xét bằng hiểu biết hôm nay</summary><div>
+    <p>Năm 2020 chưa ai biết chắc virus lây qua không khí đến đâu, người không triệu chứng lây bao nhiêu, vắc xin có thành công không. Quyết định nào cũng phải đặt cược. Câu hỏi công bằng không phải "họ có đoán đúng không", mà là "họ có nói rõ mình đang đoán, và có sửa khi biết thêm không".</p>
+  </div></details>
+  <p class="nguon">Phần trên là nhận xét của Mark.</p>
+</section>
+
+<section id="hoc-duoc">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Thế giới học được gì</h2><p class="lead">Những thứ đã thay đổi thật sau đại dịch: luật, cách đo, cách làm vắc xin.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 190" role="img" aria-labelledby="chd">
+        <title id="chd">Hai thay đổi về luật: 1/6/2024 sửa đổi Điều lệ Y tế Quốc tế, thêm cấp "khẩn cấp đại dịch", có hiệu lực 19/9/2025; 20/5/2025 thông qua Hiệp định Đại dịch của WHO, chưa có hiệu lực vì còn chờ phụ lục về chia sẻ mầm bệnh và lợi ích.</title>
+        <line x1="40" y1="90" x2="690" y2="90" stroke="var(--rule)" stroke-width="3"/>
+        <g text-anchor="middle">
+          <circle cx="110" cy="90" r="10" fill="var(--day)"/><text x="110" y="60" class="t-bold" style="fill:var(--day)">5/5/2023</text><text x="110" y="124" class="t-ink">hết khẩn cấp</text>
+          <circle cx="300" cy="90" r="12" fill="var(--night)"/><text x="300" y="60" class="t-night t-bold">1/6/2024</text><text x="300" y="124" class="t-ink">sửa luật IHR</text><text x="300" y="140">thêm "khẩn cấp đại dịch"</text>
+          <circle cx="470" cy="90" r="12" fill="var(--night)"/><text x="470" y="60" class="t-night t-bold">20/5/2025</text><text x="470" y="124" class="t-ink">Hiệp định Đại dịch</text><text x="470" y="140">chưa có hiệu lực</text>
+          <circle cx="630" cy="90" r="12" fill="var(--ok)"/><text x="630" y="60" class="t-ok t-bold">19/9/2025</text><text x="630" y="124" class="t-ink">IHR sửa đổi</text><text x="630" y="140">có hiệu lực</text>
+        </g>
+        <text x="40" y="178">11 trong 196 quốc gia thành viên IHR từ chối bản sửa đổi; với họ, bản cũ vẫn áp dụng.</text>
+      </svg>
+    </div>
+    <figcaption><b>Luật đi chậm hơn virus.</b> Từ ngày hết khẩn cấp đến khi luật sửa đổi có hiệu lực mất hơn hai năm; Hiệp định Đại dịch vẫn còn chờ một phụ lục.<span class="nguon">Nguồn: WHO 19/9/2025, "Amended International Health Regulations enter into force"; Bộ Y tế Phần Lan và Bộ Ngoại giao Úc (DFAT) về Hiệp định Đại dịch 20/5/2025 và phụ lục PABS.</span></figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>Luật</h3><span class="muted">Điều lệ Y tế Quốc tế có thêm mức "khẩn cấp đại dịch" (sửa đổi 2024, hiệu lực 19/9/2025). Hiệp định Đại dịch thông qua 20/5/2025.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>Cách đo</h3><span class="muted">"Tử vong dư" thành thước đo chuẩn: đếm cả người chết vì bệnh khác khi bệnh viện quá tải. WHO công bố ước tính cho mọi nước.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>Cách làm vắc xin</h3><span class="muted">Từ trình tự gen (11/1/2020) đến cấp phép (2/12/2020): 326 ngày. Một mô hình ước tính vắc xin tránh 14,4 triệu ca tử vong trong năm đầu.</span></div>
+  </div>
+  <p class="nguon">Nguồn: WHO 19/9/2025; WHO 5/5/2022 và Msemburi và cs., Nature 2023; thông cáo Moderna 16/3/2020; thông cáo Pfizer/BioNTech 2/12/2020; Watson và cs., Lancet Infectious Diseases 2022 (14,4 triệu theo số báo cáo, 19,8 triệu theo tử vong dư; không tính Trung Quốc; số qua AP, nguồn thứ cấp).</p>
+  <details class="more"><summary>Điều chưa học xong</summary><div>
+    <p>Hội đồng độc lập chỉ ra các nước tranh nhau đồ bảo hộ và thuốc thay vì cùng chuẩn bị bệnh viện. Mô hình của Watson và cs. ước tính thêm khoảng 600.000 ca tử vong có thể tránh được nếu đạt mục tiêu 40% dân số được tiêm của WHO vào cuối 2021.</p>
+    <p class="nguon">Nguồn: Hội đồng độc lập, báo cáo 5/2021 (qua báo chí, nguồn thứ cấp); Watson và cs., Lancet Infectious Diseases 2022 (qua AP, nguồn thứ cấp).</p>
+  </div></details>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được nói về COVID-19, đối chiếu với WHO, CDC và nghiên cứu bình duyệt. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 5 cần thận trọng, 4 sai">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="ccf">
+        <title id="ccf">So sánh tỷ lệ tử vong trong bệnh viện ở Pháp: 16,9 phần trăm với người nhập viện vì COVID-19 tháng 3 và 4 năm 2020, 5,8 phần trăm với người nhập viện vì cúm mùa đông 2018–2019.</title>
+        <text x="20" y="44" class="t-ink">COVID-19 (3–4/2020)</text><rect x="230" y="28" width="406" height="24" rx="4" fill="var(--day)"/><text x="644" y="45" class="t-bold" style="fill:var(--day)">16,9%</text>
+        <text x="20" y="92" class="t-ink">cúm (12/2018–2/2019)</text><rect x="230" y="76" width="139" height="24" rx="4" fill="var(--night)"/><text x="378" y="93" class="t-night t-bold">5,8%</text>
+        <text x="20" y="136">tỷ lệ người nhập viện tử vong trong viện, toàn nước Pháp: 89.530 ca COVID-19, 45.819 ca cúm</text>
+      </svg>
+    </div>
+    <figcaption><b>Không "chỉ như cúm".</b> Cùng một hệ thống bệnh viện, người nhập viện vì COVID-19 tử vong gần gấp ba. Lưu ý: người bệnh cúm có thể đã có miễn dịch một phần, hai giai đoạn khác nhau.<span class="nguon">Nguồn: Piroth và cs., Lancet Respiratory Medicine 2021, 9: 251–259.</span></figcaption>
+  </figure>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>WHO nhận báo cáo về một cụm viêm phổi lạ từ ngày 31/12/2019</span></summary><p class="note">Dòng thời gian của WHO: Ủy ban Y tế thành phố Vũ Hán báo cụm viêm phổi ngày 31/12/2019; WHO lập nhóm quản lý sự cố ngày 1/1/2020.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>WHO tuyên bố khẩn cấp toàn cầu ngày 30/1/2020, khi ngoài Trung Quốc mới có 83 ca</span></summary><p class="note">Tuyên bố Ủy ban Khẩn cấp 30/1/2020: 7.711 ca xác nhận, 170 người chết ở Trung Quốc; 83 ca ở 18 nước khác. Cuộc họp 22–23/1 trước đó có ý kiến chia rẽ.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Virus đã lây từ người sang người từ giữa tháng 12/2019</span></summary><p class="note">Li và cs., NEJM 29/1/2020, phân tích 425 ca đầu tiên: có bằng chứng lây giữa người tiếp xúc gần từ giữa 12/2019; số ca nhân đôi sau 7,4 ngày.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Số người chết thật cao hơn nhiều so với số được báo cáo</span></summary><p class="note">WHO ước tính 14,83 triệu tử vong dư trong 2020–2021, gấp 2,74 lần 5,42 triệu ca được báo cáo (Msemburi và cs., Nature 2023). Chỉ 52% số nước có dữ liệu tử vong đầy đủ, phần còn lại phải ước tính.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Vắc xin mRNA được thử trên hàng chục nghìn người trước khi cấp phép</span></summary><p class="note">Pfizer/BioNTech: 43.548 người, hiệu quả 95% (Polack và cs., NEJM 2020). Moderna: 30.420 người ở 99 điểm, hiệu quả 94,1% (Baden và cs., NEJM 2021).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Vắc xin cứu 20 triệu người trong năm đầu"</span></summary><p class="note">Đây là ước tính từ mô hình (Watson và cs., Lancet Infectious Diseases 2022): 19,8 triệu nếu tính theo tử vong dư, 14,4 triệu nếu theo số báo cáo; không tính Trung Quốc. Hướng đúng, con số chính xác phụ thuộc giả định.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Phong tỏa cứu 3,1 triệu người ở châu Âu"</span></summary><p class="note">Flaxman và cs. (Nature 2020) ước tính vậy cho 11 nước đến 4/5/2020. Soltesz và cs. (Nature 2020) phản biện: mô hình không tách được tác dụng từng biện pháp, kết quả đổi nhiều nếu xử lý riêng Thụy Điển. Các biện pháp có làm chậm lây lan, nhưng con số cụ thể còn tranh cãi.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Khẩu trang vô dụng" hoặc "khẩu trang chặn được hết"</span></summary><p class="note">Thử nghiệm ngẫu nhiên ở 600 làng Bangladesh (Abaluck và cs., Science 2022): tỷ lệ có triệu chứng và kháng thể giảm khoảng 9%, rõ hơn ở người từ 60 tuổi tại làng phát khẩu trang y tế. Tác dụng có, nhưng vừa phải; các tổng quan khác kết luận còn không chắc chắn.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Đã biết chắc virus từ đâu ra"</span></summary><p class="note">Nhóm cố vấn SAGO của WHO (27/6/2025): sức nặng của bằng chứng hiện có gợi ý lây từ động vật sang người, trực tiếp từ dơi hoặc qua vật chủ trung gian; nhưng nhiều thông tin cần để kiểm mọi giả thuyết chưa được cung cấp. Tổng giám đốc WHO: mọi giả thuyết vẫn để ngỏ, kể cả rò rỉ phòng thí nghiệm. Chưa có kết luận.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"WHO đổi ý về khẩu trang, vậy không thể tin WHO"</span></summary><p class="note">Hướng dẫn 6/4/2020 nói chưa có bằng chứng và hẹn cập nhật khi có bằng chứng mới; 5/6/2020 WHO cập nhật. Đổi theo bằng chứng là cách khoa học vận hành. Nhưng việc CDC và WHO nói khác nhau suốt hai tháng thật sự gây bối rối.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"COVID chỉ như cúm"</span></summary><p class="note">Pháp: tử vong trong viện 16,9% với COVID-19 so với 5,8% với cúm (Piroth và cs. 2021). Mỹ: COVID-19 là nguyên nhân chính của 350.831 ca tử vong năm 2020 và 415.399 năm 2021, đứng thứ ba sau bệnh tim và ung thư (CDC MMWR). CDC ước tính cúm gây 6.300 đến 52.000 ca tử vong mỗi năm ở Mỹ (2010–2025). Hai cách đếm khác nhau (giấy chứng tử và mô hình), nhưng chênh lệch quá lớn.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Vắc xin làm vội nên không được thử"</span></summary><p class="note">Nhanh vì làm các bước chồng lên nhau và có trình tự gen sớm, không phải vì bỏ thử nghiệm: giai đoạn 1 từ 16/3/2020, giai đoạn 3 với 43.548 và 30.420 người có nhóm đối chứng dùng giả dược (NEJM).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Vắc xin mRNA thay đổi ADN của bạn"</span></summary><p class="note">CDC: vắc xin COVID-19 không thay đổi hay tương tác với ADN; mRNA không đi vào nhân tế bào, nơi chứa ADN, và bị tế bào phân hủy sau khi dùng (trang "Myths and Facts" của CDC, kiểm qua bản đăng lại, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Hết tình trạng khẩn cấp 5/2023 nghĩa là COVID đã biến mất"</span></summary><p class="note">Ngày 5/5/2023, Tổng giám đốc WHO nói việc kết thúc khẩn cấp "không có nghĩa COVID-19 đã hết là mối đe dọa toàn cầu", và WHO có thể tuyên bố lại nếu tình hình thay đổi (qua báo chí, nguồn thứ cấp).</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở Phần 9.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Đánh giá: thế giới phản ứng thế nào</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 9, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Phát hiện sớm</span><div class="bar"><i style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Minh bạch dữ liệu</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Phối hợp toàn cầu</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Khoa học và vắc xin</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Rút kinh nghiệm</span><div class="bar"><i style="width:60%"></i></div><b>3/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng</span><ul class="plus"><li>Trình tự gen chia sẻ ngày 11/1/2020, hướng dẫn cho mọi nước ngày 10/1</li><li>Vắc xin thử nghiệm đầy đủ, cấp phép sau 326 ngày</li><li>Đo được tử vong dư cho mọi nước, sửa luật y tế quốc tế</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Tháng 2/2020 là "tháng bị mất" ở nhiều nước</li><li>Số tử vong báo cáo thấp hơn thực tế 2,74 lần; dữ liệu về nguồn gốc vẫn thiếu</li><li>Tranh nhau đồ bảo hộ; vắc xin đến nước nghèo chậm</li></ul></div>
+  </div>
+  <p class="nguon">Nguồn: WHO, dòng thời gian (10/1/2020); thông cáo Moderna (11/1/2020); Msemburi và cs., Nature 2023; Hội đồng độc lập, báo cáo 5/2021 (qua báo chí, nguồn thứ cấp); SAGO 27/6/2025; WHO 19/9/2025.</p>
+  <p class="verdict">Trung bình 3/5. Khoa học chạy nhanh hơn bao giờ hết; cái chậm là những quyết định trong lúc chưa chắc chắn, và việc chia sẻ dữ liệu cùng vắc xin giữa các nước.</p>
+  <details class="more"><summary>Xem thêm: vì sao Mark không chấm từng quốc gia</summary><div>
+    <p>Mỗi nước có dân số, hệ thống y tế và dữ liệu khác nhau; xếp hạng nhanh dễ thành chuyện đổ lỗi. Bài này chấm cách cả hệ thống thế giới phản ứng: báo động, chia sẻ, phối hợp, sửa sai. Đó cũng là những thứ một nhóm làm việc có thể tự chấm cho mình.</p>
+  </div></details>
+  <p class="nguon">Phần "Xem thêm" là nhận xét của Mark.</p>
+</section>
+
+<section id="bai-hoc">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Bài học làm việc: quyết khi dữ liệu chưa đủ</h2><p class="lead">Nói rõ mình chắc đến đâu, và hẹn ngày xem lại. Áp dụng cho mọi quyết định không thể chờ: ra mắt sản phẩm, đổi quy trình, xử lý sự cố.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="cbh">
+        <title id="cbh">Mẫu ba dòng cho một quyết định khi dữ liệu chưa đủ: dòng 1 chúng tôi quyết gì; dòng 2 mức chắc chắn thấp, vừa hay cao và vì sao; dòng 3 ngày xem lại và tín hiệu nào sẽ làm chúng tôi đổi ý.</title>
+        <g>
+          <rect x="20" y="30" width="240" height="110" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="3"/>
+          <text x="40" y="60" class="t-night t-bold">1 · Chúng tôi quyết</text><text x="40" y="86" class="t-ink">làm X, từ hôm nay</text><text x="40" y="106">một câu, không rào đón</text>
+          <rect x="290" y="30" width="240" height="110" rx="10" fill="var(--paper)" stroke="var(--day)" stroke-width="3"/>
+          <text x="310" y="60" class="t-day t-bold">2 · Mức chắc chắn</text><text x="310" y="86" class="t-ink">thấp · vừa · cao</text><text x="310" y="106">vì biết gì, chưa biết gì</text>
+          <rect x="560" y="30" width="240" height="110" rx="10" fill="var(--paper)" stroke="var(--ok)" stroke-width="3"/>
+          <text x="580" y="60" class="t-ok t-bold">3 · Xem lại ngày</text><text x="580" y="86" class="t-ink">ngày cụ thể</text><text x="580" y="106">và tín hiệu sẽ làm mình đổi ý</text>
+        </g>
+        <path d="M262 85 h24 M532 85 h24" stroke="var(--muted)" stroke-width="2"/>
+        <text x="410" y="176" text-anchor="middle" class="t-ink">Đổi ý theo bằng chứng mới là đúng hẹn, không phải thất hứa.</text>
+      </svg>
+    </div>
+    <figcaption><b>Ví dụ từ đại dịch.</b> Hướng dẫn khẩu trang ngày 6/4/2020 của WHO nói rõ "chưa có bằng chứng" và hẹn cập nhật khi có bằng chứng mới; hai tháng sau WHO cập nhật. Cái thiếu là một ngày xem lại cụ thể và một câu nói trước điều gì sẽ làm đổi khuyến nghị.<span class="nguon">Nguồn: WHO, hướng dẫn khẩu trang 6/4/2020 (qua báo chí, nguồn thứ cấp) và 5/6/2020. Mẫu ba dòng là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h20M6 24h12"/></svg><div><b>Tách "biết" và "chưa biết"</b><span>Viết hai cột trước khi quyết. Cột "chưa biết" dài không phải lý do để chờ, mà là danh sách việc cần theo dõi.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24a10 10 0 0 1 20 0"/><path d="M16 24l5-7"/></svg><div><b>Gắn mức chắc chắn</b><span>Thấp, vừa hay cao, kèm một câu vì sao. Người nghe biết nên dựa vào quyết định này đến đâu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg><div><b>Hẹn ngày xem lại</b><span>Một ngày cụ thể, và tín hiệu nào sẽ làm mình đổi ý. Nói trước thì lúc đổi không ai thấy bị lừa.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22l7-7 5 4 10-10"/><path d="M27 9h-6M27 9v6"/></svg><div><b>Đừng chờ chắc chắn khi giá chờ tăng nhanh</b><span>Khi thứ mình lo nhân đôi sau vài ngày (số ca năm 2020 nhân đôi sau 7,4 ngày), mỗi tuần chờ đắt hơn tuần trước.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: Li và cs., NEJM 2020 (7,4 ngày). Các thói quen là đề xuất của Mark.</p>
+  <details class="more"><summary>Tự kiểm tra trong nhóm mình: 5 câu hỏi</summary><div>
+    <p>1. Quyết định gần nhất nhóm bạn trì hoãn "vì chưa đủ dữ liệu": chờ thêm thì được gì, mất gì?</p>
+    <p>2. Thông báo quyết định gần nhất có ghi mức chắc chắn không? Người nhận có hiểu nhầm là "chắc chắn 100%" không?</p>
+    <p>3. Quyết định nào đang chạy mà chưa có ngày xem lại? Ghi một ngày vào lịch ngay hôm nay.</p>
+    <p>4. Nhóm đã viết sẵn tín hiệu nào sẽ làm mình đổi hướng chưa?</p>
+    <p>5. Lần gần nhất nhóm đổi ý, có ai nói rõ "vì bằng chứng mới là…" không, hay chỉ lặng lẽ đổi?</p>
+  </div></details>
+  <div class="quote"><span>Chúng tôi lo ngại sâu sắc cả về mức lây lan và mức độ nặng đáng báo động, lẫn mức thiếu hành động đáng báo động.</span><span class="src">Tổng giám đốc WHO Tedros Adhanom Ghebreyesus, họp báo 11/3/2020, Mark dịch.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Hội đồng độc lập về chuẩn bị và ứng phó đại dịch (2021), "COVID-19: Make it the Last Pandemic"</b><span class="muted">Báo cáo do WHO lập ra để xem xét lại phản ứng của thế giới, có dòng thời gian chi tiết.</span></div>
+    <div><b>Msemburi và cs. (2023), "The WHO estimates of excess mortality associated with the COVID-19 pandemic"</b><span class="muted">Nature 613: 130–137. Cách WHO đếm "người chết thêm" cho mọi nước.</span></div>
+    <div><b>SAGO (2025), "Independent assessment of the origins of SARS-CoV-2"</b><span class="muted">Đánh giá của nhóm cố vấn WHO về nguồn gốc virus, nói rõ chỗ còn thiếu dữ liệu.</span></div>
+    <div><b>Nhìn lại sự kiện lớn #02: Sự cố Y2K (1999–2000)</b><span class="muted">Nghịch lý phòng ngừa: làm tốt thì trông như thừa.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên WHO, CDC và nghiên cứu bình duyệt. Nguồn thứ cấp ghi rõ. Môi trường làm bài chặn who.int, cdc.gov và các trang tạp chí, nên các nguồn gốc được đối chiếu qua trích đoạn của chính các trang đó trong kết quả tìm kiếm và qua bản đăng lại (PAHO, PubMed), chưa mở toàn văn.</p></div>
+  <ol class="srcs">
+    <li><b>WHO</b>, "Archived: WHO Timeline – COVID-19" (4/2020) và "Listings of WHO's response to COVID-19" (29/6/2020). <a href="https://www.who.int/news/item/27-04-2020-who-timeline---covid-19">who.int</a> · <a href="https://www.who.int/news/item/29-06-2020-covidtimeline">who.int</a></li>
+    <li><b>WHO</b>, Tuyên bố cuộc họp thứ hai của Ủy ban Khẩn cấp IHR (2005) về virus corona mới, 30/1/2020. <a href="https://www.who.int/news/item/30-01-2020-statement-on-the-second-meeting-of-the-international-health-regulations-(2005)-emergency-committee-regarding-the-outbreak-of-novel-coronavirus-(2019-ncov)">who.int</a></li>
+    <li><b>WHO</b>, Phát biểu của Tổng giám đốc tại họp báo 11/3/2020. <a href="https://www.who.int/director-general/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">who.int</a></li>
+    <li><b>WHO</b>, "Advice on the use of masks in the context of COVID-19", 6/4/2020 và 5/6/2020; phát biểu Tổng giám đốc 5/6/2020. <a href="https://www.who.int/director-general/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---5-june-2020">who.int</a></li>
+    <li><b>WHO</b>, "WHO issues its first emergency use validation for a COVID-19 vaccine…", 31/12/2020; "Classification of Omicron (B.1.1.529)", 26/11/2021. <a href="https://www.who.int/news/item/31-12-2020-who-issues-its-first-emergency-use-validation-for-a-covid-19-vaccine-and-emphasizes-need-for-equitable-global-access">who.int</a> · <a href="https://www.who.int/news/item/26-11-2021-classification-of-omicron-(b.1.1.529)-sars-cov-2-variant-of-concern">who.int</a></li>
+    <li><b>WHO</b>, "14.9 million excess deaths associated with the COVID-19 pandemic in 2020 and 2021", 5/5/2022. <a href="https://www.who.int/news/item/05-05-2022-14.9-million-excess-deaths-were-associated-with-the-covid-19-pandemic-in-2020-and-2021">who.int</a></li>
+    <li><b>Msemburi W. và cs.</b>, "The WHO estimates of excess mortality associated with the COVID-19 pandemic", Nature 613 (2023) 130–137. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9812776/">PMC</a></li>
+    <li><b>WHO SAGO</b>, "Independent assessment of the origins of SARS-CoV-2" và thông cáo 27/6/2025. <a href="https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19">who.int</a></li>
+    <li><b>WHO</b>, "Amended International Health Regulations enter into force", 19/9/2025; Hiệp định Đại dịch của WHO, WHA78, 20/5/2025. <a href="https://www.who.int/news/item/19-09-2025-amended-international-health-regulations-enter-into-force">who.int</a></li>
+    <li><b>Li Q. và cs.</b>, "Early Transmission Dynamics in Wuhan, China, of Novel Coronavirus–Infected Pneumonia", NEJM 382 (2020) 1199–1207. <a href="https://pubmed.ncbi.nlm.nih.gov/31995857/">PubMed</a></li>
+    <li><b>Polack F. và cs.</b>, "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine", NEJM 383 (2020) 2603–2615; <b>Baden L. và cs.</b>, "Efficacy and Safety of the mRNA-1273 SARS-CoV-2 Vaccine", NEJM 384 (2021) 403–416.</li>
+    <li><b>Watson O. và cs.</b>, "Global impact of the first year of COVID-19 vaccination", Lancet Infectious Diseases 22 (2022) 1293–1302.</li>
+    <li><b>Piroth L. và cs.</b>, "Comparison of the characteristics, morbidity, and mortality of COVID-19 and seasonal influenza", Lancet Respiratory Medicine 9 (2021) 251–259.</li>
+    <li><b>Flaxman S. và cs.</b>, Nature 584 (2020) 257–261; <b>Soltesz K. và cs.</b>, phản biện, Nature 588 (2020) E26–E28.</li>
+    <li><b>Abaluck J. và cs.</b>, "Impact of community masking on COVID-19: A cluster-randomized trial in Bangladesh", Science 375 (2022) eabi9069.</li>
+    <li><b>CDC</b>, MMWR 71(17), "Provisional Mortality Data, United States, 2021" (2022); "Facts About Estimated Flu Burden"; "Myths and Facts about COVID-19 Vaccines". <a href="https://www.cdc.gov/mmwr/volumes/71/wr/mm7117e1.htm">cdc.gov</a> · <a href="https://www.cdc.gov/flu-burden/php/about/faq.html">cdc.gov</a></li>
+    <li><b>Moderna</b>, thông cáo 16/3/2020 (giai đoạn 1 mRNA-1273). <a href="https://www.sec.gov/Archives/edgar/data/1682852/000119312520074867/d884510dex992.htm">sec.gov</a>. <b>Pfizer/BioNTech</b>, thông cáo 2/12/2020 (Anh cấp phép).</li>
+    <li>Nguồn thứ cấp: Hội đồng độc lập về chuẩn bị và ứng phó đại dịch, báo cáo 5/2021 (câu trích qua UN News, Al Jazeera); ILO Monitor ấn bản 7 (qua báo chí); UNESCO (qua báo cáo trích lại); CDC 3/4/2020 (qua NPR, PolitiFact); WHO 6/4/2020 (câu trích qua báo chí); WHO 5/5/2023 (qua UPI, báo chí); bảng theo dõi COVID-19 của WHO (qua Wikipedia); số của Watson và cs. (qua AP); trang "Myths and Facts" của CDC (qua bản đăng lại); Bộ Y tế Phần Lan, DFAT Úc (Hiệp định Đại dịch).</li>
+  </ol>
+</section>
+
+<footer>Nhìn lại sự kiện lớn #01. Các hình là sơ đồ minh họa; số liệu lấy từ WHO, CDC và nghiên cứu bình duyệt, nguồn thứ cấp được ghi rõ, đối chiếu ở phần Kiểm chứng. Bài không phải lời khuyên y tế.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<link rel="stylesheet" href="../assets/vu-tru-khac/tro-choi.css?v=dev">
+<script type="application/json" id="vtk-tro-choi">[{"khuon": "nhap-vai", "id": "nhap-vai-covid", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là người phụ trách y tế một thành phố", "hoi": "Bạn phụ trách y tế công cộng của một thành phố lớn (giả định), từ đầu tháng 1 đến tháng 4/2020. Mỗi cảnh bạn chỉ biết những gì thế giới biết lúc đó.", "canh": [{"moc": "Đầu tháng 1/2020", "biet": "Ngày 31/12/2019, Vũ Hán báo một cụm viêm phổi chưa rõ nguyên nhân. Chưa biết là virus gì, chưa biết có lây giữa người với người không. Thành phố bạn có đường bay thẳng tới vùng này.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Báo bệnh viện để ý, chuẩn bị xét nghiệm", "dap": "Tốn ít: một công văn, một quy trình hỏi tiền sử đi lại. Nếu là báo động giả, bạn mất vài ngày công."}, {"nhan": "Chờ thêm thông tin", "dap": "Hợp lý nếu đây chỉ là một ổ dịch địa phương. Nhưng nếu không phải, bạn bắt đầu muộn hơn nhịp nhân đôi của virus."}], "that": 0, "chuyen_that": "Chuyện thật: ngày 1/1/2020 WHO lập nhóm quản lý sự cố; ngày 10/1 WHO gửi mọi nước gói hướng dẫn cách phát hiện, xét nghiệm và điều trị ca nghi ngờ. Ngày 11/1 trình tự gen được chia sẻ, ngày 13/1 Thái Lan có ca đầu tiên ngoài Trung Quốc."}, {"moc": "Cuối tháng 1/2020", "biet": "Ngày 22–23/1, Ủy ban Khẩn cấp của WHO chia rẽ, chưa tuyên bố khẩn cấp toàn cầu. Ngày 29/1, một nghiên cứu trên NEJM cho thấy virus lây giữa người với người và số ca nhân đôi sau khoảng 7,4 ngày.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Chỉ theo dõi người về từ vùng dịch", "dap": "Hữu ích lúc đầu, nhưng nếu virus đã lây trong cộng đồng ở nơi khác thì lọc theo nơi đến sẽ sót ca."}, {"nhan": "Chờ WHO tuyên bố khẩn cấp", "dap": "Dễ giải thích với cấp trên: đợi cơ quan quốc tế lên tiếng. Nhưng tuyên bố chỉ là tín hiệu, không chuẩn bị giường thay bạn."}, {"nhan": "Chuẩn bị ngay giường, đồ bảo hộ, xét nghiệm", "dap": "Tốn tiền và có thể bị chê là làm quá. Nhưng với nhịp nhân đôi 7,4 ngày, mỗi tuần chuẩn bị sớm là thêm thời gian khi dịch đến."}], "that": 1, "chuyen_that": "Chuyện thật: ngày 30/1/2020 WHO tuyên bố khẩn cấp y tế công cộng quốc tế (7.711 ca ở Trung Quốc, 83 ca ở 18 nước khác). Nhưng Hội đồng độc lập sau này kết luận nhiều nước vẫn \"chờ xem\", và gọi tháng 2/2020 là \"tháng bị mất\". Lựa chọn A mới là điều họ nói lẽ ra nên làm."}, {"moc": "Đầu tháng 3/2020", "biet": "Ngày 11/3, WHO nói COVID-19 có thể gọi là đại dịch: hơn 118.000 ca ở 114 nước, 4.291 người chết, và WHO lo về \"mức thiếu hành động đáng báo động\". Thành phố bạn bắt đầu có ca không rõ lây từ đâu. Chưa có thuốc đặc hiệu, chưa có vắc xin.", "hoi": "Bạn đề xuất gì?", "chon": [{"nhan": "Dừng sự kiện đông người, chuẩn bị đóng trường ngay", "dap": "Cái giá kinh tế và xã hội đến ngay, chắc chắn, và người dân sẽ hỏi \"có cần đến thế không\". Lợi ích thì khó thấy, vì thứ bạn tránh được là những ca không xảy ra."}, {"nhan": "Đợi đến khi bệnh viện bắt đầu quá tải", "dap": "Tránh được chi phí trong vài tuần. Nhưng ca bệnh hôm nay phản ánh lây nhiễm của 1 đến 2 tuần trước, nên khi bệnh viện đầy thì dịch đã lớn hơn nhiều."}], "that": 0, "chuyen_that": "Chuyện thật: từ giữa đến cuối tháng 3/2020, nhiều nước châu Âu cấm tụ tập, đóng trường và phong tỏa. Một nghiên cứu (Flaxman và cs., Nature 2020) ước tính các biện pháp ở 11 nước tránh khoảng 3,1 triệu ca tử vong đến 4/5/2020, nhưng con số bị phản biện về phương pháp. Cái giá có thật: năm 2020 thế giới mất 8,8% giờ làm."}, {"moc": "Đầu tháng 4/2020", "biet": "Có dấu hiệu người không triệu chứng vẫn lây. Chưa có thử nghiệm ngẫu nhiên nào về khẩu trang cho người khỏe ở cộng đồng. Khẩu trang y tế đang thiếu cho bệnh viện. Ngày 3/4, CDC (Mỹ) khuyên dùng khăn vải nơi đông người.", "hoi": "Bạn khuyến nghị gì?", "chon": [{"nhan": "Chờ bằng chứng mạnh rồi mới khuyến nghị", "dap": "Đúng chuẩn khoa học, nhưng trong lúc chờ, người dân nghe hai lời khuyên khác nhau từ hai cơ quan lớn."}, {"nhan": "Khuyên khẩu trang vải, nói rõ bằng chứng còn yếu và hẹn ngày xem lại", "dap": "Người dân biết đây là cược có tính toán, không phải chân lý. Khi có bằng chứng mới, bạn đổi mà không mất lòng tin."}], "that": 1, "chuyen_that": "Chuyện thật: hai cơ quan chọn khác nhau. CDC chọn gần với A ngày 3/4/2020. WHO chọn B: ngày 6/4 nói chưa có bằng chứng và hẹn cập nhật, ngày 5/6 mới khuyến khích đeo nơi lây lan rộng. Thử nghiệm lớn ở Bangladesh (2022) sau đó thấy tác dụng có thật nhưng vừa phải, khoảng 9%."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Giống người thật chưa chắc là đúng: ở cảnh 2, phần lớn thế giới đã chờ. Bài học: khi dữ liệu chưa đủ, quyết một bước nhỏ ngay, nói rõ mình chắc đến đâu, và hẹn ngày xem lại.", "nguon": "Nguồn: WHO, dòng thời gian COVID-19 (31/12/2019, 1/1, 10/1, 13/1, 22–23/1/2020); thông cáo Moderna 16/3/2020 (trình tự gen 11/1); Li và cs., NEJM 29/1/2020 (nhân đôi 7,4 ngày); tuyên bố Ủy ban Khẩn cấp WHO 30/1/2020; Hội đồng độc lập về chuẩn bị và ứng phó đại dịch, báo cáo 5/2021 (qua báo chí, nguồn thứ cấp); phát biểu Tổng giám đốc WHO 11/3/2020; Flaxman và cs., Nature 2020 và phản biện của Soltesz và cs., Nature 2020; ILO Monitor 25/1/2021 (8,8%; qua báo chí, nguồn thứ cấp); CDC 3/4/2020 (qua NPR, nguồn thứ cấp); WHO, hướng dẫn khẩu trang 6/4/2020 (qua báo chí, nguồn thứ cấp) và 5/6/2020; Abaluck và cs., Science 2022. Thành phố trong trò chơi là giả định.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You run public health for a city", "hoi": "You are in charge of public health in a large (imaginary) city, from early January to April 2020. In each scene you only know what the world knew then.", "canh": [{"moc": "Early January 2020", "biet": "On 31 Dec 2019, Wuhan reported a cluster of pneumonia of unknown cause. Nobody knows yet what virus it is or whether it spreads between people. Your city has direct flights to the area.", "hoi": "What do you do?", "chon": [{"nhan": "Alert hospitals, prepare testing", "dap": "Cheap: one memo, one procedure to ask about travel history. If it is a false alarm, you lose a few days of staff time."}, {"nhan": "Wait for more information", "dap": "Reasonable if this is just a local outbreak. If it is not, you start behind the virus's doubling pace."}], "that": 0, "chuyen_that": "What really happened: on 1 Jan 2020 WHO set up an incident management team; on 10 Jan WHO sent every country guidance on detecting, testing and managing suspected cases. The genome was shared on 11 Jan, and on 13 Jan Thailand had the first case outside China."}, {"moc": "Late January 2020", "biet": "On 22–23 Jan, WHO's Emergency Committee is split and declares no global emergency. On 29 Jan, a study in NEJM shows the virus spreads between people and cases double about every 7.4 days.", "hoi": "What do you do?", "chon": [{"nhan": "Only monitor travellers from the outbreak area", "dap": "Useful at first, but if the virus is already spreading locally elsewhere, filtering by origin will miss cases."}, {"nhan": "Wait for WHO to declare an emergency", "dap": "Easy to explain to your bosses: wait for the international body. But a declaration is only a signal; it does not prepare beds for you."}, {"nhan": "Prepare beds, protective gear and testing now", "dap": "It costs money and you may be accused of overreacting. But with cases doubling every 7.4 days, every week of early preparation buys time when the outbreak arrives."}], "that": 1, "chuyen_that": "What really happened: on 30 Jan 2020 WHO declared a public health emergency of international concern (7,711 cases in China, 83 cases in 18 other countries). But the Independent Panel later concluded that many countries still took a \"wait-and-see\" approach, and called February 2020 \"a lost month\". Option A is what they said should have happened."}, {"moc": "Early March 2020", "biet": "On 11 Mar, WHO says COVID-19 can be characterised as a pandemic: more than 118,000 cases in 114 countries, 4,291 deaths, and WHO is worried about \"alarming levels of inaction\". Your city now has cases with no known source. No specific treatment, no vaccine.", "hoi": "What do you propose?", "chon": [{"nhan": "Stop mass gatherings, prepare to close schools now", "dap": "The economic and social cost is immediate and certain, and people will ask \"is this really necessary\". The benefit is hard to see, because what you prevent are cases that never happen."}, {"nhan": "Wait until hospitals start to fill up", "dap": "You avoid the cost for a few weeks. But today's cases reflect infections from one to two weeks ago, so by the time hospitals are full the outbreak is much bigger."}], "that": 0, "chuyen_that": "What really happened: from mid to late March 2020, many European countries banned gatherings, closed schools and locked down. One study (Flaxman et al., Nature 2020) estimated the measures in 11 countries averted about 3.1 million deaths by 4 May 2020, but the figure is disputed on method. The cost was real: in 2020 the world lost 8.8% of working hours."}, {"moc": "Early April 2020", "biet": "There are signs that people without symptoms can spread the virus. No randomised trial has tested masks for healthy people in the community. Medical masks are short for hospitals. On 3 Apr, the CDC (US) advises cloth face coverings in crowded places.", "hoi": "What do you recommend?", "chon": [{"nhan": "Wait for strong evidence before recommending", "dap": "Scientifically by the book, but while you wait, people hear two different messages from two major agencies."}, {"nhan": "Advise cloth masks, say the evidence is weak and set a review date", "dap": "People know this is a calculated bet, not a certainty. When new evidence arrives, you can change without losing trust."}], "that": 1, "chuyen_that": "What really happened: the two agencies chose differently. The CDC chose something close to A on 3 Apr 2020. WHO chose B: on 6 Apr it said there was no evidence yet and promised updates, and only on 5 Jun encouraged masks where spread was widespread. A large trial in Bangladesh (2022) later found a real but modest effect, about 9%."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You chose like the real decision-makers {d}/{n} times. Matching them is not always right: in scene 2, much of the world waited. The lesson: when data is not enough, take a small step now, say how sure you are, and set a date to review.", "nguon": "Source: WHO COVID-19 timeline (31 Dec 2019; 1, 10, 13, 22–23 Jan 2020); Moderna release, 16 Mar 2020 (genome 11 Jan); Li et al., NEJM, 29 Jan 2020 (doubling 7.4 days); WHO Emergency Committee statement, 30 Jan 2020; Independent Panel for Pandemic Preparedness and Response, May 2021 report (via press, secondary source); WHO Director-General's remarks, 11 Mar 2020; Flaxman et al., Nature 2020 and the reply by Soltesz et al., Nature 2020; ILO Monitor, 25 Jan 2021 (8.8%; via press, secondary source); CDC, 3 Apr 2020 (via NPR, secondary source); WHO mask guidance, 6 Apr 2020 (via press, secondary source) and 5 Jun 2020; Abaluck et al., Science 2022. The city in the game is imaginary.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}]</script>
+<script src="../assets/vu-tru-khac/tro-choi.js?v=dev" defer></script>
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
