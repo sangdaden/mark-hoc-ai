@@ -102,3 +102,15 @@ footer { margin-top: 28px; }
   section { background: var(--paper); border: 1px solid var(--rule); border-radius: 16px; padding: 20px 22px; margin-top: 16px; }
 }
 html[lang="en"] .toc::before { content: "In this article"; }
+
+/* Tiến độ đọc: vạch màu nhấn của bìa ngay dưới thanh trên cùng, mục đang đọc sáng lên trong mục lục (assets/vu-tru-khac/doc.js) */
+.vtk-tien-do { position: fixed; top: 48px; left: 0; right: 0; height: 3px; z-index: 20; pointer-events: none; background: rgb(15 23 42 / .12); }
+.vtk-tien-do i { display: block; height: 100%; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--vtk-nhan, #FBBF24), #EA580C); }
+.toc a[aria-current] { background: var(--vtk-nhan, #FBBF24); border-color: var(--vtk-nhan, #FBBF24); color: #0F172A; font-weight: 600; }
+@media (min-width: 1000px) {
+  .toc a { position: relative; }
+  .toc a[aria-current] { background: color-mix(in srgb, var(--vtk-nhan, #FBBF24) 22%, transparent); color: var(--ink); }
+  .toc a[aria-current]::before { content: ""; position: absolute; left: -2px; top: 6px; bottom: 6px; width: 3px; border-radius: 2px; background: var(--vtk-nhan, #FBBF24); }
+}
+@media (prefers-reduced-motion: no-preference) { .vtk-tien-do i { transition: transform .1s linear; } .toc a { transition: background .2s, color .2s; } }
