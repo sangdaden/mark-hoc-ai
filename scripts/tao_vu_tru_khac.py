@@ -10,6 +10,7 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   Đừng sửa tay các file đó, sửa bài gốc rồi chạy lại.
 - Bỏ phần "Ghi chú riêng" (để Sang tự điền, không đăng công khai) và nhãn bản nháp.
 - Viết lại danh sách thẻ sách trong vu-tru-khac.html và en/vu-tru-khac.html, giữa <!-- sach:dau --> và <!-- sach:cuoi -->.
+- Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
 """
 import html
 import json
@@ -20,6 +21,29 @@ from pathlib import Path
 R = Path(__file__).resolve().parent.parent
 BASE = "https://markhocai.com/"
 esc = lambda s: html.escape(str(s or ""), quote=True)
+
+
+def dong_sitemap(tien_to=""):
+    """Các dòng sitemap của góc sách cho một ngôn ngữ ("" hoặc "en/")."""
+    sach = json.loads((R / "data" / "vu-tru-khac.json").read_text(encoding="utf-8"))
+    dong = [f"  <url><loc>{BASE}{tien_to}vu-tru-khac.html</loc><priority>0.5</priority></url>"]
+    dong += [f'  <url><loc>{BASE}{tien_to}vu-tru-khac/{b["slug"]}.html</loc><priority>0.5</priority></url>'
+             for b in sorted(sach, key=lambda b: b["so"])]
+    return dong
+
+
+def cap_nhat_sitemap():
+    # Bỏ dòng góc sách cũ rồi chèn lại ngay sau trang phiêu lưu của từng ngôn ngữ (đúng thứ tự tao_bai_viet.py ghi)
+    f = R / "sitemap.xml"
+    dong = [d for d in f.read_text(encoding="utf-8").splitlines() if "vu-tru-khac" not in d]
+    ra = []
+    for d in dong:
+        ra.append(d)
+        for tien_to in ("", "en/"):
+            if f"<loc>{BASE}{tien_to}phieu-luu.html</loc>" in d:
+                ra += dong_sitemap(tien_to)
+    f.write_text("\n".join(ra) + "\n", encoding="utf-8")
+    print(f"  sitemap.xml: {sum('vu-tru-khac' in d for d in ra)} dòng góc sách")
 
 
 def lam_sach(s, en=False):
@@ -120,6 +144,7 @@ def main():
         s = re.sub(r"(<!-- sach:dau -->\n).*?(\s*<!-- sach:cuoi -->)", lambda m: m.group(1) + the + m.group(2), s, flags=re.S)
         hub.write_text(s, encoding="utf-8")
         print(f"  {hub.relative_to(R)}: {len(sach)} cuốn")
+    cap_nhat_sitemap()
 
 
 if __name__ == "__main__":
