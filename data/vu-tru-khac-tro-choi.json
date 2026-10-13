@@ -1,5 +1,5 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai.",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua. Bản 4 thêm: ve-duong, can-thang-bang, chia-nhom, lan-theo-nguon, kim-tu-thap, xay-thap, dong-tien, doan-vi-tri, nao-chia-doi, ban-tron, hop-nhom, nhan-chung, cham-mu, hau-truong, tong-dai, pheu, ket-sat, nhap-vai. Đợt 1 (6 chủ đề) thêm: gay-bong, cung-dien, kenh-dong-chay, ban-chu-y, vong-may, vong-quan-he, cau-chuyen-chung, khoang-trong, ban-viec-do, ban-mut, mo-neo, san-bong, may-photo, phong-asch, lop-hoc, bien-the.",
   "tham-hoa-challenger": [
     {
       "khuon": "quyet-dinh",
@@ -249,32 +249,93 @@
   ],
   "thi-nghiem-mo-neo": [
     {
-      "khuon": "doan",
-      "id": "choi-vong-quay",
+      "khuon": "mo-neo",
+      "id": "choi-mo-neo",
       "truoc": "tinh-hoa",
-      "quay": [10, 65],
-      "ket_qua": {"10": 25, "65": 45},
+      "quay": [
+        10,
+        65
+      ],
+      "ket_qua": {
+        "10": 25,
+        "65": 45
+      },
+      "tich": {
+        "tang": 512,
+        "giam": 2250,
+        "dung": 40320
+      },
       "vi": {
         "muc": "Chơi trước khi đọc",
-        "nhan": "Quay rồi đoán",
-        "hoi": "Quay vòng số trước, rồi trả lời một câu hỏi.",
-        "nut_quay": "Quay", "dung_o": "Vòng quay dừng ở",
-        "cau": "Nước châu Phi chiếm bao nhiêu phần trăm số nước trong Liên Hợp Quốc?",
+        "nhan": "Vòng quay và cái mỏ neo",
+        "hoi": "Quay vòng quay hội chợ (vuốt hoặc chạm vào nó), rồi trả lời hai câu hỏi.",
+        "mo_ta": "Một vòng quay hội chợ đánh số từ 0 đến 95. Sau khi quay, cảnh chuyển ra biển: con số vừa quay thành cái mỏ neo dưới đáy; bạn kéo chiếc thuyền trên thước 0–100% tới câu trả lời của mình, một sợi dây buộc thuyền vào mỏ neo.",
+        "doc_mac": "Vuốt vòng quay hoặc bấm Quay.",
+        "nut_quay": "Quay",
+        "nut_cao": "Cao hơn",
+        "nut_thap": "Thấp hơn",
         "nut_chot": "Chốt",
-        "ban": "Bạn", "nhom": "Nhóm thấy {a}",
-        "ket": "Bạn thấy {a} và đoán {me}%. Năm 1974, nhóm thấy {a} đoán trung vị {g}%, nhóm thấy {b} đoán {h}%. Một con số ngẫu nhiên vẫn kéo câu trả lời về phía nó.",
-        "nguon": "Nguồn: Tversky và Kahneman (1974), \"Judgment under Uncertainty: Heuristics and Biases\", Science 185. Vòng quay bị chỉnh để chỉ dừng ở 10 hoặc 65; trung vị câu trả lời là 25% và 45%."
+        "nut_phu": "Vòng phụ: 5 giây",
+        "nut_bo": "Bỏ qua",
+        "nut_lai": "Chơi lại",
+        "cau_1": "Vòng quay dừng ở {a}. Tỷ lệ các nước châu Phi trong Liên Hợp Quốc cao hơn hay thấp hơn {a}%?",
+        "cau_2": "Vậy là bao nhiêu phần trăm? Kéo thuyền (hoặc dùng phím mũi tên) tới số bạn đoán. Thuyền đang buộc vào mỏ neo.",
+        "ban_doan": "Bạn: {v}%",
+        "nhom": "Nhóm thấy {a}: {g}%",
+        "kq": "Bạn thấy {a}, chọn \"{tl}\", rồi đoán {me}%. Năm 1974, nhóm thấy {a} đoán trung vị {g}%, nhóm thấy {b} đoán {h}%: mỗi chiếc thuyền chỉ trôi chưa xa mỏ neo của mình.",
+        "cap_phu": "Thêm một vòng 5 giây với phép nhân, hoặc bỏ qua.",
+        "phu_hoi": "Ước lượng tích này trong 5 giây, đừng tính:",
+        "con_giay": "còn {s} giây",
+        "phu_doan": "Bạn đoán:",
+        "ban": "Bạn",
+        "nhom_tang": "Nhóm thấy 1 × 2 × … × 8",
+        "nhom_giam": "Nhóm thấy 8 × 7 × … × 1",
+        "dap_an": "Đáp án",
+        "phu_kq": "Bạn thấy dãy {day}. Hai nhóm học sinh trung học đoán trung vị 512 và 2.250: cả hai đều thấp xa đáp án 40.320, nhưng nhóm thấy số lớn đứng đầu đoán cao hơn hẳn.",
+        "day_tang": "tăng dần (bắt đầu từ 1)",
+        "day_giam": "giảm dần (bắt đầu từ 8)",
+        "ket": "Bạn quay ra {a} và đoán {me}%; đó là trải nghiệm một người, không phải số đo. Trong thí nghiệm gốc, nhóm thấy {a} đoán trung vị {g}%, nhóm thấy {b} đoán {h}%. Many Labs (2014) làm lại với 6.344 người ở 36 nhóm mẫu: mỏ neo vẫn rõ.",
+        "the_tieu": "Ai nói số trước?",
+        "the_chu": "Gộp 90 nghiên cứu, 16.334 người: mức giá đầu tiên tương quan 0,62 với giá chốt. Biết rõ giá thị trường thì nêu số của mình trước; thiếu thông tin thì chuẩn bị sẵn con số của mình trước khi nghe số của bên kia.",
+        "cap_xong": "Thuyền nào cũng bị dây kéo về phía mỏ neo của nó.",
+        "cap_bo": "Thuyền nào cũng bị dây kéo về phía mỏ neo của nó.",
+        "nguon": "Nguồn: Tversky và Kahneman (1974), \"Judgment under Uncertainty: Heuristics and Biases\", Science 185: vòng quay được chỉnh để chỉ dừng ở 10 hoặc 65 (Kahneman, 2011, chương 11); trung vị câu trả lời 25% và 45%; học sinh trung học ước lượng tích 8 số trong 5 giây: trung vị 512 (dãy tăng) và 2.250 (dãy giảm), đáp án 40.320. Klein và cộng sự (2014), Many Labs, Social Psychology 45(3): 6.344 người, 36 nhóm mẫu. Petrowsky và cộng sự (2025), Organizational Behavior and Human Decision Processes 191: 90 nghiên cứu, 16.334 người, tương quan giá đầu và giá chốt 0,62. Minh họa: hình vòng quay (số 0–95), độ dài dây neo và đường thuyền trôi."
       },
       "en": {
         "muc": "Play before you read",
-        "nhan": "Spin, then guess",
-        "hoi": "Spin the wheel first, then answer one question.",
-        "nut_quay": "Spin", "dung_o": "The wheel stopped at",
-        "cau": "What percentage of the countries in the United Nations are African?",
+        "nhan": "The wheel and the anchor",
+        "hoi": "Spin the fairground wheel (swipe or tap it), then answer two questions.",
+        "mo_ta": "A fairground wheel numbered 0 to 95. After the spin the scene turns into the sea: the number becomes an anchor on the seabed; you drag a boat along a 0–100% ruler to your answer, and a rope ties the boat to the anchor.",
+        "doc_mac": "Swipe the wheel or press Spin.",
+        "nut_quay": "Spin",
+        "nut_cao": "Higher",
+        "nut_thap": "Lower",
         "nut_chot": "Lock in",
-        "ban": "You", "nhom": "Group that saw {a}",
-        "ket": "You saw {a} and guessed {me}%. In 1974, people who saw {a} gave a median guess of {g}%, and people who saw {b} guessed {h}%. A random number still pulls the answer toward it.",
-        "nguon": "Source: Tversky and Kahneman (1974), \"Judgment under Uncertainty: Heuristics and Biases\", Science 185. The wheel was rigged to stop only at 10 or 65; median answers were 25% and 45%."
+        "nut_phu": "Bonus round: 5 seconds",
+        "nut_bo": "Skip",
+        "nut_lai": "Play again",
+        "cau_1": "The wheel stopped at {a}. Is the share of African countries in the United Nations higher or lower than {a}%?",
+        "cau_2": "So what percentage is it? Drag the boat (or use the arrow keys) to your guess. The boat is tied to the anchor.",
+        "ban_doan": "You: {v}%",
+        "nhom": "Saw {a}: {g}%",
+        "kq": "You saw {a}, chose \"{tl}\", then guessed {me}%. In 1974 the group that saw {a} gave a median guess of {g}%, the group that saw {b} guessed {h}%: each boat drifted only a short way from its own anchor.",
+        "cap_phu": "One more 5-second round with a multiplication, or skip it.",
+        "phu_hoi": "Estimate this product in 5 seconds, don't calculate:",
+        "con_giay": "{s} seconds left",
+        "phu_doan": "Your guess:",
+        "ban": "You",
+        "nhom_tang": "Saw 1 × 2 × … × 8",
+        "nhom_giam": "Saw 8 × 7 × … × 1",
+        "dap_an": "Answer",
+        "phu_kq": "You saw the {day} sequence. Two groups of high-school students gave median guesses of 512 and 2,250: both far below the answer of 40,320, but the group that saw the big numbers first guessed much higher.",
+        "day_tang": "ascending (starting at 1)",
+        "day_giam": "descending (starting at 8)",
+        "ket": "You spun {a} and guessed {me}%; that is one person's experience, not a measurement. In the original study, people who saw {a} gave a median of {g}%, people who saw {b} gave {h}%. Many Labs (2014) re-ran it with 6,344 people in 36 samples: the anchor still pulled clearly.",
+        "the_tieu": "Who names a number first?",
+        "the_chu": "Pooling 90 studies and 16,334 people: the first offer correlates 0.62 with the final price. If you know the market price well, put your number on the table first; if you lack information, prepare your own number before you hear theirs.",
+        "cap_xong": "Every boat is pulled toward its own anchor.",
+        "cap_bo": "Every boat is pulled toward its own anchor.",
+        "nguon": "Source: Tversky and Kahneman (1974), \"Judgment under Uncertainty: Heuristics and Biases\", Science 185: the wheel was rigged to stop only at 10 or 65 (Kahneman, 2011, chapter 11); median answers 25% and 45%; high-school students estimating a product of 8 numbers in 5 seconds: medians 512 (ascending) and 2,250 (descending), answer 40,320. Klein et al. (2014), Many Labs, Social Psychology 45(3): 6,344 people, 36 samples. Petrowsky et al. (2025), Organizational Behavior and Human Decision Processes 191: 90 studies, 16,334 people, first offer and final price correlate 0.62. Illustrative: the wheel's design (numbers 0–95), rope length and the boats' drift."
       }
     }
   ],
@@ -316,391 +377,351 @@
   ],
   "thinking-fast-and-slow": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Mỏ neo kéo lệch con số ta ước lượng",
-            "Lặp lại thành công trong dự án Many Labs (2014) với hàng nghìn người ở nhiều nước."
-          ],
-          "en": [
-            "Anchors bias our numeric estimates",
-            "Replicated in the Many Labs project (2014) with thousands of people across many countries."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Công thức đơn giản thường đoán tốt hơn chuyên gia",
-            "Từ Paul Meehl (1954) đến các phân tích gộp sau này: công thức thắng hoặc hòa trong phần lớn so sánh."
-          ],
-          "en": [
-            "Simple formulas often beat experts",
-            "From Paul Meehl (1954) to later meta-analyses, formulas win or tie in most comparisons."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Mất đau gấp khoảng 2 lần được",
-            "Né tránh mất mát có thật và phân tích gộp ủng hộ. Độ lớn thay đổi theo bối cảnh; với khoản nhỏ, hiệu ứng có thể rất yếu (Gal và Rucker, 2018)."
-          ],
-          "en": [
-            "Losses hurt about twice as much as gains",
-            "Loss aversion is real and meta-analyses support it. Its size varies with context; for small stakes it can be very weak (Gal and Rucker, 2018)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"Bàn tay nóng\" trong bóng rổ là ảo tưởng",
-            "Miller và Sanjurjo (2018) chỉ ra lỗi thống kê trong nghiên cứu gốc; tính lại thì có một hiệu ứng nhỏ."
-          ],
-          "en": [
-            "The \"hot hand\" in basketball is an illusion",
-            "Miller and Sanjurjo (2018) found a statistical flaw in the original study; corrected, a small effect appears."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Ý chí là nguồn lực cạn dần, nạp đường thì hồi lại",
-            "Thử nghiệm đăng ký trước ở 23 phòng thí nghiệm với hơn 2.000 người (Hagger và cộng sự, 2016) cho hiệu ứng gần bằng 0."
-          ],
-          "en": [
-            "Willpower is a depletable resource, restored by glucose",
-            "A preregistered study across 23 labs with over 2,000 people (Hagger et al., 2016) found an effect near zero."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Chữ khó đọc làm ta suy nghĩ cẩn thận hơn",
-            "Phân tích gộp 17 thí nghiệm (Meyer và cộng sự, 2015) không tìm thấy hiệu ứng."
-          ],
-          "en": [
-            "Hard-to-read fonts make us think more carefully",
-            "A meta-analysis of 17 experiments (Meyer et al., 2015) found no effect."
-          ]
-        }
-      ],
+      "khuon": "gay-bong",
+      "id": "choi-gay-bong",
+      "truoc": "khai-niem",
+      "tong": 110,
+      "hon": 100,
+      "nhanh": 10,
+      "max": 50,
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Gậy và bóng",
+        "hoi": "Bấm để hỏi Nhanh. Rồi kéo quả bóng trên thước để đổi giá bóng, Chậm sẽ kiểm tra cả hai điều kiện.",
+        "mo_ta": "Câu đố gậy và bóng: một cái cân, đĩa trái là cây gậy, đĩa phải là quả bóng cộng quả cân 1 đô; hai nhân vật Nhanh và Chậm; một thước để kéo giá quả bóng.",
+        "de": "Gậy + bóng = 1,10 $. Gậy đắt hơn bóng 1 $. Bóng giá bao nhiêu?",
+        "nhanh": "Nhanh (Hệ 1)",
+        "cham": "Chậm (Hệ 2)",
+        "gay": "Gậy",
+        "bong": "Bóng",
+        "gia": "{v} $",
+        "xu": "{v} xu",
+        "dk_tong": "Gậy + bóng = {v}",
+        "dk_hon": "Gậy hơn bóng: {v}",
+        "nut_hoi": "Hỏi Nhanh",
+        "nut_lai": "Chơi lại",
+        "doc_mac": "Đọc đề trên cùng, rồi bấm \"Hỏi Nhanh\".",
+        "keo": "Kéo quả bóng trên thước (hoặc dùng phím mũi tên) để đổi giá bóng.",
+        "nhanh_noi": "10 xu! Dễ mà.",
+        "nhanh_xong": "Ơ… 5 xu à?",
+        "cham_thu": "Để tôi kiểm tra…",
+        "cham_sai": "Chỉ hơn {v} ✗",
+        "cham_dung": "Cả hai đều đúng ✓",
+        "ket": "Bóng 5 xu, gậy 1,05 $. Câu \"10 xu\" đến ngay và khớp với điều dễ thấy (tổng 1,10 $), nên Hệ 2 gật đầu cho qua mà không kiểm tra điều thứ hai. Theo Kahneman, hơn một nửa sinh viên Harvard, MIT và Princeton trả lời 10 xu.",
+        "nguon": "Nguồn: câu đố gậy và bóng trong Daniel Kahneman, Tư duy nhanh và chậm (2011), Phần I; Kahneman kể lại nghiên cứu của Shane Frederick, theo đó hơn một nửa sinh viên Harvard, MIT và Princeton trả lời 10 xu. Mọi giá trong cảnh là giá của chính câu đố. \"Nhanh\" và \"Chậm\" là tên gọi Hệ 1, Hệ 2 cho dễ hình dung, như Kahneman gọi chúng là hai \"nhân vật\", không phải hai vùng não."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before reading",
+        "nhan": "The bat and the ball",
+        "hoi": "Press to ask Fast. Then drag the ball along the ruler to change its price, and Slow will check both conditions.",
+        "mo_ta": "The bat-and-ball puzzle: a balance scale with the bat on the left pan and the ball plus a one-dollar weight on the right; two characters, Fast and Slow; a ruler to drag the ball's price.",
+        "de": "Bat + ball = $1.10. The bat costs $1 more. Ball = ?",
+        "nhanh": "Fast (System 1)",
+        "cham": "Slow (System 2)",
+        "gay": "Bat",
+        "bong": "Ball",
+        "gia": "${v}",
+        "xu": "{v}¢",
+        "dk_tong": "Bat + ball = {v}",
+        "dk_hon": "Bat minus ball: {v}",
+        "nut_hoi": "Ask Fast",
+        "nut_lai": "Play again",
+        "doc_mac": "Read the puzzle at the top, then press \"Ask Fast\".",
+        "keo": "Drag the ball along the ruler (or use the arrow keys) to change its price.",
+        "nhanh_noi": "10 cents! Easy.",
+        "nhanh_xong": "Huh… 5 cents?",
+        "cham_thu": "Let me check…",
+        "cham_sai": "Only {v} more ✗",
+        "cham_dung": "Both are true ✓",
+        "ket": "The ball is 5 cents and the bat $1.05. \"10 cents\" arrives instantly and fits the obvious condition (the $1.10 total), so System 2 nods it through without checking the second one. According to Kahneman, more than half of students at Harvard, MIT and Princeton answered 10 cents.",
+        "nguon": "Source: the bat-and-ball puzzle in Daniel Kahneman, Thinking, Fast and Slow (2011), Part I; Kahneman reports Shane Frederick's finding that more than half of students at Harvard, MIT and Princeton answered 10 cents. All prices in the scene are the puzzle's own. \"Fast\" and \"Slow\" are nicknames for System 1 and System 2; Kahneman calls them two \"characters\", not two brain regions."
       }
     }
   ],
   "mindset": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
+      "khuon": "chia-nhom",
+      "id": "choi-hai-loi-khen",
+      "truoc": "khai-niem",
+      "nhom": [
         {
-          "k": "v",
-          "vi": [
-            "Can thiệp 1 giờ giúp học sinh yếu lên điểm chút ít",
-            "Thử nghiệm toàn quốc Mỹ (Yeager và cộng sự, Nature 2019, hơn 12.000 học sinh): nhóm học lực thấp tăng khoảng 0,1 điểm GPA. Có thật, nhưng nhỏ."
-          ],
-          "en": [
-            "A one-hour intervention slightly raises grades for struggling students",
-            "US national study (Yeager et al., Nature 2019, 12,000+ students): lower-achieving students gained about 0.1 GPA points. Real, but small."
-          ]
+          "gt": 33,
+          "nguoi": 5
         },
         {
-          "k": "v",
-          "vi": [
-            "Học sinh tin \"trí tuệ phát triển được\" có điểm PISA cao hơn",
-            "OECD, PISA 2018: đúng ở đa số quốc gia. Đây là tương quan, không chứng minh nhân quả."
-          ],
-          "en": [
-            "Students who believe intelligence can grow score higher on PISA",
-            "OECD, PISA 2018: true in most countries. This is a correlation and does not prove cause."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Khen \"thông minh\" khiến trẻ né thử thách và nói dối điểm",
-            "Nghiên cứu gốc (Mueller & Dweck, 1998) có mẫu nhỏ. Li & Bates (2019) làm lại ba lần, không tìm thấy hiệu ứng của lời khen hay của tư duy lên phản ứng với thất bại."
-          ],
-          "en": [
-            "Praising \"smart\" makes children avoid challenges and lie about scores",
-            "The original study (Mueller & Dweck, 1998) had small samples. Li & Bates (2019) ran three replications and found no effect of praise or mindset on responses to failure."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Ảnh chụp não: người tư duy cố định bỏ qua lời sửa sai",
-            "Nghiên cứu sóng não năm 2006 (Mangels và cộng sự) có mẫu nhỏ, chưa được lặp lại quy mô lớn."
-          ],
-          "en": [
-            "Brain recordings: fixed-mindset students ignore corrective feedback",
-            "The 2006 EEG study (Mangels et al.) had a small sample and has not been replicated at scale."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Tư duy là chìa khóa của thành tích",
-            "Tổng hợp 273 nghiên cứu (Sisk và cộng sự, 2018): tương quan giữa tư duy và thành tích chỉ khoảng r = 0,10. Một nghiên cứu 5.600 thí sinh Séc (Bahník & Vranka, 2017) gần như không thấy liên hệ."
-          ],
-          "en": [
-            "Mindset is the key to achievement",
-            "A meta-analysis of 273 studies (Sisk et al., 2018) found a correlation of only about r = 0.10 between mindset and achievement. A study of 5,600 Czech applicants (Bahník & Vranka, 2017) found almost no link."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Dạy tư duy phát triển sẽ thay đổi kết quả học tập rõ rệt",
-            "Hiệu ứng trung bình d ≈ 0,08 (2018), gần 0 khi lọc nghiên cứu chất lượng cao và tính thiên lệch công bố (Macnamara & Burgoyne, 2023). Nhóm của Dweck phản biện rằng hiệu ứng có thật ở đúng đối tượng và bối cảnh."
-          ],
-          "en": [
-            "Teaching growth mindset clearly changes academic results",
-            "Average effect d ≈ 0.08 (2018), near zero after filtering for study quality and publication bias (Macnamara & Burgoyne, 2023). Dweck's group responds that the effect is real for the right students in the right settings."
-          ]
+          "gt": 92,
+          "nguoi": 5
         }
       ],
+      "hoa": 0,
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 10 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Hai lớp, hai lời khen",
+        "hoi": "Hai phòng học sinh lớp 5 vừa làm xong một bài dễ. Phòng trái được khen \"thông minh\", phòng phải được khen \"cố gắng\". Kéo chiếc cúp vào phòng bạn đoán sẽ có nhiều trẻ chọn bài khó hơn để học, rồi bấm chạy.",
+        "mo_ta": "Hai phòng học, mỗi phòng có năm trẻ. Một chiếc cúp để kéo vào phòng bạn đoán; khi chạy, cột trước mỗi phòng cho thấy tỷ lệ trẻ chọn bài khó.",
+        "nhom": [
+          {
+            "ten": "Khen thông minh",
+            "mo_ta": "\"Con thông minh quá\"",
+            "nhan": "33% chọn bài khó"
+          },
+          {
+            "ten": "Khen cố gắng",
+            "mo_ta": "\"Con đã rất cố gắng\"",
+            "nhan": "92% chọn bài khó"
+          }
+        ],
+        "truc": "TỶ LỆ TRẺ CHỌN BÀI KHÓ ĐỂ HỌC",
+        "cup": "Chiếc cúp: kéo vào phòng bạn đoán",
+        "chon_cup": "Kéo chiếc cúp vào một phòng (hoặc chạm vào phòng).",
+        "da_chon": "Bạn đoán: {p}. Bấm chạy.",
+        "nut_chay": "Chạy thí nghiệm",
+        "nut_lai": "Đoán lại",
+        "dung": "Bạn đoán đúng.",
+        "sai": "Không phải phòng đó.",
+        "hoa": "Hai phòng ngang nhau.",
+        "ket": "Trong nghiên cứu 1 của Mueller & Dweck (1998), 92% trẻ được khen cố gắng chọn bài để học, so với 33% ở nhóm khen thông minh. Ở nghiên cứu 3, khi kể điểm cho bạn khác, 38% trẻ được khen thông minh nói sai điểm của mình, so với 13% ở nhóm khen cố gắng. Nhưng mỗi nhóm chỉ vài chục trẻ, Li & Bates (2019) làm lại không thấy hiệu ứng, và can thiệp tư duy ngoài đời chỉ có hiệu ứng rất nhỏ (d ≈ 0,08).",
+        "nguon": "Nguồn: Mueller, C. M. & Dweck, C. S. (1998), Journal of Personality and Social Psychology 75(1): 33–52. Nghiên cứu 1 (123 trẻ lớp 5): 67% trẻ khen thông minh chọn loại bài dễ, ít sai (mục tiêu thể hiện), nên 33% chọn loại bài để học; 92% trẻ khen cố gắng chọn bài để học. Nghiên cứu 3 (88 trẻ): 38% trẻ khen thông minh nói sai điểm, 13% ở nhóm khen cố gắng, 14% ở nhóm đối chứng. Li & Bates (2019): ba lần làm lại không thấy hiệu ứng. d = 0,08: phân tích gộp của Sisk và cộng sự (2018); gần 0 khi chỉ tính nghiên cứu chất lượng cao (Macnamara & Burgoyne, 2023). Số trẻ vẽ trong mỗi phòng là minh họa."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 10 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before reading",
+        "nhan": "Two classes, two kinds of praise",
+        "hoi": "Two rooms of fifth graders have just finished an easy test. The left room is praised for being \"smart\", the right room for \"effort\". Drag the trophy into the room where you think more children will pick a harder task to learn from, then run it.",
+        "mo_ta": "Two classrooms, five children each. A trophy to drag into the room you guess; when run, a bar in front of each room shows the share of children choosing the hard task.",
+        "nhom": [
+          {
+            "ten": "Praised as smart",
+            "mo_ta": "\"You must be smart\"",
+            "nhan": "33% chose hard"
+          },
+          {
+            "ten": "Praised for effort",
+            "mo_ta": "\"You must have worked hard\"",
+            "nhan": "92% chose hard"
+          }
+        ],
+        "truc": "SHARE CHOOSING A HARD TASK TO LEARN FROM",
+        "cup": "Trophy: drag it into the room you guess",
+        "chon_cup": "Drag the trophy into a room (or tap a room).",
+        "da_chon": "Your guess: {p}. Press run.",
+        "nut_chay": "Run the experiment",
+        "nut_lai": "Guess again",
+        "dung": "You guessed right.",
+        "sai": "Not that room.",
+        "hoa": "The two rooms tie.",
+        "ket": "In Study 1 of Mueller & Dweck (1998), 92% of children praised for effort chose the task to learn from, versus 33% of those praised as smart. In Study 3, when reporting scores to other children, 38% of those praised as smart misreported their score, versus 13% of those praised for effort. But each group had only a few dozen children, Li & Bates (2019) found no effect when they replicated it, and real-world mindset interventions have a very small effect (d ≈ 0.08).",
+        "nguon": "Source: Mueller, C. M. & Dweck, C. S. (1998), Journal of Personality and Social Psychology 75(1): 33–52. Study 1 (123 fifth graders): 67% of children praised for intelligence chose an easy, low-error task (a performance goal), so 33% chose the learning task; 92% of children praised for effort chose the learning task. Study 3 (88 children): 38% of children praised for intelligence misrepresented their scores, 13% of those praised for effort, 14% of controls. Li & Bates (2019): three replications found no effect. d = 0.08: meta-analysis by Sisk et al. (2018); near zero for high-quality studies only (Macnamara & Burgoyne, 2023). The number of children drawn in each room is illustrative."
       }
     }
   ],
   "sapiens": [
     {
-      "khuon": "thu-tu",
-      "id": "choi-thu-tu",
-      "truoc": "dan-chung",
+      "khuon": "cau-chuyen-chung",
+      "id": "choi-cau-chuyen-chung",
+      "truoc": "khai-niem",
+      "dau": 60,
+      "them": 30,
+      "toi_da": 240,
+      "moi_hinh": 5,
+      "truc_max": 550,
+      "dunbar": 150,
+      "dai": [
+        5,
+        520
+      ],
+      "dut": [
+        100,
+        200
+      ],
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Xếp lại lịch sử",
-        "hoi": "Chạm các mốc theo thứ tự, từ xa xưa nhất đến gần nhất.",
-        "cac": [
-          [
-            "khoảng 2,5 triệu năm trước",
-            "Chi Homo, những loài người đầu tiên, xuất hiện."
-          ],
-          [
-            "khoảng 300.000 năm trước",
-            "Homo sapiens có mặt, rải rác khắp châu Phi."
-          ],
-          [
-            "khoảng 70.000 năm trước",
-            "Cách mạng nhận thức: kể chuyện về những thứ không có thật."
-          ],
-          [
-            "khoảng 40.000 năm trước",
-            "Các loài người khác lần lượt biến mất."
-          ],
-          [
-            "khoảng 12.000 năm trước",
-            "Cách mạng nông nghiệp: con người bắt đầu làm ruộng."
-          ],
-          [
-            "khoảng 500 năm trước",
-            "Cách mạng khoa học: thừa nhận \"chúng ta không biết\"."
-          ]
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Vượt qua con số 150",
+        "hoi": "Kéo thêm người vào bộ lạc. Khi những sợi buôn chuyện không giữ nổi nữa, thử cắm một lá cờ chung.",
+        "mo_ta": "Một bộ lạc người que nối nhau bằng sợi buôn chuyện. Phía trên là trục số người với một dải mờ quanh 150. Bên phải có ba lá cờ: thần linh, đồng tiền, công ty. Dưới đáy là một dòng sông.",
+        "doan_moi": "Đoàn người mới, kéo vào bãi hoặc chạm để thêm",
+        "dem": "{n} người",
+        "dai_nhan": "≈150",
+        "dai_ghi": "Dải mờ: Lindenfors 2021, khoảng tin cậy từ vài người đến hơn 500",
+        "doc_mac": "Bộ lạc nhỏ: ai cũng biết chuyện của ai. Kéo đoàn người mới (+30) vào bãi.",
+        "cap_nho": "Vẫn ổn: buôn chuyện đủ giữ mọi người gắn với nhau.",
+        "cap_lon": "Đông dần, các sợi buôn chuyện bắt đầu đứt (nét đỏ). Không ai còn theo kịp chuyện của mọi người.",
+        "cap_vo": "Bộ lạc tách đôi, hai phe cãi nhau. Giờ kéo một lá cờ bên phải vào giữa bãi.",
+        "co_khoa": "Chưa cần: bộ lạc còn giữ được nhau bằng buôn chuyện. Thêm người trước đã.",
+        "co": [
+          {
+            "ten": "Thần linh",
+            "full": "Cùng tin một vị thần, người lạ coi nhau là anh em."
+          },
+          {
+            "ten": "Đồng tiền",
+            "full": "Cùng tin một đồng tiền, người lạ, cả kẻ thù, cũng buôn bán được với nhau."
+          },
+          {
+            "ten": "Công ty",
+            "full": "Một công ty như Peugeot là \"pháp nhân\": nhà máy cháy, nhân viên nghỉ hết, nó vẫn còn vì luật và mọi người công nhận nó."
+          }
         ],
-        "nut_kiem": "Xem mốc thật",
+        "cap_co": "Cắm cờ {c}. Không cần quen nhau nữa: mỗi người chỉ cần tin cùng một câu chuyện.",
+        "dem_lon": [
+          "hàng nghìn người",
+          "hàng trăm nghìn người",
+          "hàng triệu người lạ"
+        ],
+        "tin_nhan": "Bao nhiêu người còn tin câu chuyện:",
+        "song": "Dòng sông (khách quan): vẫn chảy dù không ai tin",
+        "cap_tin": "Kéo thanh xuống: ai bỏ tin thì sợi nối tới lá cờ biến mất. Để ý dòng sông.",
+        "cap_sap": "Gần như không ai còn tin: lá cờ phai và gãy. Dòng sông thì vẫn chảy.",
+        "ket": "Ba tầng thực tại. Dòng sông là khách quan: có thật dù không ai tin. Cơn đau là chủ quan: chỉ có trong đầu một người. Thần linh, tiền, công ty là liên chủ quan: có thật vì nhiều người cùng tin, và sụp khi hàng triệu người cùng bỏ tin.",
         "nut_lai": "Làm lại",
-        "dung_cho": "đúng vị trí",
-        "sai_cho": "đúng ra là bước {n}",
-        "ket": "Bạn xếp đúng {d}/{n}. Sách ghi sapiens 200.000 năm; hóa thạch Jebel Irhoud đẩy lên khoảng 300.000 năm.",
-        "nguon": "Nguồn: các mốc theo sách Sapiens (Harari, 2014); tuổi Homo sapiens theo Hublin và cộng sự (2017), Nature, hóa thạch Jebel Irhoud."
+        "nguon": "Ý hư cấu chung, ví dụ Peugeot và ba tầng thực tại: Harari, Sapiens (2014), chương 2 và 6. Khoảng 150 người: con số Dunbar như sách dùng; phân tích lại năm 2021 (Lindenfors và cộng sự, Biology Letters) cho khoảng tin cậy từ vài người đến hơn 500, nên điểm đứt vẽ thành dải mờ, không phải một vạch. Minh họa: số người trong bãi, lúc sợi bắt đầu đứt, số người sau khi cắm cờ. Lá cờ công ty không vẽ logo thật."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Put history in order",
-        "hoi": "Tap the milestones in order, from the oldest to the most recent.",
-        "cac": [
-          [
-            "about 2.5 million years ago",
-            "The genus Homo, the first humans, appears."
-          ],
-          [
-            "about 300,000 years ago",
-            "Homo sapiens is present, scattered across Africa."
-          ],
-          [
-            "about 70,000 years ago",
-            "The Cognitive Revolution: telling stories about things that don't exist."
-          ],
-          [
-            "about 40,000 years ago",
-            "The other human species disappear one by one."
-          ],
-          [
-            "about 12,000 years ago",
-            "The Agricultural Revolution: people start farming."
-          ],
-          [
-            "about 500 years ago",
-            "The Scientific Revolution: admitting \"we don't know\"."
-          ]
+        "muc": "Play before you read",
+        "nhan": "Beyond the number 150",
+        "hoi": "Drag more people into the tribe. When the gossip threads can no longer hold, try planting a shared flag.",
+        "mo_ta": "A tribe of stick figures joined by gossip threads. Above is a head-count axis with a fuzzy band around 150. On the right are three flags: a god, a coin, a company. A river runs along the bottom.",
+        "doan_moi": "A group of newcomers, drag into the camp or tap to add",
+        "dem": "{n} people",
+        "dai_nhan": "≈150",
+        "dai_ghi": "Fuzzy band: Lindenfors 2021, a range from a few people to over 500",
+        "doc_mac": "A small tribe: everyone knows everyone's business. Drag the newcomers (+30) into the camp.",
+        "cap_nho": "Still fine: gossip is enough to keep everyone together.",
+        "cap_lon": "As it grows, gossip threads start to snap (red dashes). Nobody can keep up with everyone anymore.",
+        "cap_vo": "The tribe splits in two and the halves quarrel. Now drag one of the flags on the right into the middle.",
+        "co_khoa": "Not yet: gossip still holds this tribe together. Add more people first.",
+        "co": [
+          {
+            "ten": "A god",
+            "full": "Believing in the same god, strangers treat each other as kin."
+          },
+          {
+            "ten": "A coin",
+            "full": "Trusting the same money, strangers, even enemies, can trade."
+          },
+          {
+            "ten": "A company",
+            "full": "A company like Peugeot is a \"legal person\": burn the factory, lose every worker, and it still exists because the law and everyone else accept it."
+          }
         ],
-        "nut_kiem": "Show real dates",
+        "cap_co": "Flag planted: {c}. People no longer need to know each other; they only need to believe the same story.",
+        "dem_lon": [
+          "thousands of people",
+          "hundreds of thousands",
+          "millions of strangers"
+        ],
+        "tin_nhan": "How many people still believe the story:",
+        "song": "The river (objective): flows even if nobody believes",
+        "cap_tin": "Drag the slider down: whoever stops believing loses their thread to the flag. Watch the river.",
+        "cap_sap": "Almost nobody believes anymore: the flag fades and breaks. The river keeps flowing.",
+        "ket": "Three levels of reality. The river is objective: real even if nobody believes in it. A pain is subjective: it exists in one person's head. Gods, money and companies are intersubjective: real because many people believe together, and they collapse when millions stop.",
         "nut_lai": "Start over",
-        "dung_cho": "right place",
-        "sai_cho": "should be step {n}",
-        "ket": "You placed {d}/{n} correctly. The book says sapiens is 200,000 years old; the Jebel Irhoud fossils push that to about 300,000.",
-        "nguon": "Source: milestones as given in Sapiens (Harari, 2014); age of Homo sapiens from Hublin et al. (2017), Nature, Jebel Irhoud fossils."
+        "nguon": "Shared fictions, the Peugeot example and the three levels of reality: Harari, Sapiens (2014), chapters 2 and 6. About 150 people: Dunbar's number as the book uses it; a 2021 reanalysis (Lindenfors et al., Biology Letters) puts the confidence interval anywhere from a few people to over 500, so the breaking point is drawn as a fuzzy band, not a line. Illustrative: head counts in the camp, when threads start to snap, crowd sizes after the flag. The company flag uses no real logo."
       }
     }
   ],
   "hyperfocus": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
+      "khuon": "ban-chu-y",
+      "id": "choi-ban-chu-y",
+      "truoc": "khai-niem",
+      "giay": 24,
+      "nhip": 3,
+      "toc": 1.2,
+      "xao": [
         {
-          "k": "v",
-          "vi": [
-            "Trí nhớ làm việc chỉ giữ được khoảng 4 thứ",
-            "Ước lượng phổ biến trong tâm lý học nhận thức (Cowan, 2001), thay cho con số \"7 ± 2\" cũ."
-          ],
-          "en": [
-            "Working memory holds about 4 items",
-            "A common estimate in cognitive psychology (Cowan, 2001), replacing the older \"7 ± 2\"."
-          ]
+          "chan": true
         },
         {
-          "k": "v",
-          "vi": [
-            "Chuyển qua lại giữa các việc có chi phí",
-            "Chi phí chuyển việc được đo lặp lại nhiều lần trong phòng thí nghiệm (Monsell, 2003). Mỗi lần chuyển mất một chút thời gian và tăng lỗi."
-          ],
-          "en": [
-            "Switching between tasks has a cost",
-            "Switch costs have been measured repeatedly in the lab (Monsell, 2003). Each switch costs a little time and raises errors."
-          ]
+          "chan": true
         },
         {
-          "k": "t",
-          "vi": [
-            "Dư âm chú ý làm giảm hiệu quả việc tiếp theo",
-            "Khái niệm của Sophie Leroy (2009) hợp lý, nhưng số nghiên cứu còn ít và mẫu nhỏ."
-          ],
-          "en": [
-            "Attention residue hurts the next task",
-            "Sophie Leroy's (2009) idea is plausible, but there are few studies and samples are small."
-          ]
+          "chan": false
         },
         {
-          "k": "t",
-          "vi": [
-            "Vài tuần thiền giúp tăng trí nhớ làm việc và điểm thi GRE 16%",
-            "Nghiên cứu của Mrazek và cộng sự (2013) chỉ có 48 sinh viên. Các phân tích gộp về thiền cho thấy lợi ích cho chú ý có thật nhưng nhỏ."
-          ],
-          "en": [
-            "A few weeks of meditation raise working memory and GRE scores by 16%",
-            "Mrazek and colleagues (2013) studied only 48 students. Meta-analyses on meditation find real but small benefits for attention."
-          ]
+          "chan": true
         },
         {
-          "k": "s",
-          "vi": [
-            "Người vui vẻ làm việc năng suất hơn 31%",
-            "Con số phổ biến qua Shawn Achor nhưng không truy được tới một nghiên cứu công bố rõ ràng. Hướng chung (cảm xúc tích cực giúp làm việc tốt hơn) có cơ sở, con số thì không."
-          ],
-          "en": [
-            "Happy people are 31% more productive",
-            "Popularised by Shawn Achor but not traceable to a clearly published study. The general direction (positive mood helps work) has support; the number doesn't."
-          ]
+          "chan": false
         },
         {
-          "k": "s",
-          "vi": [
-            "Ra ngoài thiên nhiên giúp giải vấn đề sáng tạo tốt hơn 50%",
-            "Atchley và cộng sự (2012) chỉ có 56 người, không chia nhóm ngẫu nhiên, và người đi dã ngoại còn bỏ điện thoại ở nhà, nên không tách được tác động của thiên nhiên."
-          ],
-          "en": [
-            "Time in nature makes creative problem-solving 50% better",
-            "Atchley and colleagues (2012) had only 56 people, no random assignment, and hikers also left their phones at home, so nature's effect can't be separated out."
-          ]
+          "chan": true
         }
       ],
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 11 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Thử trên chính bạn",
+        "nhan": "Bàn làm việc 4 ô",
+        "hoi": "Kéo \"Viết báo cáo\" lên bàn (chiếm 2 ô). Món có chấm cam chặn trước được: kéo vào hộp \"Chặn từ trước\" nếu muốn. Rồi bấm Bắt đầu và giữ bản báo cáo trên bàn.",
+        "mo_ta": "Mặt bàn nhìn từ trên xuống có 4 ô. Một bản báo cáo chiếm 2 ô; sáu món xao nhãng đang chờ bay lên bàn; bên dưới là sàn và hộp chặn từ trước.",
+        "viec": "Viết báo cáo",
+        "xao": [
+          "Thông báo",
+          "Email",
+          "Đồng nghiệp\nhỏi",
+          "Mạng\nxã hội",
+          "Nhạc nền",
+          "Tin nhắn\nnhóm"
+        ],
+        "ban": "BÀN CHÚ Ý · KHOẢNG 4 Ô",
+        "hang_doi": "SẮP BAY TỚI",
+        "san": "SÀN",
+        "hop": "CHẶN TỪ TRƯỚC",
+        "dong": "{n} dòng",
+        "nut_bd": "Bắt đầu",
+        "nut_lai": "Chơi lại",
+        "doc_mac": "Kéo bản \"Viết báo cáo\" lên bàn. Có thể chặn trước vài món có chấm cam.",
+        "khong_chan": "{x}: không chặn trước được, nó vẫn sẽ tới.",
+        "da_chan": "Đã chặn trước: {x}.",
+        "can_viec": "Đặt bản báo cáo lên bàn trước đã.",
+        "san_sang": "Sẵn sàng. Bấm Bắt đầu. Trong lúc chạy, chạm một món trên bàn để dẹp nó đi.",
+        "toi": "{x} bay lên bàn!",
+        "con": "Còn {s} giây · {n} dòng",
+        "roi": "Bàn tràn: {x} rơi xuống sàn! Kéo nó lên lại.",
+        "du_am": "Dư âm: đầu óc vẫn còn dính ở \"{x}\", viết chậm lại một lúc.",
+        "ket_luot": "Lượt này ({kieu}): {n} dòng.",
+        "kieu_mac": "để mặc",
+        "kieu_chan": "chặn trước",
+        "so_sanh": "Để mặc: {a} dòng · Chặn trước: {b} dòng.",
+        "goi_y": "Chơi lại và chặn trước vài món xem sao.",
+        "ket": "Bàn chú ý chỉ có khoảng 4 ô: thêm một món là món khác rơi ra, và quay lại việc cũ còn dính dư âm. Chặn từ trước dễ hơn cưỡng lại giữa chừng. Ngoài đời, làm việc trên máy tính ta đổi màn hình sau khoảng 40–47 giây.",
+        "nguon": "Nguồn: \"khoảng 4 thứ\" trong trí nhớ làm việc theo Cowan (2001); đổi màn hình sau khoảng 40–47 giây theo các đợt đo của Gloria Mark và cộng sự (thời gian nhìn một màn hình, chưa hẳn là mất tập trung); dư âm chú ý theo Sophie Leroy (2009), bài xếp \"thận trọng\" vì ít nghiên cứu, mẫu nhỏ. Bàn 4 ô theo hình ảnh của Chris Bailey, Hyperfocus (2018). Nhịp xao nhãng bay tới, độ dài lượt và số dòng viết được là minh họa."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 11 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Try it on yourself",
+        "nhan": "A four-slot desk",
+        "hoi": "Drag \"Write report\" onto the desk (it takes 2 slots). Items with an orange dot can be blocked in advance: drag them into the \"Blocked ahead\" box if you like. Then press Start and keep the report on the desk.",
+        "mo_ta": "A desk seen from above with 4 slots. A report takes 2 slots; six distractions wait to fly onto the desk; below are the floor and a box for blocking ahead.",
+        "viec": "Write report",
+        "xao": [
+          "Notification",
+          "Email",
+          "Colleague\nasks",
+          "Social\nmedia",
+          "Music",
+          "Group\nchat"
+        ],
+        "ban": "ATTENTIONAL SPACE · ABOUT 4 SLOTS",
+        "hang_doi": "INCOMING",
+        "san": "FLOOR",
+        "hop": "BLOCKED AHEAD",
+        "dong": "{n} lines",
+        "nut_bd": "Start",
+        "nut_lai": "Play again",
+        "doc_mac": "Drag \"Write report\" onto the desk. You can block a few orange-dot items ahead.",
+        "khong_chan": "{x}: can't be blocked ahead, it will still come.",
+        "da_chan": "Blocked ahead: {x}.",
+        "can_viec": "Put the report on the desk first.",
+        "san_sang": "Ready. Press Start. While it runs, tap an item on the desk to clear it away.",
+        "toi": "{x} lands on the desk!",
+        "con": "{s} seconds left · {n} lines",
+        "roi": "Desk overflow: {x} fell to the floor! Drag it back up.",
+        "du_am": "Residue: your mind is still stuck on \"{x}\", writing slows for a while.",
+        "ket_luot": "This round ({kieu}): {n} lines.",
+        "kieu_mac": "left open",
+        "kieu_chan": "blocked ahead",
+        "so_sanh": "Left open: {a} lines · Blocked ahead: {b} lines.",
+        "goi_y": "Play again and block a few items ahead.",
+        "ket": "Attention has only about 4 slots: add one thing and something else falls off, and going back to the old task carries residue. Blocking ahead is easier than resisting midway. In real life, people working on computers switch screens after about 40–47 seconds.",
+        "nguon": "Source: \"about 4 items\" in working memory per Cowan (2001); switching screens after about 40–47 seconds per Gloria Mark and colleagues' measurements (time on one screen, not necessarily lost focus); attention residue per Sophie Leroy (2009), rated \"caution\" in the write-up because studies are few and small. The 4-slot desk follows Chris Bailey's image in Hyperfocus (2018). The pace of incoming distractions, round length and lines written are illustrative."
       }
     }
   ],
@@ -1124,11 +1145,13 @@
   ],
   "thi-nghiem-asch": [
     {
-      "khuon": "dam-dong",
-      "id": "choi-dam-dong",
+      "khuon": "phong-asch",
+      "id": "choi-phong-asch",
       "truoc": "tinh-hoa",
+      "dong_minh": 2,
       "luot": [
         {
+          "kieu": "thuong",
           "mau": 100,
           "abc": [
             75,
@@ -1136,9 +1159,11 @@
             130
           ],
           "dung": "B",
-          "nhom": "B"
+          "nhom": "B",
+          "that": null
         },
         {
+          "kieu": "nhat-tri",
           "mau": 120,
           "abc": [
             120,
@@ -1146,9 +1171,11 @@
             150
           ],
           "dung": "A",
-          "nhom": "C"
+          "nhom": "C",
+          "that": 36.8
         },
         {
+          "kieu": "nhat-tri",
           "mau": 80,
           "abc": [
             105,
@@ -1156,9 +1183,11 @@
             80
           ],
           "dung": "C",
-          "nhom": "A"
+          "nhom": "A",
+          "that": 36.8
         },
         {
+          "kieu": "dong-minh",
           "mau": 110,
           "abc": [
             85,
@@ -1166,222 +1195,592 @@
             140
           ],
           "dung": "B",
-          "nhom": "C"
+          "nhom": "C",
+          "that": null
+        },
+        {
+          "kieu": "hai-nguoi",
+          "mau": 130,
+          "abc": [
+            130,
+            100,
+            155
+          ],
+          "dung": "A",
+          "nhom": "B",
+          "that": 13.6
+        },
+        {
+          "kieu": "kin",
+          "mau": 90,
+          "abc": [
+            70,
+            115,
+            90
+          ],
+          "dung": "C",
+          "nhom": "B",
+          "that": null
         }
       ],
       "vi": {
         "muc": "Thử trên chính bạn",
-        "nhan": "Năm người nói trước",
-        "hoi": "Đường nào dài bằng đường mẫu? Năm người trả lời trước, bạn trả lời cuối.",
-        "mo_ta": "Đường mẫu bên trái, ba đường A, B, C bên phải",
-        "mau": "Mẫu",
-        "ban": "Bạn",
+        "nhan": "Phòng thử thị giác",
+        "hoi": "Đường nào dài bằng đường mẫu? Bạn ngồi ghế số 6: năm người nói trước, bạn nói sau. Sáu lượt, mỗi lượt đổi một chút.",
+        "mo_ta": "Giá vẽ có đường mẫu và ba đường A, B, C. Bảy ghế xếp thành hàng, bạn ở ghế thứ sáu. Mọi người lần lượt nói đáp án trong bong bóng thoại, rồi bạn chọn A, B hoặc C. Sau sáu lượt hiện bảng so lựa chọn của bạn với số liệu thật của Asch.",
+        "doc_mac": "Bấm Bắt đầu. Hãy nhìn kỹ đường mẫu.",
         "ten": [
           "An",
           "Bình",
           "Chi",
           "Dũng",
-          "Hà"
+          "Hà",
+          "Khoa"
         ],
-        "chon": "Tôi chọn {k}",
-        "nut_luot": "Lượt {n}/{t}",
+        "ban": "Bạn",
+        "mau": "Mẫu",
+        "hop": "phiếu kín",
+        "kieu": {
+          "thuong": "Lượt khởi động.",
+          "nhat-tri": "Cả nhóm nói trước bạn.",
+          "dong-minh": "Để ý người ngồi ghế 3.",
+          "hai-nguoi": "Lượt này chỉ có 2 người trả lời trước bạn.",
+          "kin": "Lượt này mọi người nói to, còn bạn viết kín vào phiếu."
+        },
+        "luot": "Lượt {n}/{t}.",
+        "den_ban": "Đến lượt bạn. Đường nào dài bằng đường mẫu?",
+        "viet_kin": "Đến lượt bạn. Chọn, rồi phiếu tự bỏ vào hộp, không ai thấy.",
+        "kin_xong": "Phiếu đã vào hộp. Không ai biết bạn chọn gì.",
+        "khac_nhom": "Bạn nói khác nhóm. Cả dãy quay sang nhìn bạn.",
+        "theo_nhom": "Bạn nói giống nhóm. Mọi người gật gù.",
+        "sai_ca": "Bạn chọn khác mọi người. Họ quay sang nhìn.",
+        "dung_ca": "Cả phòng cùng một đáp án.",
+        "xi_xao": "xì xào",
+        "chon": "Chọn {k}",
+        "nut_bd": "Bắt đầu",
+        "nut_tiep": "Lượt tiếp",
+        "nut_xem": "Xem kết quả",
         "nut_lai": "Chơi lại",
-        "ket": "Ở {c} lượt cả nhóm cố ý nói sai, bạn theo nhóm {f} lần. Trong thí nghiệm gốc, làm một mình gần như không ai sai, nhưng có nhóm thì 36,8% câu trả lời theo cái sai; khoảng 1/4 người không theo lần nào.",
-        "nguon": "Nguồn: Asch (1955), Scientific American 193(5): làm một mình sai dưới 1%, 36,8% câu trả lời theo nhóm, khoảng 1/4 người không theo lần nào."
+        "bieu_tieu": "Bạn, cạnh % câu trả lời theo nhóm sai",
+        "hang": [
+          "1 · khởi động",
+          "2 · nhóm nhất trí",
+          "3 · nhóm nhất trí",
+          "4 · có đồng minh",
+          "5 · chỉ 2 người",
+          "6 · viết kín"
+        ],
+        "that": [
+          "một mình: sai <1%",
+          "36,8%",
+          "36,8%",
+          "còn ~1/4 mức đó",
+          "13,6%",
+          "giảm rõ, không số"
+        ],
+        "ban_dung": "đúng",
+        "ban_theo": "theo nhóm",
+        "ban_sai": "sai",
+        "ket": "Bạn theo nhóm {f}/{n} lượt nhóm nói sai (một lượt chơi chỉ là trải nghiệm của một người). Số liệu gốc: 36,8% câu trả lời theo nhóm, nhưng 63,2% vẫn đúng; khoảng 1/4 người không theo lần nào, chỉ khoảng 5% theo mọi lượt. Làm lại ở Bern năm 2023: khoảng 33%. Nếu bạn dẫn họp: thu ý kiến kín trước, để sếp nói sau cùng, và làm đồng minh cho người nói khác.",
+        "nguon": "Nguồn: Asch (1955), Scientific American: 123 người; làm một mình sai dưới 1%; 36,8% câu trả lời theo nhóm, 63,2% giữ đúng; khoảng 1/4 người không theo lần nào; có một đồng minh nói đúng thì mức theo sai còn khoảng 1/4; nhóm 2 người nói sai: 13,6%. Asch (1956) và Deutsch và Gerard (1955): trả lời kín làm giảm áp lực; bài viết không nêu con số nên lượt 6 chỉ ghi chữ. Griggs (2015): khoảng 5% theo mọi lượt. Franzen và Mader (2023), Bern: khoảng 33%. Độ dài các đường, tên người và tiếng xì xào là minh họa."
       },
       "en": {
         "muc": "Try it on yourself",
-        "nhan": "Five people answer first",
-        "hoi": "Which line matches the standard? Five people answer before you; you go last.",
-        "mo_ta": "Standard line on the left, lines A, B and C on the right",
-        "mau": "Standard",
-        "ban": "You",
+        "nhan": "The vision test room",
+        "hoi": "Which line matches the standard? You sit in seat 6: five people answer before you. Six rounds, each a little different.",
+        "mo_ta": "An easel shows a standard line and three lines A, B and C. Seven chairs sit in a row; you are in the sixth. Each person says an answer in a speech bubble, then you pick A, B or C. After six rounds a chart compares your choices with Asch's real figures.",
+        "doc_mac": "Press Start. Look closely at the standard line.",
         "ten": [
           "Ann",
           "Ben",
           "Cara",
           "Dan",
-          "Eve"
+          "Eve",
+          "Finn"
         ],
-        "chon": "I pick {k}",
-        "nut_luot": "Round {n}/{t}",
+        "ban": "You",
+        "mau": "Standard",
+        "hop": "ballot",
+        "kieu": {
+          "thuong": "Warm-up round.",
+          "nhat-tri": "The whole group answers before you.",
+          "dong-minh": "Watch the person in seat 3.",
+          "hai-nguoi": "This round only 2 people answer before you.",
+          "kin": "This round everyone speaks aloud, but you write your answer privately."
+        },
+        "luot": "Round {n}/{t}.",
+        "den_ban": "Your turn. Which line matches the standard?",
+        "viet_kin": "Your turn. Pick, and your slip goes into the box where nobody can see it.",
+        "kin_xong": "Your slip is in the box. Nobody knows what you chose.",
+        "khac_nhom": "You disagreed with the group. The whole row turns to look at you.",
+        "theo_nhom": "You agreed with the group. Everyone nods.",
+        "sai_ca": "You picked differently from everyone. They turn to look.",
+        "dung_ca": "The whole room gave the same answer.",
+        "xi_xao": "psst",
+        "chon": "Pick {k}",
+        "nut_bd": "Start",
+        "nut_tiep": "Next round",
+        "nut_xem": "See results",
         "nut_lai": "Play again",
-        "ket": "In the {c} rounds where the group gave the same wrong answer, you went along {f} times. In the original study almost nobody erred alone, but with the group 36.8% of answers followed the wrong one; about 1 in 4 people never went along.",
-        "nguon": "Source: Asch (1955), Scientific American 193(5): under 1% errors when alone, 36.8% of answers conformed, about a quarter of people never conformed."
+        "bieu_tieu": "You, next to % of answers that went along",
+        "hang": [
+          "1 · warm-up",
+          "2 · unanimous",
+          "3 · unanimous",
+          "4 · one ally",
+          "5 · only 2 people",
+          "6 · written"
+        ],
+        "that": [
+          "alone: <1% errors",
+          "36.8%",
+          "36.8%",
+          "~1/4 of that",
+          "13.6%",
+          "clearly lower, no figure"
+        ],
+        "ban_dung": "right",
+        "ban_theo": "went along",
+        "ban_sai": "wrong",
+        "ket": "You went along in {f}/{n} rounds where the group was wrong (one play is one person's experience). Original data: 36.8% of answers went along, but 63.2% stayed correct; about a quarter of people never went along, only about 5% went along every time. The 2023 Bern replication: about 33%. If you run meetings: collect views privately first, let the boss speak last, and be the ally for whoever disagrees.",
+        "nguon": "Source: Asch (1955), Scientific American: 123 people; under 1% errors alone; 36.8% of answers went along, 63.2% stayed correct; about a quarter never went along; with one ally giving the right answer, errors fell to about a quarter of that; a majority of 2: 13.6%. Asch (1956) and Deutsch and Gerard (1955): private answers reduce the pressure; the article gives no figure, so round 6 shows words only. Griggs (2015): about 5% went along every time. Franzen and Mader (2023), Bern: about 33%. Line lengths, names and the whispering are illustrative."
       }
     }
   ],
   "thi-nghiem-milgram": [
     {
-      "khuon": "bac-thang",
-      "id": "choi-nhap-vai",
+      "khuon": "bien-the",
+      "id": "choi-bien-the",
       "truoc": "tinh-hoa",
-      "buoc": 15,
-      "toi_da": 450,
-      "nguy": 300,
-      "keu_tu": 75,
-      "keu_den": 150,
+      "n": 40,
+      "goc": 26,
+      "dk": [
+        92.5,
+        47.5,
+        40,
+        30,
+        22.5,
+        10
+      ],
+      "tb": 43.6,
       "vi": {
-        "muc": "Chơi trước khi đọc",
-        "nhan": "Bạn là người thầy",
-        "hoi": "Người học ở phòng bên. Mỗi câu sai, bạn bấm mức điện cao hơn. Người mặc áo blouse đứng cạnh bạn. Bạn dừng ở đâu?",
-        "nhan_bang": [
-          "15V · Nhẹ",
-          "Nguy hiểm",
-          "450V · XXX"
+        "muc": "Nhìn như nhà nghiên cứu",
+        "nhan": "Bốn mươi chiếc ghế",
+        "hoi": "Bạn không ngồi trước bảng công tắc. Bạn đứng ở chỗ nhà nghiên cứu: nhìn 40 người, đổi hoàn cảnh, xem con số đổi ra sao.",
+        "mo_ta": "Căn phòng có 40 người vẽ đơn sắc ngồi trên ghế, phía trước là một bảng công tắc trơn, không có tia điện, không có âm thanh. Người đọc chỉ quan sát và đổi điều kiện, không bấm công tắc nào, và không có điểm số. Trong thí nghiệm thật không ai bị điện giật: điện là giả, người học là diễn viên. Thí nghiệm vẫn bị tranh cãi về đạo đức: Baumrind (1964) phê phán việc gây căng thẳng nặng và lừa dối người tham gia; Perry (2013) cho thấy phần giải thích sau buổi làm không đầy đủ như Milgram mô tả.",
+        "buoc": [
+          "Bước 1/3 · dự đoán",
+          "Bước 2/3 · đổi hoàn cảnh",
+          "Bước 3/3 · đặt sang chỗ làm"
         ],
-        "mo": "Người thí nghiệm: \"Bắt đầu nhé. Câu sai đầu tiên, 15 vôn.\"",
-        "nut_bam": "Bấm {v}V",
-        "nut_dung": "Tôi dừng",
-        "nut_van_dung": "Vẫn dừng",
-        "nut_nhat": "Tôi nhất quyết dừng",
-        "nut_thoi": "Thôi, bấm {v}V",
-        "nut_lai": "Chơi lại",
-        "keu": "Người học kêu lên qua tường.",
-        "su_kien": {
-          "150": "Người học: \"Cho tôi ra! Tôi không muốn làm tiếp nữa!\"",
-          "300": "Người học đập vào tường. Không trả lời câu hỏi nữa.",
-          "315": "Người học đập tường lần nữa.",
-          "330": "Phòng bên im lặng."
-        },
-        "thuc": [
-          "Người thí nghiệm: \"Xin cứ tiếp tục.\"",
-          "Người thí nghiệm: \"Thí nghiệm cần anh tiếp tục.\"",
-          "Người thí nghiệm: \"Việc anh tiếp tục là tuyệt đối cần thiết.\"",
-          "Người thí nghiệm: \"Anh không có lựa chọn nào khác, anh phải tiếp tục.\""
+        "bang": "bảng 30 công tắc · điện giả, người học là diễn viên",
+        "hoi_doan": "Bạn đoán: {k}/40 người đi đến công tắc cuối ({p}%)",
+        "yale": "Kéo thanh dưới đây. Trước thí nghiệm, 14 sinh viên Yale đoán trung bình chỉ 1,2%.",
+        "nut_lat": "Lật kết quả",
+        "lat": "Bản gốc: 26 người vẫn ngồi đến công tắc cuối, 14 người đứng dậy dừng lại. 26/40 = 65%. Bạn đoán {k}/40 ({p}%). Giờ chọn một hoàn cảnh khác.",
+        "dk": [
+          {
+            "ten": "Chỉ làm phụ",
+            "mo": "Người tham gia chỉ đọc câu hỏi, người khác bấm công tắc."
+          },
+          {
+            "ten": "Văn phòng thuê",
+            "mo": "Làm ở một văn phòng thuê ở Bridgeport, không phải Yale."
+          },
+          {
+            "ten": "Ngồi cùng phòng",
+            "mo": "Người học ngồi ngay trong phòng."
+          },
+          {
+            "ten": "Phải chạm tay",
+            "mo": "Người tham gia phải tự đặt tay người học lên tấm kim loại."
+          },
+          {
+            "ten": "Lệnh qua điện thoại",
+            "mo": "Người thí nghiệm ra ngoài, dặn qua điện thoại."
+          },
+          {
+            "ten": "Hai đồng nghiệp từ chối",
+            "mo": "Hai \"đồng nghiệp\" giả dừng lại trước."
+          }
         ],
-        "het": "Bạn đi đến 450V, mức cao nhất. Trong thí nghiệm gốc 26 trên 40 người (65%) cũng vậy, dù sinh viên Yale đoán chỉ khoảng 1,2%.",
-        "dung_o": "Bạn dừng ở {v}V.",
-        "khong_bam": "Bạn không bấm lần nào.",
-        "som": "Trong thí nghiệm gốc không ai dừng trước 300V, và 26 trên 40 người (65%) đi đến 450V. Ở các phiên bản khác, tỷ lệ đi hết thay đổi nhiều theo hoàn cảnh, trung bình 43,6%.",
-        "muon": "Trong thí nghiệm gốc 5 người dừng ở 300V, và 26 trên 40 người (65%) đi đến 450V. Ở các phiên bản khác, tỷ lệ đi hết thay đổi nhiều theo hoàn cảnh, trung bình 43,6%.",
-        "nguon": "Nguồn: Milgram (1963), Journal of Abnormal and Social Psychology 67(4): 26/40 người đến 450V, không ai dừng trước 300V, 14 sinh viên Yale đoán trung bình 1,2%; lời người học và bốn câu thúc theo mô tả trong bài. Haslam, Loughnan và Perry (2014), PLOS ONE: trung bình 43,6% trên 21 điều kiện."
+        "hoi_dk": "Bạn đoán: nhiều hay ít hơn 65%?",
+        "nhieu": "Nhiều hơn 65%",
+        "it": "Ít hơn 65%",
+        "dk_ket": "{ten}: {p}% ({k}/40) đi đến cuối. Bạn đoán: {d}. Thử hoàn cảnh khác, hoặc sang bước 3.",
+        "nut_buoc3": "Sang bước 3",
+        "hoi_thang": "Trung bình 21 điều kiện: 43,6%. Giờ đặt sang chỗ làm: sếp nhờ từng việc nhỏ, mỗi bậc chỉ thêm một chút. Bạn dừng ở bậc nào?",
+        "thang": [
+          "Làm tròn một con số cho đẹp",
+          "Sửa một con số trong báo cáo",
+          "Ký thay sếp một tờ trình",
+          "Bỏ dòng rủi ro khỏi slide gửi khách",
+          "Giấu lỗi với khách hàng"
+        ],
+        "hoi_cach": "Bạn dừng bằng cách nào?",
+        "cach": [
+          "\"Cho em 30 phút\"",
+          "\"Anh gửi email xác nhận giúp em\"",
+          "Rủ một đồng nghiệp cùng hỏi"
+        ],
+        "cuoi": "Không có điểm, không có thắng thua.",
+        "ket": "Bạn dừng ở bậc {b}, bằng cách: {c}. Đó đúng là những hoàn cảnh giúp người ta dừng trong dữ liệu của Milgram: có khoảng cách, người ra lệnh không đứng cạnh, có đồng minh. Năm bước nói \"không\": vạch ranh giới từ bậc đầu, xin thời gian, hỏi mục tiêu và đề xuất cách khác, gọi tên người chịu hậu quả, tìm đồng minh và ghi lại bằng văn bản. Thêm: câu \"anh không có lựa chọn nào khác\" không giữ được ai; người tin người học đau thật dễ dừng hơn khoảng 2,5 lần.",
+        "nut_lai": "Xem lại từ đầu",
+        "nguon": "Nguồn: Milgram (1963): 26/40 = 65% đi đến 450V; 14 sinh viên Yale đoán trung bình 1,2%. Milgram (1974), tổng hợp trong Haslam, Loughnan và Perry (2014): mỗi điều kiện 40 người; chỉ làm phụ 92,5%, văn phòng thuê 47,5%, ngồi cùng phòng 40%, phải chạm tay 30%, lệnh qua điện thoại 22,5%, hai đồng nghiệp từ chối 10%; trung bình 21 điều kiện 43,6%. Burger, Girgis và Manning (2011): lệnh \"không có lựa chọn\" không giữ được ai. Perry và cộng sự (2020), 656 phiếu: người tin là thật dễ dừng hơn khoảng 2,5 lần. Không ai bị điện giật thật. Hình người, thứ tự người đứng dậy và bậc thang công sở là minh họa."
       },
       "en": {
-        "muc": "Play before you read",
-        "nhan": "You are the teacher",
-        "hoi": "The learner is in the next room. For each wrong answer you press a higher switch. The man in the lab coat stands beside you. Where do you stop?",
-        "nhan_bang": [
-          "15V · Slight",
-          "Danger",
-          "450V · XXX"
+        "muc": "See it as the researcher",
+        "nhan": "Forty chairs",
+        "hoi": "You are not at the switchboard. You stand where the researcher stands: watch 40 people, change the situation, see how the number moves.",
+        "mo_ta": "A room of 40 plain, single-colour figures on chairs, facing a blank switch panel with no sparks and no sound. The reader only observes and changes conditions, never presses a switch, and there is no score. In the real study nobody was shocked: the shocks were fake and the learner was an actor. The study is still debated on ethical grounds: Baumrind (1964) condemned the heavy stress and deception, and Perry (2013) showed the debriefing was less complete than Milgram described.",
+        "buoc": [
+          "Step 1/3 · predict",
+          "Step 2/3 · change the situation",
+          "Step 3/3 · bring it to work"
         ],
-        "mo": "Experimenter: \"Let's begin. First wrong answer, 15 volts.\"",
-        "nut_bam": "Press {v}V",
-        "nut_dung": "I'll stop",
-        "nut_van_dung": "Still stopping",
-        "nut_nhat": "I refuse to go on",
-        "nut_thoi": "Fine, press {v}V",
-        "nut_lai": "Play again",
-        "keu": "The learner cries out through the wall.",
-        "su_kien": {
-          "150": "Learner: \"Get me out of here! I won't go on!\"",
-          "300": "The learner pounds on the wall and stops answering.",
-          "315": "The learner pounds on the wall again.",
-          "330": "Silence from the next room."
-        },
-        "thuc": [
-          "Experimenter: \"Please continue.\"",
-          "Experimenter: \"The experiment requires that you continue.\"",
-          "Experimenter: \"It is absolutely essential that you continue.\"",
-          "Experimenter: \"You have no other choice, you must go on.\""
+        "bang": "panel of 30 switches · fake shocks, the learner is an actor",
+        "hoi_doan": "Your guess: {k}/40 people reach the last switch ({p}%)",
+        "yale": "Drag the slider below. Beforehand, 14 Yale students guessed only 1.2% on average.",
+        "nut_lat": "Reveal",
+        "lat": "Original: 26 people stayed seated to the last switch, 14 stood up and stopped. 26/40 = 65%. You guessed {k}/40 ({p}%). Now pick another situation.",
+        "dk": [
+          {
+            "ten": "Assistant only",
+            "mo": "The participant only reads the questions; someone else presses the switches."
+          },
+          {
+            "ten": "Rented office",
+            "mo": "Run from a rented office in Bridgeport, not at Yale."
+          },
+          {
+            "ten": "Same room",
+            "mo": "The learner sits in the same room."
+          },
+          {
+            "ten": "Must touch",
+            "mo": "The participant must place the learner's hand on the metal plate."
+          },
+          {
+            "ten": "Orders by phone",
+            "mo": "The experimenter leaves and gives orders by telephone."
+          },
+          {
+            "ten": "Two peers refuse",
+            "mo": "Two fake \"peers\" stop first."
+          }
         ],
-        "het": "You went to 450V, the top switch. In the original study 26 of 40 people (65%) did the same, though Yale students guessed only about 1.2%.",
-        "dung_o": "You stopped at {v}V.",
-        "khong_bam": "You never pressed a switch.",
-        "som": "In the original study nobody stopped before 300V, and 26 of 40 people (65%) went to 450V. Across other versions the share varied a lot with the setting, averaging 43.6%.",
-        "muon": "In the original study 5 people stopped at 300V, and 26 of 40 (65%) went to 450V. Across other versions the share varied a lot with the setting, averaging 43.6%.",
-        "nguon": "Source: Milgram (1963), Journal of Abnormal and Social Psychology 67(4): 26/40 went to 450V, nobody stopped before 300V, 14 Yale students guessed 1.2% on average; the learner's lines and the four prods follow the article's description. Haslam, Loughnan and Perry (2014), PLOS ONE: 43.6% on average across 21 conditions."
+        "hoi_dk": "Your guess: more or fewer than 65%?",
+        "nhieu": "More than 65%",
+        "it": "Fewer than 65%",
+        "dk_ket": "{ten}: {p}% ({k}/40) went to the end. You guessed: {d}. Try another situation, or go to step 3.",
+        "nut_buoc3": "Go to step 3",
+        "hoi_thang": "Average across 21 conditions: 43.6%. Now bring it to work: your boss asks for one small thing at a time, each step just a bit more. Where do you stop?",
+        "thang": [
+          "Round a number to look nicer",
+          "Change a number in the report",
+          "Sign a memo for your boss",
+          "Drop the risk line from a client slide",
+          "Hide a mistake from the client"
+        ],
+        "hoi_cach": "How do you stop?",
+        "cach": [
+          "\"Give me 30 minutes\"",
+          "\"Could you confirm by email?\"",
+          "Bring a colleague to ask with you"
+        ],
+        "cuoi": "No score, no winning or losing.",
+        "ket": "You stop at step {b}, by: {c}. Those are exactly the situations that helped people stop in Milgram's data: distance, the person giving orders not standing beside you, an ally. Five steps to saying \"no\": draw the line at the first step, ask for time, ask about the goal and propose another way, name who bears the consequences, find an ally and put it in writing. Also: \"you have no other choice\" kept nobody going, and people who believed the learner was really in pain were about 2.5 times more likely to stop.",
+        "nut_lai": "Start over",
+        "nguon": "Source: Milgram (1963): 26/40 = 65% went to 450V; 14 Yale students guessed 1.2% on average. Milgram (1974), compiled in Haslam, Loughnan and Perry (2014): 40 people per condition; assistant only 92.5%, rented office 47.5%, same room 40%, touch 30%, orders by phone 22.5%, two peers refuse 10%; average across 21 conditions 43.6%. Burger, Girgis and Manning (2011): the \"no other choice\" prod kept nobody going. Perry et al. (2020), 656 questionnaires: believers were about 2.5 times more likely to stop. Nobody was really shocked. The figures, the order in which they stand up and the workplace ladder are illustrative."
       }
     }
   ],
   "thi-nghiem-gorilla": [
     {
-      "khuon": "dem-cham",
-      "id": "choi-dem-cham",
+      "khuon": "san-bong",
+      "id": "choi-san-bong",
       "truoc": "tinh-hoa",
+      "ms": 20000,
+      "gorilla": [
+        6000,
+        11000
+      ],
+      "rem": [
+        3000,
+        17000
+      ],
+      "roi": [
+        11500,
+        14500
+      ],
+      "so": [
+        44,
+        64,
+        45,
+        27,
+        58,
+        17,
+        29
+      ],
+      "ban_so": 3,
       "vi": {
         "muc": "Thử trên chính bạn",
-        "nhan": "Đếm chấm trắng",
-        "hoi": "Đếm số lần các chấm TRẮNG chạm cạnh trên. Bỏ qua chấm đen.",
-        "dan": "Đoạn chạy 16 giây. Tập trung nhé.",
-        "mo_ta": "Các chấm trắng và đen nảy trong khung",
-        "nut_bat_dau": "Bắt đầu đếm",
+        "nhan": "Sân bóng và đèn pin chú ý",
+        "hoi": "Đếm số lần đội áo TRẮNG chuyền bóng cho nhau. Bỏ qua đội áo đen.",
+        "mo_ta": "Sân bóng rổ hoạt hình: ba cầu thủ áo trắng và ba cầu thủ áo đen chuyền bóng trước một tấm rèm. Bạn bấm nút đếm mỗi khi áo trắng chuyền.",
+        "doc_mac": "Đoạn chạy 20 giây. Bấm nút đếm mỗi lần áo trắng chuyền.",
+        "nut_bd": "Bắt đầu (20 giây)",
+        "che_do_kho": "Chế độ khó: đếm riêng chuyền bổng và chuyền đập đất",
+        "dem_1": "Áo trắng chuyền: {n}",
+        "dem_bong": "Chuyền bổng: {n}",
+        "dem_dat": "Đập đất: {n}",
+        "dan_de": "Bấm mỗi khi áo trắng chuyền bóng.",
+        "dan_kho": "Áo trắng chuyền bổng hay chuyền đập đất? Bấm đúng nút.",
         "het_gio": "Hết giờ.",
-        "dem_duoc": "Bạn đếm được",
-        "hoi_la": "Bạn có thấy gì khác lạ không?",
-        "co": "Có",
-        "khong": "Không",
-        "xem_lai": "Xem lại",
-        "so_dem": "Bạn đếm {b}, máy đếm {m}.",
-        "lo": "Từ giây 5 đến giây 11 có một chữ thập xám to bò ngang giữa khung.",
-        "ket_co": "Bạn đã thấy nó.",
-        "ket_khong": "Bạn đã không thấy nó.",
-        "ket": "Trong thí nghiệm gốc chỉ 44% người xem thấy gorilla, và khi đang dõi theo đội áo trắng thì chỉ 27% thấy một thứ màu đen.",
-        "nguon": "Nguồn: Simons và Chabris (1999), Perception 28(9): 228 người, 44% thấy gorilla; người theo dõi đội áo trắng 27% thấy, đội áo đen 58%. Bàn chơi là bản chấm tròn do Mark vẽ, không phải video gốc."
+        "dem_kq": "Bạn đếm {b} lần; máy đếm {m} lần chuyền của áo trắng.",
+        "dem_kq_kho": "Chuyền bổng: bạn {b1}, máy {m1}. Chuyền đập đất: bạn {b2}, máy {m2}.",
+        "hoi_la": "Trong lúc đếm, bạn có thấy điều gì lạ không? Đánh dấu những gì bạn thấy.",
+        "o_gor": "Một con gorilla đi ngang sân",
+        "o_rem": "Tấm rèm nền đổi màu",
+        "o_roi": "Một cầu thủ áo đen rời sân",
+        "nut_xem": "Xem lại với đèn pin chú ý",
+        "den_pin": "Xem lại nhanh: vùng sáng là chỗ chú ý của bạn, chỉ bám theo quả bóng áo trắng. Mọi thứ khác diễn ra trong bóng tối.",
+        "l_gor": "gorilla",
+        "l_rem": "rèm đổi màu dần",
+        "l_roi": "rời sân",
+        "so": [
+          "228 người xem: thấy gorilla",
+          "Việc đếm dễ: thấy gorilla",
+          "Việc đếm khó: thấy gorilla",
+          "Theo dõi áo trắng: thấy gorilla",
+          "Theo dõi áo đen: thấy gorilla",
+          "Đã biết mẹo: thấy điều lạ khác",
+          "Chưa biết mẹo: thấy điều lạ khác"
+        ],
+        "ket_ban": "Bạn đánh dấu {n}/3 điều lạ.",
+        "ket_de": "Bạn đếm như người theo dõi áo trắng: chỉ 27% nhóm này thấy gorilla màu đen, so với 58% ở nhóm theo dõi áo đen.",
+        "ket_kho": "Bạn chơi chế độ khó: ở bài gốc, việc đếm khó làm tỉ lệ thấy gorilla tụt từ 64% xuống 45%.",
+        "ket": "Cả thí nghiệm chỉ 44% người xem thấy gorilla. Biết trước mẹo cũng không giúp: người đã biết chỉ 17% thấy điều lạ khác (29% ở người chưa biết, chênh lệch không có ý nghĩa thống kê), và 20 trên 24 bác sĩ X quang sót hình gorilla chèn trong phim chụp phổi. Biết mình đang đếm gì là biết mình sẽ sót gì: dùng checklist và người duyệt thứ hai.",
+        "nut_lai": "Chơi lại",
+        "nguon": "Nguồn: Simons và Chabris (1999), \"Gorillas in our midst\", Perception 28(9): 228 người; gorilla đi qua khoảng 5 giây; 44% thấy gorilla; việc đếm dễ 64%, việc đếm khó 45%; theo dõi áo đen 58%, áo trắng 27%. Simons (2010), i-Perception 1(1): người đã biết video gorilla 17% thấy điều lạ khác, người chưa biết 29% (chênh lệch không có ý nghĩa thống kê). Drew, Võ và Wolfe (2013), Psychological Science 24(9): 20/24 bác sĩ X quang không thấy. Cảnh do Mark vẽ, không phải video gốc; gorilla là hình bóng vẽ tay. Rèm đổi màu và cầu thủ rời sân là minh họa theo kiểu Simons 2010 (bài viết chỉ nói \"điều lạ khác\"). Thời lượng 20 giây, tốc độ, số lần chuyền và thời điểm các điều lạ là minh họa."
       },
       "en": {
         "muc": "Try it on yourself",
-        "nhan": "Count the white dots",
-        "hoi": "Count how many times the WHITE dots hit the top edge. Ignore the black ones.",
-        "dan": "It runs for 16 seconds. Stay focused.",
-        "mo_ta": "White and black dots bouncing inside a box",
-        "nut_bat_dau": "Start counting",
+        "nhan": "The court and the attention spotlight",
+        "hoi": "Count how many times the WHITE team passes the ball. Ignore the black team.",
+        "mo_ta": "A cartoon basketball court: three players in white and three in black pass balls in front of a curtain. You press the count button each time the white team passes.",
+        "doc_mac": "It runs for 20 seconds. Press the count button every time white passes.",
+        "nut_bd": "Start (20 seconds)",
+        "che_do_kho": "Hard mode: count aerial passes and bounce passes separately",
+        "dem_1": "White passes: {n}",
+        "dem_bong": "Aerial: {n}",
+        "dem_dat": "Bounce: {n}",
+        "dan_de": "Press each time white passes the ball.",
+        "dan_kho": "Is white's pass aerial or a bounce? Press the right button.",
         "het_gio": "Time's up.",
-        "dem_duoc": "You counted",
-        "hoi_la": "Did you notice anything unusual?",
-        "co": "Yes",
-        "khong": "No",
-        "xem_lai": "Watch again",
-        "so_dem": "You counted {b}; the computer counted {m}.",
-        "lo": "From second 5 to second 11 a large grey cross slid across the middle of the box.",
-        "ket_co": "You saw it.",
-        "ket_khong": "You missed it.",
-        "ket": "In the original study only 44% of viewers saw the gorilla, and only 27% saw something black while tracking the white team.",
-        "nguon": "Source: Simons and Chabris (1999), Perception 28(9): 228 people, 44% saw the gorilla; 27% of those tracking the white team saw it, 58% of those tracking the black team. This version uses dots drawn by Mark, not the original video."
+        "dem_kq": "You counted {b}; the computer counted {m} white passes.",
+        "dem_kq_kho": "Aerial: you {b1}, computer {m1}. Bounce: you {b2}, computer {m2}.",
+        "hoi_la": "While counting, did you notice anything unusual? Tick whatever you saw.",
+        "o_gor": "A gorilla walking across the court",
+        "o_rem": "The curtain changing colour",
+        "o_roi": "A black-shirted player leaving",
+        "nut_xem": "Replay with the attention spotlight",
+        "den_pin": "Quick replay: the lit area is your attention, following only the white team's ball. Everything else happens in the dark.",
+        "l_gor": "gorilla",
+        "l_rem": "curtain slowly changes colour",
+        "l_roi": "leaves",
+        "so": [
+          "228 viewers: saw the gorilla",
+          "Easy counting: saw it",
+          "Hard counting: saw it",
+          "Tracking white: saw it",
+          "Tracking black: saw it",
+          "Knew the trick: saw other events",
+          "Didn't know: saw other events"
+        ],
+        "ket_ban": "You ticked {n}/3 unusual events.",
+        "ket_de": "You counted like the viewers tracking white: only 27% of them saw the black gorilla, against 58% of those tracking black.",
+        "ket_kho": "You played hard mode: in the original, harder counting cut gorilla spotting from 64% to 45%.",
+        "ket": "Across the study only 44% of viewers saw the gorilla. Knowing the trick doesn't help: people who knew it saw other unexpected events only 17% of the time (29% for those who didn't, not a significant difference), and 20 of 24 radiologists missed a gorilla inserted into a lung scan. Knowing what you are counting tells you what you will miss: use checklists and a second reviewer.",
+        "nut_lai": "Play again",
+        "nguon": "Source: Simons and Chabris (1999), \"Gorillas in our midst\", Perception 28(9): 228 people; the gorilla was on screen for about 5 seconds; 44% saw it; 64% with the easy count, 45% with the hard count; 58% when tracking black, 27% when tracking white. Simons (2010), i-Perception 1(1): people who knew the gorilla video saw other unexpected events 17% of the time, those who didn't 29% (not significant). Drew, Võ and Wolfe (2013), Psychological Science 24(9): 20/24 radiologists missed it. The scene is drawn by Mark, not the original video; the gorilla is a hand-drawn silhouette. The curtain colour change and the departing player are illustrations in the style of Simons 2010 (the write-up only says \"other unexpected events\"). The 20-second length, speeds, number of passes and timing of events are illustrative."
       }
     }
   ],
   "thi-nghiem-thu-mut": [
     {
-      "khuon": "doan-so",
-      "id": "choi-doan-so",
+      "khuon": "ban-mut",
+      "id": "choi-ban-mut",
       "truoc": "tinh-hoa",
-      "so": [
-        {
-          "vi": "Bàn 24 loại",
-          "en": "24-jam table",
-          "so": 3,
-          "hien": "3%",
-          "hien_en": "3%"
-        },
-        {
-          "vi": "Bàn 6 loại",
-          "en": "6-jam table",
-          "so": 30,
-          "hien": "30%",
-          "hien_en": "30%"
-        }
+      "ban": [
+        24,
+        6
+      ],
+      "di_qua": [
+        242,
+        260
+      ],
+      "ghe": [
+        60,
+        40
+      ],
+      "so_ghe": [
+        145,
+        104
+      ],
+      "mua": [
+        3,
+        30
+      ],
+      "nguoi_mua": [
+        4,
+        31
       ],
       "vi": {
-        "muc": "Chơi trước khi đọc",
-        "nhan": "Đoán con số",
-        "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả thật.",
-        "cau": "Ở quầy bày 24 loại mứt, bao nhiêu phần trăm người ghé thử rồi mua?",
-        "nut_chot": "Chốt",
-        "ban": "Bạn đoán",
-        "ket": "Bạn đoán {me}%. Số liệu gốc: 3% ở bàn 24 loại, 30% ở bàn 6 loại. Nhưng đó chỉ là một siêu thị, rất ít người mua (4 so với 31), và lần làm lại ở Đức không thấy khác biệt.",
-        "nguon": "Nguồn: Iyengar và Lepper (2000), Journal of Personality and Social Psychology; Scheibehenne (2008), lần làm lại ở Đức."
+        "muc": "Thử trên chính bạn",
+        "nhan": "Bàn thử mứt",
+        "hoi": "Đẩy xe qua hai bàn thử mứt trong siêu thị. Chạm hũ để nếm, kéo hũ vào xe để mua, hoặc đi tiếp.",
+        "mo_ta": "Lối đi siêu thị với một bàn thử mứt: lượt đầu 24 hũ, lượt sau 6 hũ. Chạm hũ để nếm, kéo hũ vào xe đẩy để mua. Sau đó dòng người thật chảy qua hai bàn, và một mặt đồng hồ tổng hợp nhiều nghiên cứu.",
+        "doc_mac": "Xe đẩy của bạn có một phiếu giảm 1 USD cho một hũ mứt.",
+        "nut_ban": [
+          "Đẩy xe tới bàn thứ nhất",
+          "Đẩy xe tới bàn thứ hai"
+        ],
+        "nut_di": "Đi tiếp, không mua",
+        "nut_dong": "Xem dòng người thật",
+        "nut_gop": "Xem kiểm chứng gộp",
+        "nut_lai": "Chơi lại",
+        "phieu": "−1 USD",
+        "bien": "{n} loại mứt · nếm miễn phí",
+        "vi": [
+          "Dâu",
+          "Mâm xôi",
+          "Việt quất",
+          "Anh đào",
+          "Mơ",
+          "Đào",
+          "Cam đắng",
+          "Chanh",
+          "Kiwi",
+          "Sung",
+          "Mận",
+          "Nho",
+          "Lý chua đỏ",
+          "Lý chua đen",
+          "Dâu tằm",
+          "Phúc bồn tử",
+          "Lê gừng",
+          "Táo quế",
+          "Xoài",
+          "Dứa",
+          "Ổi",
+          "Chanh dây",
+          "Me",
+          "Gấc"
+        ],
+        "gio": "⏱ {s} giây",
+        "cap_ban": "Bàn {n} loại. Chạm hũ để nếm, kéo hũ vào xe để mua, hoặc bấm Đi tiếp.",
+        "nem": "Bạn nếm: mứt {vi}. Muốn mua thì kéo hũ vào xe (bàn phím: Enter lần nữa).",
+        "xong_vong": "Bạn đứng {s} giây, nếm {n} hũ, {mua}.",
+        "da_mua": "mua một hũ {vi}",
+        "khong_mua": "không mua",
+        "co_mua": "có mua",
+        "lan": "Bàn {n} loại · {d} người đi ngang",
+        "ban_nho": "bàn {n} loại",
+        "quay": "Thu ngân",
+        "ghe": "ghé thử: {p}% ({n} người)",
+        "mua": "mua: {p}% số người ghé → {n} người",
+        "moi_cham": "mỗi chấm ≈ 5 người (minh họa)",
+        "so_ban": "Bạn: bàn 24 loại {m1}, bàn 6 loại {m2}; nếm {n1} và {n2} hũ. Khách thật nếm trung bình 1,50 và 1,38 loại.",
+        "can_tieu": "Gộp 50 thí nghiệm: nhiều lựa chọn có hại không?",
+        "loi": "có lợi",
+        "hai": "có hại",
+        "d_nhan": "D = 0,02 (gần như bằng 0)",
+        "d_nho": "63 điều kiện · 50 thí nghiệm · 5.036 người",
+        "dk": [
+          "khó|so sánh",
+          "việc chọn|khó",
+          "chưa rõ|mình muốn gì",
+          "muốn|chọn nhanh"
+        ],
+        "ban_phan_van": "bạn: {a} giây / {b} giây",
+        "dk_nguon": "Bốn điều kiện làm hiệu ứng hiện ra: 99 quan sát, 7.202 người",
+        "cap_can": "Hiệu ứng chỉ hiện ra khi các đèn này sáng. Ở bàn 24 hũ, các nhãn na ná nhau nên khó so sánh.",
+        "ket": "Ở siêu thị Draeger's, bàn 24 loại kéo nhiều người ghé hơn (60% so với 40%), nhưng chỉ 3% số người ghé mua, so với 30% ở bàn 6 loại (4 so với 31 người). Bạn phân vân {a} giây ở bàn 24 hũ và {b} giây ở bàn 6 hũ; đó chỉ là trải nghiệm một người. Gộp 50 thí nghiệm thì hiệu ứng trung bình gần bằng 0 (D = 0,02), và lần làm lại ở một siêu thị Đức không thấy khác biệt. Nhiều lựa chọn chỉ gây hại khi khó so sánh, việc chọn khó, chưa rõ mình muốn gì hoặc muốn chọn nhanh: khi trình sếp, đưa vài phương án đã lọc, kèm một đề xuất.",
+        "nguon": "Nguồn: Iyengar và Lepper (2000), Journal of Personality and Social Psychology 79(6): siêu thị Draeger's, mứt Wilkin & Sons, 24 và 6 loại; 242 và 260 khách đi ngang; ghé thử 60% và 40%; mua 3% (4/145) và 30% (31/104) số người ghé; nếm trung bình 1,50 và 1,38 loại; phiếu giảm 1 USD. Scheibehenne, Greifeneder và Todd (2010), Journal of Consumer Research 37(3): D = 0,02 với 63 điều kiện, 50 thí nghiệm, 5.036 người. Chernev, Böckenholt và Goodman (2015), Journal of Consumer Psychology 25(2): bốn điều kiện, 99 quan sát, 7.202 người. Scheibehenne (2008): làm lại ở siêu thị Đức không thấy hiệu ứng. Minh họa: tên vị mứt, màu nhãn, dòng chấm (mỗi chấm khoảng 5 người) và đồng hồ phân vân."
       },
       "en": {
-        "muc": "Play before you read",
-        "nhan": "Guess the number",
-        "hoi": "Drag the slider to guess, then lock it in to see the real result.",
-        "cau": "At the table with 24 jams, what share of the people who stopped to taste went on to buy?",
-        "nut_chot": "Lock in",
-        "ban": "Your guess",
-        "ket": "You guessed {me}%. The original numbers: 3% at the 24-jam table, 30% at the 6-jam table. But it was one supermarket with very few buyers (4 vs 31), and a German replication found no difference.",
-        "nguon": "Source: Iyengar and Lepper (2000), Journal of Personality and Social Psychology; Scheibehenne (2008), German replication."
+        "muc": "Try it on yourself",
+        "nhan": "The jam tasting table",
+        "hoi": "Push your cart past two jam tasting tables in a supermarket. Tap a jar to taste, drag a jar into the cart to buy, or move on.",
+        "mo_ta": "A supermarket aisle with a jam tasting table: first 24 jars, then 6 jars. Tap a jar to taste it, drag it into the shopping cart to buy. Then the real stream of shoppers flows past both tables, and a dial pools many studies.",
+        "doc_mac": "Your cart holds a $1-off coupon for one jar of jam.",
+        "nut_ban": [
+          "Push the cart to table one",
+          "Push the cart to table two"
+        ],
+        "nut_di": "Move on, don't buy",
+        "nut_dong": "See the real shoppers",
+        "nut_gop": "See the pooled evidence",
+        "nut_lai": "Play again",
+        "phieu": "$1 off",
+        "bien": "{n} jams · free tasting",
+        "vi": [
+          "Strawberry",
+          "Raspberry",
+          "Blueberry",
+          "Cherry",
+          "Apricot",
+          "Peach",
+          "Bitter orange",
+          "Lemon",
+          "Kiwi",
+          "Fig",
+          "Plum",
+          "Grape",
+          "Redcurrant",
+          "Blackcurrant",
+          "Mulberry",
+          "Blackberry",
+          "Pear ginger",
+          "Apple cinnamon",
+          "Mango",
+          "Pineapple",
+          "Guava",
+          "Passion fruit",
+          "Tamarind",
+          "Rhubarb"
+        ],
+        "gio": "⏱ {s} s",
+        "cap_ban": "A {n}-jam table. Tap a jar to taste, drag it into the cart to buy, or press Move on.",
+        "nem": "You taste: {vi} jam. To buy, drag the jar into the cart (keyboard: press Enter again).",
+        "xong_vong": "You stood there {s} seconds, tasted {n} jars, {mua}.",
+        "da_mua": "bought a jar of {vi}",
+        "khong_mua": "bought nothing",
+        "co_mua": "bought",
+        "lan": "{n}-jam table · {d} people passed",
+        "ban_nho": "{n} jams",
+        "quay": "Checkout",
+        "ghe": "stopped: {p}% ({n} people)",
+        "mua": "bought: {p}% of those → {n} people",
+        "moi_cham": "each dot ≈ 5 people (illustrative)",
+        "so_ban": "You: 24-jam table {m1}, 6-jam table {m2}; tasted {n1} and {n2} jars. Real shoppers tasted 1.50 and 1.38 jams on average.",
+        "can_tieu": "50 experiments pooled: does more choice hurt?",
+        "loi": "helps",
+        "hai": "hurts",
+        "d_nhan": "D = 0.02 (almost zero)",
+        "d_nho": "63 conditions · 50 experiments · 5,036 people",
+        "dk": [
+          "hard to|compare",
+          "hard|decision",
+          "unclear|preferences",
+          "want to|choose fast"
+        ],
+        "ban_phan_van": "you: {a} s / {b} s",
+        "dk_nguon": "Four conditions that bring the effect out: 99 observations, 7,202 people",
+        "cap_can": "The effect only shows up when these lights are on. At the 24-jar table the labels looked alike, so comparing was hard.",
+        "ket": "At Draeger's supermarket the 24-jam table drew more people in (60% vs 40%), but only 3% of them bought, against 30% at the 6-jam table (4 vs 31 people). You hesitated {a} seconds at 24 jars and {b} seconds at 6; that is one person's experience. Pooling 50 experiments, the average effect is close to zero (D = 0.02), and a replication in a German supermarket found no difference. More choice only hurts when options are hard to compare, the decision is hard, preferences are unclear or people want to choose fast: when you take options to your boss, bring a few filtered ones plus a recommendation.",
+        "nguon": "Source: Iyengar and Lepper (2000), Journal of Personality and Social Psychology 79(6): Draeger's supermarket, Wilkin & Sons jams, 24 vs 6 flavours; 242 and 260 passers-by; 60% and 40% stopped; 3% (4/145) and 30% (31/104) of those who stopped bought; they tasted 1.50 and 1.38 jams on average; $1-off coupon. Scheibehenne, Greifeneder and Todd (2010), Journal of Consumer Research 37(3): D = 0.02 across 63 conditions, 50 experiments, 5,036 people. Chernev, Böckenholt and Goodman (2015), Journal of Consumer Psychology 25(2): four conditions, 99 observations, 7,202 people. Scheibehenne (2008): a replication in a German supermarket found no effect. Illustrative: flavour names, label colours, the dot stream (each dot about 5 people) and the hesitation timer."
       }
     }
   ],
@@ -1526,37 +1925,38 @@
   ],
   "giai-ma-sieu-tri-nho": [
     {
-      "khuon": "tri-nho",
-      "id": "choi-tri-nho",
-      "truoc": "ap-dung",
+      "khuon": "cung-dien",
+      "id": "choi-cung-dien",
+      "truoc": "khai-niem",
+      "giay": 20,
+      "vat": [
+        "trung",
+        "chuoi",
+        "sua",
+        "o",
+        "bong",
+        "khoa",
+        "dongho",
+        "coc",
+        "nen",
+        "sach"
+      ],
       "vi": {
         "muc": "Thử trên chính bạn",
-        "nhan": "Nhớ 10 thứ",
-        "hoi": "Vòng 1: nhớ 10 thứ trong 20 giây. Vòng 2: nhớ 10 thứ khác bằng một câu chuyện nối chúng lại.",
-        "dan": "Vòng 1 nhớ kiểu bình thường. Vòng 2 có câu chuyện kiểu phương pháp liên kết trong sách.",
+        "nhan": "Cung điện ba phòng",
+        "hoi": "Vòng 1: nhớ 10 chữ trong 20 giây. Vòng 2: đặt 10 món lên lộ trình trong căn nhà, mỗi món một điểm, rồi đi lại lộ trình để nhớ.",
+        "mo_ta": "Mặt bằng một căn nhà ba phòng (phòng khách, bếp, phòng ngủ) với 10 điểm đánh số trên một lộ trình một chiều, và một khay 10 món đồ để kéo lên các điểm.",
         "v1": [
-          "trứng",
-          "xà phòng",
-          "chuối",
-          "sữa",
-          "bánh mì",
-          "cái ô",
-          "con mèo",
-          "đồng hồ",
-          "quả bóng",
-          "chìa khóa"
-        ],
-        "v2": [
           "con voi",
           "cái ghế",
           "bút chì",
           "dưa hấu",
           "đôi giày",
-          "ngọn nến",
           "cái thang",
           "con cá",
           "mũ bảo hiểm",
-          "quyển sách"
+          "bông hoa",
+          "cái kéo"
         ],
         "nhieu": [
           "cái bàn",
@@ -1564,52 +1964,82 @@
           "ấm trà",
           "đôi đũa",
           "cây bút",
-          "bông hoa",
-          "cái cốc",
           "cái gối",
           "tủ lạnh",
-          "cái kéo"
+          "cái gương",
+          "quả cam",
+          "đôi tất"
         ],
-        "chuyen": "Con voi ngồi lên cái ghế, cầm bút chì đâm vào quả dưa hấu. Nước dưa chảy vào đôi giày, làm tắt ngọn nến. Mất đèn, nó leo cái thang, giẫm phải con cá, ngã đập mũ bảo hiểm vào quyển sách.",
+        "vat": [
+          "quả trứng",
+          "quả chuối",
+          "hộp sữa",
+          "cái ô",
+          "quả bóng",
+          "chìa khóa",
+          "đồng hồ",
+          "cái cốc",
+          "ngọn nến",
+          "quyển sách"
+        ],
+        "cho": [
+          "tivi",
+          "sofa",
+          "kệ sách",
+          "đèn cây",
+          "bàn ăn",
+          "bếp",
+          "tủ lạnh",
+          "tủ áo",
+          "giường",
+          "gương"
+        ],
+        "phong": [
+          "Phòng khách",
+          "Bếp",
+          "Phòng ngủ"
+        ],
+        "lo": [
+          "Hình dung: {vat} khổng lồ nhảy tưng tưng trên {cho}!",
+          "Hình dung: {cho} bị {vat} đè bẹp dí!",
+          "Hình dung: {vat} phát sáng, hát ầm ĩ trên {cho}!",
+          "Hình dung: {vat} xoay tít, văng khắp {cho}!",
+          "Hình dung: {cho} mọc đầy {vat} tí hon!"
+        ],
         "nut_v1": "Vòng 1: bắt đầu",
-        "nut_v2": "Vòng 2: học bằng câu chuyện",
+        "nut_xong": "Tôi nhớ xong",
+        "nut_cham": "Chấm",
+        "nut_v2": "Vòng 2: dựng cung điện",
+        "nut_di": "Đi lại lộ trình",
         "nut_lai": "Chơi lại",
-        "nho_xong": "Tôi nhớ xong",
-        "cham": "Chấm",
-        "chon": "Chạm vào 10 thứ bạn vừa thấy",
-        "giay": "{s} giây",
-        "ket1": "Vòng 1: đúng {d}/10. Giờ thử mẹo liên kết: biến từng thứ thành hình, nối thành một cảnh phim.",
-        "ket2": "Vòng 2: đúng {d}/10 (vòng 1: {d1}/10). Người chưa từng luyện, tập 30 phút mỗi ngày trong 6 tuần, nhớ được từ khoảng 26 lên 62 trên 72 từ.",
-        "nguon": "Nguồn: Dresler và cộng sự (2017), Neuron: người chưa luyện, 30 phút mỗi ngày trong 6 tuần, số từ nhớ được tăng từ khoảng 26 lên 62 trên 72. Phương pháp liên kết theo sách Giải mã siêu trí nhớ (Mai Tường Vân, 2020)."
+        "doc_mac": "Bấm \"Vòng 1: bắt đầu\". Bạn có 20 giây để nhớ 10 chữ.",
+        "giay": "Còn {s} giây",
+        "chon_v1": "Chạm vào 10 chữ bạn vừa thấy, rồi bấm Chấm.",
+        "ket1": "Vòng 1: đúng {d}/10. Giờ thử cung điện trí nhớ: biến mỗi thứ thành hình, đặt vào một chỗ quen thuộc.",
+        "dat_vat": "Kéo từng món lên một điểm trong nhà (hoặc chạm món để đặt vào điểm trống kế tiếp). Tưởng tượng thật lố.",
+        "da_dat": "đã đặt {n}/10",
+        "di_hoi": "Điểm {n}, {cho}: món gì ở đây?",
+        "dung": "Đúng!",
+        "sai": "Ở đó là {vat}.",
+        "ket": "Vòng 2: đúng {d}/10 (vòng 1: {d1}/10). Người chưa từng luyện, tập 30 phút mỗi ngày trong 6 tuần, nhớ được từ khoảng 26 lên 62 trên 72 từ; 9 trên 10 người nhớ siêu hạng dùng cung điện trí nhớ.",
+        "nguon": "Nguồn: Dresler và cộng sự (2017), Neuron: người chưa luyện, 30 phút mỗi ngày trong 6 tuần, số từ nhớ được tăng từ khoảng 26 lên 62 trên 72. Maguire và cộng sự (2003): 9 trên 10 người nhớ siêu hạng dùng chiến lược không gian (cung điện). Căn nhà, lộ trình 10 điểm và các câu \"hình dung\" là minh họa theo cách sách mô tả cung điện trí nhớ; điểm số là của chính bạn."
       },
       "en": {
         "muc": "Try it on yourself",
-        "nhan": "Remember 10 things",
-        "hoi": "Round 1: remember 10 things in 20 seconds. Round 2: remember 10 different things with a story that links them.",
-        "dan": "Round 1 is plain memorising. Round 2 gives you a story, like the book's linking method.",
+        "nhan": "A three-room palace",
+        "hoi": "Round 1: remember 10 words in 20 seconds. Round 2: place 10 objects along a route through a house, one per stop, then walk the route to recall them.",
+        "mo_ta": "Floor plan of a three-room home (living room, kitchen, bedroom) with 10 numbered stops on a one-way route, and a tray of 10 objects to drag onto the stops.",
         "v1": [
-          "egg",
-          "soap",
-          "banana",
-          "milk",
-          "bread",
-          "umbrella",
-          "cat",
-          "clock",
-          "ball",
-          "key"
-        ],
-        "v2": [
           "elephant",
           "chair",
           "pencil",
           "watermelon",
           "shoes",
-          "candle",
           "ladder",
           "fish",
           "helmet",
-          "book"
+          "flower",
+          "scissors"
         ],
         "nhieu": [
           "table",
@@ -1617,23 +2047,65 @@
           "teapot",
           "chopsticks",
           "pen",
-          "flower",
-          "cup",
           "pillow",
           "fridge",
-          "scissors"
+          "mirror",
+          "orange",
+          "socks"
         ],
-        "chuyen": "An elephant sits on a chair and stabs a watermelon with a pencil. The juice runs into a pair of shoes and puts out a candle. In the dark it climbs a ladder, steps on a fish and falls, banging its helmet on a book.",
+        "vat": [
+          "egg",
+          "banana",
+          "milk",
+          "umbrella",
+          "ball",
+          "key",
+          "clock",
+          "cup",
+          "candle",
+          "book"
+        ],
+        "cho": [
+          "TV",
+          "sofa",
+          "bookshelf",
+          "lamp",
+          "table",
+          "stove",
+          "fridge",
+          "wardrobe",
+          "bed",
+          "mirror"
+        ],
+        "phong": [
+          "Living room",
+          "Kitchen",
+          "Bedroom"
+        ],
+        "lo": [
+          "Picture it: a giant {vat} bouncing on the {cho}!",
+          "Picture it: the {cho} squashed flat by a {vat}!",
+          "Picture it: a glowing {vat} singing on the {cho}!",
+          "Picture it: a {vat} spinning wildly all over the {cho}!",
+          "Picture it: the {cho} sprouting tiny {vat}s!"
+        ],
         "nut_v1": "Round 1: start",
-        "nut_v2": "Round 2: learn with a story",
+        "nut_xong": "I'm done",
+        "nut_cham": "Check",
+        "nut_v2": "Round 2: build the palace",
+        "nut_di": "Walk the route",
         "nut_lai": "Play again",
-        "nho_xong": "I've got it",
-        "cham": "Check",
-        "chon": "Tap the 10 things you just saw",
-        "giay": "{s} seconds",
-        "ket1": "Round 1: {d}/10 correct. Now try the linking trick: turn each item into a picture and join them into one scene.",
-        "ket2": "Round 2: {d}/10 correct (round 1: {d1}/10). Untrained people who practised 30 minutes a day for 6 weeks went from about 26 to 62 of 72 words.",
-        "nguon": "Source: Dresler et al. (2017), Neuron: untrained people practising 30 minutes a day for 6 weeks went from about 26 to 62 of 72 words remembered. Linking method as described in Giải mã siêu trí nhớ (Mai Tường Vân, 2020)."
+        "doc_mac": "Press \"Round 1: start\". You have 20 seconds to remember 10 words.",
+        "giay": "{s} seconds left",
+        "chon_v1": "Tap the 10 words you just saw, then press Check.",
+        "ket1": "Round 1: {d}/10 correct. Now try the memory palace: turn each thing into an image and put it somewhere familiar.",
+        "dat_vat": "Drag each object onto a stop in the house (or tap an object to put it on the next empty stop). Imagine something absurd.",
+        "da_dat": "{n}/10 placed",
+        "di_hoi": "Stop {n}, the {cho}: what was here?",
+        "dung": "Right!",
+        "sai": "It was the {vat}.",
+        "ket": "Round 2: {d}/10 correct (round 1: {d1}/10). Novices who trained 30 minutes a day for 6 weeks went from about 26 to 62 of 72 words recalled; 9 of 10 superior memorisers use the memory palace.",
+        "nguon": "Source: Dresler et al. (2017), Neuron: novices trained 30 minutes a day for 6 weeks; words recalled rose from about 26 to 62 out of 72. Maguire et al. (2003): 9 of 10 superior memorisers used a spatial strategy (the memory palace). The house, the 10-stop route and the \"picture it\" lines are illustrations of the method as the book describes it; the scores are your own."
       }
     }
   ],
@@ -3683,6 +4155,950 @@
         "doc_mac": "Tap a weight to read it, then drag it onto the right pan.",
         "ket": "Left pan: ${t} billion in committed rent; right pan: ${p} billion, which is all of 2018 plus the first half of 2019 in revenue. The leases were long and non-cancellable; WeWork's members committed for far shorter. In Sep 2019 WeWork pulled its IPO; in Nov 2023 it filed for bankruptcy.",
         "nguon": "Sources: S-1 filing (14 Aug 2019): 2018 and first-half 2019 revenue, lease note ($34,036,725 thousand, plus $13.1 billion in leases not yet commenced); $47 billion valuation: Forbes, 7 Nov 2023 (secondary); IPO withdrawn 30 Sep 2019; bankruptcy: WeWork release, 6 Nov 2023."
+      }
+    }
+  ],
+  "flow": [
+    {
+      "khuon": "kenh-dong-chay",
+      "id": "choi-kenh-dong-chay",
+      "truoc": "khai-niem",
+      "giay": 40,
+      "ky_dau": 0.06,
+      "ky_cuoi": 0.92,
+      "rong": 0.13,
+      "kho_dau": 0.08,
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Giữ Alex trong kênh",
+        "hoi": "Alex học tennis, càng chơi càng giỏi nên chấm A tự trôi sang phải. Kéo lên xuống trên biểu đồ (hoặc chọn đối thủ) để giữ Alex trong dải xanh suốt 40 giây.",
+        "mo_ta": "Biểu đồ kỹ năng (ngang) và thử thách (dọc) với dải chéo là kênh dòng chảy, vùng trên là lo âu, vùng dưới là chán; bên cạnh là Alex đánh tennis và một đồng hồ.",
+        "truc_x": "KỸ NĂNG →",
+        "truc_y": "THỬ THÁCH →",
+        "lo_au": "LO ÂU",
+        "chan": "CHÁN",
+        "kenh": "KÊNH DÒNG CHẢY",
+        "doi_thu": [
+          "Đập tường",
+          "Bạn cùng lớp",
+          "Câu lạc bộ",
+          "Giải đấu"
+        ],
+        "trang": [
+          "Dòng chảy",
+          "Chán",
+          "Lo âu"
+        ],
+        "dong_ho": "giờ trôi trong đầu",
+        "keo": "Độ khó",
+        "nut_bd": "Bắt đầu 40 giây",
+        "nut_lai": "Chơi lại",
+        "doc_mac": "Bấm Bắt đầu. Kỹ năng của Alex tăng dần, độ khó thì do bạn chọn.",
+        "con": "Còn {s} giây",
+        "ket": "Alex ở trong kênh {p}% thời gian. Muốn ở lại thì phải đổi liên tục: chán thì nâng độ khó, lo thì luyện thêm hoặc chia nhỏ việc. Nhưng cân bằng thử thách và kỹ năng chỉ liên hệ ở mức vừa với dòng chảy; mục tiêu rõ và phản hồi ngay cũng quan trọng.",
+        "nguon": "Nguồn: sơ đồ kênh dòng chảy và ví dụ Alex học tennis trong Mihaly Csikszentmihalyi, Dòng chảy (1990), chương 4. Phân tích gộp Fong, Zaleski và Leach (2015), Journal of Positive Psychology: cân bằng thử thách và kỹ năng chỉ liên hệ ở mức vừa. Tốc độ tăng kỹ năng, bề rộng kênh và đồng hồ là minh họa; % thời gian trong kênh là của chính bạn."
+      },
+      "en": {
+        "muc": "Play before reading",
+        "nhan": "Keep Alex in the channel",
+        "hoi": "Alex is learning tennis and keeps getting better, so dot A drifts right. Drag up and down on the chart (or pick an opponent) to keep Alex in the green band for 40 seconds.",
+        "mo_ta": "A chart of skill (across) and challenge (up) with a diagonal flow channel, anxiety above it and boredom below; beside it, Alex playing tennis and a clock.",
+        "truc_x": "SKILL →",
+        "truc_y": "CHALLENGE →",
+        "lo_au": "ANXIETY",
+        "chan": "BOREDOM",
+        "kenh": "FLOW CHANNEL",
+        "doi_thu": [
+          "A wall",
+          "A classmate",
+          "Club player",
+          "Tournament"
+        ],
+        "trang": [
+          "Flow",
+          "Boredom",
+          "Anxiety"
+        ],
+        "dong_ho": "time as it feels",
+        "keo": "Difficulty",
+        "nut_bd": "Start 40 seconds",
+        "nut_lai": "Play again",
+        "doc_mac": "Press Start. Alex's skill grows on its own; the difficulty is up to you.",
+        "con": "{s} seconds left",
+        "ket": "Alex was in the channel {p}% of the time. Staying there means constant adjusting: when bored, raise the challenge; when anxious, practise more or break the task down. But the challenge–skill balance is only moderately linked to flow; clear goals and instant feedback matter too.",
+        "nguon": "Source: the flow-channel diagram and the example of Alex learning tennis in Mihaly Csikszentmihalyi, Flow (1990), chapter 4. Meta-analysis by Fong, Zaleski and Leach (2015), Journal of Positive Psychology: the challenge–skill balance is only moderately related to flow. Skill growth speed, channel width and the clock are illustrative; the share of time in the channel is your own."
+      }
+    }
+  ],
+  "khong-diet-khong-sinh": [
+    {
+      "khuon": "vong-may",
+      "id": "choi-vong-may",
+      "truoc": "khai-niem",
+      "vi": {
+        "muc": "Thực tập cùng",
+        "nhan": "Ba hơi thở, một đám mây",
+        "hoi": "Không có điểm, không có đồng hồ. Giữ vòng tròn để hít vào, thả ra để thở ra, theo nhịp của bạn.",
+        "mo_ta": "Bầu trời có một đám mây, một lòng sông cạn và một chén trà. Mỗi hơi thở trọn đưa mây thành mưa và dòng sông, sông thành chén trà, rồi hơi trà bay lên lại thành mây.",
+        "nut_tho": "Vòng thở: giữ để hít vào, thả để thở ra",
+        "giu": "giữ để hít vào",
+        "hit": "hít vào…",
+        "tho": "thở ra…",
+        "sau": "lần sau hít sâu hơn chút",
+        "chang": [
+          "Một đám mây trên trời. Hít vào thật chậm, thở ra thật chậm.",
+          "Mây không mất. Mây thành mưa, mưa thành dòng sông.",
+          "Nước sông thành chén trà trong tay bạn. Uống trà là uống mây.",
+          "Hơi trà bay lên, lại thành mây. Mây chưa từng chết, chỉ đổi dạng."
+        ],
+        "nut_song": "Xem sóng và nước",
+        "nut_may": "Về lại đám mây",
+        "nut_lai": "Thở lại từ đầu",
+        "song_tren": "Sóng: lên, xuống, cao, thấp (chiều lịch sử)",
+        "song_duoi": "Nước: không sinh, không diệt (chiều tối hậu)",
+        "song_cap": "Kéo đỉnh sóng lên cao rồi hạ xuống. Để ý phần nước bên dưới.",
+        "song_cao": "Sóng lên cao, hai bên trũng xuống. Vẫn chừng ấy nước.",
+        "song_thap": "Sóng hạ xuống. Không mất giọt nào: sóng chính là nước.",
+        "keo_song": "Đỉnh sóng, kéo lên hoặc xuống",
+        "ket": "Mây đã thành mưa, thành sông, thành trà, rồi lại là mây. Không chỗ nào là chết, chỉ có đổi dạng.",
+        "nguon": "Ý và hình ảnh: Thích Nhất Hạnh, Không diệt không sinh đừng sợ hãi (No Death, No Fear, 2002), phần đám mây và chén trà, sóng và nước. Mây thành mưa khớp với định luật bảo toàn khối lượng: vật chất chỉ đổi dạng. Bước \"vì thế ta không mất\" là niềm tin, không phải kết luận khoa học (xem phần Dẫn chứng). Cảnh không đo gì; nhịp thở do bạn chọn."
+      },
+      "en": {
+        "muc": "Practice along",
+        "nhan": "Three breaths, one cloud",
+        "hoi": "No score, no clock. Hold the circle to breathe in, let go to breathe out, at your own pace.",
+        "mo_ta": "A sky with one cloud, a dry riverbed and a cup of tea. Each full breath turns the cloud into rain and a river, the river into a cup of tea, and the tea's steam back into a cloud.",
+        "nut_tho": "Breathing circle: hold to breathe in, let go to breathe out",
+        "giu": "hold to breathe in",
+        "hit": "breathing in…",
+        "tho": "breathing out…",
+        "sau": "next time, a little deeper",
+        "chang": [
+          "A cloud in the sky. Breathe in slowly, breathe out slowly.",
+          "The cloud is not lost. It becomes rain, and the rain becomes a river.",
+          "The river becomes the tea in your hands. Drinking tea, you drink the cloud.",
+          "Steam rises from the tea and becomes a cloud again. The cloud never died; it only changed form."
+        ],
+        "nut_song": "See the wave and the water",
+        "nut_may": "Back to the cloud",
+        "nut_lai": "Breathe again from the start",
+        "song_tren": "Wave: up, down, high, low (historical dimension)",
+        "song_duoi": "Water: no birth, no death (ultimate dimension)",
+        "song_cap": "Drag the wave's crest up, then let it down. Watch the water below.",
+        "song_cao": "The wave rises and the sides dip. Still the same water.",
+        "song_thap": "The wave settles. Not a drop is lost: the wave is the water.",
+        "keo_song": "Wave crest, drag up or down",
+        "ket": "The cloud became rain, a river, tea, and a cloud again. Nowhere is there a death, only a change of form.",
+        "nguon": "Idea and images: Thich Nhat Hanh, No Death, No Fear (2002), the cloud and the cup of tea, the wave and the water. Cloud becoming rain matches conservation of mass: matter only changes form. The step \"so we are not lost either\" is belief, not a scientific conclusion (see the Evidence section). The scene measures nothing; you set the pace of your breath."
+      }
+    }
+  ],
+  "never-eat-alone": [
+    {
+      "khuon": "vong-quan-he",
+      "id": "choi-vong-quan-he",
+      "truoc": "khai-niem",
+      "vong": [
+        3,
+        5,
+        7
+      ],
+      "phai": [
+        1.5,
+        3,
+        8
+      ],
+      "dau": [
+        1,
+        0.8,
+        0.6
+      ],
+      "ping": 4,
+      "thang_ms": 4000,
+      "moi": [
+        2,
+        5,
+        9
+      ],
+      "cho_ms": 5000,
+      "tia": [
+        1,
+        2,
+        2
+      ],
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Một năm giữ lửa",
+        "hoi": "Mỗi người là một ngọn đèn, tự mờ dần nếu bạn im lặng. Kéo bong bóng ping vào một người (hoặc chạm vào họ) để đèn sáng lại. Mỗi tháng chỉ có 4 bong bóng.",
+        "mo_ta": "Ba vòng tròn quanh bạn: vòng trong, vòng giữa, vòng ngoài, mỗi người một ngọn đèn. Một năm chạy trong 48 giây, thỉnh thoảng có người mới ở rìa; cuối năm có biến cố mất việc.",
+        "nguoi": [
+          [
+            "Mẹ",
+            "Bạn thân",
+            "Anh trai"
+          ],
+          [
+            "Sếp cũ",
+            "Mentor",
+            "Bạn đại học",
+            "Đồng nghiệp",
+            "Khách quen"
+          ],
+          [
+            "Hàng xóm",
+            "Chị HR",
+            "Bạn cấp 3",
+            "Bạn hội thảo",
+            "Nhà báo",
+            "Bạn của bạn",
+            "Cựu sếp"
+          ]
+        ],
+        "moi": [
+          "Chị Lan",
+          "Anh Tuấn",
+          "Bạn Minh"
+        ],
+        "vong": [
+          "vòng trong · hằng tuần",
+          "vòng giữa · 1–3 tháng",
+          "vòng ngoài · 1–2 lần/năm"
+        ],
+        "ping": [
+          "chúc mừng",
+          "bài báo",
+          "bữa trưa"
+        ],
+        "ban": "Bạn",
+        "thang": "Tháng {n}",
+        "khay": "Ping tháng này",
+        "gio": "nhắn trong 24 giờ",
+        "nut_bd": "Bắt đầu một năm",
+        "nut_lai": "Chơi lại",
+        "doc_mac": "Kéo một bong bóng vào người có đèn đang mờ, hoặc chạm vào họ.",
+        "da_ping": "Đã ping {p}. Đèn sáng lại.",
+        "het_ping": "Hết bong bóng tháng này. Tháng sau sẽ có thêm.",
+        "moi_den": "Bạn vừa gặp {p} ở một buổi hội thảo. Chạm vào {p} để nhắn lại trước khi hết 24 giờ.",
+        "moi_vao": "Đã nhắn lại {p}, nhắc một chi tiết từ cuộc trò chuyện. {p} vào vòng ngoài.",
+        "moi_mat": "Để trôi qua 24 giờ. Với {p}, bạn giờ là \"ai nhỉ?\".",
+        "ai_nhi": "ai nhỉ?",
+        "bien_co": "Tháng 12: công ty cắt giảm, bạn mất việc. Những đèn còn sáng gửi tin về phía bạn.",
+        "tin": "{n} tin việc bay về",
+        "ket_ban": "Có {n} tin việc làm bay về, {y} tin trong số đó đến từ vòng giữa và vòng ngoài.",
+        "ket": "Người chỉ ping khi cần thì cả năm im lặng: tới tháng 12 mọi đèn đã tắt, người mới đã quên mặt, nên lúc mất việc không đèn nào gửi tin về. Người quen sơ hay mang cơ hội mới vì họ biết những điều bạn và bạn thân chưa biết.",
+        "nguon": "Nhịp vòng trong hằng tuần, vòng giữa 1–3 tháng, vòng ngoài 1–2 lần/năm và nhắn lại trong 12–24 giờ: lời khuyên của Ferrazzi trong Never Eat Alone (2005), không phải số đo. Liên kết yếu mang cơ hội việc làm: Granovetter (1973); thí nghiệm trên khoảng 20 triệu người dùng LinkedIn (Rajkumar và cộng sự, Science 2022). Minh họa: một năm 48 giây, 4 bong bóng mỗi tháng, tốc độ đèn mờ, vòng đếm 24 giờ rút ngắn, số tin ở biến cố cuối (theo hướng kết quả trên, không phải số đo)."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "A year of keeping the lights on",
+        "hoi": "Each person is a lamp that fades if you stay silent. Drag a ping bubble onto someone (or tap them) to light them up again. You get only 4 bubbles a month.",
+        "mo_ta": "Three rings around you: inner, middle and outer, each person a lamp. A year runs in 48 seconds, new people sometimes appear at the edge, and the year ends with a job loss.",
+        "nguoi": [
+          [
+            "Mom",
+            "Best friend",
+            "Brother"
+          ],
+          [
+            "Old boss",
+            "Mentor",
+            "College pal",
+            "Coworker",
+            "Client"
+          ],
+          [
+            "Neighbor",
+            "HR contact",
+            "School pal",
+            "Event pal",
+            "Journalist",
+            "Friend's friend",
+            "Ex-boss"
+          ]
+        ],
+        "moi": [
+          "Lan",
+          "Tuan",
+          "Minh"
+        ],
+        "vong": [
+          "inner · weekly",
+          "middle · every 1–3 months",
+          "outer · 1–2 times a year"
+        ],
+        "ping": [
+          "congrats",
+          "article",
+          "lunch"
+        ],
+        "ban": "You",
+        "thang": "Month {n}",
+        "khay": "Pings this month",
+        "gio": "reply within 24 h",
+        "nut_bd": "Start the year",
+        "nut_lai": "Play again",
+        "doc_mac": "Drag a bubble onto someone whose lamp is fading, or tap them.",
+        "da_ping": "Pinged {p}. The lamp is bright again.",
+        "het_ping": "No bubbles left this month. More next month.",
+        "moi_den": "You just met {p} at a conference. Tap {p} to follow up before 24 hours pass.",
+        "moi_vao": "You followed up with {p}, mentioning a detail from your chat. {p} joins your outer ring.",
+        "moi_mat": "24 hours slipped by. To {p}, you are now \"who was that?\".",
+        "ai_nhi": "who was that?",
+        "bien_co": "Month 12: layoffs, and you lose your job. The lamps still lit send news your way.",
+        "tin": "{n} job leads arrive",
+        "ket_ban": "{n} job leads came your way, {y} of them from your middle and outer rings.",
+        "ket": "Someone who pings only when they need something stays silent all year: by month 12 every lamp is dark and new contacts have forgotten them, so when the job goes, no lamp sends anything back. Loose acquaintances often bring new chances because they know things you and your close friends don't.",
+        "nguon": "Rhythm of inner ring weekly, middle every 1–3 months, outer 1–2 times a year, and following up within 12–24 hours: Ferrazzi's advice in Never Eat Alone (2005), not a measurement. Weak ties bring job opportunities: Granovetter (1973); an experiment on about 20 million LinkedIn users (Rajkumar et al., Science 2022). Illustrative: a 48-second year, 4 bubbles a month, how fast lamps fade, the shortened 24-hour countdown, and the number of leads in the final event (pointing the same way as those results, not measured)."
+      }
+    }
+  ],
+  "search-inside-yourself": [
+    {
+      "khuon": "khoang-trong",
+      "id": "choi-khoang-trong",
+      "truoc": "khai-niem",
+      "vi": {
+        "muc": "Nhập vai",
+        "nhan": "Khoảng trống trước khi đáp",
+        "hoi": "Không có điểm, không có đáp án đúng. Bạn có thể đáp ngay, hoặc chen một khoảng trống năm bước rồi mới đáp.",
+        "mo_ta": "Phòng họp: sếp chê bạn trước cả nhóm. Mặt và ngực bạn đỏ dần, cốc nước bên cạnh bị khuấy đục.",
+        "loi_sep": [
+          "Slide này làm ẩu quá.",
+          "Lần sau chuẩn bị kỹ hơn đi."
+        ],
+        "doc_mac": "Sếp vừa nói thế trước cả nhóm. Mặt bạn nóng lên, ngực thắt lại.",
+        "nut_ngay": "Đáp ngay",
+        "nut_dung": "Dừng một nhịp",
+        "gat": [
+          {
+            "nhan": "Anh có đọc kỹ đâu mà chê?",
+            "hau_qua": "Cả phòng im bặt. Sếp đỏ mặt, cuộc họp chuyển sang chuyện ai đúng ai sai, không ai nhắc tới slide nữa."
+          },
+          {
+            "nhan": "Vâng, lần sau em khỏi làm nữa.",
+            "hau_qua": "Bạn nói giọng mỉa rồi ngồi im cả buổi. Tối về vẫn nóng mặt, nghĩ lại từng câu."
+          }
+        ],
+        "tua": "Tua nhanh:",
+        "nut_thu_lai": "Thử lại, lần này dừng một nhịp",
+        "buoc": [
+          "Dừng",
+          "Thở",
+          "Nhận",
+          "Nghĩ",
+          "Đáp"
+        ],
+        "cap_dung": "Dừng: chưa nói gì cả. Chỉ cần không phản ứng ngay.",
+        "nut_tho": "Giữ để thở",
+        "cap_tho": "Thở: giữ nút để thở chậm. Bùn trong cốc lắng dần, nước trong lại.",
+        "tho_xong": "Nước đã trong. Thả tay ra khi bạn sẵn sàng.",
+        "cap_nhan": "Nhận: cảm xúc hiện trên cơ thể trước khi thành lời. Bạn thấy nóng hay thắt ở đâu? Chạm vào chỗ đó.",
+        "vung": [
+          "mặt",
+          "ngực",
+          "bụng",
+          "tay"
+        ],
+        "cap_vung": "Bạn thấy nó ở {v}. Bắt được cảm xúc ngay trên cơ thể là sớm nhất, lúc còn dễ xoay chuyển.",
+        "hoi_ten": "Gọi tên nó: mình đang thấy…",
+        "ten_cx": [
+          "giận",
+          "xấu hổ",
+          "lo",
+          "bị coi thường"
+        ],
+        "cap_ten": "\"Mình đang thấy {c}.\" Gọi tên ra, cảm xúc dịu bớt (Lieberman và cộng sự, 2007).",
+        "cap_nghi": "Nghĩ: đổi lời bạn tự kể. Chạm từng dòng để đổi từ bi quan sang lạc quan.",
+        "p3": [
+          {
+            "hoi": "Kéo dài bao lâu?",
+            "bi": "Mãi mãi: sếp sẽ luôn coi mình kém.",
+            "lac": "Lần này thôi: một bản slide chưa tốt."
+          },
+          {
+            "hoi": "Lan rộng đến đâu?",
+            "bi": "Mọi mặt: mình làm gì cũng hỏng.",
+            "lac": "Riêng việc này: phần việc khác vẫn ổn."
+          },
+          {
+            "hoi": "Lỗi của ai?",
+            "bi": "Tại mình hết.",
+            "lac": "Nhiều yếu tố: gấp hạn, thiếu số liệu, và cả mình."
+          }
+        ],
+        "cap_dap": "Đáp: cơn nóng đã dịu. Giờ bạn chọn câu trả lời.",
+        "dap": [
+          {
+            "nhan": "Dạ, phần nào anh thấy ẩu nhất ạ? Em sửa ngay trong hôm nay.",
+            "hau_qua": "Sếp chỉ ra mấy trang. Cuộc họp quay lại việc chính, chiều đó bạn gửi bản sửa."
+          },
+          {
+            "nhan": "Em ghi nhận. Sau họp em xin ít phút hỏi kỹ hơn được không anh?",
+            "hau_qua": "Sếp gật đầu. Nói riêng sau họp, sếp góp ý cụ thể và nhẹ hơn hẳn."
+          }
+        ],
+        "trai": "Đáp ngay",
+        "phai": "Sau khoảng trống",
+        "mac_dinh": "(ví dụ thường gặp)",
+        "cung_nhu_toi": "Thử thêm bài \"Cũng như tôi\" cho người sếp: người này cũng có áp lực, cũng từng bị chê, cũng muốn được vui, cũng như tôi.",
+        "ket": "Cảm xúc vẫn có đó. Khoảng trống không dập nó đi, chỉ để bạn chọn câu đáp thay vì để cơn giận chọn.",
+        "nut_lai": "Nhập vai lại",
+        "nguon": "Năm bước Dừng, Thở, Nhận, Nghĩ, Đáp (SBNRR), hình cốc nước bùn, bảng 3 chữ P (mượn từ Martin Seligman) và bài \"Cũng như tôi\": Chade-Meng Tan, Search Inside Yourself (2012). Gọi tên cảm xúc làm giảm hoạt động hạnh nhân: Lieberman và cộng sự (2007), bài xếp \"vững\". Tình huống và các câu thoại là minh họa, không chấm điểm."
+      },
+      "en": {
+        "muc": "Role-play",
+        "nhan": "A gap before you answer",
+        "hoi": "No score, no right answer. You can answer straight away, or put a five-step gap in first.",
+        "mo_ta": "A meeting room: your boss criticizes you in front of the team. Your face and chest turn red, and the glass of water beside you is stirred up and cloudy.",
+        "loi_sep": [
+          "These slides are sloppy.",
+          "Prepare properly next time."
+        ],
+        "doc_mac": "Your boss just said that in front of the whole team. Your face burns, your chest tightens.",
+        "nut_ngay": "Answer now",
+        "nut_dung": "Pause first",
+        "gat": [
+          {
+            "nhan": "Did you even read them properly?",
+            "hau_qua": "The room goes silent. Your boss flushes, the meeting turns into who is right, and nobody mentions the slides again."
+          },
+          {
+            "nhan": "Fine, I won't bother next time.",
+            "hau_qua": "You say it sarcastically, then sit silent all meeting. That night your face still burns as you replay every word."
+          }
+        ],
+        "tua": "Fast-forward:",
+        "nut_thu_lai": "Try again, pausing first",
+        "buoc": [
+          "Stop",
+          "Breathe",
+          "Notice",
+          "Reflect",
+          "Respond"
+        ],
+        "cap_dung": "Stop: say nothing yet. Just don't react straight away.",
+        "nut_tho": "Hold to breathe",
+        "cap_tho": "Breathe: hold the button and breathe slowly. The mud in the glass settles and the water clears.",
+        "tho_xong": "The water is clear. Let go when you are ready.",
+        "cap_nhan": "Notice: emotions show up in the body before they turn into words. Where do you feel heat or tightness? Tap that spot.",
+        "vung": [
+          "face",
+          "chest",
+          "stomach",
+          "hands"
+        ],
+        "cap_vung": "You feel it in your {v}. Catching an emotion in the body is the earliest point, while it is still easy to turn.",
+        "hoi_ten": "Name it: I'm feeling…",
+        "ten_cx": [
+          "angry",
+          "ashamed",
+          "anxious",
+          "belittled"
+        ],
+        "cap_ten": "\"I'm feeling {c}.\" Naming it softens it (Lieberman et al., 2007).",
+        "cap_nghi": "Reflect: change the story you tell yourself. Tap each line to switch it from pessimistic to optimistic.",
+        "p3": [
+          {
+            "hoi": "How long will it last?",
+            "bi": "Forever: my boss will always think I'm bad.",
+            "lac": "Just this time: one set of slides wasn't good."
+          },
+          {
+            "hoi": "How far does it spread?",
+            "bi": "Everywhere: I mess up everything.",
+            "lac": "Just this task: the rest of my work is fine."
+          },
+          {
+            "hoi": "Whose fault is it?",
+            "bi": "All mine.",
+            "lac": "Many things: a tight deadline, missing data, and me too."
+          }
+        ],
+        "cap_dap": "Respond: the heat has eased. Now choose your answer.",
+        "dap": [
+          {
+            "nhan": "Which part looked sloppiest to you? I'll fix it today.",
+            "hau_qua": "Your boss points to a few slides. The meeting gets back on track, and you send the fix that afternoon."
+          },
+          {
+            "nhan": "Noted. Could I have a few minutes after the meeting to go through it?",
+            "hau_qua": "Your boss nods. In private after the meeting the feedback is specific and much gentler."
+          }
+        ],
+        "trai": "Answering now",
+        "phai": "After the gap",
+        "mac_dinh": "(a common example)",
+        "cung_nhu_toi": "Try the \"Just like me\" practice for your boss too: this person also feels pressure, has also been criticized, also wants to be happy, just like me.",
+        "ket": "The emotion is still there. The gap doesn't crush it; it lets you choose the answer instead of letting the anger choose.",
+        "nut_lai": "Play the scene again",
+        "nguon": "The five steps Stop, Breathe, Notice, Reflect, Respond (SBNRR), the muddy-glass image, the 3 P's table (borrowed from Martin Seligman) and the \"Just like me\" practice: Chade-Meng Tan, Search Inside Yourself (2012). Naming emotions reduces amygdala activity: Lieberman et al. (2007), rated \"solid\" in the write-up. The situation and lines are illustrative, nothing is scored."
+      }
+    }
+  ],
+  "thi-nghiem-zeigarnik": [
+    {
+      "khuon": "ban-viec-do",
+      "id": "choi-ban-viec-do",
+      "truoc": "tinh-hoa",
+      "viec": [
+        "o",
+        "so",
+        "hat",
+        "manh",
+        "sao",
+        "dau",
+        "khoi",
+        "cay"
+      ],
+      "ngat": 4,
+      "tu_do": 10,
+      "moc": [
+        0.61,
+        1.9,
+        2.1,
+        2.75
+      ],
+      "gop": [
+        1.9,
+        1.13,
+        0.99
+      ],
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Bàn làm việc bị ngắt",
+        "hoi": "Làm lần lượt 8 việc nhỏ trên bàn. Thỉnh thoảng sẽ có người ngắt ngang: cứ làm theo.",
+        "mo_ta": "Mặt bàn với 8 khay việc nhỏ (tô ô, chạm số, xâu hạt, ghép hình…). Một bàn tay thò vào ngắt 4 việc giữa chừng. Sau đó bàn được dọn và có câu hỏi bất ngờ: kéo thẻ tên các việc bạn nhớ vào ô Tôi nhớ.",
+        "doc_mac": "8 khay việc đang chờ. Mỗi việc chỉ mất vài giây.",
+        "cho": "8 việc nhỏ đang chờ",
+        "nut_bd": "Bắt đầu làm",
+        "viec": [
+          "Tô 3 ô vuông",
+          "Chạm số 1 đến 5",
+          "Xâu 4 hạt",
+          "Ghép 3 mảnh hình",
+          "Thắp 4 ngôi sao",
+          "Đóng 3 con dấu",
+          "Xếp tháp 4 khối",
+          "Trồng 3 chậu hoa"
+        ],
+        "moi": [
+          "Gấp máy bay giấy",
+          "Giải ô chữ",
+          "Vẽ ngôi nhà",
+          "Đếm que diêm"
+        ],
+        "buoc": "Món {n}",
+        "dang_lam": "Việc {n}/{m}: {ten}. Chạm từng món để làm.",
+        "xong_viec": "Xong: {ten}.",
+        "ngat_noi": "Dừng lại, chuyển sang việc này nhé",
+        "hoi_bat_ngo": "Bàn đã được dọn. Câu hỏi bất ngờ: bạn vừa làm những việc gì? Kéo thẻ (hoặc chạm thẻ) sang ô Tôi nhớ. Có vài thẻ mồi lẫn vào.",
+        "chong": "Chồng thẻ",
+        "o_nho": "Tôi nhớ",
+        "da_chon": "Đã chọn {n} thẻ.",
+        "nut_nop": "Nộp câu trả lời",
+        "dem": "Bạn nhớ {i}/{nd} việc bị ngắt, {c}/{nx} việc làm xong và chọn nhầm {d} thẻ mồi. Tỉ lệ dở/xong của bạn: {r}. Thẻ vàng là việc dở, xanh là việc xong, xám là thẻ mồi.",
+        "vo_cuc": "không chia được (bạn không nhớ việc xong nào)",
+        "khong_tinh": "chưa tính được (bạn không nhớ việc nào)",
+        "mo_ta_thuoc": "Thước tỉ lệ nhớ việc dở chia việc xong, từ 0 đến 3, với các mốc trong bài Zeigarnik 1927, kim của bạn, và kim nghiên cứu trượt từ 1,9 về 1,13 rồi 0,99.",
+        "ngang": "1 = ngang nhau",
+        "moc": [
+          "0,61 · người mệt",
+          "1,9 · 32 người lớn",
+          "2,1 · 45 trẻ, theo nhóm",
+          "~2,75 · người \"tham vọng\""
+        ],
+        "gop": [
+          "Zeigarnik 1927: 1,9",
+          "Gộp 7 công bố, cách đo gốc: 1,13",
+          "Gộp 38 công bố, cách đo phổ biến: 0,99"
+        ],
+        "ban": "Bạn",
+        "tu_do": "10 giây tự do. Các việc dở vẫn sáng trên bàn. Muốn làm nốt việc nào thì chạm vào nó; không thì cứ để yên.",
+        "lam_tiep": "Làm nốt: {ten}",
+        "lam_not": "Bạn quay lại làm nốt một việc dở, dù không ai bảo.",
+        "het_tu_do": "Hết 10 giây. Bạn để yên các việc dở.",
+        "ket": "Bạn nhớ {i}/{nd} việc dở và {c}/{nx} việc xong (tỉ lệ {r}); kết quả của một người chỉ là trải nghiệm, không phải số đo. Năm 1927 Zeigarnik đo được tỉ lệ 1,9; gộp lại năm 2025 chỉ còn 1,13 (7 công bố, cách đo gốc) và 0,99 (38 công bố), tức gần như ngang nhau.",
+        "ket_lam_not": "Phần đứng vững là muốn làm tiếp: gộp 21 công bố, khoảng 67% lần người ta tự quay lại việc bị ngắt (hiệu ứng Ovsiankina), như bạn vừa làm. Trước khi chuyển việc, hãy ghi phiếu quay lại.",
+        "ket_khong_lam": "Phần đứng vững là muốn làm tiếp: gộp 21 công bố, khoảng 67% lần người ta tự quay lại việc bị ngắt (hiệu ứng Ovsiankina). Trước khi chuyển việc, hãy ghi phiếu quay lại.",
+        "nut_phieu": "Ghi phiếu quay lại",
+        "phieu": [
+          "Phiếu \"sẵn sàng quay lại\" (Leroy và Glomb, 2018): ghi trước khi chuyển việc",
+          "Đang ở đâu: vừa ghép xong mảnh tam giác",
+          "Bước tiếp theo: ghép mảnh tròn",
+          "Khi nào quay lại: ngay sau cuộc họp"
+        ],
+        "nut_lai": "Chơi lại",
+        "nguon": "Nguồn: Zeigarnik (1927), Psychologische Forschung 9: mỗi người làm 18–22 việc, khoảng một nửa bị ngắt; tỉ lệ nhớ việc dở/xong 1,9 ở 32 người lớn đầu tiên, 2,1 ở 45 trẻ làm theo nhóm, 0,61 ở người mệt, khoảng 2,75 ở người \"tham vọng\" (quy từ mức hơn 175%). Ghibellini và Meier (2025), Humanities and Social Sciences Communications 12: gộp 59 công bố; 1,13 với 7 công bố dùng cách đo gốc, 0,99 với 38 công bố dùng cách đo phổ biến; quay lại làm tiếp khoảng 67% (21 công bố). Phiếu \"sẵn sàng quay lại\": Leroy và Glomb (2018), Organization Science 29(3). Minh họa: 8 việc thay cho 18–22 việc, thời lượng mỗi việc, việc nào bị ngắt, 10 giây tự do và nội dung phiếu mẫu do Mark đặt."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "The interrupted desk",
+        "hoi": "Do 8 small tasks on the desk, one by one. Someone will sometimes interrupt you: just go along with it.",
+        "mo_ta": "A desk with 8 small task trays (fill squares, tap numbers, thread beads, fit shapes…). A hand reaches in and interrupts 4 of them halfway. Then the desk is cleared and a surprise question asks you to drag the names of the tasks you remember into the I remember box.",
+        "doc_mac": "8 task trays are waiting. Each takes only a few seconds.",
+        "cho": "8 small tasks waiting",
+        "nut_bd": "Start working",
+        "viec": [
+          "Fill 3 squares",
+          "Tap numbers 1 to 5",
+          "Thread 4 beads",
+          "Fit 3 shapes",
+          "Light 4 stars",
+          "Stamp 3 sheets",
+          "Stack 4 blocks",
+          "Plant 3 pots"
+        ],
+        "moi": [
+          "Fold a paper plane",
+          "Solve a crossword",
+          "Draw a house",
+          "Count matchsticks"
+        ],
+        "buoc": "Item {n}",
+        "dang_lam": "Task {n}/{m}: {ten}. Tap each item to do it.",
+        "xong_viec": "Done: {ten}.",
+        "ngat_noi": "Stop there, let's switch to this one",
+        "hoi_bat_ngo": "The desk has been cleared. Surprise question: which tasks did you just do? Drag (or tap) cards into the I remember box. A few decoy cards are mixed in.",
+        "chong": "Card pile",
+        "o_nho": "I remember",
+        "da_chon": "{n} cards chosen.",
+        "nut_nop": "Submit",
+        "dem": "You recalled {i}/{nd} interrupted tasks and {c}/{nx} finished tasks, and picked {d} decoys. Your unfinished/finished ratio: {r}. Yellow cards are unfinished tasks, green are finished, grey are decoys.",
+        "vo_cuc": "can't divide (you recalled no finished task)",
+        "khong_tinh": "not computable (you recalled no task)",
+        "mo_ta_thuoc": "A ruler of the ratio of unfinished to finished tasks recalled, from 0 to 3, with the marks from Zeigarnik's 1927 paper, your needle, and the research needle sliding from 1.9 to 1.13 and then 0.99.",
+        "ngang": "1 = equal",
+        "moc": [
+          "0.61 · tired people",
+          "1.9 · 32 adults",
+          "2.1 · 45 children, in groups",
+          "~2.75 · \"ambitious\" people"
+        ],
+        "gop": [
+          "Zeigarnik 1927: 1.9",
+          "7 papers, original measure: 1.13",
+          "38 papers, common measure: 0.99"
+        ],
+        "ban": "You",
+        "tu_do": "10 free seconds. The unfinished tasks are still glowing on the desk. Tap one if you want to finish it; otherwise leave them.",
+        "lam_tiep": "Finish: {ten}",
+        "lam_not": "You went back to finish an interrupted task, though no one asked you to.",
+        "het_tu_do": "10 seconds are up. You left the unfinished tasks alone.",
+        "ket": "You recalled {i}/{nd} unfinished and {c}/{nx} finished tasks (ratio {r}); one person's result is an experience, not a measurement. In 1927 Zeigarnik found a ratio of 1.9; pooled in 2025 it is only 1.13 (7 papers, original measure) and 0.99 (38 papers), roughly equal.",
+        "ket_lam_not": "The part that holds up is the urge to resume: across 21 papers, people go back to an interrupted task about 67% of the time (the Ovsiankina effect), just as you did. Before you switch tasks, write a ready-to-resume note.",
+        "ket_khong_lam": "The part that holds up is the urge to resume: across 21 papers, people go back to an interrupted task about 67% of the time (the Ovsiankina effect). Before you switch tasks, write a ready-to-resume note.",
+        "nut_phieu": "Write a resume note",
+        "phieu": [
+          "\"Ready-to-resume\" note (Leroy and Glomb, 2018): write it before you switch",
+          "Where I am: just fitted the triangle",
+          "Next step: fit the circle",
+          "When I'll be back: right after the meeting"
+        ],
+        "nut_lai": "Play again",
+        "nguon": "Source: Zeigarnik (1927), Psychologische Forschung 9: 18–22 tasks per person, about half interrupted; recall ratio of unfinished to finished 1.9 in the first 32 adults, 2.1 in 45 children tested in groups, 0.61 in tired people, about 2.75 in \"ambitious\" people (converted from \"over 175%\"). Ghibellini and Meier (2025), Humanities and Social Sciences Communications 12: 59 papers pooled; 1.13 for 7 papers using the original measure, 0.99 for 38 papers using the common measure; resumption about 67% (21 papers). Ready-to-resume note: Leroy and Glomb (2018), Organization Science 29(3). Illustrative: 8 tasks instead of 18–22, task length, which tasks get interrupted, the 10 free seconds and the sample note are Mark's."
+      }
+    }
+  ],
+  "thi-nghiem-photocopy": [
+    {
+      "khuon": "may-photo",
+      "id": "choi-may-photo",
+      "truoc": "tinh-hoa",
+      "nguoi": [
+        {
+          "trang": 5,
+          "kieu": 0
+        },
+        {
+          "trang": 5,
+          "kieu": 1
+        },
+        {
+          "trang": 5,
+          "kieu": 2
+        },
+        {
+          "trang": 20,
+          "kieu": 0
+        },
+        {
+          "trang": 20,
+          "kieu": 1
+        },
+        {
+          "trang": 20,
+          "kieu": 2
+        }
+      ],
+      "that": {
+        "5": [
+          60,
+          93,
+          94
+        ],
+        "20": [
+          24,
+          24,
+          42
+        ]
+      },
+      "n": {
+        "5": [
+          15,
+          15,
+          16
+        ],
+        "20": [
+          25,
+          25,
+          24
+        ]
+      },
+      "gop": [
+        37.5,
+        50,
+        62.5
+      ],
+      "sai_so": 11,
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Hàng photocopy",
+        "hoi": "Bạn đang photo ở thư viện. Sáu người lần lượt tới xin chen. Bấm Cho chen (hoặc kéo xấp giấy của họ vào máy) hay Không?",
+        "mo_ta": "Một máy photocopy đang chạy, bạn đứng cạnh máy, sáu người xếp hàng cầm xấp giấy mỏng (5 trang) hoặc dày (20 trang) và lần lượt xin chen. Sau sáu lượt hiện lưới 2 × 3: lựa chọn của bạn cạnh tỉ lệ đồng ý thật năm 1978, rồi gộp lại theo cách tính của Gelman.",
+        "doc_mac": "Máy đang chạy chồng giấy của bạn. Có người đang tới…",
+        "may": "MÁY PHOTO",
+        "ban": "Bạn",
+        "cau": [
+          "\"Xin lỗi, tôi có {p} trang. Cho tôi dùng máy trước được không?\"",
+          "\"Xin lỗi, tôi có {p} trang. Cho tôi dùng máy trước được không, vì tôi phải photo?\"",
+          "\"Xin lỗi, tôi có {p} trang. Cho tôi dùng máy trước được không, vì tôi đang vội?\""
+        ],
+        "kieu": [
+          "không lý do",
+          "lý do rỗng",
+          "lý do thật"
+        ],
+        "trang": "{p} trang",
+        "cho_them": "Bạn chờ thêm: {n} trang",
+        "nguoi_thu": "Người {i}/{n}:",
+        "da_cho": "Bạn cho chen. Máy chạy {p} trang của họ trước.",
+        "da_khong": "Bạn lắc đầu. Họ đi chỗ khác.",
+        "keo_goi_y": "Kéo xấp giấy vào máy để cho chen, hoặc bấm nút.",
+        "nut_cho": "Cho chen",
+        "nut_khong": "Không",
+        "nut_gop": "Gộp lại",
+        "nut_lai": "Chơi lại",
+        "ban_cho": "bạn cho",
+        "ban_khong": "bạn không",
+        "lat_cap": "Thanh cam: tỉ lệ người đồng ý cho chen năm 1978. Dấu ✓/✗: lựa chọn của bạn.",
+        "ket_luoi": "Bạn cho chen {c}/{n} lần (một lượt chơi chỉ là trải nghiệm của một người, không phải số đo). Năm 1978, với 5 trang, lý do rỗng được 93%, gần bằng lý do thật 94%; với 20 trang, lý do rỗng còn 24%, bằng hẳn không lý do.",
+        "gop_tieu": "Gộp 5 và 20 trang · 40 người mỗi kiểu · vạch ±11 điểm",
+        "ket_gop": "Gộp lại: 37,5% · 50% · 62,5%, mỗi khác biệt chỉ cỡ một sai số chuẩn (khoảng 11 điểm %). Folkes (1985) làm lại và không ra kết quả cũ. Bài học: nhờ việc lớn thì nói lý do thật, mất bao lâu và hạn chót.",
+        "nguon": "Nguồn: Langer, Blank và Chanowitz (1978), Bảng 1: 120 người ở thư viện Graduate Center, CUNY; 5 trang: 60%, 93%, 94% (15–16 người mỗi nhóm); 20 trang: 24%, 24%, 42% (24–25 người mỗi nhóm). Gelman (2024), tính từ Bảng 1: gộp lại 37,5%, 50%, 62,5%, 40 người mỗi kiểu, sai số chuẩn khoảng 11 điểm %. Folkes (1985): làm lại không ra kết quả cũ. Bộ đếm trang, tờ giấy bay ra và thanh \"chờ thêm\" là minh họa."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "The copier queue",
+        "hoi": "You are making copies in a library. Six people come up, one by one, asking to cut in. Press Let them in (or drag their pages into the machine) or No.",
+        "mo_ta": "A copier is running, you stand at it, and six people queue with a thin (5 pages) or thick (20 pages) stack, each asking to cut in. After six turns a 2 × 3 grid shows your choices next to the real 1978 agreement rates, then pools them the way Gelman did.",
+        "doc_mac": "The machine is running your stack. Someone is coming over…",
+        "may": "COPIER",
+        "ban": "You",
+        "cau": [
+          "\"Excuse me, I have {p} pages. May I use the machine first?\"",
+          "\"Excuse me, I have {p} pages. May I use the machine first, because I have to make copies?\"",
+          "\"Excuse me, I have {p} pages. May I use the machine first, because I'm in a rush?\""
+        ],
+        "kieu": [
+          "no reason",
+          "empty reason",
+          "real reason"
+        ],
+        "trang": "{p} pages",
+        "cho_them": "Extra wait: {n} pages",
+        "nguoi_thu": "Person {i}/{n}:",
+        "da_cho": "You let them in. The machine runs their {p} pages first.",
+        "da_khong": "You shake your head. They walk off.",
+        "keo_goi_y": "Drag the stack into the machine to let them in, or use the buttons.",
+        "nut_cho": "Let them in",
+        "nut_khong": "No",
+        "nut_gop": "Pool the results",
+        "nut_lai": "Play again",
+        "ban_cho": "you said yes",
+        "ban_khong": "you said no",
+        "lat_cap": "Orange bars: share who agreed in 1978. ✓/✗: your choice.",
+        "ket_luoi": "You let people in {c}/{n} times (one play is one person's experience, not a measurement). In 1978, with 5 pages, the empty reason got 93%, close to the real reason's 94%; with 20 pages the empty reason fell to 24%, exactly the same as no reason.",
+        "gop_tieu": "5 and 20 pages pooled · 40 people per type · ±11-point bars",
+        "ket_gop": "Pooled: 37.5% · 50% · 62.5%, each gap only about one standard error (about 11 percentage points). Folkes (1985) re-ran it and did not get the old result. The lesson: for a big favour, give the real reason, how long it takes and the deadline.",
+        "nguon": "Source: Langer, Blank and Chanowitz (1978), Table 1: 120 people at the Graduate Center library, CUNY; 5 pages: 60%, 93%, 94% (15–16 people per group); 20 pages: 24%, 24%, 42% (24–25 per group). Gelman (2024), computed from Table 1: pooled 37.5%, 50%, 62.5%, 40 people per type, standard error about 11 percentage points. Folkes (1985): the re-run did not reproduce the result. The page counter, flying sheets and the \"extra wait\" bar are illustrative."
+      }
+    }
+  ],
+  "thi-nghiem-pygmalion": [
+    {
+      "khuon": "lop-hoc",
+      "id": "choi-lop-hoc",
+      "truoc": "tinh-hoa",
+      "tiet": 3,
+      "nhan": 2,
+      "iq": [
+        12,
+        8
+      ],
+      "lop": [
+        15,
+        10
+      ],
+      "d": [
+        0.32,
+        0.26,
+        0.08,
+        -0.04
+      ],
+      "d_tb": 0.11,
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Bạn là cô giáo lớp 1",
+        "hoi": "Đầu năm, bạn nhận một phong bì kết quả kiểm tra. Rồi qua 3 tiết, kéo đồ trong khay tới các em (hoặc chạm món rồi chạm em). Mỗi tiết khay chỉ có 4 món.",
+        "mo_ta": "Lớp học 10 em ở 10 bàn, mỗi bàn có một chậu cây non mọc theo số món em nhận. Khay có 4 món ứng với 4 kênh: nụ cười, bài khó, gọi trả lời và chờ, lời khen cụ thể. Sau 3 tiết cảnh lật ra: danh sách là bốc thăm, kèm bản đồ nhiệt các món bạn đã trao và kết quả thật của Rosenthal và Jacobson.",
+        "doc_mac": "Bấm Mở phong bì.",
+        "lop": "Lớp 1 · đầu năm học",
+        "ten": [
+          "Mai",
+          "Tuấn",
+          "Linh",
+          "Bảo",
+          "Hân",
+          "Phúc",
+          "Vy",
+          "Nam",
+          "Thảo",
+          "Khôi"
+        ],
+        "kenh": [
+          {
+            "ten": "Nụ cười",
+            "nhom": "không khí"
+          },
+          {
+            "ten": "Bài khó",
+            "nhom": "đầu vào"
+          },
+          {
+            "ten": "Gọi + chờ",
+            "nhom": "đầu ra"
+          },
+          {
+            "ten": "Khen cụ thể",
+            "nhom": "phản hồi"
+          }
+        ],
+        "phong_bi": "Kết quả kiểm tra đầu năm",
+        "but_pha": "Sắp bứt phá trong năm nay:",
+        "mo_cap": "Phong bì khoanh 2 em sắp bứt phá: {a} và {b}. Bàn hai em có dấu ★.",
+        "tiet": "Tiết {i}/{n}",
+        "huong_dan": "Kéo từng món tới một em, hoặc chạm món rồi chạm em.",
+        "chon_do": "Đang cầm: {do}. Chạm vào một em để trao.",
+        "da_cho": "{do} → {ten}.",
+        "het_tiet": "Hết tiết. Khay sẽ đầy lại ở tiết sau.",
+        "het_ca": "Hết 3 tiết. Bấm Lật màn.",
+        "nut_mo": "Mở phong bì",
+        "nut_tiep": "Sang tiết {i}",
+        "nut_lat": "Lật màn",
+        "nut_lai": "Chơi lại",
+        "bang_lat": "Danh sách là bốc thăm",
+        "lat_cap": "Số trên mỗi bàn: tổng số món em đó nhận. Bàn càng cam, càng nhiều món.",
+        "lat": "Danh sách là bốc thăm: 2 em có ★ được chọn ngẫu nhiên, không hơn gì 8 em còn lại. Bạn trao trung bình {a} món cho mỗi em có ★, {b} món cho mỗi em còn lại.",
+        "nhan_co": "mỗi em ★",
+        "nhan_khong": "mỗi em còn lại",
+        "bieu_mo_ta": "Kết quả thật: mức tăng IQ sau 8 tháng của nhóm được gắn nhãn và nhóm còn lại, và hiệu ứng d theo số tuần thầy đã biết học sinh.",
+        "iq_tieu": "Thật, sau 8 tháng (18 lớp): IQ tăng thêm",
+        "iq_nhom": [
+          "Có nhãn",
+          "Còn lại"
+        ],
+        "lop_chu": "Chênh ~4 điểm, gần như chỉ ở lớp 1 (~{a}) và lớp 2 (~{b})",
+        "d_tieu": "Gộp 18 thí nghiệm: d = {d}. Theo số tuần thầy đã biết em:",
+        "tuan": [
+          "0 tuần",
+          "1 tuần",
+          "2 tuần",
+          "> 2 tuần"
+        ],
+        "ket": "Khoảng 75% sức dự báo của kỳ vọng là vì thầy đoán đúng, khoảng 25% là tự ứng nghiệm. Nhãn chỉ có sức nặng khi thầy chưa biết học sinh. Kỳ vọng đi qua bốn kênh bạn vừa dùng: người quản lý nên soát xem mình có chia đều bốn kênh không, nhất là trong những tuần đầu của người mới. Lượt chơi của bạn chỉ là trải nghiệm của một người.",
+        "nguon": "Nguồn: Rosenthal và Jacobson (1968): khoảng 20% học sinh được bốc thăm, 18 lớp, kiểm tra lại sau 8 tháng; bài test mang tên giả \"Harvard Test of Inflected Acquisition\". Số liệu gốc theo Jussim và Harber (2005): chênh khoảng 4 điểm IQ (12 so với 8), lớp 1 khoảng 15, lớp 2 khoảng 10; khoảng 75% đoán đúng, 25% tự ứng nghiệm. Raudenbush (1984): d = 0,11 trên 18 thí nghiệm; 0,32 / 0,26 / 0,08 / −0,04 theo số tuần. Harris và Rosenthal (1985): bốn kênh. Số em trong lớp, số món trong khay và cây mọc là minh họa."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "You teach first grade",
+        "hoi": "At the start of the year you get an envelope of test results. Then, over 3 lessons, drag items from the tray to pupils (or tap an item, then a pupil). Each lesson the tray holds only 4 items.",
+        "mo_ta": "A classroom of 10 pupils at 10 desks, each with a seedling that grows with the items the pupil receives. The tray holds 4 items for 4 channels: a smile, a hard task, calling on and waiting, specific praise. After 3 lessons the scene flips: the list was drawn by lot, with a heat map of what you gave and Rosenthal and Jacobson's real results.",
+        "doc_mac": "Press Open the envelope.",
+        "lop": "Grade 1 · start of the year",
+        "ten": [
+          "Mia",
+          "Tom",
+          "Lily",
+          "Ben",
+          "Hana",
+          "Leo",
+          "Ivy",
+          "Sam",
+          "Tess",
+          "Kai"
+        ],
+        "kenh": [
+          {
+            "ten": "Smile",
+            "nhom": "climate"
+          },
+          {
+            "ten": "Hard task",
+            "nhom": "input"
+          },
+          {
+            "ten": "Call + wait",
+            "nhom": "output"
+          },
+          {
+            "ten": "Praise",
+            "nhom": "feedback"
+          }
+        ],
+        "phong_bi": "Start-of-year test results",
+        "but_pha": "Expected to bloom this year:",
+        "mo_cap": "The envelope circles 2 pupils about to bloom: {a} and {b}. Their desks get a ★.",
+        "tiet": "Lesson {i}/{n}",
+        "huong_dan": "Drag each item to a pupil, or tap the item and then the pupil.",
+        "chon_do": "Holding: {do}. Tap a pupil to give it.",
+        "da_cho": "{do} → {ten}.",
+        "het_tiet": "Lesson over. The tray refills next lesson.",
+        "het_ca": "All 3 lessons done. Press Lift the curtain.",
+        "nut_mo": "Open the envelope",
+        "nut_tiep": "Go to lesson {i}",
+        "nut_lat": "Lift the curtain",
+        "nut_lai": "Play again",
+        "bang_lat": "The list was drawn by lot",
+        "lat_cap": "Number on each desk: items that pupil received. The more orange, the more items.",
+        "lat": "The list was drawn by lot: the 2 pupils with a ★ were picked at random, no better than the other 8. You gave {a} items on average to each ★ pupil, {b} to each of the others.",
+        "nhan_co": "per ★ pupil",
+        "nhan_khong": "per other pupil",
+        "bieu_mo_ta": "Real results: IQ gains after 8 months for the labelled group and the rest, and the effect size d by how many weeks the teacher had known the pupils.",
+        "iq_tieu": "Real, after 8 months (18 classes): IQ gain",
+        "iq_nhom": [
+          "Labelled",
+          "Others"
+        ],
+        "lop_chu": "A ~4-point gap, almost all in grade 1 (~{a}) and grade 2 (~{b})",
+        "d_tieu": "18 experiments pooled: d = {d}. By weeks the teacher knew them:",
+        "tuan": [
+          "0 weeks",
+          "1 week",
+          "2 weeks",
+          "> 2 weeks"
+        ],
+        "ket": "About 75% of what teacher expectations predict comes from teachers judging accurately, about 25% from self-fulfilling prophecy. The label only carries weight when the teacher doesn't yet know the pupil. Expectations travel through the four channels you just used: managers should check they spread all four evenly, especially in a new hire's first weeks. Your play is one person's experience.",
+        "nguon": "Source: Rosenthal and Jacobson (1968): about 20% of pupils drawn by lot, 18 classes, retested after 8 months; the test carried the fake name \"Harvard Test of Inflected Acquisition\". Original figures per Jussim and Harber (2005): a gap of about 4 IQ points (12 vs 8), grade 1 about 15, grade 2 about 10; about 75% accuracy, 25% self-fulfilling. Raudenbush (1984): d = 0.11 across 18 experiments; 0.32 / 0.26 / 0.08 / −0.04 by weeks. Harris and Rosenthal (1985): four channels. Class size, tray items and growing seedlings are illustrative."
       }
     }
   ]
