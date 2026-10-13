@@ -1233,7 +1233,10 @@ html:has(.chao-hop[open]) { overflow: hidden; }
    Nếu máy vẫn đang dựng dọc (khóa xoay), cả khung được xoay 90° để người chơi cầm ngang. */
 html.pl-mo-toan, html.pl-mo-toan body { overflow: hidden; overscroll-behavior: none; }
 .pl.pl-game.is-toan { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; z-index: 1000; max-width: none; margin: 0; padding: 0; background: #0F172A; overflow: hidden; }
-@media (orientation: portrait) { .pl.pl-game.is-toan { width: 100vh; width: 100dvh; height: 100vw; left: 100vw; transform-origin: top left; transform: rotate(90deg); } }
+html.pl-mo-toan { background: #0F172A; }
+/* Chừa chỗ cho tai thỏ và thanh home: khi nằm ngang là hai cạnh trái/phải; khi khung bị xoay là cạnh trên/dưới của máy. */
+@media (orientation: landscape) { .pl.pl-game.is-toan { left: env(safe-area-inset-left); width: calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right)); } }
+@media (orientation: portrait) { .pl.pl-game.is-toan { top: env(safe-area-inset-top); width: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)); width: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom)); height: 100vw; left: 100vw; transform-origin: top left; transform: rotate(90deg); } }
 .pl.is-toan .pl-dau, .pl.is-toan .pl-huong, .pl.is-toan .pl-ghi { display: none; }
 .pl.is-toan .pl-khung { position: absolute; inset: 0; border: 0; border-radius: 0; box-shadow: none; }
 .pl.is-toan .pl-canvas { width: 100%; height: 100%; aspect-ratio: auto; }
@@ -1255,6 +1258,15 @@ html.pl-mo-toan, html.pl-mo-toan body { overflow: hidden; overscroll-behavior: n
 .pl.is-toan .pl-de .pl-phan-hoi p { font-size: 13px; line-height: 1.4; margin-top: 2px; }
 .pl.is-toan .pl-bao { position: absolute; z-index: 6; left: 50%; bottom: 16px; transform: translateX(-50%); margin: 0; }
 .pl.is-toan .pl-man { padding: 8px; place-items: center; }
+/* Vạch đếm lùi trước khi popup tự tắt. */
+.pl-de-dem { display: block; height: 3px; margin: 6px 0 0; border-radius: 2px; background: var(--blue); transform-origin: left center; }
+.pl-de-dem[hidden] { display: none; }
+@keyframes pl-dem { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { .pl-de-dem { animation: none !important; } }
+/* Mẹo "Thêm vào Màn hình chính" cho iPhone. */
+.pl-meo { position: absolute; z-index: 7; left: 50%; bottom: 100px; transform: translateX(-50%); width: min(520px, 62%); display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; border-radius: 14px; background: rgba(15, 23, 42, .9); color: #fff; font-size: 13.5px; line-height: 1.4; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
+.pl-meo p { margin: 0; }
+.pl-meo button { flex: none; border: 0; background: none; color: #fff; font: 700 16px/1 var(--f-body); padding: 2px 4px; cursor: pointer; }
 .pl-phan-hoi { display: grid; grid-template-columns: 56px 1fr; gap: 6px 12px; align-items: start; margin-top: 16px; padding: 14px; border-radius: 16px; background: var(--bg2); }
 .pl-phan-hoi img { width: 56px; height: 56px; }
 .pl-phan-hoi p { margin: 4px 0 0; line-height: 1.5; }

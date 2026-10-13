@@ -28,7 +28,7 @@
     thang: "You beat the King of Hallucination!", thangTxt: function (s) { return "Total: " + s + " of 12 stars. Take the full quiz to earn your certificate."; },
     tongSao: function (s) { return s + " / 12 stars"; }, xoa: "Reset progress", xoaHoi: "Reset all levels?",
     loi: "Couldn't load the questions. Please reload the page.", dangTai: "Loading questions…",
-    menu: "☰ Levels", toanVao: "Play full screen", toanRa: "Exit full screen", gon: "▾ Hide", mo: "▴ Show question", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
+    menu: "☰ Levels", toanVao: "Play full screen", dong: "Close", meoIos: "iPhone tip: tap Share, then \u201cAdd to Home Screen\u201d. Open the game from that icon to play without Safari\u2019s bars.", toanRa: "Exit full screen", gon: "▾ Hide", mo: "▴ Show question", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
     danHet: "No bolts yet. Answer right to earn some."
   } : {
     dung: "Đúng", sai: "Sai", chuDS: ["✓", "✗"], dungRoi: "Chính xác!", saiRoi: "Chưa đúng rồi.",
@@ -43,7 +43,7 @@
     thang: "Bạn đã hạ Vua Ảo Giác!", thangTxt: function (s) { return "Tổng cộng " + s + " trên 12 sao. Làm bài kiểm tra đầy đủ để nhận giấy chứng nhận."; },
     tongSao: function (s) { return s + " / 12 sao"; }, xoa: "Chơi lại từ đầu", xoaHoi: "Xóa tiến độ của tất cả các ải?",
     loi: "Không tải được câu hỏi. Bạn tải lại trang nhé.", dangTai: "Đang tải câu hỏi…",
-    menu: "☰ Chọn ải", toanVao: "Chơi toàn màn hình", toanRa: "Thoát toàn màn hình", gon: "▾ Thu gọn", mo: "▴ Xem câu hỏi", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo",
+    menu: "☰ Chọn ải", toanVao: "Chơi toàn màn hình", dong: "Đóng", meoIos: "Mẹo iPhone: bấm nút Chia sẻ rồi chọn \u201cThêm vào MH chính\u201d. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.", toanRa: "Thoát toàn màn hình", gon: "▾ Thu gọn", mo: "▴ Xem câu hỏi", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo",
     danHet: "Chưa có tia kiến thức. Trả lời đúng để nhận thêm."
   };
 
@@ -262,6 +262,7 @@
   // Bảng câu hỏi dưới khung game (HTML): câu hỏi, các đáp án gắn chữ cái, rồi lời giải thích sau khi húc.
   function veBang(st, kq) {
     var b = $("#pl-de");
+    huyTuTat();
     if (!st) { b.hidden = true; return; }
     b.hidden = false; gonBang(false);
     $("#pl-de-dau").textContent = st.trum ? T.trum(L.trum.hp, st.o) : T.tram(st.so, L.tram.length, st.o);
@@ -285,7 +286,22 @@
     $("#pl-de-kq-dau").className = kq.dung ? "pl-ok" : "pl-no";
     $("#pl-de-kq-chu").textContent = st.q.giai_thich + (kq.dung ? "" : " " + T.goiY);
     // Trong chế độ toàn màn hình, popup có thể phải cuộn: đưa lời giải thích vào tầm nhìn.
-    if ($("#pl").classList.contains("is-toan")) b.scrollTop = b.scrollHeight;
+    if ($("#pl").classList.contains("is-toan")) { b.scrollTop = b.scrollHeight; henTuTat(kq.dung, st.q.giai_thich.length); }
+  }
+  // Popup tự tắt sau khi người chơi kịp đọc lời giải thích (chỉ ở chế độ game trên điện thoại).
+  // Đúng: đóng hẳn popup. Sai: ẩn lời giải thích, giữ câu hỏi để trả lời lại. Chạm vào popup để giữ nó lại.
+  var tuTat = 0;
+  function huyTuTat() {
+    clearTimeout(tuTat); tuTat = 0;
+    var d = $("#pl-de-dem"); if (d) d.hidden = true;
+  }
+  function henTuTat(dung, soChu) {
+    var ms = Math.max(4000, Math.min(11000, 2500 + soChu * 45)), d = $("#pl-de-dem");
+    d.hidden = false; d.style.animation = "none"; void d.offsetWidth; d.style.animation = "pl-dem " + ms + "ms linear forwards";
+    tuTat = setTimeout(function () {
+      tuTat = 0; d.hidden = true;
+      if (dung) $("#pl-de").hidden = true; else $("#pl-de-kq").hidden = true;
+    }, ms);
   }
 
   // ---------- Cập nhật ----------
@@ -650,7 +666,25 @@
       if (!bat && screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
       if (!bat && document.fullscreenElement) document.exitFullscreen().catch(function () {});
     } catch (x) {}
+    if (bat) meoIphone();
     requestAnimationFrame(coGian);
+  }
+  // Safari trên iPhone không cho trang web ẩn thanh địa chỉ. Cách duy nhất để chơi toàn màn hình là
+  // "Thêm vào Màn hình chính" rồi mở game từ biểu tượng đó (trang có manifest display: fullscreen).
+  function meoIphone() {
+    var ios = /iP(hone|od|ad)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var rieng = navigator.standalone || (window.matchMedia && matchMedia("(display-mode: fullscreen), (display-mode: standalone)").matches);
+    if (!ios || rieng || $("#pl-meo")) return;
+    var lan = 0; try { lan = +localStorage.getItem("mhai-phieu-luu-meo") || 0; } catch (e) {}
+    if (lan >= 2) return;
+    try { localStorage.setItem("mhai-phieu-luu-meo", String(lan + 1)); } catch (e) {}
+    var m = el("div", "pl-meo"); m.id = "pl-meo"; m.setAttribute("role", "status");
+    m.appendChild(el("p", null, T.meoIos));
+    var x = el("button", null, "✕"); x.type = "button"; x.setAttribute("aria-label", T.dong);
+    function bo() { if (m.parentNode) m.parentNode.removeChild(m); }
+    x.addEventListener("click", function () { bo(); try { localStorage.setItem("mhai-phieu-luu-meo", "9"); } catch (e) {} });
+    m.appendChild(x); $("#pl").appendChild(m);
+    setTimeout(bo, 9000);
   }
   function gonBang(gon) {
     var b = $("#pl-de"), n = $("#pl-de-gon");
@@ -788,6 +822,7 @@
       daThoat = !bat; toanMan(bat); cv.focus({preventScroll: true});
     });
     $("#pl-de-gon").addEventListener("click", function () { gonBang(!$("#pl-de").classList.contains("is-gon")); });
+    $("#pl-de").addEventListener("pointerdown", huyTuTat);
     $("#pl-menu").addEventListener("click", manChon);
     $("#pl-xoa").textContent = T.xoa;
     $("#pl-xoa").addEventListener("click", function () {
