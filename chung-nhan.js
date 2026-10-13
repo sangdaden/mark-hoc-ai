@@ -372,13 +372,16 @@ window.MHAI_CC = (function () {
       blobUrl = blob ? URL.createObjectURL(blob) : cv.toDataURL("image/png");
       return { nd, p, ma, url: blobUrl, ten };
     }
+    const do_ = (t, d) => window.mhaiDo && window.mhaiDo(t, d); // đếm tương tác, xem theo-doi.js
     const tenFile = (x) => "chung-nhan-mark-hoc-ai-" + (x.p.b || x.p.l) + ".png";
     document.getElementById("cc-png").addEventListener("click", async () => {
       const x = await banThat(); if (!x) return;
+      do_("tai-chung-nhan", { kieu: "png", loai: x.nd.loai });
       const a = document.createElement("a"); a.href = x.url; a.download = tenFile(x); document.body.appendChild(a); a.click(); a.remove();
     });
     document.getElementById("cc-pdf").addEventListener("click", async () => {
       const x = await banThat(); if (!x) return;
+      do_("tai-chung-nhan", { kieu: "pdf", loai: x.nd.loai });
       const khungIn = document.getElementById("cc-in");
       khungIn.innerHTML = '<img alt="" src="' + x.url + '">';
       const im = khungIn.querySelector("img");
@@ -391,6 +394,7 @@ window.MHAI_CC = (function () {
     });
     document.getElementById("cc-li").addEventListener("click", async () => {
       const x = await banThat(); if (!x) return;
+      do_("tai-chung-nhan", { kieu: "linkedin", loai: x.nd.loai });
       const [y, m] = x.p.d.split("-");
       const q = new URLSearchParams({ startTask: "CERTIFICATION_NAME", name: A.T.ten[x.nd.loai] + ": " + x.nd.tieuDe, organizationName: "Mark học AI",
         issueYear: y, issueMonth: String(+m), certUrl: urlXm(x.p), certId: x.ma });
