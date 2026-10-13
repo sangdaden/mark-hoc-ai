@@ -27,19 +27,27 @@ body { margin: 0; }
 .mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
   margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
   font: 600 .92rem/1.2 system-ui, sans-serif; }
-.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-.mhai-thanh a:hover { color: #FBBF24; }
-.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
-.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
-@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
 body header { --bia-1: #161616; --bia-2: #5C1014; --bia-nhan: #E5484D; }
 :root { --vtk-nhan: #E5484D; }
 body header { --ho-so: "Thẻ sách"; }
 </style>
 </head>
 <body>
-<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/sapiens.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/sapiens.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -248,7 +256,10 @@ svg .t-bad { fill: var(--bad); }
   <span class="draft">Mark ở vũ trụ khác</span>
   <span class="label">Lịch sử · Nhân học · Tư tưởng lớn</span>
   <h1>Sapiens: Lược sử loài người</h1>
-  <svg viewBox="0 0 320 12" width="320" height="12" style="max-width:100%" aria-hidden="true"><rect x="0" y="3" width="220" height="5" rx="2.5" fill="#BC2228"/></svg>
+  <svg class="minh-hoa" style="max-width:100%" role="img" aria-label="Vạch đỏ và dấu vân tay lớn, lấy ý từ bìa sách, tự vẽ lại" viewBox="0 0 320 52" width="320" height="52" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="8" y="23" width="200" height="6" rx="3" fill="#E5484D"/>
+<g transform="rotate(-14 268 26)" stroke="#FFF7ED" stroke-width="2.1"><ellipse cx="268" cy="26" rx="2.7" ry="3.0"/><ellipse cx="268" cy="26" rx="5.4" ry="6.0" stroke-dasharray="25.8 5" stroke-dashoffset="5"/><ellipse cx="268" cy="26" rx="8.1" ry="9.0" stroke-dasharray="38.7 3" stroke-dashoffset="16"/><ellipse cx="268" cy="26" rx="10.8" ry="12.0" stroke-dasharray="51.6 4" stroke-dashoffset="10"/><ellipse cx="268" cy="26" rx="13.5" ry="15.0" stroke-dasharray="64.5 5" stroke-dashoffset="4"/><ellipse cx="268" cy="26" rx="16.2" ry="18.0" stroke-dasharray="77.4 3" stroke-dashoffset="15"/><ellipse cx="268" cy="26" rx="18.9" ry="21.0" stroke-dasharray="90.3 4" stroke-dashoffset="9"/><ellipse cx="268" cy="26" rx="21.6" ry="24.0" stroke-dasharray="103.2 5" stroke-dashoffset="3"/></g>
+</svg>
   <p class="sub">Sapiens: A Brief History of Humankind · Yuval Noah Harari</p>
   <div class="meta">
     <div><span class="label">Tác giả</span><b>Yuval Noah Harari · sử gia, Đại học Hebrew Jerusalem</b></div>
