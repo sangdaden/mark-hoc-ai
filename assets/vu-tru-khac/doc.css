@@ -62,6 +62,9 @@ body.bia-song header::before { content: ""; position: absolute; left: 0; right: 
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14'%3E%3Cpath d='M0 7 Q15 1 30 7 T60 7' fill='none' stroke='%2322D3EE' stroke-width='3'/%3E%3C/svg%3E") repeat-x center / 60px 14px, #0E7490; }
 body.bia-hong-tam header::before { content: ""; position: absolute; top: 20px; right: calc(var(--le) + 150px); width: 52px; height: 52px; border-radius: 50%;
   background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); box-shadow: 0 0 0 3px var(--bia-nhan); }
+body.bia-bon-mau header { border-bottom: 0; }
+body.bia-bon-mau header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+  background: linear-gradient(90deg, #4285F4 0 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75%); }
 @media (max-width: 900px) {
   header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
   header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
