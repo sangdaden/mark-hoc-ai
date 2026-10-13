@@ -16,7 +16,8 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 - Trang chủ góc (vu-tru-khac.html, en/vu-tru-khac.html) chia theo chủ đề vì góc sẽ không chỉ có sách (Sang 13/10):
   các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, tiếng Anh trong "en"),
   mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
-  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài có bìa thu nhỏ vẽ từ tên, tác giả và "bia" (màu, hoạ tiết). Chủ đề chưa có bài thì
+  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết) và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
+  vui-mung, ngac-nhien, like, chao, buon-ngu), bên dưới chỉ có số bài, tên, tác giả · năm · điểm. Mỗi khối chỉ hiện một hàng (ít nhất 4 thẻ), còn lại sau nút "Xem thêm". Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
 - Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
 """
@@ -126,17 +127,24 @@ body {{ margin: 0; }}
 '''
 
 
+# Tư thế Mark trên bìa thu nhỏ: SVG gốc ở assets/vu-tru-khac/mark/<tư thế>.svg (chép từ branding/mark-chuan, không vẽ lại, không lật).
+# Mỗi bài chọn bằng "mark" trong data/vu-tru-khac.json; thiếu thì lấy lần lượt theo số bài.
+TU_THE = ["doc-sach", "thac-mac", "a-ra-the", "cam-sach", "vui-mung", "ngac-nhien", "like", "chao", "buon-ngu"]
+
+
 def the_bai(b, cd, en=False):
     e = b.get("en", {}) if en else b
     bia = b.get("bia") or {}
     mau = "".join(f"--{k}: {esc(bia[v])};" for k, v in (("bia-1", "nen_1"), ("bia-2", "nen_2"), ("bia-nhan", "nhan")) if bia.get(v))
+    ten = e.get("ten", b["ten"])
     tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
-    return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-bia{" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else ""}{" dai" if max(map(len, str(e.get("ten", b["ten"])).split())) > 8 else ""}" aria-hidden="true"><i>{esc(e.get("ten", b["ten"]))}</i><small>{esc(b.get("tac_gia"))}</small></span>'
-            f'<span class="vtk-noi">'
-            f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d} · {esc(e.get("chu_de", b.get("chu_de")))}</span>'
-            f'<b>{esc(e.get("ten", b["ten"]))}</b><span class="vtk-tg">{tg}</span>'
-            f'<span class="vtk-mt">{esc(e.get("mo_ta", b.get("mo_ta")))}</span></span></a>')
+    mark = b.get("mark") if b.get("mark") in TU_THE else TU_THE[(b["so"] - 1) % len(TU_THE)]
+    lop = (" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else "") + (" dai" if max(map(len, str(ten).split())) > 8 else "")
+    return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
+            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>'
+            f'<img src="assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
+            f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d}</span>'
+            f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')
 
 
 def trang_chu(sach, chu_de, en=False):
@@ -152,7 +160,8 @@ def trang_chu(sach, chu_de, en=False):
     for c, ds in co:
         ra.append(f'  <section class="vtk-khoi" id="{esc(c["ma"])}" data-loai="{esc(c["ma"])}">\n'
                   f'    <div class="vtk-khoi-dau"><h2 class="vtk-h">{esc(c["ten"])}</h2><span>{len(ds)} {esc(c["dem"])}</span></div>\n'
-                  f'    <div class="vtk-ds">\n' + "\n".join("      " + the_bai(b, c, en) for b in ds) + "\n    </div>\n  </section>")
+                  f'    <div class="vtk-ds">\n' + "\n".join("      " + the_bai(b, c, en) for b in ds) + "\n    </div>\n"
+                  f'    <button class="vtk-them" type="button" hidden data-mo="{"Read more" if en else "Xem thêm"}" data-dong="{"Show less" if en else "Thu gọn"}">{"Read more" if en else "Xem thêm"}</button>\n  </section>')
     return "\n".join(ra), tong
 
 
