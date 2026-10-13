@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thinking, Fast and Slow (Daniel Kahneman): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Hệ 1 nhanh và Hệ 2 chậm: các kiểu sai có thể đoán trước của trực giác, thuyết triển vọng, và những chương đã không lặp lại được.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/thinking-fast-and-slow.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinking, Fast and Slow (Daniel Kahneman): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Hệ 1 nhanh và Hệ 2 chậm: các kiểu sai có thể đoán trước của trực giác, thuyết triển vọng, và những chương đã không lặp lại được.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/thinking-fast-and-slow.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/thinking-fast-and-slow.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep; System 1 = amber (--day), System 2 = indigo (--night). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #2c3c8c;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #93a6ff; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--night); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Tâm lý học nhận thức · Kinh tế học hành vi</span>
+  <h1>Tư duy nhanh và chậm</h1>
+  <svg viewBox="0 0 320 20" width="320" height="20" style="max-width:100%" role="img" aria-label="Bút chì vàng, lấy ý từ bìa sách"><rect x="1" y="2" width="24" height="16" rx="5" fill="#F9A8D4" stroke="var(--ink)" stroke-width="1.5"/><rect x="22" y="2" width="14" height="16" fill="#CBD5E1" stroke="var(--ink)" stroke-width="1.5"/><rect x="36" y="2" width="250" height="16" fill="#FACC15" stroke="var(--ink)" stroke-width="1.5"/><rect x="36" y="8" width="250" height="4" fill="#EAB308"/><path d="M286 2 L316 10 L286 18 Z" fill="#F5D0A9" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/><path d="M306 7.3 L316 10 L306 12.7 Z" fill="var(--ink)"/></svg>
+  <p class="sub">Thinking, Fast and Slow · Daniel Kahneman</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Daniel Kahneman (1934–2024) · Nobel Kinh tế 2002</b></div>
+    <div><span class="label">Xuất bản</span><b>2011 · Farrar, Straus and Giroux</b></div>
+    <div><span class="label">Quy mô</span><b>5 phần · 38 chương</b></div>
+    <div><span class="label">Đánh giá</span><b>8,5 / 10 · kinh điển, đọc chậm</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 3L6 17h8l-3 12 13-16h-8l3-10z"/></svg><b>Hai hệ thống</b><span>Hệ 1 nhanh, tự động. Hệ 2 chậm, tốn sức và lười.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h18l-4-4M28 22H10l4 4"/></svg><b>Lặng lẽ đổi câu hỏi</b><span>Gặp câu khó, Hệ 1 trả lời một câu dễ hơn.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 27V15M12 27V9M19 27V18M26 27V5"/></svg><b>Tự tin quá mức</b><span>Câu chuyện mạch lạc khiến ta tưởng mình hiểu.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 16h26M16 3v26"/><path d="M16 16c4-1 8-3 12-8M16 16C12 18 8 23 6 29"/></svg><b>Mất đau gấp đôi được</b><span>Cách đặt vấn đề đổi luôn lựa chọn.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Bỏ qua phần "mồi"</b><span>Chương 3–4 dựa vào nghiên cứu đã không lặp lại được.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Trực giác của ta thường đúng, nhưng khi sai thì sai theo những kiểu đoán trước được. Biết tên các kiểu sai đó giúp ta nhận ra lúc cần chậm lại.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Hai hệ thống</b><span>Hệ 1 tự động đưa ra ấn tượng, Hệ 2 thường gật đầu cho qua.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Lối tắt</b><span>Hệ 1 dùng mẹo nhanh, sinh ra các thiên kiến có hệ thống.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Hệ quả</b><span>Tự tin thái quá, chọn lệch vì sợ mất, nhớ sai về hạnh phúc.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Tỷ lệ số chương của từng phần. Phần II và IV là nền của giải Nobel 2002.</p></div>
+  <div class="chbar" role="img" aria-label="Phần I 9 chương, phần II 9 chương, phần III 6 chương, phần IV 10 chương, phần V 4 chương">
+    <div class="p1" style="flex:9">I · 9</div><div class="p2" style="flex:9">II · 9</div><div class="p3" style="flex:6">III · 6</div><div class="p4" style="flex:10">IV · 10</div><div class="p5" style="flex:4">V · 4</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Phần I</span><h3>Hai hệ thống</h3><div class="chips"><span class="chip">chú ý và nỗ lực</span><span class="chip">kẻ kiểm soát lười</span><span class="chip">liên tưởng</span><span class="chip">dễ dàng nhận thức</span><span class="chip">WYSIATI</span><span class="chip">đổi câu hỏi</span></div></div>
+    <div class="part b2"><span class="label">Phần II</span><h3>Lối tắt và thiên kiến</h3><div class="chips"><span class="chip">luật số nhỏ</span><span class="chip">mỏ neo</span><span class="chip">dễ nhớ ra</span><span class="chip">tỷ lệ nền</span><span class="chip">Linda</span><span class="chip">hồi quy</span></div></div>
+    <div class="part b3"><span class="label">Phần III</span><h3>Tự tin thái quá</h3><div class="chips"><span class="chip">ảo tưởng hiểu biết</span><span class="chip">công thức vs chuyên gia</span><span class="chip">trực giác đáng tin</span><span class="chip">nhìn từ bên ngoài</span></div></div>
+    <div class="part b4"><span class="label">Phần IV</span><h3>Lựa chọn</h3><div class="chips"><span class="chip">thuyết triển vọng</span><span class="chip">hiệu ứng sở hữu</span><span class="chip">bốn ô</span><span class="chip">sự kiện hiếm</span><span class="chip">khung</span></div></div>
+    <div class="part b5"><span class="label">Phần V</span><h3>Hai cái tôi</h3><div class="chips"><span class="chip">trải nghiệm vs ghi nhớ</span><span class="chip">đỉnh và kết</span><span class="chip">ảo tưởng tập trung</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Hệ 1 và Hệ 2</h3><span class="en">System 1 · System 2</span><span class="pg">Phần I</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f1t">
+          <title id="f1t">Hệ 1 nhanh, tự động, luôn bật; Hệ 2 chậm, tốn sức và lười. Hệ 1 gửi ấn tượng và gợi ý sang Hệ 2, còn Hệ 2 hiếm khi kiểm tra lại.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+          <rect x="20" y="20" width="270" height="180" rx="6" fill="var(--day)" fill-opacity=".1" stroke="var(--day)"/>
+          <text x="40" y="50" class="t-day t-bold">HỆ 1 · NHANH</text>
+          <text x="40" y="80" class="t-ink">tự động, không tốn sức</text>
+          <text x="40" y="102" class="t-ink">luôn bật, không tắt được</text>
+          <text x="40" y="124" class="t-ink">đọc ra nét mặt đang giận</text>
+          <text x="40" y="160" class="t-day t-bold">2 + 2 = ?</text>
+          <rect x="430" y="20" width="270" height="180" rx="6" fill="var(--night)" fill-opacity=".1" stroke="var(--night)"/>
+          <text x="450" y="50" class="t-night t-bold">HỆ 2 · CHẬM</text>
+          <text x="450" y="80" class="t-ink">phải chú ý, tốn sức</text>
+          <text x="450" y="102" class="t-ink">lười, hay gật đầu cho qua</text>
+          <text x="450" y="124" class="t-ink">điền tờ khai thuế</text>
+          <text x="450" y="160" class="t-night t-bold">17 × 24 = ?</text>
+          <line x1="296" y1="90" x2="424" y2="90" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="360" y="80" text-anchor="middle" class="t-ink">ấn tượng, gợi ý</text>
+          <line x1="424" y1="140" x2="296" y2="140" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="360" y="160" text-anchor="middle">hiếm khi kiểm tra</text>
+        </svg>
+      </div>
+      <figcaption><b>Hệ 1 viết bản nháp, Hệ 2 ký duyệt mà ít khi đọc kỹ.</b> Kahneman gọi đây là hai "nhân vật" để dễ hình dung, không phải hai vùng não.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Câu đố cây gậy và quả bóng</h3><span class="en">bat and ball · CRT</span><span class="pg">Phần I</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 180" role="img" aria-labelledby="f2t">
+          <title id="f2t">Gậy và bóng giá 1,10 đô. Gậy đắt hơn bóng 1 đô. Trực giác trả lời bóng 10 xu, nhưng khi đó gậy chỉ đắt hơn 90 xu. Đáp án đúng là bóng 5 xu, gậy 1,05 đô.</title>
+          <text x="20" y="22" class="t-ink t-bold">Gậy + bóng = 1,10 $. Gậy đắt hơn bóng 1 $. Bóng giá bao nhiêu?</text>
+          <text x="140" y="62" text-anchor="end" class="t-bad t-bold">Trực giác</text>
+          <rect x="150" y="44" width="500" height="26" fill="var(--day)" fill-opacity=".45"/><text x="400" y="62" text-anchor="middle" class="t-ink">gậy 1,00</text>
+          <rect x="650" y="44" width="50" height="26" fill="var(--bad)" fill-opacity=".5"/><text x="675" y="62" text-anchor="middle" class="t-ink">0,10</text>
+          <text x="150" y="88" class="t-bad">gậy chỉ đắt hơn 0,90 $ ✗</text>
+          <text x="140" y="128" text-anchor="end" class="t-ok t-bold">Đúng</text>
+          <rect x="150" y="110" width="525" height="26" fill="var(--day)" fill-opacity=".45"/><text x="410" y="128" text-anchor="middle" class="t-ink">gậy 1,05</text>
+          <rect x="675" y="110" width="25" height="26" fill="var(--ok)" fill-opacity=".6"/><text x="687" y="104" text-anchor="middle" class="t-ok">0,05</text>
+          <text x="150" y="154" class="t-ok">gậy đắt hơn đúng 1,00 $ ✓</text>
+        </svg>
+      </div>
+      <figcaption><b>Hơn một nửa sinh viên Harvard, MIT và Princeton trả lời 10 xu.</b> Không phải vì kém, mà vì Hệ 2 không buồn kiểm tra lại.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Đổi câu hỏi khó thành câu dễ</h3><span class="en">substitution · WYSIATI</span><span class="pg">Phần I</span></div>
+    <div class="tablebox">
+      <table class="cmp">
+        <thead><tr><th>Câu hỏi thật (khó)</th><th>Câu Hệ 1 lặng lẽ trả lời (dễ)</th></tr></thead>
+        <tbody>
+          <tr><td>Có nên mua cổ phiếu Ford không?</td><td class="n">Mình có thích xe Ford không?</td></tr>
+          <tr><td>Ứng viên này sẽ làm lãnh đạo giỏi?</td><td class="n">Trông người này có ra dáng không?</td></tr>
+          <tr><td>Nên góp bao nhiêu để cứu chim bị dầu loang?</td><td class="n">Mình thấy xót đến mức nào?</td></tr>
+          <tr><td>Dạo này mình có hạnh phúc không?</td><td class="n">Tâm trạng mình lúc này ra sao?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">WYSIATI: "thứ bạn thấy là tất cả những gì có". Hệ 1 dựng câu chuyện từ chút thông tin đang có và không hỏi mình còn thiếu gì.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Mỏ neo</h3><span class="en">anchoring</span><span class="pg">Phần II</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f3t">
+          <title id="f3t">Người tham gia quay một vòng quay dừng ở 10 hoặc 65 rồi đoán tỷ lệ quốc gia châu Phi trong Liên Hợp Quốc. Nhóm thấy số 10 đoán trung bình 25%, nhóm thấy số 65 đoán 45%.</title>
+          <text x="20" y="22" class="t-ink t-bold">Bao nhiêu % thành viên Liên Hợp Quốc là nước châu Phi?</text>
+          <line class="axis" x1="160" y1="190" x2="560" y2="190"/>
+          <rect x="200" y="115" width="120" height="75" fill="var(--day)" fill-opacity=".55"/>
+          <rect x="400" y="55" width="120" height="135" fill="var(--day)"/>
+          <text x="260" y="106" text-anchor="middle" class="t-ink t-bold">đoán 25%</text>
+          <text x="460" y="46" text-anchor="middle" class="t-ink t-bold">đoán 45%</text>
+          <text x="260" y="208" text-anchor="middle">vòng quay dừng ở 10</text>
+          <text x="460" y="208" text-anchor="middle">vòng quay dừng ở 65</text>
+          <text x="540" y="120" class="t-day">số ngẫu nhiên,</text><text x="540" y="134" class="t-day">biết rõ là vô nghĩa</text>
+        </svg>
+      </div>
+      <figcaption><b>Một con số vô nghĩa vẫn kéo câu trả lời về phía nó.</b> Thí nghiệm kinh điển của Tversky và Kahneman (1974); hiệu ứng mỏ neo đã được lặp lại nhiều lần.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bài toán Linda</h3><span class="en">conjunction fallacy</span><span class="pg">Phần II</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 250" role="img" aria-labelledby="f4t">
+          <title id="f4t">Hai vòng tròn giao nhau: thu ngân ngân hàng và nhà hoạt động nữ quyền. Vùng giao "cả hai" luôn nhỏ hơn vòng "thu ngân", nhưng 85 đến 90% sinh viên vẫn cho rằng Linda có nhiều khả năng thuộc vùng giao hơn.</title>
+          <circle cx="230" cy="120" r="100" fill="var(--night)" fill-opacity=".12" stroke="var(--night)" stroke-width="1.5"/>
+          <circle cx="350" cy="120" r="90" fill="var(--day)" fill-opacity=".12" stroke="var(--day)" stroke-width="1.5"/>
+          <path d="M297.9 46.6 A100 100 0 0 1 297.9 193.4 A90 90 0 0 1 297.9 46.6 Z" fill="var(--bad)" fill-opacity=".25"/>
+          <text x="296" y="124" text-anchor="middle" class="t-ink t-bold">cả hai</text>
+          <text x="170" y="124" text-anchor="middle" class="t-night t-bold">thu ngân</text>
+          <text x="410" y="124" text-anchor="middle" class="t-day t-bold">nữ quyền</text>
+          <text x="200" y="240" text-anchor="middle" class="t-night">làm thu ngân ngân hàng</text>
+          <text x="380" y="240" text-anchor="middle" class="t-day">hoạt động nữ quyền</text>
+          <text x="470" y="60" class="t-ink t-bold">Linda dễ là ai hơn?</text>
+          <text x="470" y="84" class="t-bad">85–90% sinh viên chọn</text>
+          <text x="470" y="100" class="t-bad">"thu ngân VÀ nữ quyền"</text>
+          <text x="470" y="132" class="t-ink">nhưng vùng giao không thể</text>
+          <text x="470" y="148" class="t-ink">lớn hơn vòng "thu ngân"</text>
+        </svg>
+      </div>
+      <figcaption><b>Câu chuyện càng chi tiết càng nghe hợp lý, nhưng càng ít khả năng xảy ra.</b> Linda được mô tả là sinh viên triết, quan tâm công bằng xã hội.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Quên tỷ lệ nền</h3><span class="en">base-rate neglect · bài toán taxi</span><span class="pg">Phần II</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 250" role="img" aria-labelledby="ftt">
+<title id="ftt">100 xe taxi: 15 xe hãng Xanh dương, 85 xe hãng Xanh lá. Nhân chứng đúng 80%. Khi nhân chứng nói "xanh dương", có 12 xe xanh dương thật và 17 xe xanh lá bị nhìn nhầm, nên chỉ khoảng 41% là đúng.</title>
+<text x="60" y="26" class="t-ink t-bold">100 xe trong thành phố · ô đậm = nhân chứng sẽ nói "xanh dương"</text>
+<rect x="60" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="90" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="120" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="150" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="180" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="210" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="240" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="270" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="300" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="330" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="360" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="390" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="420" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="450" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="480" y="40" width="24" height="24" rx="4" fill="var(--night)" opacity=".22"/><rect x="510" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="540" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="570" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="600" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="630" y="40" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="60" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="90" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="120" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="150" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="180" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="210" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="240" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="270" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="300" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="330" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="360" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="390" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity="1" stroke="var(--ink)" stroke-width="2.5"/><rect x="420" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="70" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="100" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="130" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="60" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="90" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="120" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="150" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="180" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="210" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="240" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="270" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="300" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="330" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="360" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="390" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="420" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="450" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="480" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="510" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="540" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="570" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="600" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/><rect x="630" y="160" width="24" height="24" rx="4" fill="var(--ok)" opacity=".22"/>
+<text x="60" y="210" class="t-night t-bold">12 xe xanh dương thật</text><text x="60" y="225">(80% của 15 xe)</text>
+<text x="290" y="210" class="t-ok t-bold">+ 17 xe xanh lá bị nhìn nhầm</text><text x="290" y="225">(20% của 85 xe)</text>
+<text x="660" y="210" text-anchor="end" class="t-ink t-bold">12 / 29 ≈ 41%</text><text x="660" y="225" text-anchor="end">không phải 80%</text>
+</svg></div>
+      <figcaption><b>Nhân chứng đúng 80%, nhưng xác suất đúng chỉ 41%</b>, vì xe xanh dương vốn hiếm. Hệ 1 nhớ nhân chứng, quên mất 15 trên 100.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Hồi quy về trung bình</h3><span class="en">regression to the mean</span><span class="pg">Phần II</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 230" role="img" aria-labelledby="frt">
+<title id="frt">Điểm của một học viên bay qua 10 lần dao động quanh mức trung bình. Sau lần tốt nhất (được khen) lần sau kém đi; sau lần tệ nhất (bị mắng) lần sau khá lên. Đó là hồi quy về trung bình, không phải tác dụng của lời khen hay mắng.</title>
+<line x1="60" y1="110.0" x2="690" y2="110.0" stroke="var(--muted)" stroke-dasharray="4 4"/>
+<text x="62" y="126.0">mức trung bình thật</text>
+<path d="M80.0 71.6 L144.0 129.2 L208.0 84.4 L272.0 148.4 L336.0 94.0 L400.0 55.6 L464.0 119.6 L528.0 103.6 L592.0 158.0 L656.0 87.6" fill="none" stroke="var(--ink)" stroke-width="1.8"/>
+<circle cx="80" cy="72" r="4" fill="var(--ink)"/><circle cx="144" cy="129" r="4" fill="var(--ink)"/><circle cx="208" cy="84" r="4" fill="var(--ink)"/><circle cx="272" cy="148" r="4" fill="var(--ink)"/><circle cx="336" cy="94" r="4" fill="var(--ink)"/><circle cx="400" cy="56" r="4" fill="var(--ink)"/><circle cx="464" cy="120" r="4" fill="var(--ink)"/><circle cx="528" cy="104" r="4" fill="var(--ink)"/><circle cx="592" cy="158" r="4" fill="var(--ink)"/><circle cx="656" cy="88" r="4" fill="var(--ink)"/>
+<circle cx="400" cy="56" r="8" fill="none" stroke="var(--ok)" stroke-width="2.5"/>
+<circle cx="592" cy="158" r="8" fill="none" stroke="var(--bad)" stroke-width="2.5"/>
+<text x="400" y="40" text-anchor="middle" class="t-ok t-bold">khen</text>
+<text x="464" y="144" text-anchor="middle" class="t-ok">→ lần sau kém đi</text>
+<text x="592" y="182" text-anchor="middle" class="t-bad t-bold">mắng</text>
+<text x="650" y="74" text-anchor="middle" class="t-bad">→ khá lên</text>
+<g text-anchor="middle"><text x="80" y="222">lần 1</text><text x="144" y="222">lần 2</text><text x="208" y="222">lần 3</text><text x="272" y="222">lần 4</text><text x="336" y="222">lần 5</text><text x="400" y="222">lần 6</text><text x="464" y="222">lần 7</text><text x="528" y="222">lần 8</text><text x="592" y="222">lần 9</text><text x="656" y="222">lần 10</text></g>
+</svg></div>
+      <figcaption><b>Huấn luyện viên bay tin rằng mắng có tác dụng, khen thì không.</b> Thật ra lần cực tốt hay cực tệ có phần may rủi, nên lần sau tự trở về mức thường.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Ảo tưởng kế hoạch và cái nhìn từ bên ngoài</h3><span class="en">planning fallacy · outside view</span><span class="pg">Phần III</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 740 210" role="img" aria-labelledby="fplt">
+<title id="fplt">Nhóm soạn giáo trình tự đoán hoàn thành trong khoảng 2 năm. Các nhóm tương tự trước đó mất 7 đến 10 năm và 40% bỏ dở. Thực tế nhóm mất 8 năm.</title>
+<g class="gridl"><line x1="180" y1="20" x2="180" y2="170"/><line x1="260" y1="20" x2="260" y2="170"/><line x1="340" y1="20" x2="340" y2="170"/><line x1="420" y1="20" x2="420" y2="170"/><line x1="500" y1="20" x2="500" y2="170"/><line x1="580" y1="20" x2="580" y2="170"/></g>
+<text x="168" y="50" text-anchor="end" class="t-ink t-bold">Cả nhóm tự đoán</text>
+<rect x="180" y="34" width="60.0" height="24" fill="var(--day)" opacity=".85"/><rect x="240.0" y="34" width="40" height="24" fill="var(--day)" opacity=".4"/>
+<text x="288.0" y="50" class="t-day">1,5–2,5 năm</text>
+<text x="168" y="100" text-anchor="end" class="t-ink t-bold">Các nhóm tương tự</text>
+<rect x="180" y="84" width="280" height="24" fill="var(--night)" opacity=".85"/><rect x="460" y="84" width="120" height="24" fill="var(--night)" opacity=".4"/>
+<text x="588" y="96" class="t-night">7–10 năm</text><text x="588" y="110" class="t-bad">40% bỏ dở</text>
+<text x="168" y="150" text-anchor="end" class="t-ink t-bold">Thực tế</text>
+<rect x="180" y="134" width="320" height="24" fill="var(--ink)"/>
+<text x="508" y="150" class="t-ink t-bold">8 năm</text>
+<g text-anchor="middle"><text x="180" y="190">0 năm</text><text x="260" y="190">2 năm</text><text x="340" y="190">4 năm</text><text x="420" y="190">6 năm</text><text x="500" y="190">8 năm</text><text x="580" y="190">10 năm</text></g>
+</svg></div>
+      <figcaption><b>Chuyện của chính Kahneman khi soạn giáo trình.</b> Cả nhóm dựa vào kế hoạch của mình (bên trong) mà bỏ qua kết cục của các nhóm giống mình (bên ngoài).</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Thuyết triển vọng</h3><span class="en">prospect theory · loss aversion</span><span class="pg">Phần IV</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 300" role="img" aria-labelledby="fpt">
+<title id="fpt">Hàm giá trị của thuyết triển vọng: đường cong bên phần lãi thoải dần, bên phần lỗ dốc gấp khoảng hai lần; mất 100 nghìn đau hơn nhiều so với niềm vui khi được 100 nghìn.</title>
+<line class="axis" x1="40" y1="140" x2="690" y2="140"/><line class="axis" x1="360" y1="20" x2="360" y2="290"/>
+<text x="690" y="132" text-anchor="end" class="t-ok t-bold">LÃI →</text>
+<text x="40" y="132" class="t-bad t-bold">← LỖ</text>
+<text x="368" y="30" class="t-ink">vui</text><text x="368" y="286" class="t-ink">khổ</text>
+<path d="M60.0 275.0 L70.0 271.0 L80.0 267.0 L90.0 263.0 L100.0 259.0 L110.0 255.0 L120.0 250.9 L130.0 246.9 L140.0 242.8 L150.0 238.6 L160.0 234.5 L170.0 230.3 L180.0 226.1 L190.0 221.9 L200.0 217.6 L210.0 213.4 L220.0 209.0 L230.0 204.7 L240.0 200.3 L250.0 195.8 L260.0 191.3 L270.0 186.8 L280.0 182.2 L290.0 177.5 L300.0 172.8 L310.0 167.9 L320.0 162.9 L330.0 157.8 L340.0 152.5 L350.0 146.8 L360.0 140.0 L360.0 140.0 L370.0 137.0 L380.0 134.5 L390.0 132.1 L400.0 129.8 L410.0 127.6 L420.0 125.4 L430.0 123.3 L440.0 121.2 L450.0 119.2 L460.0 117.2 L470.0 115.2 L480.0 113.2 L490.0 111.3 L500.0 109.3 L510.0 107.4 L520.0 105.5 L530.0 103.6 L540.0 101.7 L550.0 99.9 L560.0 98.0 L570.0 96.2 L580.0 94.3 L590.0 92.5 L600.0 90.7 L610.0 88.9 L620.0 87.1 L630.0 85.3 L640.0 83.5 L650.0 81.8 L660.0 80.0" fill="none" stroke="var(--night)" stroke-width="2.5"/>
+<g stroke="var(--muted)" stroke-dasharray="3 3">
+<line x1="460" y1="140" x2="460" y2="117.2"/><line x1="360" y1="117.2" x2="460" y2="117.2"/>
+<line x1="260" y1="140" x2="260" y2="191.3"/><line x1="360" y1="191.3" x2="260" y2="191.3"/></g>
+<circle cx="460" cy="117.2" r="4" fill="var(--ok)"/><circle cx="260" cy="191.3" r="4" fill="var(--bad)"/>
+<circle cx="360" cy="140" r="4" fill="var(--ink)"/>
+<g><circle cx="410" cy="176" r="4" fill="var(--ok)"/><text x="420" y="180" class="t-ok">được 100k: vui một chút</text>
+<circle cx="410" cy="198" r="4" fill="var(--bad)"/><text x="420" y="202" class="t-bad">mất 100k: khổ gấp khoảng 2</text>
+<circle cx="410" cy="220" r="4" fill="var(--ink)"/><text x="420" y="224" class="t-ink">gốc: điểm tham chiếu (hiện tại)</text></g>
+</svg></div>
+      <figcaption><b>Ta đánh giá thay đổi so với một điểm tham chiếu, không phải tổng tài sản</b>, và cái mất nặng hơn cái được khoảng 1,5–2,5 lần. Đường cong minh họa.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn ô của rủi ro</h3><span class="en">fourfold pattern</span><span class="pg">Phần IV</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Khi có thể ĐƯỢC</th><th>Khi có thể MẤT</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Xác suất cao</th><td class="safe"><b>Né rủi ro</b><span>Sợ mất cái gần chắc · nhận hòa giải thấp</span></td><td class="risk"><b>Liều</b><span>Mong thoát · đánh tiếp để gỡ</span></td></tr>
+          <tr><th class="rowh">Xác suất thấp</th><td class="risk"><b>Liều</b><span>Mong trúng lớn · mua vé số</span></td><td class="safe"><b>Né rủi ro</b><span>Sợ tai họa · mua bảo hiểm</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Viền đỏ là ô ta sẵn sàng liều, viền xanh là ô ta chịu trả giá để được yên.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Khung quyết định</h3><span class="en">framing · "dịch bệnh châu Á"</span><span class="pg">Phần IV</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f5t">
+          <title id="f5t">Cùng một lựa chọn cho dịch bệnh đe dọa 600 người. Khi nói "cứu được 200 người", 72% chọn phương án chắc chắn. Khi nói "400 người sẽ chết", chỉ 22% chọn phương án chắc chắn, 78% chọn liều.</title>
+          <text x="230" y="22" class="t-ink t-bold">Dịch bệnh đe dọa 600 người. Phương án chắc chắn:</text>
+          <text x="220" y="62" text-anchor="end" class="t-ok t-bold">"cứu được 200 người"</text>
+          <rect x="230" y="44" width="324" height="28" fill="var(--night)"/><rect x="554" y="44" width="126" height="28" fill="var(--grid)"/>
+          <text x="244" y="63" style="fill:var(--paper)" class="t-bold">72% chọn chắc chắn</text><text x="617" y="63" text-anchor="middle" class="t-ink">28% liều</text>
+          <text x="220" y="122" text-anchor="end" class="t-bad t-bold">"400 người sẽ chết"</text>
+          <rect x="230" y="104" width="99" height="28" fill="var(--night)"/><rect x="329" y="104" width="351" height="28" fill="var(--bad)" fill-opacity=".3"/>
+          <text x="280" y="123" text-anchor="middle" style="fill:var(--paper)" class="t-bold">22%</text><text x="504" y="123" text-anchor="middle" class="t-bad t-bold">78% chọn liều</text>
+          <text x="230" y="170" class="t-ink">Cứu 200 trên 600 = để 400 người chết. Chỉ đổi cách nói.</text>
+        </svg>
+      </div>
+      <figcaption><b>Nói theo "được" thì ta né rủi ro, nói theo "mất" thì ta liều.</b> Tversky và Kahneman (1981), đã được lặp lại nhiều lần.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Hai cái tôi: trải nghiệm và ghi nhớ</h3><span class="en">peak-end rule · duration neglect</span><span class="pg">Phần V</span></div>
+    <figure>
+      <div class="svgbox"><svg viewBox="0 0 720 250" role="img" aria-labelledby="fct">
+<title id="fct">Thí nghiệm tay lạnh: lần A ngâm tay 60 giây ở 14 độ. Lần B giống hệt rồi thêm 30 giây ở 15 độ, đau hơn tổng cộng nhưng kết thúc nhẹ hơn. Khi được hỏi muốn lặp lại lần nào, đa số chọn lần B.</title>
+<line class="axis" x1="70" y1="200" x2="659.0" y2="200"/>
+<text x="62" y="72" text-anchor="end" class="t-ink">đau</text><text x="62" y="200" text-anchor="end" class="t-ink">0</text>
+<rect x="70.0" y="64" width="372.0" height="136" fill="var(--night)" opacity=".18"/>
+<rect x="442.0" y="98" width="186.0" height="102" fill="var(--day)" opacity=".28"/>
+<path d="M70.0 64 H442.0" stroke="var(--night)" stroke-width="3"/>
+<path d="M442.0 64 C491.6 70 516.4000000000001 98 566.0 104 S615.6 112 628.0 114" fill="none" stroke="var(--day)" stroke-width="3"/>
+<text x="256.0" y="56" text-anchor="middle" class="t-night t-bold">Lần A: 60 giây ở 14°C</text>
+<text x="535.0" y="150" text-anchor="middle" class="t-day t-bold">Lần B: thêm 30 giây</text>
+<text x="535.0" y="166" text-anchor="middle" class="t-day">nước ấm lên 15°C</text>
+<text x="535.0" y="182" text-anchor="middle" class="t-day">(vẫn đau, nhẹ hơn)</text>
+<g text-anchor="middle"><text x="70.0" y="218">0 giây</text><text x="442.0" y="218">60</text><text x="628.0" y="218">90</text></g>
+<text x="256.0" y="140" text-anchor="middle" class="t-ink t-bold">tổng đau B &gt; A</text>
+<text x="256.0" y="156" text-anchor="middle" class="t-ink">nhưng đa số chọn làm lại lần B</text>
+<text x="256.0" y="240" text-anchor="middle">ký ức chỉ giữ đỉnh đau và lúc kết thúc</text>
+</svg></div>
+      <figcaption><b>Cái tôi ghi nhớ mới là cái tôi ra quyết định.</b> Nó bỏ qua thời lượng và chỉ giữ đỉnh điểm cùng đoạn kết; kết quả tương tự ở bệnh nhân nội soi đại tràng.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">13 luận cứ hay được trích dẫn nhất, xét lại sau khủng hoảng lặp lại trong tâm lý học. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="5 vững, 4 cần thận trọng, 4 không lặp lại được hoặc bị phê bình">
+    <div class="o" style="flex:5">5 VỮNG</div><div class="w" style="flex:4">4 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Mỏ neo kéo lệch con số ta ước lượng</span></summary><p class="note">Lặp lại thành công trong dự án Many Labs (2014) với hàng nghìn người ở nhiều nước.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Khung "được" và "mất" đổi lựa chọn</span></summary><p class="note">Bài "dịch bệnh châu Á" lặp lại ổn định qua nhiều nghiên cứu, kể cả Many Labs. Hiệu ứng nhỏ hơn khi người ta suy nghĩ kỹ.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ngụy biện kết hợp (Linda)</span></summary><p class="note">Lặp lại nhiều lần. Gigerenzer phản biện rằng hỏi theo tần suất ("bao nhiêu trên 100 người") thì lỗi giảm mạnh.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ảo tưởng kế hoạch, nên dùng cái nhìn bên ngoài</span></summary><p class="note">Dữ liệu dự án hạ tầng (Flyvbjerg) cho thấy vượt ngân sách và trễ hạn là quy luật, không phải ngoại lệ.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Công thức đơn giản thường đoán tốt hơn chuyên gia</span></summary><p class="note">Từ Paul Meehl (1954) đến các phân tích gộp sau này: công thức thắng hoặc hòa trong phần lớn so sánh.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Hệ 1 và Hệ 2 là hai hệ thống thật</span></summary><p class="note">Kahneman tự gọi đây là "nhân vật hư cấu có ích". Nhiều nhà nghiên cứu cho rằng tư duy là một dải liên tục, không chia đôi rõ ràng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Mất đau gấp khoảng 2 lần được</span></summary><p class="note">Né tránh mất mát có thật và phân tích gộp ủng hộ. Độ lớn thay đổi theo bối cảnh; với khoản nhỏ, hiệu ứng có thể rất yếu (Gal và Rucker, 2018).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Thu nhập trên ~75.000 USD không làm cảm xúc hằng ngày tốt hơn</span></summary><p class="note">Năm 2023, Kahneman cùng Killingsworth phân tích lại: điểm chững chỉ đúng với nhóm người kém hạnh phúc nhất; đa số vẫn vui hơn khi thu nhập tăng.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Bàn tay nóng" trong bóng rổ là ảo tưởng</span></summary><p class="note">Miller và Sanjurjo (2018) chỉ ra lỗi thống kê trong nghiên cứu gốc; tính lại thì có một hiệu ứng nhỏ.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Hiệu ứng mồi: đọc chữ về tuổi già làm ta đi chậm hơn</span></summary><p class="note">Không lặp lại được (Doyen và cộng sự, 2012). Năm 2017 Kahneman viết rằng ông đã "quá tin vào các nghiên cứu mẫu nhỏ" ở chương 4.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Ý chí là nguồn lực cạn dần, nạp đường thì hồi lại</span></summary><p class="note">Thử nghiệm đăng ký trước ở 23 phòng thí nghiệm với hơn 2.000 người (Hagger và cộng sự, 2016) cho hiệu ứng gần bằng 0.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Chữ khó đọc làm ta suy nghĩ cẩn thận hơn</span></summary><p class="note">Phân tích gộp 17 thí nghiệm (Meyer và cộng sự, 2015) không tìm thấy hiệu ứng.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Thẩm phán đói bụng xử tha ít hơn trước giờ ăn</span></summary><p class="note">Mức giảm quá lớn để là do đói. Thứ tự các ca không ngẫu nhiên: ca không có luật sư thường bị xếp cuối buổi.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Sức ảnh hưởng</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i class="low" style="width:50%"></i></div><b>2,5/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i style="width:70%"></i></div><b>3,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Bộ từ vựng để gọi tên lỗi tư duy</li><li>Người đọc tự mắc bẫy ngay trên trang sách</li><li>Phần II và IV là khoa học đoạt Nobel</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Dài, dày, khó đọc liền một mạch</li><li>Chương 3–4 dựa vào nghiên cứu đã sụp</li><li>Biết thiên kiến chưa chắc tránh được</li></ul></div>
+  </div>
+  <p class="verdict">Giữ phần II đến V. Đọc chương 3–4 như lịch sử khoa học, không như kết luận.</p>
+  <details class="more"><summary>Xem thêm: sách và khủng hoảng lặp lại</summary><div>
+    <p>Sách ra năm 2011, ngay trước khi tâm lý học xã hội phát hiện nhiều kết quả nổi tiếng không lặp lại được. Năm 2012, chính Kahneman gửi thư ngỏ cảnh báo "một vụ đắm tàu" ở mảng nghiên cứu hiệu ứng mồi.</p>
+    <p>Năm 2017, Schimmack, Heene và Kesavan chấm độ tin cậy các nghiên cứu được trích ở chương 4 và thấy rất thấp. Kahneman trả lời công khai rằng ông đã quá tin vào nghiên cứu mẫu nhỏ, và người đọc nên coi nhẹ chương này.</p>
+    <p>Gerd Gigerenzer phản biện từ hướng khác: lối tắt của Hệ 1 thường là cách thông minh trong môi trường thật, không chỉ là lỗi. Kahneman cũng tự nhận rằng biết về thiên kiến hầu như không giúp ông tránh được chúng; cách hiệu quả hơn là quy trình của tổ chức.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Năm bước trước một quyết định lớn. Chuyện nhỏ hằng ngày cứ để Hệ 1 lo.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 740 170" role="img" aria-labelledby="f6t">
+        <title id="f6t">Năm bước trước quyết định lớn: nhận ra cảm giác chắc chắn, tìm tỷ lệ nền, đổi khung được và mất, tiền khám nghiệm, chấm điểm theo tiêu chí trước rồi mới dùng trực giác.</title>
+        <line x1="70" y1="50" x2="670" y2="50" stroke="var(--rule)" stroke-width="3"/>
+        <g fill="var(--night)"><circle cx="70" cy="50" r="16"/><circle cx="220" cy="50" r="16"/><circle cx="370" cy="50" r="16"/><circle cx="520" cy="50" r="16"/><circle cx="670" cy="50" r="16"/></g>
+        <g text-anchor="middle" style="fill:var(--paper)" class="t-bold"><text x="70" y="55" style="fill:var(--paper)">1</text><text x="220" y="55" style="fill:var(--paper)">2</text><text x="370" y="55" style="fill:var(--paper)">3</text><text x="520" y="55" style="fill:var(--paper)">4</text><text x="670" y="55" style="fill:var(--paper)">5</text></g>
+        <g text-anchor="middle">
+          <text x="70" y="94" class="t-day t-bold">Thấy chắc ngay?</text><text x="70" y="110">đó là dấu hiệu</text><text x="70" y="125">của Hệ 1</text>
+          <text x="220" y="94" class="t-night t-bold">Tìm tỷ lệ nền</text><text x="220" y="110">ca giống thế này</text><text x="220" y="125">thường ra sao?</text>
+          <text x="370" y="94" class="t-night t-bold">Đổi khung</text><text x="370" y="110">nói lại theo "mất"</text><text x="370" y="125">rồi theo "được"</text>
+          <text x="520" y="94" class="t-night t-bold">Tiền khám nghiệm</text><text x="520" y="110">"1 năm sau hỏng,</text><text x="520" y="125">vì sao?"</text>
+          <text x="670" y="94" class="t-night t-bold">Chấm rồi mới cảm</text><text x="670" y="110">điểm từng tiêu chí</text><text x="670" y="125">trước, trực giác sau</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Bước 5 là cách Kahneman tuyển lính cho quân đội Israel</b>: chấm 6 phẩm chất từ 1 đến 5, rồi mới "nhắm mắt" cho điểm tổng.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4v18M9 15l7 7 7-7"/><path d="M6 28h20"/></svg><div><b>Tự đặt giá trước khi nghe giá</b><span>Mua bán, lương bổng: có con số của mình trước để không bị mỏ neo.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="10" height="10" rx="2"/><rect x="18" y="4" width="10" height="10" rx="2"/><rect x="4" y="18" width="10" height="10" rx="2"/><rect x="18" y="18" width="10" height="10" rx="2"/></svg><div><b>Nhìn cả chuỗi, đừng nhìn từng ván</b><span>Nhiều rủi ro nhỏ có lợi thì cứ nhận; xét gộp lại, đừng sợ từng lần.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 10v7M16 21v1"/></svg><div><b>Hỏi "mình đang thiếu thông tin gì?"</b><span>Câu chuyện càng mượt thì càng nên hỏi.</span></div></div>
+  </div>
+  <div class="quote"><span>"Nothing in life is as important as you think it is, while you are thinking about it."</span><span class="src">Không gì trong đời quan trọng như ta tưởng, lúc ta đang nghĩ về nó. Ảo tưởng tập trung, chương 38.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Kahneman, Sibony, Sunstein, <i>Noise</i> (2021)</b><span class="muted">Phần tiếp theo: sai lệch ngẫu nhiên trong phán đoán của tổ chức.</span></div>
+    <div><b>Michael Lewis, <i>The Undoing Project</i> (2016)</b><span class="muted">Chuyện tình bạn Kahneman và Tversky, dễ đọc hơn nhiều.</span></div>
+    <div><b>Richard Thaler, <i>Misbehaving</i> (2015)</b><span class="muted">Kinh tế học hành vi kể từ bên trong, nhẹ nhàng và hài hước.</span></div>
+    <div><b>Schimmack, Heene, Kesavan (2017), "Reconstruction of a Train Wreck"</b><span class="muted">Đọc để cân bằng về chương 4. <a href="https://replicationindex.com/2017/02/02/reconstruction-of-a-train-wreck-how-priming-research-went-off-the-rails/">replicationindex.com</a></span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #003. Các hình là sơ đồ minh họa khái niệm; số liệu thí nghiệm lấy theo sách.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+</body>
+</html>
