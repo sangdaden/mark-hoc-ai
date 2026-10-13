@@ -97,7 +97,7 @@ def trang_sach(b, goc, en=False, cd=None):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
-    mau_bia = f"\nbody header {{ {mau_bia}}}" if mau_bia else ""
+    mau_bia = f"\nbody, body header {{ {mau_bia}}}" if mau_bia else ""
     if bia.get("nhan"):
         mau_bia += f"\n:root {{ --vtk-nhan: {bia['nhan']}; }}"
     # Chữ trên tab của thẻ thông tin ở đầu bài (doc.css): "ho_so" của chủ đề, ví dụ "Thẻ sách", "Hồ sơ vụ việc"
@@ -210,9 +210,11 @@ def the_bai(b, cd, en=False):
 
 
 def trang_chu(sach, chu_de, en=False):
-    """Hàng chip lọc + mỗi chủ đề một khối thẻ, mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
+    """Hàng chip lọc + mỗi chủ đề một khối thẻ, bài có trò chơi trước rồi mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
     cds = [dict(c, **c.get("en", {})) if en else c for c in chu_de]
-    co = [(c, sorted((b for b in sach if b.get("loai", "sach") == c["ma"]), key=lambda b: -b["so"])) for c in cds]
+    # Bài có trò chơi tương tác lên đầu khối (Sang 13/10) để thấy ngay không cần bấm "Xem thêm"; còn lại mới nhất trước
+    choi = co_tro_choi()
+    co = [(c, sorted((b for b in sach if b.get("loai", "sach") == c["ma"]), key=lambda b: (b["slug"] not in choi, -b["so"]))) for c in cds]
     co = [(c, ds) for c, ds in co if ds]
     tong = sum(len(ds) for _, ds in co)
     chip = [f'<a href="#tat-ca" data-loc="" aria-current="true">{"All" if en else "Tất cả"} <small>{tong}</small></a>']
