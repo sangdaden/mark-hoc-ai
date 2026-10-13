@@ -22,7 +22,8 @@
     "kiem-tra": ["Pick a quiz and go with your gut. I'll explain each answer right away.", "Score 80% and you unlock a certificate with your name."],
     "lo-trinh": ["One day at a time: 3 videos, 1 task, 1 question. You've got this!", "Finish all 7 days and I'll help you make a certificate."],
     sach: ["The book is free, no email needed. Just click download!", "Tap a chapter to see what's inside."],
-    "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."]
+    "hop-tac": ["Want to work with Mark and me? Email us anytime.", "We only talk about things we've really tried."],
+    vtk: ["In this universe Mark reads books instead of studying AI. Pick one to read!", "Each write-up rates the evidence: what holds up and what has been criticized."]
   } : {
     chu: ["Chào bạn, mình là Bit 👋 Mới học AI? Bấm vào mình nhé!", "Có 50 prompt mẫu miễn phí đó, bấm mình để tải."],
     bai: ["Cuối bài có mẹo \"Thử ngay\", thử luôn cho nhớ nhé!", "Gặp chữ lạ? Mình tra Từ điển AI giúp bạn."],
@@ -33,13 +34,16 @@
     "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."],
     vtk: ["Ở vũ trụ này Mark không học AI mà đọc sách. Bấm một cuốn để đọc nhé!", "Mỗi bài có phần dẫn chứng: chỗ nào vững, chỗ nào bị phê bình."]
   })[trang] || [];
-  // Thỉnh thoảng (khoảng 1/6 phiên, tối đa một lần mỗi phiên, chỉ bản tiếng Việt) Bit rủ ghé góc đọc sách "Mark ở vũ trụ khác";
-  // lối vào chính chỉ là icon nhỏ ở chân trang (Sang 13/10). Bấm bóng thoại này là sang trang đó.
-  const VTK = goc + "vu-tru-khac.html";
+  // Thỉnh thoảng (khoảng 1/6 phiên, tối đa một lần mỗi phiên) Bit rủ ghé góc đọc sách "Vũ Trụ Khác";
+  // lối vào chính là nút ở chân trang (Sang 13/10). Bấm bóng thoại này là sang trang đó.
+  const VTK = nha + "vu-tru-khac.html";
   let rePhu = false;
-  if (!EN && trang !== "vtk" && loi.length && !nho.get("vtk")) {
+  if (trang !== "vtk" && loi.length && !nho.get("vtk")) {
     nho.set("vtk", "1");
-    if (Math.random() < 1 / 6) { loi[loi.length - 1] = "Psst… ở một vũ trụ khác, Mark không học AI mà đọc sách. Ghé xem không?"; rePhu = true; }
+    if (Math.random() < 1 / 6) {
+      loi[loi.length - 1] = EN ? "Psst… in another universe, Mark reads books instead of studying AI. Want a look?" : "Psst… ở một vũ trụ khác, Mark không học AI mà đọc sách. Ghé xem không?";
+      rePhu = true;
+    }
   }
   const meo = EN ? [
     "Add \"If you're not sure, say you don't know\" so AI makes up less.",
