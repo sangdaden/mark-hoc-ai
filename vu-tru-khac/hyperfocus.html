@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyperfocus (Chris Bailey): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Chú ý có hạn: rọi hẹp để làm, tỏa rộng để nghĩ. Bốn bước siêu tập trung, bốn loại xao nhãng, chế độ tản tập trung, và những con số trong sách chỉ dựa vào nghiên cứu nhỏ.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperfocus (Chris Bailey): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Chú ý có hạn: rọi hẹp để làm, tỏa rộng để nghĩ. Bốn bước siêu tập trung, bốn loại xao nhãng, chế độ tản tập trung, và những con số trong sách chỉ dựa vào nghiên cứu nhỏ.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #111111; --bia-2: #7F1D1D; --bia-nhan: #FFE135; }
+:root { --vtk-nhan: #FFE135; }
+</style>
+</head>
+<body class="bia-hong-tam">
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/hyperfocus.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep. Hyperfocus = red target from the Vietnamese cover; hyperfocus beam (--night), scatterfocus = wide amber light (--day). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #c62828;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #ff8a80; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #ff8a80; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Năng suất · Tâm lý học chú ý</span>
+  <h1>Siêu tập trung</h1>
+  <svg viewBox="0 0 320 44" width="320" height="44" style="max-width:100%" role="img" aria-label="Hồng tâm đỏ trắng và mũi tên đen, lấy từ bìa sách bản tiếng Việt">
+    <rect x="0" y="19" width="230" height="6" rx="3" fill="#C62828"/>
+    <path d="M222 8 L254 22 L222 36 Z" fill="#111" stroke="#FFD60A" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="290" cy="22" r="20" fill="#C62828"/><circle cx="290" cy="22" r="15" fill="#fff"/><circle cx="290" cy="22" r="10" fill="#C62828"/><circle cx="290" cy="22" r="5" fill="#fff"/><circle cx="290" cy="22" r="2.2" fill="#C62828"/>
+  </svg>
+  <p class="sub">Hyperfocus: How to Be More Productive in a World of Distraction · Chris Bailey</p>
+  <div class="meta">
+    <div><span class="label">Tác giả</span><b>Chris Bailey · tác giả <i>The Productivity Project</i></b></div>
+    <div><span class="label">Xuất bản</span><b>2018 · Viking · bản Việt: Saigon Books, NXB Thế Giới</b></div>
+    <div><span class="label">Quy mô</span><b>2 nửa · 10 chương · ~256 trang</b></div>
+    <div><span class="label">Đánh giá</span><b>7,5 / 10 · dễ đọc, dùng được ngay</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Luận điểm</a><a href="#bo-cuc">Bố cục</a><a href="#khai-niem">Khái niệm</a><a href="#dan-chung">Dẫn chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Áp dụng</a><a href="#doc-tiep">Đọc tiếp</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="3"/><path d="M9 16h4M19 16h4"/></svg><b>Chú ý là có hạn</b><span>Đầu ta chỉ giữ được khoảng 4 thứ một lúc.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/></svg><b>Ý định trước, chú ý sau</b><span>Chọn trước việc đáng làm nhất, rồi mới làm.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l20 20M26 6L6 26"/></svg><b>Chặn xao nhãng từ trước</b><span>Dễ hơn nhiều so với cưỡng lại nó giữa chừng.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="7" cy="9" r="2"/><circle cx="24" cy="7" r="2"/><circle cx="15" cy="17" r="2"/><circle cx="8" cy="25" r="2"/><circle cx="25" cy="24" r="2"/><path d="M7 9l8 8 9-10M15 17l-7 8M15 17l10 7" stroke-dasharray="2 2"/></svg><b>Thả trôi có chủ đích</b><span>"Tản tập trung" là lúc ý tưởng tự nối lại.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Số liệu hơi "đẹp"</b><span>Nhiều con số lấy từ nghiên cứu nhỏ, nên đọc như gợi ý.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Luận điểm cốt lõi</h2></div>
+  <p class="thesis">Chú ý là nguồn lực quý nhất mà ta có. Quản lý nó theo hai chế độ, rọi hẹp để làm và thả rộng để nghĩ, thì vừa làm được nhiều hơn vừa sáng tạo hơn.</p>
+  <div class="flow" aria-label="Ba bước lập luận">
+    <div class="step"><span class="label">Bước 1</span><b>Chú ý có hạn</b><span>Ta làm phần lớn việc trong trạng thái lái tự động, và đầu chỉ chứa được ít thứ.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Siêu tập trung</b><span>Đặt ý định, dẹp xao nhãng, dồn hết chú ý vào một việc quan trọng.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Tản tập trung</b><span>Cố ý thả trí óc lang thang để nghỉ, lên kế hoạch và nối ý tưởng.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Bố cục cuốn sách</h2><p class="lead">Hai nửa gần bằng nhau. Nửa sau (tản tập trung) là phần làm sách khác các sách tập trung khác.</p></div>
+  <div class="chbar" role="img" aria-label="Siêu tập trung 5 chương, tản tập trung 4 chương, chương cuối kết hợp cả hai">
+    <div class="p1" style="flex:5">Siêu tập trung · 5</div><div class="p4" style="flex:4">Tản tập trung · 4</div><div class="p5" style="flex:1">1</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Chương 1–2 · Kỳ 1</span><h3>Lái tự động</h3><div class="chips"><span class="chip">bốn ô công việc</span><span class="chip">không gian chú ý</span><span class="chip">dư âm chú ý</span><span class="chip">làm nhiều việc một lúc</span></div></div>
+    <div class="part"><span class="label">Chương 3 · Kỳ 2</span><h3>Bốn bước siêu tập trung</h3><div class="chips"><span class="chip">ý định</span><span class="chip">quy tắc 3</span><span class="chip">nghi thức bắt đầu</span></div></div>
+    <div class="part b3"><span class="label">Chương 4–5 · Kỳ 3</span><h3>Chế ngự xao nhãng</h3><div class="chips"><span class="chip">bốn loại xao nhãng</span><span class="chip">chế độ không xao nhãng</span><span class="chip">email, họp</span><span class="chip">thiền</span></div></div>
+    <div class="part b4"><span class="label">Chương 6–7 · Kỳ 4</span><h3>Tản tập trung</h3><div class="chips"><span class="chip">trí óc lang thang</span><span class="chip">ba chế độ</span><span class="chip">nghỉ để sạc lại</span></div></div>
+    <div class="part b5"><span class="label">Chương 8–10 · Kỳ 5</span><h3>Nối các điểm</h3><div class="chips"><span class="chip">gom "chấm"</span><span class="chip">chế độ ăn thông tin</span><span class="chip">ngủ, cà phê, năng lượng</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Khái niệm chính</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn ô công việc</h3><span class="en">necessary · purposeful · unnecessary · distracting</span><span class="pg">Chương 1</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Không hấp dẫn</th><th>Hấp dẫn</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Có ích</th><td class="safe"><b>Cần thiết</b><span>báo cáo, sửa lỗi, họp kế hoạch</span></td><td class="safe"><b>Có mục đích</b><span>dự án tâm huyết, học kỹ năng mới</span></td></tr>
+          <tr><th class="rowh">Không có ích</th><td class="risk"><b>Không cần thiết</b><span>họp vô ích, việc bận cho có</span></td><td class="risk"><b>Gây xao nhãng</b><span>mạng xã hội, tin tức, lướt video</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Khi lái tự động, ta trôi về ô dưới bên phải. Muốn ở hàng trên, phải quyết định trước.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Không gian chú ý</h3><span class="en">attentional space · working memory</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f1t">
+          <title id="f1t">Không gian chú ý giống một bàn làm việc nhỏ chỉ đặt được khoảng 4 thứ. Mỗi việc ta làm chiếm một phần: việc theo thói quen chiếm ít, việc khó chiếm nhiều. Nhồi thêm thì thứ khác rơi ra.</title>
+          <rect x="20" y="40" width="420" height="120" rx="8" fill="var(--night)" fill-opacity=".06" stroke="var(--night)" stroke-width="2"/>
+          <text x="30" y="30" class="t-night t-bold">KHÔNG GIAN CHÚ Ý · khoảng 4 ô</text>
+          <rect x="34" y="60" width="194" height="80" rx="6" fill="var(--night)" fill-opacity=".6"/><text x="131" y="98" text-anchor="middle" style="fill:var(--paper)" class="t-bold">viết báo cáo</text><text x="131" y="116" text-anchor="middle" style="fill:var(--paper)">việc khó chiếm 2 ô</text>
+          <rect x="238" y="60" width="92" height="80" rx="6" fill="var(--day)" fill-opacity=".45"/><text x="284" y="104" text-anchor="middle" class="t-ink">tin nhắn</text>
+          <rect x="340" y="60" width="88" height="80" rx="6" fill="var(--day)" fill-opacity=".3"/><text x="384" y="104" text-anchor="middle" class="t-ink">nhạc nền</text>
+                    <rect x="520" y="70" width="80" height="60" rx="6" fill="var(--bad)" fill-opacity=".2" stroke="var(--bad)" stroke-dasharray="4 3"/><text x="560" y="105" text-anchor="middle" class="t-bad t-bold">email mới</text>
+          <line x1="514" y1="100" x2="448" y2="100" stroke="var(--bad)" stroke-width="1.5"/>
+          <text x="560" y="152" text-anchor="middle" class="t-bad">nhồi thêm = thứ khác rơi ra</text>
+          <text x="20" y="188">Mỗi giây não nhận khoảng 11 triệu bit, ý thức chỉ xử lý khoảng 40 (ước lượng thô của Timothy Wilson)</text>
+        </svg>
+      </div>
+      <figcaption><b>Làm hai việc khó cùng lúc là tràn bàn.</b> Chỉ ghép được một việc khó với một việc chạy theo thói quen, như nghe podcast khi rửa bát.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Dư âm chú ý</h3><span class="en">attention residue · Sophie Leroy</span><span class="pg">Chương 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 150" role="img" aria-labelledby="f2t">
+          <title id="f2t">Khi chuyển từ việc A sang việc B, một phần chú ý vẫn dính ở A trong một lúc, nên khởi đầu việc B kém tập trung hơn.</title>
+          <rect x="20" y="40" width="280" height="50" rx="6" fill="var(--night)" fill-opacity=".55"/><text x="160" y="70" text-anchor="middle" style="fill:var(--paper)" class="t-bold">VIỆC A</text>
+          <rect x="300" y="40" width="400" height="50" rx="6" fill="var(--day)" fill-opacity=".35"/><text x="560" y="70" text-anchor="middle" class="t-ink t-bold">VIỆC B</text>
+          <path d="M300 40 L420 40 Q380 65 300 90 Z" fill="var(--night)" fill-opacity=".35"/>
+          <text x="360" y="120" text-anchor="middle" class="t-night t-bold">dư âm của A</text>
+          <text x="20" y="28">chuyển việc ↓</text>
+          <line x1="300" y1="30" x2="300" y2="100" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+      <figcaption><b>Chuyển việc liên tục làm ta luôn "dính" một phần ở việc trước.</b> Vì vậy vài phút check email giữa buổi có thể kéo theo một quãng làm việc kém tập trung sau đó.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn bước siêu tập trung</h3><span class="en">hyperfocus</span><span class="pg">Chương 3</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f3t">
+          <title id="f3t">Bốn bước: chọn một việc đáng làm, dẹp xao nhãng bên ngoài và bên trong, dồn chú ý vào việc đó, và mỗi khi tâm trí trôi đi thì kéo về. Bước 4 quay lại bước 3 thành một vòng.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+          <g>
+            <rect x="10" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="90" y="66" text-anchor="middle" class="t-night t-bold">1 · CHỌN</text><text x="90" y="90" text-anchor="middle" class="t-ink">một việc</text><text x="90" y="108" text-anchor="middle" class="t-ink">đáng làm nhất</text>
+            <rect x="190" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="270" y="66" text-anchor="middle" class="t-night t-bold">2 · DẸP</text><text x="270" y="90" text-anchor="middle" class="t-ink">xao nhãng ngoài</text><text x="270" y="108" text-anchor="middle" class="t-ink">và trong đầu</text>
+            <rect x="370" y="40" width="160" height="90" rx="8" fill="var(--night)" fill-opacity=".15" stroke="var(--night)" stroke-width="2"/>
+            <text x="450" y="66" text-anchor="middle" class="t-night t-bold">3 · RỌI</text><text x="450" y="90" text-anchor="middle" class="t-ink">dồn chú ý</text><text x="450" y="108" text-anchor="middle" class="t-ink">vào việc đó</text>
+            <rect x="550" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="630" y="66" text-anchor="middle" class="t-night t-bold">4 · KÉO VỀ</text><text x="630" y="90" text-anchor="middle" class="t-ink">khi tâm trí</text><text x="630" y="108" text-anchor="middle" class="t-ink">trôi đi</text>
+          </g>
+          <line x1="172" y1="85" x2="186" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <line x1="352" y1="85" x2="366" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <line x1="532" y1="85" x2="546" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <path d="M630 132 C630 180 450 180 450 134" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="540" y="196" text-anchor="middle">lặp lại, trung bình ta lạc đề vài lần mỗi giờ</text>
+          <text x="90" y="24" text-anchor="middle" class="t-night t-bold">bước quan trọng nhất ↓</text>
+        </svg>
+      </div>
+      <figcaption><b>"Ý định đi trước chú ý."</b> Bailey chọn 3 việc từ đầu mỗi ngày (quy tắc 3). Ý định càng cụ thể, khả năng làm được càng cao.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Bốn loại xao nhãng</h3><span class="en">distractions · control × fun</span><span class="pg">Chương 4</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Khó chịu</th><th>Vui</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Không kiểm soát được</th><td class="safe"><b>Xử lý rồi quay lại</b><span>đồng nghiệp hỏi, tiếng khoan tường</span></td><td class="safe"><b>Cứ tận hưởng</b><span>người nhà gọi, bạn rủ cà phê</span></td></tr>
+          <tr><th class="rowh">Kiểm soát được</th><td class="risk"><b>Chặn từ trước</b><span>thông báo email, tin nhắn nhóm</span></td><td class="risk"><b>Chặn từ trước</b><span>mạng xã hội, tin tức, game</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">Hàng dưới là thứ ta tự kiểm soát được, nên tắt hết trước khi bắt đầu: bật "không làm phiền", chặn web, để điện thoại phòng khác.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Tản tập trung</h3><span class="en">scatterfocus</span><span class="pg">Chương 6–7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f4t">
+          <title id="f4t">Siêu tập trung giống đèn rọi hẹp chiếu vào một việc. Tản tập trung giống ánh sáng tỏa rộng, chiếu nhiều chấm ý tưởng cùng lúc để chúng tự nối lại.</title>
+          <circle cx="40" cy="110" r="14" fill="var(--night)"/>
+          <path d="M52 104 L300 80 L300 140 L52 116 Z" fill="var(--night)" fill-opacity=".22"/>
+          <circle cx="300" cy="110" r="20" fill="none" stroke="var(--night)" stroke-width="3"/><circle cx="300" cy="110" r="6" fill="var(--night)"/>
+          <text x="170" y="60" text-anchor="middle" class="t-night t-bold">SIÊU TẬP TRUNG</text>
+          <text x="170" y="170" text-anchor="middle" class="t-ink">rọi hẹp vào 1 việc</text>
+          <text x="170" y="188" text-anchor="middle">để làm</text>
+          <circle cx="420" cy="110" r="14" fill="var(--day)"/>
+          <path d="M432 104 L700 20 L700 200 L432 116 Z" fill="var(--day)" fill-opacity=".14"/>
+          <g fill="var(--day)"><circle cx="560" cy="70" r="6"/><circle cx="620" cy="50" r="6"/><circle cx="600" cy="120" r="6"/><circle cx="660" cy="100" r="6"/><circle cx="640" cy="170" r="6"/><circle cx="530" cy="140" r="6"/></g>
+          <path d="M560 70 L600 120 L660 100 M600 120 L640 170 M530 140 L600 120" fill="none" stroke="var(--day)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="560" y="214" text-anchor="middle" class="t-day t-bold">TẢN TẬP TRUNG · tỏa rộng để nghĩ</text>
+        </svg>
+      </div>
+      <figcaption><b>Ba cách thả trôi có chủ đích:</b> ghi lại mọi thứ hiện ra trong đầu (thu lượm), giữ hờ một vấn đề rồi để đầu tự chạy (nghiền ngẫm), hoặc làm việc tay chân đơn giản như đi bộ, rửa bát (thói quen). Bailey cho cách cuối là hiệu quả nhất.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Gom chấm, nối chấm</h3><span class="en">collecting & connecting dots</span><span class="pg">Chương 8–9</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="f5t">
+          <title id="f5t">Thông tin ta nạp vào là các chấm. Nạp thông tin có ích thì có nhiều chấm tốt; tản tập trung giúp nối các chấm thành ý tưởng. Thông tin giải trí thuần túy cho ít chấm dùng được.</title>
+          <text x="20" y="24" class="t-ink t-bold">Thông tin nạp vào</text>
+          <rect x="20" y="40" width="200" height="34" rx="5" fill="var(--ok)" fill-opacity=".2"/><text x="30" y="62" class="t-ok t-bold">có ích</text><text x="100" y="62" class="t-ink">sách, khóa học</text>
+          <rect x="20" y="80" width="200" height="34" rx="5" fill="var(--rem)" fill-opacity=".18"/><text x="30" y="102" class="t-rem t-bold">cân bằng</text><text x="104" y="102" class="t-ink">phim tài liệu</text>
+          <rect x="20" y="120" width="200" height="34" rx="5" fill="var(--day)" fill-opacity=".2"/><text x="30" y="142" class="t-day t-bold">giải trí</text><text x="96" y="142" class="t-ink">mạng xã hội</text>
+          <text x="232" y="102" class="t-ink">→ chấm</text>
+          <g fill="var(--night)"><circle cx="330" cy="50" r="7"/><circle cx="390" cy="110" r="7"/><circle cx="460" cy="60" r="7"/><circle cx="520" cy="130" r="7"/><circle cx="300" cy="140" r="7"/></g>
+          <path d="M330 50 L390 110 L460 60 M390 110 L520 130 M300 140 L390 110" fill="none" stroke="var(--night)" stroke-width="1.8"/>
+          <circle cx="630" cy="90" r="34" fill="var(--night)" fill-opacity=".2" stroke="var(--night)" stroke-width="2"/><text x="630" y="95" text-anchor="middle" class="t-night t-bold">ý tưởng</text>
+          <line x1="530" y1="120" x2="597" y2="99" stroke="var(--night)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <figcaption><b>Muốn có ý tưởng hay thì phải nạp chấm tốt.</b> Bailey khuyên đọc thứ có ích khi đầu còn tỉnh, để thứ giải trí cho lúc mệt.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Dẫn chứng đáng tin đến đâu</h2><p class="lead">11 con số và nghiên cứu sách hay nhắc, đối chiếu với tài liệu gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="4 vững, 5 cần thận trọng, 2 bị phê bình">
+    <div class="o" style="flex:4">4 VỮNG</div><div class="w" style="flex:5">5 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Làm việc trên máy tính, ta đổi màn hình sau khoảng 40 giây</span></summary><p class="note">Gloria Mark và cộng sự đo trực tiếp nhiều năm liền; các đợt đo sau cho con số khoảng 40–47 giây. Đây là thời gian nhìn một màn hình, chưa hẳn là "mất tập trung".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Ý định cụ thể ("khi nào, ở đâu, làm gì") giúp làm được nhiều hơn</span></summary><p class="note">Phân tích gộp 94 nghiên cứu (Gollwitzer và Sheeran, 2006) cho hiệu ứng vừa đến lớn. Riêng con số 62% so với 22% trong sách lấy từ một nghiên cứu nhỏ.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Trí nhớ làm việc chỉ giữ được khoảng 4 thứ</span></summary><p class="note">Ước lượng phổ biến trong tâm lý học nhận thức (Cowan, 2001), thay cho con số "7 ± 2" cũ.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Chuyển qua lại giữa các việc có chi phí</span></summary><p class="note">Chi phí chuyển việc được đo lặp lại nhiều lần trong phòng thí nghiệm (Monsell, 2003). Mỗi lần chuyển mất một chút thời gian và tăng lỗi.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Dư âm chú ý làm giảm hiệu quả việc tiếp theo</span></summary><p class="note">Khái niệm của Sophie Leroy (2009) hợp lý, nhưng số nghiên cứu còn ít và mẫu nhỏ.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Ta lang thang trong đầu 47% thời gian, và điều đó làm ta kém vui</span></summary><p class="note">Killingsworth và Gilbert (2010) lấy mẫu hơn 2.000 người qua ứng dụng điện thoại. Kết quả là tương quan, và người dùng ứng dụng không đại diện cho mọi người.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Vài tuần thiền giúp tăng trí nhớ làm việc và điểm thi GRE 16%</span></summary><p class="note">Nghiên cứu của Mrazek và cộng sự (2013) chỉ có 48 sinh viên. Các phân tích gộp về thiền cho thấy lợi ích cho chú ý có thật nhưng nhỏ.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Làm việc đơn giản khi thả trôi giúp nảy ý tưởng nhiều nhất</span></summary><p class="note">Hiệu ứng "ấp ủ" có thật theo phân tích gộp (Sio và Ormerod, 2009). Riêng ý "việc nhàm chán là tốt nhất" dựa chủ yếu vào một nghiên cứu nhỏ (Baird và cộng sự, 2012).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Não nhận 11 triệu bit mỗi giây, ý thức xử lý 40 bit</span></summary><p class="note">Đây là ước lượng thô từ những năm 1970 mà Timothy Wilson dùng để minh họa, không phải phép đo. Nên hiểu là "rất nhiều so với rất ít".</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Người vui vẻ làm việc năng suất hơn 31%</span></summary><p class="note">Con số phổ biến qua Shawn Achor nhưng không truy được tới một nghiên cứu công bố rõ ràng. Hướng chung (cảm xúc tích cực giúp làm việc tốt hơn) có cơ sở, con số thì không.</p></details>
+    <details><summary><span class="tag bad">BỊ PHÊ BÌNH</span><span>Ra ngoài thiên nhiên giúp giải vấn đề sáng tạo tốt hơn 50%</span></summary><p class="note">Atchley và cộng sự (2012) chỉ có 56 người, không chia nhóm ngẫu nhiên, và người đi dã ngoại còn bỏ điện thoại ở nhà, nên không tách được tác động của thiên nhiên.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá</h2></div>
+  <div class="scores">
+    <div class="score"><span>Giá trị ứng dụng</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Độ dễ đọc</span><div class="bar"><i style="width:90%"></i></div><b>4,5/5</b></div>
+    <div class="score"><span>Độ mới của ý tưởng</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Độ chính xác khoa học</span><div class="bar"><i style="width:70%"></i></div><b>3,5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Mẹo cụ thể, làm được ngay trong ngày</li><li>Nửa sau về tản tập trung là góc nhìn hiếm gặp</li><li>Tác giả tự thử nghiệm trên bản thân rồi mới khuyên</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Lặp ý, nhiều đoạn có thể rút gọn</li><li>Đã đọc <i>Deep Work</i> thì nửa đầu khá quen</li><li>Nhiều con số "đẹp" từ nghiên cứu nhỏ</li></ul></div>
+  </div>
+  <p class="verdict">Đọc như một sổ tay thực hành. Giữ phương pháp, đừng giữ các con số.</p>
+  <details class="more"><summary>Xem thêm: so với Deep Work và giới hạn của sách</summary><div>
+    <p>Nửa đầu gần với <i>Deep Work</i> của Cal Newport (2016): làm việc sâu, chặn xao nhãng, lên lịch tập trung. Khác biệt là Bailey nói về chú ý ở mức từng giờ, từng thông báo, nên dễ áp dụng hơn với người làm văn phòng.</p>
+    <p>Nửa sau là phần đáng đọc nhất. Phần lớn sách năng suất coi trí óc lang thang là kẻ thù; Bailey cho rằng nó là một chế độ làm việc khác, dùng để nghỉ, lên kế hoạch và nối ý tưởng, miễn là ta chọn nó có chủ đích.</p>
+    <p>Sách dựa nhiều vào trải nghiệm của chính tác giả và các nghiên cứu tâm lý học đơn lẻ. Nhiều con số được trích để minh họa cho mạnh, chưa qua kiểm chứng lặp lại. Người đọc nên thử phương pháp trên chính mình thay vì tin con số.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học áp dụng</h2><p class="lead">Một ngày làm việc theo sách: rọi hẹp buổi sáng, tỏa rộng xen giữa.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="f6t">
+        <title id="f6t">Lịch một ngày: 8 giờ chọn 3 ý định, 9 giờ một khối siêu tập trung có chặn xao nhãng, 10 giờ 30 đi bộ không điện thoại để tản tập trung, mỗi giờ hỏi lại mình đang làm gì, 15 giờ xử lý email một lần, tối ghi vấn đề đang vướng trước khi ngủ.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="205" y="50" width="120" height="20" rx="4" fill="var(--night)" fill-opacity=".45"/>
+        <circle cx="70" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="70" y="30" class="t-ink t-bold">8:00</text><text x="70" y="100" class="t-night t-bold">Chọn 3 ý định</text><text x="70" y="116">việc nào quan trọng</text><text x="70" y="131">nhất hôm nay?</text></g>
+        <circle cx="205" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="205" y="30" class="t-ink t-bold">9:00</text><text x="205" y="100" class="t-night t-bold">Khối rọi hẹp</text><text x="205" y="116">tắt thông báo,</text><text x="205" y="131">cất điện thoại</text></g>
+        <circle cx="340" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="340" y="30" class="t-ink t-bold">10:30</text><text x="340" y="100" class="t-day t-bold">Đi bộ</text><text x="340" y="116">không tai nghe,</text><text x="340" y="131">để đầu tự chạy</text></g>
+        <circle cx="475" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="475" y="30" class="t-ink t-bold">mỗi giờ</text><text x="475" y="100" class="t-night t-bold">Hỏi lại</text><text x="475" y="116">mình có đang lái</text><text x="475" y="131">tự động không?</text></g>
+        <circle cx="610" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="610" y="30" class="t-ink t-bold">15:00</text><text x="610" y="100" class="t-day t-bold">Email một lần</text><text x="610" y="116">gom lại xử lý,</text><text x="610" y="131">không check lắt nhắt</text></g>
+        <circle cx="745" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="745" y="30" class="t-ink t-bold">tối</text><text x="745" y="100" class="t-night t-bold">Ghi vấn đề</text><text x="745" y="116">để giấc ngủ</text><text x="745" y="131">"ấp" hộ</text></g>
+        <text x="50" y="175" class="t-night">● rọi hẹp (siêu tập trung)</text><text x="270" y="175" class="t-day">● tỏa rộng (tản tập trung)</text>
+      </svg>
+    </div>
+    <figcaption><b>Bắt đầu nhỏ.</b> Bailey khuyên chọn độ dài khối tập trung mà mình thấy thoải mái rồi tăng dần, thay vì ép mình 2 tiếng ngay ngày đầu.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M4 4l24 24"/></svg><div><b>Để điện thoại ngoài tầm với</b><span>Thấy nó là muốn cầm lên. Để xa thì khỏi phải cưỡng.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h14M6 24h8"/></svg><div><b>Giữ một "danh sách xao nhãng"</b><span>Việc chợt nhớ ra thì ghi lại rồi quay về, xử lý sau.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg><div><b>Mỗi tuần 15 phút ngồi với giấy bút</b><span>Không mục tiêu, ghi mọi thứ hiện ra. Ý tưởng sẽ tự đến.</span></div></div>
+  </div>
+  <div class="quote"><span>"Intention comes before attention."</span><span class="src">Ý định đi trước chú ý. Chương 3.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Cal Newport, <i>Deep Work</i> (2016)</b><span class="muted">Bản "nặng ký" hơn về làm việc sâu, nhiều lập luận hơn mẹo.</span></div>
+    <div><b>Mihaly Csikszentmihalyi, <i>Flow</i> (1990)</b><span class="muted">Gốc khoa học của trạng thái đắm chìm mà siêu tập trung hướng tới. Tập 5 của series.</span></div>
+    <div><b>Gloria Mark, <i>Attention Span</i> (2023)</b><span class="muted">Người đo con số "40 giây" tự viết, thận trọng và nhiều dữ liệu hơn.</span></div>
+    <div><b>Johann Hari, <i>Stolen Focus</i> (2022)</b><span class="muted">Nhìn từ ngoài vào: vì sao cả xã hội mất tập trung, không chỉ lỗi cá nhân.</span></div>
+  </div>
+</section>
+
+<footer>Bài phân tích #006. Các hình là sơ đồ minh họa khái niệm; số liệu lấy theo sách và được đối chiếu ở phần Dẫn chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

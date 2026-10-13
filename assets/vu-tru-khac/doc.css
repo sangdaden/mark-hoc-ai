@@ -60,15 +60,19 @@ body.bia-but-chi header::before { content: ""; position: absolute; left: 0; righ
 body.bia-song header { border-bottom: 0; }
 body.bia-song header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14'%3E%3Cpath d='M0 7 Q15 1 30 7 T60 7' fill='none' stroke='%2322D3EE' stroke-width='3'/%3E%3C/svg%3E") repeat-x center / 60px 14px, #0E7490; }
+body.bia-hong-tam header::before { content: ""; position: absolute; top: 20px; right: calc(var(--le) + 150px); width: 52px; height: 52px; border-radius: 50%;
+  background: radial-gradient(circle, #D32F2F 0 12%, #fff 12% 30%, #D32F2F 30% 48%, #fff 48% 66%, #D32F2F 66% 100%); box-shadow: 0 0 0 3px var(--bia-nhan); }
 @media (max-width: 900px) {
   header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
   header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
   header::after { width: 72px; height: 82px; top: 18px; bottom: auto; }
   body.bia-trang header::before { right: calc(var(--le) + 70px); width: 30px; height: 30px; }
+  body.bia-hong-tam header::before { right: calc(var(--le) + 70px); width: 34px; height: 34px; }
 }
 @media (max-width: 640px) {
   header { padding-right: var(--le); padding-bottom: 20px; }
   header h1, header .sub, header .label, header .draft { max-width: calc(100% - 80px); }
+  body.bia-hong-tam header::before { display: none; }
 }
 
 /* Mục lục: hàng chip dính trên cùng khi cuộn */
