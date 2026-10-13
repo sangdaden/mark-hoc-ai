@@ -61,6 +61,7 @@
   }
 
   let B, Q, i, dung, sai;
+  const do_ = (t, d) => window.mhaiDo && window.mhaiDo(t, d); // đếm tương tác, xem theo-doi.js
   function batDau(id, cuon) {
     B = byId[id] || D.bo[0];
     // Xáo câu và xáo lựa chọn; mỗi lựa chọn nhớ mình có phải đáp án không
@@ -69,6 +70,7 @@
     document.getElementById("kt-ten-bo").textContent = B.ten;
     chonEl.hidden = true; quiz.hidden = false;
     cauHoi();
+    do_("kiem-tra-bat-dau", { bo: B.id });
     if (cuon) quiz.scrollIntoView({ behavior: mo, block: "start" });
   }
   function capNhat(soHien) {
@@ -121,6 +123,8 @@
     sai.forEach(s => s.q.video.forEach(v => { if (!daCo[v.so]) { daCo[v.so] = 1; goiY.push(v); } }));
     const ds = goiY.length ? goiY : D.goi_y_gioi;
     const dat = r >= D.dat - 1e-9;
+    do_("kiem-tra-xong", { bo: B.id, diem: dung + "/" + n, dat: dat ? "co" : "khong" });
+    do_("hoc-xong", { loai: "kiem-tra" });
     let cc;
     if (dat) {
       cc = '<div class="kt-cc is-mo"><svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-award"/></svg><div><p><b>' + esc(S.moKhoa(CC.tenChungChi("chu-de", B))) + "</b>" +

@@ -693,6 +693,7 @@
     veBang(null);
     man.hidden = true; $("#pl-menu").hidden = false;
     trangThai = "choi"; khung.classList.add("is-choi");
+    if (window.mhaiDo) window.mhaiDo("game-bat-dau", {man: i + 1}); // đếm tương tác, xem theo-doi.js
     if (DT.matches && !daThoat && !$("#pl").classList.contains("is-toan")) toanMan(true);
     phim.trai = phim.phai = phim.nhay = phim.ban = false; demNhay = 0;
     L.bao = {chu: T.ai + " " + (i + 1) + " · " + L.a.ten, t: 2};
@@ -706,6 +707,7 @@
     var a = L.a, cuoi = L.i === AI.length - 1;
     var sao = 1 + (L.tim >= 2 ? 1 : 0) + (L.dungNgay === L.soCau ? 1 : 0);
     tienDo.sao[a.id] = Math.max(tienDo.sao[a.id] || 0, sao);
+    if (window.mhaiDo) { window.mhaiDo("game-qua-man", {man: L.i + 1, sao: sao}); window.mhaiDo("hoc-xong", {loai: "game"}); }
     tienDo.mo = Math.max(tienDo.mo, Math.min(L.i + 2, AI.length));
     luu();
     var kq = el("div", "pl-kq");
@@ -730,6 +732,7 @@
   function thuaAi() {
     trangThai = "xong";
     var i = L.i, kq = el("div", "pl-kq");
+    if (window.mhaiDo) window.mhaiDo("game-thua", {man: i + 1});
     var h = el("img"); h.alt = ""; h.width = 110; h.height = 110; h.src = GOC + "assets/mascot/mark-dau-dau.webp"; kq.appendChild(h);
     kq.appendChild(el("h3", null, T.thua));
     kq.appendChild(el("p", null, T.thuaTxt));
