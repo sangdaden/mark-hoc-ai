@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header, .vtk-nen { --bia-1: #1E0B16; --bia-2: #B8325F; --bia-nhan: #FBCFE0; }
+body, body header { --bia-1: #1E0B16; --bia-2: #B8325F; --bia-nhan: #FBCFE0; }
 :root { --vtk-nhan: #FBCFE0; }
 body header { --ho-so: "Lab notebook"; }
 </style>
@@ -246,12 +246,6 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <div class="wrap">
-<template id="vtk-nen-mau"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<ellipse cx="50" cy="78" rx="38" ry="9" stroke="#FFF7ED" stroke-width="4"/>
-<g fill="#FFF7ED"><path d="M28 50 v20 a10 4 0 0 0 20 0 v-20 z"/><ellipse cx="38" cy="50" rx="10" ry="4" fill="#E8D9C8"/></g>
-<g fill="#FFF7ED" fill-opacity=".9"><path d="M54 50 v20 a10 4 0 0 0 20 0 v-20 z"/><ellipse cx="64" cy="50" rx="10" ry="4" fill="#E8D9C8"/></g>
-<path d="M58 14 h16 l-2 -3 v-0 M66 11 v-3" stroke="var(--bia-nhan, #FBBF24)" stroke-width="3"/><path d="M56 30 h20 l-3 -5 v-7 a7 7 0 0 0 -14 0 v7 z" fill="var(--bia-nhan, #FBBF24)"/><circle cx="66" cy="33" r="2.5" fill="var(--bia-nhan, #FBBF24)"/>
-</svg></template>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác · Another Universe</span>

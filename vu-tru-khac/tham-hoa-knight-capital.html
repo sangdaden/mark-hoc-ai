@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header, .vtk-nen { --bia-1: #1A0F14; --bia-2: #881337; --bia-nhan: #FB7185; }
+body, body header { --bia-1: #1A0F14; --bia-2: #881337; --bia-nhan: #FB7185; }
 :root { --vtk-nhan: #FB7185; }
 body header { --ho-so: "Hồ sơ vụ việc"; }
 </style>
@@ -258,11 +258,6 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <div class="wrap">
-<template id="vtk-nen-mau"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g fill="#FFF7ED" fill-opacity=".55"><rect x="8" y="62" width="10" height="28" rx="2"/><rect x="21" y="62" width="10" height="28" rx="2"/><rect x="34" y="62" width="10" height="28" rx="2"/><rect x="60" y="62" width="10" height="28" rx="2"/><rect x="73" y="62" width="10" height="28" rx="2"/><rect x="86" y="62" width="10" height="28" rx="2"/></g>
-<rect x="47" y="62" width="10" height="28" rx="2" fill="#EF4444"/>
-<path d="M8 22 L24 16 L36 24 L48 12 L60 40 L70 34 L88 52" stroke="var(--bia-nhan, #FBBF24)" stroke-width="5"/><path d="M88 52 l-10 0 M88 52 l-1 -10" stroke="var(--bia-nhan, #FBBF24)" stroke-width="5"/>
-</svg></template>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>

@@ -95,10 +95,9 @@ def trang_sach(b, goc, en=False, cd=None):
     bai = re.sub(r"^\s*<title>.*?</title>\s*", "", bai, flags=re.S)
     if b.get("minh_hoa"):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
-    bai = chen_nen(bai, b)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
-    mau_bia = f"\nbody header, .vtk-nen {{ {mau_bia}}}" if mau_bia else ""
+    mau_bia = f"\nbody, body header {{ {mau_bia}}}" if mau_bia else ""
     if bia.get("nhan"):
         mau_bia += f"\n:root {{ --vtk-nhan: {bia['nhan']}; }}"
     # Chữ trên tab của thẻ thông tin ở đầu bài (doc.css): "ho_so" của chủ đề, ví dụ "Thẻ sách", "Hồ sơ vụ việc"
@@ -159,16 +158,6 @@ body {{ margin: 0; }}
 </body>
 </html>
 '''
-
-
-def chen_nen(bai, b):
-    """Nền trang đọc trên máy tính (Sang 13/10: hai bên trang đọc còn trống): hình bìa tự vẽ assets/vu-tru-khac/bia/<slug>.svg
-    (cùng hình trên thẻ ở trang góc) làm mẫu trong <template>; doc.js rải nhiều bản nhỏ ở lề trái và lề phải (doc.css .vtk-nen)."""
-    tep = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
-    if not tep.exists():
-        return bai
-    hinh = re.sub(r"<svg\b", '<svg aria-hidden="true" focusable="false"', tep.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', ""), count=1)
-    return re.sub(r'(<div class="wrap">)', lambda m: m.group(1) + f'\n<template id="vtk-nen-mau">{hinh}</template>', bai, count=1)
 
 
 def tro_choi(b, p):

@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header, .vtk-nen { --bia-1: #001019; --bia-2: #0369A1; --bia-nhan: #E0F2FE; }
+body, body header { --bia-1: #001019; --bia-2: #0369A1; --bia-nhan: #E0F2FE; }
 :root { --vtk-nhan: #E0F2FE; }
 body header { --ho-so: "Sổ thí nghiệm"; }
 </style>
@@ -246,12 +246,6 @@ svg .t-bad { fill: var(--bad); }
 </style>
 
 <div class="wrap">
-<template id="vtk-nen-mau"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g stroke="#FFF7ED" stroke-width="4"><path d="M14 40 H86 V78 H14 Z"/><path d="M20 40 L26 28 H74 L80 40"/><path d="M24 62 H58"/></g>
-<rect x="66" y="52" width="12" height="7" rx="2" fill="var(--bia-nhan, #FBBF24)"/>
-<g fill="#FFF7ED" stroke="#0F172A" stroke-width="1.5"><path d="M30 70 h36 l4 22 h-44 z" fill-opacity=".95"/></g><path d="M36 78 h22 M36 84 h16" stroke="#0F172A" stroke-opacity=".35" stroke-width="2"/>
-<path d="M40 10 l10 8 l10 -8" stroke="var(--bia-nhan, #FBBF24)" stroke-width="4"/>
-</svg></template>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác</span>

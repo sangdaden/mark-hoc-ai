@@ -41,7 +41,7 @@ body { margin: 0; }
 .mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
 @media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
 @media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
-body header, .vtk-nen { --bia-1: #6A1418; --bia-2: #B13034; --bia-nhan: #F8B4A6; }
+body, body header { --bia-1: #6A1418; --bia-2: #B13034; --bia-nhan: #F8B4A6; }
 :root { --vtk-nhan: #F8B4A6; }
 body header { --ho-so: "Book card"; }
 </style>
@@ -264,13 +264,6 @@ header h1 { color: var(--book); }
 </style>
 
 <div class="wrap">
-<template id="vtk-nen-mau"><svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<defs><clipPath id="bia-ms-dau"><path d="M46 6 C28 6 16 19 16 37 C16 49 21 58 30 65 V94 H58 V81 C64 81 69 80 71 76 L72 70 C75 69 76 67 74 65 L73 63 C76 62 76 60 74 58 L75 55 C79 54 81 52 79 49 L74 41 C74 19 63 6 46 6 Z"/></clipPath></defs>
-<g clip-path="url(#bia-ms-dau)"><rect x="0" y="0" width="47" height="100" fill="#FFF7ED"/>
-<g stroke="#FFF7ED" stroke-width="1.4"><path d="M47 12 H90 M47 20 H90 M47 28 H90 M47 36 H90 M47 44 H90 M47 52 H90 M47 60 H90 M47 68 H90 M47 76 H90 M47 84 H90"/><path d="M54 0 V100 M61 0 V100 M68 0 V100 M75 0 V100"/></g></g>
-<path d="M47 6 C63 6 74 19 74 41 L79 49 C81 52 79 54 75 55 L74 58 C76 60 76 62 73 63 L74 65 C76 67 75 69 72 70 L71 76 C69 80 64 81 58 81 V94" stroke="#FFF7ED" stroke-width="2.6"/>
-<path d="M47 4 V96" stroke="var(--bia-nhan, #FBBF24)" stroke-width="2" stroke-dasharray="4 4"/>
-</svg></template>
 
 <header>
   <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
