@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Space Shuttle Challenger (STS-51-L): summary, review and lessons | Another Universe</title>
+<meta name="description" content="The seal flaw was known nine years earlier and engineers objected the night before, so why did NASA launch? An anatomy from the Rogers Commission report, data from 23 flights, and 13 myths fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Space Shuttle Challenger (STS-51-L): summary, review and lessons | Another Universe">
+<meta property="og:description" content="The seal flaw was known nine years earlier and engineers objected the night before, so why did NASA launch? An anatomy from the Rogers Commission report, data from 23 flights, and 13 myths fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/tham-hoa-challenger.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #1C1210; --bia-2: #7C2D12; --bia-nhan: #FB923C; }
+:root { --vtk-nhan: #FB923C; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/tham-hoa-challenger.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Anatomy of a Disaster": Challenger, --night = flame orange (hot gas), --day = ice blue (the cold morning). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #c2410c;
+  --day: #2563eb;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fb923c; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fb923c; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Anatomy of a Disaster · Space · Decision-making</span>
+  <h1>Space Shuttle Challenger</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="A snowflake, an O-ring, and a flame">
+    <g stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"><path d="M26 8v36M10 17l32 18M10 35l32-18"/></g>
+    <text x="56" y="32" font-family="monospace" font-size="15" fill="#8a94a6">2°C</text>
+    <circle cx="140" cy="26" r="16" fill="none" stroke="#8a94a6" stroke-width="5"/>
+    <text x="168" y="32" font-family="monospace" font-size="15" fill="#8a94a6">73 sec</text>
+    <path d="M276 46c-14 0-20-10-16-20 3-7 9-9 8-18 10 6 16 15 14 24 3-2 5-5 5-9 6 7 6 23-11 23z" fill="#c2410c"/>
+  </svg>
+  <p class="sub">STS-51-L · 28 January 1986 · Kennedy Space Center, Florida</p>
+  <div class="meta">
+    <div><span class="label">What happened</span><b>the shuttle broke apart 73 seconds after launch</b></div>
+    <div><span class="label">Loss</span><b>7 astronauts, one of them a schoolteacher</b></div>
+    <div><span class="label">Root cause</span><b>an O-ring in a booster joint failed in the cold</b></div>
+    <div><span class="label">Main source</span><b>Rogers Commission report, June 1986</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">What happened</a><a href="#khai-niem">Why</a><a href="#dan-chung">Fact check</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Work lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="4"/></svg><b>A rubber ring</b><span>The O-ring in the right booster's joint stiffened in the cold, and hot gas burned through.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V8h20"/><path d="M10 22l5-5 4 3 7-8"/></svg><b>Known since 1977</b><span>The joint flaw had been on file for 9 years. 7 of the 23 earlier flights had damaged O-rings.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 12h16M8 20h16"/><path d="M20 8l4 4-4 4M12 16l-4 4 4 4"/></svg><b>The burden of proof flipped</b><span>The night before, engineers had to prove it was "not safe" instead of being asked "is it safe yet?"</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><b>Drift into normal</b><span>Every flight that came home safely made the damage look a little more "acceptable".</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>No villain</b><span>People followed the process. It was the process itself that had drifted, without anyone noticing.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The question of the case</h2></div>
+  <p class="thesis">An organisation full of good engineers, aware of the weak point for 9 years, with engineers objecting the very night before: why did it still press the launch button? The answer lies not in one person, but in how a whole organisation slowly got used to risk.</p>
+  <div class="flow" aria-label="Three stages of the story">
+    <div class="step"><span class="label">1977–1985</span><b>Knowing the flaw</b><span>Tests showed the joint opening up. O-rings eroded on many flights.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">27 Jan 1986</span><b>The night of the argument</b><span>Thiokol engineers advised against launching below 53°F. Three hours later, management reversed.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">28 Jan 1986</span><b>73 seconds</b><span>2°C outside. Black smoke at the joint in the first second. Breakup at second 73.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>What happened</h2><p class="lead">Every time stamp below comes from chapter 3 of the Rogers Commission report.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="t73">
+        <title id="t73">The 73-second timeline. At 0.678 s: grey smoke puffs from the aft joint of the right booster. By 2.5 s: eight more puffs of black smoke. Then aluminum oxide slag temporarily plugs the gap. From 37 to 64 s: several strong wind-shear events. At 58.8 s: a flame appears at the joint. At 64.7 s: the flame breaches the external fuel tank. At 72.2 s: a strut breaks. At about 73 s: the vehicle breaks apart.</title>
+        <line x1="40" y1="110" x2="690" y2="110" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="355" y="96" width="230" height="28" rx="4" fill="var(--day)" fill-opacity=".15"/>
+        <text x="470" y="145" text-anchor="middle" class="t-day">strong wind shear · 37–64 s</text>
+        <g text-anchor="middle">
+          <circle cx="46" cy="110" r="8" fill="var(--muted)"/>
+          <text x="46" y="80" class="t-ink t-bold">0.678 s</text><text x="46" y="64">grey smoke</text>
+          <circle cx="62" cy="110" r="6" fill="var(--ink)"/>
+          <text x="96" y="160" class="t-ink t-bold">~3 s</text><text x="96" y="176">aluminum oxide</text><text x="96" y="190">plugs the gap</text>
+          <circle cx="573" cy="110" r="8" fill="var(--night)"/>
+          <text x="560" y="64" class="t-night t-bold">58.8 s · flame</text>
+          <circle cx="620" cy="110" r="8" fill="var(--night)"/>
+          <text x="620" y="40" class="t-night t-bold">64.7 s</text><text x="620" y="24">fuel tank breached</text>
+          <circle cx="680" cy="110" r="11" fill="var(--bad)"/>
+          <text x="672" y="80" class="t-bold" style="fill:var(--bad)">~73 s</text>
+          <text x="672" y="176" class="t-bold" style="fill:var(--bad)">breakup</text>
+        </g>
+        <text x="40" y="218">time scale: seconds after liftoff · air temperature 36°F (2°C), joint below 0°C</text>
+      </svg>
+    </div>
+    <figcaption><b>The shuttle almost made it.</b> Burnt slag plugged the gap for nearly a minute. The Commission believed the wind-shear events may have broken that temporary seal.</figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1977 · Pressure test</b><span>The two halves of the joint moved apart instead of pressing together. Thiokol considered it insignificant.</span></div>
+    <div><b>1978–1979 · NASA engineers object in writing</b><span>Engineers at Marshall called the design "unacceptable". The memos never reached Thiokol.</span></div>
+    <div><b>1982 · No backup seal any more</b><span>The joint was put in the highest criticality class (failure means loss of the vehicle), then granted a waiver in 1983.</span></div>
+    <div><b>Jan 1985 · Flight 51-C, 53°F (12°C)</b><span>The coldest launch up to then. Hot gas got past the primary O-ring.</span></div>
+    <div class="hot"><b>31 Jul 1985 · Roger Boisjoly's memo</b><span>"The result would be a catastrophe of the highest order — loss of human life."</span></div>
+    <div class="hot"><b>27 Jan 1986, evening · The teleconference</b><span>Engineers advised against launch. After a 30-minute private caucus, Thiokol's leadership changed its recommendation.</span></div>
+    <div class="hot"><b>28 Jan 1986, 11:38 · Launch</b><span>Ice covered the launch pad. There was no rule on surface temperature.</span></div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Episode 1</span><h3>What happened</h3><div class="chips"><span class="chip">73 seconds</span><span class="chip">2°C</span><span class="chip">7 people</span><span class="chip">the night before</span></div></div>
+    <div class="part b2"><span class="label">Episode 2</span><h3>Why</h3><div class="chips"><span class="chip">O-ring</span><span class="chip">a chart missing the zeros</span><span class="chip">drift into normal</span><span class="chip">myths</span></div></div>
+    <div class="part b3"><span class="label">Episode 3</span><h3>Work lessons</h3><div class="chips"><span class="chip">who has to prove it</span><span class="chip">engineering hat, management hat</span><span class="chip">go/no-go meetings</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Why: five layers of cause</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>The technical layer: the field joint and the O-ring</h3><span class="en">field joint · O-ring</span><span class="pg">Rogers, chapters 4 and 6</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="kj">
+          <title id="kj">Cross-section of the field joint between two booster segments. The upper segment has a tang that fits into the clevis of the lower segment. Two O-rings, primary and secondary, seal the gap. At ignition, pressure makes the joint rotate and the gap widens. The O-ring must expand to fill the gap within milliseconds. At low temperature the rubber stiffens and expands slowly, and hot gas leaks past.</title>
+          <rect x="40" y="30" width="200" height="60" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="40" y="110" width="200" height="60" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="170" y="60" width="70" height="80" fill="var(--paper)" stroke="var(--muted)"/>
+          <rect x="180" y="70" width="60" height="60" fill="var(--muted)" fill-opacity=".55"/>
+          <circle cx="176" cy="88" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <circle cx="176" cy="112" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M20 100 h140" stroke="var(--night)" stroke-width="4"/><path d="M160 100 l-10 -6 v12 z" fill="var(--night)"/>
+          <text x="20" y="196" class="t-night t-bold">hot gas ~3,000°C, pressure ~60 atm</text>
+          <text x="246" y="92" class="t-ink">← primary O-ring</text><text x="246" y="116" class="t-ink">← secondary O-ring</text>
+          <rect x="370" y="24" width="340" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="384" y="48" class="t-ink t-bold">1 · ignition: joint "rotates", gap opens</text>
+          <text x="384" y="68">1977 test: gap opened up to 1.3 mm</text>
+          <rect x="370" y="94" width="340" height="50" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="384" y="124" class="t-ink t-bold">2 · O-ring must expand to seal at once</text>
+          <rect x="370" y="154" width="340" height="50" rx="8" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+          <text x="384" y="184" class="t-day t-bold">3 · cold: rubber stiff, slow → leak</text>
+        </svg>
+      </div>
+      <figcaption><b>The O-rings were not designed to erode.</b> Feynman wrote: "Erosion was a clue that something was wrong". The Commission called the root cause "a faulty design unacceptably sensitive to a number of factors": temperature, dimensions, materials and reuse.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The data layer: a chart missing the zeros</h3><span class="en">missing denominators</span><span class="pg">Rogers, chapter 6, figures 6 and 7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 205" role="img" aria-labelledby="ka">
+          <title id="ka">A chart of only the 7 flights with damaged O-rings, arranged by temperature from 53 to 75 degrees F. Looking at it, no pattern with temperature is visible.</title>
+<line x1="60" y1="150" x2="660" y2="150" class="axis"/>
+<line x1="60" y1="112" x2="660" y2="112" class="gridl"/><text x="50" y="116" text-anchor="end">1</text>
+<line x1="60" y1="74" x2="660" y2="74" class="gridl"/><text x="50" y="78" text-anchor="end">2</text>
+<line x1="60" y1="36" x2="660" y2="36" class="gridl"/><text x="50" y="40" text-anchor="end">3</text>
+<text x="50" y="154" text-anchor="end">0</text>
+<line x1="110" y1="150" x2="110" y2="155" class="axis"/><text x="110" y="168" text-anchor="middle">30°</text><text x="110" y="181" text-anchor="middle" style="font-size:9px">-1°C</text>
+<line x1="210" y1="150" x2="210" y2="155" class="axis"/><text x="210" y="168" text-anchor="middle">40°</text><text x="210" y="181" text-anchor="middle" style="font-size:9px">4°C</text>
+<line x1="310" y1="150" x2="310" y2="155" class="axis"/><text x="310" y="168" text-anchor="middle">50°</text><text x="310" y="181" text-anchor="middle" style="font-size:9px">10°C</text>
+<line x1="410" y1="150" x2="410" y2="155" class="axis"/><text x="410" y="168" text-anchor="middle">60°</text><text x="410" y="181" text-anchor="middle" style="font-size:9px">16°C</text>
+<line x1="510" y1="150" x2="510" y2="155" class="axis"/><text x="510" y="168" text-anchor="middle">70°</text><text x="510" y="181" text-anchor="middle" style="font-size:9px">21°C</text>
+<line x1="610" y1="150" x2="610" y2="155" class="axis"/><text x="610" y="168" text-anchor="middle">80°</text><text x="610" y="181" text-anchor="middle" style="font-size:9px">27°C</text>
+<text x="360" y="198" text-anchor="middle">joint temperature at launch (°F)</text>
+<text x="16" y="85" transform="rotate(-90 16 85)" text-anchor="middle">damaged O-rings</text>
+<text x="360" y="34" text-anchor="middle" class="t-ink t-bold">damaged flights only</text>
+<circle cx="510" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="380" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="440" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="519" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="340" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="560" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+        </svg>
+      </div>
+      <figcaption><b>The view the night before: only the flights with problems.</b> The Commission wrote that, seen this way, there "is nothing irregular" in the distribution over temperature.</figcaption>
+    </figure>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 205" role="img" aria-labelledby="kb">
+          <title id="kb">A chart of all 23 flights. All four flights below 65 degrees F had damaged O-rings. Of the 19 flights at 66 degrees F and above, only 3 had damage. On Challenger's launch day the joint was at about 31 degrees F, far to the left, outside all existing data.</title>
+<rect x="326" y="20" width="134" height="130" fill="var(--bad)" fill-opacity=".08"/>
+<line x1="60" y1="150" x2="660" y2="150" class="axis"/>
+<line x1="60" y1="112" x2="660" y2="112" class="gridl"/><text x="50" y="116" text-anchor="end">1</text>
+<line x1="60" y1="74" x2="660" y2="74" class="gridl"/><text x="50" y="78" text-anchor="end">2</text>
+<line x1="60" y1="36" x2="660" y2="36" class="gridl"/><text x="50" y="40" text-anchor="end">3</text>
+<text x="50" y="154" text-anchor="end">0</text>
+<line x1="110" y1="150" x2="110" y2="155" class="axis"/><text x="110" y="168" text-anchor="middle">30°</text><text x="110" y="181" text-anchor="middle" style="font-size:9px">-1°C</text>
+<line x1="210" y1="150" x2="210" y2="155" class="axis"/><text x="210" y="168" text-anchor="middle">40°</text><text x="210" y="181" text-anchor="middle" style="font-size:9px">4°C</text>
+<line x1="310" y1="150" x2="310" y2="155" class="axis"/><text x="310" y="168" text-anchor="middle">50°</text><text x="310" y="181" text-anchor="middle" style="font-size:9px">10°C</text>
+<line x1="410" y1="150" x2="410" y2="155" class="axis"/><text x="410" y="168" text-anchor="middle">60°</text><text x="410" y="181" text-anchor="middle" style="font-size:9px">16°C</text>
+<line x1="510" y1="150" x2="510" y2="155" class="axis"/><text x="510" y="168" text-anchor="middle">70°</text><text x="510" y="181" text-anchor="middle" style="font-size:9px">21°C</text>
+<line x1="610" y1="150" x2="610" y2="155" class="axis"/><text x="610" y="168" text-anchor="middle">80°</text><text x="610" y="181" text-anchor="middle" style="font-size:9px">27°C</text>
+<text x="360" y="198" text-anchor="middle">joint temperature at launch (°F)</text>
+<text x="16" y="85" transform="rotate(-90 16 85)" text-anchor="middle">damaged O-rings</text>
+<text x="400" y="34" text-anchor="middle" style="fill:var(--bad)" class="t-bold">below 65°F: 4 of 4 flights damaged</text>
+<text x="474" y="56" class="t-ink">66°F and up: 3 of 19 damaged</text>
+<line x1="120" y1="20" x2="120" y2="150" stroke="var(--night)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="126" y="52" class="t-night t-bold">28 Jan 1986</text><text x="126" y="66" class="t-night">~31°F (−0.5°C)</text><text x="126" y="80" class="t-night">outside all data</text>
+<circle cx="470" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="510" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="500" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="490" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="480" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="530" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="540" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="510" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="380" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="440" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="519" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="590" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="489" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="340" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="471" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="560" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="519" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="620" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="570" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="600" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="560" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="579" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+        </svg>
+      </div>
+      <figcaption><b>Add the flights without damage, and the pattern appears.</b> Data: Dalal, Fowlkes and Hoadley (1989), table 1. Their model estimated at least a 13% chance of catastrophic O-ring failure at 31°F; postponing to 60°F cut it to about 2%. This is an analysis done after the accident, not something on the table that night.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The decision layer: the night the burden of proof flipped</h3><span class="en">burden of proof</span><span class="pg">Rogers, chapter 5</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="kn">
+          <title id="kn">The night of 27 January 1986. 8:45 p.m.: Thiokol presents, recommending no launch below 53 degrees F. NASA's Lawrence Mulloy: "My God, Thiokol, when do you want me to launch, next April?". 10:30 p.m.: Thiokol asks for a 30-minute private caucus. Senior Vice President Jerald Mason asks Bob Lund "to take off his engineering hat and put on his management hat". 11:00 p.m.: Thiokol reads a new recommendation, agreeing to launch and calling the data "inconclusive".</title>
+          <rect x="20" y="20" width="210" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="35" y="44" class="t-ink t-bold">20:45 · Thiokol presents</text>
+          <text x="35" y="70" class="t-night t-bold">"no launch below 53°F"</text>
+          <text x="35" y="92">coldest ever flown</text>
+          <text x="35" y="122" class="t-ink">NASA: "when do you want me</text>
+          <text x="35" y="140" class="t-ink">to launch, next April?"</text>
+          <rect x="255" y="20" width="210" height="150" rx="8" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="270" y="44" class="t-ink t-bold">22:30 · 30-min caucus</text>
+          <text x="270" y="72" class="t-ink">"take off his engineering hat</text>
+          <text x="270" y="90" class="t-ink">put on his management hat"</text>
+          <text x="270" y="120">engineers had no</text>
+          <text x="270" y="138">vote on the final call</text>
+          <rect x="490" y="20" width="210" height="150" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="505" y="44" class="t-ink t-bold">23:00 · new recommendation</text>
+          <text x="505" y="72" class="t-bold" style="fill:var(--bad)">"go for launch"</text>
+          <text x="505" y="94">data "inconclusive"</text>
+          <text x="505" y="124" class="t-ink">no one objected</text>
+          <text x="505" y="142" class="t-ink">when asked</text>
+          <line x1="232" y1="95" x2="252" y2="95" stroke="var(--muted)" stroke-width="2"/><line x1="467" y1="95" x2="487" y2="95" stroke="var(--muted)" stroke-width="2"/>
+          <text x="20" y="200" class="t-ink t-bold">Boisjoly: "it was up to us to prove beyond a shadow of a doubt that it was not safe</text>
+          <text x="20" y="218" class="t-ink t-bold">to do so. This is in total reverse to what the position usually is."</text>
+        </svg>
+      </div>
+      <figcaption><b>No one invited a safety representative to the meeting</b> (Rogers, chapter 7). The Commission concluded that Thiokol's management reversed its position, contrary to its own engineers, "to accommodate a major customer".</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The culture layer: the normalization of deviance</h3><span class="en">normalization of deviance</span><span class="pg">Diane Vaughan, 1996</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 232" role="img" aria-labelledby="kv">
+          <title id="kv">The staircase of getting used to it. 1977: the joint opening is "unacceptable". 1981: first in-flight O-ring erosion, an anomaly. 1983: an erosion limit of 0.090 inch is set and called a safety margin. 1985: hot gas blows by, "undesirable but acceptable". 1985: the primary O-ring fails to seal; a launch constraint is imposed but waived for every flight. December 1985: the file marks the problem "closed". 1986: launch at 2 degrees C.</title>
+          <g fill="var(--night)">
+            <rect x="30" y="170" width="90" height="20" fill-opacity=".15"/><rect x="125" y="150" width="90" height="40" fill-opacity=".25"/><rect x="220" y="130" width="90" height="60" fill-opacity=".35"/><rect x="315" y="110" width="90" height="80" fill-opacity=".45"/><rect x="410" y="90" width="90" height="100" fill-opacity=".55"/><rect x="505" y="70" width="90" height="120" fill-opacity=".7"/><rect x="600" y="40" width="90" height="150" fill-opacity=".9"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="75" y="160" class="t-ink t-bold">1977</text><text x="75" y="206">"unacceptable"</text>
+            <text x="170" y="140" class="t-ink t-bold">1981</text><text x="170" y="222">first erosion</text>
+            <text x="265" y="120" class="t-ink t-bold">1983</text><text x="265" y="206">"safety margin"</text>
+            <text x="360" y="100" class="t-ink t-bold">Jan 1985</text><text x="360" y="222">"acceptable"</text>
+            <text x="455" y="80" class="t-ink t-bold">Apr 1985</text><text x="455" y="206">constraint, waived</text>
+            <text x="550" y="60" class="t-ink t-bold">Dec 1985</text><text x="550" y="222">"closed"</text>
+            <text x="645" y="30" class="t-night t-bold">Jan 1986</text><text x="645" y="206">launch at 2°C</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Each step is only slightly higher than the one before.</b> Vaughan's definition: "Behaviour that outsiders see as objectively deviant can become normal and acceptable to people inside the organisation." She rejects the reading that managers knowingly traded lives for the flight schedule.</figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Normalization</h3><span class="muted">Every safe return was taken as evidence of safety. Feynman: when playing Russian roulette, the fact that the first shot got off safely is little comfort for the next.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Culture of production</h3><span class="muted">NASA planned 24 flights a year. 1986 had 15 flights on the schedule; Challenger had to borrow 45 parts from other orbiters.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Structural secrecy</h3><span class="muted">No one was hiding anything. Information was filtered at every level, so the top could not see how serious it was.</span></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>The numbers layer: engineers and managers 1,000 times apart</h3><span class="en">risk perception gap</span><span class="pg">Feynman, appendix F</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kr">
+          <title id="kr">Estimated probability of losing the vehicle per flight, log scale. Historical solid-rocket data: 1 in 25. Engineers: about 1 in 100. NASA management: 1 in 100,000. The actual record of the whole shuttle program: 2 vehicles lost in 135 flights, about 1 in 68.</title>
+          <line x1="200" y1="190" x2="690" y2="190" class="axis"/>
+          <g text-anchor="middle"><text x="200" y="206">1/10</text><text x="322" y="206">1/100</text><text x="445" y="206">1/1,000</text><text x="567" y="206">1/10,000</text><text x="690" y="206">1/100,000</text></g>
+          <text x="190" y="34" text-anchor="end" class="t-ink">solid rockets, history</text><rect x="200" y="22" width="49" height="18" fill="var(--muted)" fill-opacity=".6"/><text x="256" y="35" class="t-ink t-bold">1/25</text>
+          <text x="190" y="74" text-anchor="end" class="t-ink">actual shuttle record</text><rect x="200" y="62" width="102" height="18" fill="var(--bad)" fill-opacity=".75"/><text x="309" y="75" class="t-bold" style="fill:var(--bad)">~1/68</text>
+          <text x="190" y="114" text-anchor="end" class="t-ink">engineers</text><rect x="200" y="102" width="122" height="18" fill="var(--day)" fill-opacity=".7"/><text x="329" y="115" class="t-day t-bold">~1/100</text>
+          <text x="190" y="154" text-anchor="end" class="t-ink">NASA management</text><rect x="200" y="142" width="490" height="18" fill="var(--night)" fill-opacity=".7"/><text x="684" y="135" text-anchor="end" class="t-night t-bold">1/100,000</text>
+        </svg>
+      </div>
+      <figcaption><b>"What is the cause of management's fantastic faith in the machinery?"</b> Feynman asked. A figure of 1/100,000 means launching every day for 300 years before losing one vehicle. In reality: Challenger lost in 1986 and Columbia in 2003, in 135 flights.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>Fact check: what is true and what is myth</h2><p class="lead">13 things often said about Challenger, checked against the primary record. Click each row to see why.</p></div>
+  <div class="tally" role="img" aria-label="4 solid, 6 caution, 3 false">
+    <div class="o" style="flex:4">4 SOLID</div><div class="w" style="flex:6">6 CAUTION</div><div class="b" style="flex:3">3 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>A failed seal in the lower joint of the right booster was the direct cause</span></summary><p class="note">The consensus finding of the Rogers Commission (chapter 4), backed by images of smoke at 0.678 s and flame at 58.8 s at exactly that spot.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The joint flaw was known years in advance</span></summary><p class="note">The 1977 test, the 1978–1979 memos calling the design "unacceptable", and damaged O-rings on 7 of the 23 flights whose boosters were recovered (Rogers, chapter 6).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Thiokol engineers advised against launching below 53°F</span></summary><p class="note">Recorded in chapter 5, along with Boisjoly's testimony: "we should not fly outside of our data base, which was 53 degrees".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>There was schedule pressure from inside NASA</span></summary><p class="note">A plan of 24 flights a year, parts taken from other orbiters, squeezed training time (Rogers, chapter 8). Vaughan calls it the "culture of production".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The engineers were ignored, nobody listened</span></summary><p class="note">They were heard for hours, and NASA's side said it would not launch over Thiokol's objection. What happened is that Thiokol's own leadership reversed after the private caucus, and the burden of proof was flipped. Engineer Bob Ebeling later said, "I could have done more".</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>A good chart would certainly have stopped the launch</span></summary><p class="note">Edward Tufte (1997) says yes. A 2002 rebuttal co-authored by Boisjoly himself says the engineers did not have the temperature data despite asking for it, that Tufte's temperature axis mixes O-ring temperature with air temperature, and that the core issue was the burden of proof, not the graphics. The dispute is unresolved.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Millions of schoolchildren watched it live</span></summary><p class="note">The major broadcast networks had cut away before launch; CNN carried it live, and NASA sent a satellite feed to schools for the "Teacher in Space" program. Many pupils really did watch live, but most Americans saw replays. No original survey was found for the percentages often quoted.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Challenger "exploded"</span></summary><p class="note">There was no explosion in the sense of a detonation or shock wave. The external tank failed, the vehicle was torn apart by aerodynamic forces, and the propellants burned in a fireball. "Broke apart" is more accurate.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The crew were conscious until they hit the ocean</span></summary><p class="note">Dr Kerwin's report (July 1986): 3 of the 4 recovered emergency air packs had been activated by hand, so at least some of the crew were alive and acting after the breakup. But they "possibly, but not certainly" lost consciousness in the seconds that followed. Whether the cabin lost pressure could not be established.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Feynman found the cause on his own</span></summary><p class="note">The televised demonstration of dropping the O-ring into ice water was his. But the initial hint came from General Donald Kutyna, and after Sally Ride died (2012), Kutyna said it was she who had given him the NASA documents on O-rings stiffening in the cold. (Secondary source: Kutyna's account.)</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>The crew died instantly</span></summary><p class="note">The crew cabin separated nearly intact, with accelerations at breakup of about 12–20 G, which are "survivable". The cabin fell for about 2 minutes 45 seconds before hitting the sea. The cause of death "cannot be positively determined" (Kerwin).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>The White House pushed for a launch in time for the State of the Union</span></summary><p class="note">The Commission investigated this rumor. Those involved stated there was no plan for a live hookup, and the launch decision was made by NASA officials "without any outside intervention or pressure" (Rogers, chapter 8).</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>An asbestos ban ruined the joint putty</span></summary><p class="note">A long-running online myth. Space journalist James Oberg, who compiled the myths about Challenger, calls the putty change "unrelated to the disaster".</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Assessing the case</h2></div>
+  <div class="scores">
+    <div class="score"><span>Avoidable</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Prior warnings</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Transparent inquiry</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Lessons retained</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Done right after the disaster</span><ul class="plus"><li>A public report that named the decision failures plainly</li><li>The joint was redesigned, with a third O-ring and heaters</li><li>A safety office reporting directly to NASA leadership</li></ul></div>
+    <div><span class="label">Not done right</span><ul class="minus"><li>Boisjoly was isolated and taken off space work</li><li>The design was fixed faster than the culture</li><li>17 years later, Columbia repeated the same kind of mistake</li></ul></div>
+  </div>
+  <p class="verdict">The most avoidable disaster of the US space program, because every piece of information needed was already in the meeting room the night before.</p>
+  <details class="more"><summary>More: why the lessons were forgotten</summary><div>
+    <p>In 2003, Columbia broke apart on re-entry because a piece of foam insulation struck its wing at launch. Foam shedding, too, had happened many times and had slowly come to be seen as normal. The Columbia Accident Investigation Board wrote that "the history of engineering decisions on foam and O-ring incidents had identical trajectories", and engineers were again asked to prove the flight was "unsafe".</p>
+    <p>Vaughan worked with the Columbia investigation board. She concluded that "from Challenger NASA learned incomplete lessons": it fixed the O-ring, but not the pressures and structure that dulled the danger signals.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Work lessons: don't let small deviations become normal</h2><p class="lead">Applies to any "go or no-go" meeting: a product launch, pushing code to production, signing a contract.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Four steps for a decision meeting: write the criteria before the meeting, state clearly who has to prove what, plot the runs without incidents too, and record objections in the minutes.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · set criteria first</text><text x="110" y="100" class="t-night t-bold">"below 53°F: postpone"</text><text x="110" y="116">fixed before the pressure</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · who must prove it</text><text x="300" y="100" class="t-day t-bold">"is it proven safe?"</text><text x="300" y="116">not "is it dangerous?"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · plot the zeros</text><text x="490" y="100" class="t-rem t-bold">every run, failed or not</text><text x="490" y="116">and mark where you are</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · record dissent</text><text x="680" y="100" class="t-ok t-bold">name, reason, date</text><text x="680" y="116">in the minutes</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"It worked last time" is not evidence of safety.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each step matches one failure point on the night of 27 January.</b> The criterion was argued over mid-meeting, the burden of proof was flipped, the data lacked the zeros, and the engineers had no voice in the final decision.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><div><b>Track small incidents as a trend</b><span>The Commission found "little or no trend analysis" of O-ring erosion. Build a table; don't handle each case on its own.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Separate the engineering hat from the management hat</b><span>Record the technical recommendation and the business decision separately. Whoever changes the recommendation signs their name.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24V8M6 24h20"/><path d="M10 20h3M10 14h12"/></svg><div><b>Ask for risk numbers independently</b><span>Ask the people doing the work before you ask the boss. A big gap is a signal.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>Compare with the original design, not with last time</b><span>The erosion limit went from "no erosion allowed" to "0.090 inch of erosion is fine". Go back to the original baseline regularly.</span></div></div>
+  </div>
+  <div class="quote"><span>For a successful technology, reality must take precedence over public relations, for nature cannot be fooled.</span><span class="src">Richard Feynman, closing line of appendix F, Rogers Commission report (1986).</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>Richard Feynman, <i>What Do You Care What Other People Think?</i> (1988)</b><span class="muted">The second half of the book is Feynman's memoir of the Rogers Commission, as easy to read as a story.</span></div>
+    <div><b>Diane Vaughan, <i>The Challenger Launch Decision</i> (1996)</b><span class="muted">The book that coined "normalization of deviance". Long, but it is the original work.</span></div>
+    <div><b>Edward Tufte, <i>Visual Explanations</i> (1997), and the rebuttal by Robison, Boisjoly et al. (2002)</b><span class="muted">Read both to see a real debate about data.</span></div>
+    <div><b>Anatomy of a Disaster #02: Mars Climate Orbiter (1999)</b><span class="muted">A US$125 million spacecraft lost because two teams used two different units of measurement.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Sources</h2><p class="lead">Primary documents first. Wherever only a secondary source exists, it is flagged in the Fact check section.</p></div>
+  <ol class="srcs">
+    <li><b>Rogers Commission</b>, <i>Report of the Presidential Commission on the Space Shuttle Challenger Accident</i>, volume I, June 1986, chapters 3–8 and recommendations. <a href="https://www.nasa.gov/history/rogersrep/v1ch4.htm">nasa.gov/history/rogersrep</a></li>
+    <li><b>R. P. Feynman</b>, "Personal Observations on the Reliability of the Shuttle", appendix F, volume II. <a href="https://www.nasa.gov/history/rogersrep/v2appf.htm">nasa.gov</a></li>
+    <li><b>J. P. Kerwin</b>, letter to R. H. Truly on the crew, 28 July 1986. <a href="https://www.nasa.gov/missions/space-shuttle/sts-51l/challenger-crew-report">nasa.gov</a></li>
+    <li><b>Dalal, Fowlkes and Hoadley</b>, "Risk Analysis of the Space Shuttle: Pre-Challenger Prediction of Failure", <i>JASA</i> 84(408), 1989.</li>
+    <li><b>Robison, Boisjoly, Hoeker and Young</b>, "Representation and Misrepresentation: Tufte and the Morton Thiokol Engineers on the Challenger", <i>Science and Engineering Ethics</i> 8(1), 2002. <a href="https://onlineethics.org/cases/representation-and-misrepresentation-tufte-and-morton-thiokol-engineers-challenger">onlineethics.org</a></li>
+    <li><b>D. Vaughan</b>, <i>The Challenger Launch Decision</i>, University of Chicago Press, 1996; and "System Effects", in <i>Organization at the Limit</i>, 2005.</li>
+    <li><b>Columbia Accident Investigation Board</b>, report volume I, chapter 8 "History as Cause", August 2003.</li>
+    <li><b>J. Oberg</b>, "7 myths about the Challenger shuttle disaster", NBC News. <a href="https://www.nbcnews.com/id/wbna11031097">nbcnews.com</a></li>
+  </ol>
+</section>
+
+<footer>Anatomy of a Disaster #01. The figures are illustrative diagrams; numbers come from the original reports and are cross-checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

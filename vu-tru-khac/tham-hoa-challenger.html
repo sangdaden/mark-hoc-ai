@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tàu con thoi Challenger (STS-51-L): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Lỗi gioăng đã được biết từ 9 năm trước, kỹ sư phản đối ngay đêm trước, vì sao NASA vẫn phóng? Mổ xẻ từ báo cáo Ủy ban Rogers, dữ liệu 23 chuyến bay và 13 lời đồn được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/tham-hoa-challenger.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tàu con thoi Challenger (STS-51-L): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Lỗi gioăng đã được biết từ 9 năm trước, kỹ sư phản đối ngay đêm trước, vì sao NASA vẫn phóng? Mổ xẻ từ báo cáo Ủy ban Rogers, dữ liệu 23 chuyến bay và 13 lời đồn được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/tham-hoa-challenger.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #1C1210; --bia-2: #7C2D12; --bia-nhan: #FB923C; }
+:root { --vtk-nhan: #FB923C; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác">‹ <img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../en/vu-tru-khac/tham-hoa-challenger.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Giải phẫu thảm họa": Challenger, --night = flame orange (hot gas), --day = ice blue (the cold morning). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #c2410c;
+  --day: #2563eb;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #fb923c; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #fb923c; --day: #93b4f5; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Giải phẫu thảm họa · Vũ trụ · Ra quyết định</span>
+  <h1>Tàu con thoi Challenger</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một bông tuyết, một vòng gioăng, và một ngọn lửa">
+    <g stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"><path d="M26 8v36M10 17l32 18M10 35l32-18"/></g>
+    <text x="56" y="32" font-family="monospace" font-size="15" fill="#8a94a6">2°C</text>
+    <circle cx="140" cy="26" r="16" fill="none" stroke="#8a94a6" stroke-width="5"/>
+    <text x="168" y="32" font-family="monospace" font-size="15" fill="#8a94a6">73 giây</text>
+    <path d="M276 46c-14 0-20-10-16-20 3-7 9-9 8-18 10 6 16 15 14 24 3-2 5-5 5-9 6 7 6 23-11 23z" fill="#c2410c"/>
+  </svg>
+  <p class="sub">STS-51-L · 28/1/1986 · Trung tâm vũ trụ Kennedy, Florida</p>
+  <div class="meta">
+    <div><span class="label">Chuyện gì</span><b>tàu vỡ tan ở giây thứ 73 sau khi phóng</b></div>
+    <div><span class="label">Thiệt hại</span><b>7 phi hành gia, trong đó có một cô giáo</b></div>
+    <div><span class="label">Nguyên nhân gốc</span><b>gioăng chữ O ở khớp tên lửa đẩy hỏng vì lạnh</b></div>
+    <div><span class="label">Nguồn chính</span><b>Báo cáo Ủy ban Rogers, 6/1986</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Chuyện gì xảy ra</a><a href="#khai-niem">Vì sao</a><a href="#dan-chung">Kiểm chứng</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học làm việc</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="4"/></svg><b>Một vòng cao su</b><span>Gioăng chữ O ở khớp tên lửa đẩy phải bị cứng vì lạnh, khí nóng xuyên qua.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V8h20"/><path d="M10 22l5-5 4 3 7-8"/></svg><b>Đã biết từ 1977</b><span>Lỗi khớp có trong hồ sơ 9 năm. 7 trên 23 chuyến trước đã có gioăng bị hư.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 12h16M8 20h16"/><path d="M20 8l4 4-4 4M12 16l-4 4 4 4"/></svg><b>Gánh chứng minh bị đảo</b><span>Đêm trước, kỹ sư phải chứng minh "không an toàn" thay vì được hỏi "an toàn chưa".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><b>Lệch dần thành bình thường</b><span>Mỗi chuyến bay về an toàn làm cái hư hỏng trông "chấp nhận được" hơn.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Không có kẻ ác</b><span>Người ta làm đúng quy trình. Chính quy trình đã trôi đi lúc nào không hay.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của vụ án</h2></div>
+  <p class="thesis">Một tổ chức toàn kỹ sư giỏi, biết rõ điểm yếu từ 9 năm trước, có kỹ sư phản đối ngay đêm trước, vì sao vẫn bấm nút phóng? Câu trả lời không nằm ở một người, mà ở cách cả tổ chức quen dần với rủi ro.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">1977–1985</span><b>Biết lỗi</b><span>Thử nghiệm cho thấy khớp hở ra. Gioăng bị mòn trên nhiều chuyến bay.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">27/1/1986</span><b>Đêm cãi nhau</b><span>Kỹ sư Thiokol khuyên không phóng dưới 53°F. Ba tiếng sau, quản lý đổi ý.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">28/1/1986</span><b>73 giây</b><span>Trời 2°C. Khói đen ở khớp ngay giây đầu tiên. Tàu vỡ ở giây 73.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Chuyện gì đã xảy ra</h2><p class="lead">Mọi mốc thời gian dưới đây lấy từ chương 3 báo cáo Ủy ban Rogers.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="t73">
+        <title id="t73">Dòng thời gian 73 giây. Giây 0,678: khói xám phụt ra ở khớp sau tên lửa đẩy phải. Đến giây 2,5: thêm 8 đợt khói đen. Sau đó xỉ nhôm oxit bịt tạm chỗ hở. Từ giây 37 đến 64: nhiều đợt gió đứt mạnh. Giây 58,8: lửa xuất hiện ở khớp. Giây 64,7: lửa làm thủng bình nhiên liệu ngoài. Giây 72,2: thanh giằng đứt. Khoảng giây 73: tàu vỡ tan.</title>
+        <line x1="40" y1="110" x2="690" y2="110" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="355" y="96" width="230" height="28" rx="4" fill="var(--day)" fill-opacity=".15"/>
+        <text x="470" y="145" text-anchor="middle" class="t-day">gió đứt mạnh · giây 37–64</text>
+        <g text-anchor="middle">
+          <circle cx="46" cy="110" r="8" fill="var(--muted)"/>
+          <text x="46" y="80" class="t-ink t-bold">0,678 s</text><text x="46" y="64">khói xám</text>
+          <circle cx="62" cy="110" r="6" fill="var(--ink)"/>
+          <text x="96" y="160" class="t-ink t-bold">~3 s</text><text x="96" y="176">xỉ nhôm oxit</text><text x="96" y="190">bịt tạm chỗ hở</text>
+          <circle cx="573" cy="110" r="8" fill="var(--night)"/>
+          <text x="560" y="64" class="t-night t-bold">58,8 s · lửa</text>
+          <circle cx="620" cy="110" r="8" fill="var(--night)"/>
+          <text x="620" y="40" class="t-night t-bold">64,7 s</text><text x="620" y="24">thủng bình nhiên liệu</text>
+          <circle cx="680" cy="110" r="11" fill="var(--bad)"/>
+          <text x="672" y="80" class="t-bold" style="fill:var(--bad)">~73 s</text>
+          <text x="672" y="176" class="t-bold" style="fill:var(--bad)">tàu vỡ</text>
+        </g>
+        <text x="40" y="218">thang thời gian: giây kể từ lúc rời bệ phóng · nhiệt độ không khí 36°F (2°C), khớp bị lạnh dưới 0°C</text>
+      </svg>
+    </div>
+    <figcaption><b>Tàu suýt thoát.</b> Xỉ cháy đã tạm bịt chỗ hở trong gần một phút. Ủy ban cho rằng các đợt gió đứt có thể đã làm vỡ lớp bịt tạm đó.</figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1977 · Thử nghiệm áp suất</b><span>Hai nửa khớp bị đẩy ra xa nhau thay vì ép chặt vào. Thiokol cho là không đáng kể.</span></div>
+    <div><b>1978–1979 · Kỹ sư NASA phản đối bằng văn bản</b><span>Kỹ sư ở trung tâm Marshall gọi thiết kế là "không thể chấp nhận". Các bản ghi nhớ không đến được Thiokol.</span></div>
+    <div><b>1982 · Không còn gioăng dự phòng</b><span>Khớp bị xếp mức nguy hiểm cao nhất (hỏng là mất tàu), rồi được miễn trừ năm 1983.</span></div>
+    <div><b>1/1985 · Chuyến 51-C, 53°F (12°C)</b><span>Lạnh nhất từ trước đến lúc đó. Khí nóng lọt qua gioăng chính.</span></div>
+    <div class="hot"><b>31/7/1985 · Bản ghi nhớ của Roger Boisjoly</b><span>"Kết quả sẽ là một thảm họa ở mức cao nhất: mất mạng người."</span></div>
+    <div class="hot"><b>27/1/1986, tối · Cuộc họp qua điện thoại</b><span>Kỹ sư khuyên không phóng. Sau 30 phút họp riêng, lãnh đạo Thiokol đổi khuyến nghị.</span></div>
+    <div class="hot"><b>28/1/1986, 11:38 · Phóng</b><span>Băng phủ trên bệ phóng. Không có quy định nào về nhiệt độ bề mặt.</span></div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Kỳ 1</span><h3>Chuyện gì đã xảy ra</h3><div class="chips"><span class="chip">73 giây</span><span class="chip">2°C</span><span class="chip">7 người</span><span class="chip">đêm trước</span></div></div>
+    <div class="part b2"><span class="label">Kỳ 2</span><h3>Vì sao</h3><div class="chips"><span class="chip">gioăng chữ O</span><span class="chip">biểu đồ thiếu số 0</span><span class="chip">lệch thành bình thường</span><span class="chip">lời đồn</span></div></div>
+    <div class="part b3"><span class="label">Kỳ 3</span><h3>Bài học làm việc</h3><div class="chips"><span class="chip">ai phải chứng minh</span><span class="chip">mũ kỹ sư, mũ quản lý</span><span class="chip">họp go/no-go</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Vì sao: năm lớp nguyên nhân</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp kỹ thuật: khớp nối và gioăng chữ O</h3><span class="en">field joint · O-ring</span><span class="pg">Rogers, chương 4 và 6</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="kj">
+          <title id="kj">Mặt cắt khớp nối giữa hai đoạn tên lửa đẩy. Đoạn trên có ngạnh cắm vào rãnh của đoạn dưới. Hai gioăng chữ O, chính và phụ, bịt khe. Khi đánh lửa, áp suất làm khớp xoay và khe hở rộng ra. Gioăng phải nở ra lấp khe trong vài phần nghìn giây. Ở nhiệt độ thấp, cao su cứng lại và nở chậm, khí nóng lọt qua.</title>
+          <rect x="40" y="30" width="200" height="60" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="40" y="110" width="200" height="60" fill="var(--muted)" fill-opacity=".3"/>
+          <rect x="170" y="60" width="70" height="80" fill="var(--paper)" stroke="var(--muted)"/>
+          <rect x="180" y="70" width="60" height="60" fill="var(--muted)" fill-opacity=".55"/>
+          <circle cx="176" cy="88" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <circle cx="176" cy="112" r="6" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M20 100 h140" stroke="var(--night)" stroke-width="4"/><path d="M160 100 l-10 -6 v12 z" fill="var(--night)"/>
+          <text x="20" y="196" class="t-night t-bold">khí nóng ~3.000°C, áp suất ~60 atm</text>
+          <text x="246" y="92" class="t-ink">← gioăng chính</text><text x="246" y="116" class="t-ink">← gioăng phụ</text>
+          <rect x="370" y="24" width="340" height="60" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="384" y="48" class="t-ink t-bold">1 · đánh lửa: khớp "xoay", khe mở rộng</text>
+          <text x="384" y="68">thử nghiệm 1977: khe mở tới 1,3 mm</text>
+          <rect x="370" y="94" width="340" height="50" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="384" y="124" class="t-ink t-bold">2 · gioăng phải nở ra lấp khe ngay</text>
+          <rect x="370" y="154" width="340" height="50" rx="8" fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="2"/>
+          <text x="384" y="184" class="t-day t-bold">3 · lạnh: cao su cứng, nở chậm → hở</text>
+        </svg>
+      </div>
+      <figcaption><b>Gioăng không được thiết kế để bị mòn.</b> Feynman viết: "Sự mòn là một manh mối cho thấy có gì đó sai". Ủy ban gọi gốc rễ là "một thiết kế lỗi, nhạy cảm đến mức không thể chấp nhận" với nhiệt độ, kích thước, vật liệu và việc tái sử dụng.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp dữ liệu: biểu đồ thiếu những số 0</h3><span class="en">missing denominators</span><span class="pg">Rogers, chương 6, hình 6 và 7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 205" role="img" aria-labelledby="ka">
+          <title id="ka">Biểu đồ chỉ gồm 7 chuyến bay có gioăng bị hư, xếp theo nhiệt độ từ 53 đến 75 độ F. Nhìn vào đây không thấy quy luật gì với nhiệt độ.</title>
+<line x1="60" y1="150" x2="660" y2="150" class="axis"/>
+<line x1="60" y1="112" x2="660" y2="112" class="gridl"/><text x="50" y="116" text-anchor="end">1</text>
+<line x1="60" y1="74" x2="660" y2="74" class="gridl"/><text x="50" y="78" text-anchor="end">2</text>
+<line x1="60" y1="36" x2="660" y2="36" class="gridl"/><text x="50" y="40" text-anchor="end">3</text>
+<text x="50" y="154" text-anchor="end">0</text>
+<line x1="110" y1="150" x2="110" y2="155" class="axis"/><text x="110" y="168" text-anchor="middle">30°</text><text x="110" y="181" text-anchor="middle" style="font-size:9px">-1°C</text>
+<line x1="210" y1="150" x2="210" y2="155" class="axis"/><text x="210" y="168" text-anchor="middle">40°</text><text x="210" y="181" text-anchor="middle" style="font-size:9px">4°C</text>
+<line x1="310" y1="150" x2="310" y2="155" class="axis"/><text x="310" y="168" text-anchor="middle">50°</text><text x="310" y="181" text-anchor="middle" style="font-size:9px">10°C</text>
+<line x1="410" y1="150" x2="410" y2="155" class="axis"/><text x="410" y="168" text-anchor="middle">60°</text><text x="410" y="181" text-anchor="middle" style="font-size:9px">16°C</text>
+<line x1="510" y1="150" x2="510" y2="155" class="axis"/><text x="510" y="168" text-anchor="middle">70°</text><text x="510" y="181" text-anchor="middle" style="font-size:9px">21°C</text>
+<line x1="610" y1="150" x2="610" y2="155" class="axis"/><text x="610" y="168" text-anchor="middle">80°</text><text x="610" y="181" text-anchor="middle" style="font-size:9px">27°C</text>
+<text x="360" y="198" text-anchor="middle">nhiệt độ khớp lúc phóng (°F)</text>
+<text x="16" y="85" transform="rotate(-90 16 85)" text-anchor="middle">số gioăng bị hư</text>
+<text x="360" y="34" text-anchor="middle" class="t-ink t-bold">chỉ vẽ chuyến có hư hỏng</text>
+<circle cx="510" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="380" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="440" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="519" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="340" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="560" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+        </svg>
+      </div>
+      <figcaption><b>Cách nhìn đêm trước: chỉ các chuyến có sự cố.</b> Ủy ban viết rằng nhìn thế này thì "không có gì bất thường" theo nhiệt độ.</figcaption>
+    </figure>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 205" role="img" aria-labelledby="kb">
+          <title id="kb">Biểu đồ đủ 23 chuyến bay. Bốn chuyến dưới 65 độ F đều có gioăng bị hư. Trong 19 chuyến từ 66 độ F trở lên, chỉ 3 chuyến có hư hỏng. Ngày phóng Challenger, khớp ở khoảng 31 độ F, nằm xa bên trái, ngoài mọi dữ liệu đã có.</title>
+<rect x="326" y="20" width="134" height="130" fill="var(--bad)" fill-opacity=".08"/>
+<line x1="60" y1="150" x2="660" y2="150" class="axis"/>
+<line x1="60" y1="112" x2="660" y2="112" class="gridl"/><text x="50" y="116" text-anchor="end">1</text>
+<line x1="60" y1="74" x2="660" y2="74" class="gridl"/><text x="50" y="78" text-anchor="end">2</text>
+<line x1="60" y1="36" x2="660" y2="36" class="gridl"/><text x="50" y="40" text-anchor="end">3</text>
+<text x="50" y="154" text-anchor="end">0</text>
+<line x1="110" y1="150" x2="110" y2="155" class="axis"/><text x="110" y="168" text-anchor="middle">30°</text><text x="110" y="181" text-anchor="middle" style="font-size:9px">-1°C</text>
+<line x1="210" y1="150" x2="210" y2="155" class="axis"/><text x="210" y="168" text-anchor="middle">40°</text><text x="210" y="181" text-anchor="middle" style="font-size:9px">4°C</text>
+<line x1="310" y1="150" x2="310" y2="155" class="axis"/><text x="310" y="168" text-anchor="middle">50°</text><text x="310" y="181" text-anchor="middle" style="font-size:9px">10°C</text>
+<line x1="410" y1="150" x2="410" y2="155" class="axis"/><text x="410" y="168" text-anchor="middle">60°</text><text x="410" y="181" text-anchor="middle" style="font-size:9px">16°C</text>
+<line x1="510" y1="150" x2="510" y2="155" class="axis"/><text x="510" y="168" text-anchor="middle">70°</text><text x="510" y="181" text-anchor="middle" style="font-size:9px">21°C</text>
+<line x1="610" y1="150" x2="610" y2="155" class="axis"/><text x="610" y="168" text-anchor="middle">80°</text><text x="610" y="181" text-anchor="middle" style="font-size:9px">27°C</text>
+<text x="360" y="198" text-anchor="middle">nhiệt độ khớp lúc phóng (°F)</text>
+<text x="16" y="85" transform="rotate(-90 16 85)" text-anchor="middle">số gioăng bị hư</text>
+<text x="400" y="34" text-anchor="middle" style="fill:var(--bad)" class="t-bold">dưới 65°F: 4/4 chuyến hư</text>
+<text x="474" y="56" class="t-ink">từ 66°F: 3/19 chuyến hư</text>
+<line x1="120" y1="20" x2="120" y2="150" stroke="var(--night)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="126" y="52" class="t-night t-bold">28/1/1986</text><text x="126" y="66" class="t-night">~31°F (−0,5°C)</text><text x="126" y="80" class="t-night">ngoài mọi dữ liệu</text>
+<circle cx="470" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="510" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="500" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="490" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="480" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="530" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="540" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="510" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="380" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="440" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="519" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="590" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="489" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="340" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="471" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="560" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="519" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="620" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="570" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="600" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="560" cy="74" r="6" fill="var(--bad)" fill-opacity=".85"/>
+<circle cx="579" cy="150" r="6" fill="var(--muted)" fill-opacity=".55"/>
+<circle cx="390" cy="112" r="6" fill="var(--bad)" fill-opacity=".85"/>
+        </svg>
+      </div>
+      <figcaption><b>Thêm các chuyến không hư hỏng, quy luật hiện ra.</b> Dữ liệu: Dalal, Fowlkes và Hoadley (1989), bảng 1. Mô hình của họ ước tính ở 31°F có ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Đây là phân tích làm sau tai nạn, không phải thứ có trên bàn đêm đó.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp quyết định: đêm đảo ngược gánh chứng minh</h3><span class="en">burden of proof</span><span class="pg">Rogers, chương 5</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 230" role="img" aria-labelledby="kn">
+          <title id="kn">Đêm 27/1/1986. 20 giờ 45: Thiokol trình bày, khuyến nghị không phóng dưới 53 độ F. Lawrence Mulloy của NASA: "Trời ơi, Thiokol, các anh muốn tôi phóng khi nào, tháng Tư năm sau à?". 22 giờ 30: Thiokol xin họp riêng 30 phút. Phó chủ tịch Jerald Mason bảo Bob Lund "bỏ mũ kỹ sư xuống, đội mũ quản lý lên". 23 giờ: Thiokol đọc khuyến nghị mới, đồng ý phóng, gọi dữ liệu là "chưa kết luận được".</title>
+          <rect x="20" y="20" width="210" height="150" rx="8" fill="var(--paper)" stroke="var(--rule)" stroke-width="2"/>
+          <text x="35" y="44" class="t-ink t-bold">20:45 · Thiokol trình bày</text>
+          <text x="35" y="70" class="t-night t-bold">"không phóng dưới 53°F"</text>
+          <text x="35" y="92">mức lạnh nhất từng bay</text>
+          <text x="35" y="122" class="t-ink">NASA: "muốn tôi phóng khi</text>
+          <text x="35" y="140" class="t-ink">nào, tháng Tư năm sau à?"</text>
+          <rect x="255" y="20" width="210" height="150" rx="8" fill="var(--warn-bg)" stroke="var(--warn)" stroke-width="2"/>
+          <text x="270" y="44" class="t-ink t-bold">22:30 · họp riêng 30 phút</text>
+          <text x="270" y="72" class="t-ink">"Bỏ mũ kỹ sư xuống,</text>
+          <text x="270" y="90" class="t-ink">đội mũ quản lý lên."</text>
+          <text x="270" y="120">kỹ sư không được</text>
+          <text x="270" y="138">bỏ phiếu cuối cùng</text>
+          <rect x="490" y="20" width="210" height="150" rx="8" fill="var(--bad-bg)" stroke="var(--bad)" stroke-width="2"/>
+          <text x="505" y="44" class="t-ink t-bold">23:00 · khuyến nghị mới</text>
+          <text x="505" y="72" class="t-bold" style="fill:var(--bad)">"đồng ý phóng"</text>
+          <text x="505" y="94">dữ liệu "chưa kết luận được"</text>
+          <text x="505" y="124" class="t-ink">không ai phản đối</text>
+          <text x="505" y="142" class="t-ink">khi được hỏi</text>
+          <line x1="232" y1="95" x2="252" y2="95" stroke="var(--muted)" stroke-width="2"/><line x1="467" y1="95" x2="487" y2="95" stroke="var(--muted)" stroke-width="2"/>
+          <text x="20" y="200" class="t-ink t-bold">Boisjoly: "Chúng tôi phải chứng minh chắc chắn rằng nó KHÔNG an toàn.</text>
+          <text x="20" y="218" class="t-ink t-bold">Ngược hoàn toàn với bình thường."</text>
+        </svg>
+      </div>
+      <figcaption><b>Không ai mời đại diện bộ phận an toàn vào cuộc họp</b> (Rogers, chương 7). Ủy ban kết luận lãnh đạo Thiokol đổi ý, trái với kỹ sư của mình, "để chiều lòng một khách hàng lớn".</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp văn hóa: bình thường hóa sự lệch chuẩn</h3><span class="en">normalization of deviance</span><span class="pg">Diane Vaughan, 1996</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 232" role="img" aria-labelledby="kv">
+          <title id="kv">Bậc thang của sự quen dần. 1977: khớp hở là "không thể chấp nhận". 1981: lần đầu gioăng mòn trên chuyến bay, là bất thường. 1983: đặt giới hạn mòn 0,090 inch, gọi là biên an toàn. 1985: khí nóng lọt qua, "không mong muốn nhưng chấp nhận được". 1985: gioăng chính không kín, có lệnh hạn chế phóng nhưng được miễn mỗi chuyến. 12/1985: hồ sơ ghi vấn đề "đã đóng". 1986: phóng ở 2 độ C.</title>
+          <g fill="var(--night)">
+            <rect x="30" y="170" width="90" height="20" fill-opacity=".15"/><rect x="125" y="150" width="90" height="40" fill-opacity=".25"/><rect x="220" y="130" width="90" height="60" fill-opacity=".35"/><rect x="315" y="110" width="90" height="80" fill-opacity=".45"/><rect x="410" y="90" width="90" height="100" fill-opacity=".55"/><rect x="505" y="70" width="90" height="120" fill-opacity=".7"/><rect x="600" y="40" width="90" height="150" fill-opacity=".9"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="75" y="160" class="t-ink t-bold">1977</text><text x="75" y="206">"không chấp nhận"</text>
+            <text x="170" y="140" class="t-ink t-bold">1981</text><text x="170" y="222">mòn lần đầu</text>
+            <text x="265" y="120" class="t-ink t-bold">1983</text><text x="265" y="206">"biên an toàn"</text>
+            <text x="360" y="100" class="t-ink t-bold">1/1985</text><text x="360" y="222">"chấp nhận được"</text>
+            <text x="455" y="80" class="t-ink t-bold">4/1985</text><text x="455" y="206">lệnh hạn chế, miễn</text>
+            <text x="550" y="60" class="t-ink t-bold">12/1985</text><text x="550" y="222">"đã đóng"</text>
+            <text x="645" y="30" class="t-night t-bold">1/1986</text><text x="645" y="206">phóng ở 2°C</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Mỗi bậc chỉ cao hơn bậc trước một chút.</b> Vaughan định nghĩa: hành vi người ngoài thấy rõ là lệch chuẩn dần trở thành bình thường và chấp nhận được với người bên trong. Bà phản bác cách hiểu cho rằng quản lý cố tình đánh đổi mạng người lấy lịch bay.</figcaption>
+    </figure>
+    <div class="fmap">
+      <div class="fcol"><h3><span class="dot"></span>Bình thường hóa</h3><span class="muted">Mỗi lần bay về an toàn được coi là bằng chứng an toàn. Feynman: chơi cò quay Nga, phát đầu không nổ chẳng an ủi được phát sau.</span></div>
+      <div class="fcol rem"><h3><span class="dot"></span>Văn hóa sản xuất</h3><span class="muted">NASA định bay 24 chuyến một năm. Năm 1986 có 15 chuyến trong lịch; tàu Challenger phải mượn 45 linh kiện từ tàu khác.</span></div>
+      <div class="fcol body"><h3><span class="dot"></span>Bí mật do cấu trúc</h3><span class="muted">Không ai giấu ai. Thông tin bị lọc qua từng tầng nên tầng trên không thấy mức nghiêm trọng.</span></div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Lớp con số: kỹ sư và quản lý lệch nhau 1.000 lần</h3><span class="en">risk perception gap</span><span class="pg">Feynman, phụ lục F</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="kr">
+          <title id="kr">Ước tính xác suất mất tàu mỗi chuyến, thang logarit. Dữ liệu lịch sử tên lửa nhiên liệu rắn: 1 trên 25. Kỹ sư: khoảng 1 trên 100. Quản lý NASA: 1 trên 100.000. Thực tế cả chương trình tàu con thoi: 2 lần mất tàu trên 135 chuyến, khoảng 1 trên 68.</title>
+          <line x1="200" y1="190" x2="690" y2="190" class="axis"/>
+          <g text-anchor="middle"><text x="200" y="206">1/10</text><text x="322" y="206">1/100</text><text x="445" y="206">1/1.000</text><text x="567" y="206">1/10.000</text><text x="690" y="206">1/100.000</text></g>
+          <text x="190" y="34" text-anchor="end" class="t-ink">tên lửa rắn, lịch sử</text><rect x="200" y="22" width="49" height="18" fill="var(--muted)" fill-opacity=".6"/><text x="256" y="35" class="t-ink t-bold">1/25</text>
+          <text x="190" y="74" text-anchor="end" class="t-ink">thực tế tàu con thoi</text><rect x="200" y="62" width="102" height="18" fill="var(--bad)" fill-opacity=".75"/><text x="309" y="75" class="t-bold" style="fill:var(--bad)">~1/68</text>
+          <text x="190" y="114" text-anchor="end" class="t-ink">kỹ sư</text><rect x="200" y="102" width="122" height="18" fill="var(--day)" fill-opacity=".7"/><text x="329" y="115" class="t-day t-bold">~1/100</text>
+          <text x="190" y="154" text-anchor="end" class="t-ink">quản lý NASA</text><rect x="200" y="142" width="490" height="18" fill="var(--night)" fill-opacity=".7"/><text x="684" y="135" text-anchor="end" class="t-night t-bold">1/100.000</text>
+        </svg>
+      </div>
+      <figcaption><b>"Nguồn gốc niềm tin kỳ lạ của quản lý vào cỗ máy là gì?"</b> Feynman hỏi. Con số 1/100.000 nghĩa là phóng mỗi ngày suốt 300 năm mới mất một tàu. Thực tế: mất Challenger 1986 và Columbia 2003 trong 135 chuyến.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">13 điều hay được kể về Challenger, đối chiếu với hồ sơ gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="4 vững, 6 cần thận trọng, 3 sai">
+    <div class="o" style="flex:4">4 VỮNG</div><div class="w" style="flex:6">6 THẬN TRỌNG</div><div class="b" style="flex:3">3 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Gioăng ở khớp dưới của tên lửa đẩy phải hỏng là nguyên nhân trực tiếp</span></summary><p class="note">Kết luận đồng thuận của Ủy ban Rogers (chương 4), có ảnh khói ở giây 0,678 và lửa ở giây 58,8 tại đúng vị trí đó.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Lỗi khớp được biết từ nhiều năm trước</span></summary><p class="note">Thử nghiệm 1977, các bản ghi nhớ 1978–1979 gọi thiết kế "không thể chấp nhận", gioăng hư trên 7 trong 23 chuyến có thu hồi tên lửa đẩy (Rogers, chương 6).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Kỹ sư Thiokol khuyên không phóng dưới 53°F</span></summary><p class="note">Ghi trong chương 5, kèm lời khai của Boisjoly: "không nên bay ra ngoài vùng dữ liệu của mình, tức 53 độ".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Có áp lực lịch bay từ bên trong NASA</span></summary><p class="note">Kế hoạch 24 chuyến mỗi năm, linh kiện phải tháo từ tàu khác, thời gian huấn luyện bị ép (Rogers, chương 8). Vaughan gọi đó là "văn hóa sản xuất".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Kỹ sư bị phớt lờ, không ai nghe</span></summary><p class="note">Họ được nghe hàng giờ, và phía NASA nói sẽ không phóng nếu Thiokol phản đối. Điều xảy ra là chính lãnh đạo Thiokol đổi ý sau cuộc họp riêng, và gánh chứng minh bị đảo ngược. Kỹ sư Bob Ebeling sau này nói ông "lẽ ra đã có thể làm nhiều hơn".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Một biểu đồ tốt chắc chắn đã ngăn được vụ phóng</span></summary><p class="note">Edward Tufte (1997) nói có. Một bài phản biện năm 2002 do chính Boisjoly đồng tác giả nói các kỹ sư không có đủ dữ liệu nhiệt độ dù đã xin, trục nhiệt độ của Tufte trộn nhiệt độ gioăng với nhiệt độ không khí, và vấn đề cốt lõi là gánh chứng minh, không phải hình vẽ. Đây là tranh cãi chưa ngã ngũ.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Hàng triệu học sinh xem trực tiếp</span></summary><p class="note">Các kênh truyền hình lớn đã cắt sóng trước khi phóng; CNN phát trực tiếp, và NASA truyền vệ tinh tới các trường học vì chương trình "Giáo viên vào vũ trụ". Nhiều học sinh xem trực tiếp thật, nhưng phần lớn người Mỹ xem phát lại. Không tìm thấy khảo sát gốc cho các con số phần trăm hay được trích.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Challenger "nổ tung"</span></summary><p class="note">Không có vụ nổ theo nghĩa kíp nổ hay sóng xung kích. Bình nhiên liệu ngoài vỡ, tàu bị lực khí động học xé tan, nhiên liệu cháy bùng. Nói "vỡ tan" chính xác hơn.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Phi hành đoàn tỉnh táo cho đến lúc rơi xuống biển</span></summary><p class="note">Báo cáo của bác sĩ Kerwin (7/1986): 3 trong 4 bình khí thở khẩn cấp tìm được đã được bật bằng tay, nên ít nhất vài người còn sống và hành động sau khi tàu vỡ. Nhưng họ "có thể, nhưng không chắc chắn" đã bất tỉnh vài giây sau đó. Không xác định được khoang có mất áp hay không.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>Feynman một mình tìm ra nguyên nhân</span></summary><p class="note">Màn thả gioăng vào cốc nước đá trên truyền hình là của ông. Nhưng gợi ý ban đầu đến từ tướng Donald Kutyna, và sau khi Sally Ride mất (2012), Kutyna kể chính bà đã đưa ông tài liệu NASA về gioăng cứng lại khi lạnh. (Nguồn thứ cấp: lời kể của Kutyna.)</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Phi hành đoàn chết ngay lập tức</span></summary><p class="note">Khoang phi hành đoàn tách ra gần như nguyên vẹn, gia tốc lúc vỡ khoảng 12–20 G, "có thể sống sót được". Khoang rơi khoảng 2 phút 45 giây trước khi chạm biển. Nguyên nhân tử vong "không thể xác định chắc chắn" (Kerwin).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Nhà Trắng ép phóng để kịp Thông điệp Liên bang</span></summary><p class="note">Ủy ban đã điều tra tin đồn này. Những người liên quan khẳng định không có kế hoạch kết nối trực tiếp nào, và quyết định phóng do quan chức NASA đưa ra "không có bất kỳ can thiệp hay áp lực nào từ bên ngoài" (Rogers, chương 8).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>Lệnh cấm amiăng làm hỏng chất trám khớp</span></summary><p class="note">Một tin đồn lâu năm trên mạng. Nhà báo không gian James Oberg, người tổng hợp các lời đồn về Challenger, gọi việc đổi chất trám là "không liên quan đến thảm họa".</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Đánh giá vụ việc</h2></div>
+  <div class="scores">
+    <div class="score"><span>Có thể tránh được</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Cảnh báo có từ trước</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Điều tra minh bạch</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Bài học được giữ lại</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Làm đúng sau thảm họa</span><ul class="plus"><li>Báo cáo công khai, nêu thẳng lỗi quyết định</li><li>Thiết kế lại khớp, thêm gioăng thứ ba và bộ sưởi</li><li>Lập văn phòng an toàn báo cáo thẳng lên lãnh đạo NASA</li></ul></div>
+    <div><span class="label">Làm chưa đúng</span><ul class="minus"><li>Boisjoly bị cô lập, cho ra khỏi dự án vũ trụ</li><li>Sửa thiết kế nhanh hơn sửa văn hóa</li><li>17 năm sau, Columbia lặp lại cùng kiểu sai</li></ul></div>
+  </div>
+  <p class="verdict">Thảm họa có thể tránh được nhất của chương trình vũ trụ Mỹ, vì mọi thông tin cần thiết đều đã nằm trong phòng họp đêm trước.</p>
+  <details class="more"><summary>Xem thêm: vì sao bài học bị quên</summary><div>
+    <p>Năm 2003, tàu Columbia vỡ khi trở về vì một mảnh bọt cách nhiệt va vào cánh lúc phóng. Bọt rơi cũng là chuyện đã xảy ra nhiều lần và dần được coi là bình thường. Ủy ban điều tra Columbia viết: "lịch sử các quyết định kỹ thuật về bọt và về gioăng có quỹ đạo giống hệt nhau", và kỹ sư lại bị yêu cầu chứng minh chuyến bay "không an toàn".</p>
+    <p>Vaughan làm việc trong nhóm điều tra Columbia. Bà kết luận NASA đã "học bài học không đầy đủ" từ Challenger: sửa được cái gioăng, nhưng không sửa được áp lực và cấu trúc khiến tín hiệu nguy hiểm bị nhờn đi.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Bài học làm việc: đừng để cái lệch nhỏ thành bình thường</h2><p class="lead">Áp dụng cho mọi cuộc họp "làm hay không làm": ra mắt sản phẩm, đẩy code lên production, ký hợp đồng.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="kl">
+        <title id="kl">Bốn bước cho một cuộc họp quyết định: viết tiêu chí trước họp, nói rõ ai phải chứng minh điều gì, vẽ cả những lần không có sự cố, và ghi ý kiến phản đối vào biên bản.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · viết tiêu chí trước</text><text x="110" y="100" class="t-night t-bold">"dưới 53°F thì hoãn"</text><text x="110" y="116">chốt trước khi bị ép</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · ai phải chứng minh</text><text x="300" y="100" class="t-day t-bold">"đã an toàn chưa?"</text><text x="300" y="116">không phải "có nguy hiểm không?"</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · vẽ cả số 0</text><text x="490" y="100" class="t-rem t-bold">mọi lần, có sự cố hay không</text><text x="490" y="116">và đánh dấu mình đang ở đâu</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · ghi lại phản đối</text><text x="680" y="100" class="t-ok t-bold">tên, lý do, ngày</text><text x="680" y="116">vào biên bản</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Câu "lần trước vẫn ổn" không phải bằng chứng an toàn.</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi bước tương ứng với một chỗ hỏng đêm 27/1.</b> Tiêu chí bị tranh cãi giữa họp, gánh chứng minh bị đảo, dữ liệu thiếu số 0, và kỹ sư không có tiếng nói trong quyết định cuối.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26h20"/><path d="M8 26l4-6 4 2 4-8 4-4"/></svg><div><b>Theo dõi sự cố nhỏ như một xu hướng</b><span>Ủy ban thấy NASA "gần như không phân tích xu hướng" gioăng mòn. Lập bảng, đừng xử lý từng vụ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M4 26c1-5 4-7 7-7s6 2 7 7M15 26c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Tách mũ kỹ sư và mũ quản lý</b><span>Ghi riêng khuyến nghị chuyên môn và quyết định kinh doanh. Ai đổi khuyến nghị thì ký tên.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24V8M6 24h20"/><path d="M10 20h3M10 14h12"/></svg><div><b>Hỏi con số rủi ro độc lập</b><span>Hỏi người làm trực tiếp trước khi hỏi sếp. Lệch nhau lớn là một tín hiệu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8z"/></svg><div><b>So với thiết kế gốc, không so với lần trước</b><span>Giới hạn mòn đi từ "không được mòn" lên "mòn 0,090 inch là được". Định kỳ quay về mốc ban đầu.</span></div></div>
+  </div>
+  <div class="quote"><span>Để một công nghệ thành công, thực tế phải được đặt trên quan hệ công chúng, vì không thể lừa được tự nhiên.</span><span class="src">Richard Feynman, câu kết phụ lục F, báo cáo Ủy ban Rogers (1986).</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Richard Feynman, <i>What Do You Care What Other People Think?</i> (1988)</b><span class="muted">Nửa sau cuốn sách là hồi ký Feynman trong Ủy ban Rogers, dễ đọc như truyện.</span></div>
+    <div><b>Diane Vaughan, <i>The Challenger Launch Decision</i> (1996)</b><span class="muted">Cuốn sách đặt ra khái niệm "bình thường hóa sự lệch chuẩn". Dày, nhưng là tác phẩm gốc.</span></div>
+    <div><b>Edward Tufte, <i>Visual Explanations</i> (1997), và bài phản biện của Robison, Boisjoly và cộng sự (2002)</b><span class="muted">Đọc cả hai để thấy một cuộc tranh luận về dữ liệu đúng nghĩa.</span></div>
+    <div><b>Giải phẫu thảm họa #02: Mars Climate Orbiter (1999)</b><span class="muted">Một con tàu 125 triệu USD mất vì hai nhóm dùng hai đơn vị đo khác nhau.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Nguồn gốc</h2><p class="lead">Ưu tiên tài liệu gốc. Chỗ nào chỉ có nguồn thứ cấp đã ghi rõ ở phần Kiểm chứng.</p></div>
+  <ol class="srcs">
+    <li><b>Ủy ban Rogers</b>, <i>Report of the Presidential Commission on the Space Shuttle Challenger Accident</i>, tập I, 6/1986, chương 3–8 và khuyến nghị. <a href="https://www.nasa.gov/history/rogersrep/v1ch4.htm">nasa.gov/history/rogersrep</a></li>
+    <li><b>R. P. Feynman</b>, "Personal Observations on the Reliability of the Shuttle", phụ lục F, tập II. <a href="https://www.nasa.gov/history/rogersrep/v2appf.htm">nasa.gov</a></li>
+    <li><b>J. P. Kerwin</b>, thư gửi R. H. Truly về phi hành đoàn, 28/7/1986. <a href="https://www.nasa.gov/missions/space-shuttle/sts-51l/challenger-crew-report">nasa.gov</a></li>
+    <li><b>Dalal, Fowlkes và Hoadley</b>, "Risk Analysis of the Space Shuttle: Pre-Challenger Prediction of Failure", <i>JASA</i> 84(408), 1989.</li>
+    <li><b>Robison, Boisjoly, Hoeker và Young</b>, "Representation and Misrepresentation: Tufte and the Morton Thiokol Engineers on the Challenger", <i>Science and Engineering Ethics</i> 8(1), 2002. <a href="https://onlineethics.org/cases/representation-and-misrepresentation-tufte-and-morton-thiokol-engineers-challenger">onlineethics.org</a></li>
+    <li><b>D. Vaughan</b>, <i>The Challenger Launch Decision</i>, University of Chicago Press, 1996; và "System Effects", trong <i>Organization at the Limit</i>, 2005.</li>
+    <li><b>Columbia Accident Investigation Board</b>, báo cáo tập I, chương 8 "History as Cause", 8/2003.</li>
+    <li><b>J. Oberg</b>, "7 myths about the Challenger shuttle disaster", NBC News. <a href="https://www.nbcnews.com/id/wbna11031097">nbcnews.com</a></li>
+  </ol>
+</section>
+
+<footer>Giải phẫu thảm họa #01. Các hình là sơ đồ minh họa; số liệu lấy từ báo cáo gốc và được đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

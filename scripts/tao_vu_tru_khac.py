@@ -60,7 +60,7 @@ def lam_sach(s, en=False):
     s = re.sub(r'<a href="#ghi-chu">[^<]*</a>', "", s)
     # Nhãn nháp ở đầu bài và chân bài
     s = re.sub(r'<span class="draft">[^<]*</span>', f'<span class="draft">{"Mark ở vũ trụ khác · Another Universe" if en else "Mark ở vũ trụ khác"}</span>', s, count=1)
-    s = re.sub(r"\s*·\s*(Kho nghiên cứu sách cá nhân|Personal book research)\s*·\s*(Bản nháp|Draft) [0-9/]+\.", ".", s)
+    s = re.sub(r"\s*·\s*(Kho nghiên cứu sách cá nhân|Personal book research|Mark Ở Vũ Trụ Khác)\s*·\s*(Bản nháp|Draft) [^.<]*\.", ".", s)
     return s
 
 
