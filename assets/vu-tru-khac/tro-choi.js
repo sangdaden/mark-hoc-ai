@@ -328,7 +328,7 @@
   }
 
   // ---------- Khuôn: nhập vai bậc thang (bấm mức cao dần, có câu thúc khi muốn dừng) ----------
-  // g.buoc, g.toi_da, g.nguy (từ mức này tô đỏ); t.su_kien {mức: câu}, t.thuc [4 câu thúc], t.keu (câu lặp ở các mức nhỏ)
+  // g.buoc, g.toi_da, g.nguy (từ mức này tô đỏ); t.su_kien {mức: câu}, t.thuc [4 câu thúc], t.keu (câu hoặc danh sách câu kêu ở các mức nhỏ)
   function bacThang(g, t) {
     var s = khung(g, t), n = g.toi_da / g.buoc;
     var bang = tao("div", "tc-bang-cong-tac"); bang.setAttribute("aria-hidden", "true");
@@ -346,8 +346,12 @@
     function het(chu) { xong = true; bam.disabled = dung.disabled = true; ketVoiNut(ket, chu, t.nut_lai, batDau); }
     bam.onclick = function () {
       if (xong) return; thuc = 0; v += g.buoc; ve();
-      if (t.su_kien[v]) noi(t.su_kien[v], "tc-nguoi");
-      else if (t.keu && g.keu_tu <= v && v < g.keu_den && v % (2 * g.buoc) === g.buoc) noi(t.keu, "tc-nguoi");
+      if (t.su_kien[v]) noi(t.su_kien[v], "tc-nguoi-hoc");
+      else if (t.keu && g.keu_tu <= v && v < g.keu_den && v % (2 * g.buoc) === g.buoc) {
+        // t.keu có thể là một câu hoặc danh sách câu tăng dần, để không lặp y hệt hai dòng liền nhau
+        var ds = [].concat(t.keu), k = Math.min(ds.length - 1, Math.floor((v - g.keu_tu) / (2 * g.buoc)));
+        noi(ds[k], "tc-nguoi-hoc");
+      }
       if (v >= g.toi_da) return het(t.het);
       bam.textContent = dien(t.nut_bam, { v: v + g.buoc }); dung.textContent = t.nut_dung;
     };
