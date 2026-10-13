@@ -51,12 +51,15 @@ header .meta div { display: flex; align-items: baseline; gap: 8px; padding: 6px 
   background: rgb(255 255 255 / .08); border: 1px solid color-mix(in srgb, var(--bia-nhan) 45%, transparent); }
 header .meta span { font-size: .66rem; }
 header .meta b { color: #FFF7ED; font-size: .9rem; }
-/* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng */
+/* Hoạ tiết bìa: "trang" = trăng khuyết vàng (Why We Sleep), "but-chi" = dải bút chì vàng đầu tẩy hồng, "song" = dải sóng nước (Flow) */
 body.bia-trang header::before { content: ""; position: absolute; top: 22px; right: calc(var(--le) + 150px); width: 46px; height: 46px; border-radius: 50%;
   box-shadow: 10px -6px 0 0 var(--bia-nhan); transform: rotate(-20deg); opacity: .9; }
 body.bia-but-chi header { border-bottom: 0; }
 body.bia-but-chi header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
   background: linear-gradient(90deg, #F2A7B8 0 40px, #C0C4CC 40px 52px, #F5C518 52px calc(100% - 28px), #E8C99A calc(100% - 28px) calc(100% - 10px), #333 calc(100% - 10px)); }
+body.bia-song header { border-bottom: 0; }
+body.bia-song header::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14'%3E%3Cpath d='M0 7 Q15 1 30 7 T60 7' fill='none' stroke='%2322D3EE' stroke-width='3'/%3E%3C/svg%3E") repeat-x center / 60px 14px, #0E7490; }
 @media (max-width: 900px) {
   header { grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--le) + 80px); }
   header .meta { grid-column: 1; grid-row: auto; margin-top: 4px; }
