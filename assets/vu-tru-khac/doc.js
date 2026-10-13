@@ -65,7 +65,7 @@
 })();
 
 // Phóng to sơ đồ: mỗi hình (figure hoặc .svgbox có SVG) có nút "Phóng to" ở góc, bấm mở hộp toàn màn hình với bản sao của
-// sơ đồ, nút + / − đổi cỡ (chữ to theo), cuộn hoặc chụm hai ngón để xem; Esc hoặc nút Đóng để thoát. Thanh tiến độ đọc
+// sơ đồ vừa khít màn hình, nút + / − đổi cỡ (chữ to theo), kéo hoặc chụm hai ngón để xem; Esc hoặc nút Đóng để thoát. Thanh tiến độ đọc
 // gắn vào mép dưới thanh trên cùng (doc.css) nên không đè nút quay về.
 (function () {
   var thanhTren = document.querySelector(".mhai-thanh"), tienDo = document.querySelector(".vtk-tien-do");
@@ -79,7 +79,7 @@
   var TRU = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>';
   var DONG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
-  var hop = null, khung, ten, coHienTai = 1, rongGoc = 0, hinhDangXem = null;
+  var hop = null, khung, ten, coHienTai = 1, rongGoc = 0, tiLe = 1, hinhDangXem = null;
   function taoHop() {
     hop = document.createElement("dialog");
     hop.className = "vtk-xem-hinh";
@@ -99,7 +99,14 @@
   function datCo(c) {
     coHienTai = Math.max(1, Math.min(4, c));
     var svg = khung.querySelector("svg");
-    if (svg) svg.style.width = Math.round(rongGoc * coHienTai) + "px";
+    if (!svg) return;
+    // Giữ nguyên điểm đang xem ở giữa khung khi đổi cỡ, để bấm + không bị trôi sang một góc trống
+    var tx = (khung.scrollLeft + khung.clientWidth / 2) / khung.scrollWidth, ty = (khung.scrollTop + khung.clientHeight / 2) / khung.scrollHeight;
+    // Đặt cả rộng lẫn cao bằng px: Safari trên iPhone tính sai chiều cao "auto" của SVG không có width/height
+    svg.style.width = Math.round(rongGoc * coHienTai) + "px";
+    svg.style.height = Math.round(rongGoc * coHienTai * tiLe) + "px";
+    khung.scrollLeft = tx * khung.scrollWidth - khung.clientWidth / 2;
+    khung.scrollTop = ty * khung.scrollHeight - khung.clientHeight / 2;
   }
   function mo(goc, nut) {
     if (!hop) taoHop();
@@ -115,11 +122,12 @@
     ten.textContent = cap ? cap.textContent.trim() : CHU.ten;
     khung.innerHTML = ""; khung.appendChild(ban);
     hop.showModal();
-    // Cỡ nhỏ nhất: vừa bề ngang màn hình. Mở ra ở cỡ thật của sơ đồ (theo viewBox) để chữ đọc được, kéo ngang để xem hết
-    rongGoc = khung.clientWidth - 32;
-    var vb = goc.viewBox && goc.viewBox.baseVal;
-    datCo(vb && vb.width ? vb.width / rongGoc : 1);
+    // Mở ra vừa khít màn hình (cả bề ngang lẫn bề cao), căn giữa; bấm + để phóng to rồi kéo để xem từng phần
+    var vb = goc.viewBox && goc.viewBox.baseVal, r = goc.getBoundingClientRect();
+    tiLe = vb && vb.width && vb.height ? vb.height / vb.width : (r.width ? r.height / r.width : 1);
+    rongGoc = Math.max(100, Math.min(khung.clientWidth - 32, (khung.clientHeight - 32) / tiLe));
     khung.scrollLeft = 0; khung.scrollTop = 0;
+    datCo(1);
   }
 
   var daGan = [];
