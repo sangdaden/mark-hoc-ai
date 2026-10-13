@@ -1,14 +1,112 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js).",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua.",
   "tham-hoa-challenger": [
     {
       "khuon": "quyet-dinh",
       "id": "choi-phong-khong",
       "truoc": "tinh-hoa",
       "bieu_do": {
-        "x_min": 25, "x_max": 85, "x_buoc": 10, "x_don_vi": "°F", "y_max": 3,
-        "diem": [[70,1],[57,1],[63,1],[70,1],[53,2],[75,2],[58,1]],
-        "an": [[66,0],[69,0],[68,0],[67,0],[72,0],[73,0],[70,0],[78,0],[67,0],[67,0],[75,0],[70,0],[81,0],[76,0],[79,0],[76,0]],
+        "x_min": 25,
+        "x_max": 85,
+        "x_buoc": 10,
+        "x_don_vi": "°F",
+        "y_max": 3,
+        "diem": [
+          [
+            70,
+            1
+          ],
+          [
+            57,
+            1
+          ],
+          [
+            63,
+            1
+          ],
+          [
+            70,
+            1
+          ],
+          [
+            53,
+            2
+          ],
+          [
+            75,
+            2
+          ],
+          [
+            58,
+            1
+          ]
+        ],
+        "an": [
+          [
+            66,
+            0
+          ],
+          [
+            69,
+            0
+          ],
+          [
+            68,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            72,
+            0
+          ],
+          [
+            73,
+            0
+          ],
+          [
+            70,
+            0
+          ],
+          [
+            78,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            75,
+            0
+          ],
+          [
+            70,
+            0
+          ],
+          [
+            81,
+            0
+          ],
+          [
+            76,
+            0
+          ],
+          [
+            79,
+            0
+          ],
+          [
+            76,
+            0
+          ]
+        ],
         "vach": 31
       },
       "vi": {
@@ -16,10 +114,18 @@
         "nhan": "Bạn là người quyết định",
         "hoi": "Đêm 27/1/1986. Sáng mai mối nối tên lửa đẩy chỉ khoảng 31°F (−1°C). Bạn có cho phóng không?",
         "dan": "Đây là kiểu biểu đồ các quản lý đã nhìn đêm đó: chỉ những chuyến có gioăng bị hư.",
-        "truc_x": "Nhiệt độ mối nối lúc phóng", "truc_y": "Số gioăng hư", "nhan_vach": "Sáng mai: 31°F",
+        "truc_x": "Nhiệt độ mối nối lúc phóng",
+        "truc_y": "Số gioăng hư",
+        "nhan_vach": "Sáng mai: 31°F",
         "chon": [
-          {"nhan": "Phóng", "dap": "Đêm đó NASA cũng cho phóng. Nhìn riêng các chuyến có hư, nhiệt độ có vẻ không liên quan gì."},
-          {"nhan": "Hoãn", "dap": "Kỹ sư Thiokol cũng muốn hoãn, nhưng họ bị yêu cầu chứng minh là \"nguy hiểm\" bằng đúng biểu đồ này."}
+          {
+            "nhan": "Phóng",
+            "dap": "Đêm đó NASA cũng cho phóng. Nhìn riêng các chuyến có hư, nhiệt độ có vẻ không liên quan gì."
+          },
+          {
+            "nhan": "Hoãn",
+            "dap": "Kỹ sư Thiokol cũng muốn hoãn, nhưng họ bị yêu cầu chứng minh là \"nguy hiểm\" bằng đúng biểu đồ này."
+          }
         ],
         "nut_an": "Hiện cả 16 chuyến không hư",
         "ket": "Thêm các chuyến không hư thì quy luật lộ ra: cả 4 chuyến dưới 65°F đều có gioăng hư, còn 31°F nằm xa ngoài mọi dữ liệu từng có.",
@@ -30,10 +136,18 @@
         "nhan": "You make the call",
         "hoi": "27 January 1986, night. Tomorrow morning the booster joints will be about 31°F (−1°C). Do you launch?",
         "dan": "This is the kind of chart the managers looked at that night: only the flights with damaged O-rings.",
-        "truc_x": "Joint temperature at launch", "truc_y": "Damaged O-rings", "nhan_vach": "Tomorrow: 31°F",
+        "truc_x": "Joint temperature at launch",
+        "truc_y": "Damaged O-rings",
+        "nhan_vach": "Tomorrow: 31°F",
         "chon": [
-          {"nhan": "Launch", "dap": "NASA launched too. Looking only at flights with damage, temperature seems to have nothing to do with it."},
-          {"nhan": "Delay", "dap": "The Thiokol engineers wanted to delay too, but they were asked to prove it was \"unsafe\" with exactly this chart."}
+          {
+            "nhan": "Launch",
+            "dap": "NASA launched too. Looking only at flights with damage, temperature seems to have nothing to do with it."
+          },
+          {
+            "nhan": "Delay",
+            "dap": "The Thiokol engineers wanted to delay too, but they were asked to prove it was \"unsafe\" with exactly this chart."
+          }
         ],
         "nut_an": "Show the 16 flights with no damage",
         "ket": "Add the flights with no damage and the pattern appears: all 4 flights below 65°F had damaged O-rings, and 31°F lies far outside anything ever flown.",
@@ -41,34 +155,95 @@
       }
     },
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
+      "khuon": "ten-lua",
+      "id": "choi-ten-lua",
       "truoc": "dan-chung",
-      "the": [
-        {"k": "v", "vi": ["Lỗi khớp nối đã được biết từ nhiều năm trước.", "Có thử nghiệm năm 1977 và các bản ghi nhớ 1978–1979 (Rogers, chương 6)."], "en": ["The joint flaw was known years earlier.", "A 1977 test and 1978–1979 memos (Rogers, chapter 6)."]},
-        {"k": "v", "vi": ["Có áp lực lịch bay từ bên trong NASA.", "Ủy ban ghi nhận lịch bay dày, linh kiện tháo từ tàu khác (Rogers, chương 8)."], "en": ["There was schedule pressure inside NASA.", "The Commission found a crowded flight plan and parts taken from other orbiters (Rogers, chapter 8)."]},
-        {"k": "t", "vi": ["Kỹ sư bị phớt lờ, không ai nghe.", "Họ được nghe nhiều giờ; chính lãnh đạo Thiokol đổi ý sau cuộc họp riêng (Rogers, chương 5)."], "en": ["The engineers were ignored.", "They were heard for hours; Thiokol's own managers reversed after a private caucus (Rogers, chapter 5)."]},
-        {"k": "t", "vi": ["Challenger \"nổ tung\".", "Không có vụ nổ theo nghĩa kỹ thuật: tàu bị lực khí động học xé tan, nhiên liệu cháy bùng (Rogers, chương 3)."], "en": ["Challenger \"exploded\".", "No detonation: the vehicle broke apart under aerodynamic forces as propellant burned (Rogers, chapter 3)."]},
-        {"k": "s", "vi": ["Phi hành đoàn chết ngay lập tức.", "Khoang lái tách ra gần như nguyên vẹn; 3 trong 4 bình khí thở tìm được đã được bật (Kerwin, 1986)."], "en": ["The crew died instantly.", "The cabin separated largely intact; 3 of the 4 air packs recovered had been switched on (Kerwin, 1986)."]},
-        {"k": "s", "vi": ["Nhà Trắng ép phóng.", "Ủy ban kết luận không có áp lực nào từ bên ngoài NASA (Rogers, chương 8)."], "en": ["The White House forced the launch.", "The Commission found no outside pressure on NASA (Rogers, chapter 8)."]}
+      "lanh": 40,
+      "lanh_gioang": 53,
+      "vo": 73,
+      "su_kien": [
+        [
+          0.678,
+          "khoi"
+        ],
+        [
+          2.5,
+          "khoi_den"
+        ],
+        [
+          37,
+          "gio"
+        ],
+        [
+          58.8,
+          "lua"
+        ],
+        [
+          64.7,
+          "thung"
+        ],
+        [
+          72.2,
+          "giang"
+        ],
+        [
+          73,
+          "vo"
+        ]
       ],
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {"v": "Vững", "t": "Thận trọng", "s": "Sai"},
-        "dung": "Đúng.", "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5, 6, 8; thư của bác sĩ Joseph Kerwin gửi NASA (7/1986). Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Phóng thử",
+        "nhan": "Tên lửa bay",
+        "hoi": "Kéo nhiệt độ mối nối tên lửa đẩy, rồi bấm Phóng. Sáng 28/1/1986 mối nối chỉ khoảng 31°F. Kỹ sư Thiokol khuyên không phóng dưới 53°F.",
+        "mo_ta": "Tàu con thoi trên bệ phóng, nhiệt kế và hình phóng to gioăng ở mối nối tên lửa đẩy.",
+        "nhiet": "Nhiệt độ mối nối:",
+        "nut_phong": "Phóng",
+        "nut_lai": "Về bệ phóng",
+        "gioang": "GIOĂNG Ở MỐI NỐI",
+        "gioang_cung": "lạnh: cứng, chậm bịt",
+        "gioang_kin": "ấm: đàn hồi, bịt kín",
+        "phong_that": "Phóng ở {f}°F, gần như sáng 28/1/1986. Đây là dòng thời gian thật.",
+        "phong_khac": "Phóng ở {f}°F.",
+        "su_kien": {
+          "khoi": "khói xám phụt ra ở khớp sau tên lửa đẩy phải",
+          "khoi_den": "thêm 8 đợt khói đen; sau đó xỉ nhôm oxit bịt tạm chỗ hở",
+          "gio": "nhiều đợt gió đứt mạnh (tới giây 64)",
+          "lua": "lửa xuất hiện ở khớp",
+          "thung": "lửa làm thủng bình nhiên liệu ngoài",
+          "giang": "thanh giằng đứt",
+          "vo": "tàu vỡ tan; 7 phi hành gia thiệt mạng"
+        },
+        "ket_that": "Ở nhiệt độ này, mô hình của Dalal và cộng sự (1989) ước tính ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Các chuyến dưới 65°F trước đó: 4/4 chuyến có gioăng hư.",
+        "ket_vua": "Tàu lên quỹ đạo, nhưng chưa an toàn: các chuyến dưới 65°F trước đó, 4/4 chuyến có gioăng hư. Đêm đó kỹ sư Thiokol khuyên không phóng dưới 53°F.",
+        "ket_am": "Tàu lên quỹ đạo. Các chuyến từ 66°F trở lên trước đó chỉ 3/19 chuyến có gioăng hư.",
+        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5 và 6: dòng thời gian 73 giây (0,678; 2,5; 37–64; 58,8; 64,7; 72,2; khoảng 73 giây), khuyến nghị 53°F, nhiệt độ mối nối 28 ± 5°F; Dalal, Fowlkes và Hoadley (1989), JASA 84(408): 31°F, 4/4 chuyến dưới 65°F và 3/19 chuyến từ 66°F có gioăng hư (Ủy ban Rogers ghi 3 trên 20), ít nhất 13% ở 31°F và khoảng 2% ở 60°F. Cảnh dùng chuyến bay thật khi bạn chọn từ 40°F trở xuống; các nhiệt độ khác là giả định, tốc độ bay được tua nhanh."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {"v": "Solid", "t": "Caution", "s": "False"},
-        "dung": "Right.", "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5, 6, 8; Dr Joseph Kerwin's letter to NASA (July 1986). The labels are Mark's assessment based on these sources."
+        "muc": "Try a launch",
+        "nhan": "Rocket flight",
+        "hoi": "Drag the booster joint temperature, then press Launch. On the morning of 28 January 1986 the joint was only about 31°F. Thiokol engineers advised against launching below 53°F.",
+        "mo_ta": "The shuttle on the pad, a thermometer, and a close-up of the O-ring in the booster joint.",
+        "nhiet": "Joint temperature:",
+        "nut_phong": "Launch",
+        "nut_lai": "Back to the pad",
+        "gioang": "O-RING IN THE JOINT",
+        "gioang_cung": "cold: stiff, slow",
+        "gioang_kin": "warm: seals tight",
+        "phong_that": "Launch at {f}°F, close to the morning of 28 January 1986. This is the real timeline.",
+        "phong_khac": "Launch at {f}°F.",
+        "su_kien": {
+          "khoi": "grey smoke puffs from the aft joint of the right booster",
+          "khoi_den": "eight more puffs of black smoke; then aluminum oxide slag temporarily plugs the gap",
+          "gio": "several strong wind-shear events (until 64 s)",
+          "lua": "a flame appears at the joint",
+          "thung": "the flame breaches the external fuel tank",
+          "giang": "a strut breaks",
+          "vo": "the vehicle breaks apart; 7 astronauts die"
+        },
+        "ket_that": "At this temperature, the model of Dalal et al. (1989) puts the chance of catastrophic O-ring failure at 13% or more; postponing to 60°F cuts it to about 2%. Earlier flights below 65°F: 4 of 4 had O-ring damage.",
+        "ket_vua": "The shuttle reaches orbit, but it was not safe: of earlier flights below 65°F, 4 of 4 had O-ring damage. That night Thiokol engineers advised against launching below 53°F.",
+        "ket_am": "The shuttle reaches orbit. Of earlier flights at 66°F or warmer, only 3 of 19 had O-ring damage.",
+        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5 and 6: the 73-second timeline (0.678; 2.5; 37–64; 58.8; 64.7; 72.2; about 73 s), the 53°F recommendation, joint temperature 28 ± 5°F; Dalal, Fowlkes and Hoadley (1989), JASA 84(408): 31°F, 4/4 flights below 65°F and 3/19 from 66°F with O-ring damage (the Rogers Commission says 3 of 20), at least 13% at 31°F and about 2% at 60°F. The scene replays the real flight when you pick 40°F or colder; other temperatures are hypothetical, and flight time is sped up."
       }
     }
   ],
@@ -743,104 +918,50 @@
   ],
   "tham-hoa-chernobyl": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Lỗi thanh điều khiển đã được biết trước năm 1986",
-            "Phát hiện ở Ignalina năm 1983; thiết kế không được sửa, không có biện pháp bù đắp (INSAG-7, mục 4.1, 6(4))."
-          ],
-          "en": [
-            "The control-rod flaw was known before 1986",
-            "Found at Ignalina in 1983; the design was not changed and no compensating measures were taken (INSAG-7, sections 4.1, 6(4))."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Thế giới biết qua phóng xạ đo được ở nước ngoài trước khi Liên Xô xác nhận",
-            "Thụy Điển và Phần Lan công bố ngày 28/4/1986; tối hôm đó Liên Xô mới xác nhận (A. Salo, IAEA Bulletin 28(3), 1986)."
-          ],
-          "en": [
-            "The world learned from radiation measured abroad before the USSR confirmed",
-            "Sweden and Finland announced on 28 April 1986; the USSR confirmed that evening (A. Salo, IAEA Bulletin 28(3), 1986)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Tai nạn là do nhân viên vận hành vi phạm quy định",
-            "Đó là kết luận năm 1986. INSAG-7 sửa lại: \"một số hành động bị INSAG-1 coi là vi phạm thực ra không phải vi phạm\", nhưng yếu tố con người \"vẫn là một yếu tố lớn\", vì bài thử bị sửa tại chỗ và chạy dưới mức quy định (mục 6(6))."
-          ],
-          "en": [
-            "The accident was caused by operators breaking the rules",
-            "That was the 1986 conclusion. INSAG-7 revised it: \"certain actions by operators that were identified in INSAG-1 as violations of rules were in fact not violations,\" but the human factor \"has still to be considered as a major element,\" because the test was altered on the spot and run below the prescribed level (section 6(6))."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"Chernobyl sẽ làm chết hơn 93.000 người\"",
-            "Dự báo của Greenpeace (2006) cho Belarus, Nga, Ukraine đến năm 2056. Dùng giả định và dữ liệu khác hẳn các cơ quan Liên Hợp Quốc; nên ghi rõ đây là ước tính của một tổ chức vận động, đặt cạnh các ước tính khác."
-          ],
-          "en": [
-            "\"Chernobyl will kill more than 93,000 people\"",
-            "Greenpeace's 2006 projection for Belarus, Russia and Ukraine to 2056. It uses assumptions and data very different from the UN agencies; cite it clearly as an advocacy group's estimate, next to the others."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Nhân viên tắt hệ thống làm mát khẩn cấp trái phép",
-            "INSAG-7: việc ngắt làm mát khẩn cấp \"thực ra được phép ở Chernobyl nếu kỹ sư trưởng cho phép\" (mục 3(1)). Điều đáng trách là chạy 11 giờ như vậy, không phải là trái luật."
-          ],
-          "en": [
-            "Operators illegally switched off emergency cooling",
-            "INSAG-7: disconnecting the emergency core cooling \"was in fact permissible at Chernobyl if authorized by the Chief Engineer\" (section 3(1)). The problem was running 11 hours like that, not that it broke a rule."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Phóng xạ gây làn sóng dị tật bẩm sinh",
-            "WHO (2005): không có bằng chứng về tăng dị tật bẩm sinh có thể quy cho phóng xạ, cũng không thấy giảm khả năng sinh sản."
-          ],
-          "en": [
-            "Radiation caused a wave of birth defects",
-            "WHO (2005): no evidence of increases in congenital malformations attributable to radiation, and no decrease in fertility."
-          ]
-        }
-      ],
+      "khuon": "lo-phan-ung",
+      "id": "choi-lo-phan-ung",
+      "truoc": "tinh-hoa",
+      "thanh": 12,
+      "toi_thieu": 15,
+      "nguong": 8,
+      "giay": 30,
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 14 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Phòng điều khiển",
+        "hoi": "Giữ lò quanh 200 MW cho bài thử. Lò bị \"ngộ độc\" dần nên công suất tụt; rút thêm thanh nếu cần. Hết giờ thì nhấn AZ-5 để dừng lò.",
+        "mo_ta": "Lõi lò với 12 thanh điều khiển kéo lên xuống được, và đồng hồ công suất bên phải.",
+        "nut_bd": "Bắt đầu bài thử",
+        "nut_az": "AZ-5",
+        "tieu_de": "THANH ĐIỀU KHIỂN · mỗi thanh = 2 · kéo lên = rút ra",
+        "ten_thanh": "Thanh {n}",
+        "bien": "Biên phản ứng: {n} thanh",
+        "canh_bao": "dưới mức tối thiểu {m}",
+        "con": "Bài thử: còn {s} giây",
+        "het_gio": "Hết giờ thử. Nhấn AZ-5 để dừng lò.",
+        "no": "Lúc nhấn AZ-5 chỉ còn {n} thanh trong lõi. Đầu thanh bằng than chì đi vào trước, làm phản ứng tăng thay vì giảm. Đêm 26/4/1986 biên còn tương đương 8 thanh; 01:23:40 nhấn AZ-5, vài giây sau là hai vụ nổ.",
+        "dung_duoi": "Lò dừng được, nhưng bạn đã chạy dưới mức 15 thanh ({n} thanh).",
+        "dung_an_toan": "Lò dừng an toàn với {n} thanh.",
+        "sau": "Đêm 26/4/1986 biên chỉ còn tương đương 8 thanh, và không có gì trên bảng báo cho kíp trực biết con số đó.",
+        "nguon": "Nguồn: INSAG-7 (1992), mục 4.2 (tối thiểu 15 thanh) và phụ lục I, mục I-3.4 (ở khoảng 7 thanh, nút dừng làm tăng phản ứng); 8 thanh lúc 01:22:30 theo bảng của World Nuclear Association. Công suất, số thanh vẽ và ngưỡng vọt trong cảnh là mô hình đơn giản do Mark làm, không phải vật lý lò thật."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 14 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before you read",
+        "nhan": "Control room",
+        "hoi": "Hold the reactor around 200 MW for the test. It slowly \"poisons\" itself and power drops; pull out more rods if you need to. When time is up, press AZ-5 to shut it down.",
+        "mo_ta": "A reactor core with 12 control rods you can drag up and down, and a power gauge on the right.",
+        "nut_bd": "Start the test",
+        "nut_az": "AZ-5",
+        "tieu_de": "CONTROL RODS · each rod = 2 · drag up = pull out",
+        "ten_thanh": "Rod {n}",
+        "bien": "Reactivity margin: {n} rods",
+        "canh_bao": "below the minimum of {m}",
+        "con": "Test: {s} seconds left",
+        "het_gio": "Time's up. Press AZ-5 to shut down.",
+        "no": "When you pressed AZ-5 only {n} rods were in the core. The graphite tips enter first and raise reactivity instead of lowering it. On 26 April 1986 the margin was the equivalent of 8 rods; AZ-5 was pressed at 01:23:40, and seconds later came two explosions.",
+        "dung_duoi": "The reactor shut down, but you ran below the 15-rod minimum ({n} rods).",
+        "dung_an_toan": "The reactor shut down safely with {n} rods.",
+        "sau": "On 26 April 1986 the margin was only the equivalent of 8 rods, and nothing on the panel told the crew that number.",
+        "nguon": "Source: INSAG-7 (1992), section 4.2 (15-rod minimum) and annex I, I-3.4 (at about 7 rods the scram raises reactivity); 8 rods at 01:22:30 per the World Nuclear Association table. Power, rod count and surge threshold in the scene are Mark's simplified model, not real reactor physics."
       }
     }
   ],
@@ -1521,5 +1642,444 @@
   "that-bai-new-coke": [{"khuon": "doan-so", "id": "choi-doan-so", "truoc": "tinh-hoa", "so": [{"vi": "Nhóm phản đối mạnh", "en": "Strongly opposed group", "so": 11, "hien": "10–12%", "hien_en": "10–12%"}], "vi": {"muc": "Chơi trước khi đọc", "nhan": "Đoán con số", "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem con số được kể lại.", "cau": "Trước khi tung vị mới, Coca-Cola thử với gần 200.000 người. Bao nhiêu phần trăm người thử nói sẽ tức giận hoặc bỏ Coca-Cola nếu vị cũ biến mất?", "nut_chot": "Chốt", "ban": "Bạn đoán", "ket": "Bạn đoán {me}%. Theo các sách kể lại, chỉ khoảng 10–12%. Coca-Cola coi đó là thiểu số. Nhưng nhóm nhỏ này phản đối rất mạnh và kéo theo người khác: sau khi bỏ vị cũ, đến tháng 6/1985 đường dây nóng nhận khoảng 1.500 cuộc gọi mỗi ngày, và 79 ngày sau vị cũ phải quay lại. Đếm tỉ lệ thì thấy nhỏ, đo cường độ mới thấy nguy.", "nguon": "Nguồn: gần 200.000 người thử, 1.500 cuộc gọi mỗi ngày, 79 ngày: trang lịch sử của The Coca-Cola Company, \"New Coke: The Most Memorable Marketing Blunder Ever?\". Khoảng 10–12%: Thomas Oliver, The Real Coke, the Real Story (1986) và Mark Pendergrast, qua EBSCO Research Starters và Wikipedia (nguồn thứ cấp; các nơi gắn con số với những phần nghiên cứu khác nhau). Thanh vẽ ở mức 11% là điểm giữa (Mark tính)."}, "en": {"muc": "Play before you read", "nhan": "Guess the number", "hoi": "Drag the slider to guess, then lock it in to see the reported figure.", "cau": "Before launching the new taste, Coca-Cola tested it on nearly 200,000 people. What share of tasters said they would be angry or quit Coca-Cola if the old taste disappeared?", "nut_chot": "Lock in", "ban": "Your guess", "ket": "You guessed {me}%. According to books on the case, only about 10–12%. Coca-Cola treated them as a minority. But this small group felt very strongly and swayed others: after the old taste was dropped, by June 1985 the hotline was getting about 1,500 calls a day, and 79 days later the old taste had to come back. Count the share and it looks small; measure the intensity and it looks dangerous.", "nguon": "Source: nearly 200,000 tasters, 1,500 calls a day, 79 days: The Coca-Cola Company history page, \"New Coke: The Most Memorable Marketing Blunder Ever?\". About 10–12%: Thomas Oliver, The Real Coke, the Real Story (1986) and Mark Pendergrast, via EBSCO Research Starters and Wikipedia (secondary sources; each ties the figure to a different part of the research). The bar is drawn at 11%, the midpoint (Mark's calculation)."}}],
   "that-bai-enron": [{"khuon": "hop-thu", "id": "choi-hop-thu", "truoc": "tinh-hoa", "vi": {"muc": "Chơi trước khi đọc", "nhan": "Hộp thư cảnh báo", "hoi": "Bạn ngồi văn phòng chủ tịch Enron, 1999 đến 2001. Cảnh báo lẫn trong thư thường. Thư nào chuyển lên hội đồng quản trị?", "nut_chuyen": "Chuyển lên hội đồng", "nut_de": "Để sau", "ban_chuyen": "Bạn chuyển lên.", "ban_de": "Bạn để sau.", "that_ra": "Thật ra:", "tin_thuong": "Không phải cảnh báo.", "thu": [{"gio": "7/2/1999", "tu": "kiểm toán Andersen", "chu": "Kế toán của chúng ta đang \"đẩy tới giới hạn\" của mức chấp nhận được.", "khan": true, "that": "Ủy ban Kiểm toán đã nghe. Năm 2002 Thượng viện kết luận hội đồng \"biết và cho phép\" kế toán rủi ro cao."}, {"gio": "6/1999", "tu": "ban tài chính", "chu": "Đề xuất: CFO làm đối tác điều hành quỹ LJM1, quỹ này sẽ mua bán tài sản với chính Enron.", "khan": true, "that": "hội đồng duyệt ngày 28/6/1999, rồi duyệt tiếp LJM2 vào tháng 10."}, {"gio": "12/1999", "tu": "phòng nhân sự", "chu": "Lịch tiệc cuối năm của công ty.", "khan": false}, {"gio": "6/2/2001", "tu": "phòng truyền thông", "chu": "Fortune bầu Enron \"sáng tạo nhất nước Mỹ\" năm thứ sáu liên tiếp!", "khan": false}, {"gio": "14/8/2001", "tu": "thư nặc danh", "chu": "Tôi vô cùng lo rằng chúng ta sẽ sụp đổ trong một làn sóng bê bối kế toán.", "khan": true, "that": "thư tới tay chủ tịch Lay. Ông gặp người viết ngày 22/8 và giao câu hỏi cho hãng luật quen của công ty."}, {"gio": "9/2001", "tu": "bộ phận IT", "chu": "Nhắc đổi mật khẩu email trước cuối tháng.", "khan": false}, {"gio": "10/2001", "tu": "luật sư nội bộ Andersen", "chu": "Nhắc mọi người làm đúng chính sách lưu giữ tài liệu.", "khan": true, "that": "nhân viên Andersen hủy hàng loạt tài liệu Enron. Hãng bị kết án năm 2002; năm 2005 Tòa Tối cao lật án."}, {"gio": "16/10/2001", "tu": "phòng tài chính", "chu": "Quý 3: khoản trích 1,01 tỷ USD, lỗ ròng 618 triệu USD.", "khan": true, "that": "công bố cùng ngày. Ngày 8/11 Enron viết lại lợi nhuận bốn năm."}], "ket": "Bạn chuyển {d}/{n} cảnh báo lên. Ở Enron, cả {n} tín hiệu đều đã tới người có quyền, nhưng không cái nào làm công ty dừng lại. Ngày 2/12/2001 Enron nộp đơn phá sản.", "nguon": "Nguồn: Thượng viện Mỹ, Senate Print 107-70 (8/7/2002) và phụ lục buổi họp 7/2/1999 (chữ \"pushing limits\" theo Bloomberg 28/7/2002, nguồn thứ cấp); Báo cáo Powers (2/2002): duyệt LJM1 28/6/1999, LJM2 10/1999; thông cáo Enron 6/2/2001 (Fortune); thư và lời khai của Sherron Watkins trước Hạ viện (2/2002): thư 14/8/2001, gặp Lay 22/8/2001; Arthur Andersen LLP v. United States, 544 U.S. 696 (2005); thông cáo Enron 16/10/2001 (1,01 tỷ USD, 618 triệu USD); Form 8-K 8/11/2001; hồ sơ phá sản vụ 01-16034 (2/12/2001). Nội dung các thư cảnh báo là Mark tóm lược từ tài liệu thật; hai thư nhân sự và IT là ví dụ minh họa do Mark viết."}, "en": {"muc": "Play before you read", "nhan": "Warning inbox", "hoi": "You sit in the Enron chairman's office, 1999 to 2001. Warnings arrive mixed in with routine mail. Which ones go to the board?", "nut_chuyen": "Send to the board", "nut_de": "Later", "ban_chuyen": "You sent it up.", "ban_de": "You held it.", "that_ra": "What really happened:", "tin_thuong": "Not a warning.", "thu": [{"gio": "7/2/1999", "tu": "auditor Andersen", "chu": "Our accounting is \"pushing limits\" of what is acceptable.", "khan": true, "that": "the Audit Committee heard it. In 2002 the Senate concluded the board \"knowingly allowed\" high-risk accounting."}, {"gio": "6/1999", "tu": "finance team", "chu": "Proposal: the CFO becomes managing partner of the LJM1 fund, which will buy and sell assets with Enron itself.", "khan": true, "that": "the board approved it on 28/6/1999, then approved LJM2 in October."}, {"gio": "12/1999", "tu": "HR", "chu": "The company year-end party schedule.", "khan": false}, {"gio": "6/2/2001", "tu": "communications", "chu": "Fortune names Enron \"most innovative company in America\" for the sixth year running!", "khan": false}, {"gio": "14/8/2001", "tu": "anonymous letter", "chu": "I am incredibly nervous that we will implode in a wave of accounting scandals.", "khan": true, "that": "it reached chairman Lay. He met the writer on 22/8 and handed the questions to the company's usual law firm."}, {"gio": "9/2001", "tu": "IT", "chu": "Reminder to change your email password before month end.", "khan": false}, {"gio": "10/2001", "tu": "Andersen in-house counsel", "chu": "Reminder to follow the document retention policy.", "khan": true, "that": "Andersen staff destroyed large amounts of Enron documents. The firm was convicted in 2002; the Supreme Court reversed in 2005."}, {"gio": "16/10/2001", "tu": "finance team", "chu": "Q3: $1.01 billion in charges, a $618 million net loss.", "khan": true, "that": "announced the same day. On 8/11 Enron restated four years of profits."}], "ket": "You sent {d}/{n} warnings up. At Enron, all {n} signals reached people with the power to act, and none of them made the company stop. On 2 December 2001 Enron filed for bankruptcy.", "nguon": "Source: US Senate, Senate Print 107-70 (8 July 2002) and the exhibit from the 7 Feb 1999 meeting (the words \"pushing limits\" per Bloomberg, 28 July 2002, secondary source); Powers Report (2/2002): LJM1 approved 28/6/1999, LJM2 10/1999; Enron press release 6 Feb 2001 (Fortune); Sherron Watkins's letter and testimony to the House (2/2002): letter 14/8/2001, meeting with Lay 22/8/2001; Arthur Andersen LLP v. United States, 544 U.S. 696 (2005); Enron press release 16 Oct 2001 ($1.01 billion, $618 million); Form 8-K 8 Nov 2001; bankruptcy case 01-16034 (2 Dec 2001). The warning messages are Mark's summaries of the real documents; the HR and IT messages are illustrative examples written by Mark."}}],
   "that-bai-blockbuster": [{"khuon": "thu-tu", "id": "choi-thu-tu", "truoc": "tinh-hoa", "vi": {"muc": "Chơi trước khi đọc", "nhan": "Xếp lại 10 năm của Blockbuster", "hoi": "Chạm các mốc theo thứ tự xảy ra, từ sớm nhất đến muộn nhất, rồi xem ngày thật. Gợi ý: có một mốc của Netflix lẫn vào.", "cac": [["8/2004", "Blockbuster mở dịch vụ thuê đĩa online, gửi qua bưu điện."], ["1/1/2005", "Bỏ phí trả trễ, khoản chiếm khoảng 14% doanh thu cho thuê năm 2004."], ["5/2005", "Nhà đầu tư Carl Icahn vào hội đồng quản trị."], ["1/11/2006", "Ra mắt Total Access: thuê online, trả đĩa ở hơn 5.000 cửa hàng."], ["16/1/2007", "Netflix cho thuê bao xem phim ngay trên máy tính."], ["2/7/2007", "CEO mới James Keyes thay John Antioco."], ["23/9/2010", "Blockbuster nộp đơn phá sản Chapter 11 ở New York."], ["6/4/2011", "DISH Network thắng đấu giá tài sản, giá trị khoảng 320 triệu USD."]], "nut_kiem": "Xem ngày thật", "nut_lai": "Làm lại", "dung_cho": "đúng vị trí", "sai_cho": "đúng ra là bước {n}", "ket": "Bạn xếp đúng {d}/{n}. Điều nhiều người bất ngờ: Total Access ra mắt trước khi Netflix có phim xem ngay. Blockbuster không đi sau; họ đổi hướng giữa đường.", "nguon": "Nguồn: Blockbuster 10-K 2005 (online 8/2004, bỏ phí trả trễ, 14%), hồ sơ ủy quyền 2005 và 2007 (Icahn), 10-K 2006 và thông cáo 1/11/2006 (Total Access, hơn 5.000 cửa hàng), 8-K 2/7/2007 (đổi CEO), 8-K 23/9/2010 (phá sản); thông cáo Netflix 16/1/2007; DISH 8-K 6/4/2011 (khoảng 320 triệu USD)."}, "en": {"muc": "Play before you read", "nhan": "Put Blockbuster's decade in order", "hoi": "Tap the milestones in the order they happened, earliest first, then see the real dates. Hint: one Netflix milestone is mixed in.", "cac": [["8/2004", "Blockbuster opens an online DVD-by-mail rental service."], ["1/1/2005", "Late fees are dropped, about 14% of 2004 rental revenue."], ["5/2005", "Investor Carl Icahn joins the board."], ["1/11/2006", "Total Access launches: rent online, return at more than 5,000 stores."], ["16/1/2007", "Netflix lets subscribers watch films instantly on their PCs."], ["2/7/2007", "New CEO James Keyes replaces John Antioco."], ["23/9/2010", "Blockbuster files for Chapter 11 bankruptcy in New York."], ["6/4/2011", "DISH Network wins the asset auction, a bid valued at about 320 million USD."]], "nut_kiem": "Show real dates", "nut_lai": "Start over", "dung_cho": "right place", "sai_cho": "should be step {n}", "ket": "You placed {d}/{n} correctly. The surprise for many: Total Access launched before Netflix offered instant streaming. Blockbuster was not behind; it changed course halfway.", "nguon": "Source: Blockbuster 10-K 2005 (online 8/2004, late fees dropped, 14%), proxy filings 2005 and 2007 (Icahn), 10-K 2006 and release of 1/11/2006 (Total Access, more than 5,000 stores), 8-K of 2/7/2007 (CEO change), 8-K of 23/9/2010 (bankruptcy); Netflix release of 16/1/2007; DISH 8-K of 6/4/2011 (about 320 million USD)."}}],
-  "that-bai-ftx": [{"khuon": "bac-thang", "id": "choi-nhap-vai", "truoc": "tinh-hoa", "buoc": 5, "toi_da": 65, "nguy": 10, "keu_tu": 15, "keu_den": 45, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn là kỹ sư của sàn", "hoi": "Tài khoản của quỹ anh em với sàn đã được phép âm số dư. Sếp nhờ bạn nâng hạn mức vay của quỹ đó, mỗi lần 5 tỷ USD, trả bằng tiền của khách. Không ai bên ngoài biết. Bạn dừng ở đâu?", "nhan_bang": ["5 tỷ USD", "Vượt cái hố thật", "65 tỷ USD"], "mo": "Sếp: \"Quỹ cần thêm hạn mức. Nâng lên 5 tỷ nhé.\"", "nut_bam": "Nâng lên {v} tỷ", "nut_dung": "Tôi dừng", "nut_van_dung": "Vẫn dừng", "nut_nhat": "Tôi báo cho người độc lập", "nut_thoi": "Thôi, nâng lên {v} tỷ", "nut_lai": "Chơi lại", "keu": ["Kế toán hỏi: \"Số dư âm này là của ai?\"", "Kế toán: \"Sổ không khớp với ngân hàng.\""], "su_kien": {"10": "Số âm đã lớn hơn cả cái hố mà bên quản lý phá sản sau này tìm ra.", "30": "Không ai ngoài nhóm nhỏ đọc được dòng code này.", "50": "Khách vẫn thấy số dư của họ trên màn hình."}, "thuc": ["Sếp: \"Chỉ là tạm thời, quỹ sẽ trả lại.\"", "Sếp: \"Quỹ đang giữ thanh khoản cho cả sàn.\"", "Sếp: \"Không ai cần biết chuyện nội bộ này.\"", "Sếp: \"Bạn muốn cả công ty sụp vì bạn à?\""], "het": "Bạn nâng đến 65 tỷ USD. Tại tòa, đồng sáng lập Gary Wang khai hạn mức của Alameda trên FTX đúng là đã lên tới 65 tỷ USD. Bên quản lý phá sản sau đó xác định 8,7 tỷ USD tài sản khách bị dùng sai.", "dung_o": "Bạn dừng ở {v} tỷ USD.", "khong_bam": "Bạn không nâng lần nào.", "som": "Bạn dừng trước khi số âm vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX, cờ cho phép âm có từ cuối 2019 và hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: người giữ tiền và người viết luật không được là một nhóm.", "muon": "Lúc bạn dừng, số âm đã vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX không ai dừng: hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: cần một người độc lập được nhìn thấy mọi ngoại lệ.", "nguon": "Nguồn: lời khai của Gary Wang tại phiên tòa US v. Bankman-Fried, 5–6/10/2023 (hạn mức 65 tỷ USD, cờ cho phép âm từ cuối 2019; nguồn thứ cấp: Blockworks, Decrypt); đơn kiện SEC (13/12/2022, hạn mức \"gần như không giới hạn\"); đơn kiện CFTC sửa đổi (21/12/2022, \"allow negative flag\" không công bố); báo cáo tạm thời thứ hai của John J. Ray III (26/6/2023, 8,7 tỷ USD tài sản khách bị dùng sai, qua The Block, nguồn thứ cấp). Lời thoại của \"sếp\" là hư cấu để chơi, không phải trích dẫn của người thật."}, "en": {"muc": "Play before you read", "nhan": "You are the exchange's engineer", "hoi": "The account of a sister fund is already allowed to go negative. Your boss asks you to raise that fund's credit line, $5 billion at a time, paid from customer money. Nobody outside knows. Where do you stop?", "nhan_bang": ["$5 billion", "Past the real hole", "$65 billion"], "mo": "Boss: \"The fund needs more room. Raise it to 5 billion.\"", "nut_bam": "Raise to {v}bn", "nut_dung": "I'll stop", "nut_van_dung": "Still stopping", "nut_nhat": "I'm telling someone independent", "nut_thoi": "Fine, raise to {v}bn", "nut_lai": "Play again", "keu": ["Accounting asks: \"Whose negative balance is this?\"", "Accounting: \"The books don't match the bank.\""], "su_kien": {"10": "The negative balance is now bigger than the hole the bankruptcy estate later found.", "30": "Nobody outside a small group can read this line of code.", "50": "Customers still see their balances on screen."}, "thuc": ["Boss: \"It's temporary, the fund will pay it back.\"", "Boss: \"The fund keeps the whole exchange liquid.\"", "Boss: \"Nobody needs to know about internal stuff.\"", "Boss: \"Do you want the company to collapse because of you?\""], "het": "You went to $65 billion. At trial, co-founder Gary Wang testified that Alameda's line on FTX really did reach $65 billion. The bankruptcy estate later found $8.7 billion of customer assets misused.", "dung_o": "You stopped at ${v} billion.", "khong_bam": "You never raised it.", "som": "You stopped before the negative passed $8.7 billion, the hole the estate later found. At FTX the allow-negative flag dated from late 2019 and the line reached $65 billion, per trial testimony. The lesson: whoever holds the money must not also write the rules.", "muon": "By the time you stopped, the negative had passed $8.7 billion, the hole the estate later found. At FTX nobody stopped: the line reached $65 billion, per trial testimony. The lesson: someone independent must see every exception.", "nguon": "Source: Gary Wang's testimony at the US v. Bankman-Fried trial, 5–6 Oct 2023 ($65 billion line, allow-negative from late 2019; secondary source: Blockworks, Decrypt); SEC complaint (13 Dec 2022, \"virtually unlimited\" line of credit); CFTC amended complaint (21 Dec 2022, undisclosed \"allow negative flag\"); John J. Ray III's Second Interim Report (26 Jun 2023, $8.7 billion of customer assets misused, via The Block, secondary source). The boss's lines are fiction for the game, not quotes from real people."}}]
+  "that-bai-ftx": [{"khuon": "bac-thang", "id": "choi-nhap-vai", "truoc": "tinh-hoa", "buoc": 5, "toi_da": 65, "nguy": 10, "keu_tu": 15, "keu_den": 45, "vi": {"muc": "Chơi trước khi đọc", "nhan": "Bạn là kỹ sư của sàn", "hoi": "Tài khoản của quỹ anh em với sàn đã được phép âm số dư. Sếp nhờ bạn nâng hạn mức vay của quỹ đó, mỗi lần 5 tỷ USD, trả bằng tiền của khách. Không ai bên ngoài biết. Bạn dừng ở đâu?", "nhan_bang": ["5 tỷ USD", "Vượt cái hố thật", "65 tỷ USD"], "mo": "Sếp: \"Quỹ cần thêm hạn mức. Nâng lên 5 tỷ nhé.\"", "nut_bam": "Nâng lên {v} tỷ", "nut_dung": "Tôi dừng", "nut_van_dung": "Vẫn dừng", "nut_nhat": "Tôi báo cho người độc lập", "nut_thoi": "Thôi, nâng lên {v} tỷ", "nut_lai": "Chơi lại", "keu": ["Kế toán hỏi: \"Số dư âm này là của ai?\"", "Kế toán: \"Sổ không khớp với ngân hàng.\""], "su_kien": {"10": "Số âm đã lớn hơn cả cái hố mà bên quản lý phá sản sau này tìm ra.", "30": "Không ai ngoài nhóm nhỏ đọc được dòng code này.", "50": "Khách vẫn thấy số dư của họ trên màn hình."}, "thuc": ["Sếp: \"Chỉ là tạm thời, quỹ sẽ trả lại.\"", "Sếp: \"Quỹ đang giữ thanh khoản cho cả sàn.\"", "Sếp: \"Không ai cần biết chuyện nội bộ này.\"", "Sếp: \"Bạn muốn cả công ty sụp vì bạn à?\""], "het": "Bạn nâng đến 65 tỷ USD. Tại tòa, đồng sáng lập Gary Wang khai hạn mức của Alameda trên FTX đúng là đã lên tới 65 tỷ USD. Bên quản lý phá sản sau đó xác định 8,7 tỷ USD tài sản khách bị dùng sai.", "dung_o": "Bạn dừng ở {v} tỷ USD.", "khong_bam": "Bạn không nâng lần nào.", "som": "Bạn dừng trước khi số âm vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX, cờ cho phép âm có từ cuối 2019 và hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: người giữ tiền và người viết luật không được là một nhóm.", "muon": "Lúc bạn dừng, số âm đã vượt 8,7 tỷ USD, cái hố mà bên quản lý phá sản tìm ra. Ở FTX không ai dừng: hạn mức lên tới 65 tỷ USD theo lời khai tại tòa. Bài học: cần một người độc lập được nhìn thấy mọi ngoại lệ.", "nguon": "Nguồn: lời khai của Gary Wang tại phiên tòa US v. Bankman-Fried, 5–6/10/2023 (hạn mức 65 tỷ USD, cờ cho phép âm từ cuối 2019; nguồn thứ cấp: Blockworks, Decrypt); đơn kiện SEC (13/12/2022, hạn mức \"gần như không giới hạn\"); đơn kiện CFTC sửa đổi (21/12/2022, \"allow negative flag\" không công bố); báo cáo tạm thời thứ hai của John J. Ray III (26/6/2023, 8,7 tỷ USD tài sản khách bị dùng sai, qua The Block, nguồn thứ cấp). Lời thoại của \"sếp\" là hư cấu để chơi, không phải trích dẫn của người thật."}, "en": {"muc": "Play before you read", "nhan": "You are the exchange's engineer", "hoi": "The account of a sister fund is already allowed to go negative. Your boss asks you to raise that fund's credit line, $5 billion at a time, paid from customer money. Nobody outside knows. Where do you stop?", "nhan_bang": ["$5 billion", "Past the real hole", "$65 billion"], "mo": "Boss: \"The fund needs more room. Raise it to 5 billion.\"", "nut_bam": "Raise to {v}bn", "nut_dung": "I'll stop", "nut_van_dung": "Still stopping", "nut_nhat": "I'm telling someone independent", "nut_thoi": "Fine, raise to {v}bn", "nut_lai": "Play again", "keu": ["Accounting asks: \"Whose negative balance is this?\"", "Accounting: \"The books don't match the bank.\""], "su_kien": {"10": "The negative balance is now bigger than the hole the bankruptcy estate later found.", "30": "Nobody outside a small group can read this line of code.", "50": "Customers still see their balances on screen."}, "thuc": ["Boss: \"It's temporary, the fund will pay it back.\"", "Boss: \"The fund keeps the whole exchange liquid.\"", "Boss: \"Nobody needs to know about internal stuff.\"", "Boss: \"Do you want the company to collapse because of you?\""], "het": "You went to $65 billion. At trial, co-founder Gary Wang testified that Alameda's line on FTX really did reach $65 billion. The bankruptcy estate later found $8.7 billion of customer assets misused.", "dung_o": "You stopped at ${v} billion.", "khong_bam": "You never raised it.", "som": "You stopped before the negative passed $8.7 billion, the hole the estate later found. At FTX the allow-negative flag dated from late 2019 and the line reached $65 billion, per trial testimony. The lesson: whoever holds the money must not also write the rules.", "muon": "By the time you stopped, the negative had passed $8.7 billion, the hole the estate later found. At FTX nobody stopped: the line reached $65 billion, per trial testimony. The lesson: someone independent must see every exception.", "nguon": "Source: Gary Wang's testimony at the US v. Bankman-Fried trial, 5–6 Oct 2023 ($65 billion line, allow-negative from late 2019; secondary source: Blockworks, Decrypt); SEC complaint (13 Dec 2022, \"virtually unlimited\" line of credit); CFTC amended complaint (21 Dec 2022, undisclosed \"allow negative flag\"); John J. Ray III's Second Interim Report (26 Jun 2023, $8.7 billion of customer assets misused, via The Block, secondary source). The boss's lines are fiction for the game, not quotes from real people."}}],
+  "tham-hoa-columbia": [
+    {
+      "khuon": "doan-tau",
+      "id": "choi-doan-tau",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoàn tàu 16 ngày",
+        "hoi": "Kéo từng toa từ bãi xuống đường ray theo đúng thứ tự ngày. Toa số 1 nối ngay sau đầu máy. Chạm một toa để đọc nó.",
+        "mo_ta": "Bãi toa và đường ray: năm toa ghi các ngày của chuyến bay Columbia, cần nối vào sau đầu máy theo thứ tự.",
+        "doc_mac": "Chạm vào một toa để đọc.",
+        "nut_chay": "Cho tàu chạy",
+        "nut_lai": "Xếp lại",
+        "bai": "BÃI TOA",
+        "ten_toa": "toa {n}",
+        "toa": [
+          {
+            "d": "16/1",
+            "a": [
+              "Phóng; bọt",
+              "đập cánh trái"
+            ],
+            "full": "16/1/2003: phóng. Giây 81,7 một mảng bọt rời bình nhiên liệu và đập vào mép cánh trái."
+          },
+          {
+            "d": "17/1",
+            "a": [
+              "Nhóm ảnh",
+              "thấy cú va"
+            ],
+            "full": "17/1 (ngày bay 2): nhóm phân tích ảnh thấy cú va, xin ảnh chụp cánh lần đầu."
+          },
+          {
+            "d": "21/1",
+            "a": [
+              "Kỹ sư",
+              "\"năn nỉ\" xin ảnh"
+            ],
+            "full": "21/1 (ngày bay 6): kỹ sư tiếp tục xin ảnh vệ tinh, một người viết là \"năn nỉ\"."
+          },
+          {
+            "d": "22/1",
+            "a": [
+              "Yêu cầu ảnh",
+              "bị hủy"
+            ],
+            "full": "22/1: yêu cầu chụp ảnh gửi Bộ Quốc phòng bị hủy 90 phút sau khi đưa ra."
+          },
+          {
+            "d": "23/1",
+            "a": [
+              "Email:",
+              "\"không đáng lo\""
+            ],
+            "full": "23/1: email cho phi hành đoàn: \"Hoàn toàn không có gì đáng lo khi trở về.\""
+          }
+        ],
+        "sai": "Đúng {d}/{n} toa. Toa viền đỏ đang sai chỗ; kéo đổi rồi cho chạy lại.",
+        "dung": "Đúng cả 5 toa. Đoàn tàu này chạy thẳng tới ngày 1/2/2003: Columbia vỡ trên bầu trời Texas, 7 phi hành gia thiệt mạng. Dọc đường có nhiều lần lẽ ra đã có thể dừng lại.",
+        "nguon": "Nguồn: CAIB, tập I (8/2003), chương 3 và mục 6.3: phóng 16/1/2003, bọt rơi ở giây 81,7 và đập mép cánh trái; 17/1 nhóm ảnh thấy cú va; 21/1 kỹ sư xin ảnh; 22/1 yêu cầu với Bộ Quốc phòng bị hủy 90 phút sau; 23/1 email \"không có gì đáng lo khi trở về\"; 1/2 tàu vỡ trên Texas, 7 người chết."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "A 16-day train",
+        "hoi": "Drag each car from the yard onto the track in date order. Car 1 couples right behind the engine. Tap a car to read it.",
+        "mo_ta": "A rail yard and a track: five cars labelled with dates from Columbia's flight, to be coupled behind the engine in order.",
+        "doc_mac": "Tap a car to read it.",
+        "nut_chay": "Run the train",
+        "nut_lai": "Reset",
+        "bai": "RAIL YARD",
+        "ten_toa": "car {n}",
+        "toa": [
+          {
+            "d": "16 Jan",
+            "a": [
+              "Launch; foam",
+              "hits wing"
+            ],
+            "full": "16 Jan 2003: launch. At 81.7 s a piece of foam breaks off the fuel tank and strikes the left wing's leading edge."
+          },
+          {
+            "d": "17 Jan",
+            "a": [
+              "Photo team",
+              "sees strike"
+            ],
+            "full": "17 Jan (flight day 2): the imagery team sees the strike and makes the first request for pictures of the wing."
+          },
+          {
+            "d": "21 Jan",
+            "a": [
+              "Engineers",
+              "\"beg\""
+            ],
+            "full": "21 Jan (flight day 6): engineers keep asking for satellite images; one writes about having to \"beg\"."
+          },
+          {
+            "d": "22 Jan",
+            "a": [
+              "Photo ask",
+              "cancelled"
+            ],
+            "full": "22 Jan: the imaging request to the Department of Defense is cancelled 90 minutes after it was made."
+          },
+          {
+            "d": "23 Jan",
+            "a": [
+              "E-mail:",
+              "\"no concern\""
+            ],
+            "full": "23 Jan: e-mail to the crew: \"There is absolutely no concern for entry.\""
+          }
+        ],
+        "sai": "{d}/{n} cars right. Cars outlined in red are in the wrong place; swap them and run again.",
+        "dung": "All 5 cars right. This train runs straight to 1 February 2003: Columbia breaks apart over Texas and 7 astronauts die. Along the way there were several points where it could have been stopped.",
+        "nguon": "Source: CAIB, vol. I (Aug 2003), chapter 3 and section 6.3: launch 16 Jan 2003, foam shed at 81.7 s striking the left wing leading edge; 17 Jan the imagery team sees the strike; 21 Jan engineers ask for images; 22 Jan the DoD request cancelled 90 minutes later; 23 Jan e-mail \"absolutely no concern for entry\"; 1 Feb breakup over Texas, 7 killed."
+      }
+    }
+  ],
+  "tham-hoa-fukushima": [
+    {
+      "khuon": "domino",
+      "id": "choi-domino",
+      "truoc": "tinh-hoa",
+      "khong_rut": 4,
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Domino nguyên nhân",
+        "hoi": "Kéo các quân vào 6 chỗ đứng, sớm nhất bên trái, rồi đẩy cho đổ. Lượt sau, rút một quân ra trước khi đẩy xem chuỗi có dừng không.",
+        "mo_ta": "Sáu quân domino ghi các mốc dẫn tới tai nạn Fukushima Daiichi, cần dựng theo thứ tự thời gian.",
+        "doc_mac": "Chạm vào một quân để đọc.",
+        "nut_day": "Đẩy quân đầu",
+        "nut_rut": "Dựng lại và rút một quân",
+        "nut_lai": "Xếp lại",
+        "khay": "KHAY QUÂN",
+        "quan": [
+          {
+            "y": "1960s",
+            "a": [
+              "Hạ nền",
+              "xuống 10 m"
+            ],
+            "full": "Thập niên 1960: đào bớt mặt đất tự nhiên, đặt tòa lò ở độ cao 10 m.",
+            "sua": "Đặt nhà máy cao hơn thì sóng khó vào được."
+          },
+          {
+            "y": "2002",
+            "a": [
+              "Sóng thiết kế",
+              "chỉ 5,7 m"
+            ],
+            "full": "2002: tính lại sóng thiết kế, chỉ 5,7 m.",
+            "sua": "Tính sóng thiết kế theo kịch bản động đất lớn hơn thì mốc này đã khác."
+          },
+          {
+            "y": "2008",
+            "a": [
+              "Tính ra 15,7 m",
+              "rồi để đó"
+            ],
+            "full": "2008: nhóm TEPCO tự tính sóng tối đa 15,7 m; con số được gửi đi \"nghiên cứu thêm\".",
+            "sua": "Làm theo con số 15,7 m: còn khoảng 3 năm để xây tường, đưa máy phát lên cao."
+          },
+          {
+            "y": "2009",
+            "a": [
+              "Dời kiểm tra",
+              "sang 2016"
+            ],
+            "full": "2009: hạn kiểm tra chống động đất bị dời sang 1/2016.",
+            "sua": "Giữ hạn cũ thì lỗ hổng có thể lộ ra trước sóng thần."
+          },
+          {
+            "y": "11/3/2011",
+            "a": [
+              "Sóng 13,1 m",
+              "tràn vào"
+            ],
+            "full": "11/3/2011: sóng khoảng 13,1 m tràn qua mặt bằng 10 m.",
+            "sua": "Quân này là thiên nhiên, không rút được."
+          },
+          {
+            "y": "15:42",
+            "a": [
+              "Mất điện",
+              "toàn bộ"
+            ],
+            "full": "Khoảng 15:42: mất điện toàn bộ; ngày 12/3 nổ hydro ở tòa lò 1.",
+            "sua": "Có kịch bản mất điện dài và máy phát đặt cao thì lò còn được làm mát."
+          }
+        ],
+        "sai": "Đúng {d}/{n}. Quân viền đỏ đang sai năm; kéo đổi rồi đẩy lại.",
+        "do_het": "Đổ hết 6 quân: nổ hydro ở tòa lò 1 ngày 12/3/2011, khoảng 150.000 người sơ tán. Giờ thử rút một quân xem chuỗi có dừng không.",
+        "dung_o": "Chuỗi dừng ở quân thứ {n}.",
+        "chon_rut": "Chạm vào quân bạn muốn rút ra.",
+        "khong_rut_duoc": "Sóng thần là thiên nhiên, không rút được. Chọn quân khác.",
+        "da_rut": "Đã rút quân \"{y}\". Đẩy quân đầu.",
+        "nguon": "Nguồn: IAEA, tập kỹ thuật 2 (2015): mặt bằng tòa lò 10 m, sóng thiết kế tính lại 5,7 m năm 2002; TEPCO (24/4/2012): phép tính 15,7 m năm 2008; NAIIC (7/2012): hạn kiểm tra dời sang 1/2016, khoảng 150.000 người sơ tán; Ryu và Meshkati (2014): sóng 13,1 m; World Nuclear Association: mất điện toàn bộ khoảng 15:42 ngày 11/3/2011, nổ hydro 12/3. \"Chuỗi dừng\" là giả định của Mark để minh họa, không phải kết luận của báo cáo."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Dominoes of cause",
+        "hoi": "Drag the tiles into the 6 places, earliest on the left, then push them over. Next round, remove one tile before pushing and see whether the chain stops.",
+        "mo_ta": "Six dominoes labelled with the steps that led to the Fukushima Daiichi accident, to be stood up in time order.",
+        "doc_mac": "Tap a tile to read it.",
+        "nut_day": "Push the first tile",
+        "nut_rut": "Stand them up and remove one",
+        "nut_lai": "Reset",
+        "khay": "TILE TRAY",
+        "quan": [
+          {
+            "y": "1960s",
+            "a": [
+              "Site cut",
+              "down to 10 m"
+            ],
+            "full": "1960s: natural ground is dug away and the reactor buildings are set at 10 m above sea level.",
+            "sua": "A higher site would have kept the wave out more easily."
+          },
+          {
+            "y": "2002",
+            "a": [
+              "Design wave",
+              "only 5.7 m"
+            ],
+            "full": "2002: the design-basis wave is recalculated at only 5.7 m.",
+            "sua": "A design wave based on a larger earthquake scenario would have changed this step."
+          },
+          {
+            "y": "2008",
+            "a": [
+              "15.7 m found",
+              "then shelved"
+            ],
+            "full": "2008: a TEPCO team calculates a maximum wave of 15.7 m; the number is sent off for \"further study\".",
+            "sua": "Acting on 15.7 m would have left about 3 years to build a wall and raise the generators."
+          },
+          {
+            "y": "2009",
+            "a": [
+              "Check",
+              "delayed"
+            ],
+            "full": "2009: the deadline for the seismic safety check is moved to January 2016.",
+            "sua": "Keeping the old deadline might have exposed the gap before the tsunami."
+          },
+          {
+            "y": "11/3/2011",
+            "a": [
+              "13.1 m wave",
+              "floods in"
+            ],
+            "full": "11 Mar 2011: a wave of about 13.1 m floods over the 10 m site.",
+            "sua": "This tile is nature; it cannot be removed."
+          },
+          {
+            "y": "15:42",
+            "a": [
+              "Total",
+              "power loss"
+            ],
+            "full": "About 15:42: total loss of power; on 12 March hydrogen explodes in unit 1.",
+            "sua": "A plan for long blackouts and generators placed higher would have kept the reactors cooled."
+          }
+        ],
+        "sai": "{d}/{n} right. Tiles outlined in red have the wrong year; swap them and push again.",
+        "do_het": "All 6 fell: a hydrogen explosion in unit 1 on 12 March 2011, and about 150,000 people evacuated. Now remove one tile and see whether the chain stops.",
+        "dung_o": "The chain stops at tile {n}.",
+        "chon_rut": "Tap the tile you want to remove.",
+        "khong_rut_duoc": "The tsunami is nature; it cannot be removed. Pick another tile.",
+        "da_rut": "Removed \"{y}\". Push the first tile.",
+        "nguon": "Source: IAEA, technical volume 2 (2015): 10 m site level, design wave recalculated at 5.7 m in 2002; TEPCO (24 Apr 2012): the 15.7 m calculation in 2008; NAIIC (Jul 2012): check deadline moved to Jan 2016, about 150,000 evacuated; Ryu and Meshkati (2014): 13.1 m wave; World Nuclear Association: total power loss about 15:42 on 11 Mar 2011, hydrogen explosion 12 Mar. \"The chain stops\" is Mark's illustration, not a finding of the reports."
+      }
+    }
+  ],
+  "tham-hoa-deepwater-horizon": [
+    {
+      "khuon": "pho-mai",
+      "id": "choi-pho-mai",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Bốn lát phô mai",
+        "hoi": "Kéo từng lát lên xuống để lỗ không thẳng hàng. Khí từ giếng (trái) chỉ tới được giàn khoan (phải) khi lọt qua lỗ của cả bốn lát.",
+        "mo_ta": "Bốn lớp chắn có lỗ giữa giếng dầu và giàn khoan; các chấm đỏ là khí đi từ trái sang phải.",
+        "nut_that": "Xem đêm 20/4/2010",
+        "nut_tron": "Xáo lại",
+        "dem": "Khí lọt tới giàn: {n}",
+        "gieng": "GIẾNG",
+        "gian": "GIÀN",
+        "lop": [
+          "Xi măng",
+          "Thử áp",
+          "Theo dõi khí",
+          "Chống phun"
+        ],
+        "mo_dau": "Đêm 20/4/2010 cả bốn lớp cùng thủng:",
+        "ly_do": [
+          "Xi măng đáy giếng hỏng và không được đo kiểm.",
+          "Phép thử áp suất âm: 1.400 psi trên cần khoan, 0 ở ống dập giếng, vẫn kết luận \"đạt\".",
+          "Gần 1 giờ không ai phát hiện khí đang vào giếng.",
+          "Bộ chống phun đóng nhưng không kín."
+        ],
+        "ket": "Khí lên tới giàn, phát nổ; 11 người chết. Chỉ cần một lớp giữ được là khí không lên tới giàn.",
+        "nguon": "Nguồn: CSB (2016) và Ủy ban Quốc gia về sự cố Deepwater Horizon (2011): bốn hàng rào hỏng gồm xi măng đáy giếng, phép thử áp suất âm (1.400 psi trên cần khoan, 0 ở ống dập giếng) bị kết luận \"đạt\", gần 1 giờ không phát hiện khí vào giếng, bộ chống phun đóng nhưng không kín; 11 người chết. Vị trí lỗ và dòng khí trong cảnh là hình minh họa."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Four slices of cheese",
+        "hoi": "Drag each slice up or down so the holes don't line up. Gas from the well (left) only reaches the rig (right) if it passes through holes in all four slices.",
+        "mo_ta": "Four barriers with holes between the well and the rig; red dots are gas moving from left to right.",
+        "nut_that": "See the night of 20 April 2010",
+        "nut_tron": "Shuffle",
+        "dem": "Gas reaching the rig: {n}",
+        "gieng": "WELL",
+        "gian": "RIG",
+        "lop": [
+          "Cement",
+          "Pressure test",
+          "Kick watch",
+          "Blowout preventer"
+        ],
+        "mo_dau": "On the night of 20 April 2010 all four barriers failed:",
+        "ly_do": [
+          "The cement at the bottom of the well failed and was not checked.",
+          "Negative pressure test: 1,400 psi on the drill pipe, 0 on the kill line, still judged a \"pass\".",
+          "For nearly an hour nobody noticed gas entering the well.",
+          "The blowout preventer closed but did not seal."
+        ],
+        "ket": "Gas reached the rig and exploded; 11 people died. Any one barrier holding would have kept the gas off the rig.",
+        "nguon": "Source: CSB (2016) and the National Commission on the Deepwater Horizon Oil Spill (2011): four failed barriers, namely the bottom-hole cement, a negative pressure test (1,400 psi on the drill pipe, 0 on the kill line) judged a \"pass\", nearly an hour without detecting the kick, and a blowout preventer that closed but did not seal; 11 killed. Hole positions and gas flow in the scene are illustrative."
+      }
+    }
+  ],
+  "thi-nghiem-keo-deo": [
+    {
+      "khuon": "cho-keo",
+      "id": "choi-cho-keo",
+      "truoc": "tinh-hoa",
+      "giay": 20,
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Chờ 20 giây",
+        "hoi": "Đừng chạm vào viên kẹo. Mẹo của trẻ giỏi chờ: kéo cái bát úp lên kẹo, hoặc bấm \"Nghĩ nó là đám mây\". Chạm kẹo là ăn, rung chuông là bỏ cuộc.",
+        "mo_ta": "Một viên kẹo dẻo trên đĩa, một cái bát kéo được và một cái chuông.",
+        "nut_bd": "Bắt đầu chờ",
+        "nut_may": "Nghĩ nó là đám mây",
+        "nut_may_lai": "Thôi, nó là viên kẹo",
+        "chuong": "rung = bỏ cuộc",
+        "bat": "kéo bát",
+        "du": "Bạn chờ đủ {t} giây",
+        "meo": " (có dùng mẹo)",
+        "an": "Bạn ăn mất viên kẹo sau {s} giây.",
+        "rung": "Bạn rung chuông sau {s} giây.",
+        "da_cho": "Đã chờ: {s} / {t} giây",
+        "du_do": [
+          "Ăn đi mà…",
+          "Mềm lắm đó!",
+          "Không ai thấy đâu",
+          "Một miếng thôi?",
+          "Ngọt lắm nè"
+        ],
+        "ket": "Trẻ ở Stanford có thể phải chờ tới khoảng 15 phút. Nghiên cứu năm 2018 với 918 trẻ thấy khác biệt chủ yếu nằm ở việc chờ được 20 giây hay không; che kẹo, nghĩ chuyện khác giúp chờ lâu hơn hẳn. Khi người lớn từng thất hứa, trẻ chỉ chờ khoảng 3 phút thay vì 12.",
+        "nguon": "Nguồn: Mischel và Ebbesen (1970): người lớn ra ngoài tối đa khoảng 15 phút; Mischel, Ebbesen và Zeiss (1972): che kẹo, nghĩ chuyện khác giúp chờ lâu hơn; Watts, Duncan và Quan (2018), 918 trẻ: khác biệt chủ yếu ở ngưỡng 20 giây; Kidd, Palmeri và Aslin (2013): người lớn giữ lời thì trẻ chờ khoảng 12 phút, thất hứa thì khoảng 3 phút. Câu dụ dỗ của viên kẹo là Mark viết cho vui."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "Wait 20 seconds",
+        "hoi": "Don't touch the marshmallow. Tricks of good waiters: drag the bowl over it, or press \"Think of it as a cloud\". Tapping it means eating it; ringing the bell means giving up.",
+        "mo_ta": "A marshmallow on a plate, a bowl you can drag, and a bell.",
+        "nut_bd": "Start waiting",
+        "nut_may": "Think of it as a cloud",
+        "nut_may_lai": "No, it's a marshmallow",
+        "chuong": "ring = give up",
+        "bat": "drag bowl",
+        "du": "You waited the full {t} seconds",
+        "meo": " (with a trick)",
+        "an": "You ate the marshmallow after {s} seconds.",
+        "rung": "You rang the bell after {s} seconds.",
+        "da_cho": "Waited: {s} / {t} seconds",
+        "du_do": [
+          "Go on, eat me…",
+          "So soft!",
+          "Nobody's looking",
+          "Just one bite?",
+          "I'm so sweet"
+        ],
+        "ket": "Children at Stanford could have to wait up to about 15 minutes. A 2018 study of 918 children found the difference lay mostly in whether they could wait 20 seconds; covering the treat or thinking of something else helped a lot. When an adult had broken a promise, children waited about 3 minutes instead of 12.",
+        "nguon": "Source: Mischel and Ebbesen (1970): the adult left for up to about 15 minutes; Mischel, Ebbesen and Zeiss (1972): covering the treat and distraction lengthened waiting; Watts, Duncan and Quan (2018), 918 children: the difference was mostly at the 20-second mark; Kidd, Palmeri and Aslin (2013): about 12 minutes when the adult was reliable, about 3 when not. The marshmallow's lines are Mark's, for fun."
+      }
+    }
+  ],
+  "thi-nghiem-ikea": [
+    {
+      "khuon": "lap-rap",
+      "id": "choi-lap-rap",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Tự tay lắp",
+        "hoi": "Kéo năm tấm gỗ vào đúng khung nét đứt. Tấm khớp sẽ tự bắt vít. Lắp xong, ra giá cho cái hộp của bạn.",
+        "mo_ta": "Gói hàng phẳng với năm tấm gỗ và một khung lắp nét đứt.",
+        "gia_hoi": "Bạn trả tối đa bao nhiêu cho cái hộp vừa lắp?",
+        "nut_chot": "Chốt giá",
+        "goi": "GÓI HÀNG PHẲNG",
+        "khung": "KHUNG LẮP",
+        "tam": [
+          "Hông trái",
+          "Hông phải",
+          "Nóc",
+          "Đáy",
+          "Kệ giữa"
+        ],
+        "xong": "Xong! Hộp do chính bạn lắp.",
+        "ket": "Bạn trả {g}. Trong thí nghiệm, người tự lắp trả trung bình 0,78 USD cho đúng cái hộp mà người nhận hộp lắp sẵn chỉ trả 0,48 USD, cao hơn khoảng 63%. Nhưng nếu lắp xong rồi tháo ra, phần chênh tụt còn khoảng một phần ba (0,14 so với 0,42 USD, thí nghiệm Lego).",
+        "nguon": "Nguồn: Norton, Mochon và Ariely (2012), Journal of Consumer Psychology 22(3): người tự lắp trả trung bình 0,78 USD, người nhận hộp lắp sẵn 0,48 USD; Lego: lắp và giữ chênh +0,42 USD, lắp rồi tháo chỉ còn +0,14 USD."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "Build it yourself",
+        "hoi": "Drag the five boards into the dashed frame. A board that fits screws itself in. When it's built, name your price for the box.",
+        "mo_ta": "A flat pack with five boards and a dashed assembly frame.",
+        "gia_hoi": "What's the most you'd pay for the box you just built?",
+        "nut_chot": "Lock in my price",
+        "goi": "FLAT PACK",
+        "khung": "ASSEMBLY FRAME",
+        "tam": [
+          "Left side",
+          "Right side",
+          "Top",
+          "Bottom",
+          "Shelf"
+        ],
+        "xong": "Done! You built this box.",
+        "ket": "You'd pay {g}. In the study, builders paid 0.78 USD on average for the same box that people given a pre-built one valued at 0.48 USD, about 63% more. But if they built it and then took it apart, the premium shrank to about a third (0.14 vs 0.42 USD, Lego study).",
+        "nguon": "Source: Norton, Mochon and Ariely (2012), Journal of Consumer Psychology 22(3): builders paid 0.78 USD on average, people given a pre-built box 0.48 USD; Lego: build and keep +0.42 USD, build then dismantle only +0.14 USD."
+      }
+    }
+  ]
 }
