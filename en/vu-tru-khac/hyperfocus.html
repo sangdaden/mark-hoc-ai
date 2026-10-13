@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyperfocus (Chris Bailey): summary, review and lessons | Another Universe</title>
+<meta name="description" content="Attention is limited: a narrow beam to work, a wide light to think. The four steps of hyperfocus, four types of distraction, scatterfocus, and the figures that rest on small studies.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/hyperfocus.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/hyperfocus.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hyperfocus (Chris Bailey): summary, review and lessons | Another Universe">
+<meta property="og:description" content="Attention is limited: a narrow beam to work, a wide light to think. The four steps of hyperfocus, four types of distraction, scatterfocus, and the figures that rest on small studies.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/hyperfocus.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover { color: #FBBF24; }
+.mhai-thanh .vtk-ve img { height: 30px; width: auto; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 16px; align-items: center; }
+@media (max-width: 420px) { .mhai-thanh .mhai b { display: none; } }
+body header { --bia-1: #111111; --bia-2: #7F1D1D; --bia-nhan: #FFE135; }
+:root { --vtk-nhan: #FFE135; }
+</style>
+</head>
+<body class="bia-hong-tam">
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe">‹ <img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><a href="../../vu-tru-khac/hyperfocus.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as Why We Sleep. Hyperfocus = red target from the Vietnamese cover; hyperfocus beam (--night), scatterfocus = wide amber light (--day). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #c62828;
+  --day: #b0650c;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #ff8a80; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #ff8a80; --day: #eaa24c; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Productivity · Psychology of attention</span>
+  <h1>Hyperfocus</h1>
+  <svg viewBox="0 0 320 44" width="320" height="44" style="max-width:100%" role="img" aria-label="Red and white target with a black arrow, taken from the Vietnamese edition cover">
+    <rect x="0" y="19" width="230" height="6" rx="3" fill="#C62828"/>
+    <path d="M222 8 L254 22 L222 36 Z" fill="#111" stroke="#FFD60A" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="290" cy="22" r="20" fill="#C62828"/><circle cx="290" cy="22" r="15" fill="#fff"/><circle cx="290" cy="22" r="10" fill="#C62828"/><circle cx="290" cy="22" r="5" fill="#fff"/><circle cx="290" cy="22" r="2.2" fill="#C62828"/>
+  </svg>
+  <p class="sub">Hyperfocus: How to Be More Productive in a World of Distraction · Chris Bailey</p>
+  <div class="meta">
+    <div><span class="label">Author</span><b>Chris Bailey · author of <i>The Productivity Project</i></b></div>
+    <div><span class="label">Published</span><b>2018 · Viking · Vietnamese ed.: Saigon Books, Thế Giới</b></div>
+    <div><span class="label">Size</span><b>2 halves · 10 chapters · ~256 pages</b></div>
+    <div><span class="label">Rating</span><b>7.5 / 10 · easy to read, usable today</b></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Thesis</a><a href="#bo-cuc">Structure</a><a href="#khai-niem">Concepts</a><a href="#dan-chung">Evidence</a><a href="#danh-gia">Verdict</a><a href="#ap-dung">Apply</a><a href="#doc-tiep">Read next</a>
+</nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Reread in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="3"/><path d="M9 16h4M19 16h4"/></svg><b>Attention is limited</b><span>We can hold only about 4 things in mind at once.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/></svg><b>Intention before attention</b><span>Choose the most worthwhile task first, then do it.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l20 20M26 6L6 26"/></svg><b>Block distractions in advance</b><span>Far easier than resisting them halfway through.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="7" cy="9" r="2"/><circle cx="24" cy="7" r="2"/><circle cx="15" cy="17" r="2"/><circle cx="8" cy="25" r="2"/><circle cx="25" cy="24" r="2"/><path d="M7 9l8 8 9-10M15 17l-7 8M15 17l10 7" stroke-dasharray="2 2"/></svg><b>Wander on purpose</b><span>"Scatterfocus" is when ideas connect on their own.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="13" cy="13" r="8"/><path d="M19 19l9 9"/></svg><b>Numbers a bit too neat</b><span>Many figures come from small studies; read them as hints.</span></div>
+  </div>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>Core thesis</h2></div>
+  <p class="thesis">Attention is our most valuable resource. Manage it in two modes, a narrow beam to work and a wide light to think, and you get more done and become more creative.</p>
+  <div class="flow" aria-label="Three steps of the argument">
+    <div class="step"><span class="label">Step 1</span><b>Limited attention</b><span>We spend much of the day on autopilot, and the mind holds only a few things.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 2</span><b>Hyperfocus</b><span>Set an intention, clear distractions, put all attention on one important task.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 3</span><b>Scatterfocus</b><span>Deliberately let the mind wander to rest, plan and connect ideas.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>How the book is organised</h2><p class="lead">Two nearly equal halves. The second half (scatterfocus) is what sets it apart from other focus books.</p></div>
+  <div class="chbar" role="img" aria-label="Hyperfocus 5 chapters, scatterfocus 4 chapters, last chapter combines both">
+    <div class="p1" style="flex:5">Hyperfocus · 5</div><div class="p4" style="flex:4">Scatterfocus · 4</div><div class="p5" style="flex:1">1</div>
+  </div>
+  <div class="parts">
+    <div class="part"><span class="label">Ch. 1–2 · Part 1</span><h3>Autopilot</h3><div class="chips"><span class="chip">four kinds of work</span><span class="chip">attentional space</span><span class="chip">attention residue</span><span class="chip">multitasking</span></div></div>
+    <div class="part"><span class="label">Ch. 3 · Part 2</span><h3>Four steps of hyperfocus</h3><div class="chips"><span class="chip">intention</span><span class="chip">rule of 3</span><span class="chip">starting ritual</span></div></div>
+    <div class="part b3"><span class="label">Ch. 4–5 · Part 3</span><h3>Taming distraction</h3><div class="chips"><span class="chip">four types of distraction</span><span class="chip">distraction-free mode</span><span class="chip">email, meetings</span><span class="chip">meditation</span></div></div>
+    <div class="part b4"><span class="label">Ch. 6–7 · Part 4</span><h3>Scatterfocus</h3><div class="chips"><span class="chip">mind wandering</span><span class="chip">three modes</span><span class="chip">recharging</span></div></div>
+    <div class="part b5"><span class="label">Ch. 8–10 · Part 5</span><h3>Connecting the dots</h3><div class="chips"><span class="chip">collecting dots</span><span class="chip">information diet</span><span class="chip">sleep, coffee, energy</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>Key concepts</h2></div>
+
+  <div class="concept">
+    <div class="term"><h3>Four kinds of work</h3><span class="en">necessary · purposeful · unnecessary · distracting</span><span class="pg">Chapter 1</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Unattractive</th><th>Attractive</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Productive</th><td class="safe"><b>Necessary</b><span>reports, bug fixes, planning meetings</span></td><td class="safe"><b>Purposeful</b><span>passion projects, learning a new skill</span></td></tr>
+          <tr><th class="rowh">Unproductive</th><td class="risk"><b>Unnecessary</b><span>pointless meetings, busywork</span></td><td class="risk"><b>Distracting</b><span>social media, news, short videos</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">On autopilot we drift to the bottom-right box. Staying in the top row takes a decision made in advance.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Attentional space</h3><span class="en">working memory</span><span class="pg">Chapter 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="f1t">
+          <title id="f1t">Attentional space is like a small desk that holds about 4 things. Each task takes up some room: habits take little, hard tasks take a lot. Add more and something else falls off.</title>
+          <rect x="20" y="40" width="420" height="120" rx="8" fill="var(--night)" fill-opacity=".06" stroke="var(--night)" stroke-width="2"/>
+          <text x="30" y="30" class="t-night t-bold">ATTENTIONAL SPACE · about 4 slots</text>
+          <rect x="34" y="60" width="194" height="80" rx="6" fill="var(--night)" fill-opacity=".6"/><text x="131" y="98" text-anchor="middle" style="fill:var(--paper)" class="t-bold">writing a report</text><text x="131" y="116" text-anchor="middle" style="fill:var(--paper)">hard task takes 2 slots</text>
+          <rect x="238" y="60" width="92" height="80" rx="6" fill="var(--day)" fill-opacity=".45"/><text x="284" y="104" text-anchor="middle" class="t-ink">messages</text>
+          <rect x="340" y="60" width="88" height="80" rx="6" fill="var(--day)" fill-opacity=".3"/><text x="384" y="104" text-anchor="middle" class="t-ink">music</text>
+          <rect x="520" y="70" width="80" height="60" rx="6" fill="var(--bad)" fill-opacity=".2" stroke="var(--bad)" stroke-dasharray="4 3"/><text x="560" y="105" text-anchor="middle" class="t-bad t-bold">new email</text>
+          <line x1="514" y1="100" x2="448" y2="100" stroke="var(--bad)" stroke-width="1.5"/>
+          <text x="560" y="152" text-anchor="middle" class="t-bad">add more = something falls off</text>
+          <text x="20" y="188">The brain takes in ~11 million bits a second; consciousness handles ~40 (Timothy Wilson's rough estimate)</text>
+        </svg>
+      </div>
+      <figcaption><b>Two hard tasks at once overflow the desk.</b> You can only pair one hard task with one habitual task, like listening to a podcast while washing up.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Attention residue</h3><span class="en">Sophie Leroy</span><span class="pg">Chapter 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 150" role="img" aria-labelledby="f2t">
+          <title id="f2t">When switching from task A to task B, part of our attention stays stuck on A for a while, so the start of task B is less focused.</title>
+          <rect x="20" y="40" width="280" height="50" rx="6" fill="var(--night)" fill-opacity=".55"/><text x="160" y="70" text-anchor="middle" style="fill:var(--paper)" class="t-bold">TASK A</text>
+          <rect x="300" y="40" width="400" height="50" rx="6" fill="var(--day)" fill-opacity=".35"/><text x="560" y="70" text-anchor="middle" class="t-ink t-bold">TASK B</text>
+          <path d="M300 40 L420 40 Q380 65 300 90 Z" fill="var(--night)" fill-opacity=".35"/>
+          <text x="360" y="120" text-anchor="middle" class="t-night t-bold">residue of A</text>
+          <text x="20" y="28">switch ↓</text>
+          <line x1="300" y1="30" x2="300" y2="100" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+      <figcaption><b>Constant switching leaves part of us "stuck" on the previous task.</b> So a few minutes of checking email mid-session can drag down the stretch of work that follows.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Four steps of hyperfocus</h3><span class="en">hyperfocus</span><span class="pg">Chapter 3</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 210" role="img" aria-labelledby="f3t">
+          <title id="f3t">Four steps: choose one worthwhile task, clear external and internal distractions, focus on that task, and bring your attention back whenever the mind wanders. Step 4 loops back to step 3.</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+          <g>
+            <rect x="10" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="90" y="66" text-anchor="middle" class="t-night t-bold">1 · CHOOSE</text><text x="90" y="90" text-anchor="middle" class="t-ink">the one task</text><text x="90" y="108" text-anchor="middle" class="t-ink">most worth doing</text>
+            <rect x="190" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="270" y="66" text-anchor="middle" class="t-night t-bold">2 · CLEAR</text><text x="270" y="90" text-anchor="middle" class="t-ink">outside and inside</text><text x="270" y="108" text-anchor="middle" class="t-ink">distractions</text>
+            <rect x="370" y="40" width="160" height="90" rx="8" fill="var(--night)" fill-opacity=".15" stroke="var(--night)" stroke-width="2"/>
+            <text x="450" y="66" text-anchor="middle" class="t-night t-bold">3 · FOCUS</text><text x="450" y="90" text-anchor="middle" class="t-ink">all attention</text><text x="450" y="108" text-anchor="middle" class="t-ink">on that task</text>
+            <rect x="550" y="40" width="160" height="90" rx="8" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/>
+            <text x="630" y="66" text-anchor="middle" class="t-night t-bold">4 · RETURN</text><text x="630" y="90" text-anchor="middle" class="t-ink">when the mind</text><text x="630" y="108" text-anchor="middle" class="t-ink">wanders</text>
+          </g>
+          <line x1="172" y1="85" x2="186" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <line x1="352" y1="85" x2="366" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <line x1="532" y1="85" x2="546" y2="85" stroke="var(--muted)" stroke-width="1.5" marker-end="url(#ah)"/>
+          <path d="M630 132 C630 180 450 180 450 134" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah)"/>
+          <text x="540" y="196" text-anchor="middle">repeat; on average we drift off a few times an hour</text>
+          <text x="90" y="24" text-anchor="middle" class="t-night t-bold">the key step ↓</text>
+        </svg>
+      </div>
+      <figcaption><b>"Intention comes before attention."</b> Bailey picks 3 tasks at the start of each day (the rule of 3). The more specific the intention, the better the odds of doing it.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Four types of distraction</h3><span class="en">control × fun</span><span class="pg">Chapter 4</span></div>
+    <div class="tablebox">
+      <table class="four">
+        <thead><tr><th></th><th>Annoying</th><th>Fun</th></tr></thead>
+        <tbody>
+          <tr><th class="rowh">Can't control</th><td class="safe"><b>Deal with it, then return</b><span>a colleague's question, drilling next door</span></td><td class="safe"><b>Enjoy it</b><span>a call from family, a friend dropping by</span></td></tr>
+          <tr><th class="rowh">Can control</th><td class="risk"><b>Block in advance</b><span>email alerts, group chats</span></td><td class="risk"><b>Block in advance</b><span>social media, news, games</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead">The bottom row is in your control, so switch it all off before you start: do-not-disturb on, websites blocked, phone in another room.</p>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Scatterfocus</h3><span class="en">scatterfocus</span><span class="pg">Chapters 6–7</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="f4t">
+          <title id="f4t">Hyperfocus is like a narrow spotlight on one task. Scatterfocus is like a wide light shining on many dots of ideas at once so they connect by themselves.</title>
+          <circle cx="40" cy="110" r="14" fill="var(--night)"/>
+          <path d="M52 104 L300 80 L300 140 L52 116 Z" fill="var(--night)" fill-opacity=".22"/>
+          <circle cx="300" cy="110" r="20" fill="none" stroke="var(--night)" stroke-width="3"/><circle cx="300" cy="110" r="6" fill="var(--night)"/>
+          <text x="170" y="60" text-anchor="middle" class="t-night t-bold">HYPERFOCUS</text>
+          <text x="170" y="170" text-anchor="middle" class="t-ink">narrow beam on 1 task</text>
+          <text x="170" y="188" text-anchor="middle">to work</text>
+          <circle cx="420" cy="110" r="14" fill="var(--day)"/>
+          <path d="M432 104 L700 20 L700 200 L432 116 Z" fill="var(--day)" fill-opacity=".14"/>
+          <g fill="var(--day)"><circle cx="560" cy="70" r="6"/><circle cx="620" cy="50" r="6"/><circle cx="600" cy="120" r="6"/><circle cx="660" cy="100" r="6"/><circle cx="640" cy="170" r="6"/><circle cx="530" cy="140" r="6"/></g>
+          <path d="M560 70 L600 120 L660 100 M600 120 L640 170 M530 140 L600 120" fill="none" stroke="var(--day)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="560" y="214" text-anchor="middle" class="t-day t-bold">SCATTERFOCUS · wide light to think</text>
+        </svg>
+      </div>
+      <figcaption><b>Three ways to wander on purpose:</b> write down whatever comes to mind (capture mode), hold a problem loosely and let the mind run (problem-crunching mode), or do a simple manual task like walking or washing up (habitual mode). Bailey finds the last one the most effective.</figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Collecting and connecting dots</h3><span class="en">dots</span><span class="pg">Chapters 8–9</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 170" role="img" aria-labelledby="f5t">
+          <title id="f5t">The information we take in becomes dots. Useful information gives many good dots; scatterfocus connects them into ideas. Pure entertainment gives few usable dots.</title>
+          <text x="20" y="24" class="t-ink t-bold">What you take in</text>
+          <rect x="20" y="40" width="200" height="34" rx="5" fill="var(--ok)" fill-opacity=".2"/><text x="30" y="62" class="t-ok t-bold">useful</text><text x="100" y="62" class="t-ink">books, courses</text>
+          <rect x="20" y="80" width="200" height="34" rx="5" fill="var(--rem)" fill-opacity=".18"/><text x="30" y="102" class="t-rem t-bold">balanced</text><text x="104" y="102" class="t-ink">documentaries</text>
+          <rect x="20" y="120" width="200" height="34" rx="5" fill="var(--day)" fill-opacity=".2"/><text x="30" y="142" class="t-day t-bold">fun</text><text x="96" y="142" class="t-ink">social media</text>
+          <text x="232" y="102" class="t-ink">→ dots</text>
+          <g fill="var(--night)"><circle cx="330" cy="50" r="7"/><circle cx="390" cy="110" r="7"/><circle cx="460" cy="60" r="7"/><circle cx="520" cy="130" r="7"/><circle cx="300" cy="140" r="7"/></g>
+          <path d="M330 50 L390 110 L460 60 M390 110 L520 130 M300 140 L390 110" fill="none" stroke="var(--night)" stroke-width="1.8"/>
+          <circle cx="630" cy="90" r="34" fill="var(--night)" fill-opacity=".2" stroke="var(--night)" stroke-width="2"/><text x="630" y="95" text-anchor="middle" class="t-night t-bold">idea</text>
+          <line x1="530" y1="120" x2="597" y2="99" stroke="var(--night)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <figcaption><b>Good ideas need good dots.</b> Bailey suggests consuming useful material while you're fresh and saving entertainment for when you're tired.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How solid is the evidence</h2><p class="lead">11 figures and studies the book leans on, checked against the sources. Tap a row to see why.</p></div>
+  <div class="tally" role="img" aria-label="4 solid, 5 caution, 2 criticised">
+    <div class="o" style="flex:4">4 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:2">2 WRONG</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>At a computer we switch screens after about 40 seconds</span></summary><p class="note">Gloria Mark and colleagues measured this directly over many years; later rounds found about 40–47 seconds. It is time spent on one screen, not necessarily "losing focus".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Specific intentions ("when, where, what") help you follow through</span></summary><p class="note">A meta-analysis of 94 studies (Gollwitzer and Sheeran, 2006) found medium-to-large effects. The book's 62% versus 22% comes from one small study.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Working memory holds about 4 items</span></summary><p class="note">A common estimate in cognitive psychology (Cowan, 2001), replacing the older "7 ± 2".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Switching between tasks has a cost</span></summary><p class="note">Switch costs have been measured repeatedly in the lab (Monsell, 2003). Each switch costs a little time and raises errors.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Attention residue hurts the next task</span></summary><p class="note">Sophie Leroy's (2009) idea is plausible, but there are few studies and samples are small.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Our minds wander 47% of the time, and it makes us less happy</span></summary><p class="note">Killingsworth and Gilbert (2010) sampled over 2,000 people via a phone app. The result is correlational, and app users aren't representative of everyone.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>A few weeks of meditation raise working memory and GRE scores by 16%</span></summary><p class="note">Mrazek and colleagues (2013) studied only 48 students. Meta-analyses on meditation find real but small benefits for attention.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Simple tasks while wandering produce the most ideas</span></summary><p class="note">Incubation effects are real according to a meta-analysis (Sio and Ormerod, 2009). The claim that undemanding tasks work best rests mainly on one small study (Baird and colleagues, 2012).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The brain takes in 11 million bits a second, consciousness handles 40</span></summary><p class="note">A rough 1970s estimate Timothy Wilson used as an illustration, not a measurement. Read it as "a lot versus very little".</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Happy people are 31% more productive</span></summary><p class="note">Popularised by Shawn Achor but not traceable to a clearly published study. The general direction (positive mood helps work) has support; the number doesn't.</p></details>
+    <details><summary><span class="tag bad">CRITICISED</span><span>Time in nature makes creative problem-solving 50% better</span></summary><p class="note">Atchley and colleagues (2012) had only 56 people, no random assignment, and hikers also left their phones at home, so nature's effect can't be separated out.</p></details>
+  </div>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Verdict</h2></div>
+  <div class="scores">
+    <div class="score"><span>Practical value</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>Readability</span><div class="bar"><i style="width:90%"></i></div><b>4.5/5</b></div>
+    <div class="score"><span>Originality</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Scientific accuracy</span><div class="bar"><i style="width:70%"></i></div><b>3.5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Concrete tips you can use the same day</li><li>The scatterfocus half is a rare angle</li><li>The author tests ideas on himself before recommending them</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>Repetitive; many passages could be shorter</li><li>If you've read <i>Deep Work</i>, the first half feels familiar</li><li>Many neat numbers from small studies</li></ul></div>
+  </div>
+  <p class="verdict">Read it as a practical handbook. Keep the methods, not the numbers.</p>
+  <details class="more"><summary>More: compared with Deep Work, and the book's limits</summary><div>
+    <p>The first half is close to Cal Newport's <i>Deep Work</i> (2016): deep work, blocking distractions, scheduling focus. The difference is that Bailey works at the level of each hour and each notification, which makes it easier to apply for office workers.</p>
+    <p>The second half is the most worthwhile part. Most productivity books treat mind wandering as the enemy; Bailey argues it is a different mode of work, for resting, planning and connecting ideas, as long as we choose it on purpose.</p>
+    <p>The book leans heavily on the author's own experience and on single psychology studies. Many numbers are quoted to make a point and haven't been tested by replication. Readers should try the methods on themselves rather than trust the figures.</p>
+  </div></details>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 6</span><h2>Putting it into practice</h2><p class="lead">A working day by the book: narrow beam in the morning, wide light in between.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 190" role="img" aria-labelledby="f6t">
+        <title id="f6t">One day: at 8 choose 3 intentions, at 9 a hyperfocus block with distractions blocked, at 10:30 a walk without the phone to scatterfocus, every hour ask what you're doing, at 15:00 handle email once, at night write down the problem you're stuck on before sleeping.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <rect x="205" y="50" width="120" height="20" rx="4" fill="var(--night)" fill-opacity=".45"/>
+        <circle cx="70" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="70" y="30" class="t-ink t-bold">8:00</text><text x="70" y="100" class="t-night t-bold">Pick 3 intentions</text><text x="70" y="116">what matters</text><text x="70" y="131">most today?</text></g>
+        <circle cx="205" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="205" y="30" class="t-ink t-bold">9:00</text><text x="205" y="100" class="t-night t-bold">Focus block</text><text x="205" y="116">alerts off,</text><text x="205" y="131">phone away</text></g>
+        <circle cx="340" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="340" y="30" class="t-ink t-bold">10:30</text><text x="340" y="100" class="t-day t-bold">Walk</text><text x="340" y="116">no headphones,</text><text x="340" y="131">let the mind run</text></g>
+        <circle cx="475" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="475" y="30" class="t-ink t-bold">hourly</text><text x="475" y="100" class="t-night t-bold">Check in</text><text x="475" y="116">am I on</text><text x="475" y="131">autopilot?</text></g>
+        <circle cx="610" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="610" y="30" class="t-ink t-bold">15:00</text><text x="610" y="100" class="t-day t-bold">Email once</text><text x="610" y="116">batch it,</text><text x="610" y="131">no constant checks</text></g>
+        <circle cx="745" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="745" y="30" class="t-ink t-bold">night</text><text x="745" y="100" class="t-night t-bold">Write the problem</text><text x="745" y="116">let sleep</text><text x="745" y="131">incubate it</text></g>
+        <text x="50" y="175" class="t-night">● narrow beam (hyperfocus)</text><text x="270" y="175" class="t-day">● wide light (scatterfocus)</text>
+      </svg>
+    </div>
+    <figcaption><b>Start small.</b> Bailey suggests picking a focus-block length that feels comfortable and growing it, rather than forcing two hours on day one.</figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M4 4l24 24"/></svg><div><b>Keep the phone out of reach</b><span>Seeing it makes you want to pick it up. Out of sight, nothing to resist.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h14M6 24h8"/></svg><div><b>Keep a "distractions list"</b><span>Jot down whatever pops up, return to work, deal with it later.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg><div><b>15 minutes a week with pen and paper</b><span>No goal; write down whatever surfaces. Ideas will come.</span></div></div>
+  </div>
+  <div class="quote"><span>"Intention comes before attention."</span><span class="src">Chapter 3.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Cal Newport, <i>Deep Work</i> (2016)</b><span class="muted">The heavier take on deep work, more argument than tips.</span></div>
+    <div><b>Mihaly Csikszentmihalyi, <i>Flow</i> (1990)</b><span class="muted">The science behind the absorbed state hyperfocus aims for.</span></div>
+    <div><b>Gloria Mark, <i>Attention Span</i> (2023)</b><span class="muted">Written by the researcher behind the "40 seconds" figure; more careful and data-rich.</span></div>
+    <div><b>Johann Hari, <i>Stolen Focus</i> (2022)</b><span class="muted">The outside view: why a whole society loses focus, not just individuals.</span></div>
+  </div>
+</section>
+
+<footer>Book analysis #006. Figures are concept diagrams; numbers come from the book and are checked in the Evidence section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
