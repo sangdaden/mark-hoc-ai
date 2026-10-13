@@ -20,7 +20,7 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   các chủ đề ở data/vu-tru-khac-chu-de.json (ma, ten, nhan = chữ trên thẻ, dem = chữ sau số bài, ho_so = chữ trên tab thẻ thông tin
   ở đầu bài, tiếng Anh trong "en"),
   mỗi mục trong data/vu-tru-khac.json thuộc một chủ đề qua "loai" (thiếu thì là "sach"). Script viết lại hàng chip lọc
-  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết) và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
+  và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết), hình tự vẽ assets/vu-tru-khac/bia/<slug>.svg nếu có và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
   vui-mung, ngac-nhien, like, chao, buon-ngu), bên dưới chỉ có số bài, tên, tác giả · năm · điểm. Mỗi khối chỉ hiện một hàng (ít nhất 4 thẻ), còn lại sau nút "Xem thêm". Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
 - Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
@@ -173,8 +173,14 @@ def the_bai(b, cd, en=False):
     tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
     mark = b.get("mark") if b.get("mark") in TU_THE else TU_THE[(b["so"] - 1) % len(TU_THE)]
     lop = (" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else "") + (" dai" if max(map(len, str(ten).split())) > 8 else "")
+    # Bìa tự vẽ cho bài không phải sách (thí nghiệm, thảm hoạ...): có assets/vu-tru-khac/bia/<slug>.svg thì chèn hình đó lên bìa thẻ
+    tep_hinh = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
+    hinh = ""
+    if tep_hinh.exists():
+        hinh = '<span class="vtk-hinh">' + tep_hinh.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', "") + "</span>"
+        lop += " co-hinh"
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>'
+            f'<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
             f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d}</span>'
             f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')
