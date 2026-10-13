@@ -3,7 +3,7 @@
 
 Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
 
-- Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en"). Mục "bia" lấy màu từ bìa
+- Danh sách sách ở data/vu-tru-khac.json (mỗi mục một slug, chữ tiếng Anh trong "en", kể cả "ten" khi tên sách tiếng Việt khác tên tiếng Anh). Mục "bia" lấy màu từ bìa
   sách cho nền đầu bài (chữ đầu bài luôn màu kem nên nền phải tối): nen_1 (màu nền chính), nen_2 (màu sáng hơn ở góc), nhan (màu nhấn: viền, nhãn, chip),
   hoa_tiet ("trang" = trăng khuyết, "but-chi" = dải bút chì, "song" = dải sóng nước, "hong-tam" = hồng tâm đỏ trắng, bỏ trống = không có). Thiếu "bia" thì dùng navy/cam. Bài gốc:
   <thư mục sách>/<slug>/<slug>.html (tiếng Việt) và <slug>.en.html (bản dịch tiếng Anh; thiếu thì bản
@@ -66,7 +66,7 @@ def lam_sach(s, en=False):
 
 def trang_sach(b, goc, en=False):
     e = b.get("en", {}) if en else b
-    ten = (f'{b["ten"]} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
+    ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
            else f'{b["ten"]} ({b["tac_gia"]}): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác')
     url = f'{BASE}{"en/" if en else ""}vu-tru-khac/{b["slug"]}.html'
     p = "../../" if en else "../"   # đường về thư mục gốc (assets)
@@ -132,10 +132,10 @@ def the_bai(b, cd, en=False):
     mau = "".join(f"--{k}: {esc(bia[v])};" for k, v in (("bia-1", "nen_1"), ("bia-2", "nen_2"), ("bia-nhan", "nhan")) if bia.get(v))
     tg = " · ".join(esc(x) for x in (b.get("tac_gia"), b.get("nam"), b.get("diem")) if x)
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
-            f'<span class="vtk-bia{" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else ""}{" dai" if max(map(len, str(b["ten"]).split())) > 8 else ""}" aria-hidden="true"><i>{esc(b["ten"])}</i><small>{esc(b.get("tac_gia"))}</small></span>'
+            f'<span class="vtk-bia{" bia-" + esc(bia["hoa_tiet"]) if bia.get("hoa_tiet") else ""}{" dai" if max(map(len, str(e.get("ten", b["ten"])).split())) > 8 else ""}" aria-hidden="true"><i>{esc(e.get("ten", b["ten"]))}</i><small>{esc(b.get("tac_gia"))}</small></span>'
             f'<span class="vtk-noi">'
             f'<span class="vtk-so">{esc(cd["nhan"])} #{b["so"]:03d} · {esc(e.get("chu_de", b.get("chu_de")))}</span>'
-            f'<b>{esc(b["ten"])}</b><span class="vtk-tg">{tg}</span>'
+            f'<b>{esc(e.get("ten", b["ten"]))}</b><span class="vtk-tg">{tg}</span>'
             f'<span class="vtk-mt">{esc(e.get("mo_ta", b.get("mo_ta")))}</span></span></a>')
 
 
