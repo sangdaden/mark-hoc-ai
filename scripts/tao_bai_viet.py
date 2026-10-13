@@ -683,7 +683,7 @@ def tao_kiem_tra():
     static = "\n".join(f'<li><p><b>{esc(c["cau"])}</b></p><p>{esc(dap_an_kt(c))}. {esc(c["giai_thich"])}</p></li>' for c in dau["cau_hoi"])
     main = f"""<main class="quiz-wrap">
 <section class="kt-bo" id="kt-bo" aria-labelledby="kt-bo-h">
-  <div class="kt-bo-dau"><h2 id="kt-bo-h">{t("Chọn bộ câu hỏi", "Pick a quiz")}</h2><a class="btn" href="chung-nhan.html">{ic(p, "award")}{t("Giấy chứng nhận của bạn", "Your certificates")}</a></div>
+  <div class="kt-bo-dau"><h2 id="kt-bo-h">{t("Chọn bộ câu hỏi", "Pick a quiz")}</h2><span class="kt-bo-nut"><a class="btn" href="phieu-luu.html">{t("Chơi game Mark phiêu lưu", "Play Mark's Adventure")}</a><a class="btn" href="chung-nhan.html">{ic(p, "award")}{t("Giấy chứng nhận của bạn", "Your certificates")}</a></span></div>
   {nhom}
   <noscript><p>{t(f"Trang này cần JavaScript để chấm điểm. Đáp án bộ “{esc(dau['ten'])}”:", f"This page needs JavaScript to score your answers. Answers to “{esc(dau['ten'])}”:")}</p><ol class="quiz-static">{static}</ol></noscript>
 </section>
@@ -1023,6 +1023,8 @@ def chay():
         sitemap.append(f"  <url><loc>{BASE}{tien_to}hoi-bit.html</loc><priority>0.8</priority></url>")  # Hỏi Bit viết tay, dữ liệu từ scripts/tao_hoi_dap.py
         # Trang Chứng nhận (chung-nhan.html, en/chung-nhan.html) cũng viết tay
         sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-nhan.html</loc><priority>0.6</priority></url>")
+        # Game Mark phiêu lưu (phieu-luu.html, en/phieu-luu.html) viết tay, câu hỏi lấy từ data/bo-kiem-tra.json
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}phieu-luu.html</loc><priority>0.7</priority></url>")
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
     print("sitemap.xml:", len(sitemap) - 3, "trang")

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mark's Adventure: a free AI learning game in your browser | Mark học AI</title>
+<meta name="description" content="Free game: lead Mark through 5 stations, beat challenges on AI myths, prompting, safety and AI at work, then defeat the Hallucination Cave boss. Play on your phone.">
+<link rel="canonical" href="https://markhocai.com/en/phieu-luu.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/phieu-luu.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/phieu-luu.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/phieu-luu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mark's Adventure: a free AI learning game in your browser | Mark học AI">
+<meta property="og:description" content="Free game: lead Mark through 5 stations, beat challenges on AI myths, prompting, safety and AI at work, then defeat the Hallucination Cave boss. Play on your phone.">
+<meta property="og:url" content="https://markhocai.com/en/phieu-luu.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html" aria-current="page">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Free game · play in your browser</p>
+<h1>Mark's Adventure</h1>
+<p class="lead">Lead Mark through 5 stations. At each one, Bit sets an AI challenge: answer correctly to move on, miss and you lose a heart but get the explanation right away. The Hallucination Cave boss waits at the end.</p>
+</div><img class="head-art" src="../assets/mark-chao.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="pl" id="pl">
+  <div class="pl-dau"><p class="pl-tong" id="pl-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="pl-xoa">Reset progress</button></div>
+  <div class="pl-ban" id="pl-ban">
+    <svg id="pl-svg" class="pl-svg" viewBox="0 0 400 900" aria-hidden="true">
+      <defs><linearGradient id="pl-nen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C1D95"/><stop offset=".22" stop-color="#7C3AED"/><stop offset=".3" stop-color="#7DD3FC"/><stop offset=".62" stop-color="#BBF7D0"/><stop offset="1" stop-color="#86EFAC"/></linearGradient></defs>
+      <rect width="400" height="900" fill="url(#pl-nen)"/>
+      <g class="pl-cay"><circle cx="40" cy="560" r="22"/><circle cx="360" cy="420" r="26"/><circle cx="345" cy="820" r="20"/><circle cx="55" cy="300" r="18"/><circle cx="370" cy="200" r="14"/><circle cx="30" cy="690" r="14"/></g>
+      <g class="pl-sao-troi"><circle cx="60" cy="50" r="2.5"/><circle cx="130" cy="90" r="2"/><circle cx="330" cy="60" r="2.5"/><circle cx="280" cy="30" r="1.8"/><circle cx="20" cy="150" r="2"/></g>
+    </svg>
+    <div class="pl-lop" id="pl-tram"></div>
+    <img class="pl-mark" id="pl-mark" src="../assets/mascot/mark-chi-len-tinh.webp" alt="Mark" width="64" height="64">
+  </div>
+  <p class="pl-bao" id="pl-bao" role="status" hidden></p>
+  <p class="pl-ghi">Questions come from the channel's <a href="kiem-tra.html">quiz</a>. Progress is saved in this browser only.</p>
+  <noscript><p>The game needs JavaScript. You can still <a href="kiem-tra.html">take the quiz</a>.</p></noscript>
+</main>
+<dialog class="pl-hop" id="pl-hop" aria-labelledby="pl-hop-ten">
+  <div class="pl-hop-dau">
+    <div><h2 id="pl-hop-ten"></h2><p id="pl-hop-mo-ta"></p></div>
+    <button type="button" class="pl-ra" id="pl-ra" aria-label="Leave">✕</button>
+  </div>
+  <div class="pl-boss" id="pl-boss" hidden>
+    <svg id="pl-boss-hinh" class="pl-boss-hinh" viewBox="0 0 120 100" aria-hidden="true"><path d="M20 80 Q8 80 10 62 Q4 40 24 34 Q30 10 58 14 Q84 6 94 30 Q116 34 110 58 Q114 80 96 80 Q92 92 80 84 Q70 94 60 84 Q48 94 40 84 Q28 92 20 80Z" fill="#7C3AED"/><circle cx="45" cy="48" r="9" fill="#fff"/><circle cx="75" cy="48" r="9" fill="#fff"/><circle cx="47" cy="50" r="4" fill="#1E1B4B"/><circle cx="73" cy="46" r="4" fill="#1E1B4B"/><path d="M44 68 Q60 60 76 68" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><text x="96" y="22" font-size="20" font-weight="800" fill="#FACC15">?!</text></svg>
+    <div class="pl-hp"><span class="pl-hp-thanh" id="pl-hp-thanh"></span></div>
+  </div>
+  <div class="pl-trang"><span class="pl-tim" id="pl-tim" role="img"></span><span class="pl-tien" id="pl-tien"></span></div>
+  <div class="pl-cau" id="pl-cau"></div>
+  <div class="pl-phan-hoi" id="pl-phan-hoi" hidden aria-live="polite">
+    <img id="pl-bit" src="../assets/bit-vui.svg" alt="" width="64" height="64">
+    <div><b id="pl-ph-dau"></b><p id="pl-ph-chu"></p></div>
+    <button type="button" class="btn btn-yt" id="pl-tiep">Next</button>
+  </div>
+</dialog>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="ung-ho.html">Support us</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<script src="../phieu-luu.js?v=dev" defer></script>
+</body>
+</html>
