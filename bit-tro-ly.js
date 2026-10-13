@@ -8,7 +8,7 @@
   const giamCD = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hinh = ten => ten === "dang-noi" ? goc + "assets/mascot/bit-dang-noi" + (giamCD ? "-tinh" : "") + ".webp" : goc + "assets/bit-" + ten + ".svg";
   const duong = location.pathname;
-  const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : "chu";
+  const trang = /\/bai\//.test(duong) ? "bai" : /tu-dien/.test(duong) ? "tu-dien" : /kiem-tra/.test(duong) ? "kiem-tra" : /lo-trinh-7-ngay/.test(duong) ? "lo-trinh" : /sach\.html/.test(duong) ? "sach" : /hop-tac/.test(duong) ? "hop-tac" : /vu-tru-khac/.test(duong) ? "vtk" : "chu";
   const nho = {
     get(k) { try { return sessionStorage.getItem("bit-" + k); } catch (e) { return null; } },
     set(k, v) { try { sessionStorage.setItem("bit-" + k, v); } catch (e) {} }
@@ -30,8 +30,17 @@
     "kiem-tra": ["Chọn một bộ câu hỏi, cứ trả lời theo cảm giác, mình giải thích ngay.", "Đạt 80% là mở khóa giấy chứng nhận có tên bạn."],
     "lo-trinh": ["Mỗi ngày một chút: 3 video, 1 việc, 1 câu hỏi. Bạn làm được mà!", "Xong đủ 7 ngày, mình giúp bạn tạo giấy chứng nhận."],
     sach: ["Sách miễn phí, không cần email. Bấm tải là xong!", "Bấm vào từng chương để xem bên trong có gì."],
-    "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."]
-  })[trang];
+    "hop-tac": ["Muốn hợp tác với Mark và mình? Gửi email cho kênh nhé.", "Kênh chỉ giới thiệu thứ đã dùng thử thật."],
+    vtk: ["Ở vũ trụ này Mark không học AI mà đọc sách. Bấm một cuốn để đọc nhé!", "Mỗi bài có phần dẫn chứng: chỗ nào vững, chỗ nào bị phê bình."]
+  })[trang] || [];
+  // Thỉnh thoảng (khoảng 1/6 phiên, tối đa một lần mỗi phiên, chỉ bản tiếng Việt) Bit rủ ghé góc đọc sách "Mark ở vũ trụ khác";
+  // lối vào chính chỉ là icon nhỏ ở chân trang (Sang 13/10). Bấm bóng thoại này là sang trang đó.
+  const VTK = goc + "vu-tru-khac.html";
+  let rePhu = false;
+  if (!EN && trang !== "vtk" && loi.length && !nho.get("vtk")) {
+    nho.set("vtk", "1");
+    if (Math.random() < 1 / 6) { loi[loi.length - 1] = "Psst… ở một vũ trụ khác, Mark không học AI mà đọc sách. Ghé xem không?"; rePhu = true; }
+  }
   const meo = EN ? [
     "Add \"If you're not sure, say you don't know\" so AI makes up less.",
     "Chat getting too long? Ask AI for a 5-point summary, then start a new chat.",
@@ -128,7 +137,11 @@
   }
 
   nut.addEventListener("click", () => moMenu(bang.hidden));
-  noi.addEventListener("click", e => { if (e.target.closest(".bit-x")) { nho.set("im", "1"); anNoi(); } else moMenu(true); });
+  noi.addEventListener("click", e => {
+    if (e.target.closest(".bit-x")) { nho.set("im", "1"); anNoi(); }
+    else if (rePhu && soLanNoi === loi.length) location.href = VTK;
+    else moMenu(true);
+  });
   hop.querySelector(".bit-meo-khac").addEventListener("click", meoMoi);
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !bang.hidden) { moMenu(false); nut.focus(); } });
   document.addEventListener("click", e => { if (!bang.hidden && !hop.contains(e.target)) moMenu(false); });
