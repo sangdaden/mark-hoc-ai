@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 """Thêm khu "Mark Ở Vũ Trụ Khác" (góc đọc sách) vào server Discord của Mark học AI.
 
-Dùng:
-    export DISCORD_BOT_TOKEN=...      # token của bot (Developer Portal → Bot → Reset Token)
-    export DISCORD_GUILD_ID=...       # ID server (bật Developer Mode, chuột phải tên server → Copy Server ID)
-    python3 scripts/tao_discord_vu_tru_khac.py --xem        # chỉ liệt kê category/kênh đang có trên server
-    python3 scripts/tao_discord_vu_tru_khac.py --chay-thu   # in ra sẽ tạo gì, không đổi gì trên server
-    python3 scripts/tao_discord_vu_tru_khac.py              # tạo thật
+Làm giống tao_server.py lúc dựng server Mark học AI: dùng lại bot "Mark hoc AI Setup" (đã ở trong server,
+quyền Administrator), chạy trên máy:
+    python3 tao_discord_vu_tru_khac.py --thu   # chạy thử: in ra sẽ tạo gì, không đổi gì trên server
+    python3 tao_discord_vu_tru_khac.py         # tạo thật
+Script hỏi token khi chạy (dán vào, không hiện chữ), hoặc đọc từ biến DISCORD_BOT_TOKEN. Token cũ đã Reset sau
+lần dựng server, nên lấy token mới: Developer Portal → Mark hoc AI Setup → Bot → Reset Token. Xong việc thì Reset lần nữa.
 
-- Tạo một category KHU và các kênh trong KENH bên dưới. Chạy lại bao nhiêu lần cũng được: cái gì đã có
-  (trùng tên, không phân biệt hoa thường) thì bỏ qua, không sửa, không xoá.
-- Kênh "bai-moi" chỉ để Sang đăng bài mới: mọi người đọc được nhưng không gửi tin (chặn Send Messages cho @everyone).
+- Server tự tìm qua bot (bot chỉ ở trong một server). Bot ở nhiều server thì đặt DISCORD_GUILD_ID.
+- Tạo category KHU và các kênh trong KENH, đặt tên theo kiểu server đang dùng (category chữ in hoa có emoji,
+  kênh chữ thường có dấu nối gạch). Chạy lại bao nhiêu lần cũng được: cái gì đã có (trùng tên) thì bỏ qua,
+  không sửa, không xoá.
+- Kênh "bài-mới" chỉ để đăng bài mới: mọi người đọc được nhưng không gửi tin (chặn Send Messages cho @everyone).
   Server bật Community thì tạo dạng Announcement để người khác "Follow" về server họ; không thì tạo kênh chữ thường.
-- Bot cần quyền Manage Channels và Manage Roles (để đặt quyền kênh) trên server. Mời bot bằng link
-  https://discord.com/oauth2/authorize?client_id=<APPLICATION_ID>&scope=bot&permissions=268435472
-- Token và ID server chỉ đọc từ biến môi trường, đừng ghi vào repo. Chỉ dùng thư viện chuẩn của Python.
+- Chỉ dùng thư viện chuẩn của Python. Đừng ghi token vào file.
 """
+import getpass
 import json
 import os
 import sys
@@ -27,17 +28,20 @@ API = "https://discord.com/api/v10"
 GUI_TIN = 1 << 11  # quyền Send Messages
 GUI_TIN_LUONG = 1 << 38  # quyền Send Messages in Threads
 
-KHU = "📚 Mark Ở Vũ Trụ Khác"
+KHU = "📚 MARK Ở VŨ TRỤ KHÁC"
 KENH = [
-    {"ten": "📢・bai-moi", "loai": "thong-bao",
+    {"ten": "bài-mới", "loai": "thong-bao",
      "chu_de": "Bài phân tích sách mới của Mark Ở Vũ Trụ Khác. Đọc đủ ở markhocai.com/vu-tru-khac.html"},
-    {"ten": "💬・ban-ve-sach", "loai": "chu",
+    {"ten": "bàn-về-sách", "loai": "chu",
      "chu_de": "Bàn về cuốn sách đang lên: điều bạn đồng ý, không đồng ý, và đã áp dụng thử."},
-    {"ten": "📮・goi-y-sach", "loai": "chu",
+    {"ten": "gợi-ý-sách", "loai": "chu",
      "chu_de": "Gợi ý cuốn Mark nên đọc tiếp. Mỗi tin một cuốn: tên sách, tác giả, vì sao nên đọc."},
 ]
 
 LOAI_CHU, LOAI_CATEGORY, LOAI_THONG_BAO = 0, 4, 5
+
+
+TOKEN = ""
 
 
 class LoiDiscord(Exception):
@@ -45,11 +49,10 @@ class LoiDiscord(Exception):
 
 
 def goi(phuong_thuc, duong_dan, du_lieu=None):
-    token = os.environ["DISCORD_BOT_TOKEN"]
     body = json.dumps(du_lieu).encode() if du_lieu is not None else None
     for _ in range(5):
         req = urllib.request.Request(API + duong_dan, data=body, method=phuong_thuc, headers={
-            "Authorization": f"Bot {token}",
+            "Authorization": f"Bot {TOKEN}",
             "Content-Type": "application/json",
             "User-Agent": "DiscordBot (https://markhocai.com, 1.0)",
         })
@@ -93,13 +96,9 @@ def xem(guild_id):
 
 
 def tao(guild_id, chay_thu):
-    co_token = bool(os.environ.get("DISCORD_BOT_TOKEN"))
-    if chay_thu and not co_token:
-        print("(Chưa có DISCORD_BOT_TOKEN: chỉ in kế hoạch, không đối chiếu với server.)")
-        guild, ds = {"features": []}, []
-    else:
-        guild = goi("GET", f"/guilds/{guild_id}")
-        ds = goi("GET", f"/guilds/{guild_id}/channels")
+    guild = goi("GET", f"/guilds/{guild_id}")
+    ds = goi("GET", f"/guilds/{guild_id}/channels")
+    print(f'Server: {guild["name"]}')
     community = "COMMUNITY" in guild.get("features", [])
     tien_to = "[chạy thử] " if chay_thu else ""
 
@@ -131,24 +130,34 @@ def tao(guild_id, chay_thu):
         print(f"  Đã tạo kênh #{k['ten']} ({mo_ta})")
 
 
+def tim_server():
+    gid = os.environ.get("DISCORD_GUILD_ID", "").strip()
+    if gid:
+        return gid
+    ds = goi("GET", "/users/@me/guilds")
+    if len(ds) != 1:
+        ten = ", ".join(g["name"] for g in ds) or "chưa có server nào"
+        sys.exit(f"Bot đang ở {len(ds)} server ({ten}). Đặt DISCORD_GUILD_ID là ID server Mark học AI rồi chạy lại.")
+    return ds[0]["id"]
+
+
 def main():
+    global TOKEN
     co = set(a for a in sys.argv[1:] if a.startswith("--"))
-    la = co - {"--xem", "--chay-thu"}
+    la = co - {"--thu", "--xem"}
     if la:
-        sys.exit(f"Không hiểu tuỳ chọn: {' '.join(sorted(la))}. Dùng --xem hoặc --chay-thu.")
-    guild_id = os.environ.get("DISCORD_GUILD_ID", "").strip()
-    if not guild_id:
-        sys.exit("Thiếu DISCORD_GUILD_ID (ID server Discord của Mark học AI).")
-    chay_thu = "--chay-thu" in co
-    if ("--xem" in co or not chay_thu) and not os.environ.get("DISCORD_BOT_TOKEN"):
-        sys.exit("Thiếu DISCORD_BOT_TOKEN.")
+        sys.exit(f"Không hiểu tuỳ chọn: {' '.join(sorted(la))}. Dùng --thu (chạy thử) hoặc --xem (liệt kê kênh).")
+    TOKEN = os.environ.get("DISCORD_BOT_TOKEN", "").strip() or getpass.getpass("Dán token của bot rồi Enter: ").strip()
+    if not TOKEN:
+        sys.exit("Chưa có token.")
     try:
+        guild_id = tim_server()
         if "--xem" in co:
             xem(guild_id)
         else:
-            tao(guild_id, chay_thu)
+            tao(guild_id, "--thu" in co)
     except LoiDiscord as e:
-        sys.exit(f"Lỗi Discord: {e}\n(403 thường là bot thiếu quyền Manage Channels/Manage Roles hoặc chưa vào server.)")
+        sys.exit(f"Lỗi Discord: {e}\n(401 là token sai hoặc đã Reset; 403 là bot thiếu quyền hoặc chưa vào server.)")
 
 
 if __name__ == "__main__":
