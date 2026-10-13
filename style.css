@@ -1226,13 +1226,16 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .pl-boss-hinh.is-trung { animation: none; } }
 
 /* ===== Mark ở vũ trụ khác (vu-tru-khac.html): góc đọc sách ngoài AI, thẻ sách viền tím ===== */
-/* Lối vào: nút tròn quỹ đạo cùng cỡ nút mạng xã hội ở chân trang, đứng cách hàng đó một khoảng (Sang 13/10); Bit thỉnh thoảng mới gợi ý (bit-tro-ly.js) */
-.foot-links a.nt.nt-vtk { margin-left: 22px; color: #7C3AED; }
+/* Lối vào: nút tròn quỹ đạo kèm chữ "Vũ Trụ Khác", đầu hàng nút mạng xã hội ở chân trang, ngay trước YouTube nhưng cách nhóm đó một khoảng (Sang 13/10); Bit thỉnh thoảng mới gợi ý (bit-tro-ly.js) */
+.foot-links a.vtk-nut { display: inline-flex; align-items: center; gap: 10px; margin-right: 26px; color: #fff; font-weight: 600; text-decoration: none; }
+.foot-links a.vtk-nut:hover { color: #FDE047; }
+.foot-links a.vtk-nut:hover .nt { transform: translateY(-2px); box-shadow: 0 10px 18px -8px rgba(15, 23, 42, .55); }
+.foot-links a.vtk-nut:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; border-radius: 999px; }
+.nt.nt-vtk { color: #7C3AED; }
 .nt-vtk svg { fill: none; }
 @media (max-width: 760px) {
-  /* Điện thoại: nút xuống hàng riêng, thẳng lề trái thay vì thụt vào */
-  .foot-links:has(.nt-vtk)::after { content: ""; flex-basis: 100%; order: 1; }
-  .foot-links a.nt.nt-vtk { order: 2; margin-left: 0; }
+  /* Điện thoại: nút đứng một hàng riêng phía trên các nút mạng xã hội */
+  .foot-links a.vtk-nut { flex-basis: 100%; margin-right: 0; }
 }
 .vtk { padding: 32px 24px 56px; }
 .vtk-h { font: 800 24px/1.2 var(--f-display); margin: 0 0 14px; }
