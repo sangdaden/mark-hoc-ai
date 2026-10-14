@@ -1,14 +1,112 @@
 {
-  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js).",
+  "_ghi_chu": "Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Mỗi slug một danh sách trò; 'truoc' hoặc 'sau' = id phần trong bài để chèn trò vào trước/sau. Mọi con số phải có nguồn trong 'nguon'. Khuôn: quyet-dinh (bạn quyết định, có biểu đồ chấm), doan (quay số rồi đoán), doan-so (đoán một con số rồi so với kết quả thật, mốc so trong 'so'), phan-loai (kéo thả vào ngăn). Bản 2 thêm: bac-thang, thu-tu, dem-cham, phan-xa, dieu-khien, soi-loi, hop-thu, ban-thai, tri-nho, dam-dong (xem chú thích từng khuôn trong tro-choi.js). Bản 3 thêm cảnh có đồ vật kéo thả: doan-tau, domino, pho-mai, lo-phan-ung, cho-keo, lap-rap, ten-lua.",
   "tham-hoa-challenger": [
     {
       "khuon": "quyet-dinh",
       "id": "choi-phong-khong",
       "truoc": "tinh-hoa",
       "bieu_do": {
-        "x_min": 25, "x_max": 85, "x_buoc": 10, "x_don_vi": "°F", "y_max": 3,
-        "diem": [[70,1],[57,1],[63,1],[70,1],[53,2],[75,2],[58,1]],
-        "an": [[66,0],[69,0],[68,0],[67,0],[72,0],[73,0],[70,0],[78,0],[67,0],[67,0],[75,0],[70,0],[81,0],[76,0],[79,0],[76,0]],
+        "x_min": 25,
+        "x_max": 85,
+        "x_buoc": 10,
+        "x_don_vi": "°F",
+        "y_max": 3,
+        "diem": [
+          [
+            70,
+            1
+          ],
+          [
+            57,
+            1
+          ],
+          [
+            63,
+            1
+          ],
+          [
+            70,
+            1
+          ],
+          [
+            53,
+            2
+          ],
+          [
+            75,
+            2
+          ],
+          [
+            58,
+            1
+          ]
+        ],
+        "an": [
+          [
+            66,
+            0
+          ],
+          [
+            69,
+            0
+          ],
+          [
+            68,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            72,
+            0
+          ],
+          [
+            73,
+            0
+          ],
+          [
+            70,
+            0
+          ],
+          [
+            78,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            67,
+            0
+          ],
+          [
+            75,
+            0
+          ],
+          [
+            70,
+            0
+          ],
+          [
+            81,
+            0
+          ],
+          [
+            76,
+            0
+          ],
+          [
+            79,
+            0
+          ],
+          [
+            76,
+            0
+          ]
+        ],
         "vach": 31
       },
       "vi": {
@@ -16,10 +114,18 @@
         "nhan": "Bạn là người quyết định",
         "hoi": "Đêm 27/1/1986. Sáng mai mối nối tên lửa đẩy chỉ khoảng 31°F (−1°C). Bạn có cho phóng không?",
         "dan": "Đây là kiểu biểu đồ các quản lý đã nhìn đêm đó: chỉ những chuyến có gioăng bị hư.",
-        "truc_x": "Nhiệt độ mối nối lúc phóng", "truc_y": "Số gioăng hư", "nhan_vach": "Sáng mai: 31°F",
+        "truc_x": "Nhiệt độ mối nối lúc phóng",
+        "truc_y": "Số gioăng hư",
+        "nhan_vach": "Sáng mai: 31°F",
         "chon": [
-          {"nhan": "Phóng", "dap": "Đêm đó NASA cũng cho phóng. Nhìn riêng các chuyến có hư, nhiệt độ có vẻ không liên quan gì."},
-          {"nhan": "Hoãn", "dap": "Kỹ sư Thiokol cũng muốn hoãn, nhưng họ bị yêu cầu chứng minh là \"nguy hiểm\" bằng đúng biểu đồ này."}
+          {
+            "nhan": "Phóng",
+            "dap": "Đêm đó NASA cũng cho phóng. Nhìn riêng các chuyến có hư, nhiệt độ có vẻ không liên quan gì."
+          },
+          {
+            "nhan": "Hoãn",
+            "dap": "Kỹ sư Thiokol cũng muốn hoãn, nhưng họ bị yêu cầu chứng minh là \"nguy hiểm\" bằng đúng biểu đồ này."
+          }
         ],
         "nut_an": "Hiện cả 16 chuyến không hư",
         "ket": "Thêm các chuyến không hư thì quy luật lộ ra: cả 4 chuyến dưới 65°F đều có gioăng hư, còn 31°F nằm xa ngoài mọi dữ liệu từng có.",
@@ -30,10 +136,18 @@
         "nhan": "You make the call",
         "hoi": "27 January 1986, night. Tomorrow morning the booster joints will be about 31°F (−1°C). Do you launch?",
         "dan": "This is the kind of chart the managers looked at that night: only the flights with damaged O-rings.",
-        "truc_x": "Joint temperature at launch", "truc_y": "Damaged O-rings", "nhan_vach": "Tomorrow: 31°F",
+        "truc_x": "Joint temperature at launch",
+        "truc_y": "Damaged O-rings",
+        "nhan_vach": "Tomorrow: 31°F",
         "chon": [
-          {"nhan": "Launch", "dap": "NASA launched too. Looking only at flights with damage, temperature seems to have nothing to do with it."},
-          {"nhan": "Delay", "dap": "The Thiokol engineers wanted to delay too, but they were asked to prove it was \"unsafe\" with exactly this chart."}
+          {
+            "nhan": "Launch",
+            "dap": "NASA launched too. Looking only at flights with damage, temperature seems to have nothing to do with it."
+          },
+          {
+            "nhan": "Delay",
+            "dap": "The Thiokol engineers wanted to delay too, but they were asked to prove it was \"unsafe\" with exactly this chart."
+          }
         ],
         "nut_an": "Show the 16 flights with no damage",
         "ket": "Add the flights with no damage and the pattern appears: all 4 flights below 65°F had damaged O-rings, and 31°F lies far outside anything ever flown.",
@@ -41,34 +155,95 @@
       }
     },
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
+      "khuon": "ten-lua",
+      "id": "choi-ten-lua",
       "truoc": "dan-chung",
-      "the": [
-        {"k": "v", "vi": ["Lỗi khớp nối đã được biết từ nhiều năm trước.", "Có thử nghiệm năm 1977 và các bản ghi nhớ 1978–1979 (Rogers, chương 6)."], "en": ["The joint flaw was known years earlier.", "A 1977 test and 1978–1979 memos (Rogers, chapter 6)."]},
-        {"k": "v", "vi": ["Có áp lực lịch bay từ bên trong NASA.", "Ủy ban ghi nhận lịch bay dày, linh kiện tháo từ tàu khác (Rogers, chương 8)."], "en": ["There was schedule pressure inside NASA.", "The Commission found a crowded flight plan and parts taken from other orbiters (Rogers, chapter 8)."]},
-        {"k": "t", "vi": ["Kỹ sư bị phớt lờ, không ai nghe.", "Họ được nghe nhiều giờ; chính lãnh đạo Thiokol đổi ý sau cuộc họp riêng (Rogers, chương 5)."], "en": ["The engineers were ignored.", "They were heard for hours; Thiokol's own managers reversed after a private caucus (Rogers, chapter 5)."]},
-        {"k": "t", "vi": ["Challenger \"nổ tung\".", "Không có vụ nổ theo nghĩa kỹ thuật: tàu bị lực khí động học xé tan, nhiên liệu cháy bùng (Rogers, chương 3)."], "en": ["Challenger \"exploded\".", "No detonation: the vehicle broke apart under aerodynamic forces as propellant burned (Rogers, chapter 3)."]},
-        {"k": "s", "vi": ["Phi hành đoàn chết ngay lập tức.", "Khoang lái tách ra gần như nguyên vẹn; 3 trong 4 bình khí thở tìm được đã được bật (Kerwin, 1986)."], "en": ["The crew died instantly.", "The cabin separated largely intact; 3 of the 4 air packs recovered had been switched on (Kerwin, 1986)."]},
-        {"k": "s", "vi": ["Nhà Trắng ép phóng.", "Ủy ban kết luận không có áp lực nào từ bên ngoài NASA (Rogers, chương 8)."], "en": ["The White House forced the launch.", "The Commission found no outside pressure on NASA (Rogers, chapter 8)."]}
+      "lanh": 40,
+      "lanh_gioang": 53,
+      "vo": 73,
+      "su_kien": [
+        [
+          0.678,
+          "khoi"
+        ],
+        [
+          2.5,
+          "khoi_den"
+        ],
+        [
+          37,
+          "gio"
+        ],
+        [
+          58.8,
+          "lua"
+        ],
+        [
+          64.7,
+          "thung"
+        ],
+        [
+          72.2,
+          "giang"
+        ],
+        [
+          73,
+          "vo"
+        ]
       ],
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {"v": "Vững", "t": "Thận trọng", "s": "Sai"},
-        "dung": "Đúng.", "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 13 điều cùng lý do.",
-        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5, 6, 8; thư của bác sĩ Joseph Kerwin gửi NASA (7/1986). Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Phóng thử",
+        "nhan": "Tên lửa bay",
+        "hoi": "Kéo nhiệt độ mối nối tên lửa đẩy, rồi bấm Phóng. Sáng 28/1/1986 mối nối chỉ khoảng 31°F. Kỹ sư Thiokol khuyên không phóng dưới 53°F.",
+        "mo_ta": "Tàu con thoi trên bệ phóng, nhiệt kế và hình phóng to gioăng ở mối nối tên lửa đẩy.",
+        "nhiet": "Nhiệt độ mối nối:",
+        "nut_phong": "Phóng",
+        "nut_lai": "Về bệ phóng",
+        "gioang": "GIOĂNG Ở MỐI NỐI",
+        "gioang_cung": "lạnh: cứng, chậm bịt",
+        "gioang_kin": "ấm: đàn hồi, bịt kín",
+        "phong_that": "Phóng ở {f}°F, gần như sáng 28/1/1986. Đây là dòng thời gian thật.",
+        "phong_khac": "Phóng ở {f}°F.",
+        "su_kien": {
+          "khoi": "khói xám phụt ra ở khớp sau tên lửa đẩy phải",
+          "khoi_den": "thêm 8 đợt khói đen; sau đó xỉ nhôm oxit bịt tạm chỗ hở",
+          "gio": "nhiều đợt gió đứt mạnh (tới giây 64)",
+          "lua": "lửa xuất hiện ở khớp",
+          "thung": "lửa làm thủng bình nhiên liệu ngoài",
+          "giang": "thanh giằng đứt",
+          "vo": "tàu vỡ tan; 7 phi hành gia thiệt mạng"
+        },
+        "ket_that": "Ở nhiệt độ này, mô hình của Dalal và cộng sự (1989) ước tính ít nhất 13% khả năng gioăng hỏng thảm khốc; hoãn đến 60°F còn khoảng 2%. Các chuyến dưới 65°F trước đó: 4/4 chuyến có gioăng hư.",
+        "ket_vua": "Tàu lên quỹ đạo, nhưng chưa an toàn: các chuyến dưới 65°F trước đó, 4/4 chuyến có gioăng hư. Đêm đó kỹ sư Thiokol khuyên không phóng dưới 53°F.",
+        "ket_am": "Tàu lên quỹ đạo. Các chuyến từ 66°F trở lên trước đó chỉ 3/19 chuyến có gioăng hư.",
+        "nguon": "Nguồn: Báo cáo Ủy ban Rogers (1986), chương 3, 5 và 6: dòng thời gian 73 giây (0,678; 2,5; 37–64; 58,8; 64,7; 72,2; khoảng 73 giây), khuyến nghị 53°F, nhiệt độ mối nối 28 ± 5°F; Dalal, Fowlkes và Hoadley (1989), JASA 84(408): 31°F, 4/4 chuyến dưới 65°F và 3/19 chuyến từ 66°F có gioăng hư (Ủy ban Rogers ghi 3 trên 20), ít nhất 13% ở 31°F và khoảng 2% ở 60°F. Cảnh dùng chuyến bay thật khi bạn chọn từ 40°F trở xuống; các nhiệt độ khác là giả định, tốc độ bay được tua nhanh."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {"v": "Solid", "t": "Caution", "s": "False"},
-        "dung": "Right.", "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 13 claims and the reasons are below.",
-        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5, 6, 8; Dr Joseph Kerwin's letter to NASA (July 1986). The labels are Mark's assessment based on these sources."
+        "muc": "Try a launch",
+        "nhan": "Rocket flight",
+        "hoi": "Drag the booster joint temperature, then press Launch. On the morning of 28 January 1986 the joint was only about 31°F. Thiokol engineers advised against launching below 53°F.",
+        "mo_ta": "The shuttle on the pad, a thermometer, and a close-up of the O-ring in the booster joint.",
+        "nhiet": "Joint temperature:",
+        "nut_phong": "Launch",
+        "nut_lai": "Back to the pad",
+        "gioang": "O-RING IN THE JOINT",
+        "gioang_cung": "cold: stiff, slow",
+        "gioang_kin": "warm: seals tight",
+        "phong_that": "Launch at {f}°F, close to the morning of 28 January 1986. This is the real timeline.",
+        "phong_khac": "Launch at {f}°F.",
+        "su_kien": {
+          "khoi": "grey smoke puffs from the aft joint of the right booster",
+          "khoi_den": "eight more puffs of black smoke; then aluminum oxide slag temporarily plugs the gap",
+          "gio": "several strong wind-shear events (until 64 s)",
+          "lua": "a flame appears at the joint",
+          "thung": "the flame breaches the external fuel tank",
+          "giang": "a strut breaks",
+          "vo": "the vehicle breaks apart; 7 astronauts die"
+        },
+        "ket_that": "At this temperature, the model of Dalal et al. (1989) puts the chance of catastrophic O-ring failure at 13% or more; postponing to 60°F cuts it to about 2%. Earlier flights below 65°F: 4 of 4 had O-ring damage.",
+        "ket_vua": "The shuttle reaches orbit, but it was not safe: of earlier flights below 65°F, 4 of 4 had O-ring damage. That night Thiokol engineers advised against launching below 53°F.",
+        "ket_am": "The shuttle reaches orbit. Of earlier flights at 66°F or warmer, only 3 of 19 had O-ring damage.",
+        "nguon": "Source: Rogers Commission report (1986), chapters 3, 5 and 6: the 73-second timeline (0.678; 2.5; 37–64; 58.8; 64.7; 72.2; about 73 s), the 53°F recommendation, joint temperature 28 ± 5°F; Dalal, Fowlkes and Hoadley (1989), JASA 84(408): 31°F, 4/4 flights below 65°F and 3/19 from 66°F with O-ring damage (the Rogers Commission says 3 of 20), at least 13% at 31°F and about 2% at 60°F. The scene replays the real flight when you pick 40°F or colder; other temperatures are hypothetical, and flight time is sped up."
       }
     }
   ],
@@ -743,104 +918,50 @@
   ],
   "tham-hoa-chernobyl": [
     {
-      "khuon": "phan-loai",
-      "id": "choi-that-hay-don",
-      "truoc": "dan-chung",
-      "the": [
-        {
-          "k": "v",
-          "vi": [
-            "Lỗi thanh điều khiển đã được biết trước năm 1986",
-            "Phát hiện ở Ignalina năm 1983; thiết kế không được sửa, không có biện pháp bù đắp (INSAG-7, mục 4.1, 6(4))."
-          ],
-          "en": [
-            "The control-rod flaw was known before 1986",
-            "Found at Ignalina in 1983; the design was not changed and no compensating measures were taken (INSAG-7, sections 4.1, 6(4))."
-          ]
-        },
-        {
-          "k": "v",
-          "vi": [
-            "Thế giới biết qua phóng xạ đo được ở nước ngoài trước khi Liên Xô xác nhận",
-            "Thụy Điển và Phần Lan công bố ngày 28/4/1986; tối hôm đó Liên Xô mới xác nhận (A. Salo, IAEA Bulletin 28(3), 1986)."
-          ],
-          "en": [
-            "The world learned from radiation measured abroad before the USSR confirmed",
-            "Sweden and Finland announced on 28 April 1986; the USSR confirmed that evening (A. Salo, IAEA Bulletin 28(3), 1986)."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "Tai nạn là do nhân viên vận hành vi phạm quy định",
-            "Đó là kết luận năm 1986. INSAG-7 sửa lại: \"một số hành động bị INSAG-1 coi là vi phạm thực ra không phải vi phạm\", nhưng yếu tố con người \"vẫn là một yếu tố lớn\", vì bài thử bị sửa tại chỗ và chạy dưới mức quy định (mục 6(6))."
-          ],
-          "en": [
-            "The accident was caused by operators breaking the rules",
-            "That was the 1986 conclusion. INSAG-7 revised it: \"certain actions by operators that were identified in INSAG-1 as violations of rules were in fact not violations,\" but the human factor \"has still to be considered as a major element,\" because the test was altered on the spot and run below the prescribed level (section 6(6))."
-          ]
-        },
-        {
-          "k": "t",
-          "vi": [
-            "\"Chernobyl sẽ làm chết hơn 93.000 người\"",
-            "Dự báo của Greenpeace (2006) cho Belarus, Nga, Ukraine đến năm 2056. Dùng giả định và dữ liệu khác hẳn các cơ quan Liên Hợp Quốc; nên ghi rõ đây là ước tính của một tổ chức vận động, đặt cạnh các ước tính khác."
-          ],
-          "en": [
-            "\"Chernobyl will kill more than 93,000 people\"",
-            "Greenpeace's 2006 projection for Belarus, Russia and Ukraine to 2056. It uses assumptions and data very different from the UN agencies; cite it clearly as an advocacy group's estimate, next to the others."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Nhân viên tắt hệ thống làm mát khẩn cấp trái phép",
-            "INSAG-7: việc ngắt làm mát khẩn cấp \"thực ra được phép ở Chernobyl nếu kỹ sư trưởng cho phép\" (mục 3(1)). Điều đáng trách là chạy 11 giờ như vậy, không phải là trái luật."
-          ],
-          "en": [
-            "Operators illegally switched off emergency cooling",
-            "INSAG-7: disconnecting the emergency core cooling \"was in fact permissible at Chernobyl if authorized by the Chief Engineer\" (section 3(1)). The problem was running 11 hours like that, not that it broke a rule."
-          ]
-        },
-        {
-          "k": "s",
-          "vi": [
-            "Phóng xạ gây làn sóng dị tật bẩm sinh",
-            "WHO (2005): không có bằng chứng về tăng dị tật bẩm sinh có thể quy cho phóng xạ, cũng không thấy giảm khả năng sinh sản."
-          ],
-          "en": [
-            "Radiation caused a wave of birth defects",
-            "WHO (2005): no evidence of increases in congenital malformations attributable to radiation, and no decrease in fertility."
-          ]
-        }
-      ],
+      "khuon": "lo-phan-ung",
+      "id": "choi-lo-phan-ung",
+      "truoc": "tinh-hoa",
+      "thanh": 12,
+      "toi_thieu": 15,
+      "nguong": 8,
+      "giay": 30,
       "vi": {
-        "muc": "Đoán trước khi xem",
-        "nhan": "Thật hay đồn?",
-        "hoi": "Kéo từng câu vào đúng ngăn. Trên điện thoại: chạm câu, rồi chạm ngăn.",
-        "ngan": {
-          "v": "Vững",
-          "t": "Thận trọng",
-          "s": "Sai"
-        },
-        "dung": "Đúng.",
-        "dap_an": "Đáp án:",
-        "ket": "Bạn đúng {d}/{n}. Phần dưới có đủ 14 điều cùng lý do.",
-        "nguon": "Nguồn: các nghiên cứu và báo cáo ghi trong lời giải của từng câu, lấy từ phần Kiểm chứng của bài. Nhãn là đánh giá của Mark dựa trên các nguồn này."
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Phòng điều khiển",
+        "hoi": "Giữ lò quanh 200 MW cho bài thử. Lò bị \"ngộ độc\" dần nên công suất tụt; rút thêm thanh nếu cần. Hết giờ thì nhấn AZ-5 để dừng lò.",
+        "mo_ta": "Lõi lò với 12 thanh điều khiển kéo lên xuống được, và đồng hồ công suất bên phải.",
+        "nut_bd": "Bắt đầu bài thử",
+        "nut_az": "AZ-5",
+        "tieu_de": "THANH ĐIỀU KHIỂN · mỗi thanh = 2 · kéo lên = rút ra",
+        "ten_thanh": "Thanh {n}",
+        "bien": "Biên phản ứng: {n} thanh",
+        "canh_bao": "dưới mức tối thiểu {m}",
+        "con": "Bài thử: còn {s} giây",
+        "het_gio": "Hết giờ thử. Nhấn AZ-5 để dừng lò.",
+        "no": "Lúc nhấn AZ-5 chỉ còn {n} thanh trong lõi. Đầu thanh bằng than chì đi vào trước, làm phản ứng tăng thay vì giảm. Đêm 26/4/1986 biên còn tương đương 8 thanh; 01:23:40 nhấn AZ-5, vài giây sau là hai vụ nổ.",
+        "dung_duoi": "Lò dừng được, nhưng bạn đã chạy dưới mức 15 thanh ({n} thanh).",
+        "dung_an_toan": "Lò dừng an toàn với {n} thanh.",
+        "sau": "Đêm 26/4/1986 biên chỉ còn tương đương 8 thanh, và không có gì trên bảng báo cho kíp trực biết con số đó.",
+        "nguon": "Nguồn: INSAG-7 (1992), mục 4.2 (tối thiểu 15 thanh) và phụ lục I, mục I-3.4 (ở khoảng 7 thanh, nút dừng làm tăng phản ứng); 8 thanh lúc 01:22:30 theo bảng của World Nuclear Association. Công suất, số thanh vẽ và ngưỡng vọt trong cảnh là mô hình đơn giản do Mark làm, không phải vật lý lò thật."
       },
       "en": {
-        "muc": "Guess before you look",
-        "nhan": "Fact or myth?",
-        "hoi": "Drag each claim into the right box. On a phone: tap a claim, then tap a box.",
-        "ngan": {
-          "v": "Solid",
-          "t": "Caution",
-          "s": "False"
-        },
-        "dung": "Right.",
-        "dap_an": "Answer:",
-        "ket": "You got {d}/{n}. All 14 claims and the reasons are below.",
-        "nguon": "Source: the studies and reports cited in each answer, taken from the article's fact-check section. The labels are Mark's assessment based on these sources."
+        "muc": "Play before you read",
+        "nhan": "Control room",
+        "hoi": "Hold the reactor around 200 MW for the test. It slowly \"poisons\" itself and power drops; pull out more rods if you need to. When time is up, press AZ-5 to shut it down.",
+        "mo_ta": "A reactor core with 12 control rods you can drag up and down, and a power gauge on the right.",
+        "nut_bd": "Start the test",
+        "nut_az": "AZ-5",
+        "tieu_de": "CONTROL RODS · each rod = 2 · drag up = pull out",
+        "ten_thanh": "Rod {n}",
+        "bien": "Reactivity margin: {n} rods",
+        "canh_bao": "below the minimum of {m}",
+        "con": "Test: {s} seconds left",
+        "het_gio": "Time's up. Press AZ-5 to shut down.",
+        "no": "When you pressed AZ-5 only {n} rods were in the core. The graphite tips enter first and raise reactivity instead of lowering it. On 26 April 1986 the margin was the equivalent of 8 rods; AZ-5 was pressed at 01:23:40, and seconds later came two explosions.",
+        "dung_duoi": "The reactor shut down, but you ran below the 15-rod minimum ({n} rods).",
+        "dung_an_toan": "The reactor shut down safely with {n} rods.",
+        "sau": "On 26 April 1986 the margin was only the equivalent of 8 rods, and nothing on the panel told the crew that number.",
+        "nguon": "Source: INSAG-7 (1992), section 4.2 (15-rod minimum) and annex I, I-3.4 (at about 7 rods the scram raises reactivity); 8 rods at 01:22:30 per the World Nuclear Association table. Power, rod count and surge threshold in the scene are Mark's simplified model, not real reactor physics."
       }
     }
   ],
@@ -1532,6 +1653,445 @@
   "lam-tuong-brainstorm": [{"khuon": "doan-so", "id": "choi-doan-so", "truoc": "tinh-hoa", "so": [{"vi": "4 người họp chung, nói to", "en": "4 people meeting, talking aloud", "so": 50, "hien": "≈ 50%", "hien_en": "≈ 50%"}, {"vi": "4 người viết riêng rồi gộp (mốc)", "en": "4 people writing alone, pooled (baseline)", "so": 100, "hien": "100%", "hien_en": "100%"}], "vi": {"muc": "Chơi trước khi đọc", "nhan": "Đoán con số", "hoi": "Kéo thanh để đoán, rồi bấm Chốt để xem kết quả nghiên cứu.", "cau": "Cùng đề bài, cùng 12 phút. Lấy số ý của 4 người viết riêng rồi gộp lại (bỏ ý trùng) làm mốc 100%. 4 người ngồi họp chung, nói to, ra được bao nhiêu phần trăm số ý đó?", "nut_chot": "Chốt", "ban": "Bạn đoán", "ket": "Bạn đoán {me}%. Phép thử đầu tiên (Yale, 1958): nhóm họp chung chỉ được khoảng một nửa. Không phải chuyện riêng một nghiên cứu: trong bảng 22 thí nghiệm Diehl và Stroebe tổng hợp năm 1987, 18 thí nghiệm nhóm họp chung ra ít ý hơn.", "nguon": "Nguồn: Taylor, Berry và Block (1958), Administrative Science Quarterly 3, tr. 23–47 (\"khoảng một nửa\" theo các bài tổng quan, không có số trung bình gốc); con số 18/22 từ bảng tổng hợp của Diehl và Stroebe (1987), Journal of Personality and Social Psychology 53, theo Nijstad, Stroebe và Lodewijkx (2006), nguồn thứ cấp."}, "en": {"muc": "Play before you read", "nhan": "Guess the number", "hoi": "Drag the slider to guess, then lock it in to see the research result.", "cau": "Same problem, same 12 minutes. Take the ideas of 4 people writing alone and pooled (duplicates removed) as 100%. What percentage of that do 4 people meeting together, talking aloud, come up with?", "nut_chot": "Lock in", "ban": "Your guess", "ket": "You guessed {me}%. The first test (Yale, 1958): the meeting group managed only about half. Nor is it a one-off: in the table of 22 experiments compiled by Diehl and Stroebe in 1987, the meeting groups produced fewer ideas in 18.", "nguon": "Source: Taylor, Berry and Block (1958), Administrative Science Quarterly 3, pp. 23–47 (\"about half\" as summarised in reviews; original means not available); the 18/22 figure from the summary table of Diehl and Stroebe (1987), Journal of Personality and Social Psychology 53, as restated by Nijstad, Stroebe and Lodewijkx (2006), secondary source."}}],
   "lam-tuong-tri-nho-may-quay": [{"khuon": "tri-nho", "id": "choi-tu-bay", "truoc": "tinh-hoa", "vi": {"muc": "Thử trên chính bạn", "nhan": "Bẫy trí nhớ: từ không có mặt", "hoi": "Vòng 1: nhớ 10 từ trong 20 giây. Vòng 2: nhớ 10 từ khác, lần này được báo trước là có bẫy.", "dan": "Đọc kỹ từng từ, rồi chạm vào đúng những từ bạn đã thấy. Đừng chép hay chụp màn hình nhé.", "v1": ["giường", "nghỉ ngơi", "mệt mỏi", "giấc mơ", "chăn", "ngáy", "ngáp", "gối", "chợp mắt", "đêm khuya"], "v2": ["kẹo", "đường", "mật ong", "chua", "đắng", "sô-cô-la", "bánh kem", "chè", "vị giác", "sâu răng"], "nhieu": ["ngủ", "ngọt", "xe đạp", "cửa sổ", "bàn phím", "ngọn núi", "con tem", "sân bay", "cây cầu", "áo mưa"], "chuyen": "Cảnh báo: danh sách này được soạn để gài bẫy. Có một từ rất hợp với cả nhóm nhưng KHÔNG xuất hiện. Đừng để nó lừa bạn.", "nut_v1": "Vòng 1: bắt đầu", "nut_v2": "Vòng 2: có cảnh báo trước", "nut_lai": "Chơi lại", "nho_xong": "Tôi nhớ xong", "cham": "Chấm", "chon": "Chạm vào 10 từ bạn vừa thấy", "giay": "{s} giây", "ket1": "Vòng 1: đúng {d}/10, chọn nhầm {s}. Bạn có chạm vào \"ngủ\" không? Từ đó không hề có trong danh sách. Trong thí nghiệm gốc, người ta \"nhớ\" ra từ bẫy kiểu này 40% số lần. Giờ thử lại khi đã được báo trước.", "ket2": "Vòng 2: đúng {d}/10, chọn nhầm {s} (điểm vòng 1: {d1}/10). Từ bẫy lần này là \"ngọt\". Biết trước có bẫy giúp nhận nhầm ít hơn, nhưng trong thí nghiệm, người được báo trước vẫn nhận nhầm nhiều lần. Ký ức giả không phải lỗi của người kém chú ý: đó là cách trí nhớ dựng lại.", "nguon": "Nguồn: Roediger và McDermott (1995), JEP: Learning, Memory, and Cognition 21: 803–814 (từ bẫy được nhớ ra 40% số lần ở thí nghiệm 1); Gallo, Roberts và Seamon (1997), Psychonomic Bulletin & Review 4: 271–276 (báo trước giảm nhưng không xóa được việc nhận nhầm). Danh sách tiếng Việt phỏng theo danh sách \"sleep\" và \"sweet\" gốc, chưa được kiểm định."}, "en": {"muc": "Try it on yourself", "nhan": "Memory trap: the missing word", "hoi": "Round 1: remember 10 words in 20 seconds. Round 2: remember 10 different words, this time with a warning that there is a trap.", "dan": "Read each word carefully, then tap exactly the words you saw. No copying or screenshots.", "v1": ["bed", "rest", "tired", "dream", "blanket", "snore", "yawn", "pillow", "nap", "late night"], "v2": ["candy", "sugar", "honey", "sour", "bitter", "chocolate", "cake", "dessert", "taste", "tooth"], "nhieu": ["sleep", "sweet", "bicycle", "window", "keyboard", "mountain", "stamp", "airport", "bridge", "raincoat"], "chuyen": "Warning: this list is built as a trap. One word fits the whole group perfectly but does NOT appear. Don't let it fool you.", "nut_v1": "Round 1: start", "nut_v2": "Round 2: with a warning", "nut_lai": "Play again", "nho_xong": "I've got it", "cham": "Check", "chon": "Tap the 10 words you just saw", "giay": "{s} seconds", "ket1": "Round 1: {d}/10 correct, {s} wrong picks. Did you tap \"sleep\"? It was never on the list. In the original experiment, people \"recalled\" a lure like this 40% of the time. Now try again with a warning.", "ket2": "Round 2: {d}/10 correct, {s} wrong picks (round 1 score: {d1}/10). The lure this time was \"sweet\". Knowing about the trap reduces false recognition, but in the experiment warned people still made many false recognitions. False memories are not a sign of carelessness: it is how memory rebuilds.", "nguon": "Source: Roediger and McDermott (1995), JEP: Learning, Memory, and Cognition 21: 803–814 (lure recalled 40% of the time in experiment 1); Gallo, Roberts and Seamon (1997), Psychonomic Bulletin & Review 4: 271–276 (warnings reduce but do not eliminate false recognition). Word lists adapted from the original \"sleep\" and \"sweet\" lists; the Vietnamese versions are not normed."}}],
   "lam-tuong-duong-tang-dong": [{"khuon": "dam-dong", "id": "choi-hoi-dong", "truoc": "tinh-hoa", "luot": [{"mau": 90, "abc": [90, 120, 65], "dung": "A", "nhom": "A"}, {"mau": 120, "abc": [95, 150, 120], "dung": "C", "nhom": "B"}, {"mau": 70, "abc": [70, 100, 50], "dung": "A", "nhom": "B"}, {"mau": 130, "abc": [100, 130, 155], "dung": "B", "nhom": "C"}, {"mau": 100, "abc": [125, 75, 100], "dung": "C", "nhom": "C"}], "vi": {"muc": "Thử trên chính bạn", "nhan": "Hội đồng chấm bài", "hoi": "Kịch bản giả định: hội đồng chấm bài test của ứng viên. Mỗi đường là điểm một bài theo thang viết sẵn; bài nào (A, B, C) đạt đúng bằng bài mẫu? Trước mỗi lượt, cả phòng đã nghe sếp nói bài nào là của \"ứng viên từ công ty lớn\". Bạn thì không. Năm người nói trước, bạn nói cuối.", "mo_ta": "Bài mẫu bên trái, ba bài A, B, C bên phải; đường càng dài điểm càng cao", "mau": "Bài mẫu", "ban": "Bạn", "ten": ["Sếp", "Lan", "Minh", "Tú", "Hòa"], "chon": "Tôi chọn {k}", "nut_luot": "Lượt {n}/{t}", "nut_lai": "Chấm lại", "ket": "Ở {c} lượt cả phòng chấm theo lời sếp thay vì theo bài, bạn theo phòng {f}/{c} lần. Bà mẹ trong thí nghiệm Hoover và Milich (1994) cũng không nói dối: 35 cặp mẹ con, mọi đứa trẻ đều uống giả dược, nhưng mẹ được bảo \"con vừa uống nhiều đường\" chấm con hiếu động hơn. Ta thấy điều ta chờ đợi. Cách chặn: mỗi người ghi điểm riêng trước khi ai nói, nhất là sếp.", "nguon": "Nguồn: hội đồng, bài test và lời sếp là kịch bản giả định của Mark. 35 cặp mẹ con, tất cả uống giả dược (aspartame): Hoover và Milich, Journal of Abnormal Child Psychology 22(4): 501–515, 1994. Bước \"ghi điểm riêng trước khi nói\": Phần 6 của bài."}, "en": {"muc": "Try it on yourself", "nhan": "The scoring panel", "hoi": "Hypothetical scenario: a panel is scoring candidates' test answers. Each line is one answer's score on a ready-made scale; which answer (A, B, C) matches the model answer? Before each round, everyone else heard the boss say which answer belongs to \"the candidate from the big-name company\". You didn't. Five people speak first; you go last.", "mo_ta": "Model answer on the left, answers A, B and C on the right; a longer line means a higher score", "mau": "Model", "ban": "You", "ten": ["Boss", "Ann", "Ben", "Cara", "Dan"], "chon": "I pick {k}", "nut_luot": "Round {n}/{t}", "nut_lai": "Score again", "ket": "In the {c} rounds where the room scored by the boss's hint instead of the answer, you followed the room {f} of {c} times. The mothers in Hoover and Milich's experiment (1994) weren't lying either: 35 mother–son pairs, every boy drank a placebo, yet mothers told \"your son just had a lot of sugar\" rated him more hyperactive. We see what we expect. The fix: everyone writes down their own score before anyone speaks, especially the boss.", "nguon": "Source: the panel, the test answers and the boss's hint are Mark's hypothetical scenario. 35 mother–son pairs, all given a placebo (aspartame): Hoover and Milich, Journal of Abnormal Child Psychology 22(4): 501–515, 1994. The \"write scores before anyone speaks\" step: Part 6 of the article."}}],
+  "tham-hoa-columbia": [
+    {
+      "khuon": "doan-tau",
+      "id": "choi-doan-tau",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Đoàn tàu 16 ngày",
+        "hoi": "Kéo từng toa từ bãi xuống đường ray theo đúng thứ tự ngày. Toa số 1 nối ngay sau đầu máy. Chạm một toa để đọc nó.",
+        "mo_ta": "Bãi toa và đường ray: năm toa ghi các ngày của chuyến bay Columbia, cần nối vào sau đầu máy theo thứ tự.",
+        "doc_mac": "Chạm vào một toa để đọc.",
+        "nut_chay": "Cho tàu chạy",
+        "nut_lai": "Xếp lại",
+        "bai": "BÃI TOA",
+        "ten_toa": "toa {n}",
+        "toa": [
+          {
+            "d": "16/1",
+            "a": [
+              "Phóng; bọt",
+              "đập cánh trái"
+            ],
+            "full": "16/1/2003: phóng. Giây 81,7 một mảng bọt rời bình nhiên liệu và đập vào mép cánh trái."
+          },
+          {
+            "d": "17/1",
+            "a": [
+              "Nhóm ảnh",
+              "thấy cú va"
+            ],
+            "full": "17/1 (ngày bay 2): nhóm phân tích ảnh thấy cú va, xin ảnh chụp cánh lần đầu."
+          },
+          {
+            "d": "21/1",
+            "a": [
+              "Kỹ sư",
+              "\"năn nỉ\" xin ảnh"
+            ],
+            "full": "21/1 (ngày bay 6): kỹ sư tiếp tục xin ảnh vệ tinh, một người viết là \"năn nỉ\"."
+          },
+          {
+            "d": "22/1",
+            "a": [
+              "Yêu cầu ảnh",
+              "bị hủy"
+            ],
+            "full": "22/1: yêu cầu chụp ảnh gửi Bộ Quốc phòng bị hủy 90 phút sau khi đưa ra."
+          },
+          {
+            "d": "23/1",
+            "a": [
+              "Email:",
+              "\"không đáng lo\""
+            ],
+            "full": "23/1: email cho phi hành đoàn: \"Hoàn toàn không có gì đáng lo khi trở về.\""
+          }
+        ],
+        "sai": "Đúng {d}/{n} toa. Toa viền đỏ đang sai chỗ; kéo đổi rồi cho chạy lại.",
+        "dung": "Đúng cả 5 toa. Đoàn tàu này chạy thẳng tới ngày 1/2/2003: Columbia vỡ trên bầu trời Texas, 7 phi hành gia thiệt mạng. Dọc đường có nhiều lần lẽ ra đã có thể dừng lại.",
+        "nguon": "Nguồn: CAIB, tập I (8/2003), chương 3 và mục 6.3: phóng 16/1/2003, bọt rơi ở giây 81,7 và đập mép cánh trái; 17/1 nhóm ảnh thấy cú va; 21/1 kỹ sư xin ảnh; 22/1 yêu cầu với Bộ Quốc phòng bị hủy 90 phút sau; 23/1 email \"không có gì đáng lo khi trở về\"; 1/2 tàu vỡ trên Texas, 7 người chết."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "A 16-day train",
+        "hoi": "Drag each car from the yard onto the track in date order. Car 1 couples right behind the engine. Tap a car to read it.",
+        "mo_ta": "A rail yard and a track: five cars labelled with dates from Columbia's flight, to be coupled behind the engine in order.",
+        "doc_mac": "Tap a car to read it.",
+        "nut_chay": "Run the train",
+        "nut_lai": "Reset",
+        "bai": "RAIL YARD",
+        "ten_toa": "car {n}",
+        "toa": [
+          {
+            "d": "16 Jan",
+            "a": [
+              "Launch; foam",
+              "hits wing"
+            ],
+            "full": "16 Jan 2003: launch. At 81.7 s a piece of foam breaks off the fuel tank and strikes the left wing's leading edge."
+          },
+          {
+            "d": "17 Jan",
+            "a": [
+              "Photo team",
+              "sees strike"
+            ],
+            "full": "17 Jan (flight day 2): the imagery team sees the strike and makes the first request for pictures of the wing."
+          },
+          {
+            "d": "21 Jan",
+            "a": [
+              "Engineers",
+              "\"beg\""
+            ],
+            "full": "21 Jan (flight day 6): engineers keep asking for satellite images; one writes about having to \"beg\"."
+          },
+          {
+            "d": "22 Jan",
+            "a": [
+              "Photo ask",
+              "cancelled"
+            ],
+            "full": "22 Jan: the imaging request to the Department of Defense is cancelled 90 minutes after it was made."
+          },
+          {
+            "d": "23 Jan",
+            "a": [
+              "E-mail:",
+              "\"no concern\""
+            ],
+            "full": "23 Jan: e-mail to the crew: \"There is absolutely no concern for entry.\""
+          }
+        ],
+        "sai": "{d}/{n} cars right. Cars outlined in red are in the wrong place; swap them and run again.",
+        "dung": "All 5 cars right. This train runs straight to 1 February 2003: Columbia breaks apart over Texas and 7 astronauts die. Along the way there were several points where it could have been stopped.",
+        "nguon": "Source: CAIB, vol. I (Aug 2003), chapter 3 and section 6.3: launch 16 Jan 2003, foam shed at 81.7 s striking the left wing leading edge; 17 Jan the imagery team sees the strike; 21 Jan engineers ask for images; 22 Jan the DoD request cancelled 90 minutes later; 23 Jan e-mail \"absolutely no concern for entry\"; 1 Feb breakup over Texas, 7 killed."
+      }
+    }
+  ],
+  "tham-hoa-fukushima": [
+    {
+      "khuon": "domino",
+      "id": "choi-domino",
+      "truoc": "tinh-hoa",
+      "khong_rut": 4,
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Domino nguyên nhân",
+        "hoi": "Kéo các quân vào 6 chỗ đứng, sớm nhất bên trái, rồi đẩy cho đổ. Lượt sau, rút một quân ra trước khi đẩy xem chuỗi có dừng không.",
+        "mo_ta": "Sáu quân domino ghi các mốc dẫn tới tai nạn Fukushima Daiichi, cần dựng theo thứ tự thời gian.",
+        "doc_mac": "Chạm vào một quân để đọc.",
+        "nut_day": "Đẩy quân đầu",
+        "nut_rut": "Dựng lại và rút một quân",
+        "nut_lai": "Xếp lại",
+        "khay": "KHAY QUÂN",
+        "quan": [
+          {
+            "y": "1960s",
+            "a": [
+              "Hạ nền",
+              "xuống 10 m"
+            ],
+            "full": "Thập niên 1960: đào bớt mặt đất tự nhiên, đặt tòa lò ở độ cao 10 m.",
+            "sua": "Đặt nhà máy cao hơn thì sóng khó vào được."
+          },
+          {
+            "y": "2002",
+            "a": [
+              "Sóng thiết kế",
+              "chỉ 5,7 m"
+            ],
+            "full": "2002: tính lại sóng thiết kế, chỉ 5,7 m.",
+            "sua": "Tính sóng thiết kế theo kịch bản động đất lớn hơn thì mốc này đã khác."
+          },
+          {
+            "y": "2008",
+            "a": [
+              "Tính ra 15,7 m",
+              "rồi để đó"
+            ],
+            "full": "2008: nhóm TEPCO tự tính sóng tối đa 15,7 m; con số được gửi đi \"nghiên cứu thêm\".",
+            "sua": "Làm theo con số 15,7 m: còn khoảng 3 năm để xây tường, đưa máy phát lên cao."
+          },
+          {
+            "y": "2009",
+            "a": [
+              "Dời kiểm tra",
+              "sang 2016"
+            ],
+            "full": "2009: hạn kiểm tra chống động đất bị dời sang 1/2016.",
+            "sua": "Giữ hạn cũ thì lỗ hổng có thể lộ ra trước sóng thần."
+          },
+          {
+            "y": "11/3/2011",
+            "a": [
+              "Sóng 13,1 m",
+              "tràn vào"
+            ],
+            "full": "11/3/2011: sóng khoảng 13,1 m tràn qua mặt bằng 10 m.",
+            "sua": "Quân này là thiên nhiên, không rút được."
+          },
+          {
+            "y": "15:42",
+            "a": [
+              "Mất điện",
+              "toàn bộ"
+            ],
+            "full": "Khoảng 15:42: mất điện toàn bộ; ngày 12/3 nổ hydro ở tòa lò 1.",
+            "sua": "Có kịch bản mất điện dài và máy phát đặt cao thì lò còn được làm mát."
+          }
+        ],
+        "sai": "Đúng {d}/{n}. Quân viền đỏ đang sai năm; kéo đổi rồi đẩy lại.",
+        "do_het": "Đổ hết 6 quân: nổ hydro ở tòa lò 1 ngày 12/3/2011, khoảng 150.000 người sơ tán. Giờ thử rút một quân xem chuỗi có dừng không.",
+        "dung_o": "Chuỗi dừng ở quân thứ {n}.",
+        "chon_rut": "Chạm vào quân bạn muốn rút ra.",
+        "khong_rut_duoc": "Sóng thần là thiên nhiên, không rút được. Chọn quân khác.",
+        "da_rut": "Đã rút quân \"{y}\". Đẩy quân đầu.",
+        "nguon": "Nguồn: IAEA, tập kỹ thuật 2 (2015): mặt bằng tòa lò 10 m, sóng thiết kế tính lại 5,7 m năm 2002; TEPCO (24/4/2012): phép tính 15,7 m năm 2008; NAIIC (7/2012): hạn kiểm tra dời sang 1/2016, khoảng 150.000 người sơ tán; Ryu và Meshkati (2014): sóng 13,1 m; World Nuclear Association: mất điện toàn bộ khoảng 15:42 ngày 11/3/2011, nổ hydro 12/3. \"Chuỗi dừng\" là giả định của Mark để minh họa, không phải kết luận của báo cáo."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Dominoes of cause",
+        "hoi": "Drag the tiles into the 6 places, earliest on the left, then push them over. Next round, remove one tile before pushing and see whether the chain stops.",
+        "mo_ta": "Six dominoes labelled with the steps that led to the Fukushima Daiichi accident, to be stood up in time order.",
+        "doc_mac": "Tap a tile to read it.",
+        "nut_day": "Push the first tile",
+        "nut_rut": "Stand them up and remove one",
+        "nut_lai": "Reset",
+        "khay": "TILE TRAY",
+        "quan": [
+          {
+            "y": "1960s",
+            "a": [
+              "Site cut",
+              "down to 10 m"
+            ],
+            "full": "1960s: natural ground is dug away and the reactor buildings are set at 10 m above sea level.",
+            "sua": "A higher site would have kept the wave out more easily."
+          },
+          {
+            "y": "2002",
+            "a": [
+              "Design wave",
+              "only 5.7 m"
+            ],
+            "full": "2002: the design-basis wave is recalculated at only 5.7 m.",
+            "sua": "A design wave based on a larger earthquake scenario would have changed this step."
+          },
+          {
+            "y": "2008",
+            "a": [
+              "15.7 m found",
+              "then shelved"
+            ],
+            "full": "2008: a TEPCO team calculates a maximum wave of 15.7 m; the number is sent off for \"further study\".",
+            "sua": "Acting on 15.7 m would have left about 3 years to build a wall and raise the generators."
+          },
+          {
+            "y": "2009",
+            "a": [
+              "Check",
+              "delayed"
+            ],
+            "full": "2009: the deadline for the seismic safety check is moved to January 2016.",
+            "sua": "Keeping the old deadline might have exposed the gap before the tsunami."
+          },
+          {
+            "y": "11/3/2011",
+            "a": [
+              "13.1 m wave",
+              "floods in"
+            ],
+            "full": "11 Mar 2011: a wave of about 13.1 m floods over the 10 m site.",
+            "sua": "This tile is nature; it cannot be removed."
+          },
+          {
+            "y": "15:42",
+            "a": [
+              "Total",
+              "power loss"
+            ],
+            "full": "About 15:42: total loss of power; on 12 March hydrogen explodes in unit 1.",
+            "sua": "A plan for long blackouts and generators placed higher would have kept the reactors cooled."
+          }
+        ],
+        "sai": "{d}/{n} right. Tiles outlined in red have the wrong year; swap them and push again.",
+        "do_het": "All 6 fell: a hydrogen explosion in unit 1 on 12 March 2011, and about 150,000 people evacuated. Now remove one tile and see whether the chain stops.",
+        "dung_o": "The chain stops at tile {n}.",
+        "chon_rut": "Tap the tile you want to remove.",
+        "khong_rut_duoc": "The tsunami is nature; it cannot be removed. Pick another tile.",
+        "da_rut": "Removed \"{y}\". Push the first tile.",
+        "nguon": "Source: IAEA, technical volume 2 (2015): 10 m site level, design wave recalculated at 5.7 m in 2002; TEPCO (24 Apr 2012): the 15.7 m calculation in 2008; NAIIC (Jul 2012): check deadline moved to Jan 2016, about 150,000 evacuated; Ryu and Meshkati (2014): 13.1 m wave; World Nuclear Association: total power loss about 15:42 on 11 Mar 2011, hydrogen explosion 12 Mar. \"The chain stops\" is Mark's illustration, not a finding of the reports."
+      }
+    }
+  ],
+  "tham-hoa-deepwater-horizon": [
+    {
+      "khuon": "pho-mai",
+      "id": "choi-pho-mai",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Chơi trước khi đọc",
+        "nhan": "Bốn lát phô mai",
+        "hoi": "Kéo từng lát lên xuống để lỗ không thẳng hàng. Khí từ giếng (trái) chỉ tới được giàn khoan (phải) khi lọt qua lỗ của cả bốn lát.",
+        "mo_ta": "Bốn lớp chắn có lỗ giữa giếng dầu và giàn khoan; các chấm đỏ là khí đi từ trái sang phải.",
+        "nut_that": "Xem đêm 20/4/2010",
+        "nut_tron": "Xáo lại",
+        "dem": "Khí lọt tới giàn: {n}",
+        "gieng": "GIẾNG",
+        "gian": "GIÀN",
+        "lop": [
+          "Xi măng",
+          "Thử áp",
+          "Theo dõi khí",
+          "Chống phun"
+        ],
+        "mo_dau": "Đêm 20/4/2010 cả bốn lớp cùng thủng:",
+        "ly_do": [
+          "Xi măng đáy giếng hỏng và không được đo kiểm.",
+          "Phép thử áp suất âm: 1.400 psi trên cần khoan, 0 ở ống dập giếng, vẫn kết luận \"đạt\".",
+          "Gần 1 giờ không ai phát hiện khí đang vào giếng.",
+          "Bộ chống phun đóng nhưng không kín."
+        ],
+        "ket": "Khí lên tới giàn, phát nổ; 11 người chết. Chỉ cần một lớp giữ được là khí không lên tới giàn.",
+        "nguon": "Nguồn: CSB (2016) và Ủy ban Quốc gia về sự cố Deepwater Horizon (2011): bốn hàng rào hỏng gồm xi măng đáy giếng, phép thử áp suất âm (1.400 psi trên cần khoan, 0 ở ống dập giếng) bị kết luận \"đạt\", gần 1 giờ không phát hiện khí vào giếng, bộ chống phun đóng nhưng không kín; 11 người chết. Vị trí lỗ và dòng khí trong cảnh là hình minh họa."
+      },
+      "en": {
+        "muc": "Play before you read",
+        "nhan": "Four slices of cheese",
+        "hoi": "Drag each slice up or down so the holes don't line up. Gas from the well (left) only reaches the rig (right) if it passes through holes in all four slices.",
+        "mo_ta": "Four barriers with holes between the well and the rig; red dots are gas moving from left to right.",
+        "nut_that": "See the night of 20 April 2010",
+        "nut_tron": "Shuffle",
+        "dem": "Gas reaching the rig: {n}",
+        "gieng": "WELL",
+        "gian": "RIG",
+        "lop": [
+          "Cement",
+          "Pressure test",
+          "Kick watch",
+          "Blowout preventer"
+        ],
+        "mo_dau": "On the night of 20 April 2010 all four barriers failed:",
+        "ly_do": [
+          "The cement at the bottom of the well failed and was not checked.",
+          "Negative pressure test: 1,400 psi on the drill pipe, 0 on the kill line, still judged a \"pass\".",
+          "For nearly an hour nobody noticed gas entering the well.",
+          "The blowout preventer closed but did not seal."
+        ],
+        "ket": "Gas reached the rig and exploded; 11 people died. Any one barrier holding would have kept the gas off the rig.",
+        "nguon": "Source: CSB (2016) and the National Commission on the Deepwater Horizon Oil Spill (2011): four failed barriers, namely the bottom-hole cement, a negative pressure test (1,400 psi on the drill pipe, 0 on the kill line) judged a \"pass\", nearly an hour without detecting the kick, and a blowout preventer that closed but did not seal; 11 killed. Hole positions and gas flow in the scene are illustrative."
+      }
+    }
+  ],
+  "thi-nghiem-keo-deo": [
+    {
+      "khuon": "cho-keo",
+      "id": "choi-cho-keo",
+      "truoc": "tinh-hoa",
+      "giay": 20,
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Chờ 20 giây",
+        "hoi": "Đừng chạm vào viên kẹo. Mẹo của trẻ giỏi chờ: kéo cái bát úp lên kẹo, hoặc bấm \"Nghĩ nó là đám mây\". Chạm kẹo là ăn, rung chuông là bỏ cuộc.",
+        "mo_ta": "Một viên kẹo dẻo trên đĩa, một cái bát kéo được và một cái chuông.",
+        "nut_bd": "Bắt đầu chờ",
+        "nut_may": "Nghĩ nó là đám mây",
+        "nut_may_lai": "Thôi, nó là viên kẹo",
+        "chuong": "rung = bỏ cuộc",
+        "bat": "kéo bát",
+        "du": "Bạn chờ đủ {t} giây",
+        "meo": " (có dùng mẹo)",
+        "an": "Bạn ăn mất viên kẹo sau {s} giây.",
+        "rung": "Bạn rung chuông sau {s} giây.",
+        "da_cho": "Đã chờ: {s} / {t} giây",
+        "du_do": [
+          "Ăn đi mà…",
+          "Mềm lắm đó!",
+          "Không ai thấy đâu",
+          "Một miếng thôi?",
+          "Ngọt lắm nè"
+        ],
+        "ket": "Trẻ ở Stanford có thể phải chờ tới khoảng 15 phút. Nghiên cứu năm 2018 với 918 trẻ thấy khác biệt chủ yếu nằm ở việc chờ được 20 giây hay không; che kẹo, nghĩ chuyện khác giúp chờ lâu hơn hẳn. Khi người lớn từng thất hứa, trẻ chỉ chờ khoảng 3 phút thay vì 12.",
+        "nguon": "Nguồn: Mischel và Ebbesen (1970): người lớn ra ngoài tối đa khoảng 15 phút; Mischel, Ebbesen và Zeiss (1972): che kẹo, nghĩ chuyện khác giúp chờ lâu hơn; Watts, Duncan và Quan (2018), 918 trẻ: khác biệt chủ yếu ở ngưỡng 20 giây; Kidd, Palmeri và Aslin (2013): người lớn giữ lời thì trẻ chờ khoảng 12 phút, thất hứa thì khoảng 3 phút. Câu dụ dỗ của viên kẹo là Mark viết cho vui."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "Wait 20 seconds",
+        "hoi": "Don't touch the marshmallow. Tricks of good waiters: drag the bowl over it, or press \"Think of it as a cloud\". Tapping it means eating it; ringing the bell means giving up.",
+        "mo_ta": "A marshmallow on a plate, a bowl you can drag, and a bell.",
+        "nut_bd": "Start waiting",
+        "nut_may": "Think of it as a cloud",
+        "nut_may_lai": "No, it's a marshmallow",
+        "chuong": "ring = give up",
+        "bat": "drag bowl",
+        "du": "You waited the full {t} seconds",
+        "meo": " (with a trick)",
+        "an": "You ate the marshmallow after {s} seconds.",
+        "rung": "You rang the bell after {s} seconds.",
+        "da_cho": "Waited: {s} / {t} seconds",
+        "du_do": [
+          "Go on, eat me…",
+          "So soft!",
+          "Nobody's looking",
+          "Just one bite?",
+          "I'm so sweet"
+        ],
+        "ket": "Children at Stanford could have to wait up to about 15 minutes. A 2018 study of 918 children found the difference lay mostly in whether they could wait 20 seconds; covering the treat or thinking of something else helped a lot. When an adult had broken a promise, children waited about 3 minutes instead of 12.",
+        "nguon": "Source: Mischel and Ebbesen (1970): the adult left for up to about 15 minutes; Mischel, Ebbesen and Zeiss (1972): covering the treat and distraction lengthened waiting; Watts, Duncan and Quan (2018), 918 children: the difference was mostly at the 20-second mark; Kidd, Palmeri and Aslin (2013): about 12 minutes when the adult was reliable, about 3 when not. The marshmallow's lines are Mark's, for fun."
+      }
+    }
+  ],
+  "thi-nghiem-ikea": [
+    {
+      "khuon": "lap-rap",
+      "id": "choi-lap-rap",
+      "truoc": "tinh-hoa",
+      "vi": {
+        "muc": "Thử trên chính bạn",
+        "nhan": "Tự tay lắp",
+        "hoi": "Kéo năm tấm gỗ vào đúng khung nét đứt. Tấm khớp sẽ tự bắt vít. Lắp xong, ra giá cho cái hộp của bạn.",
+        "mo_ta": "Gói hàng phẳng với năm tấm gỗ và một khung lắp nét đứt.",
+        "gia_hoi": "Bạn trả tối đa bao nhiêu cho cái hộp vừa lắp?",
+        "nut_chot": "Chốt giá",
+        "goi": "GÓI HÀNG PHẲNG",
+        "khung": "KHUNG LẮP",
+        "tam": [
+          "Hông trái",
+          "Hông phải",
+          "Nóc",
+          "Đáy",
+          "Kệ giữa"
+        ],
+        "xong": "Xong! Hộp do chính bạn lắp.",
+        "ket": "Bạn trả {g}. Trong thí nghiệm, người tự lắp trả trung bình 0,78 USD cho đúng cái hộp mà người nhận hộp lắp sẵn chỉ trả 0,48 USD, cao hơn khoảng 63%. Nhưng nếu lắp xong rồi tháo ra, phần chênh tụt còn khoảng một phần ba (0,14 so với 0,42 USD, thí nghiệm Lego).",
+        "nguon": "Nguồn: Norton, Mochon và Ariely (2012), Journal of Consumer Psychology 22(3): người tự lắp trả trung bình 0,78 USD, người nhận hộp lắp sẵn 0,48 USD; Lego: lắp và giữ chênh +0,42 USD, lắp rồi tháo chỉ còn +0,14 USD."
+      },
+      "en": {
+        "muc": "Try it on yourself",
+        "nhan": "Build it yourself",
+        "hoi": "Drag the five boards into the dashed frame. A board that fits screws itself in. When it's built, name your price for the box.",
+        "mo_ta": "A flat pack with five boards and a dashed assembly frame.",
+        "gia_hoi": "What's the most you'd pay for the box you just built?",
+        "nut_chot": "Lock in my price",
+        "goi": "FLAT PACK",
+        "khung": "ASSEMBLY FRAME",
+        "tam": [
+          "Left side",
+          "Right side",
+          "Top",
+          "Bottom",
+          "Shelf"
+        ],
+        "xong": "Done! You built this box.",
+        "ket": "You'd pay {g}. In the study, builders paid 0.78 USD on average for the same box that people given a pre-built one valued at 0.48 USD, about 63% more. But if they built it and then took it apart, the premium shrank to about a third (0.14 vs 0.42 USD, Lego study).",
+        "nguon": "Source: Norton, Mochon and Ariely (2012), Journal of Consumer Psychology 22(3): builders paid 0.78 USD on average, people given a pre-built box 0.48 USD; Lego: build and keep +0.42 USD, build then dismantle only +0.14 USD."
+      }
+    }
+  ],
   "su-kien-covid-19": [{"khuon": "nhap-vai", "id": "nhap-vai-covid", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là người phụ trách y tế một thành phố", "hoi": "Bạn phụ trách y tế công cộng của một thành phố lớn (giả định), từ đầu tháng 1 đến tháng 4/2020. Mỗi cảnh bạn chỉ biết những gì thế giới biết lúc đó.", "canh": [{"moc": "Đầu tháng 1/2020", "biet": "Ngày 31/12/2019, Vũ Hán báo một cụm viêm phổi chưa rõ nguyên nhân. Chưa biết là virus gì, chưa biết có lây giữa người với người không. Thành phố bạn có đường bay thẳng tới vùng này.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Báo bệnh viện để ý, chuẩn bị xét nghiệm", "dap": "Tốn ít: một công văn, một quy trình hỏi tiền sử đi lại. Nếu là báo động giả, bạn mất vài ngày công."}, {"nhan": "Chờ thêm thông tin", "dap": "Hợp lý nếu đây chỉ là một ổ dịch địa phương. Nhưng nếu không phải, bạn bắt đầu muộn hơn nhịp nhân đôi của virus."}], "that": 0, "chuyen_that": "Chuyện thật: ngày 1/1/2020 WHO lập nhóm quản lý sự cố; ngày 10/1 WHO gửi mọi nước gói hướng dẫn cách phát hiện, xét nghiệm và điều trị ca nghi ngờ. Ngày 11/1 trình tự gen được chia sẻ, ngày 13/1 Thái Lan có ca đầu tiên ngoài Trung Quốc."}, {"moc": "Cuối tháng 1/2020", "biet": "Ngày 22–23/1, Ủy ban Khẩn cấp của WHO chia rẽ, chưa tuyên bố khẩn cấp toàn cầu. Ngày 29/1, một nghiên cứu trên NEJM cho thấy virus lây giữa người với người và số ca nhân đôi sau khoảng 7,4 ngày.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Chỉ theo dõi người về từ vùng dịch", "dap": "Hữu ích lúc đầu, nhưng nếu virus đã lây trong cộng đồng ở nơi khác thì lọc theo nơi đến sẽ sót ca."}, {"nhan": "Chờ WHO tuyên bố khẩn cấp", "dap": "Dễ giải thích với cấp trên: đợi cơ quan quốc tế lên tiếng. Nhưng tuyên bố chỉ là tín hiệu, không chuẩn bị giường thay bạn."}, {"nhan": "Chuẩn bị ngay giường, đồ bảo hộ, xét nghiệm", "dap": "Tốn tiền và có thể bị chê là làm quá. Nhưng với nhịp nhân đôi 7,4 ngày, mỗi tuần chuẩn bị sớm là thêm thời gian khi dịch đến."}], "that": 1, "chuyen_that": "Chuyện thật: ngày 30/1/2020 WHO tuyên bố khẩn cấp y tế công cộng quốc tế (7.711 ca ở Trung Quốc, 83 ca ở 18 nước khác). Nhưng Hội đồng độc lập sau này kết luận nhiều nước vẫn \"chờ xem\", và gọi tháng 2/2020 là \"tháng bị mất\". Lựa chọn A mới là điều họ nói lẽ ra nên làm."}, {"moc": "Đầu tháng 3/2020", "biet": "Ngày 11/3, WHO nói COVID-19 có thể gọi là đại dịch: hơn 118.000 ca ở 114 nước, 4.291 người chết, và WHO lo về \"mức thiếu hành động đáng báo động\". Thành phố bạn bắt đầu có ca không rõ lây từ đâu. Chưa có thuốc đặc hiệu, chưa có vắc xin.", "hoi": "Bạn đề xuất gì?", "chon": [{"nhan": "Dừng sự kiện đông người, chuẩn bị đóng trường ngay", "dap": "Cái giá kinh tế và xã hội đến ngay, chắc chắn, và người dân sẽ hỏi \"có cần đến thế không\". Lợi ích thì khó thấy, vì thứ bạn tránh được là những ca không xảy ra."}, {"nhan": "Đợi đến khi bệnh viện bắt đầu quá tải", "dap": "Tránh được chi phí trong vài tuần. Nhưng ca bệnh hôm nay phản ánh lây nhiễm của 1 đến 2 tuần trước, nên khi bệnh viện đầy thì dịch đã lớn hơn nhiều."}], "that": 0, "chuyen_that": "Chuyện thật: từ giữa đến cuối tháng 3/2020, nhiều nước châu Âu cấm tụ tập, đóng trường và phong tỏa. Một nghiên cứu (Flaxman và cs., Nature 2020) ước tính các biện pháp ở 11 nước tránh khoảng 3,1 triệu ca tử vong đến 4/5/2020, nhưng con số bị phản biện về phương pháp. Cái giá có thật: năm 2020 thế giới mất 8,8% giờ làm."}, {"moc": "Đầu tháng 4/2020", "biet": "Có dấu hiệu người không triệu chứng vẫn lây. Chưa có thử nghiệm ngẫu nhiên nào về khẩu trang cho người khỏe ở cộng đồng. Khẩu trang y tế đang thiếu cho bệnh viện. Ngày 3/4, CDC (Mỹ) khuyên dùng khăn vải nơi đông người.", "hoi": "Bạn khuyến nghị gì?", "chon": [{"nhan": "Chờ bằng chứng mạnh rồi mới khuyến nghị", "dap": "Đúng chuẩn khoa học, nhưng trong lúc chờ, người dân nghe hai lời khuyên khác nhau từ hai cơ quan lớn."}, {"nhan": "Khuyên khẩu trang vải, nói rõ bằng chứng còn yếu và hẹn ngày xem lại", "dap": "Người dân biết đây là cược có tính toán, không phải chân lý. Khi có bằng chứng mới, bạn đổi mà không mất lòng tin."}], "that": 1, "chuyen_that": "Chuyện thật: hai cơ quan chọn khác nhau. CDC chọn gần với A ngày 3/4/2020. WHO chọn B: ngày 6/4 nói chưa có bằng chứng và hẹn cập nhật, ngày 5/6 mới khuyến khích đeo nơi lây lan rộng. Thử nghiệm lớn ở Bangladesh (2022) sau đó thấy tác dụng có thật nhưng vừa phải, khoảng 9%."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Giống người thật chưa chắc là đúng: ở cảnh 2, phần lớn thế giới đã chờ. Bài học: khi dữ liệu chưa đủ, quyết một bước nhỏ ngay, nói rõ mình chắc đến đâu, và hẹn ngày xem lại.", "nguon": "Nguồn: WHO, dòng thời gian COVID-19 (31/12/2019, 1/1, 10/1, 13/1, 22–23/1/2020); thông cáo Moderna 16/3/2020 (trình tự gen 11/1); Li và cs., NEJM 29/1/2020 (nhân đôi 7,4 ngày); tuyên bố Ủy ban Khẩn cấp WHO 30/1/2020; Hội đồng độc lập về chuẩn bị và ứng phó đại dịch, báo cáo 5/2021 (qua báo chí, nguồn thứ cấp); phát biểu Tổng giám đốc WHO 11/3/2020; Flaxman và cs., Nature 2020 và phản biện của Soltesz và cs., Nature 2020; ILO Monitor 25/1/2021 (8,8%; qua báo chí, nguồn thứ cấp); CDC 3/4/2020 (qua NPR, nguồn thứ cấp); WHO, hướng dẫn khẩu trang 6/4/2020 (qua báo chí, nguồn thứ cấp) và 5/6/2020; Abaluck và cs., Science 2022. Thành phố trong trò chơi là giả định.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You run public health for a city", "hoi": "You are in charge of public health in a large (imaginary) city, from early January to April 2020. In each scene you only know what the world knew then.", "canh": [{"moc": "Early January 2020", "biet": "On 31 Dec 2019, Wuhan reported a cluster of pneumonia of unknown cause. Nobody knows yet what virus it is or whether it spreads between people. Your city has direct flights to the area.", "hoi": "What do you do?", "chon": [{"nhan": "Alert hospitals, prepare testing", "dap": "Cheap: one memo, one procedure to ask about travel history. If it is a false alarm, you lose a few days of staff time."}, {"nhan": "Wait for more information", "dap": "Reasonable if this is just a local outbreak. If it is not, you start behind the virus's doubling pace."}], "that": 0, "chuyen_that": "What really happened: on 1 Jan 2020 WHO set up an incident management team; on 10 Jan WHO sent every country guidance on detecting, testing and managing suspected cases. The genome was shared on 11 Jan, and on 13 Jan Thailand had the first case outside China."}, {"moc": "Late January 2020", "biet": "On 22–23 Jan, WHO's Emergency Committee is split and declares no global emergency. On 29 Jan, a study in NEJM shows the virus spreads between people and cases double about every 7.4 days.", "hoi": "What do you do?", "chon": [{"nhan": "Only monitor travellers from the outbreak area", "dap": "Useful at first, but if the virus is already spreading locally elsewhere, filtering by origin will miss cases."}, {"nhan": "Wait for WHO to declare an emergency", "dap": "Easy to explain to your bosses: wait for the international body. But a declaration is only a signal; it does not prepare beds for you."}, {"nhan": "Prepare beds, protective gear and testing now", "dap": "It costs money and you may be accused of overreacting. But with cases doubling every 7.4 days, every week of early preparation buys time when the outbreak arrives."}], "that": 1, "chuyen_that": "What really happened: on 30 Jan 2020 WHO declared a public health emergency of international concern (7,711 cases in China, 83 cases in 18 other countries). But the Independent Panel later concluded that many countries still took a \"wait-and-see\" approach, and called February 2020 \"a lost month\". Option A is what they said should have happened."}, {"moc": "Early March 2020", "biet": "On 11 Mar, WHO says COVID-19 can be characterised as a pandemic: more than 118,000 cases in 114 countries, 4,291 deaths, and WHO is worried about \"alarming levels of inaction\". Your city now has cases with no known source. No specific treatment, no vaccine.", "hoi": "What do you propose?", "chon": [{"nhan": "Stop mass gatherings, prepare to close schools now", "dap": "The economic and social cost is immediate and certain, and people will ask \"is this really necessary\". The benefit is hard to see, because what you prevent are cases that never happen."}, {"nhan": "Wait until hospitals start to fill up", "dap": "You avoid the cost for a few weeks. But today's cases reflect infections from one to two weeks ago, so by the time hospitals are full the outbreak is much bigger."}], "that": 0, "chuyen_that": "What really happened: from mid to late March 2020, many European countries banned gatherings, closed schools and locked down. One study (Flaxman et al., Nature 2020) estimated the measures in 11 countries averted about 3.1 million deaths by 4 May 2020, but the figure is disputed on method. The cost was real: in 2020 the world lost 8.8% of working hours."}, {"moc": "Early April 2020", "biet": "There are signs that people without symptoms can spread the virus. No randomised trial has tested masks for healthy people in the community. Medical masks are short for hospitals. On 3 Apr, the CDC (US) advises cloth face coverings in crowded places.", "hoi": "What do you recommend?", "chon": [{"nhan": "Wait for strong evidence before recommending", "dap": "Scientifically by the book, but while you wait, people hear two different messages from two major agencies."}, {"nhan": "Advise cloth masks, say the evidence is weak and set a review date", "dap": "People know this is a calculated bet, not a certainty. When new evidence arrives, you can change without losing trust."}], "that": 1, "chuyen_that": "What really happened: the two agencies chose differently. The CDC chose something close to A on 3 Apr 2020. WHO chose B: on 6 Apr it said there was no evidence yet and promised updates, and only on 5 Jun encouraged masks where spread was widespread. A large trial in Bangladesh (2022) later found a real but modest effect, about 9%."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You chose like the real decision-makers {d}/{n} times. Matching them is not always right: in scene 2, much of the world waited. The lesson: when data is not enough, take a small step now, say how sure you are, and set a date to review.", "nguon": "Source: WHO COVID-19 timeline (31 Dec 2019; 1, 10, 13, 22–23 Jan 2020); Moderna release, 16 Mar 2020 (genome 11 Jan); Li et al., NEJM, 29 Jan 2020 (doubling 7.4 days); WHO Emergency Committee statement, 30 Jan 2020; Independent Panel for Pandemic Preparedness and Response, May 2021 report (via press, secondary source); WHO Director-General's remarks, 11 Mar 2020; Flaxman et al., Nature 2020 and the reply by Soltesz et al., Nature 2020; ILO Monitor, 25 Jan 2021 (8.8%; via press, secondary source); CDC, 3 Apr 2020 (via NPR, secondary source); WHO mask guidance, 6 Apr 2020 (via press, secondary source) and 5 Jun 2020; Abaluck et al., Science 2022. The city in the game is imaginary.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}],
   "su-kien-y2k": [{"khuon": "nhap-vai", "id": "nhap-vai-y2k", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là trưởng IT một ngân hàng Mỹ", "hoi": "Cuối thập niên 1990, bạn phụ trách máy tính của một ngân hàng vừa. Mọi chương trình cũ lưu năm bằng 2 chữ số. Bạn phải xin ngân sách sửa một lỗi chưa từng làm hỏng gì.", "canh": [{"moc": "5/1997", "biet": "Cơ quan thanh tra (FFIEC) vừa gửi hướng dẫn 5 giai đoạn. Bạn không biết ngân hàng mình có bao nhiêu chương trình dùng năm 2 chữ số.", "hoi": "Bạn làm gì trước?", "chon": [{"nhan": "Kiểm kê toàn bộ hệ thống", "dap": "Chậm vài tháng đầu, nhưng bạn biết cái gì trọng yếu và xin tiền theo danh sách thật."}, {"nhan": "Sửa ngay chỗ nào thấy lỗi", "dap": "Có việc để báo cáo, nhưng dễ bỏ sót hệ thống trọng yếu mà chưa ai nhìn tới."}, {"nhan": "Chờ nhà cung cấp phần mềm vá", "dap": "Đỡ tốn lúc đầu, nhưng bạn không biết chương trình tự viết nào sẽ hỏng, và nhà cung cấp cũng đang quá tải."}], "that": 0, "chuyen_that": "FFIEC yêu cầu kiểm kê và xếp ưu tiên ứng dụng trọng yếu trước 30/9/1997, rồi mới sửa. Nhà cung cấp thì vẫn phải thử lại, vì ngân hàng chịu trách nhiệm với thanh tra."}, {"moc": "Giữa 1998", "biet": "Ban giám đốc hỏi: chưa có gì hỏng, sao tốn nhiều vậy? Hạn thử xong hệ thống trọng yếu là 30/6/1999. Trễ thì bị xếp \"Cần cải thiện\".", "hoi": "Bạn trả lời thế nào?", "chon": [{"nhan": "Cắt bớt, chỉ sửa hệ lớn", "dap": "Tiết kiệm được ngay, nhưng các hệ nhỏ như máy ATM, hệ tính lãi phụ có thể lọt lưới, và bạn khó qua đợt thanh tra."}, {"nhan": "Giữ ngân sách, ưu tiên hệ trọng yếu", "dap": "Tốn kém, nhưng bạn đưa ra danh sách: nếu không sửa thì hệ nào hỏng, ai bị ảnh hưởng, và hậu quả với xếp hạng thanh tra."}], "that": 1, "chuyen_that": "Ngân hàng Mỹ nhìn chung chọn giữ tiến độ: đến 9/1999, 99% tổ chức được bảo hiểm liên bang đã thử xong hệ thống trọng yếu. Cắt bớt cũng có lý về tiền, nhưng hạn chót gắn với xếp hạng khiến lựa chọn đó rất rủi ro."}, {"moc": "10/1998", "biet": "Đối tác hỏi kết quả thử của bạn. Luật sư lo: nếu nói sai, ngân hàng có thể bị kiện. Ngày 19/10/1998 có luật mới che chắn thông tin Y2K chia sẻ với thiện chí.", "hoi": "Bạn chia sẻ hay im lặng?", "chon": [{"nhan": "Chia sẻ, dựa vào luật mới", "dap": "Hai bên biết chỗ yếu của nhau để thử chung. Luật không che nếu hệ thống thật sự hỏng."}, {"nhan": "Im lặng cho chắc", "dap": "Không rủi ro pháp lý, nhưng đối tác không biết bạn sẵn sàng tới đâu, và bạn cũng không biết họ thế nào."}], "that": 0, "chuyen_that": "Luật Công bố Thông tin và Mức sẵn sàng Năm 2000 (P.L. 105-271) được ký ngày 19/10/1998 chính để doanh nghiệp dám chia sẻ. Mức tác động thật chưa có số đo."}, {"moc": "Sáng 1/1/2000", "biet": "Đêm qua hệ thống chạy êm. Cả nước Mỹ đã chi khoảng 100 tỷ USD. Có người nói: \"Chẳng có gì xảy ra, vậy là tiền phí\".", "hoi": "Bạn báo cáo gì với ban giám đốc?", "chon": [{"nhan": "Nhận là có lẽ làm thừa", "dap": "Ban giám đốc nhẹ lòng, nhưng lần sau xin tiền phòng ngừa sẽ khó hơn nhiều."}, {"nhan": "Báo cáo những lỗi đã sửa được", "dap": "Bạn liệt kê lỗi tìm thấy, nếu không sửa thì hỏng gì. \"Không có gì xảy ra\" thành một kết quả có bằng chứng."}], "that": 1, "chuyen_that": "Ngày 29/2/2000, Ủy ban Y2K của Thượng viện Mỹ đặt tên báo cáo cuối là \"Khủng hoảng đã được ngăn chặn\": hơn 250 sự cố ở khoảng 75 nước, sửa nhanh, không gián đoạn nghiêm trọng. Dù vậy, chuyện \"trò lừa\" vẫn lan rộng."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Phòng ngừa làm tốt thì trông như thừa, nên hãy ghi lại cái đã tránh được ngay từ ngày đầu.", "nguon": "Nguồn: FFIEC, \"Year 2000 Project Management Awareness\" (5/5/1997) qua FDIC FIL-50-97 (kiểm kê trước 30/9/1997); FDIC FIL-98-38 và FIL-98-93 (thử xong trước 30/6/1999, xếp \"Cần cải thiện\" nếu trễ); tài liệu FDIC/Fed 9/1999 (99%); Public Law 105-271 ký 19/10/1998; Bộ Thương mại Mỹ 17/11/1999 (khoảng 100 tỷ USD, 1995–2001); báo cáo Thượng viện \"Y2K Aftermath – Crisis Averted\" 29/2/2000, số sự cố qua CBS News (nguồn thứ cấp). Kiểm qua trích đoạn tìm kiếm. Ngân hàng trong trò chơi là nhân vật giả định.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You run IT at a US bank", "hoi": "In the late 1990s you are in charge of the computers at a mid-sized bank. Every old program stores the year in 2 digits. You must ask for money to fix a bug that has never broken anything.", "canh": [{"moc": "May 1997", "biet": "The regulators (FFIEC) have just sent five-phase guidance. You do not know how many of your bank's programs use two-digit years.", "hoi": "What do you do first?", "chon": [{"nhan": "Inventory every system", "dap": "Slower in the first months, but you know what is critical and ask for money based on a real list."}, {"nhan": "Fix bugs as you spot them", "dap": "You have progress to report, but critical systems nobody has looked at yet may slip through."}, {"nhan": "Wait for vendors to patch", "dap": "Cheaper at first, but you do not know which in-house programs will fail, and vendors are overloaded too."}], "that": 0, "chuyen_that": "The FFIEC required banks to inventory and prioritise critical applications by 30 Sep 1997, before fixing. Vendor fixes still had to be retested, because the bank answered to the examiners."}, {"moc": "Mid-1998", "biet": "The board asks: nothing has broken, why is this so expensive? Critical systems must be tested by 30 Jun 1999. Late means a \"Needs Improvement\" rating.", "hoi": "How do you answer?", "chon": [{"nhan": "Cut back, fix big systems only", "dap": "Immediate savings, but smaller systems such as ATMs or side interest calculators may slip through, and the examination gets hard."}, {"nhan": "Keep the budget, critical first", "dap": "Expensive, but you bring a list: which systems fail without a fix, who is hit, and what it means for the rating."}], "that": 1, "chuyen_that": "US banks broadly kept to schedule: by Sep 1999, 99% of federally insured institutions had tested critical systems. Cutting back made financial sense, but deadlines tied to ratings made it very risky."}, {"moc": "Oct 1998", "biet": "A partner asks for your test results. Your lawyers worry: if you say something wrong, the bank could be sued. On 19 Oct 1998 a new law shields Y2K information shared in good faith.", "hoi": "Share or stay silent?", "chon": [{"nhan": "Share, relying on the new law", "dap": "Both sides know each other's weak spots and can test together. The law does not cover systems that actually fail."}, {"nhan": "Stay silent to be safe", "dap": "No legal risk, but your partner does not know how ready you are, and you do not know about them."}], "that": 0, "chuyen_that": "The Year 2000 Information and Readiness Disclosure Act (P.L. 105-271) was signed on 19 Oct 1998 precisely so companies would dare to share. Its real impact has not been measured."}, {"moc": "Morning, 1 Jan 2000", "biet": "Overnight the systems ran smoothly. The US as a whole spent about $100 billion. Someone says: \"Nothing happened, so the money was wasted\".", "hoi": "What do you report to the board?", "chon": [{"nhan": "Admit it was probably overdone", "dap": "The board relaxes, but the next request for prevention money will be much harder."}, {"nhan": "Report the bugs you fixed", "dap": "You list the bugs found and what would have failed. \"Nothing happened\" becomes a result with evidence."}], "that": 1, "chuyen_that": "On 29 Feb 2000 the US Senate Y2K committee titled its final report \"Crisis Averted\": more than 250 glitches in about 75 countries, fixed quickly, no serious disruption. Even so, the \"hoax\" story spread."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You chose like the real people {d}/{n} times. Prevention done well looks unnecessary, so record what you avoided from day one.", "nguon": "Source: FFIEC, \"Year 2000 Project Management Awareness\" (5 May 1997) via FDIC FIL-50-97 (inventory by 30 Sep 1997); FDIC FIL-98-38 and FIL-98-93 (testing complete by 30 Jun 1999, \"Needs Improvement\" if late); FDIC/Fed documents of Sep 1999 (99%); Public Law 105-271 signed 19 Oct 1998; US Department of Commerce, 17 Nov 1999 (about $100 billion, 1995–2001); Senate report \"Y2K Aftermath – Crisis Averted\", 29 Feb 2000, glitch count via CBS News (secondary source). Checked through search excerpts. The bank in the game is fictional.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}],
   "su-kien-dot-com": [{"khuon": "nhap-vai", "id": "nhap-vai-dotcom", "truoc": "quyet-dinh", "vi": {"muc": "Nhập vai", "nhan": "Bạn là nhà đầu tư thời dot-com", "hoi": "Bạn quản lý một khoản tiền đầu tư ở Mỹ, từ 1995 đến 2000. Ở mỗi cảnh bạn chỉ biết những gì người thời đó biết.", "canh": [{"moc": "9/8/1995", "biet": "Netscape, công ty làm trình duyệt web, lên sàn hôm nay. Giá chào bán vừa được nâng từ 14 lên 28 USD. Công ty chưa có lãi. Lệnh mua dồn đến mức giao dịch trễ gần hai giờ.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Mua ngay khi mở cửa", "dap": "Bạn mua cùng đám đông, ở giá mở cửa 71 USD."}, {"nhan": "Chờ giá lắng xuống", "dap": "Bạn đứng xem phiên đầu, chưa bỏ tiền."}, {"nhan": "Đứng ngoài: chưa có lãi", "dap": "Bạn bỏ qua: công ty chưa có lãi, giá đã gấp đôi dự kiến."}], "that": 0, "chuyen_that": "Thị trường chọn mua: mở cửa 71 USD, đóng cửa 58,25 USD, giá trị khoảng 2,9 tỷ USD. Người mua lúc mở cửa lỗ khoảng 18% ngay trong ngày (Mark tính), nhưng \"khoảnh khắc Netscape\" mở cửa lên sàn cho các công ty Internet chưa có lãi."}, {"moc": "5/12/1996", "biet": "Nasdaq khoảng 1.300 điểm. Tối nay Chủ tịch Fed Alan Greenspan hỏi công khai: làm sao biết khi nào \"sự hưng phấn phi lý\" đã đẩy giá tài sản lên quá cao? Ông không tăng lãi suất.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Bán bớt cổ phiếu công nghệ", "dap": "Bạn bán theo lời cảnh báo, giữ tiền mặt."}, {"nhan": "Giữ nguyên, xem tiếp", "dap": "Bạn coi đó là một câu hỏi, không phải lệnh bán."}], "that": 1, "chuyen_that": "Hôm sau Tokyo giảm khoảng 3%, Mỹ mở cửa giảm khoảng 2%, rồi thị trường tăng tiếp hơn ba năm: Nasdaq lên tới 5.048,62 (10/3/2000). Người bán năm 1996 trông như bán hớ suốt ba năm, dù đến 10/2002 chỉ số về 1.114,11, thấp hơn mức họ bán. Cả hai lựa chọn đều hợp lý với thông tin lúc đó."}, {"moc": "11/1999", "biet": "Nasdaq vừa qua 3.000 điểm (3/11/1999). Năm nay có hàng trăm vụ IPO, cổ phiếu mới thường tăng mạnh ngay ngày đầu. Một công ty bán hàng online xin vốn: chưa có lãi, lượt truy cập tăng rất nhanh, muốn \"lớn thật nhanh\".", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Đứng ngoài", "dap": "Bạn bỏ qua cả vòng này, chấp nhận lỡ cơn sốt."}, {"nhan": "Rót vốn theo lượt truy cập", "dap": "Bạn rót vốn, kỳ vọng lên sàn rồi bán lại với giá cao."}, {"nhan": "Rót ít, đòi lộ trình có lãi", "dap": "Bạn rót một phần, đòi các mốc doanh thu ròng và số tháng còn tiền."}], "that": 1, "chuyen_that": "Tiền chảy theo lượt truy cập: năm 1999 có 446 vụ IPO, trung bình tăng 70,9% ngày đầu. Không có số liệu nhà đầu tư nào chọn gì; Mark chọn A vì đó là hướng của dòng tiền. Lựa chọn B là cách mà luật và thói quen sau năm 2000 hướng tới."}, {"moc": "20/3/2000", "biet": "Mười ngày trước, Nasdaq đóng cửa 5.048,62, mức cao nhất từ trước tới nay. Sáng nay Barron's đăng bài \"Burning Up\": ít nhất 51 trên 207 công ty Internet sẽ cạn tiền mặt trong 12 tháng. Bạn không biết đây có phải đỉnh hay không.", "hoi": "Bạn làm gì?", "chon": [{"nhan": "Giữ, chờ hồi lại", "dap": "Bạn giữ: các đợt giảm trước đều hồi lại."}, {"nhan": "Mua thêm khi giảm", "dap": "Bạn mua thêm, coi giảm là cơ hội."}, {"nhan": "Bán, giữ tiền mặt", "dap": "Bạn bán, dù có thể lỡ một đợt tăng nữa."}], "that": 0, "chuyen_that": "Đỉnh 10/3/2000 là đỉnh thật. Nasdaq rơi đến 1.114,11 ngày 9/10/2002, mất gần 78%; Pets.com đóng cửa tháng 11/2000. Không có số liệu chia bao nhiêu người giữ hay bán; Mark chọn B vì chỉ số còn rơi hai năm rưỡi. Giữ hay mua thêm đều thua; bán là đúng, nhưng lúc đó không ai chắc."}], "nut_tiep": "Cảnh tiếp", "nut_lai": "Chơi lại", "ket": "Bạn chọn giống người thật {d}/{n} lần. Người thời đó không ngốc: họ đúng về Internet. Họ sai ở chỗ trả giá bằng lượt xem thay vì tiền thật, và không ai biết trước đỉnh ở đâu.", "nguon": "Nguồn: Netscape (28 USD, mở 71 USD, đóng 58,25 USD, khoảng 2,9 tỷ USD) theo AP qua Tampa Bay Times 10/8/1995; mức lỗ khoảng 18% do Mark tính. Greenspan, American Enterprise Institute 5/12/1996; Nasdaq khoảng 1.300 theo Empiricus và MarketScreener; Tokyo giảm khoảng 3%, Mỹ giảm khoảng 2% theo DeLong và Magin (2006), NBER WP 12011. Mốc 3.000 (3/11/1999), đỉnh 5.048,62 (10/3/2000), đáy 1.114,11 (9/10/2002) theo AP, Fortune, Reuters. 446 IPO, +70,9% theo số liệu Jay Ritter qua PBS Frontline. Barron's 20/3/2000 \"Burning Up\" (51/207). Pets.com theo các bài tổng hợp. Tất cả kiểm qua trích đoạn, là nguồn thứ cấp. Công ty xin vốn ở cảnh 3 là hư cấu.", "biet_nhan": "Bạn biết:", "that_nhan": "Chuyện thật:"}, "en": {"muc": "Role-play", "nhan": "You are a dot-com era investor", "hoi": "You manage an investment fund in the US, from 1995 to 2000. In each scene you only know what people knew at the time.", "canh": [{"moc": "9 Aug 1995", "biet": "Netscape, the web browser company, lists today. The offer price was just raised from $14 to $28. The company has no profits. Buy orders are so heavy that trading is delayed nearly two hours.", "hoi": "What do you do?", "chon": [{"nhan": "Buy at the open", "dap": "You buy with the crowd, at the $71 opening price."}, {"nhan": "Wait for it to settle", "dap": "You watch the first session without putting money in."}, {"nhan": "Stay out: no profits", "dap": "You pass: no profits, and the price is already double the plan."}], "that": 0, "chuyen_that": "The market chose to buy: it opened at $71 and closed at $58.25, a value of about $2.9 billion. Buyers at the open lost about 18% that day (Mark's calculation), but the \"Netscape moment\" opened the door for unprofitable internet companies to list."}, {"moc": "5 Dec 1996", "biet": "The Nasdaq is at about 1,300. Tonight Fed chairman Alan Greenspan asks publicly: how do we know when \"irrational exuberance\" has unduly escalated asset values? He does not raise rates.", "hoi": "What do you do?", "chon": [{"nhan": "Sell some tech stocks", "dap": "You sell on the warning and hold cash."}, {"nhan": "Hold and keep watching", "dap": "You treat it as a question, not a sell order."}], "that": 1, "chuyen_that": "The next day Tokyo fell about 3% and the US opened about 2% lower, then the market rose for more than three more years: the Nasdaq reached 5,048.62 (10 Mar 2000). Sellers in 1996 looked wrong for three years, even though by Oct 2002 the index was at 1,114.11, below where they sold. Both choices were reasonable with what was known then."}, {"moc": "Nov 1999", "biet": "The Nasdaq has just passed 3,000 (3 Nov 1999). This year there are hundreds of IPOs, and new stocks often jump on day one. An online retailer asks for money: no profits, traffic growing very fast, it wants to \"get big fast\".", "hoi": "What do you do?", "chon": [{"nhan": "Stay out", "dap": "You skip this round and accept missing the fever."}, {"nhan": "Invest on the traffic", "dap": "You invest, expecting to list and sell high."}, {"nhan": "Invest a little, demand a path to profit", "dap": "You put in part, with net revenue milestones and a months-of-cash check."}], "that": 1, "chuyen_that": "Money followed traffic: 1999 had 446 IPOs, up 70.9% on day one on average. There is no data on what each investor chose; Mark picks A because that was where the money went. Option B is where the rules and habits after 2000 pointed."}, {"moc": "20 Mar 2000", "biet": "Ten days ago the Nasdaq closed at 5,048.62, its highest ever. This morning Barron's runs \"Burning Up\": at least 51 of 207 internet companies will run out of cash within 12 months. You don't know whether this is the peak.", "hoi": "What do you do?", "chon": [{"nhan": "Hold, wait for a rebound", "dap": "You hold: earlier dips always came back."}, {"nhan": "Buy the dip", "dap": "You buy more, seeing the fall as a chance."}, {"nhan": "Sell, hold cash", "dap": "You sell, though you may miss another rise."}], "that": 0, "chuyen_that": "The 10 Mar 2000 peak was the real peak. The Nasdaq fell to 1,114.11 on 9 Oct 2002, down nearly 78%; Pets.com shut down in Nov 2000. There is no data on how many held or sold; Mark picks B because the index kept falling for two and a half years. Holding or buying more both lost; selling was right, but nobody could be sure then."}], "nut_tiep": "Next scene", "nut_lai": "Play again", "ket": "You matched the real choices {d}/{n} times. People then were not foolish: they were right about the internet. They were wrong to pay in page views instead of real money, and nobody knew in advance where the top was.", "nguon": "Source: Netscape ($28, opened $71, closed $58.25, about $2.9 billion) per AP via the Tampa Bay Times, 10 Aug 1995; the roughly 18% loss is Mark's calculation. Greenspan, American Enterprise Institute, 5 Dec 1996; Nasdaq about 1,300 per Empiricus and MarketScreener; Tokyo down about 3% and the US about 2% per DeLong and Magin (2006), NBER WP 12011. The 3,000 mark (3 Nov 1999), peak 5,048.62 (10 Mar 2000) and low 1,114.11 (9 Oct 2002) per AP, Fortune, Reuters. 446 IPOs, +70.9% per Jay Ritter's data via PBS Frontline. Barron's, 20 Mar 2000, \"Burning Up\" (51/207). Pets.com per summary articles. All checked via excerpts, secondary sources. The company in scene 3 is fictional.", "biet_nhan": "You know:", "that_nhan": "What really happened:"}}],
