@@ -897,6 +897,15 @@ def tao_hop_tac():
           (f"{so_series}+", t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
           (f"{so_tu}+", t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
           (f"{S['so_trang']}+", t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
+    # Số người theo dõi và lượt xem: data/so-lieu-kenh.json, cập nhật mỗi tháng từ Metricool
+    K = json.loads((R / "data" / "so-lieu-kenh.json").read_text(encoding="utf-8"))
+    def tron(n):
+        if n >= 10000: return f"{n // 1000}K+"
+        if n >= 1000: return f"{n // 100 / 10:g}K+".replace(".", t(",", "."))
+        return f"{n // 50 * 50 if n >= 100 else n}+"
+    so = [(tron(K["nguoi_theo_doi"]), t(f"người theo dõi trên {K['so_nen_tang']} nền tảng", f"followers across {K['so_nen_tang']} platforms")),
+          (tron(K["luot_xem"]), t("lượt xem video từ ngày ra mắt 6/10/2026", "video views since launch on 6 Oct 2026"))] + so
+    nam, thang, _ = K["cap_nhat"].split("-")
     the_so = "".join(f'<li class="stat"><b>{a}</b><span>{esc(b)}</span></li>' for a, b in so)
     dinh_dang = [("smartphone", t("Video dọc ngắn (9:16)", "Short vertical video (9:16)"), "TikTok · YouTube Shorts · Facebook Reels · Instagram Reels",
                   t("Khoảng một phút, một ý, có phụ đề tiếng Việt. Mark hỏi, Bit giải thích bằng hình động, cuối video là một việc làm thử ngay.", "About a minute, one idea, Vietnamese subtitles. Mark asks, Bit explains with animation, and each video ends with something to try.")),
@@ -935,7 +944,7 @@ def tao_hop_tac():
 <section class="book-sec" aria-labelledby="con-so">
 <h2 id="con-so">{t("Nội dung bằng con số", "Content in numbers")}</h2>
 <ul class="stats-grid">{the_so}</ul>
-<p class="kit-note">{ic(p, "mail")}<span>{t("Số người theo dõi, lượt xem và tỉ lệ tương tác của từng nền tảng: kênh gửi bản số liệu mới nhất khi bạn liên hệ.", "Followers, views and engagement for each platform: we send the latest figures when you get in touch.")}</span></p>
+<p class="kit-note">{ic(p, "mail")}<span>{t(f"Số liệu cập nhật mỗi tháng, lần gần nhất tháng {int(thang)}/{nam}. Số chi tiết từng nền tảng và tỉ lệ tương tác: kênh gửi bản mới nhất khi bạn liên hệ.", f"Figures are updated monthly, last in {['January','February','March','April','May','June','July','August','September','October','November','December'][int(thang)-1]} {nam}. Per-platform figures and engagement rates: we send the latest when you get in touch.")}</span></p>
 </section>
 <section class="book-sec" aria-labelledby="dinh-dang">
 <h2 id="dinh-dang">{t("Định dạng nội dung", "Formats")}</h2>
