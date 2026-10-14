@@ -131,7 +131,8 @@ footer { margin-top: 28px; }
   .toc { grid-column: 1; grid-row: 2 / span 20; align-self: start; position: sticky; top: calc(var(--thanh-cao) + 16px); margin: 24px 0 0; padding: 14px;
     flex-direction: column; flex-wrap: nowrap; overflow: visible; border: 1px solid var(--rule); border-radius: 14px; background: var(--paper); }
   .toc::before { content: "Trong bài"; font: 600 .72rem/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); padding: 0 4px 6px; }
-  .toc a { border: 0; background: none; padding: 6px 10px; border-radius: 8px; }
+  /* Cột mục lục hẹp: tiêu đề dài xuống dòng trong ô (điện thoại vẫn là hàng chip một dòng, kéo ngang) */
+  .toc a { border: 0; background: none; padding: 6px 10px; border-radius: 8px; white-space: normal; overflow-wrap: anywhere; line-height: 1.35; }
   .toc a:hover { background: var(--grid); }
   section, footer { grid-column: 2; }
   section { background: var(--paper); border: 1px solid var(--rule); border-radius: 16px; padding: 20px 22px; margin-top: 16px; }
