@@ -28,7 +28,7 @@
     thang: "You beat the King of Hallucination!", thangTxt: function (s) { return "Total: " + s + " of 12 stars. Take the full quiz to earn your certificate."; },
     tongSao: function (s) { return s + " / 12 stars"; }, xoa: "Reset progress", xoaHoi: "Reset all levels?",
     loi: "Couldn't load the questions. Please reload the page.", dangTai: "Loading questions…",
-    menu: "☰ Levels", toanVao: "Play full screen", dong: "Close", meoIos: "iPhone tip: tap Share, then \u201cAdd to Home Screen\u201d. Open the game from that icon to play without Safari\u2019s bars.", toanRa: "Exit full screen", gon: "▾ Hide", mo: "▴ Show question", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo",
+    menu: "☰ Levels", toanVao: "Play full screen", dong: "Close", meoIos: "iPhone tip: tap Share, then \u201cAdd to Home Screen\u201d. Open the game from that icon to play without Safari\u2019s bars.", toanRa: "Exit full screen", gon: "▾ Hide", mo: "▴ Show question", trumDen: "Boss!", cong: "Gate open!", canvas: "Game screen", combo: "Combo", docCau: "Boss waits while you read",
     danHet: "No bolts yet. Answer right to earn some."
   } : {
     dung: "Đúng", sai: "Sai", chuDS: ["✓", "✗"], dungRoi: "Chính xác!", saiRoi: "Chưa đúng rồi.",
@@ -43,7 +43,7 @@
     thang: "Bạn đã hạ Vua Ảo Giác!", thangTxt: function (s) { return "Tổng cộng " + s + " trên 12 sao. Làm bài kiểm tra đầy đủ để nhận giấy chứng nhận."; },
     tongSao: function (s) { return s + " / 12 sao"; }, xoa: "Chơi lại từ đầu", xoaHoi: "Xóa tiến độ của tất cả các ải?",
     loi: "Không tải được câu hỏi. Bạn tải lại trang nhé.", dangTai: "Đang tải câu hỏi…",
-    menu: "☰ Chọn ải", toanVao: "Chơi toàn màn hình", dong: "Đóng", meoIos: "Mẹo iPhone: bấm nút Chia sẻ rồi chọn \u201cThêm vào MH chính\u201d. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.", toanRa: "Thoát toàn màn hình", gon: "▾ Thu gọn", mo: "▴ Xem câu hỏi", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo",
+    menu: "☰ Chọn ải", toanVao: "Chơi toàn màn hình", dong: "Đóng", meoIos: "Mẹo iPhone: bấm nút Chia sẻ rồi chọn \u201cThêm vào MH chính\u201d. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.", toanRa: "Thoát toàn màn hình", gon: "▾ Thu gọn", mo: "▴ Xem câu hỏi", trumDen: "Trùm xuất hiện!", cong: "Cổng đã mở!", canvas: "Màn hình game", combo: "Combo", docCau: "Trùm chờ bạn đọc câu",
     danHet: "Chưa có tia kiến thức. Trả lời đúng để nhận thêm."
   };
 
@@ -137,7 +137,7 @@
     L = {i: i, a: a, W: W, t: t, A: A, G: G, co: (W - 4) * O, mo: false, quai: quai, xu: xu, hat: [], dan: [], bom: [], cpDs: cp, cp: cp[0],
       tim: 3, tia: 0, diem: 0, nhatKy: [], combo: 0, dungNgay: 0, soCau: 0, thoiGian: 0, bao: null, set: null, khoi: {}, tram: tram, cauDang: null, henCau: 0, dung: null, sap: [],
       hang: tron(boCua(a)),
-      trum: {x: (G - 4) * O, y: 10 * O - 84, w: 96, h: 84, vx: -100, vy: 0, hp: a.hp, max: a.hp, song: true, bat: false, nhay: 1.5, sang: 0, lui: 0, gian: 0, nem: 2.5, dat: false}};
+      trum: {x: (G - 4) * O, y: 10 * O - 84, w: 96, h: 84, vx: -100, vy: 0, doc: 0, docMax: 1, hp: a.hp, max: a.hp, song: true, bat: false, nhay: 1.5, sang: 0, lui: 0, gian: 0, nem: 2.5, dat: false}};
     L.tramTrum = {x: A + 2, trum: true, xong: false, hien: false};
     M = {x: 2 * O, y: 10 * O - 44, w: 30, h: 44, vx: 0, vy: 0, dat: false, huong: 1, khien: 0, coyote: 0, buoc: 0};
   }
@@ -203,7 +203,19 @@
     L.cauDang = st; L.soCau++;
     // Nhật ký để xem lại sau khi qua ải hoặc hết tim.
     st.nk = {q: q, pa: pa, chon: []}; L.nhatKy.push(st.nk);
+    // Đấu trùm: trùm đứng yên, không ném bom trong lúc người chơi đọc câu hỏi và đáp án.
+    if (st.trum) nghiDoc(4, Math.min(8, 2.5 + (q.cau.length + pa.reduce(function (n, p) { return n + p.chu.length; }, 0)) * 0.025));
     veBang(st, null);
+  }
+  // Dòng đầu popup khi đấu trùm, kèm số giây trùm còn chờ đọc câu.
+  function ghiDauTrum() {
+    var tr = L.trum, st = L.tramTrum, g = tr.doc > 0 ? Math.ceil(tr.doc) : 0;
+    if (g === L.giayDoc || !st.q) return;
+    L.giayDoc = g;
+    $("#pl-de-dau").textContent = T.trum(tr.hp, st.o) + (g ? " · ⏸ " + T.docCau + " " + g + "s" : "");
+  }
+  function nghiDoc(min, s) {
+    var tr = L.trum; tr.doc = tr.docMax = Math.max(min, s); L.bom.length = 0;
   }
   function xoaKhoi(st) {
     (st.cot || []).forEach(function (c) { if (st.o) { datO(c, 10, 1); datO(c, 11, 1); } else datO(c, 6, 0); delete L.khoi[c]; });
@@ -239,7 +251,8 @@
       if (st.o) L.sap.push({c: c, t: 0.35});
       else { L.quai.push(taoQuai(c * O + 4, 5 * O - 32, false, L.a.quai)); no((c + 0.5) * O, 7 * O, "#E11D48", 10); }
       st.lan++; L.combo = 0;
-      if (st.trum) L.trum.gian = 5;
+      // Sai khi đấu trùm: cho đọc lời giải thích rồi chọn lại, không làm trùm nổi giận.
+      if (st.trum) nghiDoc(3, 2 + st.q.giai_thich.length * 0.02);
       veBang(st, {dung: false});
     }
   }
@@ -250,7 +263,7 @@
   }
   function danhTrum() {
     var tr = L.trum;
-    tr.hp--; tr.sang = 0.6; tr.gian = 0;
+    tr.hp--; tr.sang = 0.6; tr.gian = 0; tr.doc = 0;
     L.set = {x: tr.x + tr.w / 2, t: 0.45};
     no(tr.x + tr.w / 2, tr.y + 20, "#FDE68A", 18);
     if (tr.hp <= 0) {
@@ -259,7 +272,7 @@
       no(tr.x + tr.w / 2, tr.y + tr.h / 2, L.a.mauTrum, 40);
       L.bao = {chu: T.cong, t: 2};
       L.bom.length = 0;
-    } else L.henCau = 1.2;
+    } else L.henCau = 1.5;
   }
 
   // Popup câu hỏi nổi trong khung game (HTML): câu hỏi, các đáp án gắn chữ cái, rồi lời giải thích sau khi trả lời.
@@ -268,7 +281,7 @@
     huyTuTat();
     if (!st) { b.hidden = true; return; }
     b.hidden = false; gonBang(false);
-    $("#pl-de-dau").textContent = st.trum ? T.trum(L.trum.hp, st.o) : T.tram(st.so, L.tram.length, st.o);
+    if (st.trum) { L.giayDoc = -1; ghiDauTrum(); } else $("#pl-de-dau").textContent = T.tram(st.so, L.tram.length, st.o);
     $("#pl-de-cau").textContent = st.q.cau;
     var ds = $("#pl-de-ds"); ds.innerHTML = "";
     ds.classList.toggle("is-ds", st.pa.length === 2);
@@ -389,9 +402,16 @@
     if (tr.song && tr.bat) {
       if (tr.sang > 0) tr.sang -= dt;
       if (tr.gian > 0) tr.gian -= dt;
+    }
+    if (tr.song && tr.bat && tr.doc > 0) {
+      // Đang cho đọc câu hỏi: trùm chỉ đứng tại chỗ.
+      if ((tr.doc -= dt) <= 0) tr.nem = Math.max(tr.nem, 1.6);
+      ghiDauTrum();
+      tr.vx = 0; tr.vy = Math.min(tr.vy + TRONG_LUC * dt, 1000); diDoc(tr, dt);
+    } else if (tr.song && tr.bat) {
       tr.nhay -= dt; tr.nem -= dt;
-      var toc = tr.gian > 0 ? 165 : 100;
-      if (tr.dat && tr.nhay <= 0) { tr.vy = -760; tr.nhay = 1.8 + Math.random() * 1.6; }
+      var toc = 75;
+      if (tr.dat && tr.nhay <= 0) { tr.vy = -760; tr.nhay = 2.4 + Math.random() * 1.8; }
       if (tr.lui > 0) tr.lui -= dt; else tr.vx = (M.x + M.w / 2 < tr.x + tr.w / 2 ? -1 : 1) * toc;
       var tv = tr.vx; if (diNgang(tr, dt)) tr.vx = -tv;
       if (tr.x < (L.A + 1) * O) { tr.x = (L.A + 1) * O; tr.vx = Math.abs(tr.vx); }
@@ -399,7 +419,7 @@
       tr.vy = Math.min(tr.vy + TRONG_LUC * dt, 1000); diDoc(tr, dt);
       // Trùm ném "câu bịa" về phía Mark.
       if (tr.nem <= 0) {
-        tr.nem = (tr.gian > 0 ? 1.4 : 2.4) + Math.random();
+        tr.nem = 3.2 + Math.random() * 1.2;
         var bx = tr.x + tr.w / 2, by = tr.y + 10, tg = 1.1;
         L.bom.push({x: bx, y: by, vx: Math.max(-380, Math.min(380, (M.x + M.w / 2 - bx) / tg)), vy: -560});
       }
