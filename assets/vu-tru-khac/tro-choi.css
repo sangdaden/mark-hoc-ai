@@ -1,8 +1,11 @@
 /* Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Dùng màu của doc.css (--paper, --ink, --rule, --cam, --vtk-nhan)
    nên tự theo sáng/tối và nút đổi giao diện. Mọi lớp bắt đầu bằng "tc-" để không đụng CSS riêng của bài. */
-:root { --tc-dung: #15803D; --tc-than: #B45309; --tc-sai: #B91C1C; --tc-lanh: #2563EB; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD; } }
-:root[data-theme="dark"] { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD; }
+:root { --tc-dung: #15803D; --tc-than: #B45309; --tc-sai: #B91C1C; --tc-lanh: #2563EB;
+  --tc-troi: #DFE9F5; --tc-dat: #C9B99A; --tc-thep: #5F6B80; --tc-go: #A0673A; --tc-pho-mai: #F2C14E; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
+  --tc-troi: #1A2747; --tc-dat: #3B3326; --tc-thep: #8391AA; --tc-go: #B07A4C; --tc-pho-mai: #E0B142; } }
+:root[data-theme="dark"] { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
+  --tc-troi: #1A2747; --tc-dat: #3B3326; --tc-thep: #8391AA; --tc-go: #B07A4C; --tc-pho-mai: #E0B142; }
 
 .tc-khoi { display: flex; flex-direction: column; gap: 12px; }
 /* Thuộc tính hidden phải thắng mọi lớp có display (tc-hang, tc-phu...), nếu không phần che/hỏi không bao giờ ẩn. */
@@ -175,6 +178,34 @@ button.tc-chu:disabled { cursor: default; }
 .tc-nguoi b { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--rule); color: var(--ink); font: 700 1rem var(--font-mono, ui-monospace, monospace); }
 .tc-nguoi.tc-da-noi b { background: var(--grid); color: var(--cam); box-shadow: inset 0 0 0 2px var(--cam); }
 .tc-nguoi.tc-ban b { background: var(--vtk-nhan, #FBBF24); color: #0F172A; }
+
+/* ===== Bản 3: cảnh có đồ vật kéo thả và hoạt cảnh ===== */
+/* Sân khấu chặn cuộn khi chạm để kéo được đồ vật; vẫn cuộn trang được bằng chữ và nút bên dưới. */
+.tc-canh { position: relative; border-radius: 14px; overflow: hidden; background: var(--tc-troi); touch-action: none; user-select: none; -webkit-user-select: none; }
+.tc-canh svg, .tc-canh canvas { display: block; width: 100%; height: auto; }
+.tc-canh-troi { touch-action: auto; background: linear-gradient(#9cc3ec, var(--tc-troi)); }
+.tc-canh-toi { background: #0B1220; }
+.tc-canh-am { background: #FDF0D8; }
+.tc-canh-nen { background: var(--grid); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-canh-am { background: #3A2C12; } :root:not([data-theme="light"]) .tc-canh-troi { background: linear-gradient(#0B1530, var(--tc-troi)); } }
+:root[data-theme="dark"] .tc-canh-am { background: #3A2C12; }
+:root[data-theme="dark"] .tc-canh-troi { background: linear-gradient(#0B1530, var(--tc-troi)); }
+.tc-cap { min-height: 1.6em; font-size: .93rem; padding: 8px 12px; border-radius: 10px; background: var(--bg); border: 1px dashed var(--rule); }
+.tc-f-dat { fill: var(--tc-dat); } .tc-f-go { fill: var(--tc-go); } .tc-f-thep { fill: var(--tc-thep); } .tc-f-muc { fill: var(--ink); }
+.tc-f-giay { fill: var(--paper); } .tc-f-cam { fill: var(--cam); } .tc-f-khoi { fill: var(--muted); opacity: .5; }
+.tc-ray { stroke: var(--tc-thep); stroke-width: 4; }
+.tc-o-cho { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 6 5; }
+.tc-vien-dung { fill: none; stroke: var(--tc-dung); stroke-width: 4; } .tc-vien-sai { fill: none; stroke: var(--tc-sai); stroke-width: 4; }
+.tc-net-mo { stroke: var(--rule); stroke-width: 1.5; } .tc-net-vien { stroke: var(--rule); stroke-width: 2; }
+.tc-t-nho { fill: var(--muted); font: 600 11px var(--font-mono, ui-monospace, monospace); }
+.tc-t-trang { fill: #fff; font: 800 13px var(--font-body, system-ui, sans-serif); }
+.tc-t-dam { fill: var(--ink); font: 700 13px var(--font-body, system-ui, sans-serif); }
+.tc-keo { cursor: grab; } .tc-keo:active { cursor: grabbing; }
+.tc-keo:focus { outline: none; } .tc-keo:focus-visible > rect:nth-child(1) { stroke: var(--tc-lanh); stroke-width: 3; }
+.tc-cham-duoc { cursor: pointer; }
+.tc-nut.tc-nut-do { border-color: var(--tc-sai); color: var(--tc-sai); }
+.tc-nhat-ky { margin: 0; padding: 10px 14px 10px 2.2rem; border-radius: 10px; background: #0B1220; color: #E8EDF7; font: 500 .85rem/1.6 var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; }
+.tc-nhat-ky:empty { display: none; }
 
 @media (prefers-reduced-motion: no-preference) {
   .tc-banh svg { transition: transform 2.4s cubic-bezier(.15, .8, .2, 1); }
