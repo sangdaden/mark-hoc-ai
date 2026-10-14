@@ -893,10 +893,10 @@ def tao_hop_tac():
                  ("wrench", t("Chủ tiệm, người bán hàng online", "Shop owners and online sellers"), t("Mô tả sản phẩm, trả lời khách, livestream, sổ sách.", "Product descriptions, customer replies, livestreams, bookkeeping.")),
                  ("users", t("Phụ huynh và gia đình", "Parents and families"), t("Con dùng AI làm bài tập, ông bà tránh lừa đảo giả giọng.", "Kids using AI for homework, grandparents avoiding voice-clone scams."))]
     the_dt = "".join(f'<li class="feat"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p>{esc(b)}</p></div></li>' for i, a, b in doi_tuong)
-    so = [(str(so_video), t("video giải thích AI, mỗi ngày thêm video mới", "AI explainer videos, with new ones every day")),
-          (str(so_series), t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
-          (str(so_tu), t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
-          (str(S["so_trang"]), t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
+    so = [(f"{so_video}+", t("video giải thích AI, mỗi ngày thêm video mới", "AI explainer videos, with new ones every day")),
+          (f"{so_series}+", t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
+          (f"{so_tu}+", t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
+          (f"{S['so_trang']}+", t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
     the_so = "".join(f'<li class="stat"><b>{a}</b><span>{esc(b)}</span></li>' for a, b in so)
     dinh_dang = [("smartphone", t("Video dọc ngắn (9:16)", "Short vertical video (9:16)"), "TikTok · YouTube Shorts · Facebook Reels · Instagram Reels",
                   t("Khoảng một phút, một ý, có phụ đề tiếng Việt. Mark hỏi, Bit giải thích bằng hình động, cuối video là một việc làm thử ngay.", "About a minute, one idea, Vietnamese subtitles. Mark asks, Bit explains with animation, and each video ends with something to try.")),
@@ -980,7 +980,11 @@ def tao_dich_vu():
     mau = [("dv-a-hien-tai-hoan-thanh", t("Trung tâm tiếng Anh", "English school"), t("Thì hiện tại hoàn thành trong 60 giây", "The present perfect in 60 seconds"),
             t("Gói Cơ bản: dùng nhân vật Mark và Bit, cuối video có chỗ cho logo trung tâm.", "Basic plan: uses Mark and Bit, with space for the school's logo at the end.")),
            ("dv-b-binh-giu-nhiet", t("Shop gia dụng", "Homeware shop"), t("Vì sao bình giữ nhiệt giữ nóng 12 tiếng?", "Why does a vacuum flask stay hot for 12 hours?"),
-            t("Gói Tiêu chuẩn: màu và logo theo thương hiệu (\"Nhà Mát\" là tên giả lập để làm mẫu).", "Standard plan: brand colors and logo (\"Nhà Mát\" is a made-up brand for this sample)."))]
+            t("Gói Tiêu chuẩn: màu và logo theo thương hiệu (\"Nhà Mát\" là tên giả lập để làm mẫu).", "Standard plan: brand colors and logo (\"Nhà Mát\" is a made-up brand for this sample).")),
+           ("dv-c-cao-rang", t("Phòng khám nha khoa", "Dental clinic"), t("Vì sao đánh răng mỗi ngày vẫn có cao răng?", "Why do you still get tartar if you brush every day?"),
+            t("Gói Tiêu chuẩn: màu xanh ngọc của phòng khám (\"Nha khoa Nụ Cười\" là tên giả lập).", "Standard plan: the clinic's teal colors (\"Nha khoa Nụ Cười\" is a made-up name).")),
+           ("dv-d-cold-brew", t("Quán cà phê", "Coffee shop"), t("Cold brew khác cà phê đá ở chỗ nào?", "How is cold brew different from iced coffee?"),
+            t("Gói Tiêu chuẩn: màu nâu cam của quán (\"Cà phê Gác Nhỏ\" là tên giả lập).", "Standard plan: the café's warm brown colors (\"Cà phê Gác Nhỏ\" is a made-up name)."))]
     the_mau = "".join(f'<li class="dv-mau"><video controls playsinline preload="none" poster="{p}assets/dich-vu/{f}.jpg" width="540" height="960">'
                       f'<source src="{p}assets/dich-vu/{f}.mp4" type="video/mp4"></video>'
                       f'<p class="fmt-where">{esc(a)}</p><h3>{esc(b)}</h3><p>{esc(c)}</p></li>' for f, a, b, c in mau)
@@ -1008,7 +1012,7 @@ def tao_dich_vu():
     main = f"""<main class="kit">
 <section class="book-sec" aria-labelledby="video-mau">
 <h2 id="video-mau">{t("Video mẫu", "Samples")}</h2>
-<p class="book-sub">{t("Hai video làm theo đúng quy trình bên dưới. Bấm để xem có tiếng.", "Two videos made with the process below. Tap to play with sound.")}</p>
+<p class="book-sub">{t("Bốn video cho bốn ngành khác nhau, làm theo đúng quy trình bên dưới. Bấm để xem có tiếng.", "Four videos for four different businesses, made with the process below. Tap to play with sound.")}</p>
 <ul class="dv-maus">{the_mau}</ul>
 </section>
 <section class="book-sec" id="bang-gia" aria-labelledby="bang-gia-h">
