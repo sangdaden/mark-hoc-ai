@@ -320,6 +320,7 @@ def footer(p, q=None):
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
+            f' · <a href="{q}dich-vu.html">{t("Làm video cho bạn", "Video services")}</a>'
             f' · <a href="{q}ung-ho.html">{t("Ủng hộ kênh", "Support us")}</a> · <a href="{q}quyen-rieng-tu.html">{t("Quyền riêng tư", "Privacy")}</a>'
             + (f' · <a href="mailto:{esc(kenh["email"])}">{esc(kenh["email"])}</a>' if kenh.get("email") else "")
             + '</span>\n  </div>\n</footer>')
@@ -961,6 +962,75 @@ def tao_hop_tac():
     return GOC + "hop-tac.html", trang("hop-tac.html", t(f"Hợp tác và tài trợ: media kit kênh Mark học AI | {SITE}", f"Partnerships and sponsorship: Mark học AI media kit | {SITE}"),
                                        desc, band, main, p, hien_tai="hop-tac", og_type="website", q="")
 
+# ---------- dịch vụ làm video (dich-vu.html): nhận làm video giải thích cho trung tâm, shop, công ty ----------
+def tao_dich_vu():
+    p = t("", "../")
+    email = kenh.get("email", "")
+    mess = "https://m.me/markhocai"
+    tieu_de_mail = quote(t("Đặt làm video giải thích", "Explainer video request"))
+    nut_mess = f'<a class="btn btn-yt" href="{mess}" target="_blank" rel="noopener">{ic(p, "message-circle")}{t("Nhắn Messenger", "Message us on Messenger")}</a>'
+    nut_mail = (f'<a class="btn" href="mailto:{esc(email)}?subject={tieu_de_mail}">{ic(p, "mail")}{esc(email)}</a>' if email else "")
+    desc = t("Mark học AI nhận làm video giải thích ngắn cho trung tâm dạy học, shop và công ty nhỏ: kịch bản, hình minh họa động, giọng đọc, phụ đề, bản dọc 9:16 và ngang 16:9. Xem video mẫu và bảng giá.",
+             "Mark học AI makes short explainer videos for schools, shops and small businesses: script, animation, voiceover, subtitles, vertical 9:16 and horizontal 16:9. See samples and prices.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Dịch vụ · cho trung tâm, shop và công ty nhỏ", "Services · for schools, shops and small businesses")}</p>\n'
+            f'<h1>{t("Làm video giải thích cho bạn", "Explainer videos made for you")}</h1>\n'
+            f'<p class="lead">{t("Cùng cách làm các video của kênh: bạn gửi nội dung, mình viết kịch bản, vẽ hình động, lồng giọng và phụ đề. Video khoảng một phút, dễ hiểu, đăng được ngay lên TikTok, Reels, Shorts và Facebook.", "Made the same way as the channel videos: you send the content, we write the script, animate it, add voiceover and subtitles. About a minute long, easy to follow, ready for TikTok, Reels, Shorts and Facebook.")}</p>\n'
+            f'<div class="cta">{nut_mess}<a class="btn" href="#bang-gia">{t("Xem bảng giá", "See prices")}</a></div>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-va-bit.svg" alt="{t("Mark và robot Bit", "Mark and Bit the robot")}" width="200" height="189"></div>')
+    mau = [("dv-a-hien-tai-hoan-thanh", t("Trung tâm tiếng Anh", "English school"), t("Thì hiện tại hoàn thành trong 60 giây", "The present perfect in 60 seconds"),
+            t("Gói Cơ bản: dùng nhân vật Mark và Bit, cuối video có chỗ cho logo trung tâm.", "Basic plan: uses Mark and Bit, with space for the school's logo at the end.")),
+           ("dv-b-binh-giu-nhiet", t("Shop gia dụng", "Homeware shop"), t("Vì sao bình giữ nhiệt giữ nóng 12 tiếng?", "Why does a vacuum flask stay hot for 12 hours?"),
+            t("Gói Tiêu chuẩn: màu và logo theo thương hiệu (\"Nhà Mát\" là tên giả lập để làm mẫu).", "Standard plan: brand colors and logo (\"Nhà Mát\" is a made-up brand for this sample)."))]
+    the_mau = "".join(f'<li class="dv-mau"><video controls playsinline preload="none" poster="{p}assets/dich-vu/{f}.jpg" width="540" height="960">'
+                      f'<source src="{p}assets/dich-vu/{f}.mp4" type="video/mp4"></video>'
+                      f'<p class="fmt-where">{esc(a)}</p><h3>{esc(b)}</h3><p>{esc(c)}</p></li>' for f, a, b, c in mau)
+    goi = [(t("Cơ bản", "Basic"), "300.000đ", t("mỗi video", "per video"), False,
+            [t("Video khoảng 60 giây, khổ dọc 9:16", "About 60 seconds, vertical 9:16"), t("Nhân vật Mark và Bit có sẵn", "Ready-made Mark and Bit characters"),
+             t("Giọng đọc và phụ đề tiếng Việt", "Vietnamese voiceover and subtitles"), t("Sửa 1 lần", "1 round of edits")]),
+           (t("Tiêu chuẩn", "Standard"), "500.000đ – 700.000đ", t("mỗi video", "per video"), True,
+            [t("Màu sắc và logo theo thương hiệu của bạn", "Your brand colors and logo"), t("Cả bản dọc 9:16 và ngang 16:9", "Both vertical 9:16 and horizontal 16:9"),
+             t("Phụ đề hai ngôn ngữ Việt và Anh", "Bilingual Vietnamese and English subtitles"), t("Sửa 2 lần", "2 rounds of edits")]),
+           (t("Gói 10 video", "10-video pack"), "4 – 5 triệu đ", t("cho cả bộ", "for the set"), False,
+            [t("Rẻ hơn khoảng 30% so với mua lẻ", "About 30% cheaper than buying one by one"), t("Hợp với trung tâm cần cả một bộ bài", "Great for schools that need a whole lesson series"),
+             t("Cùng một phong cách cho cả bộ", "One consistent style across the set"), t("Lịch giao theo tuần", "Weekly delivery schedule")])]
+    the_goi = "".join(f'<li class="dv-goi{" dv-goi-chinh" if chinh else ""}">' + (f'<span class="dv-nhan">{t("Phổ biến", "Popular")}</span>' if chinh else "")
+                      + f'<h3>{esc(ten)}</h3><p class="dv-gia"><b>{esc(gia)}</b> <span>{esc(don_vi)}</span></p><ul>'
+                      + "".join(f'<li>{ic(p, "check")}<span>{esc(x)}</span></li>' for x in y) + '</ul></li>' for ten, gia, don_vi, chinh, y in goi)
+    buoc = [(t("Bạn gửi nội dung", "You send the content"), t("Chủ đề, ý chính, hình sản phẩm hoặc logo. Chưa rõ thì nhắn mình để cùng chọn chủ đề.", "Topic, key points, product photos or logo. Not sure yet? Message us and we will pick a topic together.")),
+            (t("Mình gửi kịch bản", "We send the script"), t("Lời đọc và mô tả từng cảnh. Bạn duyệt xong mình mới làm video.", "Narration and a scene-by-scene outline. We only start the video once you approve it.")),
+            (t("Dựng video", "We make the video"), t("Hình động, giọng đọc, phụ đề, kiểm tra lời đọc từng chữ.", "Animation, voiceover, subtitles, and a word-by-word check of the narration.")),
+            (t("Giao và sửa", "Delivery and edits"), t("Gửi file MP4 để bạn xem. Sửa theo số lần của gói, rồi bạn đăng ngay.", "We send the MP4 for review, edit within your plan's rounds, and you post it right away."))]
+    the_buoc = "".join(f'<li class="way"><span class="way-no">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></li>' for i, (a, b) in enumerate(buoc, 1))
+    luu_y = [t("3 khách hàng đầu tiên được giảm 50%, đổi lại cho kênh dùng video làm mẫu và viết vài dòng nhận xét.", "Our first 3 clients get 50% off in exchange for letting us show the video as a sample and a short review."),
+             t("Giọng đọc được tạo bằng AI (ElevenLabs); video ghi rõ điều này khi nền tảng yêu cầu.", "The voiceover is AI-generated (ElevenLabs); videos are labeled as such where platforms require it."),
+             t("Không nhận nội dung sai sự thật, hứa hẹn quá mức, cờ bạc, vay tiền hay gây hại cho người xem.", "We don't take on misleading claims, exaggerated promises, gambling, lending, or anything harmful to viewers.")]
+    the_luu_y = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in luu_y)
+    main = f"""<main class="kit">
+<section class="book-sec" aria-labelledby="video-mau">
+<h2 id="video-mau">{t("Video mẫu", "Samples")}</h2>
+<p class="book-sub">{t("Hai video làm theo đúng quy trình bên dưới. Bấm để xem có tiếng.", "Two videos made with the process below. Tap to play with sound.")}</p>
+<ul class="dv-maus">{the_mau}</ul>
+</section>
+<section class="book-sec" id="bang-gia" aria-labelledby="bang-gia-h">
+<h2 id="bang-gia-h">{t("Bảng giá", "Prices")}</h2>
+<ul class="dv-gois">{the_goi}</ul>
+</section>
+<section class="book-sec" aria-labelledby="quy-trinh">
+<h2 id="quy-trinh">{t("Quy trình 4 bước", "How it works")}</h2>
+<ol class="ways dv-buoc">{the_buoc}</ol>
+<div class="rules">
+<h3>{t("Lưu ý", "Good to know")}</h3>
+<ul>{the_luu_y}</ul>
+</div>
+</section>
+<aside class="pdf-card kit-contact">
+<div><b>{t("Đặt làm video", "Order a video")}</b><span>{t("Nhắn chủ đề bạn muốn làm, số lượng video và thời gian cần có. Mình trả lời trong ngày.", "Tell us your topic, how many videos and when you need them. We reply the same day.")}</span></div>
+<div class="cta">{nut_mess}{nut_mail}</div>
+</aside>
+</main>"""
+    return GOC + "dich-vu.html", trang("dich-vu.html", t(f"Dịch vụ làm video giải thích bằng AI | {SITE}", f"Explainer video service | {SITE}"),
+                                       desc, band, main, p, hien_tai="dich-vu", og_type="website", q="")
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1016,14 +1086,14 @@ def chay():
                 f.unlink()
         for v in thu_tu:
             ghi(*tao_bai(v))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_lam_theo):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_lam_theo):
             ghi(*ham())
-        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, lam-theo.html")
+        print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "ung-ho.html", "quyen-rieng-tu.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
