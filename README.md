@@ -29,6 +29,9 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 3. Thêm tiêu đề SEO cho video mới vào `data/bai-viet.json` (và thuật ngữ mới vào `data/tu-dien.json`), bản dịch vào `data/en/` (`videos.json`, `series.json`, `bai-viet.json`, `bai/<số>-<slug>.json`), rồi chạy `python3 scripts/tao_bai_viet.py /mnt/project-files/videos`.
 4. Commit và push lên `main`; GitHub Pages tự đăng lại.
 
+## Kiểm tra trước khi merge
+Mỗi PR chạy `.github/workflows/kiem-tra.yml` (`python3 scripts/kiem_tra_trang.py`): trang tiếng Việt và tiếng Anh phải đi thành cặp (`X.html` ↔ `en/X.html`, cả `bai/` và `vu-tru-khac/`), mọi trang (trừ trang chuyển hướng) nạp `theo-doi.js`, link và ảnh nội bộ trỏ tới file có thật, `data/**/*.json` đọc được, mọi địa chỉ trong `sitemap.xml` có file. PR vừa sửa góc Vũ Trụ Khác vừa sửa phần khác thì có cảnh báo (không chặn). Chạy tay trước khi mở PR: `python3 scripts/kiem_tra_trang.py`.
+
 ## Gắn tên miền riêng
 Trang chạy ở https://markhocai.com (file `CNAME`). Tên miền mua ở Namecheap, DNS trỏ về GitHub Pages: 4 bản ghi A cho `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) và CNAME `www` → `sangdaden.github.io`. Trong Settings → Pages của repo, ô Custom domain là `markhocai.com` và đã bật Enforce HTTPS. Đổi tên miền thì sửa cả `BASE` trong `scripts/tao_bai_viet.py`.
 
