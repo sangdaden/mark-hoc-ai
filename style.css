@@ -591,7 +591,7 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .chap details[open] summary .chap-meta::after { content: " ▴"; }
 .chap-items { margin: 0; padding: 4px 16px 14px 66px; display: grid; gap: 4px; font-size: 15px; color: var(--ink); }
 .book-end { margin-top: 44px; }
-.stats-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.stats-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .stat { display: flex; flex-direction: column; gap: 4px; padding: 18px; border-radius: 18px; background: var(--panel); border: 1.5px solid var(--edge); border-top: 5px solid var(--sky); }
 .stat:nth-child(odd) { border-top-color: var(--mint); }
 .stat b { font: 800 40px/1 var(--f-display); color: var(--blue); font-variant-numeric: tabular-nums; }
