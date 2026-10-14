@@ -893,10 +893,10 @@ def tao_hop_tac():
                  ("wrench", t("Chủ tiệm, người bán hàng online", "Shop owners and online sellers"), t("Mô tả sản phẩm, trả lời khách, livestream, sổ sách.", "Product descriptions, customer replies, livestreams, bookkeeping.")),
                  ("users", t("Phụ huynh và gia đình", "Parents and families"), t("Con dùng AI làm bài tập, ông bà tránh lừa đảo giả giọng.", "Kids using AI for homework, grandparents avoiding voice-clone scams."))]
     the_dt = "".join(f'<li class="feat"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p>{esc(b)}</p></div></li>' for i, a, b in doi_tuong)
-    so = [(str(so_video), t("video giải thích AI, mỗi ngày thêm video mới", "AI explainer videos, with new ones every day")),
-          (str(so_series), t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
-          (str(so_tu), t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
-          (str(S["so_trang"]), t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
+    so = [(f"{so_video}+", t("video giải thích AI, mỗi ngày thêm video mới", "AI explainer videos, with new ones every day")),
+          (f"{so_series}+", t("series theo chủ đề, đánh số Phần X/N", "themed series, numbered Part X/N")),
+          (f"{so_tu}+", t("thuật ngữ trong Từ điển AI trên web", "terms in the website's AI glossary")),
+          (f"{S['so_trang']}+", t("trang ebook miễn phí, 20 chương", "pages in the free ebook, 20 chapters"))]
     the_so = "".join(f'<li class="stat"><b>{a}</b><span>{esc(b)}</span></li>' for a, b in so)
     dinh_dang = [("smartphone", t("Video dọc ngắn (9:16)", "Short vertical video (9:16)"), "TikTok · YouTube Shorts · Facebook Reels · Instagram Reels",
                   t("Khoảng một phút, một ý, có phụ đề tiếng Việt. Mark hỏi, Bit giải thích bằng hình động, cuối video là một việc làm thử ngay.", "About a minute, one idea, Vietnamese subtitles. Mark asks, Bit explains with animation, and each video ends with something to try.")),
