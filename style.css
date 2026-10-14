@@ -1342,10 +1342,16 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 .vtk-bia.co-hinh img { width: 48%; }
 .vtk-bia.co-hinh::before { display: none; } /* hình tự vẽ thay chỗ trăng, hồng tâm vẽ bằng CSS */
 .vtk-bia img { position: absolute; z-index: 1; right: -1%; bottom: 3%; width: 58%; height: auto; filter: drop-shadow(0 6px 10px rgb(0 0 0 / .35)); }
-.vtk-bia small { position: relative; z-index: 2; max-width: 44%; font: 600 9px/1.2 var(--f-body); letter-spacing: .05em; text-transform: uppercase; opacity: .9; overflow-wrap: anywhere; }
-.vtk-bia::after { content: ""; position: absolute; z-index: 2; left: 16px; width: 34%; bottom: 40px; height: 2px; border-radius: 2px; background: var(--bia-nhan); opacity: .8; }
+/* Dòng chữ nhỏ cuối bìa (tác giả, mã chuyến bay...) và vạch màu ngay trên nó: vạch gắn vào chính dòng chữ nên luôn nằm trên,
+   chữ dài 2–3 dòng thì vạch được đẩy lên theo (Sang 14/10: vạch đặt cố định từng cắt ngang chữ). Bề ngang chừa chỗ cho Mark bên phải. */
+.vtk-bia { container-type: inline-size; }
+.vtk-bia small { position: relative; z-index: 2; width: calc(52cqw - 14px); font: 600 9px/1.2 var(--f-body); letter-spacing: .03em; text-transform: uppercase; opacity: .9;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .45); }
+/* Bìa hẹp (điện thoại): Mark nhỏ lại một chút để cột chữ rộng hơn */
+@container (max-width: 150px) { .vtk-bia img, .vtk-bia.co-hinh img { width: 42%; } .vtk-bia small { width: calc(60cqw - 14px); } }
+.vtk-bia small::before { content: ""; display: block; width: 80%; height: 2px; margin-bottom: 7px; border-radius: 2px; background: var(--bia-nhan); opacity: .9; }
 .vtk-bia.bia-trang::before { content: ""; position: absolute; left: 22px; top: 44%; width: 26px; height: 26px; border-radius: 50%; box-shadow: 7px -4px 0 0 var(--bia-nhan); transform: rotate(-20deg); }
-.vtk-bia.bia-but-chi::after, .vtk-bia.bia-song::after, .vtk-bia.bia-bon-mau::after { left: 0; right: 0; width: auto; bottom: 0; border-radius: 0; opacity: 1; z-index: 2; }
+.vtk-bia.bia-but-chi::after, .vtk-bia.bia-song::after, .vtk-bia.bia-bon-mau::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; }
 .vtk-bia.bia-but-chi::after { height: 7px;
   background: linear-gradient(90deg, #F2A7B8 0 14px, #C0C4CC 14px 19px, #F5C518 19px calc(100% - 12px), #E8C99A calc(100% - 12px) calc(100% - 5px), #333 calc(100% - 5px)); }
 .vtk-bia.bia-song::after { height: 12px;

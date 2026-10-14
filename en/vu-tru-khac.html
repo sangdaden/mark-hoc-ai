@@ -556,6 +556,42 @@
   gon();
   addEventListener("resize", gon);
 })();
+// Chữ nhỏ cuối bìa (tác giả, mã chuyến bay...) nằm trong cột bên trái Mark: tên dài hơn cột thì thu nhỏ chữ từng nấc tới 8px để
+// không từ nào bị cắt đôi và chữ không chạm hình vẽ phía trên. Bìa quá hẹp (điện thoại nhỏ) mà vẫn không vừa thì ẩn dòng này:
+// cùng thông tin đã in ngay dưới bìa. Tên bìa dài cũng vậy: thu nhỏ (tới 10px) cho đủ chữ trong 3 dòng, không chạm hình vẽ.
+(function () {
+  if (!window.ResizeObserver) return;
+  function vuaTen(t) {
+    var hinh = t.parentNode.querySelector(".vtk-hinh"), co;
+    t.style.fontSize = "";
+    if (!t.clientWidth) return;
+    co = parseFloat(getComputedStyle(t).fontSize);
+    function tran() { return t.scrollHeight > t.clientHeight + 1 || (hinh && t.getBoundingClientRect().bottom > hinh.getBoundingClientRect().top + 2); }
+    while (tran() && co > 10) { co -= 0.5; t.style.fontSize = co + "px"; }
+  }
+  function vua(s) {
+    var bia = s.parentNode, hinh = bia.querySelector(".vtk-hinh"), co = 9;
+    if (s.dataset.goc) s.textContent = s.dataset.goc;
+    s.style.fontSize = ""; s.style.visibility = "";
+    if (!s.clientWidth) return;
+    function tran() {
+      if (s.scrollWidth > s.clientWidth + 1) return true;
+      return hinh && s.getBoundingClientRect().top < hinh.getBoundingClientRect().bottom - 4;
+    }
+    while (tran() && co > 8) { co -= 0.5; s.style.fontSize = co + "px"; }
+    // Một từ dài hơn cả cột (Csikszentmihalyi...): cho phép ngắt có gạch nối thay vì cắt ngang không dấu
+    if (s.scrollWidth > s.clientWidth + 1) {
+      s.dataset.goc = s.textContent;
+      s.textContent = s.textContent.replace(/[^\s\-–]{9,}/g, function (w) { return w.split("").join("\u00AD"); });
+      co = 9; s.style.fontSize = "";
+      while (tran() && co > 8) { co -= 0.5; s.style.fontSize = co + "px"; }
+    }
+    if (tran()) s.style.visibility = "hidden";
+  }
+  var ro = new ResizeObserver(function (ds) { ds.forEach(function (d) { var t = d.target.querySelector("i"), s = d.target.querySelector("small"); if (t) vuaTen(t); if (s) vua(s); }); });
+  document.querySelectorAll(".vtk-bia").forEach(function (b) { ro.observe(b); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { document.querySelectorAll(".vtk-bia i").forEach(vuaTen); document.querySelectorAll(".vtk-bia small").forEach(vua); });
+})();
 </script>
 <footer class="foot-band">
   <div class="foot">
