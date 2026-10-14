@@ -61,14 +61,14 @@
   <div class="pl-khung" id="pl-khung">
     <canvas class="pl-canvas" id="pl-canvas" tabindex="0"></canvas>
     <div class="pl-nut-tren"><button type="button" class="pl-toan" id="pl-toan" aria-pressed="false"></button><button type="button" class="pl-menu" id="pl-menu" hidden></button></div>
+    <div class="pl-de" id="pl-de" hidden aria-live="polite">
+      <div class="pl-de-hang"><p class="pl-de-dau" id="pl-de-dau"></p><button type="button" class="pl-de-gon" id="pl-de-gon" aria-expanded="true"></button></div>
+      <p class="pl-de-cau" id="pl-de-cau"></p>
+      <ol class="pl-de-ds" id="pl-de-ds"></ol>
+      <div class="pl-phan-hoi" id="pl-de-kq" hidden><img id="pl-de-bit" src="assets/bit-vui.svg" alt="" width="56" height="56"><div><b id="pl-de-kq-dau"></b><p id="pl-de-kq-chu"></p></div></div>
+      <span class="pl-de-dem" id="pl-de-dem" hidden></span>
+    </div>
     <div class="pl-man" id="pl-man"></div>
-  </div>
-  <div class="pl-de" id="pl-de" hidden aria-live="polite">
-    <div class="pl-de-hang"><p class="pl-de-dau" id="pl-de-dau"></p><button type="button" class="pl-de-gon" id="pl-de-gon" aria-expanded="true"></button></div>
-    <p class="pl-de-cau" id="pl-de-cau"></p>
-    <ol class="pl-de-ds" id="pl-de-ds"></ol>
-    <div class="pl-phan-hoi" id="pl-de-kq" hidden><img id="pl-de-bit" src="assets/bit-vui.svg" alt="" width="56" height="56"><div><b id="pl-de-kq-dau"></b><p id="pl-de-kq-chu"></p></div></div>
-    <span class="pl-de-dem" id="pl-de-dem" hidden></span>
   </div>
   <div class="pl-dk" id="pl-dk" role="group" aria-label="Nút điều khiển"><button type="button" data-k="trai" aria-label="Sang trái">◀</button><button type="button" data-k="phai" aria-label="Sang phải">▶</button><button type="button" data-k="ban" class="is-ban" aria-label="Bắn tia kiến thức">⚡</button><button type="button" data-k="nhay" class="is-nhay">Nhảy</button></div>
   <p class="pl-huong"><b>Cách chơi:</b> phím ← → hoặc A D để chạy, Space hoặc ↑ để nhảy, X để bắn tia kiến thức. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang, bạn cầm ngang máy và dùng các nút trên màn hình. Ở trạm câu hỏi, đứng yên trên ô A, B, C, D (hoặc ✓ đúng, ✗ sai) một lát để chốt đáp án.</p>
