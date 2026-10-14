@@ -23,7 +23,7 @@
     chon: "Choose a level", chonTxt: "Run, jump and stomp monsters. Answer by standing on the right A, B, C or D tile (a wrong tile is a trap door) or by jumping into the right block (a wrong block lets a monster out).",
     khoa: "Clear the previous level first.", ai: "Level",
     qua: "Level cleared!", quaTxt: function (s, d, n, c) { return s + " of 3 stars · " + d + " points · " + n + " of " + c + " right on the first try"; },
-    thua: "Out of hearts", thuaTxt: "Bit says: read the explanations under the game, then try again. Cleared levels stay unlocked.",
+    thua: "Out of hearts", thuaTxt: "Bit says: review the questions you just met, then try again. Cleared levels stay unlocked.", xemLai: "Review answers", xlTieuDe: "Questions in this level", quayLai: "← Back", dungNgayNhan: "Right first try", saiLan: function (n) { return "Missed " + n + (n > 1 ? " times" : " time"); }, chuaTL: "Not answered", banChon: "your pick", dapAn: "right answer",
     lai: "Try again", aiTiep: "Next level", veChon: "Levels",
     thang: "You beat the King of Hallucination!", thangTxt: function (s) { return "Total: " + s + " of 12 stars. Take the full quiz to earn your certificate."; },
     tongSao: function (s) { return s + " / 12 stars"; }, xoa: "Reset progress", xoaHoi: "Reset all levels?",
@@ -38,7 +38,7 @@
     chon: "Chọn ải", chonTxt: "Chạy, nhảy, đạp quái. Trả lời bằng cách đứng vào ô A, B, C, D đúng (sai là sập bẫy) hoặc nhảy húc khối đúng (sai thì quái chui ra).",
     khoa: "Qua ải trước để mở ải này.", ai: "Ải",
     qua: "Qua ải!", quaTxt: function (s, d, n, c) { return s + " trên 3 sao · " + d + " điểm · đúng ngay " + n + "/" + c + " câu"; },
-    thua: "Hết tim rồi", thuaTxt: "Bit nhắn: đọc lời giải thích dưới khung game rồi thử lại nhé. Các ải đã qua vẫn được giữ.",
+    thua: "Hết tim rồi", thuaTxt: "Bit nhắn: xem lại các câu vừa làm rồi thử lại nhé. Các ải đã qua vẫn được giữ.", xemLai: "Xem lại câu đã làm", xlTieuDe: "Các câu trong ải này", quayLai: "← Quay lại", dungNgayNhan: "Đúng ngay", saiLan: function (n) { return "Sai " + n + " lần"; }, chuaTL: "Chưa trả lời", banChon: "bạn chọn", dapAn: "đáp án đúng",
     lai: "Chơi lại ải", aiTiep: "Ải tiếp theo", veChon: "Chọn ải",
     thang: "Bạn đã hạ Vua Ảo Giác!", thangTxt: function (s) { return "Tổng cộng " + s + " trên 12 sao. Làm bài kiểm tra đầy đủ để nhận giấy chứng nhận."; },
     tongSao: function (s) { return s + " / 12 sao"; }, xoa: "Chơi lại từ đầu", xoaHoi: "Xóa tiến độ của tất cả các ải?",
@@ -135,7 +135,7 @@
     a.xu.forEach(function (c) { for (var k = 0; k < c[2]; k++) if (!trongTram(c[0] + k)) xu.push({x: (c[0] + k) * O + O / 2, y: c[1] * O + O / 2, an: false}); });
     var cp = a.cp.filter(function (c) { return !trongTram(c); }).concat(a.tram.map(function (s) { return s - 1; }), [A + 1]).sort(function (p, q) { return p - q; });
     L = {i: i, a: a, W: W, t: t, A: A, G: G, co: (W - 4) * O, mo: false, quai: quai, xu: xu, hat: [], dan: [], bom: [], cpDs: cp, cp: cp[0],
-      tim: 3, tia: 0, diem: 0, combo: 0, dungNgay: 0, soCau: 0, thoiGian: 0, bao: null, set: null, khoi: {}, tram: tram, cauDang: null, henCau: 0, dung: null, sap: [],
+      tim: 3, tia: 0, diem: 0, nhatKy: [], combo: 0, dungNgay: 0, soCau: 0, thoiGian: 0, bao: null, set: null, khoi: {}, tram: tram, cauDang: null, henCau: 0, dung: null, sap: [],
       hang: tron(boCua(a)),
       trum: {x: (G - 4) * O, y: 10 * O - 84, w: 96, h: 84, vx: -100, vy: 0, hp: a.hp, max: a.hp, song: true, bat: false, nhay: 1.5, sang: 0, lui: 0, gian: 0, nem: 2.5, dat: false}};
     L.tramTrum = {x: A + 2, trum: true, xong: false, hien: false};
@@ -201,6 +201,8 @@
     st.q = q; st.pa = pa; st.lan = 0; st.cot = [];
     pa.forEach(function (p, k) { p.nhan = chu[k]; var c = st.x + lech[k]; st.cot.push(c); datO(c, st.hang, 7); if (st.o) datO(c, 11, 0); L.khoi[c] = {st: st, k: k}; });
     L.cauDang = st; L.soCau++;
+    // Nhật ký để xem lại sau khi qua ải hoặc hết tim.
+    st.nk = {q: q, pa: pa, chon: []}; L.nhatKy.push(st.nk);
     veBang(st, null);
   }
   function xoaKhoi(st) {
@@ -220,6 +222,7 @@
     var k = L.khoi[c]; if (!k) return;
     var st = k.st, p = st.pa[k.k];
     L.dung = null;
+    if (st.nk) st.nk.chon.push(p);
     if (p.dung) {
       var ngay = st.lan === 0;
       if (ngay) { L.combo++; L.dungNgay++; L.diem += 100 * L.combo; L.tia += 3; } else L.tia += 1;
@@ -259,7 +262,7 @@
     } else L.henCau = 1.2;
   }
 
-  // Bảng câu hỏi dưới khung game (HTML): câu hỏi, các đáp án gắn chữ cái, rồi lời giải thích sau khi húc.
+  // Popup câu hỏi nổi trong khung game (HTML): câu hỏi, các đáp án gắn chữ cái, rồi lời giải thích sau khi trả lời.
   function veBang(st, kq) {
     var b = $("#pl-de");
     huyTuTat();
@@ -286,9 +289,9 @@
     $("#pl-de-kq-dau").className = kq.dung ? "pl-ok" : "pl-no";
     $("#pl-de-kq-chu").textContent = st.q.giai_thich + (kq.dung ? "" : " " + T.goiY);
     // Trong chế độ toàn màn hình, popup có thể phải cuộn: đưa lời giải thích vào tầm nhìn.
-    if ($("#pl").classList.contains("is-toan")) { b.scrollTop = b.scrollHeight; henTuTat(kq.dung, st.q.giai_thich.length); }
+    b.scrollTop = b.scrollHeight; henTuTat(kq.dung, st.q.giai_thich.length);
   }
-  // Popup tự tắt sau khi người chơi kịp đọc lời giải thích (chỉ ở chế độ game trên điện thoại).
+  // Popup tự tắt sau khi người chơi kịp đọc lời giải thích.
   // Đúng: đóng hẳn popup. Sai: ẩn lời giải thích, giữ câu hỏi để trả lời lại. Chạm vào popup để giữ nó lại.
   var tuTat = 0;
   function huyTuTat() {
@@ -694,9 +697,10 @@
 
   // ---------- Màn chọn ải / kết quả ----------
   function hienMan(noiDung) {
+    veBang(null);
     man.innerHTML = ""; man.appendChild(noiDung); man.hidden = false;
     $("#pl-menu").hidden = true;
-    khung.classList.remove("is-choi");
+    khung.classList.remove("is-choi"); $("#pl").classList.add("is-man");
     var n = $("button:not([aria-disabled]), a", man); if (n) n.focus({preventScroll: true});
   }
   function manChon() {
@@ -726,7 +730,7 @@
     dungAi(i);
     veBang(null);
     man.hidden = true; $("#pl-menu").hidden = false;
-    trangThai = "choi"; khung.classList.add("is-choi");
+    trangThai = "choi"; khung.classList.add("is-choi"); $("#pl").classList.remove("is-man");
     if (window.mhaiDo) window.mhaiDo("game-bat-dau", {man: i + 1}); // đếm tương tác, xem theo-doi.js
     if (DT.matches && !daThoat && !$("#pl").classList.contains("is-toan")) toanMan(true);
     phim.trai = phim.phai = phim.nhay = phim.ban = false; demNhay = 0;
@@ -759,6 +763,7 @@
       t.addEventListener("click", function () { batDauAi(tiep); }); hang.appendChild(t);
     }
     var v = el("button", "btn", T.veChon); v.type = "button"; v.addEventListener("click", manChon); hang.appendChild(v);
+    nutXemLai(hang, kq);
     kq.appendChild(hang);
     hienMan(kq);
     $("#pl-tong").textContent = T.tongSao(tongSao());
@@ -773,8 +778,45 @@
     var hang = el("div", "pl-kq-nut");
     var l = el("button", "btn btn-yt", T.lai); l.type = "button"; l.addEventListener("click", function () { batDauAi(i); }); hang.appendChild(l);
     var v = el("button", "btn", T.veChon); v.type = "button"; v.addEventListener("click", manChon); hang.appendChild(v);
+    nutXemLai(hang, kq);
     kq.appendChild(hang);
     hienMan(kq);
+  }
+  // Xem lại từng câu đã gặp trong ải: đáp án đã chọn, đáp án đúng và lời giải thích.
+  function nutXemLai(hang, kq) {
+    if (!L.nhatKy.length) return;
+    var x = el("button", "btn", T.xemLai); x.type = "button";
+    x.addEventListener("click", function () { hienMan(manXemLai(kq)); });
+    hang.appendChild(x);
+  }
+  function manXemLai(kq) {
+    var w = el("div", "pl-xem-lai");
+    var dau = el("div", "pl-xl-dau");
+    dau.appendChild(el("h2", null, T.xlTieuDe));
+    var ve = el("button", "btn", T.quayLai); ve.type = "button";
+    ve.addEventListener("click", function () { hienMan(kq); });
+    dau.appendChild(ve); w.appendChild(dau);
+    var ds = el("ol", "pl-xl-ds");
+    L.nhatKy.forEach(function (nk) {
+      var li = el("li"), sai = nk.chon.filter(function (p) { return !p.dung; }).length;
+      var xong = nk.chon.some(function (p) { return p.dung; });
+      li.appendChild(el("span", "pl-xl-nhan " + (sai ? "is-sai" : xong ? "is-dung" : "is-chua"), sai ? T.saiLan(sai) : xong ? T.dungNgayNhan : T.chuaTL));
+      li.appendChild(el("p", "pl-xl-cau", nk.q.cau));
+      var pa = el("ul", "pl-xl-pa");
+      nk.pa.forEach(function (p) {
+        var chon = nk.chon.indexOf(p) >= 0;
+        var d = el("li", p.dung ? "is-dung" : chon ? "is-sai" : null);
+        d.appendChild(el("b", "pl-de-chu" + (p.nhan === "✓" ? " is-co" : p.nhan === "✗" ? " is-khong" : ""), p.nhan));
+        d.appendChild(el("span", null, p.chu));
+        if (p.dung || chon) d.appendChild(el("em", null, p.dung ? (chon ? T.banChon + " · " + T.dapAn : T.dapAn) : T.banChon));
+        pa.appendChild(d);
+      });
+      li.appendChild(pa);
+      li.appendChild(el("p", "pl-xl-giai", nk.q.giai_thich));
+      ds.appendChild(li);
+    });
+    w.appendChild(ds);
+    return w;
   }
   function thongBao(chu) {
     var b = $("#pl-bao"); b.textContent = chu; b.hidden = false;
