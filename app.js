@@ -153,23 +153,28 @@
     dai.hidden = false;
   }
 
-  // "Bắt đầu từ đây": 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99)
-  const startLink = (so, label) => {
-    const hit = bySo[so];
-    if (!hit) return "";
-    return '<a class="row-link" href="' + baiLink(hit.v) + '">' + label + " ›</a>";
+  // Sang 15/10 chọn "Gọn hết": 7 vùng là một hàng thẻ ảnh bìa cuộn ngang (ảnh bìa series đầu của vùng), mỗi series là một nút nhỏ.
+  // Lộ trình 3 bước (banDo.lo_trinh) không vẽ nữa: trang chủ chỉ còn hai thẻ Lộ trình 7 ngày và Lộ trình theo ngành.
+  // Ảnh bìa mỗi vùng: series đầu tiên có ảnh bìa mà vùng trước chưa dùng (vùng 1 và 2 cùng mở đầu bằng "Khái niệm nền tảng")
+  const biaDaDung = new Set();
+  const biaVung = r => {
+    const ds = r.muc.map(m => bySo[m.so]).filter(hit => hit && biaSeries[hit.g.id] && biaSeries[hit.g.id].bia);
+    const hit = ds.find(h => !biaDaDung.has(h.g.id)) || ds[0];
+    if (!hit) return null;
+    biaDaDung.add(hit.g.id);
+    return { anh: goc + biaSeries[hit.g.id].bia, v: hit.v };
   };
-  document.getElementById("vung").innerHTML = banDo.vung.map((r, i) =>
-    '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji">' + ic(r.icon) + '</span><div><span class="region-num">' + S.vung + (i + 1) +
-    '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="region-list">' +
-    r.muc.map(m => {
-      const label = /[–,]/.test(m.nhan) ? S.xemPhan1 : S.xemVideo;
-      return '<li><span class="region-item"><b>' + esc(m.ten) + '</b><span class="region-range">' + esc(m.nhan) + "</span></span>" + startLink(m.so, label) + "</li>";
-    }).join("") + "</ul></li>").join("");
-  document.getElementById("lo-trinh").innerHTML = banDo.lo_trinh.map((b, i) =>
-    '<li class="step"><span class="step-num" aria-hidden="true">' + (i + 1) + '</span><div class="step-main"><p class="step-when">' + S.buoc + (i + 1) + " · " + esc(b.tuan) +
-    '</p><h4>' + esc(b.ten) + '</h4><p class="step-desc">' + esc(b.mo_ta) + '</p><p class="step-foot"><span class="region-range">' + esc(b.nhan) + "</span>" +
-    startLink(b.so, S.batDau + pad(b.so)) + "</p></div></li>").join("");
+  document.getElementById("vung").innerHTML = banDo.vung.map((r, i) => {
+    const bia = biaVung(r);
+    return '<li class="region">' + (bia ? '<a class="rg-bia" href="' + baiLink(bia.v) + '" tabindex="-1" aria-hidden="true"><img src="' + bia.anh + '" alt="" width="480" height="270" loading="lazy" decoding="async"></a>' : "") +
+      '<div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji">' + ic(r.icon) + '</span><div><span class="region-num">' + S.vung + (i + 1) +
+      '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="rg-mon">' +
+      r.muc.map(m => {
+        const hit = bySo[m.so];
+        const nhan = '<b>' + esc(m.ten) + '</b><span class="region-range">' + esc(m.nhan) + "</span>";
+        return "<li>" + (hit ? '<a href="' + baiLink(hit.v) + '">' + nhan + " ›</a>" : "<span>" + nhan + "</span>") + "</li>";
+      }).join("") + "</ul></li>";
+  }).join("");
 
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const nSeries = groups.filter(g => !g.le).length;
