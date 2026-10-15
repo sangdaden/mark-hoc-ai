@@ -196,6 +196,12 @@
   const box = document.getElementById("danh-sach");
   const input = document.getElementById("tim");
   input.addEventListener("input", render);
+  // Ô tìm ở trang 404 gửi tới /?q=...: điền sẵn từ khóa và cuộn tới danh sách video
+  const qTim = (new URLSearchParams(location.search).get("q") || "").trim().slice(0, 80);
+  if (qTim) {
+    input.value = qTim;
+    requestAnimationFrame(() => { render(); const dm = document.getElementById("video"); if (dm) dm.scrollIntoView(); });
+  }
 
   const range = g => {
     const a = g.items[0].so, b = g.items[g.items.length - 1].so;

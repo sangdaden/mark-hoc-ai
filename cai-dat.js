@@ -121,15 +121,25 @@
   ve();
 })();
 
-// Link "Bỏ qua tới nội dung" cho người dùng bàn phím và trình đọc màn hình: nhảy qua thanh đầu trang tới <main>
+// Link "Bỏ qua tới nội dung" cho người dùng bàn phím và trình đọc màn hình: nhảy qua thanh đầu trang tới tiêu đề trang
+// (khối .page-head trong dải màu) hoặc tới <main>. Khối tiêu đề được gắn làm một vùng có tên để trình đọc màn hình nhảy tới được.
 (function () {
   const main = document.querySelector("main");
   if (!main || document.querySelector(".bo-qua")) return;
-  if (!main.id) main.id = "noi-dung";
-  if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+  let dich = main;
+  const dau = document.querySelector(".page-head");
+  const h1 = dau && dau.querySelector("h1");
+  if (h1 && !dau.closest("main, header, [role]")) {
+    if (!h1.id) h1.id = "tieu-de";
+    dau.setAttribute("role", "region");
+    dau.setAttribute("aria-labelledby", h1.id);
+    dich = dau;
+  }
+  if (!dich.id) dich.id = dich === main ? "noi-dung" : "dau-trang-chinh";
+  if (!dich.hasAttribute("tabindex")) dich.setAttribute("tabindex", "-1");
   const a = document.createElement("a");
   a.className = "bo-qua";
-  a.href = "#" + main.id;
+  a.href = "#" + dich.id;
   a.textContent = document.documentElement.lang === "en" ? "Skip to content" : "Bỏ qua tới nội dung";
   document.body.insertBefore(a, document.body.firstChild);
 })();
