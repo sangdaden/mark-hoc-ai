@@ -10,7 +10,10 @@
     tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
-    hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›"
+    hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
+    vxTieuDe: "Just watched a Mark video?", vxDan: "Type the number shown on the video to open its 1-minute lesson.", vxO: "Video number",
+    vxMo: "Open lesson", vxKhong: n => "Video #" + n + " has no lesson here yet. Try the quick quiz below.",
+    vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Hide"
   } : {
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
@@ -18,7 +21,10 @@
     tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
-    hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›"
+    hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
+    vxTieuDe: "Vừa xem video của Mark?", vxDan: "Gõ số in trên video để mở bài học 1 phút của video đó.", vxO: "Số video",
+    vxMo: "Mở bài", vxKhong: n => "Video #" + n + " chưa có bài trên trang. Thử bài kiểm tra nhanh bên dưới nhé.",
+    vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Ẩn"
   };
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
@@ -86,6 +92,54 @@
   const baiLink = v => "bai/" + pad(v.so) + "-" + v.slug + ".html";
   const bySo = {};
   groups.forEach(g => g.items.forEach(v => { bySo[v.so] = { v, g }; }));
+
+  // Khối "Vừa xem video?": người tới từ mạng xã hội (hoặc link có utm_source / ?v=số) thấy ngay lối vào bài học,
+  // thay vì rơi vào trang chủ chung chung. Link trong bình luận đầu: markhocai.com/?v=64 mở thẳng bài của video #64.
+  const thamSo = new URLSearchParams(location.search);
+  const vSo = parseInt(thamSo.get("v"), 10);
+  const coBai = so => !!bySo[so];
+  const tuMxh = /(^|\.)(facebook|fb|tiktok|instagram|youtube|threads|messenger|zalo)\.(com|net|me|gg)$/i;
+  let refHost = "";
+  try { refHost = document.referrer ? new URL(document.referrer).hostname : ""; } catch (e) {}
+  const nguon = thamSo.get("utm_source") || (tuMxh.test(refHost) ? refHost.replace(/^(www|m|l|lm)\./, "").split(".")[0] : "");
+  if (coBai(vSo)) {
+    if (window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: "link-so", so: String(vSo), nguon: nguon || "khac" });
+    location.replace(baiLink(bySo[vSo].v) + location.search.replace(/[?&]v=\d+/, "").replace(/^&/, "?"));
+    return;
+  }
+  const vx = document.getElementById("vua-xem");
+  let anVx = false;
+  try { anVx = sessionStorage.getItem("mhai-an-vua-xem") === "1"; } catch (e) {}
+  if (vx && !anVx && (nguon || vSo)) {
+    vx.innerHTML = '<div class="vx-dau"><img src="' + goc + 'assets/mark-thac-mac.svg" alt="" width="64" height="60"><div><p class="vx-tieu-de">' + S.vxTieuDe +
+      '</p><p class="vx-dan">' + S.vxDan + '</p></div><button class="vx-dong" type="button" aria-label="' + S.vxDong + '">×</button></div>' +
+      '<form class="vx-tim"><label class="sr" for="vx-so">' + S.vxO + '</label><span class="vx-thang" aria-hidden="true">#</span>' +
+      '<input id="vx-so" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="64" autocomplete="off"' + (vSo ? ' value="' + vSo + '"' : "") + '>' +
+      '<button class="btn btn-yt" type="submit">' + S.vxMo + '</button></form><p class="vx-bao" role="status"></p>' +
+      '<p class="vx-them"><a class="btn" href="kiem-tra.html" data-vx="kiem-tra">' + S.vxQuiz + '</a><a class="btn" href="phieu-luu.html" data-vx="game">' + S.vxGame + "</a></p>";
+    vx.hidden = false;
+    const bao = vx.querySelector(".vx-bao");
+    const moSo = so => {
+      if (coBai(so)) {
+        if (window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: "go-so", so: String(so), nguon: nguon || "khac" });
+        location.href = baiLink(bySo[so].v);
+      } else bao.textContent = S.vxKhong(so);
+    };
+    if (vSo) bao.textContent = S.vxKhong(vSo);
+    vx.querySelector(".vx-tim").addEventListener("submit", e => {
+      e.preventDefault();
+      const so = parseInt(vx.querySelector("#vx-so").value, 10);
+      if (so) moSo(so);
+    });
+    vx.addEventListener("click", e => {
+      const l = e.target.closest("[data-vx]");
+      if (l && window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: l.dataset.vx, nguon: nguon || "khac" });
+      if (e.target.closest(".vx-dong")) {
+        vx.hidden = true;
+        try { sessionStorage.setItem("mhai-an-vua-xem", "1"); } catch (e) {}
+      }
+    });
+  }
 
   // Dải "Hôm nay trên kênh": video có ngày ra mắt đúng hôm nay; không có thì ẩn
   const homNayV = Object.values(bySo).filter(x => lich[x.v.so] === homNay).map(x => x.v).sort((a, b) => a.so - b.so);
