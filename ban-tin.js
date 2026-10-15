@@ -18,7 +18,7 @@
     hop: "For you", xemNhieu: "Most watched on the channel", docNhieu: "Most read on the site", web: "New on the site",
     vtkMoi: n => "New articles · " + n, vtkDoc: "Most read", day: "See the full digest ›", daXem: "Got it", dong: "Close",
     trong: "Nothing new here this week.", soTruoc: "Earlier digests", ghiUmami: (a, b) => "Most read: rankings from site visits " + a + " – " + b + ".",
-    oVideo: "new videos", oBai: "new Another Universe articles", oTinhNang: "new on the site", tapMoi: n => n + (n === 1 ? " new part" : " new parts"),
+    oVideo: "new videos", oBai: "new universe articles", oTinhNang: "new on the site", tapMoi: n => n + (n === 1 ? " new part" : " new parts"),
     moiKenhNgan: "New on the channel", demVideo: n => n + " videos, grouped by series", vtkMoiNgan: "New articles", demBai: n => n + " articles", xemGoc: "See the whole corner ›",
     thang: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], baiBao: "AI paper", rong: "No digest yet."
   } : {
@@ -55,40 +55,6 @@
     } catch (e) {}
   }
 
-  const link = (m, noi) => m.link ? '<a href="' + esc(m.link) + '">' + noi + "</a>" : noi;
-  const soTap = m => m.so && m.loai !== "bai-bao" ? '<span class="bt-so">' + esc(m.so) + "</span>" : m.loai === "bai-bao" ? '<span class="bt-so bt-so-bb">' + S.baiBao + "</span>" : "";
-  function dongVideo(m) {
-    const hop = soHop && soHop.has(String(m.so)) && m.loai !== "bai-bao";
-    return "<li" + (hop ? ' class="is-hop"' : "") + ">" + soTap(m) + '<span class="bt-ten">' + link(m, esc(ten(m))) + "</span>" +
-      (hop ? '<span class="bt-nhan">' + S.hop + "</span>" : "") + "</li>";
-  }
-  const ds = (arr, cls) => arr.length ? '<ul class="bt-ds ' + (cls || "") + '">' + arr.join("") + "</ul>" : "";
-  const hang = arr => arr.length ? '<ol class="bt-hang">' + arr.map(m => "<li>" + link(m, esc(ten(m))) + (m.nhom ? ' <span class="bt-nhom">' + esc(EN ? m.nhom_en || m.nhom : m.nhom) + "</span>" : "") + "</li>").join("") + "</ol>" : "";
-  const muc = (tieu, noi, cls) => noi ? '<div class="bt-muc' + (cls ? " " + cls : "") + '"><h4>' + tieu + "</h4>" + noi + "</div>" : "";
-
-  // gon = thẻ hiện lên (ít dòng), không gon = trang bản tin (đủ)
-  function veSo(s, gon) {
-    const h = s.hoc_ai, v = s.vtk;
-    const moi = h.moi.slice().sort((a, b) => (soHop && soHop.has(String(b.so)) ? 1 : 0) - (soHop && soHop.has(String(a.so)) ? 1 : 0));
-    const moiHien = gon ? moi.slice(0, 4) : moi;
-    const conLai = h.tong_moi - moiHien.length;
-    const themLink = conLai > 0 ? '<p class="bt-them"><a href="ban-tin.html#so-' + esc(s.id) + '">' + S.them(conLai) + "</a></p>" : "";
-    const hocAi = muc(S.moiKenh(h.tong_moi), ds(moiHien.map(dongVideo)) + (gon ? themLink : "")) +
-      muc(S.xemNhieu, hang(h.xem_nhieu)) +
-      (gon ? "" : muc(S.docNhieu, hang(h.doc_nhieu))) +
-      muc(S.web, ds((gon ? h.web.slice(0, 3) : h.web).map(w => "<li>" + link(w, esc(ten(w))) + "</li>"), "bt-ds-cham"), "bt-muc-web");
-    const chip = v.nhom.length ? '<p class="bt-chips">' + v.nhom.map(n => '<a class="bt-chip" href="' + esc(n.link) + '">' + esc(ten(n)) + " <b>" + n.dem + "</b></a>").join("") + "</p>" : "";
-    const vtkMoi = gon ? v.moi.slice(0, 3) : v.moi;
-    const vtk = muc(S.vtkMoi(v.tong_moi), chip + ds(vtkMoi.map(m => "<li>" + '<span class="bt-ten">' + link(m, esc(ten(m))) + '</span> <span class="bt-nhom">' + esc(EN ? m.nhom_en || m.nhom : m.nhom) + "</span></li>")) +
-      (v.tong_moi > vtkMoi.length ? '<p class="bt-them"><a href="' + (gon ? "ban-tin.html#so-" + esc(s.id) : "vu-tru-khac.html") + '">' + S.themBai(v.tong_moi - vtkMoi.length) + "</a></p>" : "")) +
-      muc(S.vtkDoc, hang(v.doc_nhieu)) +
-      muc(S.web, ds((v.web || []).map(w => "<li>" + link(w, esc(ten(w))) + "</li>"), "bt-ds-cham"), "bt-muc-web");
-    return '<div class="bt-hai">' +
-      '<section class="bt-goc bt-goc-ai"><h3><img src="' + goc + 'assets/logo.png" alt="" width="28" height="28">' + S.hocAi + "</h3>" + (hocAi || "<p>" + S.trong + "</p>") + "</section>" +
-      '<section class="bt-goc bt-goc-vtk"><h3><img src="' + goc + 'assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28">' + S.vtk + "</h3>" + (vtk || "<p>" + S.trong + "</p>") + "</section></div>" +
-      (!gon && s.umami && s.umami.tu ? '<p class="bt-ghi">' + S.ghiUmami(ngay(s.umami.tu), ngay(s.umami.den)) + "</p>" : "");
-  }
-
   // ===== Thẻ bản tin hiện lên sau khi đã chọn ngành =====
   let daHien = false;
   async function hienThe(epBuoc) {
@@ -109,7 +75,7 @@
     hop.setAttribute("aria-labelledby", "bt-ten");
     hop.innerHTML = '<button type="button" class="hop-dong" aria-label="' + S.dong + '"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>' +
       '<div class="bt-in"><div class="chao-dau"><img src="' + goc + 'assets/mark-chao.svg" alt="" width="80" height="76"><div><p class="eyebrow">' + S.eyebrow(ngay(s.tu), ngay(s.den)) + "</p>" +
-      '<h2 id="bt-ten">' + S.tieuDe + "</h2>" + (soKhop ? "<p>" + esc(S.choBan(tenChon, soKhop)) + "</p>" : "") + "</div></div>" + veSo(s, true) + "</div>" +
+      '<h2 id="bt-ten">' + S.tieuDe + "</h2>" + (soKhop ? "<p>" + esc(S.choBan(tenChon, soKhop)) + "</p>" : "") + "</div></div>" + veTrang(s, true) + "</div>" +
       '<div class="bt-chan"><a class="btn" href="ban-tin.html#so-' + esc(s.id) + '">' + S.day + '</a><button type="button" class="btn btn-yt" data-da-xem>' + S.daXem + "</button></div>";
     document.body.appendChild(hop);
     const dong = () => { nho.set(KHOA, s.id); if (hop.open) hop.close(); };
@@ -126,7 +92,8 @@
   // ===== Trang ban-tin.html =====
   // Trang dạng tạp chí: ô số liệu, thẻ ảnh bìa theo series, hàng ảnh bìa Vũ Trụ Khác cuộn ngang. Mỗi lần hiện một số, các số khác là nút chọn.
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
-  function veTrang(s) {
+  // gon = thẻ hiện lên sau khi chọn ngành: cùng kiểu thẻ ảnh nhưng mỗi phần là một hàng cuộn ngang, bỏ phần chữ phụ
+  function veTrang(s, gon) {
     const h = s.hoc_ai, v = s.vtk;
     const hopNhom = n => soHop && n.so.some(x => soHop.has(String(x)));
     const nhom = (h.nhom_moi || []).slice().sort((a, b) => (hopNhom(b) ? 1 : 0) - (hopNhom(a) ? 1 : 0));
@@ -146,19 +113,21 @@
       '<span class="bt-bia-nhom">' + esc(EN ? m.nhom_en || m.nhom : m.nhom) + '</span><span class="bt-bia-ten">' + esc(ten(m)) + "</span></a>";
     const tieu = (t, phu) => '<h3 class="bt-tieu">' + t + (phu ? " <small>" + phu + "</small>" : "") + "</h3>";
     const chip = v.nhom.length ? '<p class="bt-chips">' + v.nhom.map(n => '<a class="bt-chip" href="' + esc(n.link) + '">' + esc(ten(n)) + " <b>" + n.dem + "</b></a>").join("") + "</p>" : "";
-    const cuon = v.moi.slice(0, 12).map(m => "<li>" + bia(m) + "</li>").join("") +
-      (v.tong_moi > 12 ? '<li><a class="bt-bia bt-bia-them" href="vu-tru-khac.html"><b>+' + (v.tong_moi - 12) + "</b><span>" + S.xemGoc + "</span></a></li>" : "");
+    const N = gon ? 6 : 12;
+    const cuon = v.moi.slice(0, N).map(m => "<li>" + bia(m) + "</li>").join("") +
+      (v.tong_moi > N ? '<li><a class="bt-bia bt-bia-them" href="vu-tru-khac.html"><b>+' + (v.tong_moi - N) + "</b><span>" + S.xemGoc + "</span></a></li>" : "");
     const docWeb = h.doc_nhieu.length ? '<p class="bt-doc-web"><span>' + S.docNhieu + ":</span> " + h.doc_nhieu.map(m => '<a href="' + esc(m.link) + '">' + esc(ten(m)) + "</a>").join(" · ") + "</p>" : "";
     return tom +
       '<section class="bt-khoi bt-khoi-ai"><h2><img src="' + goc + 'assets/logo.png" alt="" width="32" height="32">' + S.hocAi + "</h2>" +
-      (nhom.length ? tieu(S.moiKenhNgan, S.demVideo(h.tong_moi)) + '<ul class="bt-sers">' + nhom.map(theSeries).join("") + "</ul>" : "") +
-      (h.xem_nhieu.length ? tieu(S.xemNhieu) + top(h.xem_nhieu) : "") + docWeb +
-      (h.web.length ? tieu(S.web) + tinh(h.web) : "") + "</section>" +
+      (nhom.length ? tieu(S.moiKenhNgan, S.demVideo(h.tong_moi)) + '<ul class="' + (gon ? "bt-cuon bt-cuon-ser" : "bt-sers") + '">' + nhom.map(theSeries).join("") + "</ul>" : "") +
+      (h.xem_nhieu.length ? tieu(S.xemNhieu) + top(h.xem_nhieu) : "") + (gon ? "" : docWeb) +
+      (h.web.length && !gon ? tieu(S.web) + tinh(h.web) : "") + "</section>" +
       '<section class="bt-khoi bt-khoi-vtk"><h2><img src="' + goc + 'assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="32" height="32">' + S.vtk + "</h2>" +
-      (v.tong_moi ? tieu(S.vtkMoiNgan, S.demBai(v.tong_moi)) + chip + '<ul class="bt-cuon">' + cuon + "</ul>" : "") +
-      (v.doc_nhieu.length ? tieu(S.vtkDoc) + '<ul class="bt-cuon bt-cuon-top">' + v.doc_nhieu.map((m, i) => '<li><span class="bt-top-hang">' + (i + 1) + "</span>" + bia(m) + "</li>").join("") + "</ul>" : "") +
-      ((v.web || []).length ? tieu(S.web) + tinh(v.web) : "") + "</section>" +
-      (s.umami && s.umami.tu ? '<p class="bt-ghi">' + S.ghiUmami(ngay(s.umami.tu), ngay(s.umami.den)) + "</p>" : "");
+      (v.tong_moi ? tieu(S.vtkMoiNgan, S.demBai(v.tong_moi)) + (gon ? "" : chip) + '<ul class="bt-cuon">' + cuon + "</ul>" : "") +
+      (v.doc_nhieu.length && gon ? tieu(S.vtkDoc) + top(v.doc_nhieu) : "") +
+      (v.doc_nhieu.length && !gon ? tieu(S.vtkDoc) + '<ul class="bt-cuon bt-cuon-top">' + v.doc_nhieu.map((m, i) => '<li><span class="bt-top-hang">' + (i + 1) + "</span>" + bia(m) + "</li>").join("") + "</ul>" : "") +
+      ((v.web || []).length && !gon ? tieu(S.web) + tinh(v.web) : "") + "</section>" +
+      (!gon && s.umami && s.umami.tu ? '<p class="bt-ghi">' + S.ghiUmami(ngay(s.umami.tu), ngay(s.umami.den)) + "</p>" : "");
   }
 
   async function trangBanTin(el) {
