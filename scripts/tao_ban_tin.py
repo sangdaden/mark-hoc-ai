@@ -80,6 +80,19 @@ def video_phu():
     return out
 
 
+def bang_series():
+    """số video -> series (id, tên VI/EN, ảnh bìa) để bản tin gom video mới theo series và có ảnh."""
+    ds = doc(D / "series.json", []) or []
+    en = doc(D / "en" / "series.json", {}) or {}
+    bia = doc(D / "series-bia.json", {}) or {}
+    out = {}
+    for x in ds:
+        for so in range(x["tu"], x["den"] + 1):
+            out[so] = {"id": x["id"], "ten": x["ten"], "ten_en": (en.get(x["id"]) or {}).get("ten") or x["ten"],
+                       "bia": (bia.get(x["id"]) or {}).get("bia", "")}
+    return out
+
+
 def trong(ngay, tu, den):
     return bool(ngay) and tu.isoformat() <= ngay <= den.isoformat()
 
@@ -127,8 +140,31 @@ def main():
     moi.sort(key=lambda m: (m["ngay"], m["loai"] == "bai-bao"), reverse=True)
     tong_moi = len(moi)
 
+    # Gom video mới theo series (tập phụ 5.x, 69.x theo series riêng; chưa có ảnh bìa riêng nên trang vẽ nền màu kèm tên)
+    ser = bang_series()
+    vp = doc(D / "video-phu.json", {"series": []}) or {"series": []}
+    vp_en = (doc(D / "en" / "video-phu.json", {}) or {}).get("series", {})
+    ser_phu = {t["so"]: {"id": x["id"], "ten": x["ten"], "ten_en": vp_en.get(x["id"], x["ten"]), "bia": ""}
+               for x in vp.get("series", []) for t in x["tap"]}
+    nhom_moi = {}
+    for m in moi:
+        if m["loai"] != "video":
+            continue
+        g = ser_phu.get(m["so"]) or ser.get(int(m["so"])) if m["so"].replace(".", "").isdigit() else None
+        if not g:
+            continue
+        n = nhom_moi.setdefault(g["id"], dict(g, so=[], link=m["link"], ngay=m["ngay"]))
+        n["so"].append(m["so"])
+        if m["ngay"] > n["ngay"]:
+            n["ngay"] = m["ngay"]
+    for n in nhom_moi.values():
+        n["so"].sort(key=lambda x: [int(p) for p in x.split(".")])
+        dau = n["so"][0]
+        n["link"] = next((m["link"] for m in moi if m["so"] == dau), n["link"])
+    nhom_moi = sorted(nhom_moi.values(), key=lambda n: (n["ngay"], len(n["so"])), reverse=True)
+
     noi_bat = doc(D / "noi-bat.json", {}) or {}
-    xem_nhieu = [chinh[str(s)] for s in noi_bat.get("pho_bien", []) if str(s) in chinh][:3]
+    xem_nhieu = [dict(chinh[str(s)], bia=(ser.get(int(s)) or {}).get("bia", "")) for s in noi_bat.get("pho_bien", []) if str(s) in chinh][:3]
 
     web_goc = [w for w in (doc(D / "ban-tin-web.json", []) or []) if trong(w.get("ngay"), tu, den)]
     web = lambda g: [{"ten": w["vi"], "ten_en": w["en"], "link": w.get("link", "")} for w in web_goc if w.get("goc", "hoc-ai") == g]
@@ -152,6 +188,8 @@ def main():
     def muc_vtk(x):
         c = chu_de.get(x.get("loai", "sach"), {})
         return {"ten": x["ten"], "ten_en": (x.get("en") or {}).get("ten") or x["ten"], "link": f"vu-tru-khac/{x['slug']}.html",
+                "bia": f"assets/vu-tru-khac/bia/{x['slug']}.svg" if (R / f"assets/vu-tru-khac/bia/{x['slug']}.svg").exists() else "",
+                "mau": [(x.get("bia") or {}).get("nen_1", "#0B1F3A"), (x.get("bia") or {}).get("nen_2", "#1F3A75")],
                 "nhom": c.get("nhan") or c.get("ten", ""), "nhom_en": (c.get("en") or {}).get("nhan") or (c.get("en") or {}).get("ten", "")}
     vtk_moi_goc = sorted([x for x in vtk if trong(x.get("ngay"), tu, den) and (R / f"vu-tru-khac/{x['slug']}.html").exists()],
                          key=lambda x: (x["ngay"], x.get("so", 0)), reverse=True)
@@ -166,7 +204,7 @@ def main():
 
     so_moi = {
         "id": den.isoformat(), "tu": tu.isoformat(), "den": den.isoformat(),
-        "hoc_ai": {"moi": moi[:MOI_TOI_DA], "tong_moi": tong_moi, "xem_nhieu": xem_nhieu, "doc_nhieu": doc_nhieu, "web": web("hoc-ai")},
+        "hoc_ai": {"moi": moi[:MOI_TOI_DA], "tong_moi": tong_moi, "nhom_moi": nhom_moi, "xem_nhieu": xem_nhieu, "doc_nhieu": doc_nhieu, "web": web("hoc-ai")},
         "vtk": {"moi": [muc_vtk(x) for x in vtk_moi_goc[:MOI_TOI_DA]], "tong_moi": len(vtk_moi_goc), "nhom": nhom, "doc_nhieu": vtk_doc_nhieu, "web": web("vtk")},
         "umami": ((um or {}).get("ky") or {}) and {"tu": um["ky"]["tu"], "den": um["ky"]["den"]},
     }
