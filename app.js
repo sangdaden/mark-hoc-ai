@@ -7,7 +7,7 @@
     hopTac: "Partnerships, sponsorships or feedback? Email us:", mediaKit: "Media kit ›", gopY: "Feedback or partnerships: message the channel's Facebook page.",
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
-    tatCa: "All", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
+    tatCa: "All", locSeries: "Filter by series", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
     hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
@@ -18,7 +18,7 @@
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
-    tatCa: "Tất cả", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
+    tatCa: "Tất cả", locSeries: "Lọc theo series", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
     hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
@@ -35,10 +35,11 @@
   // anh.json: ảnh bìa của video mới (scripts/tao_anh.py); video không có ảnh giữ thẻ chữ như cũ
   // series-bia.json: ảnh bìa từng series (scripts/tao_anh.py) cho đầu series và nút chọn series
   // noi-bat.json: pho_bien = video được xem nhiều nhất (scripts/gom_video.py tính từ sổ cái), noi_bat = video Sang chọn tay
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  // nhom-series.json: nhóm lớn cho hàng chọn chủ đề (Sang 15/10: 59 series xếp một hàng cuộn ngang quá dài)
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat, nhomData] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
     EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({})),
-    load("noi-bat").catch(() => ({}))]);
+    load("noi-bat").catch(() => ({})), load("nhom-series").catch(() => ({ nhom: [] }))]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -174,24 +175,50 @@
   const sapRa = g => g.items.every(v => lich[v.so]) ? g.items.every(v => chuaRa(v.so)) : !!g.sap_ra_mat;
   document.getElementById("stats").textContent = S.stats(total, nSeries);
 
+  // Hàng chọn chủ đề hai tầng: "Tất cả" + vài nhóm lớn (có icon), bấm nhóm thì hiện lưới ảnh bìa các series trong nhóm
+  // và một hàng series nhỏ xuống dòng (không cuộn ngang) để lọc riêng một series. current = "tat-ca" | "nhom-<id>" | id series.
   const chips = document.getElementById("chips");
+  const chipsCon = document.createElement("div");
+  chipsCon.className = "chips chips-con";
+  chipsCon.setAttribute("role", "tablist");
+  chipsCon.setAttribute("aria-label", S.locSeries);
+  chipsCon.hidden = true;
+  chips.after(chipsCon);
   let current = "tat-ca";
   try { current = localStorage.getItem("mhai-series") || current; } catch (e) {}
-  const chipData = [{ id: "tat-ca", ten: S.tatCa, n: total }].concat(groups.map(g => ({ id: g.id, ten: g.ten, n: g.items.length })));
-  if (!chipData.some(c => c.id === current)) current = "tat-ca";
   const byId = {};
   groups.forEach(g => { byId[g.id] = g; });
+  const nhomDs = (nhomData.nhom || []).map(n => ({ id: "nhom-" + n.id, icon: n.icon, ten: EN ? n.en || n.ten : n.ten, ds: n.series.filter(id => byId[id]) }));
+  const nhomCua = {};
+  nhomDs.forEach(n => n.ds.forEach(id => { nhomCua[id] = n; }));
+  // Series mới chưa được xếp nhóm: cho vào nhóm đầu để không bị mất
+  if (nhomDs.length) groups.forEach(g => { if (!nhomCua[g.id]) { nhomDs[0].ds.push(g.id); nhomCua[g.id] = nhomDs[0]; } });
+  const byNhom = {};
+  nhomDs.forEach(n => { byNhom[n.id] = n; });
+  if (current !== "tat-ca" && !byId[current] && !byNhom[current]) current = "tat-ca";
   const hashSeries = () => { let id = ""; try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) {} return byId[id] ? id : ""; };
   // Link từ bài viết về series (#id-series): về lưới "Tất cả" và mở đúng series đó
   if (hashSeries()) current = "tat-ca";
   const biaNho = id => biaSeries[id] ? '<img class="chip-bia" src="' + goc + biaSeries[id].nho + '" alt="" width="96" height="54" loading="lazy" decoding="async">' : "";
-  chips.innerHTML = chipData.map(c => '<button class="chip' + (biaSeries[c.id] ? " co-bia" : "") + '" role="tab" id="chip-' + c.id + '" data-id="' + c.id + '">' + biaNho(c.id) + esc(c.ten) + "<small>" + c.n + "</small></button>").join("");
-  chips.addEventListener("click", e => {
+  const demVideo = ids => ids.reduce((n, id) => n + byId[id].items.length, 0);
+  chips.innerHTML = '<button class="chip" role="tab" id="chip-tat-ca" data-id="tat-ca">' + esc(S.tatCa) + "<small>" + total + "</small></button>" +
+    nhomDs.map(n => '<button class="chip chip-nhom" role="tab" id="chip-' + n.id + '" data-id="' + n.id + '">' + ic(n.icon) + esc(n.ten) + "<small>" + demVideo(n.ds) + "</small></button>").join("");
+  const nhomDangMo = () => byNhom[current] || nhomCua[current] || null;
+  function veChipsCon() {
+    const n = nhomDangMo();
+    chipsCon.hidden = !n;
+    if (!n) { chipsCon.innerHTML = ""; return; }
+    chipsCon.innerHTML = n.ds.map(id => { const g = byId[id]; return '<button class="chip' + (biaSeries[id] ? " co-bia" : "") + '" role="tab" id="chip-' + id + '" data-id="' + id + '">' + biaNho(id) + esc(g.ten) + "<small>" + g.items.length + "</small></button>"; }).join("");
+  }
+  const chonChip = e => {
     const b = e.target.closest(".chip"); if (!b) return;
-    current = b.dataset.id;
+    // Bấm lại series đang chọn thì quay về cả nhóm
+    current = b.dataset.id === current && nhomCua[current] ? nhomCua[current].id : b.dataset.id;
     try { localStorage.setItem("mhai-series", current); } catch (e) {}
     render();
-  });
+  };
+  chips.addEventListener("click", chonChip);
+  chipsCon.addEventListener("click", chonChip);
 
   const box = document.getElementById("danh-sach");
   const input = document.getElementById("tim");
@@ -243,7 +270,10 @@
   // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
   function render() {
-    chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
+    veChipsCon();
+    const nh = nhomDangMo();
+    chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current || (!!nh && b.dataset.id === nh.id)));
+    chipsCon.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
     const q = norm(input.value.trim());
     if (hoiBit) {
       hoiBit.hidden = !q;
@@ -268,8 +298,15 @@
       document.getElementById("rong").hidden = true;
       return;
     }
+    // Chọn một nhóm (không tìm): lưới ảnh bìa đủ các series của nhóm
+    if (!q && byNhom[current]) {
+      box.innerHTML = '<ul class="series-grid">' + byNhom[current].ds.map(id => theHtml(byId[id])).join("") + "</ul>";
+      document.getElementById("rong").hidden = true;
+      return;
+    }
     let shown = 0;
-    box.innerHTML = groups.filter(g => current === "tat-ca" || g.id === current).map(g => {
+    const trongNhom = byNhom[current] ? new Set(byNhom[current].ds) : null;
+    box.innerHTML = groups.filter(g => current === "tat-ca" || g.id === current || (trongNhom && trongNhom.has(g.id))).map(g => {
       const items = g.items.filter(v => !q || q.split(/\s+/).every(w => v.key.includes(w)));
       if (!items.length) return "";
       shown += items.length;
