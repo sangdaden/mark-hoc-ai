@@ -11,6 +11,7 @@
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
     hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
+    soKq: n => n === 1 ? "1 video matches, listed below ↓" : n + " videos match, listed below ↓", kq0: "No video matches. Try a shorter word or ask Bit above.",
     vxTieuDe: "Just watched a Mark video?", vxDan: "Type the number shown on the video to open its 1-minute lesson.", vxO: "Video number",
     vxMo: "Open lesson", vxKhong: n => "Video #" + n + " has no lesson here yet. Try the quick quiz below.",
     vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Hide"
@@ -22,6 +23,7 @@
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
     hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
+    soKq: n => n + " video khớp, xem ngay bên dưới ↓", kq0: "Chưa có video nào khớp. Thử từ ngắn hơn hoặc hỏi Bit ở trên.",
     vxTieuDe: "Vừa xem video của Mark?", vxDan: "Gõ số in trên video để mở bài học 1 phút của video đó.", vxO: "Số video",
     vxMo: "Mở bài", vxKhong: n => "Video #" + n + " chưa có bài trên trang. Thử bài kiểm tra nhanh bên dưới nhé.",
     vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Ẩn"
@@ -151,23 +153,28 @@
     dai.hidden = false;
   }
 
-  // "Bắt đầu từ đây": 7 vùng của bản đồ kênh (video 97) và lộ trình 3 bước (video 99)
-  const startLink = (so, label) => {
-    const hit = bySo[so];
-    if (!hit) return "";
-    return '<a class="row-link" href="' + baiLink(hit.v) + '">' + label + " ›</a>";
+  // Sang 15/10 chọn "Gọn hết": 7 vùng là một hàng thẻ ảnh bìa cuộn ngang (ảnh bìa series đầu của vùng), mỗi series là một nút nhỏ.
+  // Lộ trình 3 bước (banDo.lo_trinh) không vẽ nữa: trang chủ chỉ còn hai thẻ Lộ trình 7 ngày và Lộ trình theo ngành.
+  // Ảnh bìa mỗi vùng: series đầu tiên có ảnh bìa mà vùng trước chưa dùng (vùng 1 và 2 cùng mở đầu bằng "Khái niệm nền tảng")
+  const biaDaDung = new Set();
+  const biaVung = r => {
+    const ds = r.muc.map(m => bySo[m.so]).filter(hit => hit && biaSeries[hit.g.id] && biaSeries[hit.g.id].bia);
+    const hit = ds.find(h => !biaDaDung.has(h.g.id)) || ds[0];
+    if (!hit) return null;
+    biaDaDung.add(hit.g.id);
+    return { anh: goc + biaSeries[hit.g.id].bia, v: hit.v };
   };
-  document.getElementById("vung").innerHTML = banDo.vung.map((r, i) =>
-    '<li class="region"><div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji">' + ic(r.icon) + '</span><div><span class="region-num">' + S.vung + (i + 1) +
-    '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="region-list">' +
-    r.muc.map(m => {
-      const label = /[–,]/.test(m.nhan) ? S.xemPhan1 : S.xemVideo;
-      return '<li><span class="region-item"><b>' + esc(m.ten) + '</b><span class="region-range">' + esc(m.nhan) + "</span></span>" + startLink(m.so, label) + "</li>";
-    }).join("") + "</ul></li>").join("");
-  document.getElementById("lo-trinh").innerHTML = banDo.lo_trinh.map((b, i) =>
-    '<li class="step"><span class="step-num" aria-hidden="true">' + (i + 1) + '</span><div class="step-main"><p class="step-when">' + S.buoc + (i + 1) + " · " + esc(b.tuan) +
-    '</p><h4>' + esc(b.ten) + '</h4><p class="step-desc">' + esc(b.mo_ta) + '</p><p class="step-foot"><span class="region-range">' + esc(b.nhan) + "</span>" +
-    startLink(b.so, S.batDau + pad(b.so)) + "</p></div></li>").join("");
+  document.getElementById("vung").innerHTML = banDo.vung.map((r, i) => {
+    const bia = biaVung(r);
+    return '<li class="region">' + (bia ? '<a class="rg-bia" href="' + baiLink(bia.v) + '" tabindex="-1" aria-hidden="true"><img src="' + bia.anh + '" alt="" width="480" height="270" loading="lazy" decoding="async"></a>' : "") +
+      '<div class="region-top">' + (i === 0 ? '<span class="region-pick">' + S.moiToanh + '</span>' : "") + '<span class="region-emoji">' + ic(r.icon) + '</span><div><span class="region-num">' + S.vung + (i + 1) +
+      '</span><h3>' + esc(r.ten) + '</h3></div></div><p class="region-desc">' + esc(r.mo_ta) + '</p><ul class="rg-mon">' +
+      r.muc.map(m => {
+        const hit = bySo[m.so];
+        const nhan = '<b>' + esc(m.ten) + '</b><span class="region-range">' + esc(m.nhan) + "</span>";
+        return "<li>" + (hit ? '<a href="' + baiLink(hit.v) + '">' + nhan + " ›</a>" : "<span>" + nhan + "</span>") + "</li>";
+      }).join("") + "</ul></li>";
+  }).join("");
 
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const nSeries = groups.filter(g => !g.le).length;
@@ -269,12 +276,20 @@
   let soThe = 0;
   // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
+  // Đang tìm thì báo ngay dưới ô tìm có bao nhiêu video khớp và ẩn dải "Hôm nay": trên điện thoại kết quả nằm dưới hàng nhóm, người xem tưởng ô tìm không chạy
+  const soKq = document.createElement("p");
+  soKq.className = "so-kq";
+  soKq.setAttribute("role", "status");
+  soKq.hidden = true;
+  (hoiBit || input.closest(".catalog-head")).after(soKq);
   function render() {
     veChipsCon();
     const nh = nhomDangMo();
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current || (!!nh && b.dataset.id === nh.id)));
     chipsCon.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
     const q = norm(input.value.trim());
+    if (dai) dai.classList.toggle("an-khi-tim", !!q);
+    if (!q) soKq.hidden = true;
     if (hoiBit) {
       hoiBit.hidden = !q;
       if (q) { hoiBit.href = "hoi-bit.html?q=" + encodeURIComponent(input.value.trim()); hoiBit.textContent = S.hoiBit(input.value.trim()); }
@@ -313,6 +328,9 @@
       return '<section class="series" data-id="' + g.id + '">' + khoi(g, items, "h3") + "</section>";
     }).join("");
     document.getElementById("rong").hidden = shown > 0;
+    soKq.hidden = !q;
+    soKq.textContent = q ? (shown ? S.soKq(shown) : S.kq0) : "";
+    soKq.classList.toggle("kq-rong", !!q && !shown);
   }
   render();
 

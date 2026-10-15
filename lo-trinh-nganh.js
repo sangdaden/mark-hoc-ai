@@ -311,7 +311,8 @@
     window.addEventListener("popstate", () => hien(tuUrl() || docChon(), false));
     const c = tuUrl() || docChon();
     if (tuUrl()) nho.set(KHOA_NGANH, JSON.stringify(c));
-    hien(c, false);
+    // Vừa chọn ngành ở hộp chào trang chủ (hoặc mở link ?ai= / ?nghe=) thì cuộn thẳng tới lộ trình, khỏi phải lướt qua ô chọn lần nữa
+    hien(c, !!tuUrl());
   }
 
   const trang = document.getElementById("ltn");

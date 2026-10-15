@@ -1667,3 +1667,51 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   /* Điện thoại: lưới ảnh bìa của nhóm đã đủ để chọn series, bỏ hàng series nhỏ cho đỡ dài */
   .chips-con { display: none; }
 }
+
+/* Ủng hộ: người xem trên điện thoại không quét được mã trên chính màn hình đó, nên có nút chép số tài khoản và lưu ảnh QR */
+.uh-the { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 360px; max-width: 100%; }
+.uh-ghi { margin: 4px 0 0; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.uh-nut { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.uh-nut .btn { min-height: 48px; }
+.uh-stk { margin: 0; font: 500 14px/1.4 var(--f-mono); color: var(--muted); text-align: center; }
+.uh-stk b { color: var(--ink); }
+
+/* Chân trang: link nhỏ dễ bấm hơn trên điện thoại và không gãy giữa chữ ("Quyền riêng / tư") */
+.foot-copy { line-height: 1.6; }
+.foot-copy a { white-space: nowrap; display: inline-block; padding-block: 4px; }
+@media (max-width: 760px) { .foot-copy { line-height: 1.5; } .foot-copy a { padding-block: 8px; } }
+
+/* Tìm video: dòng đếm kết quả ngay dưới ô tìm; dải "Hôm nay" tạm ẩn khi đang tìm */
+.so-kq { margin: 12px 0 0; padding: 10px 16px; border-radius: 12px; background: var(--panel); border: 1.5px solid var(--edge); font-weight: 700; color: var(--ink); }
+.so-kq.kq-rong { border-color: #F59E0B; }
+.so-kq[hidden], .today.an-khi-tim { display: none; }
+
+/* ===== Trang chủ gọn (Sang 15/10, "Gọn hết") ===== */
+/* 7 vùng: một hàng thẻ ảnh bìa cuộn ngang, thẻ sau ló ra một phần để người xem biết còn lướt được */
+.regions { display: flex; grid-template-columns: none; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin-inline: -4px;
+  scrollbar-width: thin; overscroll-behavior-x: contain; }
+.regions > .region { flex: 0 0 min(80vw, 320px); scroll-snap-align: start; padding: 0 0 14px; overflow: hidden; }
+.regions > .region:first-child { grid-column: auto; display: flex; }
+.regions > .region > :not(.rg-bia) { margin-inline: 18px; }
+.rg-bia { display: block; aspect-ratio: 16 / 9; background: var(--edge); }
+.rg-bia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.rg-mon { list-style: none; margin: auto 18px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.rg-mon a, .rg-mon li > span { display: inline-flex; align-items: baseline; gap: 6px; padding: 8px 12px; border-radius: 999px; border: 1.5px solid var(--edge);
+  background: var(--bg); color: var(--ink); text-decoration: none; font-size: 14px; min-height: 40px; box-sizing: border-box; }
+.rg-mon a:hover { border-color: var(--blue); color: var(--blue); }
+.rg-mon b { font-weight: 600; }
+.rg-mon .region-range { font-size: 12px; }
+/* Lộ trình: chỉ còn hai thẻ cạnh nhau (7 ngày + theo ngành) */
+.path-gon { padding: 22px; }
+.path-hai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.path-hai .path-course { margin-top: 0; grid-template-columns: auto minmax(0, 1fr); }
+.path-hai .path-course em { grid-column: 1 / -1; justify-self: start; }
+.path-nganh { background: #E0F2FE; }
+@media (max-width: 760px) { .path-hai { grid-template-columns: 1fr; } .path-gon { padding: 16px; } }
+/* Đồ miễn phí (kiểm tra, từ điển, prompt, sách) chuyển xuống sau "Tất cả video" */
+.them { padding-block: 8px 24px; }
+/* Máy tính dùng chuột khó cuộn ngang: từ 900px trở lên 7 vùng xếp lưới 4 cột */
+@media (min-width: 900px) {
+  .regions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; }
+  .regions > .region, .regions > .region:first-child { display: flex; }
+}
