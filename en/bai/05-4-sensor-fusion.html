@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sensor fusion: how AI combines LiDAR, radar and camera | Mark học AI</title>
+<meta name="description" content="On a rainy night a person in dark clothes steps into the road. The camera is only half sure, radar sees something moving slowly, LiDAR sees a 1.7 m shape. Sensor fusion combines the clues into one confident answer.">
+<link rel="canonical" href="https://markhocai.com/en/bai/05-4-sensor-fusion.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/bai/05-4-sensor-fusion.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/bai/05-4-sensor-fusion.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/bai/05-4-sensor-fusion.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sensor fusion: how AI combines LiDAR, radar and camera | Mark học AI">
+<meta property="og:description" content="On a rainy night a person in dark clothes steps into the road. The camera is only half sure, radar sees something moving slowly, LiDAR sees a 1.7 m shape. Sensor fusion combines the clues into one confident answer.">
+<meta property="og:url" content="https://markhocai.com/en/bai/05-4-sensor-fusion.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../../theo-doi.js?v=dev" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sensor fusion: how AI combines LiDAR, radar and camera","description":"On a rainy night a person in dark clothes steps into the road. The camera is only half sure, radar sees something moving slowly, LiDAR sees a 1.7 m shape. Sensor fusion combines the clues into one confident answer.","inLanguage":"en","url":"https://markhocai.com/en/bai/05-4-sensor-fusion.html","mainEntityOfPage":"https://markhocai.com/en/bai/05-4-sensor-fusion.html","image":["https://markhocai.com/assets/og.png"],"author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI's three eyes"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"Core ideas","item":"https://markhocai.com/en/#nen-tang"},{"@type":"ListItem","position":3,"name":"What is LiDAR? How self-driving cars measure distance with light","item":"https://markhocai.com/en/bai/05-lidar.html"},{"@type":"ListItem","position":4,"name":"Sensor fusion: how AI combines LiDAR, radar and camera","item":"https://markhocai.com/en/bai/05-4-sensor-fusion.html"}]}</script>
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="../#bat-dau">Start here</a>
+    <a href="../lo-trinh-7-ngay.html">7-day path</a>
+    <a href="../tu-dien.html">AI glossary</a>
+    <a href="../kiem-tra.html">Quiz</a>
+    <a href="../phieu-luu.html">Game</a>
+    <a href="../sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#nen-tang">Core ideas</a> › <a href="../bai/05-lidar.html">#05</a> › <span>#5.4</span></nav>
+<p class="eyebrow">Video #5.4 · AI&#x27;s three eyes · Part 5/8</p>
+<h1>Sensor fusion: how AI combines LiDAR, radar and camera</h1>
+<p class="lead">Each eye is only partly sure. Combining the three clues, called sensor fusion, beats even the best single eye.</p>
+<div class="cta"><a class="btn btn-yt" data-so="5.4" data-ngay="2026-10-16" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Sensor%20fusion%3A%20AI%20gh%C3%A9p%20LiDAR%2C%20radar%2C%20camera%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+</div>
+</div>
+<main class="doc">
+<article class="post">
+<p class="post-xem"><span>Watch on</span><a class="nt nt-sm nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-youtube"/></svg></a><a class="nt nt-sm nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-tiktok"/></svg></a><a class="nt nt-sm nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg></a><a class="nt nt-sm nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-instagram"/></svg></a></p>
+<section>
+<h2>A rainy night, dark clothes</h2>
+<p>On a rainy night, a person in dark clothes steps into the road. The camera is only half sure it&#x27;s a person, radar sees something moving slowly, and LiDAR sees a shape 1.7 meters tall.</p>
+</section>
+<section>
+<p class="sec-chip">HOW IT WORKS</p>
+<h2>Three clues that match</h2>
+<p>Combining several sensors into one conclusion is called sensor fusion. The human shape, the walking speed and the blurry figure on camera all match, so the AI is sure enough to brake.</p>
+</section>
+<section>
+<p class="sec-chip">STEP 1</p>
+<h2>Each eye reports a number</h2>
+<p>For distance, each eye reports its own number, and each has its own error. The camera&#x27;s error is the largest.</p>
+</section>
+<section>
+<p class="sec-chip">STEP 2</p>
+<h2>Trust some eyes more</h2>
+<p>The AI doesn&#x27;t take a simple average. It trusts the eyes with smaller errors more. Worked out, LiDAR gets 58 percent of the weight, radar 37 and the camera 4, giving 23.8 meters.</p>
+</section>
+<section>
+<p class="sec-chip">RESULT</p>
+<h2>Combined is more accurate</h2>
+<p>The channel ran 10,000 trials with a true distance of 24 meters. LiDAR was off by 64 cm on average, while the combined estimate was off by only 49, better than even the best single eye.</p>
+</section>
+<section>
+<p class="sec-chip">COMMON MISTAKES</p>
+<h2>When the eyes disagree</h2>
+<p>Fusion makes mistakes too. When the eyes report opposite things or the AI misreads them, the car can brake hard on an empty road, known as phantom braking. In 2022 the US opened an investigation after hundreds of complaints like this.</p>
+</section>
+<aside class="try" aria-labelledby="thu-5.4">
+  <img src="../../assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">
+  <div><p class="try-label">Try it now</p>
+  <h2 id="thu-5.4">The blue dot on your map</h2>
+  <p>The blue dot in Google Maps is also sensor fusion, of GPS, compass and motion sensors. If the beam around the dot spreads wide, tap the dot, choose compass calibration and move your phone in a figure eight.</p></div>
+</aside>
+<div class="post-end">
+<p>This article is based on the video <b>Sensor fusion: how AI combines LiDAR, radar and camera</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.</p>
+<div class="cta"><a class="btn btn-yt" data-so="5.4" data-ngay="2026-10-16" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Sensor%20fusion%3A%20AI%20gh%C3%A9p%20LiDAR%2C%20radar%2C%20camera%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div>
+</div>
+</article>
+<nav class="series-nav" aria-label="In this series">
+<p class="series-nav-head">Series <b>AI&#x27;s three eyes</b> · Part 5/8</p>
+<div class="nav-cards"><a class="nav-card" href="../bai/05-3-so-tai-ba-cam-bien.html"><span class="nav-dir">‹ Previous part</span><b>#5.3 · LiDAR, radar or camera: which is best?</b></a><a class="nav-card next" href="../bai/05-5-kho-van-giao-thong.html"><span class="nav-dir">Next part ›</span><b>#5.5 · What warehouse robots, forklifts and traffic lights see with</b></a></div>
+</nav>
+<aside class="next-steps">
+<a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
+<a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
+</aside>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="../"><img src="../../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="../tu-dien.html">AI glossary</a> · <a href="../kiem-tra.html">How well do you know AI?</a> · <a href="../sach.html">Free ebook</a> · <a href="../hop-tac.html">Work with us</a> · <a href="../dich-vu.html">Video services</a> · <a href="../ung-ho.html">Support us</a> · <a href="../quyen-rieng-tu.html">Privacy</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../../len-dau.js?v=dev" defer></script>
+<script src="../../cai-dat.js?v=dev" defer></script>
+<script src="../../cuon-hien.js?v=dev" defer></script>
+<script src="../../bit-tro-ly.js?v=dev" defer></script>
+<script src="../../bai-viet.js?v=dev" defer></script>
+</body>
+</html>
