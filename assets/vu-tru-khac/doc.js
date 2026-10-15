@@ -206,3 +206,33 @@
     p.then(function () { xong(en ? "Link copied" : "Đã chép link"); }, function () { xong(link); });
   });
 })();
+
+// Bảng và hình rộng cuộn ngang được (.tablebox, .svgbox): khi thật sự tràn thì cho phím Tab tới được để cuộn bằng phím mũi tên,
+// kèm tên vùng (axe 15/10: scrollable-region-focusable). Không tràn thì bỏ, để không thêm điểm dừng thừa.
+(function () {
+  var en = document.documentElement.lang === "en";
+  var hop = document.querySelectorAll(".tablebox, .svgbox");
+  if (!hop.length) return;
+  function ten(h) {
+    var fig = h.closest("figure");
+    var cap = h.querySelector("caption, figcaption") || (fig && fig.querySelector("figcaption"));
+    var sec = h.closest("section, .concept");
+    var tieu = sec && sec.querySelector("h2, h3, h4");
+    var chu = ((cap || tieu || {}).textContent || "").replace(/\s+/g, " ").trim().slice(0, 80);
+    return (en ? "Scrollable: " : "Kéo ngang để xem: ") + (chu || (h.matches(".tablebox") ? (en ? "table" : "bảng") : (en ? "figure" : "hình")));
+  }
+  function xet() {
+    Array.prototype.forEach.call(hop, function (h) {
+      var tran = h.scrollWidth > h.clientWidth + 1 && /auto|scroll/.test(getComputedStyle(h).overflowX)
+        && !h.querySelector("a[href], button, input, select, textarea, [tabindex]");
+      if (tran && !h.hasAttribute("tabindex")) {
+        h.setAttribute("tabindex", "0"); h.setAttribute("role", "region"); h.setAttribute("aria-label", ten(h)); h.dataset.vtkCuon = "";
+      } else if (!tran && h.hasAttribute("data-vtk-cuon")) {
+        h.removeAttribute("tabindex"); h.removeAttribute("role"); h.removeAttribute("aria-label"); delete h.dataset.vtkCuon;
+      }
+    });
+  }
+  xet();
+  var hen;
+  addEventListener("resize", function () { clearTimeout(hen); hen = setTimeout(xet, 150); });
+})();
