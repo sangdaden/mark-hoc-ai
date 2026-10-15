@@ -301,6 +301,25 @@ def ld(obj):
 def ic(p, n):
     return f'<svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-{n}"/></svg>'
 
+# Ngày video lên kênh (data/lich-ra-mat.json, cập nhật khi lên lịch video mới): ghi trên đầu bài.
+# Chưa tới ngày thì bai-viet.js đổi chữ "Lên kênh" thành "Ra mắt".
+LICH = load("lich-ra-mat")
+THANG_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+def nhan_ngay(d):
+    if not d:
+        return ""
+    y, m, dd = d.split("-")
+    return f' · <time class="ngay-dang" datetime="{d}">{t("Lên kênh", "Published")} {t(f"{dd}/{m}/{y}", f"{THANG_EN[int(m) - 1]} {int(dd)}, {y}")}</time>'
+
+def khoi_chia_se(url, tieu_de, p):
+    """Cuối bài: nút chia sẻ của máy (điện thoại), Facebook, chép link. Không chạy được JS thì chỉ còn nút Facebook (link thường)."""
+    fb = "https://www.facebook.com/sharer/sharer.php?u=" + quote(url, safe="")
+    return (f'<div class="chia-se">\n<p class="chia-se-h">{t("Thấy bài có ích? Gửi cho một người bạn", "Found this useful? Send it to a friend")}</p>\n<div class="cta">'
+            f'<button type="button" class="btn" data-chia-se data-url="{esc(url)}" data-tieu-de="{esc(tieu_de)}" hidden>{ic(p, "share")}{t("Chia sẻ", "Share")}</button>'
+            f'<a class="btn" href="{esc(fb)}" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a>'
+            f'<button type="button" class="btn" data-chep-link="{esc(url)}" hidden>{ic(p, "link")}{t("Chép link", "Copy link")}</button>'
+            '</div>\n</div>')
+
 def header(p, hien_tai="", q=None):
     # p: đường về thư mục gốc (assets, style, js); q: đường về trang chủ của ngôn ngữ đang tạo (bản Việt: q = p)
     q = p if q is None else q
@@ -340,7 +359,7 @@ def footer(p, q=None):
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
             f' · <a href="{q}dich-vu.html">{t("Làm video cho bạn", "Video services")}</a>'
-            f' · <a href="{q}ung-ho.html">{t("Ủng hộ kênh", "Support us")}</a> · <a href="{q}quyen-rieng-tu.html">{t("Quyền riêng tư", "Privacy")}</a>'
+            f' · <a href="{q}ung-ho.html">{t("Ủng hộ kênh", "Support us")}</a> · <a href="{q}quyen-rieng-tu.html">{t("Quyền riêng tư", "Privacy")}</a> · <a href="{q}dieu-khoan.html">{t("Điều khoản", "Terms")}</a>'
             + (f' · <a href="mailto:{esc(kenh["email"])}">{esc(kenh["email"])}</a>' if kenh.get("email") else "")
             + '</span>\n  </div>\n</footer>')
 
@@ -583,7 +602,7 @@ def tao_bai(v):
     lead = thanh_doan([bo_emoji(v["mo_ta"])])
     ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')  # video của kênh nói tiếng Việt
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › <span>#{so:02d}</span></nav>\n'
-            f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}</p>\n'
+            f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}{nhan_ngay(LICH.get(str(so)))}</p>\n'
             f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g, p)}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(tieu_de)}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
@@ -591,7 +610,7 @@ def tao_bai(v):
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
     cc_dau, cc_cuoi = khoi_cong_cu(v, p)
     main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + "\n".join(muc) +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
@@ -676,12 +695,12 @@ def tao_bai_phu(s, x):
     ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › '
             f'<a href="{q}bai/{ten_file(cha)}.html">#{nhan_so(cha["so"])}</a> › <span>#{so}</span></nav>\n'
-            f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}</p>\n'
+            f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}{nhan_ngay(x.get("ra_mat"))}</p>\n'
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     main = (f'<main class="doc">\n<article class="post">\n<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n' + "\n".join(muc) +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n</div>\n</article>\n'
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
@@ -1138,6 +1157,13 @@ def tao_dich_vu():
              t("Giọng đọc được tạo bằng AI (ElevenLabs); video ghi rõ điều này khi nền tảng yêu cầu.", "The voiceover is AI-generated (ElevenLabs); videos are labeled as such where platforms require it."),
              t("Không nhận nội dung sai sự thật, hứa hẹn quá mức, cờ bạc, vay tiền hay gây hại cho người xem.", "We don't take on misleading claims, exaggerated promises, gambling, lending, or anything harmful to viewers.")]
     the_luu_y = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in luu_y)
+    # Chính sách sửa video và hoàn tiền (soát checklist.design 15/10): bản đầy đủ ở dieu-khoan.html#dich-vu
+    chinh_sach = [t("Kịch bản được sửa đến khi bạn duyệt, không giới hạn số lần. Bạn duyệt kịch bản xong mình mới dựng video.", "You can revise the script as many times as you like. We only start the video once you approve it."),
+                  t("Sau khi giao, video được sửa theo số lần của gói. Lỗi do phía mình (sai chữ, sai lời so với kịch bản đã duyệt) thì sửa miễn phí, không tính vào số lần.", "After delivery, edits follow your plan's rounds. Our own mistakes (typos, narration that differs from the approved script) are fixed free and don't count as a round."),
+                  t("Muốn sửa thêm ngoài số lần của gói hoặc đổi nội dung đã duyệt, mình báo giá trước và chỉ làm khi bạn đồng ý.", "Extra rounds or changes to approved content are quoted first and only done if you agree."),
+                  t("Hủy trước khi duyệt kịch bản: hoàn lại toàn bộ tiền đã trả. Hủy sau khi duyệt kịch bản, trước khi nhận video: hoàn 50%.", "Cancel before approving the script: full refund. Cancel after approving the script but before delivery: 50% refund."),
+                  t("Video không đúng kịch bản đã duyệt và sửa hết số lần vẫn chưa đạt: hoàn 100%. Tiền hoàn chuyển khoản trong 7 ngày kể từ khi bạn báo.", "If the video doesn't match the approved script and still isn't right after all rounds: 100% refund. Refunds are sent by bank transfer within 7 days of your request.")]
+    the_chinh_sach = "".join(f'<li>{ic(p, "check")}<span>{esc(x)}</span></li>' for x in chinh_sach)
     main = f"""<main class="kit">
 <section class="book-sec" aria-labelledby="video-mau">
 <h2 id="video-mau">{t("Video mẫu", "Samples")}</h2>
@@ -1154,6 +1180,11 @@ def tao_dich_vu():
 <div class="rules">
 <h3>{t("Lưu ý", "Good to know")}</h3>
 <ul>{the_luu_y}</ul>
+</div>
+<div class="rules" id="sua-va-hoan-tien">
+<h3>{t("Sửa video và hoàn tiền", "Edits and refunds")}</h3>
+<ul>{the_chinh_sach}</ul>
+<p class="rules-more">{t("Chi tiết trong", "Full details in our")} <a href="dieu-khoan.html#dich-vu">{t("Điều khoản sử dụng", "Terms of use")}</a>.</p>
 </div>
 </section>
 <aside class="pdf-card kit-contact">
@@ -1227,8 +1258,8 @@ def chay():
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):

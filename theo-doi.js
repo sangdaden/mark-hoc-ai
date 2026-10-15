@@ -67,11 +67,18 @@
     var cho = cho_bam(a);
     if (/^mailto:/i.test(href)) return gui("bam-email", { cho: cho });
     if (/(^|\/)ung-ho\.html/.test(href)) return gui("bam-ung-ho", { cho: cho });
+    if (/facebook\.com\/sharer/i.test(href)) return gui("chia-se", { cach: "facebook" });
     if (/^https?:/i.test(href)) {
       for (var i = 0; i < KENH.length; i++) {
         if (KENH[i][1].test(href)) return gui("bam-kenh", { kenh: KENH[i][0], cho: cho });
       }
     }
+  }, true);
+
+  // Chia sẻ cuối bài: nút chia sẻ của máy, chép link (nút Facebook là link, đếm ở trên)
+  document.addEventListener("click", function (e) {
+    var b = e.target && e.target.closest ? e.target.closest("[data-chia-se], [data-chep-link]") : null;
+    if (b) gui("chia-se", { cach: b.hasAttribute("data-chia-se") ? "may" : "chep-link" });
   }, true);
 
   // Hỏi Bit: chỉ đếm số câu hỏi, không gửi nội dung câu hỏi

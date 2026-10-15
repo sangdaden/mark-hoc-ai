@@ -1,4 +1,4 @@
-// Trang bài viết: nút YouTube theo lịch ra mắt + trình phát YouTube kiểu "lite" + nút "Sao chép prompt"
+// Trang bài viết: nút YouTube và ngày theo lịch ra mắt + trình phát YouTube kiểu "lite" + nút "Sao chép prompt" + chia sẻ bài
 (function () {
   var EN = document.documentElement.lang === "en";
   var THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -24,6 +24,10 @@
         a.after(note);
       }
       note.textContent = EN ? "Video out " + THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : "Video ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7);
+    });
+    // Ngày trên đầu bài: chưa tới ngày thì ghi "Ra mắt" thay cho "Lên kênh"
+    document.querySelectorAll("time.ngay-dang").forEach(function (el) {
+      if (el.getAttribute("datetime") > homNay) el.textContent = el.textContent.replace(EN ? "Published" : "Lên kênh", EN ? "Coming" : "Ra mắt");
     });
   }).catch(function () {});
 
@@ -59,6 +63,29 @@
       xong ? ok() : loi();
     });
   }
+  // Chia sẻ cuối bài: nút chia sẻ của máy (chỉ hiện khi trình duyệt có), nút chép link
+  var nutChiaSe = document.querySelector("[data-chia-se]");
+  if (nutChiaSe && navigator.share) {
+    nutChiaSe.hidden = false;
+    nutChiaSe.addEventListener("click", function () {
+      navigator.share({ title: nutChiaSe.dataset.tieuDe, url: nutChiaSe.dataset.url }).catch(function () {});
+    });
+  }
+  document.querySelectorAll("[data-chep-link]").forEach(function (b) {
+    b.hidden = false;
+    var goc = b.innerHTML, hen;
+    b.addEventListener("click", function () {
+      chep(b.dataset.chepLink).then(function () {
+        b.innerHTML = goc.replace(/#i-link/, "#i-check").replace(/<\/svg>[\s\S]*$/, "</svg>") + (EN ? "Link copied" : "Đã chép link");
+      }, function () {
+        b.textContent = b.dataset.chepLink;
+      }).then(function () {
+        clearTimeout(hen);
+        hen = setTimeout(function () { b.innerHTML = goc; }, 2000);
+      });
+    });
+  });
+
   document.querySelectorAll("[data-chep]").forEach(function (b) {
     var nguon = document.getElementById(b.dataset.chep);
     if (!nguon) return;
