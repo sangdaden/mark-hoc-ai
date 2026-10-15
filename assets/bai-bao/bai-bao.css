@@ -1,0 +1,51 @@
+/* Góc "Bài báo AI" (scripts/tao_bai_bao.py). Dùng màu Trời xanh của style.css; khuôn bài học theo hồ sơ của Vũ Trụ Khác. */
+.bb-main { max-width: 760px; margin: 0 auto; padding: 8px 0 56px; }
+.bb-main section { margin-top: 40px; }
+.bb-main h2 { font: 800 clamp(22px, 3vw, 28px)/1.25 var(--f-display); margin: 0 0 14px; }
+.bb-main p, .bb-main li { font-size: 17px; line-height: 1.7; }
+.bb-head .eyebrow a { color: inherit; }
+.bb-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 12px 20px; margin: 22px 0 0; }
+.bb-meta div { min-width: 0; }
+.bb-meta dt { font: 500 12px/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; opacity: .8; }
+.bb-meta dd { margin: 2px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+.bb-tinh-hoa ul { margin: 0; padding: 18px 20px 18px 38px; background: var(--panel); border: 1.5px solid var(--edge); border-radius: 16px; }
+.bb-tinh-hoa li + li { margin-top: 8px; }
+.bb-thesis { font: 600 clamp(19px, 2.6vw, 22px)/1.45 var(--f-display); border-left: 4px solid var(--blue); padding-left: 16px; }
+.bb-buoc { padding-left: 24px; }
+.bb-buoc li + li, .bb-ds li + li { margin-top: 8px; }
+.bb-the { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; margin: 6px 0 16px; }
+.bb-the div, .bb-diem div { background: var(--panel); border: 1.5px solid var(--edge); border-radius: 14px; padding: 14px; display: grid; gap: 4px; align-content: start; }
+.bb-the b { font-family: var(--f-display); }
+.bb-the span, .bb-diem small { color: var(--muted); font-size: 15px; line-height: 1.45; }
+.bb-diem { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.bb-diem span { font: 500 12px/1.4 var(--f-mono); text-transform: uppercase; color: var(--muted); }
+.bb-diem b { font: 800 22px/1.2 var(--f-display); color: var(--blue-chu); }
+.bb-cot { display: grid; gap: 12px; margin: 4px 0 18px; padding: 18px; background: var(--panel); border: 1.5px solid var(--edge); border-radius: 16px; }
+.bb-cot-dong { display: grid; grid-template-columns: 11rem 1fr auto; gap: 12px; align-items: center; font-size: 15px; }
+.bb-cot-dong i { display: block; height: 18px; width: calc(var(--w) * 3); max-width: 100%; border-radius: 9px; }
+.bb-cot-dong i.tot { background: var(--mint-dam); }
+.bb-cot-dong i.xau { background: #DC2626; }
+.bb-cot-dong b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 560px) { .bb-cot-dong { grid-template-columns: 1fr auto; } .bb-cot-dong i { grid-column: 1 / -1; grid-row: 2; } }
+.bb-nguon { font-size: 15px; overflow-wrap: anywhere; }
+.bb-video .btn { margin-top: 8px; }
+.bb-khoa { padding: 22px; border-radius: 18px; background: color-mix(in srgb, var(--yellow) 18%, var(--panel)); border: 2px dashed color-mix(in srgb, var(--yellow) 70%, var(--edge)); }
+.bb-khoa.bb-da-mo { border-style: solid; }
+.bb-dem { font: 500 16px/1.5 var(--f-mono); font-variant-numeric: tabular-nums; }
+.bb-dem b { font-size: 22px; color: var(--blue-chu); }
+.bb-form label { display: block; font-weight: 600; margin: 14px 0 8px; }
+.bb-o { display: flex; gap: 8px; flex-wrap: wrap; }
+.bb-o input { flex: 1 1 12rem; min-width: 0; font: 400 17px var(--f-body); color: var(--ink); background: var(--panel); border: 2px solid var(--edge); border-radius: 999px; padding: 10px 16px; }
+.bb-bao { min-height: 1.6em; margin-top: 8px; font-weight: 600; }
+.bb-ve { margin-top: 44px; }
+.bb-ds-bai { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.bb-the-bai { background: var(--panel); border: 1.5px solid var(--edge); border-radius: 18px; padding: 18px 20px; display: grid; gap: 6px; }
+.bb-the-bai h2 { margin: 0; font-size: 22px; }
+.bb-the-bai h2 a { color: var(--ink); text-decoration: none; }
+.bb-the-bai h2 a:hover { color: var(--blue); }
+.bb-the-bai p { margin: 0; color: var(--muted); font-size: 16px; }
+.bb-so, .bb-nhom { font: 500 12px/1.4 var(--f-mono); text-transform: uppercase; color: var(--blue-chu); }
+.bb-nhom { color: var(--muted); }
+.bb-nhan { justify-self: start; font: 600 13px/1 var(--f-body); padding: 7px 12px; border-radius: 999px; background: color-mix(in srgb, var(--sky) 14%, var(--panel)); border: 1.5px solid var(--edge); }
+.bb-mo .bb-nhan { background: var(--mint-dam); color: #fff; border-color: transparent; }
+.bb-sap { opacity: .85; }
