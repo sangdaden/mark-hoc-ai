@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tải nhận thức (John Sweller): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Giải được bài chưa chắc đã học được cách giải: vì sao người mới nên xem bài giải mẫu trước. Đọc từ bài báo gốc trên Cognitive Science (1988), các phân tích gộp mới và 12 nhận định được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-tai-nhan-thuc.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tải nhận thức (John Sweller): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Giải được bài chưa chắc đã học được cách giải: vì sao người mới nên xem bài giải mẫu trước. Đọc từ bài báo gốc trên Cognitive Science (1988), các phân tích gộp mới và 12 nhận định được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #1A1206; --bia-2: #78350F; --bia-nhan: #FDE68A; }
+:root { --vtk-nhan: #FDE68A; }
+body header { --ho-so: "Hồ sơ bài báo"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/bai-bao-tai-nhan-thuc.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the topic pieces. Topic "Bài báo đổi cách ta học" #5: Sweller 1988, --night = amber #B45309, --day = dark yellow #A16207 (light mode; #FDE68A in dark mode). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #B45309;
+  --day: #A16207;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #F59E0B; --day: #FDE68A; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #F59E0B; --day: #FDE68A; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+
+<style>
+.evalbox { width:100%; border-collapse:collapse; background:var(--paper); border:1px solid var(--rule); border-radius:6px; font-size:.92rem; }
+.evalbox th, .evalbox td { padding:10px 12px; border-top:1px solid var(--rule); text-align:left; vertical-align:top; }
+.evalbox th { font-family:var(--font-display); font-weight:500; color:var(--muted); width:11rem; }
+.evalbox tr:first-child th, .evalbox tr:first-child td { border-top:0; }
+@media (max-width:560px){ .evalbox th { width:auto; display:block; border-top:1px solid var(--rule); padding-bottom:2px; } .evalbox td { display:block; border-top:0; padding-top:2px; } .evalbox tr { display:block; } }
+.three { margin:0; padding-left:1.3em; display:grid; gap:8px; }
+.three li { font-size:1.02rem; }
+</style>
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Tải nhận thức</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<rect x="8" y="60" width="62" height="6" rx="1.5" fill="#FFF7ED" fill-opacity=".7"/>
+<path d="M14 66 v16 M64 66 v16" stroke="#FFF7ED" stroke-opacity=".7" stroke-width="4"/>
+<g fill="var(--bia-nhan, #FDE68A)" stroke="#1A1206" stroke-opacity=".5" stroke-width="1.2"><rect x="12" y="47" width="12" height="12" rx="1.5"/><rect x="26" y="47" width="12" height="12" rx="1.5"/><rect x="40" y="47" width="12" height="12" rx="1.5"/><rect x="54" y="47" width="12" height="12" rx="1.5"/><rect x="19" y="34" width="12" height="12" rx="1.5"/><rect x="34" y="34" width="12" height="12" rx="1.5"/></g>
+<g fill="var(--bia-nhan, #FDE68A)" fill-opacity=".75"><rect x="74" y="56" width="9" height="9" rx="1.5" transform="rotate(24 78 60)"/><rect x="80" y="72" width="8" height="8" rx="1.5" transform="rotate(-16 84 76)"/></g>
+<g transform="rotate(8 74 22)"><rect x="58" y="8" width="32" height="26" rx="2.5" fill="#FFF7ED" fill-opacity=".9"/>
+<path d="M62 15 l2 2 4 -4 M62 23 l2 2 4 -4 M62 31 l2 2 4 -4" stroke="#B45309" stroke-width="2.4"/>
+<path d="M72 15 h14 M72 23 h11 M72 31 h13" stroke="#B45309" stroke-opacity=".55" stroke-width="2.4"/></g>
+</svg></span><img src="../assets/vu-tru-khac/mark/doc-sach.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="17" data-chu="vi">khoảng 17 phút đọc</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-tu-kiem-tra.html"><small>Bài tiếp theo</small><b>Tự kiểm tra thắng đọc lại</b><span>Bài báo #006 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Bài báo đổi cách ta học #5 · Học tập · Bộ nhớ làm việc</span>
+  <h1>Tải nhận thức</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Một cái bàn nhỏ chất đầy khối hộp, vài khối rơi ra ngoài; bên cạnh là một tờ bài giải mẫu có các bước đánh dấu">
+    <rect x="6" y="40" width="120" height="8" rx="2" fill="#B45309"/>
+    <path d="M14 48 v10 M118 48 v10" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#FDE68A" stroke="#B45309" stroke-width="2"><rect x="12" y="22" width="22" height="18" rx="2"/><rect x="38" y="22" width="22" height="18" rx="2"/><rect x="64" y="22" width="22" height="18" rx="2"/><rect x="90" y="22" width="22" height="18" rx="2"/><rect x="24" y="4" width="22" height="18" rx="2"/><rect x="52" y="4" width="22" height="18" rx="2"/></g>
+    <g fill="#FDE68A" stroke="#B45309" stroke-width="2"><rect x="128" y="18" width="18" height="15" rx="2" transform="rotate(24 137 25)"/><rect x="138" y="40" width="16" height="13" rx="2" transform="rotate(-18 146 46)"/></g>
+    <rect x="186" y="4" width="90" height="54" rx="4" fill="#fff" stroke="#B45309" stroke-width="2"/>
+    <g stroke="#B45309" stroke-width="3" stroke-linecap="round"><path d="M196 16 l4 4 7 -8"/><path d="M196 31 l4 4 7 -8"/><path d="M196 46 l4 4 7 -8"/></g>
+    <g stroke="#A16207" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M214 16 h50"/><path d="M214 31 h42"/><path d="M214 46 h46"/></g>
+    <path d="M290 30 h24 M306 22 l8 8 -8 8" stroke="#B45309" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p class="sub">John Sweller · "Cognitive load during problem solving: Effects on learning" · Cognitive Science 12(2), 257–285 · 1988</p>
+  <div class="meta">
+    <div><span class="label">Ai, ở đâu</span><b>nhà tâm lý giáo dục John Sweller, Đại học New South Wales (Sydney, Úc)</b></div>
+    <div><span class="label">Ý chính</span><b>giải bài theo kiểu nhắm thẳng đáp số chiếm chỗ của việc học</b></div>
+    <div><span class="label">Bài học</span><b>người mới nên học từ bài giải mẫu trước khi tự giải</b></div>
+    <div><span class="label">Nhãn</span><b>Thận trọng: ý chính có ích, nhưng "tải" khó đo</b></div>
+  </div>
+  <p class="nguon">Nguồn: Sweller (1988), Cognitive Science 12(2), 257–285; hồ sơ Sweller trên trang Đại học New South Wales (UNSW). Môi trường làm bài chặn trang tạp chí, nên bài gốc được đối chiếu qua trích đoạn trong kết quả tìm kiếm, chưa mở toàn văn.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#cau-hoi">Câu hỏi</a><a href="#cau-chuyen">Câu chuyện phát hiện</a><a href="#bai-bao-noi-gi">Bài báo nói gì</a><a href="#danh-gia-bai-bao">Được đánh giá thế nào</a><a href="#dan-chung">Kiểm chứng</a><a href="#moi-nhat">Nghiên cứu mới nhất</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M11 16l4 4 7-8"/></svg><b>Giải được, chưa chắc học được</b><span>Người giải đến được đáp số, nhưng rất ít người nhận ra quy luật đằng sau.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="18" width="24" height="5" rx="1"/><rect x="6" y="8" width="8" height="10"/><rect x="18" y="8" width="8" height="10"/><path d="M8 23v5M24 23v5"/></svg><b>Bàn làm việc chật</b><span>Nhắm thẳng đáp số buộc đầu óc giữ đích, chỗ đang đứng, khoảng cách, đích phụ. Hết chỗ để học.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M10 11h12M10 16h12M10 21h8"/></svg><b>Bài giải mẫu</b><span>Đi theo từng bước có sẵn, đầu óc rảnh để thấy cấu trúc. Phân tích gộp 2023 về môn toán: tác dụng mức vừa.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24l8-8 4 4 8-10"/><path d="M26 10v6M26 10h-6"/></svg><b>Không phải cho mọi người</b><span>Người đã giỏi học từ bài mẫu lại kém hơn tự giải: hiệu ứng đảo ngược theo trình độ.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 21H4z"/><path d="M16 13v6M16 23v.5"/></svg><b>Khó đo</b><span>"Tải" thường đo bằng bảng tự chấm. Các loại tải chồng lên nhau, các nhà nghiên cứu còn tranh luận.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Sweller kể lại thí nghiệm đầu thập niên 1980 trong Sweller (2023), Educational Psychology Review 35:95; tóm tắt Sweller (1988); Barbieri và cộng sự (2023), Educational Psychology Review 35 (g = 0,48); Kalyuga, Ayres, Chandler và Sweller (2003), Educational Psychologist 38(1); de Jong (2010), Instructional Science 38(2).</p>
+</section>
+
+<section id="cau-hoi">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của bài báo</h2></div>
+  <p class="thesis">Vì sao giải thật nhiều bài tập chưa chắc làm ta giỏi lên? Sweller trả lời: vì lúc cố đi đến đáp số, đầu óc bận đến mức không còn chỗ để học cách giải.</p>
+  <p class="nguon">Nguồn: tóm tắt Sweller (1988). Câu hỏi là cách Mark đặt lại ý chính của bài.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">đầu thập niên 1980</span><b>Một câu đố số</b><span>Người giải tới đích, nhưng hiếm ai thấy quy luật.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1988</span><b>Bài báo</b><span>Giải kiểu nhắm đích chiếm chỗ của việc học "sơ đồ" (cách giải).</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">đến nay</span><b>Bài giải mẫu</b><span>Thành lời khuyên dạy học, kèm giới hạn: người giỏi thì khác.</span></div>
+  </div>
+</section>
+
+<section id="cau-chuyen">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Câu chuyện phát hiện</h2><p class="lead">Ai làm, ở đâu, làm thế nào, và thời đó người ta nghĩ gì về giải bài tập.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="p5cd">
+        <title id="p5cd">Câu đố biến số mà Sweller kể lại: từ một số đầu đi đến số đích, chỉ được nhân 3 hoặc trừ 69. Các số được chọn để chỉ có một lời giải: xen kẽ hai phép. Người giải tới được đích, nhưng rất ít người nhận ra quy luật xen kẽ.</title>
+        <text x="20" y="28" class="t-ink t-bold">câu đố biến số (Sweller kể lại)</text>
+        <g text-anchor="middle">
+          <rect x="20" y="60" width="110" height="56" rx="10" fill="var(--paper)" stroke="var(--night)" stroke-width="3"/><text x="75" y="93" class="t-ink t-bold">số đầu</text>
+          <rect x="590" y="60" width="110" height="56" rx="10" fill="var(--night)"/><text x="645" y="93" class="t-bold" style="fill:#fff">số đích</text>
+          <rect x="170" y="70" width="70" height="36" rx="18" fill="var(--night)" fill-opacity=".18" stroke="var(--night)" stroke-width="2"/><text x="205" y="93" class="t-night t-bold">× 3</text>
+          <rect x="270" y="70" width="70" height="36" rx="18" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><text x="305" y="93" class="t-day t-bold">− 69</text>
+          <rect x="370" y="70" width="70" height="36" rx="18" fill="var(--night)" fill-opacity=".18" stroke="var(--night)" stroke-width="2"/><text x="405" y="93" class="t-night t-bold">× 3</text>
+          <rect x="470" y="70" width="70" height="36" rx="18" fill="var(--day)" fill-opacity=".18" stroke="var(--day)" stroke-width="2"/><text x="505" y="93" class="t-day t-bold">− 69</text>
+        </g>
+        <path d="M130 88 h36 M240 88 h26 M340 88 h26 M440 88 h26 M540 88 h46" stroke="var(--muted)" stroke-width="2"/>
+        <text x="20" y="160" class="t-ink">luật ẩn: xen kẽ hai phép. Đây là lời giải duy nhất.</text>
+        <text x="20" y="184" class="t-night t-bold">kết quả: người giải tới được đích, nhưng rất ít người nhận ra luật xen kẽ</text>
+        <text x="20" y="214">sơ đồ minh họa; không ghi số đầu, số đích cụ thể vì không có trong nguồn đã đối chiếu</text>
+      </svg>
+    </div>
+    <figcaption><b>Giải được mà không học được.</b> Sweller kể: các số được chọn để chỉ có một lời giải, và "rất ít" người tìm ra quy luật xen kẽ hai phép tính. Ông rút ra: giải bài theo kiểu nhắm đích là để tới đích, không phải để học.<span class="nguon">Nguồn: Sweller (2016), "Story of a Research Program", và Sweller (2023), Educational Psychology Review 35:95, kể lại nghiên cứu gốc Sweller, Mawer và Howe (1982), American Journal of Psychology 95, 455–483. Mark dịch.</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1969–1972 · Adelaide</b><span>John Sweller học cử nhân rồi tiến sĩ tâm lý học ở Đại học Adelaide, sau đó làm ở Đại học New South Wales (UNSW), Sydney.</span></div>
+    <div><b>1972 · Phân tích "phương tiện, mục đích"</b><span>Newell và Simon mô tả cách người ta giải bài: nhìn khoảng cách từ chỗ đang đứng tới đích, tìm bước rút ngắn nó (means-ends analysis).</span></div>
+    <div><b>1980 · Chuyên gia khác người mới</b><span>Nghiên cứu giải bài vật lý: người mới đi ngược từ đích và đặt đích phụ; chuyên gia đi xuôi nhờ các "sơ đồ" có sẵn trong đầu.</span></div>
+    <div class="hot"><b>Đầu thập niên 1980 · Câu đố biến số</b><span>Chỉ nhân 3 và trừ 69. Tới đích được, hiếm ai thấy luật.</span></div>
+    <div><b>1985 · Bài giải mẫu</b><span>Sweller và Cooper cho người học đại số xem bài mẫu thay vì tự giải: học nhanh hơn, giải bài cùng dạng sau đó nhanh hơn, ít lỗi hơn.</span></div>
+    <div class="hot"><b>1988 · Bài báo</b><span>Gom tất cả thành một lời giải thích: giải kiểu nhắm đích làm đầy bộ nhớ làm việc.</span></div>
+  </div>
+  <p class="nguon">Nguồn: hồ sơ Sweller trên trang UNSW; năm học vị theo hồ sơ ATD (nguồn thứ cấp); Newell và Simon (1972), Human Problem Solving; Larkin, McDermott, Simon và Simon (1980), Science 208; Sweller (2023); Sweller và Cooper (1985), Cognition and Instruction 2(1), 59–89, theo tóm tắt bài báo.</p>
+</section>
+
+<section id="bai-bao-noi-gi">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Bài báo nói gì, trong 3 câu</h2></div>
+  <ol class="three">
+    <li>Khi giải bài theo kiểu nhắm đích, ta phải giữ cùng lúc trong đầu: đích, chỗ đang đứng, khoảng cách giữa hai chỗ và các đích phụ.</li>
+    <li>Việc đó ngốn phần lớn bộ nhớ làm việc, nên chỗ còn lại để học "sơ đồ" (nhận ra dạng bài và cách giải) rất ít.</li>
+    <li>Vì thế cách dạy bớt việc nhắm đích, như bài không có đích cụ thể hay bài giải mẫu, có thể giúp người mới học nhanh hơn.</li>
+  </ol>
+  <div class="quote"><span>"Giải bài thông thường theo kiểu phân tích phương tiện và mục đích đòi hỏi một lượng năng lực xử lý tương đối lớn, nên phần năng lực đó không còn cho việc hình thành sơ đồ."</span><span class="src">Sweller (1988), tóm tắt bài báo, Mark dịch.</span></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 300" role="img" aria-labelledby="p5bb">
+        <title id="p5bb">Hai bàn làm việc cùng cỡ. Bàn bên trái là giải kiểu nhắm đích: đầy các khối đích, chỗ đang đứng, khoảng cách, đích phụ, đích phụ nữa; khối "học cách giải" bị rơi ra ngoài. Bàn bên phải là bài giải mẫu hoặc bài không có đích cụ thể: chỉ có bước đang xem, còn chỗ cho khối "học cách giải".</title>
+        <text x="20" y="26" class="t-ink t-bold">giải kiểu nhắm đích</text>
+        <text x="380" y="26" class="t-ink t-bold">bài giải mẫu / bài không có đích cụ thể</text>
+        <rect x="20" y="190" width="320" height="12" rx="3" fill="var(--night)"/>
+        <rect x="380" y="190" width="320" height="12" rx="3" fill="var(--night)"/>
+        <g text-anchor="middle">
+          <rect x="26" y="140" width="96" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="74" y="168" class="t-ink">đích</text>
+          <rect x="128" y="140" width="96" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="176" y="168" class="t-ink">đang ở đâu</text>
+          <rect x="230" y="140" width="104" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="282" y="168" class="t-ink">khoảng cách</text>
+          <rect x="60" y="90" width="110" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="115" y="118" class="t-ink">đích phụ</text>
+          <rect x="178" y="90" width="120" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="238" y="118" class="t-ink">đích phụ nữa</text>
+          <g transform="rotate(16 300 236)"><rect x="234" y="214" width="144" height="40" rx="6" fill="var(--paper)" stroke="var(--bad)" stroke-width="2" stroke-dasharray="5 4"/><text x="306" y="239" class="t-bad t-bold">học cách giải</text></g>
+          <rect x="390" y="140" width="130" height="46" rx="6" fill="var(--day)" fill-opacity=".25" stroke="var(--day)" stroke-width="2"/><text x="455" y="168" class="t-ink">bước đang xem</text>
+          <rect x="540" y="140" width="150" height="46" rx="6" fill="var(--night)" stroke="var(--night)" stroke-width="2"/><text x="615" y="168" class="t-bold" style="fill:#fff">học cách giải</text>
+        </g>
+        <text x="20" y="292">sơ đồ minh họa ý của bài, không có số; bàn = bộ nhớ làm việc có hạn</text>
+      </svg>
+    </div>
+    <figcaption><b>Cùng một cái bàn, hai cách dùng.</b> Bài 1988 dùng một mô hình mô phỏng trên máy tính để so hai cách giải cùng một bài: cách nhắm đích cần giữ nhiều thông tin hơn trong bộ nhớ làm việc và một bộ luật xử lý phức tạp hơn nhiều. Các thí nghiệm trong bài cho thấy người giải có đích cụ thể vẫn giải được bài, nhưng học được cấu trúc bài kém hơn.<span class="nguon">Nguồn: Sweller (1988), phần mô hình máy tính và phần thí nghiệm, đối chiếu qua trích đoạn trong kết quả tìm kiếm. Bài viết không ghi số người tham gia hay số lỗi vì chưa đối chiếu được với bảng số liệu gốc.</span></figcaption>
+  </figure>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Bài báo này được đánh giá thế nào</h2><p class="lead">Mỗi dòng ghi nguồn và ngày tra.</p></div>
+  <div class="tablebox"><table class="evalbox">
+    <tr><th>Nơi đăng, năm</th><td>Cognitive Science, tập 12 số 2, trang 257–285, năm 1988. Tạp chí của Hội Khoa học Nhận thức, có bình duyệt.</td></tr>
+    <tr><th>Số lần trích dẫn</th><td>Hơn 8.500 lần theo Semantic Scholar (tra 15/10/2026, qua trang Semantic Scholar hiện trong kết quả tìm kiếm). Google Scholar: chưa tra được (môi trường làm bài bị chặn). Các cơ sở dữ liệu đếm khác nhau.</td></tr>
+    <tr><th>Đã lặp lại chưa</th><td>Ý "bài giải mẫu giúp người mới" được lặp lại nhiều lần. Phân tích gộp năm 2023 về môn toán (43 bài, 55 nghiên cứu): tác dụng mức vừa, g = 0,48. Ý "bài không có đích cụ thể" ít được kiểm tra hơn.</td></tr>
+    <tr><th>Phản biện chính</th><td>Ton de Jong (2010): khái niệm chưa rõ, khó đo, dễ giải thích sau khi đã có kết quả. Phân tích gộp 2022 về bảng hỏi đo tải: đo ổn định, nhưng tương quan giữa các loại tải có chỗ trái với lý thuyết. Manu Kapur và cộng sự: để người học thử giải trước rồi mới dạy có thể giúp hiểu khái niệm hơn.</td></tr>
+    <tr><th>Vị trí trong giáo dục</th><td>Bộ Giáo dục bang New South Wales (Úc) ra tài liệu năm 2017 "nghiên cứu giáo viên thật sự cần hiểu" về lý thuyết này. Sweller là Viện sĩ Viện Hàn lâm Khoa học Xã hội Úc.</td></tr>
+    <tr><th>Kết luận</th><td><span class="tag warn">THẬN TRỌNG</span> Ý cốt lõi đứng vững với người mới học; khái niệm "tải" khó đo và tác dụng đảo ngược với người đã giỏi.</td></tr>
+  </table></div>
+  <p class="nguon">Nguồn: trang Semantic Scholar của bài (tra 15/10/2026); Barbieri, Miller-Cotto, Clerjuste và Chawla (2023), Educational Psychology Review 35; de Jong (2010), Instructional Science 38(2), 105–134; Krieglstein và cộng sự (2022), Educational Psychology Review; Sinha và Kapur (2021), Review of Educational Research; CESE, Bộ Giáo dục NSW (2017); hồ sơ Sweller trên trang UNSW. Nhãn là đánh giá của Mark.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Kiểm chứng: điều đúng và lời đồn</h2><p class="lead">12 điều hay được nói về bài báo và lý thuyết tải nhận thức. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="4 vững, 6 cần thận trọng, 2 sai">
+    <div class="o" style="flex:4">4 VỮNG</div><div class="w" style="flex:6">6 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Người mới học từ bài giải mẫu tốt hơn tự giải từ đầu</span></summary><p class="note">Sweller và Cooper (1985) với đại số; phân tích gộp Barbieri và cộng sự (2023): 55 nghiên cứu về toán, g = 0,48, mức vừa. Ví dụ đúng một mình cho tác dụng lớn hơn ví dụ sai hay trộn đúng sai.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Giải được bài chưa chắc đã học được cách giải</span></summary><p class="note">Câu đố nhân 3, trừ 69: tới đích được nhưng rất ít người thấy luật xen kẽ (Sweller kể lại, 2016 và 2023, về Sweller, Mawer và Howe 1982). Bài 1988: người giải có đích cụ thể học cấu trúc bài kém hơn.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Bài 1988 nói: giải kiểu nhắm đích chiếm chỗ của việc học</span></summary><p class="note">Đúng là nội dung của tóm tắt bài báo: năng lực xử lý dùng cho phân tích phương tiện và mục đích "không còn cho việc hình thành sơ đồ".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Lý thuyết đã đi vào tài liệu cho giáo viên</span></summary><p class="note">Bộ Giáo dục bang New South Wales, Trung tâm Thống kê và Đánh giá Giáo dục (CESE), 2017: "Cognitive load theory: Research that teachers really need to understand".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Bài 1988 chứng minh bằng thí nghiệm lớn trong lớp học"</span></summary><p class="note">Bằng chứng trong bài là một mô hình mô phỏng trên máy tính và các thí nghiệm giải bài có kiểm soát. Bằng chứng từ nhiều lớp học thật đến sau, qua các phân tích gộp.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Tải nhận thức đo được chính xác"</span></summary><p class="note">Thường đo bằng bảng hỏi tự chấm mức cố gắng. de Jong (2010) chê khó đo và khó tách các loại tải. Phân tích gộp 2022: bảng hỏi đo ổn định, nhưng tương quan giữa các loại tải có chỗ trái với lý thuyết.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Để học sinh tự vật lộn với bài trước là phí thời gian"</span></summary><p class="note">Sinha và Kapur (2021), 53 nghiên cứu: thử giải trước rồi mới học có thể giúp hiểu khái niệm khi được thiết kế đúng; với kỹ năng làm theo bước thì ngang nhau. Ashman, Kalyuga và Sweller (2020): bài càng nhiều yếu tố đan vào nhau, dạy rõ trước càng tốt hơn. Tùy bài và tùy người học.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Bộ nhớ làm việc giữ được 7 thứ"</span></summary><p class="note">Con số 7 của Miller (1956) đã bị xem lại: Cowan (2001) cho rằng gần 4 cụm. Xem Bài báo đổi cách ta học #2. Lý thuyết tải chỉ cần ý "bộ nhớ làm việc có hạn".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Bài 1988 là toàn bộ lý thuyết tải nhận thức"</span></summary><p class="note">Bài 1988 là hạt giống. Ba loại tải và "tải hữu ích" được thêm năm 1998 (Sweller, van Merriënboer và Paas), hiệu ứng đảo ngược theo trình độ năm 2003, cập nhật lớn năm 2019. Sweller (2023) viết rằng các lần lặp lại thất bại đã buộc lý thuyết phải chi tiết hơn.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Đây là điều quan trọng nhất giáo viên cần biết"</span></summary><p class="note">Dylan Wiliam viết câu này trên Twitter ngày 26/1/2017 (nguồn thứ cấp: các blog nhúng lại bài đăng). Có thật là ông nói, nhưng đó là ý kiến. Một bài trên trang Chartered College of Teaching gọi đây là nhận định táo bạo.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Bài giải mẫu luôn tốt hơn, với mọi người"</span></summary><p class="note">Kalyuga, Ayres, Chandler và Sweller (2003): kỹ thuật rất có ích với người mới có thể mất tác dụng, thậm chí phản tác dụng với người đã có kinh nghiệm. Người giỏi nên chuyển sang tự giải.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Học càng nhẹ đầu càng tốt"</span></summary><p class="note">Lý thuyết bảo bớt phần tải thừa (cách trình bày rối, việc không liên quan), không bảo bớt mọi cố gắng. Từ 1998 lý thuyết có cả "tải hữu ích". Tự kiểm tra (bài #6) cũng là việc tốn sức mà giúp nhớ lâu.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở phần Nguồn.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Nghiên cứu mới nhất nói gì</h2></div>
+  <div class="tl">
+    <div><b>2019 · "20 năm sau"</b><span>Sweller, van Merriënboer và Paas tổng kết lại lý thuyết sau hai thập kỷ và đặt hướng nghiên cứu mới (Educational Psychology Review 31, 261–292).</span></div>
+    <div><b>2021 · Thử trước, học sau</b><span>Sinha và Kapur gộp 53 nghiên cứu, 166 so sánh: thử giải trước rồi mới học có lợi cho hiểu khái niệm khi được thiết kế đúng (Review of Educational Research).</span></div>
+    <div><b>2022 · Đo tải bằng bảng hỏi</b><span>Phân tích gộp 4 bảng hỏi phổ biến: độ ổn định đạt, nhưng quan hệ giữa các loại tải có chỗ không khớp lý thuyết (Educational Psychology Review).</span></div>
+    <div class="hot"><b>2023 · Bài giải mẫu trong môn toán</b><span>Barbieri và cộng sự gộp 43 bài, 55 nghiên cứu, 181 hệ số: tác dụng mức vừa, g = 0,48 (Educational Psychology Review 35).</span></div>
+    <div><b>2023 · Chính Sweller nhìn lại</b><span>Các lần lặp lại thất bại không làm đổ lý thuyết mà buộc nó nói rõ hơn khi nào đúng, khi nào không (Educational Psychology Review 35:95).</span></div>
+  </div>
+  <p class="nguon">Nguồn: các bài ghi trong từng dòng. Số nghiên cứu và hệ số g lấy từ tóm tắt của chính các bài, đối chiếu qua kết quả tìm kiếm ngày 15/10/2026.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Đánh giá bài báo</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở phần Nguồn, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Ý tưởng mới lúc ra đời</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Bằng chứng trong bài gốc</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Độ vững đến nay</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Dễ đo lường</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Dễ áp dụng</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Mạnh</span><ul class="plus"><li>Giải thích gọn một chuyện ai đi học cũng gặp</li><li>Sinh ra lời khuyên dùng được: bài giải mẫu</li><li>Được lặp lại qua nhiều phân tích gộp</li></ul></div>
+    <div><span class="label">Yếu</span><ul class="minus"><li>"Tải" khó đo, các loại tải chồng nhau</li><li>Không đúng với người đã giỏi</li><li>Bằng chứng gốc là mô hình và thí nghiệm nhỏ</li></ul></div>
+  </div>
+  <p class="verdict">Bài báo đúng ở chỗ quan trọng nhất: người mới học cần thấy cách giải trước khi tự vật lộn. Nhưng đừng biến nó thành "học càng nhẹ càng tốt".</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Bài học áp dụng: học từ bài giải mẫu trước khi tự giải</h2><p class="lead">Làm được từ ngày mai với bất kỳ môn nào có bài tập: toán, lý, lập trình, kế toán, ngữ pháp.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 170" role="img" aria-labelledby="p5ad">
+        <title id="p5ad">Bốn bước: đọc kỹ một bài giải mẫu và tự giải thích từng bước; tự giải một bài giống hệt dạng; dùng bài mẫu bị che bớt dần các bước; khi đã quen thì chuyển hẳn sang tự giải.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/><circle cx="300" cy="60" r="14" fill="var(--day)"/><circle cx="490" cy="60" r="14" fill="var(--rem)"/><circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle">
+          <text x="110" y="30" class="t-ink t-bold">1 · đọc bài mẫu</text><text x="110" y="100" class="t-night t-bold">tự giải thích</text><text x="110" y="116">vì sao có bước này</text>
+          <text x="300" y="30" class="t-ink t-bold">2 · giải bài sinh đôi</text><text x="300" y="100" class="t-day t-bold">cùng dạng</text><text x="300" y="116">ngay sau bài mẫu</text>
+          <text x="490" y="30" class="t-ink t-bold">3 · che bớt dần</text><text x="490" y="100" class="t-rem t-bold">tự điền bước thiếu</text><text x="490" y="116">mỗi lần thiếu thêm một bước</text>
+          <text x="680" y="30" class="t-ink t-bold">4 · tự giải hẳn</text><text x="680" y="100" class="t-ok t-bold">khi đã quen</text><text x="680" y="116">bài mẫu lúc này cản đường</text>
+        </g>
+        <text x="410" y="156" text-anchor="middle" class="t-ink">Người mới: xem trước, làm sau. Người đã giỏi: làm trước.</text>
+      </svg>
+    </div>
+    <figcaption><b>Từ bài mẫu sang tự giải.</b> Bước 1 và 2 dựa trên hiệu ứng bài giải mẫu; bước 4 dựa trên hiệu ứng đảo ngược theo trình độ. Bước 3 (che bớt dần) là cách nối hai bước, được bàn trong tổng quan về học từ ví dụ.<span class="nguon">Nguồn: Sweller và Cooper (1985); Barbieri và cộng sự (2023); Kalyuga và cộng sự (2003); Atkinson, Derry, Renkl và Wortham (2000), Review of Educational Research 70(2). Thứ tự bốn bước là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M10 11h12M10 16h12M10 21h8"/></svg><div><b>Mỗi dạng mới: một bài mẫu</b><span>Đừng lao vào giải ngay khi chưa từng thấy dạng bài. Tìm một lời giải đúng, đọc chậm.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M13 12a3 3 0 1 1 3 4v3M16 23v.5"/></svg><div><b>Hỏi "vì sao bước này?"</b><span>Viết một dòng giải thích cho mỗi bước. Không giải thích được thì chưa hiểu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24h20M8 20l6-6 4 4 8-8"/></svg><div><b>Bài sinh đôi ngay sau</b><span>Gập bài mẫu, giải một bài cùng dạng, đổi số. Kẹt thì mở bài mẫu ra xem đúng bước đó.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5v22M5 16h22"/></svg><div><b>Gom một chỗ</b><span>Đang học thì tắt bớt thông báo, để hình và chữ giải thích nằm cạnh nhau. Bớt tải thừa, không bớt suy nghĩ.</span></div></div>
+  </div>
+  <p class="nguon">Ba quy tắc đầu dựa trên hiệu ứng bài giải mẫu (các nguồn ở hình trên). Quy tắc "gom một chỗ" là gợi ý của Mark theo ý "bớt tải thừa" của lý thuyết.</p>
+  <details class="more"><summary>Tự kiểm tra: mình đã đến lúc bỏ bài mẫu chưa?</summary><div>
+    <p>1. Gập bài mẫu lại. Mình có viết lại được lời giải và giải thích từng bước không?</p>
+    <p>2. Cho một bài cùng dạng nhưng đổi số: mình giải được trong thời gian gần bằng lúc xem mẫu không?</p>
+    <p>3. Cho một bài khác dạng một chút: mình có nhận ra phần nào giống bài mẫu không?</p>
+    <p>4. Nếu cả ba câu đều "có", bỏ bài mẫu, tự giải. Nếu câu 1 là "không", quay lại bước 1.</p>
+  </div></details>
+  <div class="quote"><span>Giải bài kiểu nhắm đích có chức năng là đến được đích, không phải để học.</span><span class="src">Ý Sweller rút ra từ câu đố biến số, theo Sweller (2023) kể lại; Mark dịch ý.</span></div>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Sweller (2023), "The Development of Cognitive Load Theory: Replication Crises and Incorporation of Other Theories Can Lead to Theory Expansion"</b><span class="muted">Educational Psychology Review 35:95. Chính tác giả kể lại lý thuyết lớn lên ra sao, kể cả những lần sai. Đọc miễn phí.</span></div>
+    <div><b>CESE, Bộ Giáo dục New South Wales (2017), "Cognitive load theory: Research that teachers really need to understand"</b><span class="muted">Bản tóm tắt cho giáo viên, nhiều ví dụ lớp học.</span></div>
+    <div><b>Bài báo đổi cách ta học #2: Con số 7 của Miller</b><span class="muted">Bộ nhớ làm việc chứa được bao nhiêu thứ. Có trên <a href="https://markhocai.com/vu-tru-khac/">markhocai.com/vu-tru-khac</a>.</span></div>
+    <div><b>Bài báo đổi cách ta học #6: Tự kiểm tra thắng đọc lại (Roediger và Karpicke, 2006)</b><span class="muted">Một việc tốn sức mà giúp nhớ lâu. Bài tiếp theo trong chuỗi.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 10</span><h2>Nguồn gốc</h2><p class="lead">Bài báo gốc trước, rồi đến tổng quan và phân tích gộp có bình duyệt; nguồn thứ cấp ghi rõ. Môi trường làm bài chặn trang tạp chí và cơ sở dữ liệu trích dẫn, nên các nguồn được đối chiếu qua trích đoạn trong kết quả tìm kiếm ngày 15/10/2026, chưa mở toàn văn.</p></div>
+  <ol class="srcs">
+    <li><b>Sweller, J. (1988).</b> Cognitive load during problem solving: Effects on learning. Cognitive Science 12(2), 257–285. <a href="https://doi.org/10.1207/s15516709cog1202_4">doi.org/10.1207/s15516709cog1202_4</a></li>
+    <li><b>Sweller, J., Mawer, R. F., &amp; Howe, W. (1982).</b> Consequences of history-cued and means-end strategies in problem solving. American Journal of Psychology 95, 455–483.</li>
+    <li><b>Sweller, J. (2016).</b> Story of a research program. Education Review 23. <b>Sweller, J. (2023).</b> The development of cognitive load theory. Educational Psychology Review 35:95. <a href="https://link.springer.com/article/10.1007/s10648-023-09817-2">link.springer.com</a></li>
+    <li><b>Sweller, J., &amp; Cooper, G. A. (1985).</b> The use of worked examples as a substitute for problem solving in learning algebra. Cognition and Instruction 2(1), 59–89.</li>
+    <li><b>Newell, A., &amp; Simon, H. A. (1972).</b> Human Problem Solving. Prentice-Hall. <b>Larkin, J., McDermott, J., Simon, D. P., &amp; Simon, H. A. (1980).</b> Expert and novice performance in solving physics problems. Science 208, 1335–1342.</li>
+    <li><b>Sweller, J., van Merriënboer, J. J. G., &amp; Paas, F. (1998; 2019).</b> Cognitive architecture and instructional design. Educational Psychology Review 10(3); bản "20 years later", 31, 261–292. <a href="https://link.springer.com/article/10.1007/s10648-019-09465-5">link.springer.com</a></li>
+    <li><b>Kalyuga, S., Ayres, P., Chandler, P., &amp; Sweller, J. (2003).</b> The expertise reversal effect. Educational Psychologist 38(1), 23–31.</li>
+    <li><b>Barbieri, C. A., Miller-Cotto, D., Clerjuste, S. N., &amp; Chawla, K. (2023).</b> A meta-analysis of the worked examples effect on mathematics performance. Educational Psychology Review 35. <a href="https://doi.org/10.1007/s10648-023-09745-1">doi.org/10.1007/s10648-023-09745-1</a></li>
+    <li><b>de Jong, T. (2010).</b> Cognitive load theory, educational research, and instructional design: some food for thought. Instructional Science 38(2), 105–134. <a href="https://link.springer.com/article/10.1007/s11251-009-9110-0">link.springer.com</a></li>
+    <li><b>Krieglstein, F., và cộng sự (2022).</b> Phân tích gộp về độ tin cậy và độ giá trị của bảng hỏi tải nhận thức. Educational Psychology Review. <a href="https://link.springer.com/doi/10.1007/s10648-022-09683-4">link.springer.com</a></li>
+    <li><b>Sinha, T., &amp; Kapur, M. (2021).</b> When problem solving followed by instruction works: Evidence for productive failure. Review of Educational Research. <a href="https://doi.org/10.3102/00346543211019105">doi.org/10.3102/00346543211019105</a> <b>Ashman, G., Kalyuga, S., &amp; Sweller, J. (2020).</b> Problem-solving or explicit instruction: Which should go first when element interactivity is high? Educational Psychology Review 32.</li>
+    <li><b>Atkinson, R. K., Derry, S. J., Renkl, A., &amp; Wortham, D. (2000).</b> Learning from examples. Review of Educational Research 70(2), 181–214.</li>
+    <li><b>CESE, NSW Department of Education (2017).</b> Cognitive load theory: Research that teachers really need to understand. <a href="https://education.nsw.gov.au/about-us/educational-data/cese/publications/literature-reviews/cognitive-load-theory.html">education.nsw.gov.au</a></li>
+    <li><b>Cowan, N. (2001).</b> The magical number 4 in short-term memory. Behavioral and Brain Sciences 24(1), 87–114.</li>
+    <li>Số trích dẫn: trang Semantic Scholar của bài 1988 (tra 15/10/2026). Hồ sơ Sweller: trang UNSW.</li>
+    <li>Nguồn thứ cấp: hồ sơ ATD (năm học vị của Sweller); các blog nhúng bài đăng Twitter của Dylan Wiliam ngày 26/1/2017 và bài trên trang Chartered College of Teaching; World Economic Forum, swissinfo và Đại học Texas thuật lại Sinha và Kapur (2021).</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Chia sẻ bài này"><p>Thấy bài có ích? Gửi cho một người bạn</p><div><button type="button" data-chia-se data-url="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html" data-tieu-de="Tải nhận thức" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Chia sẻ</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fvu-tru-khac%2Fbai-bao-tai-nhan-thuc.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/vu-tru-khac/bai-bao-tai-nhan-thuc.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Chép link</button></div></aside>
+<footer>Bài báo đổi cách ta học #05. Các hình là sơ đồ minh họa tự vẽ; nội dung lấy từ bài báo gốc và các tổng quan có bình duyệt, nguồn thứ cấp được ghi rõ, đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
