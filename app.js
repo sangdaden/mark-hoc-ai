@@ -7,6 +7,7 @@
     hopTac: "Partnerships, sponsorships or feedback? Email us:", mediaKit: "Media kit ›", gopY: "Feedback or partnerships: message the channel's Facebook page.",
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
+    soTheoDoi: "followers", soLuotXem: "views", soVideo: "videos", soSeries: "series", soNgay: (d, n) => "Channel figures on " + d + " across " + n + " platforms · ", soKit: "Media kit ›",
     tatCa: "All", locSeries: "Filter by series", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
@@ -19,6 +20,7 @@
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
+    soTheoDoi: "người theo dõi", soLuotXem: "lượt xem", soVideo: "video", soSeries: "series", soNgay: (d, n) => "Số liệu kênh ngày " + d + " trên " + n + " nền tảng · ", soKit: "Xem media kit ›",
     tatCa: "Tất cả", locSeries: "Lọc theo series", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
@@ -38,10 +40,10 @@
   // series-bia.json: ảnh bìa từng series (scripts/tao_anh.py) cho đầu series và nút chọn series
   // noi-bat.json: pho_bien = video được xem nhiều nhất (scripts/gom_video.py tính từ sổ cái), noi_bat = video Sang chọn tay
   // nhom-series.json: nhóm lớn cho hàng chọn chủ đề (Sang 15/10: 59 series xếp một hàng cuộn ngang quá dài)
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat, nhomData] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat, nhomData, soLieu] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
     EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({})),
-    load("noi-bat").catch(() => ({})), load("nhom-series").catch(() => ({ nhom: [] }))]);
+    load("noi-bat").catch(() => ({})), load("nhom-series").catch(() => ({ nhom: [] })), load("so-lieu-kenh").catch(() => null)]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -180,7 +182,22 @@
   const nSeries = groups.filter(g => !g.le).length;
   // Series "Sắp ra mắt": theo ngày ra mắt nếu đủ ngày, không thì theo cờ sap_ra_mat
   const sapRa = g => g.items.every(v => lich[v.so]) ? g.items.every(v => chuaRa(v.so)) : !!g.sap_ra_mat;
-  document.getElementById("stats").textContent = S.stats(total, nSeries);
+  // Số liệu kênh thật (data/so-lieu-kenh.json, cập nhật từ Metricool) thành các ô số; thiếu file thì chỉ còn số video và series
+  // Làm tròn xuống giống tron() trong scripts/tao_bai_viet.py để trang chủ và trang Hợp tác ghi cùng một số
+  const soGon = n => n >= 10000 ? Math.floor(n / 1000) + "K+" : n >= 1000 ? (Math.floor(n / 100) / 10 + "K+").replace(".", EN ? "." : ",")
+    : (n >= 100 ? Math.floor(n / 50) * 50 : n) + "+";
+  const oSo = [];
+  if (soLieu && soLieu.nguoi_theo_doi) oSo.push([soGon(soLieu.nguoi_theo_doi), S.soTheoDoi, "users"], [soGon(soLieu.luot_xem), S.soLuotXem, "flame"]);
+  oSo.push([total + "", S.soVideo, "clapperboard"], [nSeries + "", S.soSeries, "book-open"]);
+  const elSo = document.getElementById("stats");
+  elSo.innerHTML = oSo.map(o => '<li><span class="hs-ic">' + ic(o[2]) + '</span><b>' + o[0] + '</b><span>' + o[1] + '</span></li>').join("");
+  if (soLieu && soLieu.cap_nhat) {
+    const [y, m, d] = soLieu.cap_nhat.split("-").map(Number);
+    const ghi = document.createElement("p");
+    ghi.className = "hero-so-ghi";
+    ghi.innerHTML = esc(S.soNgay(EN ? d + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][m - 1] + " " + y : d + "/" + m + "/" + y, soLieu.so_nen_tang || 5)) + '<a href="hop-tac.html">' + S.soKit + "</a>";
+    elSo.after(ghi);
+  }
 
   // Hàng chọn chủ đề hai tầng: "Tất cả" + vài nhóm lớn (có icon), bấm nhóm thì hiện lưới ảnh bìa các series trong nhóm
   // và một hàng series nhỏ xuống dòng (không cuộn ngang) để lọc riêng một series. current = "tat-ca" | "nhom-<id>" | id series.

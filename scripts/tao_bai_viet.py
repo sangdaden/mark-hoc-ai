@@ -394,6 +394,8 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
 <link rel="icon" type="image/png" sizes="16x16" href="{p}assets/favicon-16.png?v=dev">
 <link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="{p}assets/logo.svg?v=dev">
+<link rel="manifest" href="{p}site.webmanifest">
 {FONT}
 <link rel="stylesheet" href="{p}style.css?v=dev">
 <script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
@@ -1025,7 +1027,8 @@ def tao_hop_tac():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Media kit · dành cho nhãn hàng và đối tác", "Media kit · for brands and partners")}</p>\n'
             f'<h1>{t("Hợp tác cùng Mark học AI", "Work with Mark học AI")}</h1>\n'
             f'<p class="lead">{t("Kênh giải thích AI bằng tiếng Việt cho người không chuyên. Nếu sản phẩm của bạn giúp người Việt dùng AI tốt hơn, an toàn hơn, mình cùng làm một nội dung thật sự hữu ích cho người xem.", "A channel that explains AI in Vietnamese for non-experts. If your product helps Vietnamese people use AI better and more safely, let us make something genuinely useful for viewers together.")}</p>\n'
-            f'<div class="cta">{nut_mail}<a class="btn" href="#hinh-thuc">{t("Các hình thức hợp tác", "Ways to work together")}</a></div>\n'
+            f'<div class="cta">{nut_mail}<a class="btn" href="#hinh-thuc">{t("Các hình thức hợp tác", "Ways to work together")}</a>'
+            f'<button type="button" class="btn" data-in-trang>{ic(p, "download")}{t("Lưu media kit (PDF)", "Save media kit (PDF)")}</button></div>\n'
             f'</div><img class="head-art" src="{p}assets/mark-va-bit.svg" alt="{t("Mark và robot Bit", "Mark and Bit the robot")}" width="200" height="189"></div>')
     doi_tuong = [("briefcase", t("Dân văn phòng", "Office workers"), t("Email, Excel, báo cáo, họp hành: muốn AI làm nhanh hơn mà không sai.", "Email, spreadsheets, reports, meetings: they want AI to speed things up without mistakes.")),
                  ("graduation-cap", t("Giáo viên, học sinh, sinh viên", "Teachers and students"), t("Soạn bài, ôn thi, học ngoại ngữ, dùng AI mà không đạo văn.", "Lesson plans, exam prep, languages, using AI without plagiarism.")),
@@ -1039,13 +1042,28 @@ def tao_hop_tac():
     # Số người theo dõi và lượt xem: data/so-lieu-kenh.json, cập nhật mỗi tháng từ Metricool
     K = json.loads((R / "data" / "so-lieu-kenh.json").read_text(encoding="utf-8"))
     def tron(n):
+        # làm tròn xuống như app.js (soGon) để trang chủ và trang Hợp tác ghi cùng một số
         if n >= 10000: return f"{n // 1000}K+"
         if n >= 1000: return f"{n // 100 / 10:g}K+".replace(".", t(",", "."))
         return f"{n // 50 * 50 if n >= 100 else n}+"
+    def so_gon(n):  # số nhỏ trên thẻ nền tảng: 463, 1,3K, 24K
+        if n >= 10000: return f"{n // 1000}K"
+        if n >= 1000: return f"{n // 100 / 10:g}K".replace(".", t(",", "."))
+        return str(n)
+    NT = K.get("nen_tang", {})
+    KG = K.get("khan_gia")
     so = [(tron(K["nguoi_theo_doi"]), t(f"người theo dõi trên {K['so_nen_tang']} nền tảng", f"followers across {K['so_nen_tang']} platforms")),
           (tron(K["luot_xem"]), t("lượt xem video từ ngày ra mắt 6/10/2026", "video views since launch on 6 Oct 2026"))] + so
     nam, thang, _ = K["cap_nhat"].split("-")
     the_so = "".join(f'<li class="stat"><b>{a}</b><span>{esc(b)}</span></li>' for a, b in so)
+    khoi_khan_gia = ""
+    if KG:
+        pt = lambda x: f"{round(x * 100)}%"
+        ten_kg = NEN_TANG.get(KG.get("nen_tang", ""), "")
+        khoi_khan_gia = (f'<div class="kg"><h3>{t("Khán giả", "Audience")} <span>{esc(t(f"theo số liệu {ten_kg}", f"from {ten_kg} data"))}</span></h3><div class="kg-hang">'
+            f'<div class="kg-the"><b>{pt(KG["viet_nam"])}</b><span>{t("ở Việt Nam", "in Vietnam")}</span><span class="kg-thanh" aria-hidden="true"><i style="width:{pt(KG["viet_nam"])}"></i></span></div>'
+            f'<div class="kg-the"><b>{pt(KG["nam"])} · {pt(KG["nu"])}</b><span>{t("nam · nữ", "men · women")}</span><span class="kg-thanh kg-hai" aria-hidden="true"><i style="width:{pt(KG["nam"])}"></i><i style="width:{pt(KG["nu"])}"></i></span></div>'
+            f'</div></div>')
     dinh_dang = [("smartphone", t("Video dọc ngắn (9:16)", "Short vertical video (9:16)"), "TikTok · YouTube Shorts · Facebook Reels · Instagram Reels",
                   t("Khoảng một phút, một ý, có phụ đề tiếng Việt. Mark hỏi, Bit giải thích bằng hình động, cuối video là một việc làm thử ngay.", "About a minute, one idea, Vietnamese subtitles. Mark asks, Bit explains with animation, and each video ends with something to try.")),
                  ("monitor", t("Video YouTube dạng dài (16:9)", "Long-form YouTube video (16:9)"), "YouTube",
@@ -1058,9 +1076,16 @@ def tao_hop_tac():
                   t("Mỗi video có một bài viết tiếng Việt và tiếng Anh, có Từ điển AI và bài kiểm tra, để Google tìm thấy lâu dài.", "Every video has an article in Vietnamese and English, plus a glossary and a quiz, so it stays findable on Google."))]
     the_dd = "".join(f'<li class="fmt"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p class="fmt-where">{esc(b)}</p><p>{esc(c)}</p></div></li>' for i, a, b, c in dinh_dang)
     nen_tang = [(k, t("Discord (cộng đồng)", "Discord (community)") if k == "discord" else ten) for k, ten in NEN_TANG.items() if kenh.get(k)]
-    the_nt = "".join(f'<li><a class="plat" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
-                     f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span></span></a></li>' for k, ten in nen_tang)
-    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo.png" alt="" width="40" height="40" loading="lazy"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
+    def so_nt(k):
+        x = NT.get(k)
+        if not x: return ""
+        return (f'<span class="plat-so"><span><b>{so_gon(x["theo_doi"])}</b>{t("theo dõi", "followers")}</span>'
+                f'<span><b>{so_gon(x["luot_xem"])}</b>{t("lượt xem", "views")}</span></span>')
+    # nền tảng có số liệu xếp trước, nhiều người theo dõi nhất lên đầu
+    nen_tang.sort(key=lambda x: -NT.get(x[0], {}).get("theo_doi", -1))
+    the_nt = "".join(f'<li><a class="plat{" plat-co-so" if NT.get(k) else ""}" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
+                     f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span>{so_nt(k)}</span></a></li>' for k, ten in nen_tang)
+    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo-trong-suot.svg" alt="" width="40" height="40" loading="lazy"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
     hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
                   t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
                  (t("Review công cụ", "Tool review"),
@@ -1083,7 +1108,8 @@ def tao_hop_tac():
 <section class="book-sec" aria-labelledby="con-so">
 <h2 id="con-so">{t("Nội dung bằng con số", "Content in numbers")}</h2>
 <ul class="stats-grid">{the_so}</ul>
-<p class="kit-note">{ic(p, "mail")}<span>{t(f"Số liệu cập nhật mỗi tháng, lần gần nhất tháng {int(thang)}/{nam}. Số chi tiết từng nền tảng và tỉ lệ tương tác: kênh gửi bản mới nhất khi bạn liên hệ.", f"Figures are updated monthly, last in {['January','February','March','April','May','June','July','August','September','October','November','December'][int(thang)-1]} {nam}. Per-platform figures and engagement rates: we send the latest when you get in touch.")}</span></p>
+{khoi_khan_gia}
+<p class="kit-note">{ic(p, "mail")}<span>{t(f"Số liệu cập nhật mỗi tháng, lần gần nhất tháng {int(thang)}/{nam}. Tỉ lệ tương tác và số liệu theo từng video: kênh gửi bản mới nhất khi bạn liên hệ.", f"Figures are updated monthly, last in {['January','February','March','April','May','June','July','August','September','October','November','December'][int(thang)-1]} {nam}. Engagement rates and per-video figures: we send the latest when you get in touch.")}</span></p>
 </section>
 <section class="book-sec" aria-labelledby="dinh-dang">
 <h2 id="dinh-dang">{t("Định dạng nội dung", "Formats")}</h2>
@@ -1108,7 +1134,8 @@ def tao_hop_tac():
 </aside>
 </main>"""
     return GOC + "hop-tac.html", trang("hop-tac.html", t(f"Hợp tác và tài trợ: media kit kênh Mark học AI | {SITE}", f"Partnerships and sponsorship: Mark học AI media kit | {SITE}"),
-                                       desc, band, main, p, hien_tai="hop-tac", og_type="website", q="")
+                                       desc, band, main, p, hien_tai="hop-tac", og_type="website", q="",
+                                       cuoi='<script>document.querySelectorAll("[data-in-trang]").forEach(function(b){b.addEventListener("click",function(){window.print()})})</script>\n')
 
 # ---------- dịch vụ làm video (dich-vu.html): nhận làm video giải thích cho trung tâm, shop, công ty ----------
 def tao_dich_vu():
