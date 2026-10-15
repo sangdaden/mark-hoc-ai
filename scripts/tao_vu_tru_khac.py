@@ -96,6 +96,7 @@ def trang_sach(b, goc, en=False, cd=None, sau=None):
     if b.get("minh_hoa"):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bai = chen_ray(bai, b, en, cd, sau, p)
+    bai = chen_video(bai, b, en, p)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
     mau_bia = f"\nbody, body header {{ {mau_bia}}}" if mau_bia else ""
@@ -160,6 +161,52 @@ body {{ margin: 0; }}
 </body>
 </html>
 '''
+
+
+def ma_youtube(b, en=False):
+    """Mã video YouTube của bài: trường "youtube" trong data/vu-tru-khac.json (link dạng watch?v=, youtu.be/, shorts/ hay mã 11 ký tự);
+    bản EN dùng "youtube" trong b["en"] nếu có video tiếng Anh, không thì dùng video tiếng Việt."""
+    link = ((b.get("en") or {}).get("youtube") if en else None) or b.get("youtube")
+    if not link:
+        return None, False
+    m = re.search(r"(?:v=|youtu\.be/|shorts/|embed/|live/)([\w-]{11})", link) or re.fullmatch(r"([\w-]{11})", link.strip())
+    if not m:
+        sys.exit(f'{b["slug"]}: không đọc được mã video từ "youtube": {link}')
+    return m.group(1), bool(en and not (b.get("en") or {}).get("youtube"))
+
+
+def chen_video(bai, b, en, p):
+    """Bài có video YouTube (Sang 15/10): khối "Xem video" ngay dưới đầu bài, mục đầu tiên trong mục lục, nút trong cột tiện ích.
+    Ảnh xem trước tự vẽ theo màu bìa (hình bìa + Mark), bấm vào thì mới nạp trình phát youtube-nocookie ngay trong trang (doc.js);
+    kèm link mở trên YouTube. Bài chưa có video thì trang giữ nguyên."""
+    ma, tieng_viet = ma_youtube(b, en)
+    if not ma:
+        return bai
+    e = b.get("en", {}) if en else b
+    ten = e.get("ten", b["ten"])
+    tep = R / "assets/vu-tru-khac/bia" / f'{b["slug"]}.svg'
+    hinh = ('<span class="h">' + tep.read_text(encoding="utf-8").strip().replace(' xmlns="http://www.w3.org/2000/svg"', "") + "</span>") if tep.exists() else ""
+    mark = b.get("mark") if b.get("mark") in TU_THE else TU_THE[(b["so"] - 1) % len(TU_THE)]
+    xem = f"https://www.youtube.com/watch?v={ma}"
+    khoi = (f'<section id="video" class="vtk-video">\n<h2>{"Watch the video" if en else "Xem video"}</h2>\n'
+            f'<p class="vtk-video-mo">{"Prefer watching? Mark tells this story in a short video." if en else "Thích xem hơn đọc? Mark kể lại câu chuyện này trong một video ngắn."}'
+            f'{" <span>(in Vietnamese)</span>" if tieng_viet else ""}</p>\n'
+            f'<div class="vtk-video-khung"><button type="button" class="vtk-video-xem" data-ma="{ma}" data-ten="{esc(ten)}" '
+            f'aria-label="{("Play video: " if en else "Phát video: ") + esc(ten)}">'
+            f'<span class="vtk-video-bia" aria-hidden="true"><i>{esc(ten)}</i>{hinh}<img src="{p}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"></span>'
+            f'<span class="vtk-video-nut" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button></div>\n'
+            f'<p class="vtk-video-yt"><a href="{xem}" target="_blank" rel="noopener">{"Open on YouTube" if en else "Mở trên YouTube"} ↗</a></p>\n</section>\n')
+    # Đặt sau mục lục (điện thoại: hàng chip mục lục vẫn ngay dưới đầu bài), bài không có mục lục thì sau đầu bài
+    bai, n = re.subn(r'(<nav class="toc"[^>]*>.*?</nav>\s*)', lambda m: m.group(1) + khoi, bai, count=1, flags=re.S)
+    if not n:
+        bai, n = re.subn(r"(</header>\s*)", lambda m: m.group(1) + khoi, bai, count=1)
+    if not n:
+        sys.exit(f'{b["slug"]}: bài không có mục lục hay </header> để chèn khối video')
+    toc = f'<a class="vtk-toc-video" href="#video">{"Watch the video" if en else "Xem video"}</a>'
+    bai = re.sub(r'(<nav class="toc"[^>]*>)', lambda m: m.group(1) + toc, bai, count=1)
+    nut = (f'<a class="vtk-ray-video" href="#video"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-play"/></svg>'
+           f'<span><small>{"Video" if en else "Video"}</small>{"Watch on this page" if en else "Xem ngay trong trang"}</span></a>')
+    return re.sub(r'(<p class="vtk-ray-o"><small>)', lambda m: nut + m.group(1), bai, count=1)
 
 
 def chen_ray(bai, b, en, cd, sau, p):
@@ -236,6 +283,12 @@ def the_bai(b, cd, en=False):
     if b["slug"] in co_tro_choi():
         nhan = (f'<span class="hh hh-choi vtk-nhan"><svg class="ic" aria-hidden="true"><use href="{"../" if en else ""}assets/icons.svg#i-gamepad"/></svg>'
                 f'{"Interactive" if en else "Tương tác"}</span>')
+    # Bài có video YouTube: nút phát tròn màu đỏ ló ra ở góc trái bìa (chỉ biểu tượng, để không đụng nhãn "Tương tác" trên bìa hẹp)
+    if ma_youtube(b, en)[0]:
+        nhan += (f'<span class="vtk-nhan-video" title="{"Has a video" if en else "Có video"}" aria-hidden="true" '
+                 f'style="position:absolute;z-index:3;top:-12px;left:-12px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;'
+                 f'background:#E11D2E;color:#fff;box-shadow:0 4px 12px -4px rgba(15,23,42,.6),0 0 0 2px rgb(255 255 255 / .85)">'
+                 f'<svg viewBox="0 0 24 24" style="width:15px;height:15px;margin-left:2px;fill:currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>')
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
             f'{nhan}<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
             f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
