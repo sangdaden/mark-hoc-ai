@@ -117,6 +117,8 @@ def trang_sach(b, goc, en=False, cd=None, sau=None):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bai = chen_ray(bai, b, en, cd, sau, p)
     bai = chen_video(bai, b, en, p)
+    # Ô góc trống của bảng là ô thường, không phải tiêu đề cột (axe: empty-table-header)
+    bai = bai.replace("<th></th>", "<td></td>")
     bai = chen_chia_se(bai, b, en, p)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
@@ -145,7 +147,8 @@ def trang_sach(b, goc, en=False, cd=None, sau=None):
 <meta property="og:title" content="{esc(ten)}">
 <meta property="og:description" content="{esc(e.get("mo_ta", b["mo_ta"]))}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE}assets/og.png">
+{the_og(b, en, e.get("ten", b["ten"]))}
+<meta name="theme-color" content="#0F172A">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
 <link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png?v=dev">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,13 +178,28 @@ body {{ margin: 0; }}
 </style>
 </head>
 <body{lop_bia}>
-<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}"><i aria-hidden="true">‹</i><img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<nav class="mhai-thanh" aria-label="{"Site" if en else "Điều hướng web"}"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="{"Back to Another Universe" if en else "Về Mark ở vũ trụ khác"}"><i aria-hidden="true">‹</i><img src="{p}assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button>{'<a href="../../vu-tru-khac/' + b["slug"] + '.html" hreflang="vi" lang="vi">VI</a>' if en else '<a href="../en/vu-tru-khac/' + b["slug"] + '.html" hreflang="en" lang="en">EN</a>'}<a class="mhai" href="../" aria-label="Mark học AI"><img src="{p}assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></nav>
+<main id="noi-dung">
 {bai.strip()}
+</main>
 <link rel="stylesheet" href="{p}assets/vu-tru-khac/doc.css?v=dev">{tro_choi(b, p)}
 <script src="{p}assets/vu-tru-khac/doc.js?v=dev" defer></script>
 </body>
 </html>
 '''
+
+
+def the_og(b, en, ten):
+    """Ảnh chia sẻ riêng của bài (Sang 15/10): ảnh 1200×630 do scripts/tao_vu_tru_khac_og.js xuất từ bìa ở trang góc,
+    vì Facebook không đọc ảnh SVG. Chưa có ảnh thì dùng ảnh chung của web. Kèm thẻ twitter:card ảnh lớn."""
+    tep = f'assets/vu-tru-khac/og/{"en/" if en else ""}{b["slug"]}.jpg'
+    if not (R / tep).exists():
+        return (f'<meta property="og:image" content="{BASE}assets/og.png">\n<meta name="twitter:card" content="summary_large_image">')
+    alt = (f"Cover of {ten}: Mark in Another Universe" if en else f"Bìa {ten}: Mark ở vũ trụ khác")
+    return (f'<meta property="og:image" content="{BASE}{tep}">\n<meta property="og:image:type" content="image/jpeg">\n'
+            f'<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+            f'<meta property="og:image:alt" content="{esc(alt)}">\n<meta name="twitter:card" content="summary_large_image">\n'
+            f'<meta name="twitter:image" content="{BASE}{tep}">')
 
 
 def ma_youtube(b, en=False):

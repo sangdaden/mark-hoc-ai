@@ -3,8 +3,10 @@
    bỏ bớt khoảng trắng. Thêm vào trang bởi scripts/tao_vu_tru_khac.py, áp cho mọi cuốn. */
 :root {
   --bg: #FFF7ED; --paper: #FFFFFF; --ink: #0F172A; --muted: #5B5F6B; --rule: #F3DFC4; --grid: #FCEBD5;
-  --night: #1E3A8A; --day: #EA580C; --rem: #0F766E;
-  --cam: #EA580C; --vang: #FBBF24; --navy: #0F172A; --kem: #FFF7ED;
+  /* Cam chữ đậm hơn #EA580C một bậc (axe 15/10: #EA580C trên nền trắng/kem chỉ đạt 3,4–3,6:1, cần 4,5:1) */
+  --night: #1E3A8A; --day: #C2410C; --rem: #0F766E;
+  --cam: #C2410C; --vang: #FBBF24; --navy: #0F172A; --kem: #FFF7ED;
+  --warn: #8A5800; /* nhãn "Thận trọng" của bài gốc (#A76A00 trên nền vàng nhạt chỉ 3,9:1) */
   --font-display: "Be Vietnam Pro", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -219,7 +221,7 @@ html[lang="en"] .toc::before { content: "In this article"; }
   a.vtk-ray-o:hover { border-color: var(--cam); }
   .vtk-ray-choi { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #A78BFA; color: #1E1B4B;
     text-decoration: none; font: 600 .88rem/1.25 var(--font-display); box-shadow: 0 10px 24px -14px rgb(0 0 0 / .5); }
-  .vtk-ray-choi small { color: #3B2A80; }
+  .vtk-ray-choi small { color: #2E1065; }
   .vtk-ray-choi:hover { background: #C4B5FD; }
   .vtk-ray-choi .ic { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 }
@@ -293,3 +295,6 @@ html[lang="en"] .toc::before { content: "In this article"; }
 .vtk-chia-se .ic { width: 18px; height: 18px; flex: none; }
 .vtk-chia-se a .ic { fill: #1877F2; }
 @media (min-width: 1000px) { .vtk-chia-se { grid-column: 2; box-shadow: 0 10px 30px -12px rgb(0 0 0 / .5); } }
+
+/* Dòng nguồn và danh sách "Đọc tiếp": đường link dài (github.com/...) được ngắt dòng, không đẩy trang tràn ngang ở khổ 320px */
+.reads, .nguon { overflow-wrap: anywhere; }
