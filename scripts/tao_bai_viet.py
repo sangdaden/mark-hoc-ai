@@ -1229,11 +1229,11 @@ def tao_bo_giao_vien():
     so = [("45'", t("một tiết học trọn vẹn, có bảng thời gian", "one full lesson with a timeline")),
           ("16", t("slide trình chiếu kèm lời giảng", "slides with speaker notes")),
           ("10", t("câu quiz in được, có đáp án và giải thích", "printable quiz questions with answers")),
-          ("5", t("video ngắn miễn phí để chiếu trên lớp", "free short videos to show in class"))]
+          ("5", t("video ngắn đi kèm để chiếu trên lớp", "short videos included to show in class"))]
     trong_bo = [("slide-1.jpg", 360, t("Slide trình chiếu", "Slides"), t("16 slide, chữ to, ít chữ", "16 slides, big type, little text"), t("Mỗi slide có ghi chú: thầy cô nói gì, mất mấy phút, hỏi lớp câu nào.", "Every slide has notes: what to say, how long, which question to ask the class.")),
                 ("slide-2.jpg", 360, t("Hoạt động trên lớp", "Class activities"), t("\"Cả lớp thử\" sau mỗi phần", "\"Try it together\" after each part"), t("Ví dụ gần gũi để cả lớp cùng soi, kèm phiếu ra cửa (exit ticket) cuối giờ.", "Everyday examples to examine together, plus an exit ticket at the end.")),
-                ("phieu.jpg", 900, t("Phiếu bài tập", "Worksheet"), t("2 trang A4 cho học sinh", "2 A4 pages for students"), t("Bài tập theo đúng 5 phần của tiết học và ô ghi nhớ 3 bước kiểm tra.", "Exercises for each of the 5 parts and a box with the 3-step check.")),
-                ("quiz.jpg", 900, t("Quiz 10 câu", "10-question quiz"), t("In ra hoặc chiếu lên màn hình", "Print it or project it"), t("Trang đáp án riêng cho giáo viên, có giải thích từng câu.", "A separate answer page for teachers, with an explanation for each question."))]
+                ("phieu.jpg", 905, t("Phiếu bài tập", "Worksheet"), t("2 trang A4 cho học sinh", "2 A4 pages for students"), t("Bài tập theo đúng 5 phần của tiết học và ô ghi nhớ 3 bước kiểm tra.", "Exercises for each of the 5 parts and a box with the 3-step check.")),
+                ("quiz.jpg", 905, t("Quiz 10 câu", "10-question quiz"), t("In ra hoặc chiếu lên màn hình", "Print it or project it"), t("Trang đáp án riêng cho giáo viên, có giải thích từng câu.", "A separate answer page for teachers, with an explanation for each question."))]
     video = [(223, t("Tin sức khỏe lan truyền", "Viral health claims")), (224, t("Ảnh cũ gán chuyện mới", "Old photos, new stories")), (225, t("AI bịa nguồn", "AI-invented sources")),
              (226, t("Biểu đồ gây hiểu lầm", "Misleading charts")), (227, t("3 bước kiểm tra tin nóng", "3 steps for breaking news"))]
     the_video = ""
@@ -1243,11 +1243,11 @@ def tao_bo_giao_vien():
         the_video += f'<li><a class="sp-video" href="{p}bai/{ten_file(v)}.html"><span class="sp-so">#{so_tap}</span><span>{esc(ten)}</span>{ic(p, "play")}</a></li>'
     buoc = [(t("Chuyển khoản", "Transfer"), t(f"Quét mã QR, chuyển {GIA_BO_GV} với nội dung \"BGV\" kèm email của bạn.", f"Scan the QR code and transfer {GIA_BO_GV} with the note \"BGV\" plus your email.")),
             (t("Nhắn cho kênh", "Message us"), t("Gửi ảnh chụp chuyển khoản qua Messenger hoặc email.", "Send a screenshot of the transfer via Messenger or email.")),
-            (t("Nhận file", "Get the files"), t("Kênh gửi file ZIP (slide PowerPoint và 3 file PDF) trong ngày, thường trong vài giờ.", "We send the ZIP (PowerPoint slides and 3 PDFs) the same day, usually within a few hours."))]
+            (t("Nhận file", "Get the files"), t("Kênh gửi file ZIP (slide PowerPoint, 3 file PDF) và link tải 5 video trong ngày, thường trong vài giờ.", "We send the ZIP (PowerPoint slides, 3 PDFs) and download links for the 5 videos the same day, usually within a few hours."))]
     the_buoc = "".join(f'<li class="way"><span class="way-no">{i}</span><h3>{esc(a)}</h3><p>{esc(b)}</p></li>' for i, (a, b) in enumerate(buoc, 1))
     luu_y = [t("Một lần mua dùng cho tất cả các lớp bạn dạy. Vui lòng không đăng lại file lên mạng.", "One purchase covers all the classes you teach. Please don't re-upload the files online."),
              t("File không mở được hoặc thiếu: báo kênh để gửi lại. Bộ không đúng như mô tả trên trang này: hoàn tiền 100% trong 7 ngày.", "Files won't open or are missing: tell us and we'll resend. The kit isn't as described here: 100% refund within 7 days."),
-             t("Tài liệu bằng tiếng Việt, soạn cho học sinh THCS và THPT. Video là của kênh Mark học AI, chiếu trên lớp miễn phí.", "Materials are in Vietnamese, written for lower and upper secondary students. The videos are Mark học AI's own and free to show in class.")]
+             t("Tài liệu bằng tiếng Việt, soạn cho học sinh THCS và THPT. Video là của kênh Mark học AI, được chiếu trên lớp.", "Materials are in Vietnamese, written for lower and upper secondary students. The videos are Mark học AI's own and may be shown in class.")]
     the_luu_y = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in luu_y)
     main = f"""<main class="kit">
 <section class="book-sec">
@@ -1262,8 +1262,8 @@ def tao_bo_giao_vien():
 </div>
 </section>
 <section class="book-sec" aria-labelledby="video-h">
-<h2 id="video-h">{t("5 video đi kèm, xem thử miễn phí", "The 5 videos, free to watch")}</h2>
-<p class="book-sub">{t("Mỗi phần của tiết học dựa trên một video. Bấm để xem bài viết và video.", "Each part of the lesson is based on one video. Open the article and video.")}</p>
+<h2 id="video-h">{t("5 video đi kèm", "The 5 videos included")}</h2>
+<p class="book-sub">{t("Mỗi phần của tiết học dựa trên một video. Video lên kênh từ 18/1/2027; mua bộ là nhận luôn 5 file video MP4 để chiếu trên lớp. Bài viết của từng phần đọc miễn phí ngay bây giờ.", "Each part of the lesson is based on one video. The videos go live on the channel from 18 Jan 2027; buyers get all 5 MP4 files right away to show in class. Each part's article is free to read now.")}</p>
 <ul class="sp-videos">{the_video}</ul>
 </section>
 <section class="book-sec" id="mua" aria-labelledby="mua-h">
