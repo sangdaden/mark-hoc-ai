@@ -38,6 +38,7 @@ seo = load("bai-viet")["tieu_de_seo"]
 seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
 kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
+video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 69.1...) nối tiếp một video chính, xem _ghi_chu trong file
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
 from tao_vu_tru_khac import dong_sitemap
@@ -93,7 +94,11 @@ def tach_tieu_de(v):
     return (m.group(2), m.group(1)) if m else (v["chu_de"], "")
 
 def ten_file(v):
-    return f"{v['so']:02d}-{v['slug']}"
+    so = v["so"]
+    if isinstance(so, str):  # tập phụ "5.1" -> thư mục và trang 05-1-<slug>
+        cha, phu = so.split(".")
+        return f"{int(cha):02d}-{phu}-{v['slug']}"
+    return f"{so:02d}-{v['slug']}"
 
 def ev(x):
     if isinstance(x, ast.Call) and getattr(x.func, "id", None) == "dict":
@@ -166,7 +171,7 @@ def doc_prompt(thu_muc, so):
     # nhiều câu ngắn thì nối bằng dấu chấm cho thành một prompt
     return " ".join(q if q[-1] in ".?!" or len(cau) == 1 else q + "." for q in cau)
 
-VI = {"series": series, "videos": videos, "seo": seo, "tu_dien": tu_dien, "kiem_tra": kiem_tra}
+VI = {"series": series, "videos": videos, "seo": seo, "tu_dien": tu_dien, "kiem_tra": kiem_tra, "phu": video_phu}
 VIDEO_VI = {v["so"]: v for v in videos}  # tìm video trên YouTube luôn bằng tiêu đề tiếng Việt
 
 def ghep_kiem_tra_en(kt_en):
@@ -200,13 +205,27 @@ def du_lieu_en():
                      "tieng_viet": td_en.get(x["id"], {}).get("ten_khac", ""),
                      "giai_thich": td_en.get(x["id"], {}).get("giai_thich", x["giai_thich"])} for x in tu_dien],
         "kiem_tra": ghep_kiem_tra_en(kt_en),
+        "phu": ghep_phu_en(ld_en("video-phu")),
     }
 
+def ghep_phu_en(p_en):
+    """Tên series và tên, mô tả từng tập phụ bằng tiếng Anh. Thiếu là dừng (web luôn đủ hai thứ tiếng)."""
+    ds = []
+    for s in video_phu:
+        assert s["id"] in p_en["series"], f"data/en/video-phu.json thiếu tên series {s['id']}"
+        tap = []
+        for x in s["tap"]:
+            assert x["so"] in p_en["tap"], f"data/en/video-phu.json thiếu tập {x['so']}"
+            tap.append({**x, **p_en["tap"][x["so"]]})
+        ds.append({**s, "ten": p_en["series"][s["id"]], "tap": tap})
+    return ds
+
 def dat_ngon_ngu(lg):
-    global LG, GOC, series, videos, seo, tu_dien, kiem_tra, nhom, nhom_cua, thu_tu, co_bai
+    global LG, GOC, series, videos, seo, tu_dien, kiem_tra, nhom, nhom_cua, thu_tu, co_bai, phu, phu_cua
     LG, GOC = lg, ("en/" if lg == "en" else "")
     d = du_lieu_en() if lg == "en" else VI
-    series, videos, seo, tu_dien, kiem_tra = d["series"], d["videos"], d["seo"], d["tu_dien"], d["kiem_tra"]
+    series, videos, seo, tu_dien, kiem_tra, phu = d["series"], d["videos"], d["seo"], d["tu_dien"], d["kiem_tra"], d["phu"]
+    phu_cua = {s["cha"]: s for s in phu}
     nhom = []
     for s in series:
         items = [v for v in videos if s["tu"] <= v["so"] <= s["den"]]
@@ -503,16 +522,9 @@ def khoi_cong_cu(v, p):
     cuoi = (f'<p class="post-mien-tru">{t("Tên và logo sản phẩm thuộc về các công ty sở hữu, chỉ dùng để minh họa trong nội dung giáo dục. Mark học AI không liên kết hay được tài trợ bởi các công ty này.", "Product names and logos belong to their respective owners and are used only to illustrate educational content. Mark học AI is not affiliated with or sponsored by these companies.")}</p>\n')
     return dau, cuoi
 
-def tao_bai(v):
-    so, g = v["so"], nhom_cua[v["so"]]
-    muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
-    tieu_de, phan = tach_tieu_de(v)
-    h1 = seo[str(so)]
-    p = t("../", "../../")  # về thư mục gốc (assets, js)
-    q = "../"               # về trang chủ của ngôn ngữ này
-    goc = f"bai/{ten_file(v)}.html"
-    thu_nhan = t("Thử ngay", "Try it now")
-
+def than_bai(v, muc_nd, thu_mo_ta, prompt, p, q):
+    """Các mục của bài (đoạn giải thích, hộp Thử ngay), dùng chung cho video chính và tập phụ."""
+    so, thu_nhan = v["so"], t("Thử ngay", "Try it now")
     muc, co_thu = [], False
     for i_muc, s in enumerate(muc_nd):
         chip, ten, doan = s.get("chip", ""), s.get("title", ""), s.get("text", "")
@@ -532,6 +544,18 @@ def tao_bai(v):
         muc.append(f'<aside class="try" aria-labelledby="thu-{so}">\n  <img src="{p}assets/mark-a-ra-the.svg" alt="" width="96" height="91" loading="lazy">\n'
                    f'  <div><p class="try-label">{thu_nhan}</p>\n  <h2 id="thu-{so}">{t("Làm ngay hôm nay", "Do it today")}</h2>\n'
                    f'  <p>{gan_link_video(thanh_doan([viet_hoa(thu_mo_ta)]), q, so)}</p>{khoi_prompt(so, prompt, p)}</div>\n</aside>')
+
+    return muc
+
+def tao_bai(v):
+    so, g = v["so"], nhom_cua[v["so"]]
+    muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
+    tieu_de, phan = tach_tieu_de(v)
+    h1 = seo[str(so)]
+    p = t("../", "../../")  # về thư mục gốc (assets, js)
+    q = "../"               # về trang chủ của ngôn ngữ này
+    goc = f"bai/{ten_file(v)}.html"
+    muc = than_bai(v, muc_nd, thu_mo_ta, prompt, p, q)
 
     # điều hướng series: phần trước/sau; hết series thì nối sang series kề bên
     i = thu_tu.index(v)
@@ -569,7 +593,7 @@ def tao_bai(v):
     main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + "\n".join(muc) +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
-            f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
+            f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
@@ -585,6 +609,102 @@ def tao_bai(v):
     ]
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
                             cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=ANH.get(str(so), {}).get("bia"))
+
+# ---------- tập phụ (5.1-5.7, 69.1-69.3): bài riêng cho video số thập phân nối tiếp một video chính ----------
+# Dữ liệu: data/video-phu.json (+ data/en/video-phu.json, data/en/bai/<cha>-<phụ>-<slug>.json). Trang: bai/05-1-<slug>.html.
+# Tập phụ không vào lưới trang chủ (app.js chỉ biết số nguyên): trang video chính có khối "Series tiếp nối" dẫn sang.
+NAM = {"hai nghìn không trăm hai mươi" + (" " + k if k else ""): str(2020 + n)
+       for k, n in (("", 0), ("mốt", 1), ("hai", 2), ("ba", 3), ("bốn", 4), ("tư", 4), ("lăm", 5), ("sáu", 6))}
+
+def so_nam(text):
+    """Lời đọc viết năm bằng chữ ("năm hai nghìn không trăm hai mươi hai"); trên trang viết số cho dễ đọc."""
+    for chu in sorted(NAM, key=len, reverse=True):
+        text = re.sub(rf"\b{chu}(?![\wÀ-ỹ])", NAM[chu], text)
+    return text
+
+def nhan_so(so):
+    return so if isinstance(so, str) else f"{so:02d}"
+
+def chuoi_phu(s):
+    """Thứ tự đọc của series tập phụ: video chính trước, rồi các tập phụ."""
+    return [co_bai[s["cha"]]] + s["tap"]
+
+def ten_trong_chuoi(x):
+    return x["tieu_de"] if isinstance(x["so"], str) else seo[str(x["so"])]
+
+def khoi_tap_phu(so, q):
+    """Trang video chính có tập phụ: các thẻ dẫn sang từng phần của series tiếp nối."""
+    s = phu_cua.get(so)
+    if not s:
+        return ""
+    lech = s["tong"] - len(s["tap"])  # video chính là phần 1 khi series có thêm 1 phần
+    the = "".join(f'<a class="nav-card" href="{q}bai/{ten_file(x)}.html"><span class="nav-dir">{t("Phần", "Part")} {i + 1 + lech}/{s["tong"]}</span>'
+                  f'<b>#{x["so"]} · {esc(x["tieu_de"])}</b></a>' for i, x in enumerate(s["tap"]))
+    dau = (t("Video này là phần 1 của series", "This video is part 1 of the series") if lech else t("Xem sâu hơn trong series", "Go deeper in the series"))
+    return (f'<nav class="series-nav" aria-label="{esc(s["ten"])}">\n<p class="series-nav-head">{dau} <b>{esc(s["ten"])}</b></p>\n'
+            f'<div class="nav-cards">{the}</div>\n</nav>\n')
+
+def tao_bai_phu(s, x):
+    so, cha = x["so"], co_bai[s["cha"]]
+    g = nhom_cua[cha["so"]]
+    muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(x) if LG == "en" else noi_dung_vi(x)
+    if LG == "vi":
+        muc_nd = [{**m, "text": so_nam(m.get("text", ""))} for m in muc_nd]
+        meta = so_nam(meta)
+    p, q = t("../", "../../"), "../"
+    goc = f"bai/{ten_file(x)}.html"
+    chuoi = chuoi_phu(s)
+    i = chuoi.index(x)
+    lech = s["tong"] - len(s["tap"])
+    phan = f'{t("Phần", "Part")} {s["tap"].index(x) + 1 + lech}/{s["tong"]}'
+    muc = than_bai(x, muc_nd, thu_mo_ta, prompt, p, q)
+
+    def the(vv, nhan, cls="nav-card"):
+        return (f'<a class="{cls}" href="{q}bai/{ten_file(vv)}.html"><span class="nav-dir">{nhan}</span>'
+                f'<b>#{nhan_so(vv["so"])} · {esc(ten_trong_chuoi(vv))}</b></a>')
+    truoc = chuoi[i - 1] if i > 0 else None
+    sau = chuoi[i + 1] if i + 1 < len(chuoi) else None
+    nav = [the(truoc, t("‹ Video gốc", "‹ Original video") if truoc is cha and not lech else t("‹ Phần trước", "‹ Previous part")) if truoc else "<span></span>"]
+    if sau:
+        nav.append(the(sau, t("Phần tiếp theo ›", "Next part ›"), "nav-card next"))
+
+    # Nút xem: tìm đúng tiêu đề tiếng Việt trên kênh YouTube; chưa tới ngày ra mắt thì bai-viet.js đổi thành link kênh (data-ngay)
+    tim = kenh["youtube"] + "/search?query=" + quote(next(y["tieu_de"] for y in video_phu_vi(s["id"]) if y["so"] == so), safe="")
+    gan = f'data-so="{so}" data-ngay="{x.get("ra_mat", "")}" data-kenh="{esc(kenh["youtube"])}"'
+    nut = f'<a class="btn btn-yt" {gan} href="{esc(tim)}" target="_blank" rel="noopener">{ic(p, "play")}{t("Xem video", "Watch video")}</a>'
+    xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
+    ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')
+    band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › '
+            f'<a href="{q}bai/{ten_file(cha)}.html">#{nhan_so(cha["so"])}</a> › <span>#{so}</span></nav>\n'
+            f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}</p>\n'
+            f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
+    ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
+            f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
+    main = (f'<main class="doc">\n<article class="post">\n<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n' + "\n".join(muc) +
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n</div>\n</article>\n'
+            f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
+            f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
+            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
+            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
+    url = BASE + GOC + goc
+    jsonld = [
+        {"@context": "https://schema.org", "@type": "Article", "headline": x["tieu_de"][:110], "description": meta, "inLanguage": LG,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + "assets/og.png"], "author": TO_CHUC, "publisher": TO_CHUC,
+         "isPartOf": {"@type": "CreativeWorkSeries", "name": s["ten"]}},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Mark học AI", "item": BASE + GOC},
+            {"@type": "ListItem", "position": 2, "name": g["ten"], "item": BASE + GOC + "#" + g["id"]},
+            {"@type": "ListItem", "position": 3, "name": seo[str(cha["so"])], "item": BASE + GOC + f"bai/{ten_file(cha)}.html"},
+            {"@type": "ListItem", "position": 4, "name": x["tieu_de"], "item": url}]},
+    ]
+    return GOC + goc, trang(goc, f'{x["tieu_de"]} | {SITE}', meta or x["mo_ta"], band, main, p, jsonld=jsonld, q=q,
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
+def video_phu_vi(sid):
+    return next(s["tap"] for s in video_phu if s["id"] == sid)
+
+def cac_bai_phu():
+    return [(s, x) for s in phu for x in s["tap"]]
 
 # ---------- từ điển ----------
 def tao_tu_dien():
@@ -1099,13 +1219,15 @@ def chay():
                 f.unlink()
         for v in thu_tu:
             ghi(*tao_bai(v))
+        for s, x in cac_bai_phu():
+            ghi(*tao_bai_phu(s, x))
         for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_lam_theo):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu]
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
     uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):

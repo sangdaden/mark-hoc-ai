@@ -13,7 +13,7 @@
   // Video chưa tới ngày: nút thành link kênh, kèm ghi chú "Video ra mắt dd/mm"
   fetch(goc + "data/lich-ra-mat.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (lich) {
     document.querySelectorAll("a.btn-yt[data-so]").forEach(function (a) {
-      var d = lich[a.dataset.so];
+      var d = lich[a.dataset.so] || a.dataset.ngay;  // tập phụ (5.1...) ghi ngày ra mắt ngay trên nút
       if (!d || d <= homNay) return;
       a.href = a.dataset.kenh;
       a.textContent = EN ? "Follow on YouTube" : "Theo dõi kênh YouTube";

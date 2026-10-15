@@ -1,0 +1,91 @@
+{
+ "_ghi_chu": "Tập phụ mang số thập phân (5.1, 69.1...) nối tiếp một video chính (cha). Thư mục video: <cha 2 chữ số>-<số phụ>-<slug>, vd. 05-1-radar-nhin-xuyen-mua. scripts/tao_bai_viet.py tạo bai/05-1-<slug>.html và bản en/ (bài dịch ở data/en/bai/<cùng tên>.json, tên và mô tả ở data/en/video-phu.json). ra_mat: ngày bản dọc lên sóng đầu tiên (giờ VN), nút Xem video đổi thành Theo dõi kênh khi chưa tới ngày.",
+ "series": [
+  {
+   "id": "ba-con-mat-cua-ai",
+   "ten": "Ba con mắt của AI",
+   "cha": 5,
+   "tong": 8,
+   "tap": [
+    {
+     "so": "5.1",
+     "slug": "radar-nhin-xuyen-mua",
+     "ra_mat": "2026-10-13",
+     "tieu_de": "Radar giúp xe nhìn xuyên sương mù thế nào",
+     "mo_ta": "Sương mù dày làm tia laser của LiDAR bị hắt tung, nên xe cần con mắt thứ hai: radar, đo được cả khoảng cách lẫn tốc độ."
+    },
+    {
+     "so": "5.2",
+     "slug": "camera-doc-den-do",
+     "ra_mat": "2026-10-14",
+     "tieu_de": "AI đọc đèn đỏ, biển báo bằng camera thế nào",
+     "mo_ta": "Radar và LiDAR không biết đèn đang đỏ hay xanh. Chỉ camera thấy được màu và chữ, và AI đọc ảnh qua ba bước."
+    },
+    {
+     "so": "5.3",
+     "slug": "so-tai-ba-cam-bien",
+     "ra_mat": "2026-10-15",
+     "tieu_de": "LiDAR, radar hay camera, cái nào giỏi nhất",
+     "mo_ta": "Ba con mắt thi sáu bài: khoảng cách, tốc độ, màu chữ, ban đêm, sương mưa và giá tiền. Mỗi loại giỏi một việc."
+    },
+    {
+     "so": "5.4",
+     "slug": "sensor-fusion",
+     "ra_mat": "2026-10-16",
+     "tieu_de": "Sensor fusion: AI ghép LiDAR, radar, camera thế nào",
+     "mo_ta": "Mỗi con mắt chỉ chắc một phần. Ghép ba manh mối lại, gọi là sensor fusion, cho kết quả chuẩn hơn cả con mắt giỏi nhất."
+    },
+    {
+     "so": "5.5",
+     "slug": "kho-van-giao-thong",
+     "ra_mat": "2026-10-17",
+     "tieu_de": "Robot kho, xe nâng, đèn giao thông nhìn bằng gì",
+     "mo_ta": "Robot trong kho, xe nâng tự hành, camera ở ngã tư và súng bắn tốc độ: mỗi việc chọn một con mắt khác nhau."
+    },
+    {
+     "so": "5.6",
+     "slug": "nong-nghiep-xay-dung",
+     "ra_mat": "2026-10-18",
+     "tieu_de": "Drone phun lúa, máy kéo tự lái, quét công trình",
+     "mo_ta": "Drone phun thuốc bám theo mặt ruộng, máy kéo tự lái bằng camera đôi, LiDAR quét công trình đang xây."
+    },
+    {
+     "so": "5.7",
+     "slug": "y-te-nha-o-tong-ket",
+     "ra_mat": "2026-10-19",
+     "tieu_de": "Radar biết người già té ngã mà không cần camera",
+     "mo_ta": "Radar phát hiện té ngã và đếm nhịp thở mà không quay hình mặt người. Phần cuối tổng kết bốn câu hỏi để chọn đúng con mắt."
+    }
+   ]
+  },
+  {
+   "id": "claude-trong-cong-cu",
+   "ten": "Claude trong công cụ",
+   "cha": 69,
+   "tong": 3,
+   "tap": [
+    {
+     "so": "69.1",
+     "slug": "claude-in-chrome",
+     "ra_mat": "2026-10-15",
+     "tieu_de": "Claude tự bấm, tự gõ trên Chrome: làm thật từ A đến Z",
+     "mo_ta": "Cài Claude in Chrome, nhờ nó đọc và so sánh trang web, rồi để nó tự bấm, tự gõ điền xong một bảng tính."
+    },
+    {
+     "so": "69.2",
+     "slug": "claude-trong-excel",
+     "ra_mat": "2026-10-19",
+     "tieu_de": "Đưa Claude 7.000 dòng Excel: nó bắt được lỗi cộng gấp đôi",
+     "mo_ta": "Đưa sổ bán hàng 7.341 dòng cho Claude ngay trong Excel: nó bắt lỗi cộng gấp đôi, tổng hợp theo món và lập dự báo bằng công thức."
+    },
+    {
+     "so": "69.3",
+     "slug": "claude-trong-powerpoint",
+     "ra_mat": "2026-10-21",
+     "tieu_de": "Từ bảng số Excel ra 5 slide họp, không gõ lại số nào",
+     "mo_ta": "Claude dựng năm slide họp từ kết quả Excel, với biểu đồ PowerPoint thật sửa được, và bạn vẫn là người kiểm cuối cùng."
+    }
+   ]
+  }
+ ]
+}
