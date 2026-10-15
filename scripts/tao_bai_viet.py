@@ -1091,16 +1091,23 @@ def tao_hop_tac():
                   t("Mỗi video có một bài viết tiếng Việt và tiếng Anh, có Từ điển AI và bài kiểm tra, để Google tìm thấy lâu dài.", "Every video has an article in Vietnamese and English, plus a glossary and a quiz, so it stays findable on Google."))]
     the_dd = "".join(f'<li class="fmt"><span class="feat-ic">{ic(p, i)}</span><div><h3>{esc(a)}</h3><p class="fmt-where">{esc(b)}</p><p>{esc(c)}</p></div></li>' for i, a, b, c in dinh_dang)
     nen_tang = [(k, t("Discord (cộng đồng)", "Discord (community)") if k == "discord" else ten) for k, ten in NEN_TANG.items() if kenh.get(k)]
-    def so_nt(k):
-        x = NT.get(k)
-        if not x: return ""
-        return (f'<span class="plat-so"><span><b>{so_gon(x["theo_doi"])}</b>{t("theo dõi", "followers")}</span>'
-                f'<span><b>{so_gon(x["luot_xem"])}</b>{t("lượt xem", "views")}</span></span>')
-    # nền tảng có số liệu xếp trước, nhiều người theo dõi nhất lên đầu
-    nen_tang.sort(key=lambda x: -NT.get(x[0], {}).get("theo_doi", -1))
-    the_nt = "".join(f'<li><a class="plat{" plat-co-so" if NT.get(k) else ""}" href="{esc(kenh[k])}" target="_blank" rel="noopener"><span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
-                     f'<span class="plat-t"><b>{esc(ten)}</b><span>{esc(re.sub(r"^https?://(www\.)?", "", kenh[k]).rstrip("/"))}</span>{so_nt(k)}</span></a></li>' for k, ten in nen_tang)
-    the_nt += f'<li><a class="plat" href="{BASE}"><img class="plat-logo" src="{p}assets/logo-trong-suot.svg" alt="" width="40" height="40" loading="lazy"><span class="plat-t"><b>{t("Trang web", "Website")}</b><span>markhocai.com</span></span></a></li>'
+    # Thẻ nền tảng có số liệu: icon + tên + @tên kênh một dòng, 2 ô số, thanh so sánh số theo dõi; nhiều người theo dõi nhất lên đầu.
+    # Nền tảng không có số (Discord) và trang web đi riêng một hàng nút nhỏ bên dưới.
+    co_so = sorted([x for x in nen_tang if NT.get(x[0])], key=lambda x: -NT[x[0]]["theo_doi"])
+    khac = [x for x in nen_tang if not NT.get(x[0])]
+    max_td = max([NT[k]["theo_doi"] for k, _ in co_so] or [1])
+    def ten_kenh(k):
+        return "@" + re.sub(r"^@", "", kenh[k].rstrip("/").rsplit("/", 1)[-1])
+    def icon_nt(k):
+        return f'<span class="nt nt-{k}" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-{k}"/></svg></span>'
+    the_nt = "".join(
+        f'<li><a class="ntk" href="{esc(kenh[k])}" target="_blank" rel="noopener">'
+        f'<span class="ntk-dau">{icon_nt(k)}<span class="ntk-ten"><b>{esc(ten)}</b><span>{esc(ten_kenh(k))}</span></span></span>'
+        f'<span class="ntk-so"><span><b>{so_gon(NT[k]["theo_doi"])}</b>{t("theo dõi", "followers")}</span><span><b>{so_gon(NT[k]["luot_xem"])}</b>{t("lượt xem", "views")}</span></span>'
+        f'<span class="ntk-thanh" aria-hidden="true"><i style="width:{max(4, round(NT[k]["theo_doi"] * 100 / max_td))}%"></i></span></a></li>'
+        for k, ten in co_so)
+    the_lk = "".join(f'<li><a class="ntl" href="{esc(kenh[k])}" target="_blank" rel="noopener">{icon_nt(k)}<b>{esc(NEN_TANG[k])}</b></a></li>' for k, ten in khac)
+    the_lk += f'<li><a class="ntl" href="{BASE}"><img src="{p}assets/logo-trong-suot.svg" alt="" width="28" height="28" loading="lazy"><b>markhocai.com</b></a></li>'
     hinh_thuc = [(t("Video giải thích có tài trợ", "Sponsored explainer"),
                   t("Kênh giải thích một khái niệm AI mà sản phẩm của bạn giải quyết, rồi dùng sản phẩm làm ví dụ thật. Người xem học được điều mới, dù có dùng sản phẩm hay không.", "We explain an AI concept your product deals with, then use your product as a real example. Viewers learn something new whether or not they use it.")),
                  (t("Review công cụ", "Tool review"),
@@ -1132,7 +1139,8 @@ def tao_hop_tac():
 </section>
 <section class="book-sec" aria-labelledby="nen-tang">
 <h2 id="nen-tang">{t("Nền tảng", "Platforms")}</h2>
-<ul class="plats">{the_nt}</ul>
+<ul class="ntk-ds">{the_nt}</ul>
+<ul class="ntl-ds">{the_lk}</ul>
 </section>
 <section class="book-sec" id="hinh-thuc" aria-labelledby="hinh-thuc-h">
 <h2 id="hinh-thuc-h">{t("Các hình thức hợp tác", "Ways to work together")}</h2>
