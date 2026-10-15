@@ -11,6 +11,7 @@
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
     hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
+    soKq: n => n === 1 ? "1 video matches, listed below ↓" : n + " videos match, listed below ↓", kq0: "No video matches. Try a shorter word or ask Bit above.",
     vxTieuDe: "Just watched a Mark video?", vxDan: "Type the number shown on the video to open its 1-minute lesson.", vxO: "Video number",
     vxMo: "Open lesson", vxKhong: n => "Video #" + n + " has no lesson here yet. Try the quick quiz below.",
     vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Hide"
@@ -22,6 +23,7 @@
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
     hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
+    soKq: n => n + " video khớp, xem ngay bên dưới ↓", kq0: "Chưa có video nào khớp. Thử từ ngắn hơn hoặc hỏi Bit ở trên.",
     vxTieuDe: "Vừa xem video của Mark?", vxDan: "Gõ số in trên video để mở bài học 1 phút của video đó.", vxO: "Số video",
     vxMo: "Mở bài", vxKhong: n => "Video #" + n + " chưa có bài trên trang. Thử bài kiểm tra nhanh bên dưới nhé.",
     vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Ẩn"
@@ -269,12 +271,20 @@
   let soThe = 0;
   // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
+  // Đang tìm thì báo ngay dưới ô tìm có bao nhiêu video khớp và ẩn dải "Hôm nay": trên điện thoại kết quả nằm dưới hàng nhóm, người xem tưởng ô tìm không chạy
+  const soKq = document.createElement("p");
+  soKq.className = "so-kq";
+  soKq.setAttribute("role", "status");
+  soKq.hidden = true;
+  (hoiBit || input.closest(".catalog-head")).after(soKq);
   function render() {
     veChipsCon();
     const nh = nhomDangMo();
     chips.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current || (!!nh && b.dataset.id === nh.id)));
     chipsCon.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-selected", b.dataset.id === current));
     const q = norm(input.value.trim());
+    if (dai) dai.classList.toggle("an-khi-tim", !!q);
+    if (!q) soKq.hidden = true;
     if (hoiBit) {
       hoiBit.hidden = !q;
       if (q) { hoiBit.href = "hoi-bit.html?q=" + encodeURIComponent(input.value.trim()); hoiBit.textContent = S.hoiBit(input.value.trim()); }
@@ -313,6 +323,9 @@
       return '<section class="series" data-id="' + g.id + '">' + khoi(g, items, "h3") + "</section>";
     }).join("");
     document.getElementById("rong").hidden = shown > 0;
+    soKq.hidden = !q;
+    soKq.textContent = q ? (shown ? S.soKq(shown) : S.kq0) : "";
+    soKq.classList.toggle("kq-rong", !!q && !shown);
   }
   render();
 

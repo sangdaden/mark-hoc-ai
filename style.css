@@ -1667,3 +1667,21 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   /* Điện thoại: lưới ảnh bìa của nhóm đã đủ để chọn series, bỏ hàng series nhỏ cho đỡ dài */
   .chips-con { display: none; }
 }
+
+/* Ủng hộ: người xem trên điện thoại không quét được mã trên chính màn hình đó, nên có nút chép số tài khoản và lưu ảnh QR */
+.uh-the { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 360px; max-width: 100%; }
+.uh-ghi { margin: 4px 0 0; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.uh-nut { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.uh-nut .btn { min-height: 48px; }
+.uh-stk { margin: 0; font: 500 14px/1.4 var(--f-mono); color: var(--muted); text-align: center; }
+.uh-stk b { color: var(--ink); }
+
+/* Chân trang: link nhỏ dễ bấm hơn trên điện thoại và không gãy giữa chữ ("Quyền riêng / tư") */
+.foot-copy { line-height: 1.6; }
+.foot-copy a { white-space: nowrap; display: inline-block; padding-block: 4px; }
+@media (max-width: 760px) { .foot-copy { line-height: 1.5; } .foot-copy a { padding-block: 8px; } }
+
+/* Tìm video: dòng đếm kết quả ngay dưới ô tìm; dải "Hôm nay" tạm ẩn khi đang tìm */
+.so-kq { margin: 12px 0 0; padding: 10px 16px; border-radius: 12px; background: var(--panel); border: 1.5px solid var(--edge); font-weight: 700; color: var(--ink); }
+.so-kq.kq-rong { border-color: #F59E0B; }
+.so-kq[hidden], .today.an-khi-tim { display: none; }
