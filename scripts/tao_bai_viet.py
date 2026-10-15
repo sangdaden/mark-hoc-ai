@@ -1303,8 +1303,8 @@ def tao_workshop():
             f'</div><img class="head-art sp-bia" src="{p}assets/san-pham/workshop/bia.jpg" alt="{t("Bìa workshop Dùng AI cho công việc", "Workshop cover: Using AI at work")}" width="600" height="450"></div>')
     so = [("2h", t("gồm 10 phút nghỉ giữa giờ", "including a 10-minute break")),
           ("3", t("nhóm nghề: văn phòng, giáo viên, bán hàng", "job tracks: office, teaching, sales")),
-          ("20+", t("prompt mẫu chép về dùng ngay", "ready prompts to copy and use")),
-          ("1", t("sổ tay học viên PDF mang về", "participant handbook (PDF) to keep"))]
+          ("9+", t("prompt mẫu theo nghề, chép về dùng ngay", "job-specific prompts to copy and use")),
+          ("6", t("trang sổ tay học viên PDF mang về", "pages of participant handbook (PDF) to keep"))]
     phan = [("10'", t("Mở đầu", "Kick-off"), t("Mục tiêu buổi học và bạn đã dùng AI cho việc gì.", "Goals, and what you already use AI for.")),
             ("15'", t("AI làm được gì, không làm được gì", "What AI can and can't do"), t("Chatbot là gì, vì sao AI có lúc bịa, dữ liệu nào không được dán vào.", "What a chatbot is, why AI sometimes makes things up, what data never to paste in.")),
             ("25'", t("Viết prompt cho ra kết quả", "Prompts that get results"), t("Công thức 5 phần, ví dụ trước và sau, hỏi tiếp để sửa. Có bài tập tại chỗ.", "A 5-part formula, before-and-after examples, follow-ups to refine. With a live exercise.")),
@@ -1316,7 +1316,7 @@ def tao_workshop():
            ("slide-2.jpg", 360, t("Slide buổi học", "Session slides"), t("Công thức viết prompt", "The prompt formula"), t("5 phần dễ nhớ, dùng cho mọi công cụ AI.", "5 easy parts that work with any AI tool.")),
            ("slide-3.jpg", 360, t("Slide buổi học", "Session slides"), t("Thẻ prompt mẫu", "Prompt cards"), t("Chép, đổi vài chữ là dùng được cho việc của bạn.", "Copy, change a few words, and use it for your own work."))]
     goi = [(t("Lớp online mở", "Open online class"), "149.000đ", t("mỗi người", "per person"), True,
-            [t("Học qua Google Meet hoặc Zoom", "Live on Google Meet or Zoom"), t("Có sổ tay học viên PDF", "Participant handbook PDF"), t("Xem lại bản ghi trong 7 ngày", "Recording available for 7 days"), t("Lịch học công bố trên fanpage", "Dates announced on our Facebook page")]),
+            [t("Học qua Google Meet hoặc Zoom", "Live on Google Meet or Zoom"), t("Có sổ tay học viên PDF", "Participant handbook PDF"), t("Có bài tập thực hành tại chỗ", "Hands-on exercises in class"), t("Lịch học công bố trên fanpage", "Dates announced on our Facebook page")]),
            (t("Lớp tại công ty", "In-company class"), t("từ 2,5 triệu đ", "from 2.5 million VND"), t("mỗi buổi", "per session"), False,
             [t("Tối đa 30 người, online hoặc tại chỗ", "Up to 30 people, online or on site"), t("Chọn nhóm nghề theo đội của bạn", "Job tracks picked for your team"), t("Prompt mẫu soạn theo việc thật của công ty", "Prompts written for your real tasks"), t("Báo giá theo số người và địa điểm", "Quote based on headcount and location")])]
     the_goi = "".join(f'<li class="dv-goi{" dv-goi-chinh" if chinh else ""}">' + (f'<span class="dv-nhan">{t("Mở đăng ký", "Open")}</span>' if chinh else "")
