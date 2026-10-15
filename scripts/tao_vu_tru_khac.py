@@ -30,6 +30,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 R = Path(__file__).resolve().parent.parent
 BASE = "https://markhocai.com/"
@@ -84,6 +85,25 @@ def chen_minh_hoa(bai, b, mo_ta):
     return bai[:dau.start()] + h2 + bai[dau.end():]
 
 
+def chen_chia_se(bai, b, en, p):
+    """Khối chia sẻ cuối bài, ngay trước <footer> của bài gốc (Sang 15/10, giống bài viết Mark học AI): nút chia sẻ của máy
+    (điện thoại: Zalo, Messenger...), Facebook, chép link. Nút máy và chép link do doc.js bật; theo-doi.js đếm sự kiện "chia-se"."""
+    if 'class="vtk-chia-se"' in bai:
+        return bai
+    e = b.get("en", {}) if en else b
+    url = f'{BASE}{"en/" if en else ""}vu-tru-khac/{b["slug"]}.html'
+    fb = "https://www.facebook.com/sharer/sharer.php?u=" + quote(url, safe="")
+    ic = lambda n: f'<svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-{n}"/></svg>'
+    khoi = (f'<aside class="vtk-chia-se" aria-label="{"Share this article" if en else "Chia sẻ bài này"}">'
+            f'<p>{"Found this useful? Send it to a friend" if en else "Thấy bài có ích? Gửi cho một người bạn"}</p><div>'
+            f'<button type="button" data-chia-se data-url="{esc(url)}" data-tieu-de="{esc(e.get("ten", b["ten"]))}" hidden>{ic("share")}{"Share" if en else "Chia sẻ"}</button>'
+            f'<a href="{esc(fb)}" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="{p}assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a>'
+            f'<button type="button" data-chep-link="{esc(url)}" hidden>{ic("link")}{"Copy link" if en else "Chép link"}</button>'
+            '</div></aside>\n')
+    i = bai.rfind("<footer")
+    return bai[:i] + khoi + bai[i:] if i >= 0 else bai + "\n" + khoi
+
+
 def trang_sach(b, goc, en=False, cd=None, sau=None):
     e = b.get("en", {}) if en else b
     ten = (f'{e.get("ten", b["ten"])} ({b["tac_gia"]}): summary, review and lessons | Another Universe' if en
@@ -97,6 +117,7 @@ def trang_sach(b, goc, en=False, cd=None, sau=None):
         bai = chen_minh_hoa(bai, b, e.get("minh_hoa", b["minh_hoa"]))
     bai = chen_ray(bai, b, en, cd, sau, p)
     bai = chen_video(bai, b, en, p)
+    bai = chen_chia_se(bai, b, en, p)
     bia = b.get("bia", {})
     mau_bia = "".join(f"--bia-{k}: {bia[v]}; " for k, v in (("1", "nen_1"), ("2", "nen_2"), ("nhan", "nhan")) if bia.get(v))
     mau_bia = f"\nbody, body header {{ {mau_bia}}}" if mau_bia else ""
