@@ -9,6 +9,7 @@ Lỗi (làm PR đỏ):
   3. Link và ảnh nội bộ (href/src tương đối) phải trỏ tới file có thật.
   4. Mọi file data/**/*.json phải đọc được.
   5. Mọi địa chỉ trong sitemap.xml phải có file tương ứng.
+  6. Mọi file .css phải đóng đủ ngoặc { } (thiếu một dấu } khi gộp nhánh làm cả phần CSS phía sau mất tác dụng).
 
 Cảnh báo (không làm PR đỏ):
   - PR vừa sửa file của góc Vũ Trụ Khác vừa sửa phần khác của trang
@@ -88,6 +89,26 @@ def kiem_json(loi):
             loi.append(f"{f.relative_to(GOC)}: JSON lỗi ({e})")
 
 
+def kiem_css(loi):
+    for f in sorted(GOC.rglob("*.css")):
+        rel = f.relative_to(GOC)
+        if rel.parts[0] in BO_QUA_THU_MUC:
+            continue
+        chu = re.sub(r"/\*.*?\*/", "", f.read_text(encoding="utf-8"), flags=re.S)
+        chu = re.sub(r"""("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')""", "", chu)
+        sau, dong_mo = 0, 0
+        for so_dong, dong in enumerate(chu.split("\n"), 1):
+            if sau == 0 and "{" in dong:
+                dong_mo = so_dong
+            for c in dong:
+                sau += (c == "{") - (c == "}")
+                if sau < 0:
+                    loi.append(f"{rel}: dòng {so_dong} thừa dấu }}")
+                    sau = 0
+        if sau > 0:
+            loi.append(f"{rel}: thiếu {sau} dấu }} (khối mở ở khoảng dòng {dong_mo} chưa đóng)")
+
+
 def kiem_sitemap(loi):
     sm = GOC / "sitemap.xml"
     if not sm.exists():
@@ -128,6 +149,7 @@ def main():
     for rel in trang:
         kiem_trang(rel, (GOC / rel).read_text(encoding="utf-8", errors="replace"), loi)
     kiem_json(loi)
+    kiem_css(loi)
     kiem_sitemap(loi)
     canh = canh_bao_vtk(args.goc) if args.goc else []
 
