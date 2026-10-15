@@ -1,10 +1,11 @@
 /* Trò chơi tương tác trên trang đọc (assets/vu-tru-khac/tro-choi.js). Dùng màu của doc.css (--paper, --ink, --rule, --cam, --vtk-nhan)
    nên tự theo sáng/tối và nút đổi giao diện. Mọi lớp bắt đầu bằng "tc-" để không đụng CSS riêng của bài. */
-:root { --tc-dung: #15803D; --tc-than: #B45309; --tc-sai: #B91C1C; --tc-lanh: #2563EB;
+/* --tc-cam: cam đậm hơn --cam ở giao diện sáng để chữ cam trên nền trắng và chữ trắng trên nút cam đạt 4,5:1 (WCAG AA). */
+:root { --tc-cam: #C2410C; --tc-dung: #15803D; --tc-than: #B45309; --tc-sai: #B91C1C; --tc-lanh: #2563EB;
   --tc-troi: #DFE9F5; --tc-dat: #C9B99A; --tc-thep: #5F6B80; --tc-go: #A0673A; --tc-pho-mai: #F2C14E; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tc-cam: var(--cam); --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
   --tc-troi: #1A2747; --tc-dat: #3B3326; --tc-thep: #8391AA; --tc-go: #B07A4C; --tc-pho-mai: #E0B142; } }
-:root[data-theme="dark"] { --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
+:root[data-theme="dark"] { --tc-cam: var(--cam); --tc-dung: #4ADE80; --tc-than: #FBBF24; --tc-sai: #F87171; --tc-lanh: #93C5FD;
   --tc-troi: #1A2747; --tc-dat: #3B3326; --tc-thep: #8391AA; --tc-go: #B07A4C; --tc-pho-mai: #E0B142; }
 
 .tc-khoi { display: flex; flex-direction: column; gap: 12px; }
@@ -12,14 +13,14 @@
 .tc-khoi [hidden] { display: none !important; }
 .tc-khoi > * { margin: 0; min-width: 0; }
 .tc-khoi h2 { margin: 0; }
-.tc-muc { font: 600 .74rem/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; color: var(--cam); }
+.tc-muc { font: 600 .74rem/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; color: var(--tc-cam); }
 .tc-hoi { font-weight: 600; font-size: 1.05rem; }
 .tc-nguon { font-size: .8rem; color: var(--muted); border-top: 1px dashed var(--rule); padding-top: 10px; }
 .tc-hang { display: flex; flex-wrap: wrap; gap: 10px; }
 .tc-nut { font: 600 .95rem/1.2 var(--font-body, system-ui, sans-serif); padding: 10px 18px; border-radius: 10px; cursor: pointer;
   border: 1.5px solid var(--ink); background: transparent; color: var(--ink); }
 /* Nút chính dùng màu cam chung (--cam, như thanh trượt), không dùng --vtk-nhan vì nhiều bài để màu nhạt gần xám, trông như nút bị khóa. */
-.tc-nut.tc-chinh { background: var(--cam, #EA580C); border-color: var(--cam, #EA580C); color: #fff; }
+.tc-nut.tc-chinh { background: var(--tc-cam); border-color: var(--tc-cam); color: #fff; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; } }
 :root[data-theme="dark"] .tc-nut.tc-chinh:not(:disabled) { color: #0F172A; }
 .tc-nut.tc-chinh:not(:disabled):hover { filter: brightness(1.08); }
@@ -204,6 +205,8 @@ button.tc-chu:disabled { cursor: default; }
 .tc-keo:focus { outline: none; } .tc-keo:focus-visible > rect:nth-child(1) { stroke: var(--tc-lanh); stroke-width: 3; }
 .tc-cham-duoc { cursor: pointer; }
 .tc-nut.tc-nut-do { border-color: var(--tc-sai); color: var(--tc-sai); }
+/* Nút chính màu đỏ (vd. "Sập" ở Lehman): nền đỏ, chữ trắng; giao diện tối đã đổi chữ sang navy ở trên. */
+.tc-nut.tc-chinh.tc-nut-do:not(:disabled) { background: var(--tc-sai); border-color: var(--tc-sai); color: #fff; }
 .tc-nhat-ky { margin: 0; padding: 10px 14px 10px 2.2rem; border-radius: 10px; background: #0B1220; color: #E8EDF7; font: 500 .85rem/1.6 var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; }
 .tc-nhat-ky:empty { display: none; }
 
@@ -425,8 +428,8 @@ button.tc-chu:disabled { cursor: default; }
 .tc-kt-vung-chon { fill-opacity: .3; stroke-dasharray: none; }
 .tc-kt-buoc { display: flex; flex-wrap: wrap; gap: 6px; }
 .tc-kt-buoc span { font: 600 .78rem var(--font-mono, ui-monospace, monospace); padding: 4px 9px; border-radius: 999px; border: 1.5px solid var(--rule); color: var(--muted); }
-.tc-kt-buoc span.tc-kt-nay { border-color: var(--cam); color: var(--cam); }
-.tc-kt-buoc span.tc-kt-xong { background: var(--cam); border-color: var(--cam); color: var(--paper); }
+.tc-kt-buoc span.tc-kt-nay { border-color: var(--tc-cam); color: var(--tc-cam); }
+.tc-kt-buoc span.tc-kt-xong { background: var(--tc-cam); border-color: var(--tc-cam); color: var(--paper); }
 .tc-kt-bang { display: flex; flex-direction: column; gap: 10px; }
 .tc-kt-bang > p { margin: 0; font-weight: 600; }
 .tc-kt-giu { touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; min-width: 12rem; }
