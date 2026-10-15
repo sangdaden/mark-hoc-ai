@@ -267,7 +267,8 @@ def trang_goc(ds, lg):
 # ---------- chạy ----------
 def cap_nhat_sitemap(mo):
     f = R / "sitemap.xml"
-    dong = [d for d in f.read_text(encoding="utf-8").splitlines() if "/bai-bao" not in d]
+    cua_goc = re.compile(rf"<loc>{re.escape(BASE)}(en/)?bai-bao(\.html|/)")  # chỉ trang của góc này, không đụng vu-tru-khac/bai-bao-*
+    dong = [d for d in f.read_text(encoding="utf-8").splitlines() if not cua_goc.search(d)]
     ra = []
     for d in dong:
         ra.append(d)
