@@ -180,3 +180,29 @@
     f.focus();
   });
 })();
+
+// Khối chia sẻ cuối bài: nút chia sẻ của máy (chỉ hiện khi trình duyệt có), nút chép link. Nút Facebook là link thường.
+(function () {
+  var en = document.documentElement.lang === "en";
+  var may = document.querySelector(".vtk-chia-se [data-chia-se]");
+  if (may && navigator.share) {
+    may.hidden = false;
+    may.addEventListener("click", function () {
+      navigator.share({ title: may.dataset.tieuDe, url: may.dataset.url }).catch(function () {});
+    });
+  }
+  var chep = document.querySelector(".vtk-chia-se [data-chep-link]");
+  if (!chep) return;
+  chep.hidden = false;
+  var goc = chep.innerHTML, hen;
+  function xong(chu) {
+    chep.lastChild.textContent = chu;
+    clearTimeout(hen);
+    hen = setTimeout(function () { chep.innerHTML = goc; }, 2000);
+  }
+  chep.addEventListener("click", function () {
+    var link = chep.dataset.chepLink;
+    var p = navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(link) : Promise.reject();
+    p.then(function () { xong(en ? "Link copied" : "Đã chép link"); }, function () { xong(link); });
+  });
+})();

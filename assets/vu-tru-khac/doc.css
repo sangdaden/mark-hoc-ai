@@ -282,3 +282,14 @@ html[lang="en"] .toc::before { content: "In this article"; }
   .vtk-ray-video:hover { background: #FF2D3F; }
   .vtk-ray-video .ic { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linejoin: round; }
 }
+
+/* Khối chia sẻ cuối bài (scripts/tao_vu_tru_khac.py chen_chia_se, Sang 15/10) */
+.vtk-chia-se { margin-top: 24px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 16px; background: var(--paper); }
+.vtk-chia-se p { margin: 0; font: 600 1rem/1.4 var(--font-display); color: var(--ink); }
+.vtk-chia-se div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.vtk-chia-se a, .vtk-chia-se button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; box-sizing: border-box; padding: 8px 16px;
+  border: 1.5px solid var(--rule); border-radius: 999px; background: var(--bg); color: var(--ink); font: 600 .95rem/1 var(--font-body); text-decoration: none; cursor: pointer; }
+.vtk-chia-se a:hover, .vtk-chia-se button:hover { border-color: var(--cam); }
+.vtk-chia-se .ic { width: 18px; height: 18px; flex: none; }
+.vtk-chia-se a .ic { fill: #1877F2; }
+@media (min-width: 1000px) { .vtk-chia-se { grid-column: 2; box-shadow: 0 10px 30px -12px rgb(0 0 0 / .5); } }
