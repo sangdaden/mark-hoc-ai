@@ -34,7 +34,7 @@
       ["AI and your job", "Which tasks AI takes first, which skills keep their value, and a 90-day plan."]],
     chaoChungSat: k => "I found " + k + (k === 1 ? " video" : " videos") + " close to your job, followed by a general path that works for any job.",
     chaoChung: n => "The channel has no video just for “" + n + "” yet. Here's a general path that works for any job.",
-    muon2: "Want the channel to make videos for this job?", ngheCuaBan: n => "Your job: " + n
+    muon2: "Want the channel to make videos for this job?", ngheCuaBan: n => "Your job: " + n, banTin: "This week's digest"
   } : {
     nghePH: "Nghề hoặc ngành của bạn", ngheNhan: "Nghề của bạn không có ở trên? Gõ vào đây, ví dụ “tiệm tóc”, “kế toán”, “nuôi tôm”.", xem: "Xem lộ trình ›",
     dong: "Đóng", chao1: "Chào bạn, mình là Mark!", chao2: "Bạn là ai?", chao3: "Chọn một ô, mình đưa lộ trình và video hợp với bạn. Không cần đăng ký.",
@@ -56,7 +56,7 @@
       ["AI và nghề của bạn", "Việc nào AI nhận trước, kỹ năng nào giữ giá, và kế hoạch 90 ngày."]],
     chaoChungSat: k => "Mình tìm được " + k + " video sát nghề của bạn, rồi nối tiếp bằng lộ trình chung nghề nào cũng dùng được.",
     chaoChung: n => "Kênh chưa có video riêng cho nghề “" + n + "”. Đây là lộ trình chung, nghề nào cũng dùng được.",
-    muon2: "Muốn kênh làm video cho nghề này?", ngheCuaBan: n => "Nghề của bạn: " + n
+    muon2: "Muốn kênh làm video cho nghề này?", ngheCuaBan: n => "Nghề của bạn: " + n, banTin: "Bản tin tuần"
   };
   const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-' + n + '"/></svg>';
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -161,7 +161,8 @@
     if (dai && chon && (chon.nghe || D.nganh[chon.ai])) {
       const ten = chon.ai ? D.nganh[chon.ai].ngan : S.nghe(chon.nghe);
       dai.innerHTML = '<span class="cua-ban-text"><b>' + esc(S.cuaBan(ten)) + '</b><span>' + S.cuaBan2 + '</span></span>' +
-        '<a class="btn btn-yt" href="' + linkChon(chon) + '">' + S.tiep + '</a><button type="button" class="btn" data-mo-chao-2>' + S.doi + '</button>';
+        '<a class="btn btn-yt" href="' + linkChon(chon) + '">' + S.tiep + '</a><button type="button" class="btn" data-mo-chao-2>' + S.doi + '</button>' +
+        '<a class="btn" href="ban-tin.html">' + S.banTin + '</a>';
       dai.hidden = false;
       dai.querySelector("[data-mo-chao-2]").addEventListener("click", () => hop.showModal());
     }
@@ -248,6 +249,9 @@
         catch (e) { bao.textContent = S.chepTay + url; }
       };
       kq.hidden = false;
+      // Báo cho ban-tin.js: người xem đã có lộ trình, bản tin tuần hiện sau đó và đẩy video trong lộ trình lên đầu
+      window.mhaiLoTrinhSo = tatCa;
+      document.dispatchEvent(new CustomEvent("mhai:lo-trinh", { detail: { so: tatCa } }));
     }
 
     function hien(c, cuon) {

@@ -1271,6 +1271,8 @@ def chay():
         sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-nhan.html</loc><priority>0.6</priority></url>")
         # Game Mark phiêu lưu (phieu-luu.html, en/phieu-luu.html) viết tay, câu hỏi lấy từ data/bo-kiem-tra.json
         sitemap.append(f"  <url><loc>{BASE}{tien_to}phieu-luu.html</loc><priority>0.7</priority></url>")
+        # Bản tin tuần (ban-tin.html, en/ban-tin.html) viết tay, nội dung từ data/ban-tin.json (scripts/tao_ban_tin.py)
+        sitemap.append(f"  <url><loc>{BASE}{tien_to}ban-tin.html</loc><priority>0.6</priority></url>")
         # Góc sách "Mark ở vũ trụ khác" (scripts/tao_vu_tru_khac.py cũng tự cập nhật các dòng này khi thêm sách)
         sitemap += dong_sitemap(tien_to)
     sitemap.append("</urlset>")
