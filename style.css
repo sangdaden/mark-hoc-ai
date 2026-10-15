@@ -1715,3 +1715,7 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .regions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; scroll-snap-type: none; padding: 0; margin-inline: 0; }
   .regions > .region, .regions > .region:first-child { display: flex; }
 }
+/* Số tập trong nút series của thẻ vùng không gãy giữa "#27–32": tên co giãn, số giữ nguyên một dòng */
+.rg-mon a, .rg-mon li > span { align-items: center; max-width: 100%; }
+.rg-mon b { min-width: 0; }
+.rg-mon .region-range { flex: none; white-space: nowrap; }
