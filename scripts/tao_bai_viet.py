@@ -42,6 +42,7 @@ video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 6
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
 from tao_vu_tru_khac import dong_sitemap
+import anh_chia_se
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
 YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
@@ -311,6 +312,16 @@ def nhan_ngay(d):
     y, m, dd = d.split("-")
     return f' · <time class="ngay-dang" datetime="{d}">{t("Lên kênh", "Published")} {t(f"{dd}/{m}/{y}", f"{THANG_EN[int(m) - 1]} {int(dd)}, {y}")}</time>'
 
+# Ảnh chia sẻ riêng cho từng bài (scripts/anh_chia_se.py): 1200x630, VI ở assets/anh/chia-se/, EN ở assets/anh/chia-se/en/.
+SERIES_BIA = load("series-bia")
+def anh_chia_se_bai(goc, tieu_de, nhan, so, ngay, bia, ten_series=""):
+    ngay_chu = ""
+    if ngay:
+        y, m, dd = ngay.split("-")
+        ngay_chu = t(f"{dd}/{m}/{y}", f"{THANG_EN[int(m) - 1]} {int(dd)}, {y}")
+    ten = goc.split("/")[-1].replace(".html", ".jpg")
+    return anh_chia_se.ve(f'assets/anh/chia-se/{t("", "en/")}{ten}', tieu_de, nhan, so, ngay_chu, bia, ten_series)
+
 def khoi_chia_se(url, tieu_de, p):
     """Cuối bài: nút chia sẻ của máy (điện thoại), Facebook, chép link. Không chạy được JS thì chỉ còn nút Facebook (link thường)."""
     fb = "https://www.facebook.com/sharer/sharer.php?u=" + quote(url, safe="")
@@ -368,7 +379,7 @@ def lien_ket_ngon_ngu(goc):
     return (f'<link rel="alternate" hreflang="vi" href="{BASE}{goc}">\n<link rel="alternate" hreflang="en" href="{BASE}en/{goc}">\n'
             f'<link rel="alternate" hreflang="x-default" href="{BASE}{goc}">')
 
-def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None):
+def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None, co_anh=None, ngay=None):
     # goc: đường dẫn trang không kèm tiền tố ngôn ngữ (vd. "bai/03-prompt.html"); trang thật nằm ở GOC + goc
     url = BASE + GOC + goc
     return f"""<!doctype html>
@@ -387,9 +398,9 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}{anh or "assets/og.png"}">
-<meta property="og:image:width" content="{1280 if anh else 1200}">
-<meta property="og:image:height" content="{720 if anh else 630}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="{(co_anh or ((1280, 720) if anh else (1200, 630)))[0]}">
+<meta property="og:image:height" content="{(co_anh or ((1280, 720) if anh else (1200, 630)))[1]}">
+{f'<meta property="og:image:alt" content="{esc(title)}">{chr(10)}' if co_anh else ""}{f'<meta property="article:published_time" content="{ngay}">{chr(10)}' if ngay else ""}<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2563EB">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}assets/favicon-32.png?v=dev">
 <link rel="icon" type="image/png" sizes="16x16" href="{p}assets/favicon-16.png?v=dev">
@@ -616,9 +627,11 @@ def tao_bai(v):
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
+    ngay = LICH.get(str(so))
+    og = anh_chia_se_bai(goc, tieu_de, g["ten"] + (" · " + phan if phan else ""), f"{so:02d}", ngay, SERIES_BIA.get(g["id"], {}).get("bia"))
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": h1[:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + ANH.get(str(so), {}).get("bia", "assets/og.png")], "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay} if ngay else {}), "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": g["ten"]},
          **({"about": [{"@type": "DefinedTerm", "name": x["thuat_ngu"], "url": BASE + GOC + "tu-dien.html#" + x["id"]} for x in lien_quan]} if lien_quan else {})},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -627,7 +640,7 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=ANH.get(str(so), {}).get("bia"))
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay)
 
 # ---------- tập phụ (5.1-5.7, 69.1-69.3): bài riêng cho video số thập phân nối tiếp một video chính ----------
 # Dữ liệu: data/video-phu.json (+ data/en/video-phu.json, data/en/bai/<cha>-<phụ>-<slug>.json). Trang: bai/05-1-<slug>.html.
@@ -706,9 +719,11 @@ def tao_bai_phu(s, x):
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
+    ngay = x.get("ra_mat")
+    og = anh_chia_se_bai(goc, x["tieu_de"], s["ten"] + " · " + phan, so, ngay, None, s["ten"])
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": x["tieu_de"][:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + "assets/og.png"], "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay} if ngay else {}), "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": s["ten"]}},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Mark học AI", "item": BASE + GOC},
@@ -717,7 +732,7 @@ def tao_bai_phu(s, x):
             {"@type": "ListItem", "position": 4, "name": x["tieu_de"], "item": url}]},
     ]
     return GOC + goc, trang(goc, f'{x["tieu_de"]} | {SITE}', meta or x["mo_ta"], band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay)
 
 def video_phu_vi(sid):
     return next(s["tap"] for s in video_phu if s["id"] == sid)
@@ -1256,6 +1271,8 @@ def chay():
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
+    if CHON == "all":
+        anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
     trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
