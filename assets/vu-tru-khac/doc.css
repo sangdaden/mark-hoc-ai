@@ -240,3 +240,45 @@ html[lang="en"] .toc::before { content: "In this article"; }
 @media (min-width: 1000px) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .toc a.tc-toc::before { color: #C4B5FD; } }
 .toc a.tc-toc[aria-current] { background: #A78BFA; border-color: #A78BFA; color: #1E1B4B; }
 .toc a.tc-toc[aria-current]::before { position: static; width: 16px; height: 16px; border-radius: 0; background: currentColor; color: inherit; }
+
+/* Video YouTube của bài (Sang 15/10, script chèn khi data/vu-tru-khac.json có "youtube"): khối ngay dưới đầu bài với ảnh xem trước
+   tự vẽ theo màu bìa (hình bìa + Mark + nút phát đỏ), bấm thì doc.js thay bằng trình phát youtube-nocookie; mục đầu tiên trong mục lục
+   và nút đỏ trong cột tiện ích đều dẫn về khối này. */
+.vtk-video-mo { margin: 0; color: var(--muted); }
+.vtk-video-mo span { white-space: nowrap; }
+.vtk-video-khung { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 16px 34px -18px rgb(0 0 0 / .7); }
+.vtk-video-khung iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vtk-video-xem { position: absolute; inset: 0; display: block; width: 100%; padding: 0; border: 0; cursor: pointer; color: inherit; font: inherit;
+  background: radial-gradient(60% 80% at 75% 85%, color-mix(in srgb, var(--bia-nhan, #FBBF24) 28%, transparent), transparent 70%),
+    linear-gradient(150deg, var(--bia-2, #1E293B), var(--bia-1, #0F172A)); }
+.vtk-video-bia { position: absolute; inset: 0; text-align: left; }
+.vtk-video-bia i { position: absolute; left: 5%; top: 8%; max-width: 50%; font: normal 800 clamp(1rem, 4.2cqw, 2.1rem)/1.12 var(--font-display);
+  color: var(--bia-nhan, #FBBF24); text-shadow: 0 2px 10px rgb(0 0 0 / .35); }
+.vtk-video-khung { container-type: inline-size; }
+.vtk-video-bia .h { position: absolute; left: 6%; bottom: 10%; width: 26%; aspect-ratio: 1; opacity: .95; }
+.vtk-video-bia .h svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.vtk-video-bia img { position: absolute; right: 3%; bottom: 0; height: 76%; width: auto; filter: drop-shadow(0 10px 16px rgb(0 0 0 / .4)); }
+.vtk-video-nut { position: absolute; left: 47%; top: 50%; width: clamp(56px, 15cqw, 92px); aspect-ratio: 10 / 7; transform: translate(-50%, -50%);
+  display: grid; place-items: center; border-radius: 22%; background: #E11D2E; box-shadow: 0 10px 26px -8px rgb(0 0 0 / .6); transition: transform .15s, background .15s; }
+.vtk-video-nut svg { width: 42%; height: auto; fill: #fff; }
+.vtk-video-xem:hover .vtk-video-nut, .vtk-video-xem:focus-visible .vtk-video-nut { transform: translate(-50%, -50%) scale(1.08); background: #FF2D3F; }
+.vtk-video-xem:focus-visible { outline: 3px solid var(--vtk-nhan, #FBBF24); outline-offset: -3px; }
+.vtk-video-yt { margin: 0; }
+.vtk-video-yt a { font-weight: 600; color: var(--cam); }
+.toc a.vtk-toc-video { display: inline-flex; align-items: center; gap: 6px; background: #E11D2E; border-color: #E11D2E; color: #fff; font-weight: 600; }
+.toc a.vtk-toc-video::before { content: ""; flex: none; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent currentColor; }
+.toc a.vtk-toc-video:hover { background: #FF2D3F; border-color: #FF2D3F; color: #fff; }
+@media (min-width: 1000px) {
+  .toc a.vtk-toc-video { display: flex; background: color-mix(in srgb, #E11D2E 16%, transparent); color: var(--ink); }
+  .toc a.vtk-toc-video::before { border-left-color: #E11D2E; }
+  .toc a.vtk-toc-video:hover { background: color-mix(in srgb, #E11D2E 28%, transparent); color: var(--ink); }
+  .toc a.vtk-toc-video[aria-current] { background: #E11D2E; color: #fff; }
+  .toc a.vtk-toc-video[aria-current]::before { position: static; width: 0; height: 0; border-radius: 0; background: none; border-left-color: #fff; }
+}
+@media (min-width: 1280px) {
+  .vtk-ray-video { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #E11D2E; color: #fff;
+    text-decoration: none; font: 600 .88rem/1.25 var(--font-display); box-shadow: 0 10px 24px -14px rgb(0 0 0 / .5); }
+  .vtk-ray .vtk-ray-video small { color: #FECDD3; }
+  .vtk-ray-video:hover { background: #FF2D3F; }
+  .vtk-ray-video .ic { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linejoin: round; }
+}

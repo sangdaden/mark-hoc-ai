@@ -164,3 +164,19 @@
   addEventListener("scroll", function () { if (!cho) { cho = true; requestAnimationFrame(ve); } }, { passive: true });
   ve();
 })();
+
+// Video YouTube của bài: bấm ảnh xem trước thì mới nạp trình phát (youtube-nocookie, tự phát), trang không tải gì của YouTube trước đó.
+(function () {
+  var nut = document.querySelector(".vtk-video-xem");
+  if (!nut) return;
+  nut.addEventListener("click", function () {
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + nut.dataset.ma + "?autoplay=1&rel=0";
+    f.title = nut.dataset.ten;
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    f.allowFullscreen = true;
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    nut.replaceWith(f);
+    f.focus();
+  });
+})();

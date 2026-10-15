@@ -1393,6 +1393,11 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 .vtk-the { position: relative; }
 .vtk-the .vtk-nhan { position: absolute; z-index: 3; top: -13px; right: -6px; margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
 @media (max-width: 760px) { .vtk-the .vtk-nhan { font-size: 10px; padding: 4px 7px; } }
+/* Bài có video YouTube (script chèn): nút phát tròn đỏ ló ra ở góc trái trên của bìa */
+.vtk-the .vtk-nhan-video { position: absolute; z-index: 3; top: -12px; left: -12px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: #E11D2E; color: #fff; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6), 0 0 0 2px rgb(255 255 255 / .85); }
+.vtk-the .vtk-nhan-video svg { width: 15px; height: 15px; margin-left: 2px; fill: currentColor; }
+
 .vtk-the:focus-visible { outline: none; }
 .vtk-the:focus-visible .vtk-bia { outline: 3px solid var(--bia-nhan); outline-offset: 3px; }
 @media (prefers-reduced-motion: no-preference) { .vtk-bia { transition: transform .2s; } }
