@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Bài báo AI tự mở đúng ngày: chạy lại mỗi ngày lúc 00:05 giờ Việt Nam (17:05 UTC)
+  schedule:
+    - cron: "5 17 * * *"
 permissions:
   contents: read
   pages: write
@@ -19,6 +22,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dựng góc Bài báo AI theo ngày hôm nay, rồi bỏ nguồn (đáp án, bài chưa mở) khỏi bản đăng
+        run: |
+          pip install --quiet cryptography
+          python3 scripts/tao_bai_bao.py
+          rm -rf bai-bao-nguon
       - name: Gắn mã phiên bản để trình duyệt tải bản mới
         run: |
           find . -name "*.html" -not -path "./.git/*" -exec sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" {} +

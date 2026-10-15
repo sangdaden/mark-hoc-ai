@@ -3,7 +3,8 @@
 
 Lỗi (làm PR đỏ):
   1. Trang tiếng Việt và tiếng Anh phải đi thành cặp: X.html <-> en/X.html,
-     bai/X.html <-> en/bai/X.html, vu-tru-khac/X.html <-> en/vu-tru-khac/X.html.
+     bai/X.html <-> en/bai/X.html, vu-tru-khac/X.html <-> en/vu-tru-khac/X.html,
+     bai-bao/X.html <-> en/bai-bao/X.html.
   2. Mọi trang (trừ trang chuyển hướng) phải nạp theo-doi.js.
   3. Link và ảnh nội bộ (href/src tương đối) phải trỏ tới file có thật.
   4. Mọi file data/**/*.json phải đọc được.
@@ -27,7 +28,7 @@ from urllib.parse import unquote, urlparse
 
 GOC = Path(__file__).resolve().parent.parent
 BO_QUA_THU_MUC = {".git", "node_modules", ".github"}
-NHOM_CAP = ["", "bai/", "vu-tru-khac/"]
+NHOM_CAP = ["", "bai/", "vu-tru-khac/", "bai-bao/"]
 VTK = ("vu-tru-khac/", "en/vu-tru-khac/", "assets/vu-tru-khac/", "vu-tru-khac.html",
        "en/vu-tru-khac.html", "data/vu-tru-khac", "scripts/tao_vu_tru_khac.py",
        "scripts/tao_discord_vu_tru_khac.py")
