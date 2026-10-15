@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The AI that guesses when you forget (Settles &amp; Meeder): summary, review and lessons | Another Universe</title>
+<meta name="description" content="A &quot;half-life&quot; model trained on 12.9 million learning traces to predict when you are about to forget a word, published at ACL 2016. Read from the full paper, the open data, and 14 claims fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The AI that guesses when you forget (Settles &amp; Meeder): summary, review and lessons | Another Universe">
+<meta property="og:description" content="A &quot;half-life&quot; model trained on 12.9 million learning traces to predict when you are about to forget a word, published at ACL 2016. Read from the full paper, the open data, and 14 claims fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #130B24; --bia-2: #2E1065; --bia-nhan: #34D399; }
+:root { --vtk-nhan: #34D399; }
+body header { --ho-so: "Paper file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/bai-bao-ai-doan-luc-quen.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Bài báo đổi cách ta học" #9: Settles \& Meeder 2016, --night = deep violet #6D28D9, --day = teal green (accent #34D399; darker #059669 on light paper). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #6D28D9;
+  --day: #059669;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #A78BFA; --day: #34D399; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #A78BFA; --day: #34D399; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.cmp td { vertical-align: top; }
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Reading tools"><div class="vtk-ray-bia" aria-hidden="true"><i>The AI that guesses when you forget</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<g transform="rotate(8 70 30)">
+<rect x="56" y="10" width="34" height="23" rx="3" fill="#F5F3FF" fill-opacity=".9"/>
+<rect x="61" y="16" width="19" height="3.5" rx="1.7" fill="var(--bia-nhan, #34D399)"/>
+<rect x="61" y="23" width="12" height="3.5" rx="1.7" fill="#6D28D9" fill-opacity=".55"/>
+</g>
+<g transform="rotate(-10 40 20)">
+<rect x="30" y="8" width="26" height="18" rx="3" fill="#EDE9FE" fill-opacity=".5"/>
+</g>
+<path d="M8 44 C14 60 18 66 24 68 L24 44 C32 58 38 66 46 68 L46 44 C58 56 70 64 82 67 L82 44 C88 50 92 54 96 56" stroke="#A78BFA" stroke-width="4.5"/>
+<g fill="var(--bia-nhan, #34D399)"><circle cx="24" cy="44" r="4"/><circle cx="46" cy="44" r="4"/><circle cx="82" cy="44" r="4"/></g>
+<path d="M8 86 H94" stroke="#A78BFA" stroke-opacity=".45" stroke-width="2" stroke-dasharray="2 5"/>
+</svg></span><img src="../../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Time left</small><b class="vtk-con-lai" data-phut="13" data-chu="en">about 13 min read</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-ai-va-viec-hoc.html"><small>Up next</small><b>Does AI help or harm learning</b><span>Paper #010 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Papers That Changed How We Learn #9 · Memory · AI in education</span>
+  <h1>The AI that guesses when you will forget</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="A sawtooth forgetting curve: memory fades, then jumps back up at each review, with reviews spaced further apart, next to three word cards">
+    <path d="M6 10 C20 30 30 40 44 44 L44 10 C64 28 80 38 100 42 L100 10 C130 24 160 32 190 36 L190 10 C230 20 262 26 300 28" fill="none" stroke="#6D28D9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#34D399"><circle cx="44" cy="10" r="5"/><circle cx="100" cy="10" r="5"/><circle cx="190" cy="10" r="5"/></g>
+    <line x1="6" y1="54" x2="310" y2="54" stroke="#6D28D9" stroke-opacity=".35" stroke-width="2"/>
+    <g transform="translate(262 34) rotate(-8)"><rect width="30" height="20" rx="3" fill="#fff" stroke="#6D28D9" stroke-width="2"/><rect x="5" y="6" width="18" height="3" rx="1" fill="#34D399"/></g>
+  </svg>
+  <p class="sub">Settles &amp; Meeder · "A Trainable Spaced Repetition Model for Language Learning" · ACL 2016, Berlin</p>
+  <div class="meta">
+    <div><span class="label">Paper</span><b>Burr Settles and Brendan Meeder, ACL 2016, pp. 1848–1858</b></div>
+    <div><span class="label">Question</span><b>can a machine guess when a person is about to forget a word?</b></div>
+    <div><span class="label">Data</span><b>12.9 million learning traces over 2 weeks from a language-learning app</b></div>
+    <div><span class="label">Label</span><b>Solid, moderately: good at predicting, not shown to make people learn better</b></div>
+  </div>
+  <p class="nguon">Source: Settles and Meeder (2016), Proceedings of the 54th Annual Meeting of the ACL, pp. 1848–1858, §4.1 (data). The label is Mark's assessment.</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">Question</a><a href="#bo-cuc">The story</a><a href="#khai-niem">What the paper says</a><a href="#danh-gia-bai-bao">How it was received</a><a href="#dan-chung">Fact check</a><a href="#moi-nhat">Latest</a><a href="#danh-gia">Mark's score</a><a href="#ap-dung">Lessons</a><a href="#doc-tiep">Further reading</a><a href="#nguon">Sources</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark is reading with you</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">One-minute recap</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6c4 10 8 14 12 15V6c3 7 7 10 12 11"/><path d="M4 27h24"/></svg><b>A 130-year-old idea</b><span>Memory fades along Ebbinghaus's forgetting curve (1885). Reviewing just before you forget makes it last longer.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><b>A word's "half-life"</b><span>Each word in your head has a half-life: after that much time, your chance of recalling it is 50%.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><b>Learned from 12.9 million traces</b><span>The model learns to predict from real data, with 45% less error than the old box system.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><b>Measured who came back</b><span>Trials with millions of learners measured whether they returned the next day, not test scores.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 22H4z"/><path d="M16 13v6M16 23v1"/></svg><b>Better guesses, not proven better learning</b><span>The paper shows the machine predicts better. It does not show you learn the language better.</span></div>
+  </div>
+  <p class="nguon">Source: Settles and Meeder (2016), §1 (Ebbinghaus), §3.3 (half-life), §4.1 and Table 2 (12.9 million traces, error), §4.3–4.4 (user experiments). The last card is Mark's reading of the paper itself.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The paper's question</h2></div>
+  <p class="thesis">If a machine knew exactly when you were about to forget a word, it could remind you to review right then. This 2016 paper teaches a machine to make that guess, from the data of millions of real learners.</p>
+  <div class="flow" aria-label="Three steps of the idea">
+    <div class="step"><span class="label">1885</span><b>The forgetting curve</b><span>Ebbinghaus: memory fades over time; spreading practice out saves effort.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1960s–1980s</span><b>Hand-set schedules</b><span>Pimsleur, the Leitner box: review gaps fixed in advance by people.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2016</span><b>Learned schedules</b><span>Settles and Meeder: let data set the half-life of each word, for each person.</span></div>
+  </div>
+  <p class="nguon">Source: Settles and Meeder (2016), §1 (Ebbinghaus 1885, algorithms from the 1960s–80s), §3.1–3.3.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>The story of the discovery</h2><p class="lead">Who did it, where, why, and what was known before.</p></div>
+  <div class="tl">
+    <div><b>1885 · Ebbinghaus tests himself</b><span>As the paper retells it: after a day of cramming he could recite 12-syllable sequences; spreading practice over 3 days took half as many repetitions for comparable results. More in <a href="bai-bao-duong-cong-quen.html">Paper #1: The forgetting curve</a>.</span></div>
+    <div><b>1967 and 1972 · The first schedules</b><span>Pimsleur fixed a listening schedule: 5 seconds, 25 seconds, 2 minutes, 10 minutes, 1 hour... up to 2 years. Leitner used boxes of cards: right answers move a card to a box reviewed less often, wrong answers move it back.</span></div>
+    <div><b>2012 · A language app launches</b><span>By the time of the paper, more than 150 million people had enrolled in a course on this app. At first it used a Leitner-like variant to show which words needed review.</span></div>
+    <div class="hot"><b>Learners complain</b><span>The Leitner-based "strength" meters did not reflect what they had actually learned. That is why the team started the research.</span></div>
+    <div><b>Two weeks of data</b><span>Burr Settles (Duolingo) and Brendan Meeder collected 12.9 million "one person, one word, one session" traces and compared ways of predicting recall.</span></div>
+    <div class="hot"><b>8/2016 · Berlin</b><span>The paper was presented at ACL, the main conference of computational linguistics. The team released the data and code.</span></div>
+  </div>
+  <p class="nguon">Source: Settles and Meeder (2016): §1 (Ebbinghaus), §2 (150 million learners), §3.1–3.2 and Appendix A.2 (Pimsleur 1967, Leitner 1972, schedules), §3.2 (learner complaints), §4.1 (2 weeks, 12.9 million); first page (ACL, Berlin, 7–12 August 2016); repository github.com/duolingo/halflife-regression.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="leit">
+        <title id="leit">The Leitner box system: five boxes reviewed after 1, 2, 4, 8, 16 days. A right answer moves the card to the next box, reviewed less often. A wrong answer moves it back to a box reviewed more often.</title>
+        <text x="20" y="26" class="t-ink t-bold">Leitner boxes: review gaps set in advance</text>
+        <g text-anchor="middle">
+          <rect x="40" y="70" width="100" height="60" rx="8" fill="var(--night)"/><text x="90" y="106" style="fill:#fff" class="t-bold">1 day</text>
+          <rect x="170" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".85"/><text x="220" y="106" style="fill:#fff" class="t-bold">2 days</text>
+          <rect x="300" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".7"/><text x="350" y="106" style="fill:#fff" class="t-bold">4 days</text>
+          <rect x="430" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".55"/><text x="480" y="106" style="fill:#fff" class="t-bold">8 days</text>
+          <rect x="560" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".4"/><text x="610" y="106" style="fill:#fff" class="t-bold">16 days</text>
+          <text x="350" y="38" class="t-ok t-bold">right → next box</text>
+          <text x="350" y="172" class="t-bad t-bold">wrong → back to a busier box</text>
+        </g>
+        <path d="M120 66 C200 50 300 50 380 66" fill="none" stroke="var(--ok)" stroke-width="2"/>
+        <path d="M380 134 C300 150 200 150 120 134" fill="none" stroke="var(--bad)" stroke-width="2"/>
+        <text x="20" y="190">every word, every learner, one shared rule, even if "pantalon" is easy and "manteau" is hard</text>
+      </svg>
+    </div>
+    <figcaption><b>Before the paper: hand-picked rules.</b> The boxes adapt to each card, but the gaps are still set by people: double when right, shorten when wrong. The easy and hard words are the paper's own example.<span class="nguon">Source: Settles and Meeder (2016), §3.2, Figure 3 and Appendix A.2.</span></figcaption>
+  </figure>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>What the paper says, in 3 sentences</h2></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 6c4 10 8 14 12 15V6c3 7 7 10 11 11"/></svg><div><b>1. Each word has a "half-life"</b><span>Recall of a word drops along Ebbinghaus's formula; after exactly one half-life, it is 50%.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><div><b>2. Data sets the half-life</b><span>Instead of hand-picked rules, the model learns from how often you have seen a word, got it right, got it wrong, and how hard the word is.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><div><b>3. Better predictions, more learners returning</b><span>Error falls by more than 45% versus the boxes; the final version was rolled out to all learners.</span></div></div>
+  </div>
+  <p class="nguon">Source: Settles and Meeder (2016), abstract, §3.3–3.4, Table 2, §4.4.</p>
+
+  <div class="concept">
+    <div class="term"><h3>The half-life formula</h3><span class="en">half-life regression · p = 2^(−Δ/h)</span><span class="pg">§3.3, equations (1) and (2)</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="hl">
+          <title id="hl">Forgetting curve p equals 2 to the power minus delta over h. With a half-life h of 1 day, recall is 50 percent after 1 day and 25 percent after 2 days. With a half-life of 4 days, the curve is much flatter: recall reaches 50 percent only after 4 days.</title>
+          <line x1="60" y1="200" x2="700" y2="200" class="axis"/><line x1="60" y1="30" x2="60" y2="200" class="axis"/>
+          <line x1="60" y1="115" x2="700" y2="115" class="gridl"/>
+          <text x="54" y="34" text-anchor="end">100%</text><text x="54" y="119" text-anchor="end">50%</text><text x="54" y="204" text-anchor="end">0</text>
+          <g text-anchor="middle"><text x="60" y="220">0</text><text x="140" y="220">1</text><text x="220" y="220">2</text><text x="380" y="220">4</text><text x="700" y="220">8 days</text></g>
+          <path d="M60 30 C100 72 130 108 140 115 C170 135 200 150 220 157.5 C280 175 340 186 380 189 C500 196 620 199 700 199.7" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <path d="M60 30 C160 60 280 96 380 115 C480 134 600 150 700 157.5" fill="none" stroke="var(--night)" stroke-width="3"/>
+          <circle cx="140" cy="115" r="5" fill="var(--day)"/><circle cx="380" cy="115" r="5" fill="var(--night)"/>
+          <text x="440" y="52" class="t-day t-bold">h = 1 day: 50% left after 1 day</text>
+          <text x="440" y="72" class="t-night t-bold">h = 4 days: 50% left after 4 days</text>
+          <text x="120" y="24" class="t-ink">p = 2^(−Δ/h): Δ is the time since the last review</text>
+        </svg>
+      </div>
+      <figcaption><b>Every correct review stretches the half-life.</b> The model estimates the half-life as 2 to the power of a weighted sum (times seen, times right, times wrong, which word). The weights are not hand-picked; they are learned from 12.9 million traces. The curves are drawn from the formula, not from data.<span class="nguon">Source: Settles and Meeder (2016), §3.3, equation (1) p = 2^(−Δ/h) and (2) ĥ = 2^(Θ·x); §3.4 (features). Illustration drawn by Mark from the formula.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Result 1: predicting recall</h3><span class="en">mean absolute error · lower is better</span><span class="pg">Table 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 250" role="img" aria-labelledby="mae">
+          <title id="mae">Mean absolute error, lower is better. Learned half-life 0.128. Constant guess at the average 0.175. Logistic regression 0.211. Leitner boxes 0.235. Pimsleur 0.445.</title>
+          <g>
+            <text x="20" y="44" class="t-ink">half-life (HLR)</text><rect x="230" y="30" width="115" height="22" rx="4" fill="var(--night)"/><text x="352" y="46" class="t-night t-bold">0.128</text>
+            <text x="20" y="84" class="t-ink">constant guess 0.859</text><rect x="230" y="70" width="158" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="395" y="86" class="t-bold">0.175</text>
+            <text x="20" y="124" class="t-ink">logistic regression</text><rect x="230" y="110" width="190" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="427" y="126" class="t-bold">0.211</text>
+            <text x="20" y="164" class="t-ink">Leitner boxes</text><rect x="230" y="150" width="212" height="22" rx="4" fill="var(--day)"/><text x="449" y="166" class="t-day t-bold">0.235</text>
+            <text x="20" y="204" class="t-ink">Pimsleur</text><rect x="230" y="190" width="400" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="637" y="206" class="t-bold">0.445</text>
+          </g>
+          <text x="20" y="240">mean absolute error between predicted and observed recall rate, lower is better</text>
+        </svg>
+      </div>
+      <figcaption><b>45% less than the boxes.</b> But a detail few people mention: at ranking "which word is more likely forgotten" (AUC, where 0.5 is a coin flip), the new model scores 0.538 while the Leitner boxes score 0.542, the best in the table. The paper explains that the data are very noisy and 85.9% of words are recalled correctly on average.<span class="nguon">Source: Settles and Meeder (2016), Table 2 and §4.1, footnote 7.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Result 2: trials with real users</h3><span class="en">daily retention · A/B test</span><span class="pg">§4.3–4.4, Table 4</span></div>
+    <div class="tablebox"><table class="cmp">
+      <tr><th>Experiment</th><th>Scale</th><th>Came back next day: any activity</th><th>New lessons</th><th>Practice</th></tr>
+      <tr><td>I. Half-life model vs Leitner boxes</td><td>6 weeks, just under 1 million learners</td><td>+0.3%</td><td>+0.3%</td><td class="n">−7.3%</td></tr>
+      <tr><td>II. Lean half-life model vs full model</td><td>2 weeks, 3.3 million learners</td><td class="y">+12.0%</td><td class="y">+1.7%</td><td class="y">+9.5%</td></tr>
+    </table></div>
+    <p class="nguon">Source: Settles and Meeder (2016), Table 4, §4.3 (6 weeks, "just under 1 million students"), §4.4 (2 weeks, 3.3 million). The −7.3%, +12.0%, +1.7%, +9.5% cells are statistically significant (p &lt; 0.001).</p>
+    <details class="more"><summary>Read this table carefully: 12% compared with what?</summary><div>
+      <p>The abstract says the model "improved daily student engagement by 12%". That number comes from experiment II: the lean version (without word-specific features) versus the full version. Not versus the old boxes.</p>
+      <p>Versus the boxes (experiment I), the share of learners returning to practice fell by 7.3%. The authors read this as good news: many people used to practise only to "keep the tree gold"; with more accurate meters they took new lessons instead of pointless practice.</p>
+      <p>And "came back the next day" measures engagement, not a language test score.</p>
+    </div></details>
+  </div>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How this paper has been received</h2><p class="lead">Each row has a source and lookup date.</p></div>
+  <div class="tablebox"><table class="cmp">
+    <tr><th>Item</th><th>Finding</th></tr>
+    <tr><td>Venue, year</td><td>54th ACL conference, Berlin, August 2016, pp. 1848–1858, peer reviewed. DOI 10.18653/v1/P16-1174.</td></tr>
+    <tr><td>Citations</td><td>Google Scholar: not checked (blocked). The aggregator liner.com shows 176 (seen on 15/10/2026, update date unknown).</td></tr>
+    <tr><td>Replicated?</td><td>Data and code are public. A personal GitHub project reran it and found about 46% less error than Leitner, and also found Leitner ranks slightly better. No peer-reviewed replication of the user trials found.</td></tr>
+    <tr><td>Used as a benchmark</td><td>Tabibian et al. (PNAS 2019) used this data; Ye et al. (KDD 2022) compared against models of this kind on 220 million logs from another app.</td></tr>
+    <tr><td>Main criticisms</td><td>(1) Ranking is close to a coin flip, behind the boxes; (2) it measured coming back, not learning; (3) the 12% is versus the full model itself; (4) the authors worked for the company and tested on its own product.</td></tr>
+    <tr><td>Awards</td><td>No source found, none listed.</td></tr>
+    <tr><td>Verdict</td><td><span class="tag ok">SOLID</span>, moderately: solid for what it measured (prediction), cautious for "helps you learn better".</td></tr>
+  </table></div>
+  <p class="nguon">Source: first page of the paper; liner.com (checked 15/10/2026); github.com/HyunsikParker/half-life (personal project, not peer reviewed); Tabibian et al., PNAS 116(10):3988–3993 (2019); Ye, Su, Cao, KDD 2022, pp. 4381–4390. Criticisms (1)–(3) come from Tables 2 and 4 of the paper itself; (4) is Mark's remark.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Fact check: facts and myths</h2><p class="lead">14 things often said about the paper and about "the app that knows when you forget". Tap each row for the reason.</p></div>
+  <div class="tally" role="img" aria-label="8 solid, 4 caution, 2 false">
+    <div class="o" style="flex:8">8 SOLID</div><div class="w" style="flex:4">4 CAUTION</div><div class="b" style="flex:2">2 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Published at ACL 2016, pp. 1848–1858</span></summary><p class="note">First page of the paper and the official repository README.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The model builds on Ebbinghaus's forgetting curve</span></summary><p class="note">§3.3: "Central to the theory of memory is the Ebbinghaus model", formula p = 2^(−Δ/h).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The data are 12.9 million learning traces over 2 weeks</span></summary><p class="note">§4.1. Each trace is one person, one word, one session.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Prediction error is over 45% lower than the Leitner boxes</span></summary><p class="note">Table 2: 0.128 vs 0.235. A rerun on the public data found about 46% (GitHub personal project, secondary source).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Versus the boxes, learners returning to practice fell 7.3%</span></summary><p class="note">Table 4, experiment I. The authors say learners stopped practising just to "keep the tree gold".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Dropping word-specific features worked better</span></summary><p class="note">§4.4: word features overfitted, some words decayed very fast however much people practised; the lean version won on all 3 measures.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Spaced practice beats cramming for retention</span></summary><p class="note">Meta-analysis by Cepeda et al. (2006), Psychological Bulletin: 317 experiments in 184 articles. The paper itself cites it.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Data and code are public</span></summary><p class="note">github.com/duolingo/halflife-regression; 361 MB data file on Harvard Dataverse.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The machine predicts the exact moment you forget a word"</span></summary><p class="note">It predicts the average recall rate well. For ranking which word is more likely forgotten, AUC is only 0.538 (0.5 is a coin flip), behind the boxes at 0.542 (Table 2).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"The new algorithm made learners 12% more engaged than the old one"</span></summary><p class="note">12% is experiment II, lean versus full model. Versus the old boxes, any activity rose just 0.3% (Table 4).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"34 hours on the app equals a university semester of Spanish"</span></summary><p class="note">The paper repeats this (§2). The original study by Vesselinov and Grego (2012) was commissioned by the company and not peer reviewed; only 90 of 156 people stayed to the end (TechCrunch 2013 and critiques, secondary sources).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>"Newer models are far better"</span></summary><p class="note">Ye et al. (KDD 2022) report 12.6% over the previous best methods on 220 million logs; the 2023 extension cuts error by 64%. But this is reported by the team behind that app, without a large independent comparison.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The paper proves the app makes you better at languages"</span></summary><p class="note">The paper measured two things: prediction error and next-day return rate. There was no language test in the study.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"The app uses chatbot-style AI to guess when you forget"</span></summary><p class="note">The model is a regression: a few counters (seen, right, wrong) plus word features, fitted by gradient methods (§3.3–3.4, Appendix A.3). No large language model is involved.</p></details>
+  </div>
+  <p class="nguon">Source: as noted in each row; full list under Sources.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Part 6</span><h2>What the latest research says</h2></div>
+  <div class="tl">
+    <div><b>2006 · The foundation holds</b><span>Cepeda et al. pooled 317 experiments: spaced practice beats cramming, and the longer you need to remember, the longer the best gap between reviews.</span></div>
+    <div><b>2019 · PNAS: optimising the schedule</b><span>Tabibian et al. used data from the same app and report that learners who followed the algorithm's schedule remembered better than those on rule-based schedules.</span></div>
+    <div><b>2020 · Word difficulty</b><span>Zaidi et al. (Cambridge): word complexity is a highly informative feature that a neural network can learn.</span></div>
+    <div class="hot"><b>2022–2023 · 220 million logs</b><span>Ye et al. (KDD 2022, IEEE TKDE 2023) built a least-effort review schedule for a vocabulary app; they report 12.6% over earlier methods, then a 64% cut in prediction error.</span></div>
+  </div>
+  <p class="nguon">Source: Cepeda et al., Psychological Bulletin 132(3):354–380 (2006); Tabibian et al., PNAS 116(10):3988–3993 (2019); Zaidi et al., arXiv 2004.11327 (2020); Ye, Su, Cao, KDD 2022, pp. 4381–4390 and IEEE TKDE 2023. Papers after 2006 were read in abstract only.</p>
+  <p class="verdict">In short: machines keep getting better at predicting when you forget. Whether learners actually get better, measured by an independent test, is still rarely answered.</p>
+  <p class="nguon">Mark's reading of the studies above.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Mark scores the paper</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources listed, not data from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Method</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Real-world use</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Evidence of better learning</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Data transparency</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Real, very large, public data</li><li>Links an 1885 theory to machine learning</li><li>Tested on real users, reporting an unfavourable result too (−7.3%)</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>No test of learning</li><li>Word ranking close to a coin flip</li><li>The abstract's 12% is easy to misread</li></ul></div>
+  </div>
+  <p class="verdict">An honest, useful paper: machines predict forgetting better. But "predicts well" is only halfway to "learns well".</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Lessons: use spaced-repetition apps the right way</h2><p class="lead">Usable from tomorrow, with or without an app.</p></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Review when reminded</b><span>A reminder means the half-life is running out. Review then, rather than piling it all into the weekend.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h5"/></svg><div><b>Recall before flipping</b><span>Say the answer in your head before you look. Tapping multiple choice too fast makes the app misjudge you.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22l7-7 5 4 10-10"/></svg><div><b>No app: boxes 1-2-4-8</b><span>Four paper boxes. Right moves a card to a less frequent box, wrong sends it back to the 1-day box. That is Leitner.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><div><b>A streak is not a test score</b><span>Streaks help you come back. Whether you really know the words needs a check outside the app.</span></div></div>
+  </div>
+  <p class="nguon">Source: Leitner boxes from Settles and Meeder (2016), §3.2; "review before forgetting" from Cepeda et al. (2006). The habits are Mark's suggestions.</p>
+  <details class="more"><summary>Self-check after 1 week: 3 steps</summary><div>
+    <p>1. Write out 20 words you learned last week, hide the meanings.</p>
+    <p>2. Without the app, write each meaning and one sentence per word. Count the correct sentences.</p>
+    <p>3. Record the number. Repeat next week with 20 new words. If the number does not rise, change how you review, not just how many minutes.</p>
+  </div></details>
+  <div class="quote"><span>Every word has a half-life. Your job is to meet it again before the half-life runs out.</span><span class="src">Mark's summary of the paper's formula, not a quotation.</span></div>
+  <p class="verdict">Want to learn how to use AI for studying (reviewing, making cards, self-testing)? Visit <a href="https://markhocai.com">Mark Học AI (markhocai.com)</a> to read or learn.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 9</span><h2>Further reading</h2></div>
+  <div class="reads">
+    <div><b>Settles and Meeder (2016), "A Trainable Spaced Repetition Model for Language Learning"</b><span class="muted">The original, 11 pages; §3.3 and Table 4 give the gist.</span></div>
+    <div><b>Cepeda et al. (2006), "Distributed practice in verbal recall tasks"</b><span class="muted">The meta-analysis on spaced practice behind every spaced-repetition app.</span></div>
+    <div><b>Papers That Changed How We Learn #1: The forgetting curve (Ebbinghaus, 1885)</b><span class="muted">The first person to measure how fast he forgot.</span></div>
+    <div><b>Giải mã siêu trí nhớ (Mark Ở Vũ Trụ Khác, book #4)</b><span class="muted">Memory techniques to pair with smarter review.</span></div>
+    <div><b>Papers That Changed How We Learn #10: Does AI help or harm learning</b><span class="muted">When students had a chatbot during practice: better homework, worse exams.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 10</span><h2>Sources</h2><p class="lead">The original paper was read in full (the PDF in the official code repository on GitHub). The working environment blocks Google Scholar, the conference site and most journal sites; sources read only through search results or the press are marked.</p></div>
+  <ol class="srcs">
+    <li><b>Settles, B. and Meeder, B. (2016)</b>. "A Trainable Spaced Repetition Model for Language Learning". Proceedings of the 54th Annual Meeting of the ACL, pp. 1848–1858, Berlin. DOI 10.18653/v1/P16-1174. <a href="https://aclanthology.org/P16-1174/">aclanthology.org</a> · <a href="https://github.com/duolingo/halflife-regression">code and data</a></li>
+    <li><b>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., Rohrer, D. (2006)</b>. "Distributed practice in verbal recall tasks: A review and quantitative synthesis". Psychological Bulletin 132(3):354–380. <a href="https://pubmed.ncbi.nlm.nih.gov/16719566/">PubMed</a></li>
+    <li><b>Tabibian, B. et al. (2019)</b>. "Enhancing human learning via spaced repetition optimization". PNAS 116(10):3988–3993. DOI 10.1073/pnas.1815156116.</li>
+    <li><b>Ye, J., Su, J., Cao, Y. (2022)</b>. "A Stochastic Shortest Path Algorithm for Optimizing Spaced Repetition Scheduling". KDD 2022, pp. 4381–4390; extended in IEEE TKDE 2023.</li>
+    <li><b>Zaidi, A. et al. (2020)</b>. "Adaptive Forgetting Curves for Spaced Repetition Language Learning". <a href="https://arxiv.org/abs/2004.11327">arXiv 2004.11327</a>.</li>
+    <li><b>Vesselinov, R. and Grego, J. (2012)</b>. "Duolingo effectiveness study". Technical report, Queens College, CUNY (not peer reviewed).</li>
+    <li>Secondary sources: liner.com (citation count, checked 15/10/2026); github.com/HyunsikParker/half-life (rerun, personal project); TechCrunch 17/1/2013 and critiques of the 34-hour study.</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Share this article"><p>Found this useful? Send it to a friend</p><div><button type="button" data-chia-se data-url="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html" data-tieu-de="The AI that guesses when you forget" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-share"/></svg>Share</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fvu-tru-khac%2Fbai-bao-ai-doan-luc-quen.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-link"/></svg>Copy link</button></div></aside>
+<footer>Papers That Changed How We Learn #09. Figures are illustrative diagrams; numbers come from the original paper and the sources named, checked in the Fact check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

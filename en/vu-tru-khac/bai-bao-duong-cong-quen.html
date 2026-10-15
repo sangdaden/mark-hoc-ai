@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Forgetting Curve (Hermann Ebbinghaus): summary, review and lessons | Another Universe</title>
+<meta name="description" content="One man memorized thousands of nonsense syllable lists to measure how fast he forgot, published as Über das Gedächtnis (Leipzig, 1885) and replicated in PLOS ONE in 2015. A close reading with 14 claims fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/bai-bao-duong-cong-quen.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-duong-cong-quen.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-duong-cong-quen.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-duong-cong-quen.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Forgetting Curve (Hermann Ebbinghaus): summary, review and lessons | Another Universe">
+<meta property="og:description" content="One man memorized thousands of nonsense syllable lists to measure how fast he forgot, published as Über das Gedächtnis (Leipzig, 1885) and replicated in PLOS ONE in 2015. A close reading with 14 claims fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/bai-bao-duong-cong-quen.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #130B24; --bia-2: #4C1D95; --bia-nhan: #FBBF24; }
+:root { --vtk-nhan: #FBBF24; }
+body header { --ho-so: "Paper file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/bai-bao-duong-cong-quen.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Papers That Changed How We Learn" #1: Ebbinghaus, --night = purple #7C3AED (the curve), --day = amber/yellow (review points). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #7C3AED;
+  --day: #B45309;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #A78BFA; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #A78BFA; --day: #FBBF24; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.evalbox { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evalbox > div { display: grid; grid-template-columns: 11rem 1fr; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--rule); }
+.evalbox > div:first-child { border-top: 0; }
+.evalbox b { font-family: var(--font-display); font-weight: 500; font-size: .92rem; }
+.evalbox span { font-size: .92rem; line-height: 1.45; }
+.evalbox .verdict-row { background: var(--ok-bg); }
+.evalbox .verdict-row.warnv { background: var(--warn-bg); }
+@media (max-width: 560px) { .evalbox > div { grid-template-columns: 1fr; gap: 2px; } }
+.three { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; font-size: 1.02rem; }
+.three li::marker { font-family: var(--font-mono); color: var(--night); font-weight: 600; }
+.invite { border: 1px solid var(--rule); border-left: 3px solid var(--day); border-radius: 6px; background: var(--paper); padding: 12px 14px; font-size: .95rem; }
+
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Reading tools"><div class="vtk-ray-bia" aria-hidden="true"><i>The Forgetting Curve</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<g transform="rotate(-8 50 78)">
+<rect x="6" y="66" width="24" height="14" rx="3" fill="#FFF7ED" fill-opacity=".55"/>
+<rect x="36" y="70" width="24" height="14" rx="3" fill="#FFF7ED" fill-opacity=".4"/>
+<rect x="66" y="66" width="24" height="14" rx="3" fill="#FFF7ED" fill-opacity=".55"/>
+<g fill="#130B24" fill-opacity=".7"><rect x="10" y="71" width="16" height="4" rx="1"/><rect x="40" y="75" width="16" height="4" rx="1"/><rect x="70" y="71" width="16" height="4" rx="1"/></g>
+</g>
+<path d="M8 12 C 14 30, 20 36, 32 38 L32 16 C 40 30, 48 34, 60 35 L60 16 C 70 26, 80 29, 94 30" stroke="#C4B5FD" stroke-width="5"/>
+<g fill="var(--bia-nhan, #FBBF24)"><circle cx="8" cy="12" r="4"/><circle cx="32" cy="16" r="4"/><circle cx="60" cy="16" r="4"/></g>
+</svg></span><img src="../../assets/vu-tru-khac/mark/thac-mac.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Time left</small><b class="vtk-con-lai" data-phut="16" data-chu="en">about 16 min read</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-con-so-7.html"><small>Up next</small><b>The Magical Number Seven</b><span>Paper #002 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Papers That Changed How We Learn #1 · Memory · Review</span>
+  <h1>The Forgetting Curve</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="A purple curve drops fast and then levels off, with three yellow points: each review lifts the curve back up and the next drop is slower">
+    <path d="M8 8 C 30 40, 50 46, 90 50" fill="none" stroke="#7C3AED" stroke-width="4" stroke-linecap="round"/>
+    <path d="M90 50 L90 12 C 115 34, 140 40, 175 44" fill="none" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M175 44 L175 12 C 210 26, 240 32, 312 36" fill="none" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#FBBF24"><circle cx="90" cy="12" r="6"/><circle cx="175" cy="12" r="6"/><circle cx="8" cy="8" r="6"/></g>
+    <g fill="#7C3AED" font-family="JetBrains Mono, monospace" font-size="9"><text x="98" y="10">review</text><text x="183" y="10">review</text></g>
+  </svg>
+  <p class="sub">Hermann Ebbinghaus · <i>Über das Gedächtnis</i> (On Memory) · Leipzig, 1885</p>
+  <div class="meta">
+    <div><span class="label">The paper</span><b>a monograph on memory, printed in 1885, translated into English in 1913</b></div>
+    <div><span class="label">Finding</span><b>we forget fastest at first, then more slowly; spreading reviews over days beats cramming</b></div>
+    <div><span class="label">Replicated</span><b>Heller, Mack and Seitz (1991); Murre and Dros (PLOS ONE, 2015)</b></div>
+    <div><span class="label">Label</span><b>Solid, as long as the numbers are read correctly</b></div>
+  </div>
+  <p class="nguon">Source: Ebbinghaus (1885), English translation by Ruger and Bussenius (1913); Heller, Mack and Seitz (1991), Zeitschrift für Psychologie 199; Murre and Dros (2015), PLOS ONE 10(7): e0120644. The label is Mark's assessment.</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">The discovery</a><a href="#khai-niem">What the paper says</a><a href="#danh-gia-bai-bao">How it was received</a><a href="#dan-chung">Fact-check</a><a href="#moi-nhat">Latest research</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Apply it</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark is reading with you</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Re-read in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M7 27c1-6 5-9 9-9s8 3 9 9"/></svg><b>One person, measuring himself</b><span>Ebbinghaus was both the scientist and the only participant.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="3"/><path d="M10 13h12M10 19h8"/></svg><b>2,300 nonsense syllables</b><span>Consonant, vowel, consonant, with no meaning, so memory could be measured "clean".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 6c3 12 8 16 22 18"/><path d="M5 27h22"/></svg><b>Fast, then slow</b><span>After 20 minutes he still saved 58% of relearning effort. After 1 day, 34%. After 31 days, still 21%.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="18" width="6" height="9"/><rect x="13" y="13" width="6" height="14"/><rect x="22" y="8" width="6" height="19"/></svg><b>Spread it out</b><span>38 readings over 3 days matched 68 readings crammed into 1 day.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v8M16 21v1"/></svg><b>Not "we forget 70%"</b><span>His numbers measure relearning effort saved, not the percentage still remembered.</span></div>
+  </div>
+  <p class="nguon">Source: Ebbinghaus (1885/1913), chapters 3, 7, 8; syllable count per Britannica and the APS Observer (secondary source). How to read "savings": Murre and Chessa (2023), Psychonomic Bulletin &amp; Review.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The paper's question</h2></div>
+  <p class="thesis">Can memory be measured the way temperature is? In 1885 a German answered yes: we forget along a curve with a clear shape, and how we review decides how steep that curve is.</p>
+  <p class="nguon">The question is Mark's summary of the aim Ebbinghaus states in the preface and chapter 1.</p>
+  <div class="flow" aria-label="The paper's three steps">
+    <div class="step"><span class="label">Step 1</span><b>Make "clean" material</b><span>Nonsense syllables, so nothing already in the head helps.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 2</span><b>Measure by relearning time</b><span>Learn, wait, relearn, and see how much time is saved.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Step 3</span><b>Draw the curve</b><span>7 points from 20 minutes to 31 days. Plus a test of massed versus spread practice.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>The story of the discovery</h2><p class="lead">Who, where, how, and why it was bold at the time.</p></div>
+  <div class="tl">
+    <div><b>1850 · Barmen, Germany</b><span>Hermann Ebbinghaus is born. He studies philosophy; he is not yet a psychologist in today's sense.</span></div>
+    <div><b>1870s · A second-hand book</b><span>He reads Gustav Fechner's <i>Elemente der Psychophysik</i>, a book that measures sensation with numbers. The thought: if sensation can be measured, why not memory? Sources disagree on whether he bought it in Paris or London.</span></div>
+    <div class="hot"><b>1879–1880 · About 7 months of self-testing</b><span>He memorises lists of nonsense syllables to the beat of a metronome, then relearns them after different delays, timing every session.</span></div>
+    <div><b>1884 · Trying poetry</b><span>A comparison with meaningful verse: six stanzas of Byron's <i>Don Juan</i>.</span></div>
+    <div class="hot"><b>1885 · <i>Über das Gedächtnis</i></b><span>Printed in Leipzig. One of the first times human memory was studied with measured experiments.</span></div>
+    <div><b>1913 · English edition</b><span>Ruger and Bussenius translate it as <i>Memory: A Contribution to Experimental Psychology</i>.</span></div>
+  </div>
+  <p class="nguon">Source: birth year and the Fechner book per Wikipedia, New World Encyclopedia, Encyclopædia Universalis (secondary sources, which conflict on where he bought the book); 1879–1880 per the documentation of the Ebbinghaus dataset in the R package HistData (Friendly, data supplied by Jaap Murre); Don Juan per the 1913 translation, chapter 5.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="ebm">
+        <title id="ebm">How "savings" is measured. The first learning takes a long time. After a delay, relearning the same list takes less. The time saved, as a percentage of the first session, is the savings score. Illustrative example: first 100 seconds, later 66 seconds, savings 34 percent.</title>
+        <text x="20" y="28" class="t-ink t-bold">how Ebbinghaus measured memory: "savings"</text>
+        <text x="20" y="74" class="t-ink">first learning</text>
+        <rect x="170" y="56" width="500" height="28" rx="4" fill="var(--night)"/>
+        <text x="420" y="75" text-anchor="middle" style="fill:#fff" class="t-bold">100 seconds to the first error-free recital</text>
+        <text x="20" y="134" class="t-ink">relearning a day later</text>
+        <rect x="170" y="116" width="330" height="28" rx="4" fill="var(--night)" fill-opacity=".55"/>
+        <rect x="500" y="116" width="170" height="28" rx="4" fill="none" stroke="var(--day)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="335" y="135" text-anchor="middle" class="t-ink t-bold">66 seconds</text>
+        <text x="585" y="135" text-anchor="middle" class="t-day t-bold">34 seconds saved</text>
+        <text x="20" y="186" class="t-ink">savings = (100 − 66) / 100 = 34%</text>
+        <text x="20" y="210">Illustrative round numbers. "34%" is relearning effort saved, not the percentage remembered.</text>
+      </svg>
+    </div>
+    <figcaption><b>Measuring even what we think is gone.</b> Often we cannot recall a thing, yet relearning it is still faster. This measure captures that "hidden" memory.<span class="nguon">Source: definition in Murre and Chessa (2023), Psychonomic Bulletin &amp; Review; the "repetitions up to the first errorless reproduction" criterion per the 1913 translation, chapter 3. The numbers in the figure are Mark's illustration.</span></figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>Bold for its time</h3><span class="muted">Before him, memory belonged to philosophy and was argued over. Ebbinghaus put it into a measured experiment.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>Remarkable discipline</h3><span class="muted">Reading at a steady beat and timing every learning and relearning session, so the measurements could be compared.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>A weakness he admitted</h3><span class="muted">Only one person. The introduction to the 1913 translation says the numerical results are therefore "limited in significance".</span></div>
+  </div>
+  <p class="nguon">Source: introduction to the 1913 translation (via excerpts in search results); metronome per the APS Observer and Wikipedia (secondary sources).</p>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1 of 3</span><h3>The discovery</h3><div class="chips"><span class="chip">one person</span><span class="chip">2,300 syllables</span><span class="chip">savings</span><span class="chip">quiz</span></div></div>
+    <div class="part b2"><span class="label">Part 2 of 3</span><h3>What it says, how it was received</h3><div class="chips"><span class="chip">7 points</span><span class="chip">68 vs 38</span><span class="chip">the 70% myth</span></div></div>
+    <div class="part b3"><span class="label">Part 3 of 3</span><h3>New research, lessons, Mark's score</h3><div class="chips"><span class="chip">2015 replication</span><span class="chip">317 experiments</span><span class="chip">review plan</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>What the paper says</h2><p class="lead">In 3 sentences, then in pictures.</p></div>
+  <ol class="three">
+    <li>Memory can be measured: how much relearning time drops tells you how much was kept.</li>
+    <li>We forget fastest right after learning, then more slowly, but some of it is still there after a month.</li>
+    <li>For the same number of readings, spreading them over several days keeps more than massing them at once.</li>
+  </ol>
+  <p class="nguon">The three sentences are Mark's summary of chapters 7 and 8.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 260" role="img" aria-labelledby="ebc">
+        <title id="ebc">Ebbinghaus's forgetting curve, measured as percent savings on relearning: 20 minutes 58.2; 1 hour 44.2; about 9 hours 35.8; 1 day 33.7; 2 days 27.8; 6 days 25.4; 31 days 21.1. The horizontal axis is not evenly spaced.</title>
+        <line x1="50" y1="210" x2="700" y2="210" class="axis"/>
+        <line x1="50" y1="50" x2="700" y2="50" class="gridl"/><line x1="50" y1="130" x2="700" y2="130" class="gridl"/>
+        <text x="44" y="54" text-anchor="end">60%</text><text x="44" y="134" text-anchor="end">30%</text><text x="44" y="214" text-anchor="end">0</text>
+        <polyline points="80,54.8 180,92.1 280,114.5 380,120.1 480,135.9 580,142.3 680,153.7" fill="none" stroke="var(--night)" stroke-width="3"/>
+        <g fill="var(--night)"><circle cx="80" cy="54.8" r="5"/><circle cx="180" cy="92.1" r="5"/><circle cx="280" cy="114.5" r="5"/><circle cx="380" cy="120.1" r="6" fill="var(--day)"/><circle cx="480" cy="135.9" r="5"/><circle cx="580" cy="142.3" r="5"/><circle cx="680" cy="153.7" r="5"/></g>
+        <g text-anchor="middle">
+          <text x="80" y="42" class="t-ink t-bold">58.2</text><text x="180" y="80" class="t-ink t-bold">44.2</text><text x="280" y="102" class="t-ink t-bold">35.8</text><text x="380" y="108" class="t-day t-bold">33.7</text><text x="480" y="124" class="t-ink t-bold">27.8</text><text x="580" y="130" class="t-ink t-bold">25.4</text><text x="680" y="142" class="t-ink t-bold">21.1</text>
+          <text x="80" y="230">20 min</text><text x="180" y="230">1 hour</text><text x="280" y="230">~9 hours</text><text x="380" y="230">1 day</text><text x="480" y="230">2 days</text><text x="580" y="230">6 days</text><text x="680" y="230">31 days</text>
+        </g>
+        <text x="50" y="22" class="t-ink">% of relearning effort saved (higher means more retained)</text>
+        <text x="50" y="252">uneven horizontal axis: the points are minutes to weeks apart</text>
+      </svg>
+    </div>
+    <figcaption><b>A steep drop in the first hour, then almost flat.</b> From 20 minutes to 1 hour, 14 points go. From 6 days to 31 days, just over 4.<span class="nguon">Source: Ebbinghaus (1885/1913), chapter 7, results table; the values 0.582 (20 min), 0.442 (1 hour), 0.211 (31 days) match the comparison table in Murre and Dros (2015); "about 9 hours" is given as 8.8 hours in some sources.</span></figcaption>
+  </figure>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="ebs">
+        <title id="ebs">Massed versus spread practice. For a 12-syllable list, 68 readings crammed into the day before gave the same relearning result as 38 readings spread over the three days before.</title>
+        <text x="20" y="28" class="t-ink t-bold">same result when relearning a 12-syllable list</text>
+        <text x="20" y="80" class="t-ink">massed in 1 day</text>
+        <rect x="190" y="62" width="476" height="28" rx="4" fill="var(--day)" fill-opacity=".85"/>
+        <text x="676" y="82" class="t-day t-bold">68</text>
+        <text x="20" y="134" class="t-ink">spread over 3 days</text>
+        <rect x="190" y="116" width="88" height="28" rx="4" fill="var(--night)"/><rect x="282" y="116" width="88" height="28" rx="4" fill="var(--night)"/><rect x="374" y="116" width="90" height="28" rx="4" fill="var(--night)"/>
+        <text x="474" y="136" class="t-night t-bold">38</text>
+        <text x="20" y="186">the three purple blocks are three days; the even split is illustrative, the book gives no per-day count</text>
+      </svg>
+    </div>
+    <figcaption><b>Almost half the readings, same result.</b> This is the earliest record of what we now call the spacing effect.<span class="nguon">Source: Ebbinghaus (1885/1913), chapter 8 (psychclassics.yorku.ca, memory8.htm, checked via excerpts); also quoted in the APS Observer and PMC3390592.</span></figcaption>
+  </figure>
+  <div class="quote"><span>With any considerable number of repetitions a suitable distribution of them over a space of time is decidedly more advantageous than the massing of them at a single time.</span><span class="src">Ebbinghaus (1885), 1913 translation, chapter 8, p. 89; quoted via db.barbanon.org (secondary source).</span></div>
+  <details class="more"><summary>More: how much easier is poetry than nonsense?</summary><div>
+    <p>In 1884 Ebbinghaus tried six stanzas of <i>Don Juan</i>. All six took 52 readings, hardly nine per stanza. With nonsense syllables, according to one summary, a 7-syllable list needed a single reading, but 16 syllables needed 30 and 24 syllables needed 44.</p>
+    <p>He noted himself that this comparison was not made under the same conditions, so no exact ratio should be drawn. The point worth keeping: meaning helps memory enormously, which is exactly why he removed it when measuring.</p>
+    <p class="nguon">Source: 1913 translation, chapter 5 (Don Juan, checked via excerpts); readings by list length per SuperMemo (secondary source). The online claim that poetry took "one tenth of the effort" was not found in the original and is not used.</p>
+  </div></details>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How this paper has been judged</h2><p class="lead">Where it appeared, citations, replications, criticism. Each line has a source.</p></div>
+  <div class="evalbox">
+    <div><b>Where, when</b><span>Monograph, Duncker &amp; Humblot, Leipzig, 1885. English edition: Teachers College, Columbia University, 1913.</span></div>
+    <div><b>Citations</b><span>Not retrieved. Google Scholar, Semantic Scholar and OpenAlex were all blocked from the writing environment (checked 15/10/2026). No number is given.</span></div>
+    <div><b>Replicated?</b><span>Yes. Heller, Mack and Seitz (1991), two people, in Germany. Murre and Dros (2015), one person, about 70 hours of learning over 75 days: "the Ebbinghaus forgetting curve has indeed been replicated".</span></div>
+    <div><b>Large synthesis</b><span>Rubin and Wenzel (1996) collected 210 published data sets: the "fast then slow" shape recurs everywhere, but several mathematical functions fit almost equally well.</span></div>
+    <div><b>Main criticism</b><span>(1) One person, testing himself. (2) Bartlett (1932, <i>Remembering</i>): stripping out meaning is a remedy "at least as bad as the disease", and says little about everyday memory. (3) The numbers hold only for nonsense syllables and the savings measure.</span></div>
+    <div><b>Standing</b><span>In 1985, the centenary, Roediger (Contemporary Psychology) called him one of psychology's foremost pioneers; the Journal of Experimental Psychology: Learning, Memory, and Cognition ran Murdock's piece on his contributions. Awards: no source found, none listed.</span></div>
+    <div class="verdict-row"><b>Verdict</b><span><span class="tag ok">SOLID</span> The shape of the curve and the benefit of spreading practice have been replicated. Read it correctly: the number is "relearning effort saved", measured on nonsense syllables.</span></div>
+  </div>
+  <p class="nguon">Source: HistData documentation (friendly/HistData, man/Ebbinghaus.Rd) for Heller et al. (1991) and Dros's 75 days; abstract of Murre and Dros (2015), PLOS ONE; Rubin and Wenzel (1996), Psychological Review 103(4), 734–760; Bartlett quoted via J. F. Kihlstrom's Berkeley notes (secondary source); Roediger (1985), Contemporary Psychology 30(7), 519–523; Murdock (1985), JEP: LMC 11(3), 469–471. The label is Mark's assessment.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Fact-check: what holds up and what doesn't</h2><p class="lead">14 things often said about Ebbinghaus and the forgetting curve. Tap a row for the reason.</p></div>
+  <div class="tally" role="img" aria-label="7 solid, 5 caution, 2 false">
+    <div class="o" style="flex:7">7 SOLID</div><div class="w" style="flex:5">5 CAUTION</div><div class="b" style="flex:2">2 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Ebbinghaus was his own and only participant</span></summary><p class="note">He ran the tests and was the one tested. Encyclopedia.com and the HistData documentation both say so (secondary sources).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>He used about 2,300 nonsense syllables</span></summary><p class="note">Britannica, Wikipedia and the APS Observer all give about 2,300 consonant-vowel-consonant syllables (secondary sources, consistent with each other).</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>We forget fastest just after learning, then more slowly</span></summary><p class="note">Table in chapter 7; replicated by Heller et al. (1991) and Murre and Dros (2015); Rubin and Wenzel (1996) found this shape in 210 data sets.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>After 1 day savings were 33.7%, after 31 days still 21.1%</span></summary><p class="note">Chapter 7 table. The 31-day value (0.211) matches the comparison table in Murre and Dros (2015). Note: one person's numbers, for nonsense syllables.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>The curve was replicated in 2015</span></summary><p class="note">Murre and Dros (PLOS ONE, 2015): one person learned for about 70 hours, relearned after 20 minutes to 31 days, and concluded the curve "has indeed been replicated".</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Spreading reviews over several days beats cramming</span></summary><p class="note">Chapter 8: 38 readings over 3 days matched 68 in 1 day. More than 100 years later, Cepeda et al. (2006) synthesised 317 experiments and confirmed the benefit of spacing.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>A single participant is the original study's big weakness</span></summary><p class="note">The introduction to the 1913 translation itself says the numerical results are "limited in significance". That is why replications with other people matter.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The jump at the 24-hour point is caused by sleep</span></summary><p class="note">Murre and Dros write that the curve "most probably shows a jump upwards starting at the 24 hour data point". Sleep is a plausible explanation, but a one-person study cannot isolate it.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The forgetting curve is an exact exponential</span></summary><p class="note">Rubin and Wenzel (1996) tested 105 functions: logarithmic, power and a few other forms fit almost equally well and are hard to tell apart. Wickens (1998) commented further. "Exponential" is only an approximation.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>The "1, 3, 7, 30 days, after Ebbinghaus" review schedule is his</span></summary><p class="note">Chapter 8 only compares massed and spread practice; it gives no schedule. Spaced-repetition systems arrived about 100 years later (supermemo.guru, secondary source). The schedules build on his idea; they are not his.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Nonsense syllables make memory measurement "clean"</span></summary><p class="note">Murre and Chessa (2023) defend savings as a very "pure" measure. But Bartlett (1932) objected that removing meaning removes what makes everyday memory work. Both have a point.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Ebbinghaus found Fechner's book in a second-hand shop in Paris</span></summary><p class="note">Universalis and Roediger (1985) say Paris, Wikipedia says London. All sources mention his reading Fechner; where he bought the book is disputed.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"We forget 70% of what we learn within 24 hours"</span></summary><p class="note">The 33.7% after 1 day is relearning effort saved, not the percentage remembered. Subtracting it from 100 and calling it "66–70% forgotten" swaps units. It was also measured on one person's nonsense syllables.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Everything we learn is forgotten along exactly this curve"</span></summary><p class="note">Meaningful verse was learned far faster (Don Juan, chapter 5). Radvansky, Parra and Doolen (2024) surveyed material from nonsense syllables to novels and found forgetting differs by material and by type of test.</p></details>
+  </div>
+  <p class="nguon">Source: as given in each row; full list in Part 10.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Part 6</span><h2>What the latest research says</h2><p class="lead">Recent replications and syntheses, with years and sources.</p></div>
+  <div class="tl">
+    <div><b>1991 · A German replication</b><span>Heller, Mack and Seitz, two people, the same savings method. The curve has the same shape.</span></div>
+    <div><b>1996 · A hundred years of forgetting</b><span>Rubin and Wenzel collect 210 data sets: fast-then-slow is the general rule; the exact function is unsettled.</span></div>
+    <div class="hot"><b>2006 · 317 experiments on spacing</b><span>Cepeda et al. (Psychological Bulletin): 839 assessments from 317 experiments in 184 articles. The best gap between reviews grows the longer you need to remember.</span></div>
+    <div class="hot"><b>2015 · A Dutch replication</b><span>Murre and Dros (PLOS ONE): about 70 hours of learning over 75 days. The curve replicates, with a small jump from the 24-hour point.</span></div>
+    <div><b>2021 · Spaced self-testing</b><span>Latimier, Peyre and Ramus (Educational Psychology Review): pooling 29 studies, spaced retrieval practice clearly beats massed retrieval practice (g = 0.74). Expanding schedules were not clearly better than even ones.</span></div>
+    <div><b>2022 · A review</b><span>Carpenter, Pan and Butler (Nature Reviews Psychology): spacing and retrieval practice are powerful but underused, partly because learners hold mistaken beliefs about learning.</span></div>
+    <div><b>2024 · From nonsense syllables to novels</b><span>Radvansky, Parra and Doolen (Psychonomic Bulletin &amp; Review) compare forgetting across materials: the more complex the material, the closer to a straight line forgetting is predicted to be.</span></div>
+  </div>
+  <p class="nguon">Source: HistData (Heller et al. 1991); Rubin and Wenzel (1996), Psychological Review 103(4); Cepeda et al. (2006), Psychological Bulletin 132(3), 354–380, abstract on PubMed; Murre and Dros (2015), PLOS ONE 10(7); Latimier et al. (2021), Educational Psychology Review 33, 959–987, abstract (checked via search results); Carpenter et al. (2022), Nature Reviews Psychology 1(9), 496–511; Radvansky et al. (2024), Psychonomic Bulletin &amp; Review 31(6), 2437–2464.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="ebr">
+        <title id="ebr">Two curves with the same shape: Ebbinghaus in 1880 and the 2015 replication, both dropping fast then levelling off. The 2015 curve has a small bump at the 24-hour point. Illustrative, not to scale.</title>
+        <path d="M40 24 C 120 80, 200 96, 680 120" fill="none" stroke="var(--night)" stroke-width="3"/>
+        <path d="M40 40 C 110 92, 200 106, 300 110 L 330 100 C 400 110, 520 122, 680 132" fill="none" stroke="var(--day)" stroke-width="3" stroke-dasharray="7 5"/>
+        <circle cx="330" cy="100" r="6" fill="var(--day)"/>
+        <text x="345" y="94" class="t-day t-bold">bump at 24 hours (2015)</text>
+        <text x="460" y="66" class="t-night t-bold">Ebbinghaus, 1880</text>
+        <text x="40" y="146">illustration of the shape, not to scale</text>
+      </svg>
+    </div>
+    <figcaption><b>The same shape after 130 years.</b> The 2015 paper concludes the curve has been replicated, and is "not completely smooth".<span class="nguon">Source: abstract of Murre and Dros (2015), PLOS ONE 10(7): e0120644. The figure is Mark's illustration.</span></figcaption>
+  </figure>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Assessment</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 10, not data from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Finding still holds</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Method (for its time)</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Useful today</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Understood correctly online</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Brought memory into the laboratory for the first time</li><li>Savings captures even "hidden" memory</li><li>Replicated more than 100 years later</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>One person, testing himself</li><li>Nonsense syllables are far from real lessons</li><li>The numbers get misquoted as "we forget 70%"</li></ul></div>
+  </div>
+  <p class="verdict">The forgetting curve is real. But the most valuable part of the paper is not the numbers; it is chapter 8: to remember for long, split your reviews over several days.</p>
+  <details class="more"><summary>More: why the "70% forgotten" myth spreads</summary><div>
+    <p>The number is round, scary, and comes with a scientist's name attached. It sells courses. But it turns "relearning effort saved" into "percentage remembered", two very different things.</p>
+    <p>The accurate version is less dramatic and more useful: most of the loss happens in the first hour, and a review at the right time pulls it back up.</p>
+  </div></details>
+  <p class="nguon">"More" is Mark's commentary, based on the sources in Parts 4 and 5.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Apply it: review before you fully forget</h2><p class="lead">Doable from tomorrow, for anything you need to remember: vocabulary, formulas, lectures.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="eba">
+        <title id="eba">Four habits: review the same day; review again after about a day; widen the gaps; quiz yourself instead of rereading.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · same day</text><text x="110" y="100" class="t-night t-bold">a few minutes before bed</text><text x="110" y="116">the first hour drops fastest</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · after 1 day</text><text x="300" y="100" class="t-day t-bold">recall it next day</text><text x="300" y="116">before it drops further</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · widen the gaps</text><text x="490" y="100" class="t-rem t-bold">days, then 1–2 weeks</text><text x="490" y="116">longer memory, longer gaps</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · quiz yourself</text><text x="680" y="100" class="t-ok t-bold">close the book, recall</text><text x="680" y="116">don't just reread</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">"5 readings in one evening" loses to "5 readings over 5 days".</text>
+      </svg>
+    </div>
+    <figcaption><b>Each habit rests on a sourced finding.</b> The first hour drops fastest (chapter 7), spread practice beats massed (chapter 8, Cepeda 2006), the best gap grows with how long you need to remember (Cepeda 2006), spaced self-testing is powerful (Latimier 2021).<span class="nguon">Source: as in Parts 3 and 6. The specific schedule (same day, after 1 day, a few days, 1–2 weeks) is Mark's suggestion, not a schedule a study has proven optimal.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Review the same day</b><span>Studied in the morning? Spend 5 minutes recalling it in the evening. That is when the curve is steepest.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg><div><b>Schedule it, don't remember it</b><span>Put it in your calendar: tomorrow, in 3 days, next week. Review by the calendar, not by mood.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="18" width="6" height="9"/><rect x="13" y="13" width="6" height="14"/><rect x="22" y="8" width="6" height="19"/></svg><div><b>Split it, don't cram it</b><span>Two hours to revise? Four 30-minute sessions over four days beat one 2-hour session the night before.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h5"/><circle cx="23" cy="23" r="5"/><path d="M23 21v2l1 1"/></svg><div><b>Close the book, then recall</b><span>Each review, cover the answer and say it first. If you get it, widen the gap; if not, review sooner.</span></div></div>
+  </div>
+  <details class="more"><summary>Self-check: how do you review? 5 questions</summary><div>
+    <p>1. The last time you learned something important, how long before you reviewed it?</p>
+    <p>2. Is most of your review time crammed into the night before, or spread out?</p>
+    <p>3. When you review, do you reread or close the book and recall?</p>
+    <p>4. Try now: write down 5 points from yesterday's lesson without looking. How many did you get?</p>
+    <p>5. Put 3 reviews of this week's lesson in your calendar. Next week, redo question 4 and compare.</p>
+  </div></details>
+  <p class="invite">Ebbinghaus and memory techniques are also mentioned briefly in <a href="giai-ma-sieu-tri-nho.html">Decoding Super Memory</a>. This piece does not repeat that part.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 9</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Ebbinghaus (1885), <i>Memory: A Contribution to Experimental Psychology</i>, 1913 translation</b><span class="muted">Free on psychclassics.yorku.ca. Chapter 7 (the curve) and chapter 8 (spread practice) are short and readable.</span></div>
+    <div><b>Murre and Dros (2015), "Replication and Analysis of Ebbinghaus' Forgetting Curve"</b><span class="muted">PLOS ONE, free to read. Includes a comparison with the original data.</span></div>
+    <div><b>Carpenter, Pan and Butler (2022), "The science of effective learning with spacing and retrieval practice"</b><span class="muted">Nature Reviews Psychology. A readable review of spacing and self-testing.</span></div>
+    <div><b>Radvansky et al. (2022), "A new look at memory retention and forgetting"</b><span class="muted">JEP: Learning, Memory, and Cognition 48(11). A recent review of retention and forgetting.</span></div>
+    <div><b>Papers That Changed How We Learn #02: Miller (1956), the number seven</b><span class="muted">Ebbinghaus could recite a 7-syllable list after one reading. More than 70 years later, Miller asked why seven.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 10</span><h2>Sources</h2><p class="lead">The paper itself and peer-reviewed replications come first. Secondary sources are labelled. The writing environment blocks the original-paper pages and citation databases, so the originals were checked through excerpts of those same pages in search results, not opened in full.</p></div>
+  <ol class="srcs">
+    <li><b>Ebbinghaus, H.</b> (1885). <i>Über das Gedächtnis</i>. Leipzig: Duncker &amp; Humblot. Translation: <i>Memory: A Contribution to Experimental Psychology</i>, trans. Ruger and Bussenius, 1913 (chapters 3, 5, 7, 8). <a href="https://psychclassics.yorku.ca/Ebbinghaus/index.htm">psychclassics.yorku.ca</a></li>
+    <li><b>Murre, J. M. J. and Dros, J.</b> (2015). Replication and Analysis of Ebbinghaus' Forgetting Curve. <i>PLOS ONE</i> 10(7): e0120644. <a href="https://doi.org/10.1371/journal.pone.0120644">doi.org</a></li>
+    <li><b>Heller, O., Mack, W. and Seitz, J.</b> (1991). Replikation der Ebbinghaus'schen Vergessenskurve mit der Ersparnis-Methode. <i>Zeitschrift für Psychologie</i> 199, 3–18 (cited via HistData).</li>
+    <li><b>Friendly, M.</b> R package HistData, dataset <code>Ebbinghaus</code> (data supplied by J. Murre, April 2025). <a href="https://github.com/friendly/HistData">github.com</a></li>
+    <li><b>Murre, J. M. J. and Chessa, A. G.</b> (2023). Why Ebbinghaus' savings method from 1885 is a very "pure" measure of memory performance. <i>Psychonomic Bulletin &amp; Review</i>. <a href="https://doi.org/10.3758/s13423-022-02172-3">doi.org</a></li>
+    <li><b>Rubin, D. C. and Wenzel, A. E.</b> (1996). One hundred years of forgetting. <i>Psychological Review</i> 103(4), 734–760. <a href="https://doi.org/10.1037/0033-295X.103.4.734">doi.org</a></li>
+    <li><b>Cepeda, N. J. et al.</b> (2006). Distributed practice in verbal recall tasks. <i>Psychological Bulletin</i> 132(3), 354–380. <a href="https://pubmed.ncbi.nlm.nih.gov/16719566/">PubMed</a></li>
+    <li><b>Latimier, A., Peyre, H. and Ramus, F.</b> (2021). A meta-analytic review of the benefit of spacing out retrieval practice episodes on retention. <i>Educational Psychology Review</i> 33, 959–987.</li>
+    <li><b>Carpenter, S. K., Pan, S. C. and Butler, A. C.</b> (2022). The science of effective learning with spacing and retrieval practice. <i>Nature Reviews Psychology</i> 1(9), 496–511. <a href="https://doi.org/10.1038/s44159-022-00089-1">doi.org</a></li>
+    <li><b>Radvansky, G. A. et al.</b> (2022). A new look at memory retention and forgetting. <i>JEP: LMC</i> 48(11), 1698–1723; <b>Radvansky, Parra and Doolen</b> (2024). Memory from nonsense syllables to novels. <i>Psychonomic Bulletin &amp; Review</i> 31(6), 2437–2464.</li>
+    <li><b>Roediger, H. L.</b> (1985). Remembering Ebbinghaus. <i>Contemporary Psychology</i> 30(7), 519–523; <b>Murdock, B. B.</b> (1985). The contributions of Hermann Ebbinghaus. <i>JEP: LMC</i> 11(3), 469–471; <b>Wickens, T. D.</b> (1998), <i>Psychological Review</i>.</li>
+    <li>Secondary sources: Encyclopædia Britannica; Wikipedia (Hermann Ebbinghaus, Forgetting curve); Encyclopedia.com; New World Encyclopedia; Encyclopædia Universalis; APS Observer ("Recalling Psychology's Past: The Memory Drum"); SuperMemo and supermemo.guru; J. F. Kihlstrom's notes (Berkeley) quoting Bartlett (1932); db.barbanon.org (chapter 8 quote); idtips.substack.com (the 70% myth).</li>
+  </ol>
+  <p class="nguon">Citation count: not retrieved (Google Scholar, Semantic Scholar, OpenAlex blocked, checked 15/10/2026).</p>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Share this article"><p>Found this useful? Send it to a friend</p><div><button type="button" data-chia-se data-url="https://markhocai.com/en/vu-tru-khac/bai-bao-duong-cong-quen.html" data-tieu-de="The Forgetting Curve" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-share"/></svg>Share</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fvu-tru-khac%2Fbai-bao-duong-cong-quen.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/en/vu-tru-khac/bai-bao-duong-cong-quen.html" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-link"/></svg>Copy link</button></div></aside>
+<footer>Papers That Changed How We Learn #01. Figures are illustrative diagrams; numbers come from Ebbinghaus's own book and peer-reviewed replications, secondary sources are labelled, and claims are checked in the Fact-check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

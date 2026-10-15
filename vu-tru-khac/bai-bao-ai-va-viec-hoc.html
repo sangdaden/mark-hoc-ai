@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI giúp hay hại việc học (Bastani và cộng sự): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Có chatbot thì luyện tập tốt hơn, bỏ chatbot thì thi kém hơn 17%: thử nghiệm ngẫu nhiên đăng trên PNAS 2025. Mark chạy lại dữ liệu công khai của nhóm tác giả và kiểm chứng 14 nhận định.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-va-viec-hoc.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI giúp hay hại việc học (Bastani và cộng sự): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Có chatbot thì luyện tập tốt hơn, bỏ chatbot thì thi kém hơn 17%: thử nghiệm ngẫu nhiên đăng trên PNAS 2025. Mark chạy lại dữ liệu công khai của nhóm tác giả và kiểm chứng 14 nhận định.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #070B16; --bia-2: #1E293B; --bia-nhan: #F472B6; }
+:root { --vtk-nhan: #F472B6; }
+body header { --ho-so: "Hồ sơ bài báo"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/bai-bao-ai-va-viec-hoc.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Bài báo đổi cách ta học" #10: Bastani et al. 2025, --night = blue-black #0F172A (light slate in dark mode), --day = pink (accent #F472B6; darker #DB2777 on light paper). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0F172A;
+  --day: #DB2777;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #CBD5E1; --day: #F472B6; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #CBD5E1; --day: #F472B6; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.cmp td { vertical-align: top; }
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>AI giúp hay hại việc học</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<path d="M6 18 Q6 10 14 10 H48 Q56 10 56 18 V36 Q56 44 48 44 H26 L14 55 L17 44 H14 Q6 44 6 36 Z" fill="#1E293B" stroke="var(--bia-nhan, #F472B6)" stroke-width="4"/>
+<g fill="var(--bia-nhan, #F472B6)"><circle cx="20" cy="27" r="3.5"/><circle cx="31" cy="27" r="3.5"/><circle cx="42" cy="27" r="3.5"/></g>
+<rect x="64" y="30" width="13" height="58" rx="3" fill="var(--bia-nhan, #F472B6)"/>
+<rect x="82" y="70" width="13" height="18" rx="3" fill="#CBD5E1" fill-opacity=".8"/>
+<path d="M58 92 H98" stroke="#CBD5E1" stroke-opacity=".7" stroke-width="3"/>
+<path d="M66 22 L70 16 L74 22" stroke="var(--bia-nhan, #F472B6)" stroke-width="3"/>
+<path d="M85 60 L88.5 66 L92 60" stroke="#CBD5E1" stroke-opacity=".8" stroke-width="3"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/buon-ngu.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="14" data-chu="vi">khoảng 14 phút đọc</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-duong-cong-quen.html"><small>Bài tiếp theo</small><b>Đường cong quên</b><span>Bài báo #001 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Bài báo đổi cách ta học #10 · AI trong giáo dục · Toán</span>
+  <h1>AI giúp hay hại việc học</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Một khung chat có ba chấm, bên cạnh hai cột: cột luyện tập cao, cột bài kiểm tra thấp, và một cái nạng">
+    <rect x="4" y="6" width="96" height="40" rx="10" fill="var(--night)"/><path d="M20 46 l-6 12 l18 -12z" fill="var(--night)"/>
+    <g fill="#F472B6"><circle cx="34" cy="26" r="5"/><circle cx="52" cy="26" r="5"/><circle cx="70" cy="26" r="5"/></g>
+    <rect x="130" y="10" width="34" height="44" rx="4" fill="#F472B6"/><rect x="176" y="34" width="34" height="20" rx="4" fill="var(--night)" fill-opacity=".55"/>
+    <line x1="122" y1="56" x2="220" y2="56" stroke="var(--night)" stroke-opacity=".4" stroke-width="2"/>
+    <path d="M262 8 v46 M250 8 h24 M256 26 h12" stroke="var(--night)" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M262 54 l-8 0" stroke="var(--night)" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+  <p class="sub">Bastani và cộng sự · "Generative AI without guardrails can harm learning: Evidence from high school mathematics" · PNAS 2025</p>
+  <div class="meta">
+    <div><span class="label">Bài báo</span><b>PNAS tập 122, số 26, bài e2422633122 (2025)</b></div>
+    <div><span class="label">Thí nghiệm</span><b>gần 1.000 học sinh trung học ở Thổ Nhĩ Kỳ, chia ngẫu nhiên 3 nhóm</b></div>
+    <div><span class="label">Phát hiện</span><b>có chatbot thì luyện tập tốt hơn, bỏ chatbot thì thi kém hơn 17%</b></div>
+    <div><span class="label">Nhãn</span><b>Thận trọng: thiết kế tốt, dữ liệu mở, nhưng mới và chưa ai lặp lại</b></div>
+  </div>
+  <p class="nguon">Nguồn: Bastani và cộng sự (2025), PNAS 122(26), e2422633122, tóm tắt; dữ liệu công khai của nhóm tác giả (github.com/obastani/GenAICanHarmLearning). Nhãn là đánh giá của Mark.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Câu chuyện phát hiện</a><a href="#khai-niem">Bài báo nói gì</a><a href="#danh-gia-bai-bao">Được đánh giá thế nào</a><a href="#dan-chung">Kiểm chứng</a><a href="#moi-nhat">Mới nhất</a><a href="#danh-gia">Mark chấm</a><a href="#ap-dung">Bài học áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="4"/><path d="M10 22l-3 6 8-6"/></svg><b>Ba nhóm, một trường</b><span>Không AI, chatbot thường, và chatbot có "rào chắn" chỉ đưa gợi ý.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><b>Luyện tập: tăng vọt</b><span>Có AI, điểm bài luyện tập tăng 48% (chatbot thường) và 127% (chatbot gợi ý).</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l8 8 5-4 9 12"/><path d="M27 23h-6M27 23v-6"/></svg><b>Thi không AI: tụt</b><span>Nhóm chatbot thường thi kém hơn nhóm chưa từng dùng 17%. AI thành "cái nạng".</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4a8 8 0 0 1 5 14v4h-10v-4a8 8 0 0 1 5-14z"/><path d="M12 26h8"/></svg><b>Gợi ý thay đáp án</b><span>Chatbot chỉ gợi ý do giáo viên soạn thì gần như hết hại, dù cũng không làm điểm thi tăng.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><b>Thiết kế quyết định</b><span>Ở Harvard, gia sư AI soạn kỹ giúp sinh viên học nhiều hơn lớp học chủ động.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Bastani và cộng sự (2025), tóm tắt PNAS (48%, 127%, 17%, gợi ý do giáo viên soạn); Mark chạy lại phân tích chính từ dữ liệu công khai và ra cùng con số; Kestin và cộng sự (2025), Scientific Reports 15, 17458, tóm tắt.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của bài báo</h2></div>
+  <p class="thesis">Chatbot giải được bài tập trong vài giây. Vậy cho học sinh dùng nó trong giờ luyện tập, các em học được nhiều hơn, hay chỉ làm bài nhanh hơn?</p>
+  <div class="flow" aria-label="Ba chặng của mỗi buổi học">
+    <div class="step"><span class="label">Bước 1</span><b>Giáo viên giảng</b><span>Như mọi buổi, không AI.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 2</span><b>Luyện tập</b><span>Nhóm đối chứng tự làm; hai nhóm còn lại có chatbot GPT-4.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Bước 3</span><b>Kiểm tra</b><span>Cả ba nhóm làm bài không có AI.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Bastani và cộng sự (2025), tóm tắt; cấu trúc điểm luyện tập (Part 2) và kiểm tra (Part 3) theo dữ liệu và mã công khai của nhóm tác giả.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Câu chuyện phát hiện</h2><p class="lead">Ai làm, ở đâu, vì sao, và người ta biết gì trước đó.</p></div>
+  <div class="tl">
+    <div><b>1984 · Giấc mơ gia sư riêng</b><span>Bloom viết về "bài toán 2 sigma": học kèm một thầy một trò vượt xa lớp đông, nhưng không ai đủ tiền thuê gia sư cho mọi học sinh. Xem <a href="bai-bao-hai-sigma.html">Bài báo #8</a>.</span></div>
+    <div><b>30/11/2022 · Chatbot đến tay mọi người</b><span>ChatGPT ra mắt. Học sinh có ngay một "người giải bài" miễn phí, lúc nào cũng sẵn.</span></div>
+    <div class="hot"><b>Câu hỏi của nhóm Bastani</b><span>Hamsa Bastani (Wharton, Đại học Pennsylvania) và cộng sự hợp tác với một trường trung học ở Thổ Nhĩ Kỳ để thử ngay trong lớp học thật, không phải phòng thí nghiệm.</span></div>
+    <div><b>Thiết kế</b><span>Học sinh khối 9, 10, 11; 4 buổi ôn tập toán. Chia ngẫu nhiên: không AI, "GPT Base" (giống ChatGPT thường), "GPT Tutor" (lời nhắc soạn để bảo vệ việc học, đưa gợi ý của giáo viên thay vì đáp án).</span></div>
+    <div><b>7/2024 · Bản nháp lan nhanh</b><span>Bài lên SSRN với tên "Generative AI Can Harm Learning" và được bàn tán nhiều trước khi bình duyệt.</span></div>
+    <div class="hot"><b>6/2025 · Đăng trên PNAS</b><span>Tên mới thêm hai chữ quan trọng: "without guardrails", không có rào chắn. Nhóm công bố luôn dữ liệu và mã.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Bloom (1984), Educational Researcher; ngày ra mắt ChatGPT theo Wikipedia (nguồn thứ cấp); Bastani và cộng sự (2025), tóm tắt PNAS; khối lớp và số buổi theo dữ liệu công khai (final_data.csv); Wharton theo Knowledge at Wharton (nguồn thứ cấp); bản SSRN 4895486 (7/2024); ngày đăng 25/6/2025 theo trang CHIBE, Đại học Pennsylvania (nguồn thứ cấp).</p>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Bài báo nói gì, trong 3 câu</h2></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><div><b>1. Có AI, luyện tập tốt hẳn</b><span>Điểm bài luyện tập tăng 48% với chatbot thường, 127% với chatbot gợi ý.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7l8 8 5-4 9 12"/></svg><div><b>2. Bỏ AI, nhóm chatbot thường tụt</b><span>Thi không AI kém hơn nhóm chưa từng dùng 17%: các em dùng AI như cái nạng.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4a8 8 0 0 1 5 14v4h-10v-4a8 8 0 0 1 5-14z"/></svg><div><b>3. Rào chắn giảm phần lớn tác hại</b><span>Chatbot chỉ đưa gợi ý do giáo viên soạn thì điểm thi gần bằng nhóm đối chứng.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: Bastani và cộng sự (2025), tóm tắt PNAS. Mark chạy lại hồi quy chính từ dữ liệu công khai: +48,1%, +126,9%, −16,8%.</p>
+
+  <div class="concept">
+    <div class="term"><h3>Luyện tập và kiểm tra: hai chiều ngược nhau</h3><span class="en">practice vs exam · raw means</span><span class="pg">dữ liệu final_data.csv</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 290" role="img" aria-labelledby="pe">
+          <title id="pe">Điểm trung bình thô theo nhóm. Bài luyện tập: không AI 28 phần trăm, chatbot thường 47, chatbot gợi ý 67. Bài kiểm tra không AI: không AI 32 phần trăm, chatbot thường 29, chatbot gợi ý 32.</title>
+          <line x1="40" y1="220" x2="700" y2="220" class="axis"/>
+          <text x="190" y="24" text-anchor="middle" class="t-ink t-bold">bài luyện tập (có AI)</text>
+          <text x="530" y="24" text-anchor="middle" class="t-ink t-bold">bài kiểm tra (không AI)</text>
+          <g>
+            <rect x="80" y="164" width="60" height="56" rx="4" fill="var(--muted)" fill-opacity=".5"/>
+            <rect x="160" y="126" width="60" height="94" rx="4" fill="var(--day)"/>
+            <rect x="240" y="86" width="60" height="134" rx="4" fill="var(--night)"/>
+            <rect x="420" y="156" width="60" height="64" rx="4" fill="var(--muted)" fill-opacity=".5"/>
+            <rect x="500" y="162" width="60" height="58" rx="4" fill="var(--day)"/>
+            <rect x="580" y="156" width="60" height="64" rx="4" fill="var(--night)"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="110" y="156" class="t-ink t-bold">28%</text><text x="190" y="118" class="t-day t-bold">47%</text><text x="270" y="78" class="t-night t-bold">67%</text>
+            <text x="450" y="148" class="t-ink t-bold">32%</text><text x="530" y="154" class="t-day t-bold">29%</text><text x="610" y="148" class="t-night t-bold">32%</text>
+            <text x="110" y="238">không AI</text><text x="190" y="238">thường</text><text x="270" y="238">gợi ý</text>
+            <text x="450" y="238">không AI</text><text x="530" y="238">thường</text><text x="610" y="238">gợi ý</text>
+          </g>
+          <text x="40" y="262">thường = chatbot thường (GPT Base) · gợi ý = chatbot gợi ý (GPT Tutor)</text><text x="40" y="282">điểm trung bình thô, chưa điều chỉnh, 839 học sinh không thuộc lớp chuyên; Mark tính</text>
+        </svg>
+      </div>
+      <figcaption><b>Làm bài giỏi lên không có nghĩa là học được.</b> Con số chính thức của bài báo (+48%, +127%, −17%) là sau khi điều chỉnh theo điểm cũ của học sinh, giáo viên, buổi học, người chấm và khối lớp. Số thô ở hình chỉ để thấy hình dạng; Mark chạy lại phép điều chỉnh đó và ra đúng con số của bài.<span class="nguon">Nguồn: Bastani và cộng sự (2025), tóm tắt; tệp final_data.csv và main_analysis.R trong kho github.com/obastani/GenAICanHarmLearning (tải 15/10/2026), Mark tự tính.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Vì sao chatbot thường thành cái nạng</h3><span class="en">crutch · answers vs hints</span><span class="pg">tóm tắt PNAS; gpt_answers_full.csv</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="cr">
+          <title id="cr">Hai con đường. Chatbot thường: học sinh hỏi, chatbot đưa đáp án, học sinh chép, bài luyện tập đúng nhưng não không làm việc. Chatbot gợi ý: học sinh hỏi, chatbot đưa một gợi ý của giáo viên, học sinh tự làm bước tiếp theo.</title>
+          <text x="20" y="36" class="t-day t-bold">chatbot thường</text>
+          <g text-anchor="middle">
+            <rect x="160" y="16" width="120" height="32" rx="16" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/><text x="220" y="37" class="t-ink">hỏi bài</text>
+            <rect x="320" y="16" width="140" height="32" rx="16" fill="var(--day)"/><text x="390" y="37" style="fill:#fff" class="t-bold">nhận đáp án</text>
+            <rect x="500" y="16" width="190" height="32" rx="16" fill="var(--paper)" stroke="var(--day)" stroke-width="2"/><text x="595" y="37" class="t-ink">chép, xong bài</text>
+          </g>
+          <text x="20" y="116" class="t-night t-bold">chatbot gợi ý</text>
+          <g text-anchor="middle">
+            <rect x="160" y="96" width="120" height="32" rx="16" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/><text x="220" y="117" class="t-ink">hỏi bài</text>
+            <rect x="320" y="96" width="140" height="32" rx="16" fill="var(--night)"/><text x="390" y="117" style="fill:var(--paper)" class="t-bold">nhận gợi ý</text>
+            <rect x="500" y="96" width="190" height="32" rx="16" fill="var(--paper)" stroke="var(--night)" stroke-width="2"/><text x="595" y="117" class="t-ink">tự nghĩ bước tiếp</text>
+          </g>
+          <path d="M282 32 h34 M462 32 h34 M282 112 h34 M462 112 h34" stroke="var(--muted)" stroke-width="2"/>
+          <text x="20" y="170" class="t-ink">Thêm một lý do: GPT-4 khi đó giải đúng 290 trên 570 lần thử (51%).</text>
+          <text x="20" y="190">Chép đáp án của một "người giải" sai gần nửa số lần thì vừa không học, vừa học sai.</text>
+        </svg>
+      </div>
+      <figcaption><b>Hai cách hỏi, hai kết quả.</b> Tóm tắt bài báo nêu rào chắn quan trọng nhất: yêu cầu AI đưa gợi ý do giáo viên soạn thay vì đưa đáp án. Tỉ lệ giải đúng 51% là Mark đếm từ tệp kết quả GPT-4 công khai (57 bài, mỗi bài 10 lần; 237 lần sai logic, 43 lần sai tính toán).<span class="nguon">Nguồn: Bastani và cộng sự (2025), tóm tắt bản trên ADS; tệp gpt_answers_full.csv trong kho của nhóm tác giả, Mark tự đếm.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Bài báo này được đánh giá thế nào</h2><p class="lead">Mỗi dòng có nguồn và ngày tra.</p></div>
+  <div class="tablebox"><table class="cmp">
+    <tr><th>Mục</th><th>Kết quả</th></tr>
+    <tr><td>Nơi đăng, năm</td><td>PNAS (có bình duyệt), tập 122, số 26, bài e2422633122, 2025. DOI 10.1073/pnas.2422633122. PNAS có đăng một bản đính chính (DOI 10.1073/pnas.2518204122); Mark chưa đọc được nội dung.</td></tr>
+    <tr><td>Số lần trích dẫn</td><td>Chưa tra được (Google Scholar bị chặn; không thấy con số trong kết quả tìm kiếm ngày 15/10/2026).</td></tr>
+    <tr><td>Đã được lặp lại chưa</td><td>Chưa thấy nghiên cứu lặp lại cùng thiết kế. Mark chạy lại phân tích từ dữ liệu công khai: khớp 48%, 127%, −17%.</td></tr>
+    <tr><td>Đối chiếu</td><td>Kestin và cộng sự (Scientific Reports, 2025): gia sư AI soạn kỹ giúp sinh viên vật lý Harvard học nhiều hơn trong ít thời gian hơn so với lớp học chủ động.</td></tr>
+    <tr><td>Phản biện chính</td><td>Một trường, một nước, một môn, 4 buổi; chatbot gợi ý chỉ hết hại chứ không làm điểm thi tăng; dùng GPT-4 của năm đó, mô hình mới hơn có thể khác (nhận định của Mark).</td></tr>
+    <tr><td>Giải thưởng</td><td>Không tìm thấy nguồn, không ghi.</td></tr>
+    <tr><td>Kết luận</td><td><span class="tag warn">THẬN TRỌNG</span> thiết kế ngẫu nhiên tốt và dữ liệu mở, nhưng mới, một bối cảnh, chưa ai lặp lại.</td></tr>
+  </table></div>
+  <p class="nguon">Nguồn: trang PNAS và PubMed 40560616 (qua kết quả tìm kiếm); kho github.com/obastani/GenAICanHarmLearning; Kestin và cộng sự, Scientific Reports 15, 17458 (2025). Phản biện là tổng hợp của Mark từ dữ liệu và tóm tắt.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được nói về AI và việc học. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="6 vững, 6 cần thận trọng, 2 sai">
+    <div class="o" style="flex:6">6 VỮNG</div><div class="w" style="flex:6">6 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Bài đăng trên PNAS 2025, tập 122, số 26</span></summary><p class="note">README kho dữ liệu của tác giả, PubMed 40560616, IDEAS/RePEc. Tên đầy đủ có thêm "Evidence from high school mathematics".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Gần 1.000 học sinh, khối 9–11, 4 buổi, chia ngẫu nhiên</span></summary><p class="note">Tóm tắt ghi "gần một nghìn"; dữ liệu có 943 học sinh, 4 buổi, khối 9, 10, 11. Phân tích chính bỏ lớp chuyên, còn 839.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Có AI, điểm luyện tập tăng 48% và 127%</span></summary><p class="note">Tóm tắt PNAS. Mark chạy lại từ dữ liệu: +48,1% và +126,9%.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Bỏ AI, nhóm chatbot thường thi kém hơn 17%</span></summary><p class="note">Tóm tắt PNAS. Mark chạy lại: −16,8% sau điều chỉnh. Số thô: 29% so với 32%.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>GPT-4 khi đó giải sai gần nửa số bài</span></summary><p class="note">Tệp kết quả công khai: đúng 290/570 lần (51%).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Rào chắn chính: gợi ý của giáo viên thay vì đáp án</span></summary><p class="note">Câu trong tóm tắt bài báo (bản trên ADS).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Chatbot gợi ý làm học sinh thi giỏi hơn"</span></summary><p class="note">Nó chỉ xóa phần hại: điểm thi gần bằng nhóm đối chứng (Mark tính −1,3%, coi như không khác).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Học sinh dùng chatbot thường không thấy mình học kém đi"</span></summary><p class="note">Có trong các bài tóm tắt nghiên cứu (nguồn thứ cấp); Mark chưa đọc được phần này trong bài gốc.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Gia sư AI ở Harvard giúp học nhiều hơn lớp học"</span></summary><p class="note">Kestin và cộng sự (2025): đúng với 194 sinh viên một lớp vật lý nhập môn, hai buổi, đo ngắn hạn (chi tiết thiết kế theo báo chí, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Gia sư AI giúp học gấp đôi"</span></summary><p class="note">Bản nháp 2024 của Kestin viết "hơn gấp đôi". Bản đã bình duyệt chỉ viết "nhiều hơn đáng kể trong ít thời gian hơn".</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"MIT chứng minh ChatGPT làm não teo"</span></summary><p class="note">"Your Brain on ChatGPT" (2025) là bản nháp chưa bình duyệt, 54 người viết luận, đo điện não; có bài bình luận chỉ ra chỗ không nhất quán.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Ở Nigeria, 6 tuần học tiếng Anh với chatbot giúp tiến bộ rõ"</span></summary><p class="note">Ngân hàng Thế giới (De Simone và cộng sự, 2025): +0,23 độ lệch chuẩn ở môn tiếng Anh. Là bài làm việc, chưa bình duyệt.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Dùng AI để học kiểu gì cũng hại"</span></summary><p class="note">Nhóm chatbot gợi ý không bị hại; nghiên cứu Kestin thấy lợi khi gia sư AI được soạn kỹ. Hại hay giúp tùy cách dùng.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Phân tích gộp đã chứng minh ChatGPT giúp học tốt hơn rất nhiều"</span></summary><p class="note">Phân tích gộp nổi tiếng nhất (Wang và Fan, 2025, 51 nghiên cứu, g = 0,867) bị tạp chí rút ngày 22/4/2026 vì những chỗ không khớp trong phân tích.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở phần Nguồn.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Nghiên cứu mới nhất nói gì</h2></div>
+  <div class="tl">
+    <div><b>5/2025 · Nigeria, 6 tuần</b><span>Ngân hàng Thế giới: học sinh năm đầu cấp 3 học tiếng Anh với Copilot (GPT-4) trong 6 tuần, thử nghiệm ngẫu nhiên; +0,31 độ lệch chuẩn trên bài đánh giá tổng hợp, +0,23 với tiếng Anh. Chưa bình duyệt.</span></div>
+    <div><b>6/2025 · Harvard</b><span>Kestin và cộng sự: gia sư AI soạn theo nguyên tắc sư phạm, sinh viên học nhiều hơn trong ít thời gian hơn lớp học chủ động.</span></div>
+    <div><b>2025 · "Tác dụng đi tìm nguyên nhân"</b><span>Weidlich và cộng sự soát lại các thí nghiệm trong một phân tích gộp lớn: chỉ một thiểu số nhỏ mô tả rõ cách dùng AI, nhóm đối chứng làm gì, và đo đúng việc học.</span></div>
+    <div class="hot"><b>22/4/2026 · Một phân tích gộp bị rút</b><span>Bài gộp 51 nghiên cứu của Wang và Fan, từng được trích dẫn rất nhiều, bị tạp chí rút vì "những chỗ không khớp trong phân tích gộp".</span></div>
+  </div>
+  <p class="nguon">Nguồn: De Simone và cộng sự, World Bank Policy Research Working Paper WPS11125 (19/5/2025); Kestin và cộng sự, Scientific Reports 15, 17458 (3/6/2025); Weidlich, Gašević, Drachsler, Kirschner, Journal of Computer Assisted Learning 41(5), e70105 (2025); Retraction Note, Humanities and Social Sciences Communications 13, bài 528 (2026). Chỉ đọc được tóm tắt hoặc trang thông báo qua kết quả tìm kiếm.</p>
+  <p class="verdict">Tóm lại: câu hỏi đúng không còn là "AI tốt hay xấu cho việc học", mà là "AI được thiết kế và dùng thế nào". Bằng chứng tốt vẫn còn ít.</p>
+  <p class="nguon">Nhận định của Mark từ các nghiên cứu trên.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Mark chấm bài báo</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở phần Nguồn, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Thiết kế thí nghiệm</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Áp dụng rộng được</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Ý nghĩa thực tế</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Minh bạch dữ liệu</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Mạnh</span><ul class="plus"><li>Chia ngẫu nhiên trong lớp học thật</li><li>Đo cả lúc có AI lẫn lúc bỏ AI</li><li>Dữ liệu và mã công khai, chạy lại được</li></ul></div>
+    <div><span class="label">Yếu</span><ul class="minus"><li>Một trường, một môn, 4 buổi</li><li>Chưa có nghiên cứu lặp lại</li><li>Có đính chính chưa rõ nội dung</li></ul></div>
+  </div>
+  <p class="verdict">Bài báo không nói "AI hại". Nó nói: AI làm hộ thì hại, AI gợi ý thì không hại. Một bài học rất rõ cho người học.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Bài học áp dụng: dùng AI để hỏi gợi ý, không để chép đáp án</h2><p class="lead">Cho học sinh, sinh viên, và người tự học. Không cần biết kỹ thuật AI.</p></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Tự làm trước 10 phút</b><span>Chỉ mở AI khi đã thử và biết mình kẹt ở đâu.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4a8 8 0 0 1 5 14v4h-10v-4a8 8 0 0 1 5-14z"/></svg><div><b>Xin gợi ý, không xin đáp án</b><span>Nói rõ: "Đừng giải hộ. Cho mình một gợi ý cho bước tiếp theo thôi."</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 22H4z"/><path d="M16 13v6M16 23v1"/></svg><div><b>Nghi ngờ đáp án của AI</b><span>Trong nghiên cứu, GPT-4 sai gần nửa số bài. Tự kiểm lại từng bước.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><div><b>Kiểm tra không có AI</b><span>Cuối buổi, đóng AI, làm lại 2 bài tương tự. Đó mới là điểm thật của bạn.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: "gợi ý thay đáp án" theo tóm tắt Bastani và cộng sự (2025); 290/570 lần đúng theo dữ liệu công khai. Các thói quen là đề xuất của Mark.</p>
+  <details class="more"><summary>Tự kiểm tra sau 1 tuần: 3 câu hỏi</summary><div>
+    <p>1. Tuần này mình mở AI bao nhiêu lần trước khi tự thử? Mục tiêu: 0.</p>
+    <p>2. Mình đã xin đáp án hay xin gợi ý? Đếm thử 5 cuộc chat gần nhất.</p>
+    <p>3. Bài kiểm tra không AI cuối tuần: điểm có bằng điểm bài tập có AI không? Nếu thấp hơn hẳn, AI đang là cái nạng.</p>
+  </div></details>
+  <div class="quote"><span>Nếu AI làm bài hộ, bài làm giỏi lên. Còn bạn thì không.</span><span class="src">Mark tóm ý từ kết quả bài báo, không phải trích dẫn.</span></div>
+  <p class="verdict">Muốn học cách dùng AI để học mà không thành cái nạng? Ghé <a href="https://markhocai.com">Mark Học AI (markhocai.com)</a> để đọc hoặc học.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Bastani và cộng sự (2025), "Generative AI without guardrails can harm learning: Evidence from high school mathematics"</b><span class="muted">PNAS. Dữ liệu và mã ở github.com/obastani/GenAICanHarmLearning.</span></div>
+    <div><b>Kestin và cộng sự (2025), "AI tutoring outperforms in-class active learning"</b><span class="muted">Scientific Reports. Mặt còn lại: gia sư AI được soạn kỹ.</span></div>
+    <div><b>Bài báo đổi cách ta học #6: Tự kiểm tra (Roediger và Karpicke, 2006)</b><span class="muted">Vì sao tự nhớ lại thắng đọc lại, và vì sao chép đáp án không phải là luyện tập.</span></div>
+    <div><b>Bài báo đổi cách ta học #8: Bài toán 2 sigma (Bloom, 1984)</b><span class="muted">Giấc mơ gia sư riêng mà mọi chatbot học tập đang đuổi theo.</span></div>
+    <div><b>Bài báo đổi cách ta học #9: AI đoán lúc bạn sắp quên</b><span class="muted">Một kiểu AI khác trong giáo dục: lịch ôn tự học từ dữ liệu.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 10</span><h2>Nguồn gốc</h2><p class="lead">Môi trường làm bài chặn trang PNAS, Nature, PubMed và Google Scholar. Tên bài, nơi đăng và tóm tắt được xác nhận qua kết quả tìm kiếm của chính các trang đó; các con số chính được Mark kiểm lại bằng dữ liệu và mã công khai của nhóm tác giả. Nguồn thứ cấp ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakcı, Ö., Mariman, R. (2025)</b>. "Generative AI without guardrails can harm learning: Evidence from high school mathematics". PNAS 122(26), e2422633122. DOI 10.1073/pnas.2422633122. Đính chính: DOI 10.1073/pnas.2518204122. <a href="https://www.pnas.org/doi/10.1073/pnas.2422633122">pnas.org</a> · <a href="https://github.com/obastani/GenAICanHarmLearning">dữ liệu và mã</a></li>
+    <li><b>Kestin, G., Miller, K., Klales, A., Milbourne, T., Ponti, G. (2025)</b>. "AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting". Scientific Reports 15, 17458. DOI 10.1038/s41598-025-97652-6. <a href="https://www.nature.com/articles/s41598-025-97652-6">nature.com</a></li>
+    <li><b>Wang, J. và Fan, W. (2025)</b>. "The effect of ChatGPT on students' learning performance, learning perception, and higher-order thinking: insights from a meta-analysis". Humanities and Social Sciences Communications. <b>Đã bị rút</b> (Retraction Note, HSSC 13, bài 528, 2026).</li>
+    <li><b>Weidlich, J., Gašević, D., Drachsler, H., Kirschner, P. (2025)</b>. "ChatGPT in Education: An Effect in Search of a Cause". Journal of Computer Assisted Learning 41(5), e70105.</li>
+    <li><b>De Simone, M. và cộng sự (2025)</b>. "From Chalkboards to Chatbots: Evaluating the Impact of Generative AI on Learning Outcomes in Nigeria". World Bank Policy Research Working Paper WPS11125.</li>
+    <li><b>Kosmyna, N. và cộng sự (2025)</b>. "Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task". arXiv 2506.08872 (bản nháp).</li>
+    <li><b>Bloom, B. S. (1984)</b>. "The 2 Sigma Problem". Educational Researcher 13(6):4–16.</li>
+    <li>Nguồn thứ cấp: Knowledge at Wharton và CHIBE Penn (tác giả, ngày đăng); Wikipedia (ngày ra mắt ChatGPT); Hechinger Report và các bài tóm tắt (thiết kế nghiên cứu Kestin, cảm nhận của học sinh); GovTech, Computing (tin rút bài).</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Chia sẻ bài này"><p>Thấy bài có ích? Gửi cho một người bạn</p><div><button type="button" data-chia-se data-url="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html" data-tieu-de="AI giúp hay hại việc học" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Chia sẻ</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fvu-tru-khac%2Fbai-bao-ai-va-viec-hoc.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/vu-tru-khac/bai-bao-ai-va-viec-hoc.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Chép link</button></div></aside>
+<footer>Bài báo đổi cách ta học #10. Bài cuối của chuỗi. Các hình là sơ đồ minh họa; số liệu lấy từ bài báo, dữ liệu công khai của nhóm tác giả và các nguồn ghi rõ, đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

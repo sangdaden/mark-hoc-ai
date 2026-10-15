@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI đoán lúc bạn sắp quên (Settles &amp; Meeder): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Mô hình &quot;nửa đời&quot; học từ 12,9 triệu dấu vết học để đoán lúc bạn sắp quên một từ, đăng ở hội nghị ACL 2016. Đọc từ toàn văn bài báo, dữ liệu mở và 14 nhận định được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI đoán lúc bạn sắp quên (Settles &amp; Meeder): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Mô hình &quot;nửa đời&quot; học từ 12,9 triệu dấu vết học để đoán lúc bạn sắp quên một từ, đăng ở hội nghị ACL 2016. Đọc từ toàn văn bài báo, dữ liệu mở và 14 nhận định được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #130B24; --bia-2: #2E1065; --bia-nhan: #34D399; }
+:root { --vtk-nhan: #34D399; }
+body header { --ho-so: "Hồ sơ bài báo"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/bai-bao-ai-doan-luc-quen.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Bài báo đổi cách ta học" #9: Settles \& Meeder 2016, --night = deep violet #6D28D9, --day = teal green (accent #34D399; darker #059669 on light paper). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #6D28D9;
+  --day: #059669;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #A78BFA; --day: #34D399; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #A78BFA; --day: #34D399; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.cmp td { vertical-align: top; }
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>AI đoán lúc bạn sắp quên</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<g transform="rotate(8 70 30)">
+<rect x="56" y="10" width="34" height="23" rx="3" fill="#F5F3FF" fill-opacity=".9"/>
+<rect x="61" y="16" width="19" height="3.5" rx="1.7" fill="var(--bia-nhan, #34D399)"/>
+<rect x="61" y="23" width="12" height="3.5" rx="1.7" fill="#6D28D9" fill-opacity=".55"/>
+</g>
+<g transform="rotate(-10 40 20)">
+<rect x="30" y="8" width="26" height="18" rx="3" fill="#EDE9FE" fill-opacity=".5"/>
+</g>
+<path d="M8 44 C14 60 18 66 24 68 L24 44 C32 58 38 66 46 68 L46 44 C58 56 70 64 82 67 L82 44 C88 50 92 54 96 56" stroke="#A78BFA" stroke-width="4.5"/>
+<g fill="var(--bia-nhan, #34D399)"><circle cx="24" cy="44" r="4"/><circle cx="46" cy="44" r="4"/><circle cx="82" cy="44" r="4"/></g>
+<path d="M8 86 H94" stroke="#A78BFA" stroke-opacity=".45" stroke-width="2" stroke-dasharray="2 5"/>
+</svg></span><img src="../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="16" data-chu="vi">khoảng 16 phút đọc</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-ai-va-viec-hoc.html"><small>Bài tiếp theo</small><b>AI giúp hay hại việc học</b><span>Bài báo #010 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Bài báo đổi cách ta học #9 · Trí nhớ · AI trong giáo dục</span>
+  <h1>AI đoán lúc bạn sắp quên</h1>
+  <svg viewBox="0 0 320 60" width="320" height="60" style="max-width:100%" role="img" aria-label="Đường cong quên hình răng cưa: trí nhớ tụt dần rồi bật lên mỗi lần ôn, các lần ôn giãn xa dần, bên cạnh là ba tấm thẻ từ">
+    <path d="M6 10 C20 30 30 40 44 44 L44 10 C64 28 80 38 100 42 L100 10 C130 24 160 32 190 36 L190 10 C230 20 262 26 300 28" fill="none" stroke="#6D28D9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#34D399"><circle cx="44" cy="10" r="5"/><circle cx="100" cy="10" r="5"/><circle cx="190" cy="10" r="5"/></g>
+    <line x1="6" y1="54" x2="310" y2="54" stroke="#6D28D9" stroke-opacity=".35" stroke-width="2"/>
+    <g transform="translate(262 34) rotate(-8)"><rect width="30" height="20" rx="3" fill="#fff" stroke="#6D28D9" stroke-width="2"/><rect x="5" y="6" width="18" height="3" rx="1" fill="#34D399"/></g>
+  </svg>
+  <p class="sub">Settles &amp; Meeder · "A Trainable Spaced Repetition Model for Language Learning" · ACL 2016, Berlin</p>
+  <div class="meta">
+    <div><span class="label">Bài báo</span><b>Burr Settles và Brendan Meeder, hội nghị ACL 2016, tr. 1848–1858</b></div>
+    <div><span class="label">Câu hỏi</span><b>máy có đoán được lúc một người sắp quên một từ không?</b></div>
+    <div><span class="label">Dữ liệu</span><b>12,9 triệu dấu vết học trong 2 tuần của một app học ngoại ngữ</b></div>
+    <div><span class="label">Nhãn</span><b>Vững ở mức vừa: đoán tốt, chưa chứng minh giúp học giỏi hơn</b></div>
+  </div>
+  <p class="nguon">Nguồn: Settles và Meeder (2016), Proceedings of the 54th Annual Meeting of the ACL, tr. 1848–1858, §4.1 (dữ liệu). Nhãn là đánh giá của Mark.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#luan-diem">Câu hỏi</a><a href="#bo-cuc">Câu chuyện phát hiện</a><a href="#khai-niem">Bài báo nói gì</a><a href="#danh-gia-bai-bao">Được đánh giá thế nào</a><a href="#dan-chung">Kiểm chứng</a><a href="#moi-nhat">Mới nhất</a><a href="#danh-gia">Mark chấm</a><a href="#ap-dung">Bài học áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6c4 10 8 14 12 15V6c3 7 7 10 12 11"/><path d="M4 27h24"/></svg><b>Ý tưởng 130 năm tuổi</b><span>Trí nhớ phai theo đường cong quên của Ebbinghaus (1885). Ôn đúng lúc sắp quên thì nhớ lâu hơn.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><b>"Nửa đời" của một từ</b><span>Mỗi từ trong đầu bạn có một nửa đời: sau chừng ấy thời gian, khả năng nhớ còn 50%.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><b>Học từ 12,9 triệu dấu vết</b><span>Mô hình tự học cách đoán từ dữ liệu thật, sai số ít hơn 45% so với hệ hộp thẻ cũ.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><b>Đo người quay lại</b><span>Thí nghiệm với hàng triệu học viên đo việc họ quay lại hôm sau, không đo điểm thi.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 5l12 22H4z"/><path d="M16 13v6M16 23v1"/></svg><b>Đoán tốt chưa chắc học giỏi</b><span>Bài báo chứng minh máy đoán tốt hơn. Nó không chứng minh bạn học ngoại ngữ giỏi hơn.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Settles và Meeder (2016), §1 (Ebbinghaus), §3.3 (nửa đời), §4.1 và Bảng 2 (12,9 triệu dấu vết, sai số), §4.3–4.4 (thí nghiệm người dùng). Thẻ cuối là nhận định của Mark từ chính bài báo.</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi của bài báo</h2></div>
+  <p class="thesis">Nếu biết chính xác lúc bạn sắp quên một từ, máy có thể nhắc bạn ôn đúng lúc đó. Bài báo năm 2016 này cho máy học cách đoán, từ dữ liệu của hàng triệu người học thật.</p>
+  <div class="flow" aria-label="Ba bước của ý tưởng">
+    <div class="step"><span class="label">1885</span><b>Đường cong quên</b><span>Ebbinghaus: nhớ phai dần theo thời gian, ôn rải ra thì đỡ tốn công.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">1960–1980</span><b>Lịch ôn chọn tay</b><span>Pimsleur, hộp thẻ Leitner: khoảng cách ôn do người đặt sẵn.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2016</span><b>Lịch ôn tự học</b><span>Settles và Meeder: để dữ liệu quyết định nửa đời của từng từ, cho từng người.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Settles và Meeder (2016), §1 (Ebbinghaus 1885, các thuật toán thập niên 1960–80), §3.1–3.3.</p>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Câu chuyện phát hiện</h2><p class="lead">Ai làm, ở đâu, vì sao, và người ta biết gì trước đó.</p></div>
+  <div class="tl">
+    <div><b>1885 · Ebbinghaus tự làm vật thí nghiệm</b><span>Theo cách bài báo kể lại: sau một ngày học dồn, ông đọc thuộc được chuỗi 12 âm vô nghĩa; rải ra 3 ngày thì chỉ cần một nửa số lần luyện để đạt mức tương đương. Xem kỹ ở <a href="bai-bao-duong-cong-quen.html">Bài báo #1: Đường cong quên</a>.</span></div>
+    <div><b>1967 và 1972 · Lịch ôn đầu tiên</b><span>Pimsleur đặt lịch nghe lại cố định: 5 giây, 25 giây, 2 phút, 10 phút, 1 giờ... đến 2 năm. Leitner dùng hộp thẻ: nhớ đúng thì thẻ lên hộp ôn thưa hơn, sai thì xuống hộp ôn dày hơn.</span></div>
+    <div><b>2012 · Một app học ngoại ngữ ra đời</b><span>Đến lúc viết bài, hơn 150 triệu người đã đăng ký một khóa học trên app này. Lúc đầu nó dùng một biến thể hộp thẻ Leitner để báo từ nào cần ôn.</span></div>
+    <div class="hot"><b>Học viên phàn nàn</b><span>Thanh "độ mạnh" dựa trên Leitner không phản ánh đúng điều họ đã học. Đây là lý do nhóm làm nghiên cứu.</span></div>
+    <div><b>Hai tuần dữ liệu</b><span>Burr Settles (Duolingo) và Brendan Meeder thu 12,9 triệu dấu vết "một người, một từ, một buổi học", rồi so nhiều cách đoán.</span></div>
+    <div class="hot"><b>8/2016 · Berlin</b><span>Bài báo trình bày ở hội nghị ACL, hội nghị lớn của ngành ngôn ngữ học tính toán. Nhóm công bố luôn dữ liệu và mã.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Settles và Meeder (2016): §1 (Ebbinghaus), §2 (150 triệu học viên), §3.1–3.2 và Phụ lục A.2 (Pimsleur 1967, Leitner 1972, lịch ôn), §3.2 (phàn nàn của học viên), §4.1 (2 tuần, 12,9 triệu); trang đầu (ACL, Berlin, 7–12/8/2016); kho github.com/duolingo/halflife-regression.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="leit">
+        <title id="leit">Hệ hộp thẻ Leitner: năm hộp ôn sau 1, 2, 4, 8, 16 ngày. Nhớ đúng thì thẻ lên hộp bên phải, ôn thưa hơn. Nhớ sai thì thẻ lùi về hộp ôn dày hơn.</title>
+        <text x="20" y="26" class="t-ink t-bold">hộp thẻ Leitner: khoảng cách ôn chọn sẵn</text>
+        <g text-anchor="middle">
+          <rect x="40" y="70" width="100" height="60" rx="8" fill="var(--night)"/><text x="90" y="106" style="fill:#fff" class="t-bold">1 ngày</text>
+          <rect x="170" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".85"/><text x="220" y="106" style="fill:#fff" class="t-bold">2 ngày</text>
+          <rect x="300" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".7"/><text x="350" y="106" style="fill:#fff" class="t-bold">4 ngày</text>
+          <rect x="430" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".55"/><text x="480" y="106" style="fill:#fff" class="t-bold">8 ngày</text>
+          <rect x="560" y="70" width="100" height="60" rx="8" fill="var(--night)" fill-opacity=".4"/><text x="610" y="106" style="fill:#fff" class="t-bold">16 ngày</text>
+          <text x="350" y="38" class="t-ok t-bold">nhớ đúng → lên hộp sau</text>
+          <text x="350" y="172" class="t-bad t-bold">nhớ sai → lùi về hộp ôn dày hơn</text>
+        </g>
+        <path d="M120 66 C200 50 300 50 380 66" fill="none" stroke="var(--ok)" stroke-width="2"/>
+        <path d="M380 134 C300 150 200 150 120 134" fill="none" stroke="var(--bad)" stroke-width="2"/>
+        <text x="20" y="190">mọi từ, mọi người dùng chung một quy tắc, dù "pantalon" dễ còn "manteau" khó</text>
+      </svg>
+    </div>
+    <figcaption><b>Trước bài báo: quy tắc chọn tay.</b> Hộp thẻ đã thích nghi với từng thẻ, nhưng khoảng cách vẫn do người đặt sẵn: gấp đôi khi đúng, giảm khi sai. Ví dụ từ dễ và từ khó là ví dụ của chính bài báo.<span class="nguon">Nguồn: Settles và Meeder (2016), §3.2, Hình 3 và Phụ lục A.2.</span></figcaption>
+  </figure>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Bài báo nói gì, trong 3 câu</h2></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 6c4 10 8 14 12 15V6c3 7 7 10 11 11"/></svg><div><b>1. Mỗi từ có một "nửa đời"</b><span>Khả năng nhớ một từ giảm theo công thức của Ebbinghaus; sau đúng một nửa đời, còn 50%.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 26V14M13 26V8M20 26V17M27 26V11"/></svg><div><b>2. Dữ liệu tự quyết nửa đời</b><span>Thay vì quy tắc chọn tay, mô hình học từ số lần bạn đã thấy, đã đúng, đã sai, và độ khó của từ.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><div><b>3. Đoán tốt hơn, người dùng quay lại nhiều hơn</b><span>Sai số giảm hơn 45% so với hộp thẻ; bản cuối được dùng cho mọi học viên.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: Settles và Meeder (2016), tóm tắt, §3.3–3.4, Bảng 2, §4.4.</p>
+
+  <div class="concept">
+    <div class="term"><h3>Công thức nửa đời</h3><span class="en">half-life regression · p = 2^(−Δ/h)</span><span class="pg">§3.3, công thức (1) và (2)</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 240" role="img" aria-labelledby="hl">
+          <title id="hl">Đường cong quên p bằng 2 mũ trừ delta chia h. Với nửa đời h bằng 1 ngày, sau 1 ngày khả năng nhớ còn 50 phần trăm, sau 2 ngày 25 phần trăm. Với nửa đời 4 ngày, đường cong thoải hơn nhiều: sau 4 ngày mới còn 50 phần trăm.</title>
+          <line x1="60" y1="200" x2="700" y2="200" class="axis"/><line x1="60" y1="30" x2="60" y2="200" class="axis"/>
+          <line x1="60" y1="115" x2="700" y2="115" class="gridl"/>
+          <text x="54" y="34" text-anchor="end">100%</text><text x="54" y="119" text-anchor="end">50%</text><text x="54" y="204" text-anchor="end">0</text>
+          <g text-anchor="middle"><text x="60" y="220">0</text><text x="140" y="220">1</text><text x="220" y="220">2</text><text x="380" y="220">4</text><text x="700" y="220">8 ngày</text></g>
+          <path d="M60 30 C100 72 130 108 140 115 C170 135 200 150 220 157.5 C280 175 340 186 380 189 C500 196 620 199 700 199.7" fill="none" stroke="var(--day)" stroke-width="3"/>
+          <path d="M60 30 C160 60 280 96 380 115 C480 134 600 150 700 157.5" fill="none" stroke="var(--night)" stroke-width="3"/>
+          <circle cx="140" cy="115" r="5" fill="var(--day)"/><circle cx="380" cy="115" r="5" fill="var(--night)"/>
+          <text x="440" y="52" class="t-day t-bold">h = 1 ngày: còn 50% sau 1 ngày</text>
+          <text x="440" y="72" class="t-night t-bold">h = 4 ngày: còn 50% sau 4 ngày</text>
+          <text x="120" y="24" class="t-ink">p = 2^(−Δ/h): Δ là thời gian từ lần ôn trước</text>
+        </svg>
+      </div>
+      <figcaption><b>Mỗi lần ôn đúng làm nửa đời dài ra.</b> Mô hình ước lượng nửa đời bằng 2 mũ một tổng có trọng số (số lần đã thấy, số lần đúng, số lần sai, từ nào). Trọng số không chọn tay mà học từ 12,9 triệu dấu vết. Đường cong vẽ theo công thức, không phải dữ liệu.<span class="nguon">Nguồn: Settles và Meeder (2016), §3.3, công thức (1) p = 2^(−Δ/h) và (2) ĥ = 2^(Θ·x); §3.4 (đặc trưng). Hình minh họa do Mark vẽ theo công thức.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Kết quả 1: đoán mức nhớ</h3><span class="en">mean absolute error · lower is better</span><span class="pg">Bảng 2</span></div>
+    <figure>
+      <div class="svgbox">
+        <svg viewBox="0 0 720 250" role="img" aria-labelledby="mae">
+          <title id="mae">Sai số tuyệt đối trung bình, thấp là tốt. Nửa đời học từ dữ liệu 0,128. Đoán hằng số bằng trung bình 0,175. Hồi quy logistic 0,211. Hộp thẻ Leitner 0,235. Pimsleur 0,445.</title>
+          <g>
+            <text x="20" y="44" class="t-ink">nửa đời (HLR)</text><rect x="230" y="30" width="115" height="22" rx="4" fill="var(--night)"/><text x="352" y="46" class="t-night t-bold">0,128</text>
+            <text x="20" y="84" class="t-ink">đoán hằng số 0,859</text><rect x="230" y="70" width="158" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="395" y="86" class="t-bold">0,175</text>
+            <text x="20" y="124" class="t-ink">hồi quy logistic</text><rect x="230" y="110" width="190" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="427" y="126" class="t-bold">0,211</text>
+            <text x="20" y="164" class="t-ink">hộp thẻ Leitner</text><rect x="230" y="150" width="212" height="22" rx="4" fill="var(--day)"/><text x="449" y="166" class="t-day t-bold">0,235</text>
+            <text x="20" y="204" class="t-ink">Pimsleur</text><rect x="230" y="190" width="400" height="22" rx="4" fill="var(--muted)" fill-opacity=".5"/><text x="637" y="206" class="t-bold">0,445</text>
+          </g>
+          <text x="20" y="240">sai số tuyệt đối trung bình giữa tỉ lệ nhớ đoán và tỉ lệ nhớ thật, thấp là tốt</text>
+        </svg>
+      </div>
+      <figcaption><b>Ít hơn 45% so với hộp thẻ.</b> Nhưng có một chi tiết ít ai kể: khi xếp hạng "từ nào dễ quên hơn" (chỉ số AUC, 0,5 là đoán mò), mô hình mới đạt 0,538, còn hộp thẻ Leitner đạt 0,542, cao nhất bảng. Bài báo giải thích: dữ liệu rất nhiễu và trung bình 85,9% số từ được nhớ đúng.<span class="nguon">Nguồn: Settles và Meeder (2016), Bảng 2 và §4.1, chú thích 7.</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="concept">
+    <div class="term"><h3>Kết quả 2: thí nghiệm với người dùng thật</h3><span class="en">daily retention · A/B test</span><span class="pg">§4.3–4.4, Bảng 4</span></div>
+    <div class="tablebox"><table class="cmp">
+      <tr><th>Thí nghiệm</th><th>Quy mô</th><th>Quay lại hôm sau: mọi hoạt động</th><th>Bài mới</th><th>Luyện tập</th></tr>
+      <tr><td>I. Nửa đời so với hộp thẻ Leitner</td><td>6 tuần, gần 1 triệu học viên</td><td>+0,3%</td><td>+0,3%</td><td class="n">−7,3%</td></tr>
+      <tr><td>II. Nửa đời bản gọn so với bản đầy đủ</td><td>2 tuần, 3,3 triệu học viên</td><td class="y">+12,0%</td><td class="y">+1,7%</td><td class="y">+9,5%</td></tr>
+    </table></div>
+    <p class="nguon">Nguồn: Settles và Meeder (2016), Bảng 4, §4.3 (6 tuần, "chỉ dưới 1 triệu học viên"), §4.4 (2 tuần, 3,3 triệu). Các ô −7,3%, +12,0%, +1,7%, +9,5% có ý nghĩa thống kê (p &lt; 0,001).</p>
+    <details class="more"><summary>Đọc kỹ bảng này: con số 12% so với cái gì?</summary><div>
+      <p>Tóm tắt bài báo viết mô hình "cải thiện mức tương tác hằng ngày 12%". Con số đó đến từ thí nghiệm II: bản gọn (bỏ đặc trưng riêng cho từng từ) so với bản đầy đủ. Không phải so với hộp thẻ cũ.</p>
+      <p>So với hộp thẻ (thí nghiệm I), số người quay lại luyện tập còn giảm 7,3%. Tác giả coi đó là tin tốt: trước đây nhiều người luyện chỉ để "giữ cây vàng", nay thanh độ mạnh sát hơn nên họ học bài mới thay vì luyện vô ích.</p>
+      <p>Và "quay lại hôm sau" là thước đo gắn bó, không phải điểm thi ngoại ngữ.</p>
+    </div></details>
+  </div>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Bài báo này được đánh giá thế nào</h2><p class="lead">Mỗi dòng có nguồn và ngày tra.</p></div>
+  <div class="tablebox"><table class="cmp">
+    <tr><th>Mục</th><th>Kết quả</th></tr>
+    <tr><td>Nơi đăng, năm</td><td>Hội nghị ACL lần thứ 54, Berlin, 8/2016, tr. 1848–1858, có bình duyệt. DOI 10.18653/v1/P16-1174.</td></tr>
+    <tr><td>Số lần trích dẫn</td><td>Google Scholar: chưa tra được (bị chặn). Trang tổng hợp liner.com ghi 176 lần (thấy khi tra 15/10/2026, không rõ ngày cập nhật).</td></tr>
+    <tr><td>Đã được lặp lại chưa</td><td>Dữ liệu và mã công khai. Một dự án cá nhân trên GitHub chạy lại và ra sai số ít hơn khoảng 46% so với Leitner, cũng thấy Leitner xếp hạng nhỉnh hơn. Chưa thấy bản lặp lại có bình duyệt cho thí nghiệm người dùng.</td></tr>
+    <tr><td>Được dùng làm mốc</td><td>Tabibian và cộng sự (PNAS 2019) dùng dữ liệu này; Ye và cộng sự (KDD 2022) so với các mô hình kiểu này trên 220 triệu nhật ký của một app khác.</td></tr>
+    <tr><td>Phản biện chính</td><td>(1) Xếp hạng gần đoán mò, thua hộp thẻ; (2) đo quay lại hôm sau, không đo học; (3) 12% là so với chính mô hình đầy đủ; (4) tác giả là người của công ty, thử trên sản phẩm của mình.</td></tr>
+    <tr><td>Giải thưởng</td><td>Không tìm thấy nguồn, không ghi.</td></tr>
+    <tr><td>Kết luận</td><td><span class="tag ok">VỮNG</span> ở mức vừa: vững cho điều bài báo đo (dự đoán), thận trọng cho câu "giúp học giỏi hơn".</td></tr>
+  </table></div>
+  <p class="nguon">Nguồn: trang đầu bài báo; liner.com (tra 15/10/2026); github.com/HyunsikParker/half-life (dự án cá nhân, không bình duyệt); Tabibian và cộng sự, PNAS 116(10):3988–3993 (2019); Ye, Su, Cao, KDD 2022, tr. 4381–4390. Phản biện (1)–(3) lấy từ Bảng 2, Bảng 4 của chính bài báo; (4) là nhận xét của Mark.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được nói về bài báo và về "app biết lúc bạn quên". Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="8 vững, 4 cần thận trọng, 2 sai">
+    <div class="o" style="flex:8">8 VỮNG</div><div class="w" style="flex:4">4 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Bài đăng ở hội nghị ACL 2016, tr. 1848–1858</span></summary><p class="note">Trang đầu bài báo và README kho mã chính thức.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Mô hình dựa trên đường cong quên của Ebbinghaus</span></summary><p class="note">§3.3: "Central to the theory of memory is the Ebbinghaus model", công thức p = 2^(−Δ/h).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Dữ liệu là 12,9 triệu dấu vết học trong 2 tuần</span></summary><p class="note">§4.1. Mỗi dấu vết là một người, một từ, một buổi học.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Sai số dự đoán ít hơn hộp thẻ Leitner hơn 45%</span></summary><p class="note">Bảng 2: 0,128 so với 0,235. Một dự án chạy lại trên dữ liệu công khai ra khoảng 46% (GitHub, dự án cá nhân, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>So với hộp thẻ, người quay lại luyện tập giảm 7,3%</span></summary><p class="note">Bảng 4, thí nghiệm I. Tác giả cho là học viên bớt luyện "cho cây vàng".</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Bỏ bớt đặc trưng riêng từng từ lại tốt hơn</span></summary><p class="note">§4.4: đặc trưng từng từ bị quá khớp, có từ tụt rất nhanh dù luyện nhiều; bản gọn thắng cả 3 chỉ số.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Học giãn cách nhớ lâu hơn học dồn</span></summary><p class="note">Phân tích gộp Cepeda và cộng sự (2006), Psychological Bulletin: 317 thí nghiệm trong 184 bài. Chính bài báo dẫn nghiên cứu này.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Dữ liệu và mã được công khai</span></summary><p class="note">github.com/duolingo/halflife-regression; tệp dữ liệu 361 MB trên Harvard Dataverse.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Máy đoán chính xác khoảnh khắc bạn quên một từ"</span></summary><p class="note">Đoán tốt tỉ lệ nhớ trung bình. Còn xếp hạng từ nào dễ quên hơn thì AUC chỉ 0,538 (0,5 là đoán mò), thua hộp thẻ 0,542 (Bảng 2).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Thuật toán mới làm người học chăm hơn 12% so với cách cũ"</span></summary><p class="note">12% là thí nghiệm II, so bản gọn với bản đầy đủ. So với hộp thẻ cũ, mọi hoạt động chỉ +0,3% (Bảng 4).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"34 giờ trên app bằng một học kỳ tiếng Tây Ban Nha ở đại học"</span></summary><p class="note">Chính bài báo dẫn lại (§2). Nghiên cứu gốc của Vesselinov và Grego (2012) do công ty đặt hàng, không bình duyệt; chỉ 90 trong 156 người theo đến cuối (TechCrunch 2013 và các bài phê bình, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Mô hình mới hơn đã vượt xa"</span></summary><p class="note">Ye và cộng sự (KDD 2022) báo cáo hơn 12,6% so với các phương pháp tốt nhất trước đó, trên 220 triệu nhật ký; bản mở rộng 2023 giảm 64% sai số. Nhưng do chính nhóm làm app đó báo cáo, chưa có so sánh độc lập lớn.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Bài báo chứng minh app giúp bạn học ngoại ngữ giỏi hơn"</span></summary><p class="note">Bài đo hai thứ: sai số dự đoán và tỉ lệ quay lại hôm sau. Không có bài thi ngoại ngữ nào trong nghiên cứu.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"App dùng AI kiểu chatbot để đoán lúc bạn quên"</span></summary><p class="note">Mô hình là một hồi quy: vài bộ đếm (đã thấy, đúng, sai) cộng đặc trưng từ, khớp bằng phương pháp gradient (§3.3–3.4, Phụ lục A.3). Không có mô hình ngôn ngữ lớn nào.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở phần Nguồn.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Nghiên cứu mới nhất nói gì</h2></div>
+  <div class="tl">
+    <div><b>2006 · Nền móng vẫn vững</b><span>Cepeda và cộng sự gộp 317 thí nghiệm: học giãn cách thắng học dồn, và muốn nhớ càng lâu thì khoảng cách ôn tốt nhất càng dài.</span></div>
+    <div><b>2019 · PNAS: tối ưu lịch ôn</b><span>Tabibian và cộng sự dùng dữ liệu cùng app, báo cáo người học theo lịch của thuật toán nhớ tốt hơn người theo lịch quy tắc.</span></div>
+    <div><b>2020 · Độ khó của từ</b><span>Zaidi và cộng sự (Cambridge): độ phức tạp của từ là đặc trưng nhiều thông tin, một mạng nơ-ron học được.</span></div>
+    <div class="hot"><b>2022–2023 · 220 triệu nhật ký</b><span>Ye và cộng sự (KDD 2022, IEEE TKDE 2023) xây lịch ôn tối thiểu công sức cho một app từ vựng; báo cáo vượt các phương pháp trước 12,6%, sau đó giảm 64% sai số dự đoán.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Cepeda và cộng sự, Psychological Bulletin 132(3):354–380 (2006); Tabibian và cộng sự, PNAS 116(10):3988–3993 (2019); Zaidi và cộng sự, arXiv 2004.11327 (2020); Ye, Su, Cao, KDD 2022, tr. 4381–4390 và IEEE TKDE 2023. Các bài sau 2006 chỉ đọc được tóm tắt.</p>
+  <p class="verdict">Tóm lại: việc máy đoán lúc quên ngày càng chính xác. Câu hỏi "người học có giỏi lên thật không, đo bằng bài thi độc lập" vẫn ít được trả lời.</p>
+  <p class="nguon">Nhận định của Mark từ các nghiên cứu trên.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Mark chấm bài báo</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở phần Nguồn, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Phương pháp</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Dùng được ngoài đời</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Bằng chứng giúp học giỏi hơn</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Minh bạch dữ liệu</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Mạnh</span><ul class="plus"><li>Dữ liệu thật, rất lớn, công khai</li><li>Nối lý thuyết 1885 với máy học</li><li>Thử trên người dùng thật, kể cả kết quả bất lợi (−7,3%)</li></ul></div>
+    <div><span class="label">Yếu</span><ul class="minus"><li>Không đo việc học bằng bài thi</li><li>Xếp hạng từ gần đoán mò</li><li>Tóm tắt dễ đọc nhầm con số 12%</li></ul></div>
+  </div>
+  <p class="verdict">Một bài báo trung thực và hữu ích: máy đoán lúc quên tốt hơn. Nhưng "đoán tốt" mới là nửa đường đến "học tốt".</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Bài học áp dụng: dùng app ôn ngắt quãng cho đúng</h2><p class="lead">Áp dụng được từ ngày mai, có app hay không có app.</p></div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg><div><b>Ôn khi được nhắc</b><span>App nhắc là lúc nửa đời sắp hết. Ôn đúng lúc đó, đừng dồn hết vào cuối tuần.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h5"/></svg><div><b>Tự nhớ trước khi lật thẻ</b><span>Nói to đáp án trong đầu rồi mới xem. Chọn trắc nghiệm nhanh quá thì app đoán sai về bạn.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22l7-7 5 4 10-10"/></svg><div><b>Không có app: hộp 1-2-4-8</b><span>Bốn hộp thẻ giấy. Đúng thì lên hộp ôn thưa hơn, sai thì về hộp 1 ngày. Đây chính là Leitner.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 16l6 6 14-14"/></svg><div><b>Chuỗi ngày không phải điểm thi</b><span>Giữ chuỗi giúp bạn quay lại. Còn biết thật hay không thì phải tự kiểm tra ngoài app.</span></div></div>
+  </div>
+  <p class="nguon">Nguồn: hộp Leitner theo Settles và Meeder (2016), §3.2; "ôn trước khi quên" theo Cepeda và cộng sự (2006). Các thói quen là đề xuất của Mark.</p>
+  <details class="more"><summary>Tự kiểm tra sau 1 tuần: 3 bước</summary><div>
+    <p>1. Chép ra 20 từ đã học tuần trước, che nghĩa.</p>
+    <p>2. Không mở app, viết nghĩa và đặt một câu với mỗi từ. Đếm số câu đúng.</p>
+    <p>3. Ghi con số vào sổ. Tuần sau làm lại với 20 từ mới. Nếu con số không tăng, đổi cách ôn, không chỉ đổi số phút.</p>
+  </div></details>
+  <div class="quote"><span>Mỗi từ có một nửa đời. Việc của bạn là gặp lại nó trước khi nửa đời hết.</span><span class="src">Mark tóm ý từ công thức trong bài báo, không phải trích dẫn.</span></div>
+  <p class="verdict">Muốn học cách dùng AI để học (ôn tập, tạo thẻ, tự kiểm tra)? Ghé <a href="https://markhocai.com">Mark Học AI (markhocai.com)</a> để đọc hoặc học.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Settles và Meeder (2016), "A Trainable Spaced Repetition Model for Language Learning"</b><span class="muted">Bài gốc, 11 trang, đọc §3.3 và Bảng 4 là đủ ý.</span></div>
+    <div><b>Cepeda và cộng sự (2006), "Distributed practice in verbal recall tasks"</b><span class="muted">Phân tích gộp về học giãn cách, nền móng của mọi app ôn ngắt quãng.</span></div>
+    <div><b>Bài báo đổi cách ta học #1: Đường cong quên (Ebbinghaus, 1885)</b><span class="muted">Người đầu tiên tự đo xem mình quên nhanh thế nào.</span></div>
+    <div><b>Giải mã siêu trí nhớ (Mark Ở Vũ Trụ Khác, sách #4)</b><span class="muted">Các kỹ thuật ghi nhớ, đọc kèm để ôn hiệu quả hơn.</span></div>
+    <div><b>Bài báo đổi cách ta học #10: AI giúp hay hại việc học</b><span class="muted">Khi học sinh có chatbot trong giờ luyện tập: làm bài tốt hơn, thi lại kém hơn.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 10</span><h2>Nguồn gốc</h2><p class="lead">Bài báo gốc đọc toàn văn (bản PDF trong kho mã chính thức trên GitHub). Môi trường làm bài chặn Google Scholar, trang hội nghị và phần lớn trang tạp chí; nguồn chỉ đọc được qua kết quả tìm kiếm hoặc báo chí được ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Settles, B. và Meeder, B. (2016)</b>. "A Trainable Spaced Repetition Model for Language Learning". Proceedings of the 54th Annual Meeting of the ACL, tr. 1848–1858, Berlin. DOI 10.18653/v1/P16-1174. <a href="https://aclanthology.org/P16-1174/">aclanthology.org</a> · <a href="https://github.com/duolingo/halflife-regression">mã và dữ liệu</a></li>
+    <li><b>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., Rohrer, D. (2006)</b>. "Distributed practice in verbal recall tasks: A review and quantitative synthesis". Psychological Bulletin 132(3):354–380. <a href="https://pubmed.ncbi.nlm.nih.gov/16719566/">PubMed</a></li>
+    <li><b>Tabibian, B. và cộng sự (2019)</b>. "Enhancing human learning via spaced repetition optimization". PNAS 116(10):3988–3993. DOI 10.1073/pnas.1815156116.</li>
+    <li><b>Ye, J., Su, J., Cao, Y. (2022)</b>. "A Stochastic Shortest Path Algorithm for Optimizing Spaced Repetition Scheduling". KDD 2022, tr. 4381–4390; bản mở rộng IEEE TKDE 2023.</li>
+    <li><b>Zaidi, A. và cộng sự (2020)</b>. "Adaptive Forgetting Curves for Spaced Repetition Language Learning". <a href="https://arxiv.org/abs/2004.11327">arXiv 2004.11327</a>.</li>
+    <li><b>Vesselinov, R. và Grego, J. (2012)</b>. "Duolingo effectiveness study". Báo cáo kỹ thuật, Queens College, CUNY (không bình duyệt).</li>
+    <li>Nguồn thứ cấp: liner.com (số trích dẫn, tra 15/10/2026); github.com/HyunsikParker/half-life (chạy lại, dự án cá nhân); TechCrunch 17/1/2013 và các bài phê bình về nghiên cứu 34 giờ.</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Chia sẻ bài này"><p>Thấy bài có ích? Gửi cho một người bạn</p><div><button type="button" data-chia-se data-url="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html" data-tieu-de="AI đoán lúc bạn sắp quên" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Chia sẻ</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fvu-tru-khac%2Fbai-bao-ai-doan-luc-quen.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/vu-tru-khac/bai-bao-ai-doan-luc-quen.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Chép link</button></div></aside>
+<footer>Bài báo đổi cách ta học #09. Các hình là sơ đồ minh họa; số liệu lấy từ bài báo gốc và các nguồn ghi rõ, đối chiếu ở phần Kiểm chứng.</footer>
+</div>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

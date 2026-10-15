@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Magical Number Seven (George A. Miller): summary, review and lessons | Another Universe</title>
+<meta name="description" content="The 1956 Psychological Review paper that gave us the number seven and the idea of chunking; in 2001 Cowan lowered the limit to about four. A close reading with 14 claims fact-checked.">
+<link rel="canonical" href="https://markhocai.com/en/vu-tru-khac/bai-bao-con-so-7.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/bai-bao-con-so-7.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/bai-bao-con-so-7.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/bai-bao-con-so-7.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Magical Number Seven (George A. Miller): summary, review and lessons | Another Universe">
+<meta property="og:description" content="The 1956 Psychological Review paper that gave us the number seven and the idea of chunking; in 2001 Cowan lowered the limit to about four. A close reading with 14 claims fact-checked.">
+<meta property="og:url" content="https://markhocai.com/en/vu-tru-khac/bai-bao-con-so-7.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #071A2B; --bia-2: #0C4A6E; --bia-nhan: #F97316; }
+:root { --vtk-nhan: #F97316; }
+body header { --ho-so: "Paper file"; }
+</style>
+</head>
+<body>
+<div class="mhai-thanh"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Back to Another Universe"><i aria-hidden="true">‹</i><img src="../../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../../vu-tru-khac/bai-bao-con-so-7.html" hreflang="vi" lang="vi">VI</a><a class="mhai" href="../"><img src="../../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Topic "Papers That Changed How We Learn" #2: Miller, --night = sea blue #0369A1 (items), --day = orange #F97316 (chunks). */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #0369A1;
+  --day: #C2410C;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #38BDF8; --day: #FB923C; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #38BDF8; --day: #FB923C; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.evalbox { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evalbox > div { display: grid; grid-template-columns: 11rem 1fr; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--rule); }
+.evalbox > div:first-child { border-top: 0; }
+.evalbox b { font-family: var(--font-display); font-weight: 500; font-size: .92rem; }
+.evalbox span { font-size: .92rem; line-height: 1.45; }
+.evalbox .verdict-row { background: var(--ok-bg); }
+.evalbox .verdict-row.warnv { background: var(--warn-bg); }
+@media (max-width: 560px) { .evalbox > div { grid-template-columns: 1fr; gap: 2px; } }
+.three { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; font-size: 1.02rem; }
+.three li::marker { font-family: var(--font-mono); color: var(--night); font-weight: 600; }
+.invite { border: 1px solid var(--rule); border-left: 3px solid var(--day); border-radius: 6px; background: var(--paper); padding: 12px 14px; font-size: .95rem; }
+
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Reading tools"><div class="vtk-ray-bia" aria-hidden="true"><i>The Magical Number Seven</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest">
+<path d="M44 12 H78 L58 56" stroke="#7DD3FC" stroke-width="6"/>
+<g fill="#FFF7ED" fill-opacity=".55"><circle cx="10" cy="72" r="3.2"/><circle cx="18" cy="72" r="3.2"/><circle cx="26" cy="72" r="3.2"/><circle cx="34" cy="72" r="3.2"/><circle cx="42" cy="72" r="3.2"/><circle cx="50" cy="72" r="3.2"/><circle cx="58" cy="72" r="3.2"/></g>
+<g stroke="var(--bia-nhan, #F97316)" stroke-width="3.5"><rect x="6" y="80" width="26" height="12" rx="6"/><rect x="37" y="80" width="26" height="12" rx="6"/><rect x="68" y="80" width="26" height="12" rx="6"/></g>
+<g fill="var(--bia-nhan, #F97316)"><circle cx="13" cy="86" r="2.4"/><circle cx="19" cy="86" r="2.4"/><circle cx="25" cy="86" r="2.4"/><circle cx="44" cy="86" r="2.4"/><circle cx="50" cy="86" r="2.4"/><circle cx="56" cy="86" r="2.4"/><circle cx="75" cy="86" r="2.4"/><circle cx="81" cy="86" r="2.4"/><circle cx="87" cy="86" r="2.4"/></g>
+</svg></span><img src="../../assets/vu-tru-khac/mark/a-ra-the.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Time left</small><b class="vtk-con-lai" data-phut="15" data-chu="en">about 15 min read</b></p><a class="vtk-ray-o vtk-ray-tiep" href="bai-bao-benh-nhan-hm.html"><small>Up next</small><b>Patient H.M.</b><span>Paper #003 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác · Another Universe</span>
+  <span class="label">Papers That Changed How We Learn #2 · Short-term memory · Chunking</span>
+  <h1>The Magical Number Seven</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Eight loose blue dots on the left, an arrow, then on the right dots grouped into three orange-outlined bundles">
+    <g fill="#0369A1"><circle cx="10" cy="26" r="6"/><circle cx="26" cy="26" r="6"/><circle cx="42" cy="26" r="6"/><circle cx="58" cy="26" r="6"/><circle cx="74" cy="26" r="6"/><circle cx="90" cy="26" r="6"/><circle cx="106" cy="26" r="6"/><circle cx="122" cy="26" r="6"/></g>
+    <path d="M138 26 h22 m-8 -6 l8 6 -8 6" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="none" stroke="#F97316" stroke-width="3"><rect x="172" y="12" width="40" height="28" rx="14"/><rect x="220" y="12" width="40" height="28" rx="14"/><rect x="268" y="12" width="40" height="28" rx="14"/></g>
+    <g fill="#0369A1"><circle cx="184" cy="26" r="5"/><circle cx="200" cy="26" r="5"/><circle cx="232" cy="26" r="5"/><circle cx="248" cy="26" r="5"/><circle cx="280" cy="26" r="5"/><circle cx="296" cy="26" r="5"/></g>
+  </svg>
+  <p class="sub">George A. Miller · "The magical number seven, plus or minus two" · Psychological Review, 1956</p>
+  <div class="meta">
+    <div><span class="label">The paper</span><b>Psychological Review 63(2), pp. 81–97, March 1956</b></div>
+    <div><span class="label">Main idea</span><b>immediate memory holds about 7 items, and an "item" is a chunk, not a bit of information</b></div>
+    <div><span class="label">Revised by</span><b>Cowan (2001): when chunking is blocked, only about 4</b></div>
+    <div><span class="label">Label</span><b>Caution: chunking is solid, the number seven is not</b></div>
+  </div>
+  <p class="nguon">Source: Miller (1956), Psychological Review 63(2), 81–97; Cowan (2001), Behavioral and Brain Sciences 24(1), 87–114. The label is Mark's assessment.</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#tinh-hoa">Essence</a><a href="#luan-diem">The question</a><a href="#bo-cuc">The discovery</a><a href="#khai-niem">What the paper says</a><a href="#danh-gia-bai-bao">How it was received</a><a href="#dan-chung">Fact-check</a><a href="#moi-nhat">Latest research</a><a href="#danh-gia">Assessment</a><a href="#ap-dung">Apply it</a><a href="#doc-tiep">Read next</a><a href="#nguon">Sources</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark is reading with you</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Re-read in 1 minute</span><h2>Essence</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 24c4-10 8-14 10-14s6 4 10 14"/><path d="M4 27h24"/></svg><b>About 6 levels</b><span>Hear a tone and name its pitch: people start confusing them beyond about 6 levels.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 16h3M10 16h3M15 16h3M20 16h3M25 16h2"/><rect x="3" y="9" width="26" height="14" rx="3"/></svg><b>About 7 items back</b><span>Hear a list and repeat it: young adults hold about 7 digits.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="10" width="11" height="12" rx="6"/><rect x="18" y="10" width="11" height="12" rx="6"/></svg><b>Counted in chunks</b><span>The limit is in chunks, not in amount of information. Group things and you hold more.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 26V8l16 18V8"/></svg><b>Really closer to 4</b><span>Cowan (2001): with rehearsal and chunking blocked, the limit is about 3 to 5 chunks.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v8M16 21v1"/></svg><b>Not a "7-item rule"</b><span>The paper never says menus or slides need 7 items at most. Miller even called the sevens a coincidence.</span></div>
+  </div>
+  <p class="nguon">Source: Miller (1956); Cowan (2001), abstract on PubMed 11515286; Tufte (2003) on the "7-item rule" (secondary source).</p>
+</section>
+
+<section id="luan-diem">
+  <div class="sec-head"><span class="label">Part 1</span><h2>The paper's question</h2></div>
+  <p class="thesis">How much can a head hold at once? Miller saw the number seven turning up everywhere, then pointed to something more important than the number: we count in chunks, and whoever knows how to chunk remembers more.</p>
+  <p class="nguon">The question is Mark's summary of the paper's opening and closing.</p>
+  <div class="flow" aria-label="The paper's three parts">
+    <div class="step"><span class="label">Part 1</span><b>Absolute judgment</b><span>Naming a tone or a brightness: about 2.5 bits, roughly 6 levels.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Part 2</span><b>Immediate memory span</b><span>Repeating a list: about 7 items, nearly regardless of how much each item carries.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">Part 3</span><b>Chunking</b><span>Recode information into bigger chunks to get past the limit.</span></div>
+  </div>
+</section>
+
+<section id="bo-cuc">
+  <div class="sec-head"><span class="label">Part 2</span><h2>The story of the discovery</h2><p class="lead">An American psychologist, the heyday of information theory, and a number that would not let go.</p></div>
+  <div class="quote"><span>My problem is that I have been persecuted by an integer.</span><span class="src">Opening line of the paper, Miller (1956). He writes that the number had followed him for seven years, intruding into his own data and the pages of leading journals.</span></div>
+  <div class="tl">
+    <div><b>1948 onward · Information theory</b><span>The idea of measuring information in bits and of "channel capacity" starts to enter psychology. Miller uses this frame to look at a person as a communication channel.</span></div>
+    <div class="hot"><b>15/4/1955 · Philadelphia</b><span>Miller gives an invited address to the Eastern Psychological Association.</span></div>
+    <div class="hot"><b>3/1956 · Psychological Review</b><span>The talk is printed as a paper, volume 63, pages 81–97.</span></div>
+    <div><b>11/9/1956 · A symposium at MIT</b><span>Miller later wrote (2003) that he dated the birth of cognitive science to this day, the second day of a symposium on information theory.</span></div>
+    <div><b>1991 · A medal</b><span>Miller receives the US National Medal of Science for his work on how the mind operates.</span></div>
+    <div><b>2012 · Death</b><span>Miller dies on 22/7/2012, aged 92, in New Jersey.</span></div>
+  </div>
+  <p class="nguon">Source: the footnote printed in Miller (1956) on the 15/4/1955 address (checked via excerpts of the PDF); Miller (2003), Trends in Cognitive Sciences, via PhilPapers and Lateral magazine (secondary sources); Princeton University news, 26/7/2012 (1991 medal, date of death).</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="mpj">
+        <title id="mpj">Absolute judgment experiment. A range of tones from low to high. With a few levels, listeners name them correctly. Beyond about 6 levels, they start to confuse them. Transmitted information is about 2.5 bits.</title>
+        <text x="20" y="28" class="t-ink t-bold">hear a tone, name its level (Pollack's experiment, as summarised by Miller)</text>
+        <g>
+          <rect x="40" y="60" width="90" height="40" rx="6" fill="var(--night)"/><rect x="140" y="60" width="90" height="40" rx="6" fill="var(--night)"/><rect x="240" y="60" width="90" height="40" rx="6" fill="var(--night)"/><rect x="340" y="60" width="90" height="40" rx="6" fill="var(--night)"/><rect x="440" y="60" width="90" height="40" rx="6" fill="var(--night)"/><rect x="540" y="60" width="90" height="40" rx="6" fill="var(--night)"/>
+        </g>
+        <g text-anchor="middle" class="t-bold"><text x="85" y="85" style="fill:#fff">1</text><text x="185" y="85" style="fill:#fff">2</text><text x="285" y="85" style="fill:#fff">3</text><text x="385" y="85" style="fill:#fff">4</text><text x="485" y="85" style="fill:#fff">5</text><text x="585" y="85" style="fill:#fff">6</text></g>
+        <path d="M640 60 h50 v40 h-50 z" fill="none" stroke="var(--day)" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="665" y="85" text-anchor="middle" class="t-day t-bold">7+?</text>
+        <text x="40" y="128" class="t-ink">low</text><text x="630" y="128" text-anchor="end" class="t-ink">high</text>
+        <path d="M80 124 H600" stroke="var(--rule)" stroke-width="2"/>
+        <text x="40" y="168" class="t-night t-bold">about 2.5 bits ≈ 6 distinguishable levels</text>
+        <text x="40" y="190" class="t-day t-bold">add more and confusion starts</text>
+        <text x="40" y="212">illustration; the number of levels is Miller's summary, not one person's result</text>
+      </svg>
+    </div>
+    <figcaption><b>A person as a narrow channel.</b> For pitch, discrimination is about 2.5 bits. Averaged over several senses, Miller summarised about 2.6 bits.<span class="nguon">Source: Miller (1956), section on absolute judgment, summarising Pollack's experiment with tones of 100–8000 Hz; bit values checked via summaries (andymatuschak.org, uxdesign.cc; secondary sources).</span></figcaption>
+  </figure>
+  <div class="fmap">
+    <div class="fcol"><h3><span class="dot"></span>Two different limits</h3><span class="muted">Absolute judgment is measured in bits. Memory span is measured in chunks. Both come out near 7, but they are not the same thing.</span></div>
+    <div class="fcol rem"><h3><span class="dot"></span>A witty talk</h3><span class="muted">Miller writes as if telling the story of being "persecuted" by a number, and ends by doubting those very sevens.</span></div>
+    <div class="fcol body"><h3><span class="dot"></span>What got forgotten</h3><span class="muted">The main idea is chunking. What people remember is the number seven.</span></div>
+  </div>
+  <p class="nguon">Source: Miller (1956); "two limits of different kinds" per the paper itself and Wikipedia (secondary source). The last card is Mark's view.</p>
+  <div class="parts">
+    <div class="part"><span class="label">Part 1 of 3</span><h3>The discovery</h3><div class="chips"><span class="chip">1955</span><span class="chip">information theory</span><span class="chip">6 levels</span><span class="chip">quiz</span></div></div>
+    <div class="part b2"><span class="label">Part 2 of 3</span><h3>What it says, how it was received</h3><div class="chips"><span class="chip">chunking</span><span class="chip">40 binary digits</span><span class="chip">myths</span></div></div>
+    <div class="part b3"><span class="label">Part 3 of 3</span><h3>New research, lessons, Mark's score</h3><div class="chips"><span class="chip">the number 4</span><span class="chip">slots or resources</span><span class="chip">how to chunk</span></div></div>
+  </div>
+</section>
+
+<section id="khai-niem">
+  <div class="sec-head"><span class="label">Part 3</span><h2>What the paper says</h2><p class="lead">In 3 sentences, then in pictures.</p></div>
+  <ol class="three">
+    <li>When naming a stimulus along one dimension (pitch, loudness...), we can tell apart only about 6 levels.</li>
+    <li>When hearing a list and repeating it, we hold about 7 items, and this limit is counted in chunks, not in amount of information.</li>
+    <li>So grouping information into bigger chunks (recoding) is the strongest way past the limit.</li>
+  </ol>
+  <p class="nguon">The three sentences are Mark's summary of Miller (1956).</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="mch">
+        <title id="mch">Chunking. The twelve digits 1 9 4 5 1 9 7 5 2 0 2 6 are twelve items, beyond the span. Read as the three years 1945, 1975, 2026 they become three chunks, easy to hold.</title>
+        <text x="20" y="28" class="t-ink t-bold">the same 12 digits, two ways to hold them</text>
+        <g text-anchor="middle">
+          <g fill="var(--paper)" stroke="var(--night)" stroke-width="2">
+            <rect x="20" y="50" width="44" height="40" rx="6"/><rect x="70" y="50" width="44" height="40" rx="6"/><rect x="120" y="50" width="44" height="40" rx="6"/><rect x="170" y="50" width="44" height="40" rx="6"/><rect x="220" y="50" width="44" height="40" rx="6"/><rect x="270" y="50" width="44" height="40" rx="6"/><rect x="320" y="50" width="44" height="40" rx="6"/><rect x="370" y="50" width="44" height="40" rx="6"/><rect x="420" y="50" width="44" height="40" rx="6"/><rect x="470" y="50" width="44" height="40" rx="6"/><rect x="520" y="50" width="44" height="40" rx="6"/><rect x="570" y="50" width="44" height="40" rx="6"/>
+          </g>
+          <g class="t-ink t-bold"><text x="42" y="76">1</text><text x="92" y="76">9</text><text x="142" y="76">4</text><text x="192" y="76">5</text><text x="242" y="76">1</text><text x="292" y="76">9</text><text x="342" y="76">7</text><text x="392" y="76">5</text><text x="442" y="76">2</text><text x="492" y="76">0</text><text x="542" y="76">2</text><text x="592" y="76">6</text></g>
+          <text x="668" y="76" class="t-night t-bold">12 items</text>
+          <g fill="var(--day)" fill-opacity=".14" stroke="var(--day)" stroke-width="3"><rect x="20" y="130" width="194" height="48" rx="24"/><rect x="220" y="130" width="194" height="48" rx="24"/><rect x="420" y="130" width="194" height="48" rx="24"/></g>
+          <g class="t-ink t-bold"><text x="117" y="160">1945 · independence</text><text x="317" y="160">1975 · reunification</text><text x="517" y="160">2026 · this year</text></g>
+          <text x="668" y="160" class="t-day t-bold">3 chunks</text>
+        </g>
+        <text x="20" y="214">Mark's illustration (Vietnamese history years); meaning already in your head turns 4 digits into 1 chunk</text>
+      </svg>
+    </div>
+    <figcaption><b>Not remembering more, but counting differently.</b> The number of items we can hold is nearly fixed; what can change is how big each item is.<span class="nguon">Source: chunking and recoding per Miller (1956). The years are Mark's illustration.</span></figcaption>
+  </figure>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 190" role="img" aria-labelledby="msm">
+        <title id="msm">Recoding binary digits. Nine digits 1 0 1 0 0 0 1 1 1 split into three groups of three, 101, 000, 111, read as 5, 0, 7. Nine items become three. Sidney Smith trained this way and, as Miller tells it, could recall a string of about 40 binary digits.</title>
+        <text x="20" y="28" class="t-ink t-bold">Sidney Smith's trick: rename binary digits in groups</text>
+        <text x="20" y="74" class="t-ink" style="font-size:20px;letter-spacing:6px">101 000 111</text>
+        <path d="M250 66 h60 m-10 -7 l10 7 -10 7" fill="none" stroke="var(--day)" stroke-width="3"/>
+        <text x="340" y="74" class="t-day t-bold" style="font-size:22px;letter-spacing:10px">5 0 7</text>
+        <text x="20" y="112" class="t-night t-bold">9 digits → 3 chunks</text>
+        <text x="20" y="146" class="t-ink">Smith trained himself and recalled a string of about 40 binary digits (as Miller tells it)</text>
+        <text x="20" y="176">"101 000 111" is Mark's illustration; the figure 40 has not been checked against the original</text>
+      </svg>
+    </div>
+    <figcaption><b>Learn the recoding, then make it automatic.</b> At first the recoding is slow and memory barely improves. Once it becomes a reflex, the span jumps.<span class="nguon">Source: Miller (1956), section on recoding, checked via a discussion list post by Stevan Harnad, University of Southampton (secondary source).</span></figcaption>
+  </figure>
+  <details class="more"><summary>More: why Miller doubted the number seven himself</summary><div>
+    <p>The paper's ending runs through the sevens: seven wonders, seven seas, seven deadly sins, seven notes, seven days. Then Miller writes that he suspects it is only "a pernicious, Pythagorean coincidence".</p>
+    <p>In other words, the author himself did not claim seven was the brain's capacity. Cowan (2001) reads it the same way: the seven was a rough estimate and a rhetorical device.</p>
+    <p class="nguon">Source: Miller (1956), closing section, quoted via secondary pages (uxdesign.cc and others); Cowan (2001), abstract.</p>
+  </div></details>
+</section>
+
+<section id="danh-gia-bai-bao">
+  <div class="sec-head"><span class="label">Part 4</span><h2>How this paper has been judged</h2><p class="lead">Where it appeared, citations, replications, criticism. Each line has a source.</p></div>
+  <div class="evalbox">
+    <div><b>Where, when</b><span>Psychological Review, volume 63, issue 2, pages 81–97, March 1956. Originally an address given on 15/4/1955.</span></div>
+    <div><b>Citations</b><span>Not retrieved. Google Scholar, Semantic Scholar, OpenAlex were blocked from the writing environment (checked 15/10/2026). Wikipedia calls it one of the most highly cited papers in psychology (secondary source). No number is given.</span></div>
+    <div><b>Replicated?</b><span>Partly. A digit span of about 7 is still measured. But with rehearsal and chunking blocked, the limit drops to 3–5 chunks (Cowan 2001); lists with no structure hold only about 3 items (Chekaf, Cowan and Mathy 2016).</span></div>
+    <div><b>Main criticism</b><span>Cowan (2001, 2015): seven is rhetorical, the real limit is near 4. Baddeley (1994) asked "still magic?" in Psychological Review itself. Ma, Husain and Bays (2014): there may be no fixed "slots" at all, but a flexibly shared resource.</span></div>
+    <div><b>Standing</b><span>One of the best-known papers in psychology (Cowan 2015). Miller received the US National Medal of Science in 1991 for his work on the mind.</span></div>
+    <div class="verdict-row warnv"><b>Verdict</b><span><span class="tag warn">CAUTION</span> Chunking and the existence of a short-term memory limit: solid. Seven as "brain capacity": not solid, closer to 4.</span></div>
+  </div>
+  <p class="nguon">Source: Miller (1956); Cowan (2001), Behavioral and Brain Sciences 24(1); Chekaf, Cowan and Mathy (2016), Cognition; Baddeley (1994), Psychological Review 101(2), per the volume 101 contents (secondary source); Ma, Husain and Bays (2014), Nature Neuroscience 17(3); Cowan (2015), Psychological Review 122(3); Princeton news 26/7/2012. The label is Mark's assessment.</p>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Part 5</span><h2>Fact-check: what holds up and what doesn't</h2><p class="lead">14 things often said about "the number seven". Tap a row for the reason.</p></div>
+  <div class="tally" role="img" aria-label="6 solid, 4 caution, 4 false">
+    <div class="o" style="flex:6">6 SOLID</div><div class="w" style="flex:4">4 CAUTION</div><div class="b" style="flex:4">4 FALSE</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">SOLID</span><span>Published in Psychological Review in 1956, from a 1955 talk</span></summary><p class="note">The paper's footnote: an invited address to the Eastern Psychological Association, Philadelphia, 15/4/1955.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>We can tell apart only about 6 levels of pitch</span></summary><p class="note">Miller summarises Pollack's experiment: about 2.5 bits, roughly 6 levels, before confusion begins.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Young adults can repeat about 7 digits</span></summary><p class="note">Miller (1956) on immediate memory span. This is a digit-span figure, measured when listeners are free to rehearse and chunk.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Chunking lets you hold more</span></summary><p class="note">Miller (1956); Chase and Simon (1973): strong chess players recall real positions far better, but their edge shrinks a lot for random positions; Chekaf et al. (2016): span grows when a list has structure.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Without chunking, we hold about 3 to 5 chunks</span></summary><p class="note">Cowan (2001) brings many kinds of data together and concludes the central limit averages about 4 chunks.</p></details>
+    <details><summary><span class="tag ok">SOLID</span><span>Visual short-term memory holds about 4 objects</span></summary><p class="note">Luck and Vogel (Nature, 1997): about 4 colours or orientations; each object can carry several features.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Smith recalled about 40 binary digits by recoding</span></summary><p class="note">One self-trained person, known only through Miller's account; the figure 40 has not been checked against the original (via Harnad's discussion list, secondary source).</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Span differs by material: digits more than letters, letters more than words</span></summary><p class="note">Summaries give about 7 for digits, 6 for letters, 5 for words (secondary sources). The direction is plausible; the exact numbers are unchecked.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Working memory has a fixed number of "slots"</span></summary><p class="note">Ma, Husain and Bays (2014) argue it may be a resource shared flexibly among all items, with quality dropping as items increase. The "slots or resources" debate continues.</p></details>
+    <details><summary><span class="tag warn">CAUTION</span><span>Digit span has stayed the same for decades</span></summary><p class="note">Gignac (2015) found no trend across 10 normative samples, 1923–2008; Woodley of Menie and Fernandes (2015) re-analysed and found one; Wongupparaj et al. (2017): forward span rose slightly, backward span fell slightly.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Miller proved that seven is the brain's capacity"</span></summary><p class="note">Miller himself called the sevens "a pernicious, Pythagorean coincidence" (quoted via secondary sources). Cowan (2001): the seven was a rough estimate and a rhetorical device.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Short-term memory holds exactly 7 things, plus or minus 2"</span></summary><p class="note">With rehearsal and chunking blocked, the limit is about 4 (Cowan 2001). "7 plus or minus 2" describes digit span under easy conditions, not a number of slots in the head.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Phone numbers have 7 digits because of Miller's paper"</span></summary><p class="note">New York used 2 letters plus 5 digits (7 in all) from 1930; the 1947 North American numbering plan standardised that format, before the paper (Wikipedia, secondary source). No record shows the phone company chose it because of Miller.</p></details>
+    <details><summary><span class="tag bad">FALSE</span><span>"Menus and slides should have at most 7 items, per Miller's law"</span></summary><p class="note">Tufte (2003): the paper neither states nor implies any rule for how much to show in a presentation. What is in front of your eyes need not be remembered; Miller's limit is about memory.</p></details>
+  </div>
+  <p class="nguon">Source: as given in each row; full list in Part 10.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Part 6</span><h2>What the latest research says</h2><p class="lead">From "7" to "4", then to whether there are slots at all.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 170" role="img" aria-labelledby="m74">
+        <title id="m74">Two numbers compared. Miller 1956: about 7 items, with free rehearsal and chunking. Cowan 2001: about 4 chunks, range 3 to 5, with rehearsal and chunking blocked.</title>
+        <text x="20" y="48" class="t-ink">Miller 1956</text>
+        <g fill="var(--night)"><circle cx="190" cy="42" r="16"/><circle cx="230" cy="42" r="16"/><circle cx="270" cy="42" r="16"/><circle cx="310" cy="42" r="16"/><circle cx="350" cy="42" r="16"/><circle cx="390" cy="42" r="16"/><circle cx="430" cy="42" r="16"/></g>
+        <text x="460" y="48" class="t-night t-bold">≈ 7 items, rehearsing, chunking</text>
+        <text x="20" y="108" class="t-ink">Cowan 2001</text>
+        <g fill="var(--day)"><circle cx="190" cy="102" r="16"/><circle cx="230" cy="102" r="16"/><circle cx="270" cy="102" r="16"/><circle cx="310" cy="102" r="16"/></g>
+        <circle cx="350" cy="102" r="16" fill="none" stroke="var(--day)" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="380" y="108" class="t-day t-bold">≈ 4 chunks (3–5), both blocked</text>
+        <text x="20" y="156">the two numbers measure different conditions; each is right for its own</text>
+      </svg>
+    </div>
+    <figcaption><b>Not a contradiction, two different questions.</b> "How much can you repeat back" differs from "how many places are there in your head".<span class="nguon">Source: Miller (1956); Cowan (2001), abstract on PubMed 11515286.</span></figcaption>
+  </figure>
+  <div class="tl">
+    <div><b>1994 · "Still magic?"</b><span>Baddeley revisits the seven in Psychological Review itself.</span></div>
+    <div><b>1997 · Vision is about 4 too</b><span>Luck and Vogel (Nature): about 4 colours or orientations in visual short-term memory.</span></div>
+    <div class="hot"><b>2001 · The number 4</b><span>Cowan (Behavioral and Brain Sciences): a central limit of 3–5 chunks, averaging about 4.</span></div>
+    <div><b>2014 · Slots or resources?</b><span>Ma, Husain and Bays (Nature Neuroscience): perhaps no fixed slots, but a flexibly shared resource.</span></div>
+    <div><b>2015 · Miller in retrospect</b><span>Cowan (Psychological Review): the 1956 paper was followed by about 40 years with little research on the numerical limit.</span></div>
+    <div class="hot"><b>2016 · Structure raises span</b><span>Chekaf, Cowan and Mathy (Cognition): lists with no structure hold about 3 items; the more structure to chunk, the bigger the span.</span></div>
+    <div><b>2017 · Across decades</b><span>Wongupparaj et al. pooled data from 1973–2016: forward span rose slightly, backward span fell slightly.</span></div>
+    <div><b>2018 · A set of benchmarks</b><span>Oberauer et al. (Psychological Bulletin) list the robust short-term memory findings any theory must explain.</span></div>
+  </div>
+  <p class="nguon">Source: Baddeley (1994), Psychological Review 101(2); Luck and Vogel (1997), Nature 390, 279–281; Cowan (2001); Ma, Husain and Bays (2014), Nature Neuroscience 17(3), 347–356; Cowan (2015), Psychological Review 122(3), 536–541; Chekaf, Cowan and Mathy (2016), Cognition; Wongupparaj et al. (2017), Intelligence, as summarised in the data paper on PMC7013124; Oberauer et al. (2018), Psychological Bulletin 144(9), 885–958.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Part 7</span><h2>Assessment</h2></div>
+  <p class="nguon">Scores are Mark's assessment based on the sources in Part 10, not data from a study.</p>
+  <div class="scores">
+    <div class="score"><span>Chunking still holds</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>The number seven holds</span><div class="bar"><i class="low" style="width:40%"></i></div><b>2/5</b></div>
+    <div class="score"><span>Influence on the field</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Understood correctly online</span><div class="bar"><i class="low" style="width:20%"></i></div><b>1/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Strengths</span><ul class="plus"><li>Pulled scattered data into one big question</li><li>Introduced the "chunk", still used today</li><li>Doubted its own number</li></ul></div>
+    <div><span class="label">Weaknesses</span><ul class="minus"><li>The seven was catchy enough to bury the main idea</li><li>Measured with free rehearsal and chunking</li><li>Turned into a "design law" it never stated</li></ul></div>
+  </div>
+  <p class="verdict">Miller was right about what matters: we count in chunks. The seven is just a pretty label, and he did not believe it himself.</p>
+  <details class="more"><summary>More: why the "rule of 7" won't die</summary><div>
+    <p>A number, a scientist's name, and advice you can use at once. Those three put "Miller's law" into design books, presentation courses and skills workshops.</p>
+    <p>The accurate version is less tidy: the limit is near 4 without tricks, and much larger once you chunk. What is worth teaching is how to chunk, not the number.</p>
+  </div></details>
+  <p class="nguon">"More" is Mark's commentary, based on the sources in Parts 4 and 5.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Part 8</span><h2>Apply it: break information into small chunks</h2><p class="lead">Doable from tomorrow: vocabulary, numbers, note-taking, exam revision.</p></div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 180" role="img" aria-labelledby="map">
+        <title id="map">Four habits: group in threes and fours; attach to existing meaning; name each chunk; write it down instead of holding it.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · groups of 3–4</text><text x="110" y="100" class="t-night t-bold">0912 345 678</text><text x="110" y="116">not 0912345678</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · attach meaning</text><text x="300" y="100" class="t-day t-bold">digits into dates</text><text x="300" y="116">meaning merges items</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · name the chunk</text><text x="490" y="100" class="t-rem t-bold">one name, one big idea</text><text x="490" y="116">recall the name, pull the chunk</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · write it down</text><text x="680" y="100" class="t-ok t-bold">free up space</text><text x="680" y="116">head to think, paper to hold</text></g>
+        <text x="410" y="160" text-anchor="middle" class="t-ink">Don't try to hold more items. Make each item bigger.</text>
+      </svg>
+    </div>
+    <figcaption><b>Each habit rests on a sourced finding.</b> A limit near 4 chunks (Cowan 2001), chunking extends span (Miller 1956; Chekaf 2016), experts remember in meaningful chunks (Chase and Simon 1973).<span class="nguon">Source: as in Parts 3 and 6. The phone number is illustrative; grouping in "3–4" is Mark's suggestion based on Cowan's 4.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="10" width="11" height="12" rx="6"/><rect x="18" y="10" width="11" height="12" rx="6"/></svg><div><b>Groups of 3–4</b><span>Twelve new words? Split them into 3 themed groups of 4 and learn one group at a time.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="16" r="4"/><circle cx="24" cy="8" r="4"/><circle cx="24" cy="24" r="4"/><path d="M12 14l8-4M12 18l8 4"/></svg><div><b>Hook it to what you know</b><span>Tie numbers to years, birthdays, familiar prices. Existing meaning turns many items into one.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20M6 16h14M6 24h9"/></svg><div><b>Name your chunks</b><span>Take notes as 3–4 big ideas, each with a short name. Remember the names first, details second.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h16v20H8z"/><path d="M12 12h8M12 17h8M12 22h5"/></svg><div><b>Write it, don't carry it</b><span>On a hard problem, put the steps on paper. Short-term memory is small; don't make it hold and think at once.</span></div></div>
+  </div>
+  <details class="more"><summary>Self-check: your memory span, 5 steps</summary><div>
+    <p>1. Have someone read you 8 random digits, one per second. Repeat them. How many did you get?</p>
+    <p>2. Try a new list, but this time group them in 3s and 4s in your head. How many now?</p>
+    <p>3. Try again while saying "la la la" as you listen, so you can't rehearse. How far does it drop?</p>
+    <p>4. Write today's lesson as exactly 4 named big ideas. Tomorrow, try to recall the 4 names.</p>
+    <p>5. Compare steps 1 and 2: the gap is the power of chunking.</p>
+    <p class="nguon">Step 3 mimics how researchers block rehearsal when measuring the "about 4" limit (Cowan 2001). This is a self-test, not a standard measurement.</p>
+  </div></details>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Part 9</span><h2>Read next</h2></div>
+  <div class="reads">
+    <div><b>Miller (1956), "The magical number seven, plus or minus two"</b><span class="muted">Psychological Review. Written like a talk, witty, readable in an evening.</span></div>
+    <div><b>Cowan (2001), "The magical number 4 in short-term memory"</b><span class="muted">Behavioral and Brain Sciences, with open peer commentary. Long, but the key paper for why 4.</span></div>
+    <div><b>Cowan (2015), "George Miller's magical number of immediate memory in retrospect"</b><span class="muted">Psychological Review. Short, the afterlife of the 1956 paper.</span></div>
+    <div><b>Papers That Changed How We Learn #01: The Forgetting Curve</b><span class="muted">Ebbinghaus could recite a 7-syllable list after one reading, more than 70 years before Miller.</span></div>
+    <div><b>Papers That Changed How We Learn #03: Patient H.M. (1957)</b><span class="muted">An operation left a man unable to form new memories, yet still able to learn skills.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Part 10</span><h2>Sources</h2><p class="lead">The paper itself and peer-reviewed studies come first. Secondary sources are labelled. The writing environment blocks the original-paper pages and citation databases, so the originals were checked through excerpts of those same pages in search results, not opened in full.</p></div>
+  <ol class="srcs">
+    <li><b>Miller, G. A.</b> (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. <i>Psychological Review</i> 63(2), 81–97. <a href="https://doi.org/10.1037/h0043158">doi.org</a></li>
+    <li><b>Cowan, N.</b> (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. <i>Behavioral and Brain Sciences</i> 24(1), 87–114. <a href="https://pubmed.ncbi.nlm.nih.gov/11515286/">PubMed</a></li>
+    <li><b>Cowan, N.</b> (2015). George Miller's magical number of immediate memory in retrospect. <i>Psychological Review</i> 122(3), 536–541.</li>
+    <li><b>Baddeley, A.</b> (1994). The magical number seven: Still magic after all these years? <i>Psychological Review</i> 101(2).</li>
+    <li><b>Luck, S. J. and Vogel, E. K.</b> (1997). The capacity of visual working memory for features and conjunctions. <i>Nature</i> 390, 279–281. <a href="https://doi.org/10.1038/36846">doi.org</a></li>
+    <li><b>Ma, W. J., Husain, M. and Bays, P. M.</b> (2014). Changing concepts of working memory. <i>Nature Neuroscience</i> 17(3), 347–356. <a href="https://doi.org/10.1038/nn.3655">doi.org</a></li>
+    <li><b>Chekaf, M., Cowan, N. and Mathy, F.</b> (2016). A study of chunk formation and data compression in immediate memory. <i>Cognition</i>.</li>
+    <li><b>Oberauer, K. et al.</b> (2018). Benchmarks for models of short-term and working memory. <i>Psychological Bulletin</i> 144(9), 885–958. <a href="https://doi.org/10.1037/bul0000153">doi.org</a></li>
+    <li><b>Chase, W. G. and Simon, H. A.</b> (1973). Perception in chess. <i>Cognitive Psychology</i> 4, 55–81.</li>
+    <li><b>Gignac, G. E.</b> (2015), <i>Intelligence</i>; <b>Woodley of Menie, M. A. and Fernandes, H. B. F.</b> (2015); <b>Wongupparaj, P. et al.</b> (2017), <i>Intelligence</i> (as summarised on PMC7013124).</li>
+    <li><b>Miller, G. A.</b> (2003). The cognitive revolution: a historical perspective. <i>Trends in Cognitive Sciences</i>.</li>
+    <li>Secondary sources: Princeton University news, 26/7/2012; Edward Tufte, "The magical number seven, plus or minus two: Not relevant for design" (20/4/2003); Wikipedia (The Magical Number Seven, Plus or Minus Two; Telephone exchange names; All-number calling); Stevan Harnad's discussion list (Southampton); uxdesign.cc; andymatuschak.org; PhilPapers; Lateral magazine.</li>
+  </ol>
+  <p class="nguon">Citation count: not retrieved (Google Scholar, Semantic Scholar, OpenAlex blocked, checked 15/10/2026).</p>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Share this article"><p>Found this useful? Send it to a friend</p><div><button type="button" data-chia-se data-url="https://markhocai.com/en/vu-tru-khac/bai-bao-con-so-7.html" data-tieu-de="The Magical Number Seven" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-share"/></svg>Share</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fvu-tru-khac%2Fbai-bao-con-so-7.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/en/vu-tru-khac/bai-bao-con-so-7.html" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-link"/></svg>Copy link</button></div></aside>
+<footer>Papers That Changed How We Learn #02. Figures are illustrative diagrams; numbers come from Miller's paper and peer-reviewed studies, secondary sources are labelled, and claims are checked in the Fact-check section.</footer>
+</div>
+<link rel="stylesheet" href="../../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
