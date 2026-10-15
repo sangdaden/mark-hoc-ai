@@ -120,3 +120,16 @@
   });
   ve();
 })();
+
+// Link "Bỏ qua tới nội dung" cho người dùng bàn phím và trình đọc màn hình: nhảy qua thanh đầu trang tới <main>
+(function () {
+  const main = document.querySelector("main");
+  if (!main || document.querySelector(".bo-qua")) return;
+  if (!main.id) main.id = "noi-dung";
+  if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+  const a = document.createElement("a");
+  a.className = "bo-qua";
+  a.href = "#" + main.id;
+  a.textContent = document.documentElement.lang === "en" ? "Skip to content" : "Bỏ qua tới nội dung";
+  document.body.insertBefore(a, document.body.firstChild);
+})();
