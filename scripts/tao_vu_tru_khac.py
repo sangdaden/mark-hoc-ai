@@ -285,7 +285,10 @@ def the_bai(b, cd, en=False):
                 f'{"Interactive" if en else "Tương tác"}</span>')
     # Bài có video YouTube: nút phát tròn màu đỏ ló ra ở góc trái bìa (chỉ biểu tượng, để không đụng nhãn "Tương tác" trên bìa hẹp)
     if ma_youtube(b, en)[0]:
-        nhan += (f'<span class="vtk-nhan-video" title="{"Has a video" if en else "Có video"}" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>')
+        nhan += (f'<span class="vtk-nhan-video" title="{"Has a video" if en else "Có video"}" aria-hidden="true" '
+                 f'style="position:absolute;z-index:3;top:-12px;left:-12px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;'
+                 f'background:#E11D2E;color:#fff;box-shadow:0 4px 12px -4px rgba(15,23,42,.6),0 0 0 2px rgb(255 255 255 / .85)">'
+                 f'<svg viewBox="0 0 24 24" style="width:15px;height:15px;margin-left:2px;fill:currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>')
     return (f'<a class="vtk-the" href="vu-tru-khac/{esc(b["slug"])}.html" title="{esc(e.get("mo_ta", b.get("mo_ta")))}"{f" style={chr(34)}{mau}{chr(34)}" if mau else ""}>'
             f'{nhan}<span class="vtk-bia{lop}" aria-hidden="true"><i>{esc(ten)}</i>{hinh}'
             f'<img src="{"../" if en else ""}assets/vu-tru-khac/mark/{mark}.svg" alt="" width="300" height="340" loading="lazy"><small>{esc(b.get("tac_gia"))}</small></span>'
