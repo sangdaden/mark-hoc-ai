@@ -53,6 +53,7 @@
     var s = tao("section", "tc-khoi");
     s.id = g.id;
     s.setAttribute("aria-label", t.nhan);
+    s.setAttribute("translate", "no"); // trình duyệt tự dịch thay chữ trong cảnh đang chạy và làm hỏng trò chơi; người đọc tiếng Anh dùng bản /en/
     s.appendChild(tao("span", "tc-muc", t.muc));
     s.appendChild(tao("h2", "", t.nhan));
     s.appendChild(tao("p", "tc-hoi", t.hoi));
@@ -801,7 +802,7 @@
     });
     chay.onclick = function () {
       khoa = true; chay.disabled = true; vien.innerHTML = ""; c.appendChild(vien); var d = 0;
-      B.cho.forEach(function (v, i) { var ok = v.k === i; if (ok) d++; svg(vien, "rect", { x: cho[i].x - 3, y: cho[i].y - 3, width: W + 6, height: H + 6, rx: 8, class: ok ? "tc-vien-dung" : "tc-vien-sai" }); });
+      B.cho.forEach(function (v, i) { var ok = !!v && v.k === i; if (ok) d++; svg(vien, "rect", { x: cho[i].x - 3, y: cho[i].y - 3, width: W + 6, height: H + 6, rx: 8, class: ok ? "tc-vien-dung" : "tc-vien-sai" }); });
       ket.hidden = false;
       if (d < n) { ket.textContent = dien(t.sai, { d: d, n: n }); khoa = false; chay.disabled = false; return; }
       ket.textContent = t.dung; vien.innerHTML = "";
@@ -860,7 +861,7 @@
     }
     day.onclick = function () {
       khoa = true; day.disabled = true; vien.innerHTML = ""; c.appendChild(vien); var d = 0;
-      B.cho.forEach(function (v, i) { var ok = v.k === i; if (ok) d++; svg(vien, "rect", { x: cho[i].x - 3, y: cho[i].y - 3, width: W + 6, height: H + 6, rx: 10, class: ok ? "tc-vien-dung" : "tc-vien-sai" }); });
+      B.cho.forEach(function (v, i) { var ok = !!v && v.k === i; if (ok) d++; svg(vien, "rect", { x: cho[i].x - 3, y: cho[i].y - 3, width: W + 6, height: H + 6, rx: 10, class: ok ? "tc-vien-dung" : "tc-vien-sai" }); });
       if (d < n && buocChoi === "xep") { ket.hidden = false; ket.textContent = dien(t.sai, { d: d, n: n }); khoa = false; day.disabled = false; return; }
       vien.innerHTML = "";
       lat(function () {

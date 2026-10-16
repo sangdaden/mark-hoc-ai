@@ -42,6 +42,45 @@
     };
     document.head.appendChild(s);
   }
+
+  // Gợi ý đổi ngôn ngữ (chạy cả khi không đo, nên đặt trước dòng dừng bên dưới): trình duyệt không có
+  // ngôn ngữ của trang, ở ngoài Việt Nam (đoán theo múi giờ), và trang có bản kia (link hreflang). Một dải nhỏ cuối màn hình, bấm × thì không hiện lại.
+  function goiYNgonNgu() {
+    try {
+      var KHOA_TAT = "mhai-goi-y-ngon-ngu-tat";
+      if (localStorage.getItem(KHOA_TAT)) return;
+      var langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]).map(function (l) { return String(l).toLowerCase(); });
+      var co_vi = langs.some(function (l) { return l.indexOf("vi") === 0; });
+      var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+      var o_vn = /^Asia\/(Ho_Chi_Minh|Saigon)$/.test(tz);
+      var sang = ngon_ngu === "vi" ? "en" : "vi";
+      if (ngon_ngu === "vi" ? (co_vi || o_vn) : !co_vi) return;
+      var lk = document.querySelector('link[rel="alternate"][hreflang="' + sang + '"]');
+      if (!lk) return;
+      var den = lk.getAttribute("href").replace(/^https:\/\/markhocai\.com/, "");
+      if (!den || den === duong) return;
+      var chu = sang === "en" ? ["This page is also in English", "Read in English", "Close"] : ["Trang này có bản tiếng Việt", "Đọc bằng tiếng Việt", "Đóng"];
+      var bar = document.createElement("div");
+      bar.id = "goi-y-ngon-ngu";
+      bar.setAttribute("role", "region");
+      bar.setAttribute("aria-label", chu[0]);
+      bar.setAttribute("translate", "no");
+      bar.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:460px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#0b2545;color:#fff;font:14px/1.4 Inter,system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25)";
+      var t = document.createElement("span"); t.textContent = chu[0]; t.style.flex = "1";
+      var a = document.createElement("a"); a.href = den + location.hash; a.lang = sang; a.textContent = chu[1] + " \u203a";
+      a.style.cssText = "color:#0b2545;background:#ffd166;border-radius:8px;padding:6px 10px;font-weight:600;text-decoration:none;white-space:nowrap";
+      a.addEventListener("click", function () { gui("doi-ngon-ngu", { sang: sang }); });
+      var x = document.createElement("button"); x.type = "button"; x.textContent = "\u00d7"; x.setAttribute("aria-label", chu[2]);
+      x.style.cssText = "background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:0 4px";
+      x.addEventListener("click", function () { try { localStorage.setItem(KHOA_TAT, "1"); } catch (e) {} bar.remove(); });
+      bar.appendChild(t); bar.appendChild(a); bar.appendChild(x);
+      document.body.appendChild(bar);
+      gui("goi-y-ngon-ngu", { sang: sang });
+    } catch (e) {}
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", goiYNgonNgu);
+  else goiYNgonNgu();
+
   if (!bat && !thu) return;
 
   // Bấm sang kênh, ủng hộ, email
@@ -141,6 +180,8 @@
   window.addEventListener("error", function (e) {
     if (so_loi++ >= 3) return;
     var file = String(e.filename || "").split("/").pop().split("?")[0];
-    gui("loi-js", { loi: String(e.message || "").slice(0, 120), file: file || "trong-trang" });
+    // ghi kèm trang và file ngay trong nhãn "loi" (bảng số liệu tuần chỉ chia theo nhãn này)
+    var cho = duong.replace(/\.html$/, "").slice(-50) + " · " + (file || "trong-trang") + ": ";
+    gui("loi-js", { loi: (cho + String(e.message || "")).slice(0, 200), file: file || "trong-trang" });
   });
 })();
