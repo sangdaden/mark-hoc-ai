@@ -636,7 +636,7 @@ def hinh_choi(hinh):
     return ('<span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span>'
             '<span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span>')
 
-# Khối "Xem 60 giây, thử 60 giây" ngay dưới đầu trang bài có trò chơi: video bên trái, trò chơi bên phải (điện thoại: trên dưới).
+# Khối "Xem 60 giây, thử 60 giây" ở cuối bài có trò chơi (Sang: đọc bài trước, xem video, rồi mới chơi): video bên trái, trò chơi bên phải (điện thoại: trên dưới).
 # Trò chơi thu gọn thành thẻ giới thiệu; bấm "Chơi ngay ở đây" thì bai-viet.js tải trang trò chơi vào iframe (?nhung=1)
 # và mở rộng tràn chiều ngang web. Không có JS thì nút là link sang trang trò chơi. Video không có trò chơi: trả về "".
 def xem_choi(so, q, p, video):
@@ -649,7 +649,9 @@ def xem_choi(so, q, p, video):
     if video:
         xem = (f'<div class="xc-o xc-xem"><p class="xc-h"><span class="so">1</span>{t("Xem 60 giây", "Watch 60 seconds")}</p>{video}'
                f'<button type="button" class="xc-lai" hidden>{ic(p, "play")}{t("Xem lại video", "Watch the video again")}</button></div>')
-    return (f'<section class="xem-choi{"" if xem else " chi-choi"}" id="thu-choi" aria-label="{t("Xem và thử", "Watch and try")}">\n{xem}'
+    dau = (t("Đọc xong rồi? Giờ xem video và chơi thử", "Done reading? Now watch the video and try it") if xem
+           else t("Đọc xong rồi? Giờ chơi thử", "Done reading? Now try it yourself"))
+    return (f'<section class="xem-choi{"" if xem else " chi-choi"}" id="thu-choi" aria-labelledby="xc-dau">\n<h2 class="xc-dau" id="xc-dau">{dau}</h2>\n{xem}'
             f'<div class="xc-o xc-choi" data-url="{q}{url}" data-ten="{esc(t(*ten))}"><p class="xc-h"><span class="so">{"2" if xem else "★"}</span>'
             f'<span class="xc-tieu">{t("Thử 60 giây", "Try it in 60 seconds")}<span class="xc-ten-mo">: {t(*ten)}</span></span>'
             f'<span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span></p>'
@@ -736,13 +738,13 @@ def tao_bai(v):
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
     cc_dau, cc_cuoi = khoi_cong_cu(v, p)
-    main = (khoi_choi + f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + dau_video + cc_dau + than +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
+    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + dau_video + cc_dau + than +
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n</div>\n'
+            + cot_ben(ds_muc, so, q, p, nut_video(v, g, p)) + '</main>\n' + khoi_choi + '<div class="doc doc-cuoi">\n' +
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
             f'<aside class="next-steps">\n{the_lua_dao(so, q)}{the_ghep(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
-            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>\n'
-            + cot_ben(ds_muc, so, q, p, nut_video(v, g, p)) + '</main>')
+            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>')
     url = BASE + GOC + goc
     ngay = LICH.get(str(so))
     og = anh_chia_se_bai(goc, tieu_de, g["ten"] + (" · " + phan if phan else ""), f"{so:02d}", ngay, SERIES_BIA.get(g["id"], {}).get("bia"))
@@ -835,13 +837,13 @@ def tao_bai_phu(s, x):
     khoi_choi = xem_choi(so, q, p, trinh_phat(yt, esc(x["tieu_de"])) if yt else "")
     if khoi_choi and yt:
         dau = dau.replace(trinh_phat(yt, esc(x["tieu_de"])), "", 1)
-    main = (khoi_choi + f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n{dau}' + than +
-            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
+    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n{dau}' + than +
+            f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n</div>\n'
+            + cot_ben(ds_muc, so, q, p, nut) + '</main>\n' + khoi_choi + '<div class="doc doc-cuoi">\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
-            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>\n'
-            + cot_ben(ds_muc, so, q, p, nut) + '</main>')
+            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>')
     url = BASE + GOC + goc
     ngay = x.get("ra_mat")
     og = anh_chia_se_bai(goc, x["tieu_de"], s["ten"] + " · " + phan, so, ngay, None, s["ten"])
