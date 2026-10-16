@@ -8228,6 +8228,15 @@
   KHUON["kenh-dong-chay"] = kenhDongChay;
   KHUON["ban-chu-y"] = banChuY;
   // ==== HẾT ĐĂNG KÝ A ====
+  // Cảnh nào có đồ kéo thả hay nút bấm bên trong thì không được là role="img" (trình đọc màn hình sẽ giấu các nút đó,
+  // axe báo nested-interactive): đổi sang role="group", giữ aria-label. Cảnh chỉ để xem vẫn là "img".
+  // Chạy lại mỗi khi cảnh thêm phần tử (màn sau, "Làm lại"), nên khuôn mới không cần tự lo.
+  function suaVaiTro(goc) {
+    var hinh = goc.querySelectorAll('.tc-khoi svg[role="img"]');
+    for (var i = 0; i < hinh.length; i++) {
+      if (hinh[i].querySelector('[tabindex], a[href], button, input, select, textarea, [role="button"], [role="slider"]')) hinh[i].setAttribute("role", "group");
+    }
+  }
   ds.forEach(function (g) {
     var lam = KHUON[g.khuon], t = g[en ? "en" : "vi"];
     var moc = document.getElementById(g.truoc || g.sau);
@@ -8241,4 +8250,8 @@
       a.parentNode.insertBefore(l, g.truoc ? a : a.nextSibling);
     }
   });
+  // Một bộ theo dõi cho cả trang, vì có cảnh dựng lại cả khối khi "Làm lại".
+  suaVaiTro(document);
+  if (ds.length && window.MutationObserver) new MutationObserver(function () { suaVaiTro(document); })
+    .observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["tabindex", "role"] });
 })();
