@@ -1,0 +1,32 @@
+/* Popup "Cách chơi" (huong-dan.js), dùng chung cho mọi trò chơi. Màu lấy từ biến của style.css nên tự theo chế độ sáng/tối. */
+.hd-mo { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 8px 16px 8px 8px; border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, .55); background: rgba(255, 255, 255, .14); color: #fff; font: 600 15px/1.2 var(--f-body); cursor: pointer; }
+.hd-mo:hover { background: rgba(255, 255, 255, .24); }
+.hd-q { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: #0F172A; font: 800 14px/1 var(--f-display); }
+/* Trong trang bài (?nhung=1) và trang không có đầu trang: nút nằm trên nền sáng ở đầu khung trò chơi */
+.hd-mo-hang { display: flex; justify-content: flex-end; max-width: 1080px; margin: 0 auto 6px; }
+.hd-mo-hang .hd-mo { margin-top: 0; border-color: var(--blue); background: var(--panel); color: var(--blue); }
+.hd-mo-hang .hd-mo:hover { background: var(--bg2); }
+
+.hd { position: fixed; inset: 0; z-index: 100000; }
+.hd.hd-giua { background: rgba(15, 23, 42, .66); }
+.hd-soi { position: fixed; border-radius: 16px; pointer-events: none; box-shadow: 0 0 0 4px var(--yellow), 0 0 0 200vmax rgba(15, 23, 42, .66); }
+.hd-bong { position: fixed; display: grid; gap: 12px; padding: 16px 16px 12px; border-radius: 18px; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--edge); box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+.hd-r { display: flex; gap: 12px; align-items: flex-start; padding-right: 26px; }
+.hd-bit { width: 52px; height: 52px; flex: none; }
+.hd-chu { display: grid; gap: 2px; min-width: 0; }
+.hd-so { color: var(--muted); font: 600 12px/1.3 var(--f-mono); letter-spacing: .04em; text-transform: uppercase; }
+.hd-chu p { margin: 0; font: 500 15px/1.5 var(--f-body); }
+.hd-x { position: absolute; top: 8px; right: 8px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--bg2); color: var(--ink); font-size: 18px; line-height: 1; cursor: pointer; }
+.hd-chan { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.hd-trai { display: flex; gap: 2px; }
+.hd-nut { border: 0; border-radius: 999px; font: 600 14px/1 var(--f-body); cursor: pointer; padding: 11px 14px; }
+.hd-phu { background: transparent; color: var(--muted); padding-inline: 10px; }
+.hd-phu:hover { color: var(--ink); }
+.hd-chinh { background: var(--blue); color: var(--on); padding-inline: 20px; }
+.hd-nut:focus-visible, .hd-x:focus-visible, .hd-mo:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .hd-soi, .hd-bong { transition: left .3s ease, top .3s ease, width .3s ease, height .3s ease; }
+}
+@media print { .hd, .hd-mo, .hd-mo-hang { display: none !important; } }
