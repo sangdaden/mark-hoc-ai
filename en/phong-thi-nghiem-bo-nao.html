@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI brain lab: try tokens, next-word guessing and temperature yourself | Mark học AI</title>
+<meta name="description" content="Free hands-on lab: type a sentence and see the real tokenizer split it, build a next-word guesser yourself, and spin the temperature wheel to see why the same question gets two answers.">
+<link rel="canonical" href="https://markhocai.com/en/phong-thi-nghiem-bo-nao.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/phong-thi-nghiem-bo-nao.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/phong-thi-nghiem-bo-nao.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/phong-thi-nghiem-bo-nao.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI brain lab: try tokens, next-word guessing and temperature yourself | Mark học AI">
+<meta property="og:description" content="Free hands-on lab: type a sentence and see the real tokenizer split it, build a next-word guesser yourself, and spin the temperature wheel to see why the same question gets two answers.">
+<meta property="og:url" content="https://markhocai.com/en/phong-thi-nghiem-bo-nao.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Lab · runs in your browser · no real AI calls</p>
+<h1>AI brain lab</h1>
+<p class="lead">Do by hand what the “Inside the AI brain” videos explain. Pick a station on the left; each takes about a minute.</p>
+</div><img class="head-art" src="../assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="bn" id="bn">
+<nav class="bn-ngan" aria-label="Stations"><p class="bn-cau" title="Sample sentence used across stations (video 21)">The cat did not jump over the wall because it was too tired</p><ol><li><button type="button" class="bn-nut" data-tram="cat-manh" aria-controls="tram-cat-manh"><span class="bn-so">1</span><span class="bn-ten">Tokens<small>Video 19 · 146</small></span></button></li><li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">2</span><span class="bn-ten">Meaning map<small>Coming soon</small></span></span></li><li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">3</span><span class="bn-ten">Word order<small>Coming soon</small></span></span></li><li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">4</span><span class="bn-ten">Attention: the word “it”<small>Coming soon</small></span></span></li><li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">5</span><span class="bn-ten">Through 12 layers<small>Coming soon</small></span></span></li><li><button type="button" class="bn-nut" data-tram="doan-chu" aria-controls="tram-doan-chu"><span class="bn-so">6</span><span class="bn-ten">Next word<small>Video 7</small></span></button></li><li><button type="button" class="bn-nut" data-tram="vong-quay" aria-controls="tram-vong-quay"><span class="bn-so">7</span><span class="bn-ten">Temperature wheel<small>Video 24</small></span></button></li><li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">8</span><span class="bn-ten">Think before answering<small>Coming soon</small></span></span></li></ol></nav>
+<div class="bn-ban">
+<section class="bn-tram" id="tram-cat-manh" hidden aria-labelledby="h-cat-manh">
+<p class="bn-nhan">Station 1 · Videos 19, 146, 60</p>
+<h2 id="h-cat-manh">Type anything, see which tokens the AI cuts it into</h2>
+<p class="bn-mo">AI doesn't read letter by letter. It reads <b>tokens</b>. Each colour below is one token. This is a real tokenizer, the same kind chatbots use.</p>
+<label class="bn-lbl" for="cm-chu">Your sentence</label>
+<textarea id="cm-chu" class="bn-o" rows="2" maxlength="600">The cat did not jump over the wall because it was too tired</textarea>
+<div class="bn-mau" role="group" aria-label="Sample sentences"><button type="button" class="chip" data-cm-mau="The cat did not jump over the wall because it was too tired" data-cap='["The cat did not jump over the wall because it was too tired", "Con mèo không nhảy qua bức tường vì nó quá mệt"]'>The cat did not jump over th…</button><button type="button" class="chip" data-cm-mau="It is sunny today, so I am going for coffee with a friend." data-cap='["It is sunny today, so I am going for coffee with a friend.", "Hôm nay trời nắng, mình đi uống cà phê với bạn."]'>It is sunny today, so I am g…</button><button type="button" class="chip" data-cm-mau="Leaning, scribbled, elbow" data-cap='["Leaning, scribbled, elbow", "Nghiêng ngả, nguệch ngoạc, khuỷu tay"]'>Leaning, scribbled, elbow</button><button type="button" class="chip" data-cm-mau="Mark học AI 🤖 markhocai.com">Emoji and a link</button></div>
+<div class="cm-manh" id="cm-manh" aria-live="polite"></div>
+<p class="cm-so" id="cm-so"></p>
+<p class="cm-bot" id="cm-bot" aria-live="polite"></p>
+<div class="cm-them" id="cm-them" data-cap='["The cat did not jump over the wall because it was too tired", "Con mèo không nhảy qua bức tường vì nó quá mệt"]'>
+<p class="bn-lbl">Same idea, two languages</p>
+<div class="cm-hang"><span>Vietnamese</span><span class="cm-thanh"><i class="cm-b"></i></span><b class="cm-b-so"></b></div>
+<div class="cm-hang"><span>English</span><span class="cm-thanh"><i class="cm-a"></i></span><b class="cm-a-so"></b></div>
+<p class="bn-ghi">Vietnamese usually costs more tokens because accented letters are rarer in training data. More tokens means higher cost and a context window that fills up faster (video 146).</p>
+</div>
+<details class="bn-nap"><summary>Under the hood: what is a token inside the machine?</summary>
+<p>Each token is a number in a vocabulary of about 200,000 entries. Common words like “the” get a whole entry; rarer accented words are cut smaller. A ◇ marks a token that holds only half a character: one accented letter split in two.</p>
+<label class="bn-chk"><input type="checkbox" id="cm-tt"> Show each token's number in the vocabulary</label>
+<p>This tokenizer is o200k_base, used by the GPT-4o models. Claude and Gemini each have their own, so counts differ a little, but the idea is the same.</p>
+</details>
+<div class="cm-tien"><label class="bn-lbl" for="cm-gia">Example price (dollars per million tokens)</label>
+<input id="cm-gia" class="bn-so-o" type="number" min="0" step="0.1" value="3"><p id="cm-tien" class="bn-ghi"></p>
+<p class="bn-ghi">Real prices differ by model; check the provider's page. Video 60 explains why every question costs money.</p></div>
+</section>
+<section class="bn-tram" id="tram-doan-chu" hidden aria-labelledby="h-doan-chu">
+<p class="bn-nhan">Station 6 · Videos 7, 242</p>
+<h2 id="h-doan-chu">Be the chatbot: pick the next word, one at a time</h2>
+<p class="bn-mo">A chatbot really just guesses the next word, then repeats. Type a few words and the machine lists likely next words with their odds. Tap one to add it.</p>
+<label class="bn-lbl" for="dc-cau">Sentence so far</label>
+<textarea id="dc-cau" class="bn-o" rows="2">You can </textarea>
+<p class="dc-cach" id="dc-cach"></p>
+<div class="dc-ds" id="dc-ds" aria-live="polite"></div>
+<div class="bn-hang"><button type="button" class="btn" id="dc-chay">Auto-write 12 words</button><button type="button" class="btn btn-nhe" id="dc-lai">Start over</button></div>
+<details class="bn-nap"><summary>Under the hood: where did this guesser learn?</summary>
+<p>It read the 310 articles on this site (about 72,000 words) and counted which word tends to follow each pair of words.</p>
+<p>Real chatbots learn from trillions of words and look at the whole conversation, not just the last 2 words. Seeing the whole sentence is what attention does (station 4).</p>
+</details>
+</section>
+<section class="bn-tram" id="tram-vong-quay" hidden aria-labelledby="h-vong-quay">
+<p class="bn-nhan">Station 7 · Video 24</p>
+<h2 id="h-vong-quay">The lucky wheel: why the same question gets two answers</h2>
+<p class="bn-mo">The AI scores every word it could say next, then draws one by those odds. Bigger slices win more often. The <b>temperature</b> knob makes the slices bulge or even out.</p>
+<p class="vq-cau" id="vq-cau"></p>
+<div class="vq-ban">
+<canvas id="vq-ve" width="320" height="320" role="img" aria-label="Wheel of possible next words"></canvas>
+<div class="vq-ben">
+<label class="bn-lbl" for="vq-nhiet">Temperature <b id="vq-nhiet-so"></b></label>
+<input type="range" id="vq-nhiet" min="0.1" max="2" step="0.1" value="1">
+<p class="bn-ghi" id="vq-giai" aria-live="polite"></p>
+<label class="bn-lbl" for="vq-topp">Keep only the big slices (top-p) <b id="vq-topp-so"></b></label>
+<input type="range" id="vq-topp" min="0.5" max="1" step="0.05" value="1">
+<p class="bn-ghi" id="vq-giu"></p>
+<div class="bn-hang"><button type="button" class="btn" id="vq-quay">Spin</button><button type="button" class="btn btn-nhe" id="vq-quay20">Spin 20 times</button><button type="button" class="btn btn-nhe" id="vq-xoa">Clear tally</button></div>
+<p class="vq-kq" id="vq-dem" aria-live="polite"></p>
+</div></div>
+<ul class="vq-ds" id="vq-ds"></ul>
+<p class="bn-ghi">The thin mark is the original odds; the coloured bar is the odds after temperature. The number on the right counts wins.</p>
+<div class="bn-hang"><button type="button" class="chip" id="vq-video">Example from video 24</button><button type="button" class="chip" id="vq-tram6">Use real odds from the station 6 sentence</button></div>
+<p class="bn-ghi" id="vq-nguon"></p>
+<details class="bn-nap"><summary>Under the hood: the temperature formula</summary>
+<p>Each probability is raised to the power 1/temperature, then rescaled to add up to 100%. Temperature 0.5 makes big slices bigger; 2 pulls them together. Top-p keeps the biggest slices that add up to the chosen share and drops the rest.</p>
+<p>Chat apps usually hide the temperature. The tip from the video: for creative tasks, regenerate a few times and pick the best; for exact tasks, ask the AI to work step by step and check itself.</p>
+</details>
+</section>
+<div class="chia-se">
+<p class="chia-se-h">Found this useful? Send it to a friend</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/en/phong-thi-nghiem-bo-nao.html" data-tieu-de="AI brain lab: try tokens, next-word guessing and temperature yourself" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Share</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fphong-thi-nghiem-bo-nao.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/en/phong-thi-nghiem-bo-nao.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Copy link</button></div>
+</div>
+<p class="gh-ghi">Everything runs on your device: no real AI calls, nothing is sent anywhere. The remaining stations open over time alongside the videos.</p>
+<noscript><p>The lab needs JavaScript.</p></noscript>
+</div>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<script src="../bo-nao.js?v=dev" defer></script>
+<script src="../bai-viet.js?v=dev" defer></script>
+</body>
+</html>
