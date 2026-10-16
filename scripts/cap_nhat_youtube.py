@@ -8,12 +8,12 @@ Chạy lại mỗi tuần (sau khi cập nhật sổ cái), rồi chạy scripts
 Nguồn: bai_metricool trong sổ cái, bài có networks[].network == "youtube", status "PUBLISHED" và publicUrl;
 số video lấy từ trường _video ("<số>-<slug>_<bản>"). Bài tổng hợp (tron-bo) không gắn với một số video nên bỏ qua.
 Mỗi video chọn: bản ngang (video dài) trước, rồi bản dọc chính (Short), cuối cùng mới tới clip cắt từ video.
-Chỉ ghi video có số >= VIDEO_MOI_TU (scripts/video_moi.py); video 01-302 giữ nút "Xem video" như cũ.
+Ghi mọi video đã đăng (Sang duyệt 16/10: cả 01-302, không theo ngưỡng ảnh VIDEO_MOI_TU).
+Tập phụ ("05-1-radar-..." trong data/video-phu.json) ghi khóa "5.1"; bản ngang không có số ("lidar_ngang-16x9")
+ghép theo slug trong data/videos.json.
 Kết quả: {"<số>": {"id": "<mã 11 ký tự>", "loai": "dai" | "short"}}.
 """
 import json, pathlib, re, sys
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from video_moi import VIDEO_MOI_TU
 
 R = pathlib.Path(__file__).resolve().parent.parent
 OUT = R / "data" / "youtube-id.json"
@@ -27,7 +27,7 @@ def ma_youtube(url):
 
 
 def uu_tien(ban):
-    if "clip" in ban:
+    if "clip" in ban or ban.startswith("meo"):
         return 0, "short"
     if "ngang" in ban:
         return 2, "dai"
@@ -36,12 +36,21 @@ def uu_tien(ban):
 
 def doc_so_cai():
     d = json.loads(SO_CAI.read_text(encoding="utf-8"))
+    phu = {f'{int(str(x["so"]).split(".")[0]):02d}-{str(x["so"]).split(".")[1]}-{x["slug"]}': str(x["so"])
+           for ss in json.loads((R / "data" / "video-phu.json").read_text(encoding="utf-8"))["series"] for x in ss["tap"]}
+    theo_slug = {v["slug"]: str(v["so"]) for v in json.loads((R / "data" / "videos.json").read_text(encoding="utf-8"))}
     chon = {}
     for bai in d.get("bai_metricool", []):
-        m = re.match(r"(\d+)-[^_]+_(.+)$", bai.get("_video") or "")
-        if not m:
+        ten, _, ban = (bai.get("_video") or "").partition("_")
+        m = re.match(r"(\d+)-", ten)
+        if ten in phu:
+            so = phu[ten]
+        elif m:
+            so = str(int(m.group(1)))
+        elif ten in theo_slug and "tron-bo" not in ban:
+            so = theo_slug[ten]
+        else:
             continue
-        so, ban = int(m.group(1)), m.group(2)
         for n in bai.get("networks", []):
             ma = ma_youtube(n.get("publicUrl")) if n.get("network") == "youtube" and n.get("status") == "PUBLISHED" else None
             if not ma:
@@ -56,11 +65,11 @@ if __name__ == "__main__":
     tat_ca = doc_so_cai() if SO_CAI.exists() else {}
     if not SO_CAI.exists():
         print("không thấy sổ cái", SO_CAI)
-    for a in [x for x in sys.argv[1:] if re.match(r"\d+=[A-Za-z0-9_-]{11}(:dai|:short)?$", x)] if "--thu" in sys.argv else []:
+    for a in [x for x in sys.argv[1:] if re.match(r"\d+(?:\.\d+)?=[A-Za-z0-9_-]{11}(:dai|:short)?$", x)] if "--thu" in sys.argv else []:
         so, ma = a.split("=")
         ma, _, loai = ma.partition(":")
-        tat_ca[int(so)] = {"id": ma, "loai": loai or "dai"}
-    moi = {str(so): tat_ca[so] for so in sorted(tat_ca) if so >= VIDEO_MOI_TU}
+        tat_ca[so] = {"id": ma, "loai": loai or "dai"}
+    xep = lambda so: [int(x) for x in so.split(".")]
+    moi = {so: tat_ca[so] for so in sorted(tat_ca, key=xep)}
     OUT.write_text(json.dumps(moi, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"YouTube đã đăng: {len(tat_ca)} video (số nhỏ nhất {min(tat_ca) if tat_ca else '-'}), "
-          f"ghi {len(moi)} video từ {VIDEO_MOI_TU} vào {OUT.relative_to(R)}")
+    print(f"YouTube đã đăng: ghi {len(moi)} video vào {OUT.relative_to(R)}")
