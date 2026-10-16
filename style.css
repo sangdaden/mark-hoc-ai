@@ -2178,3 +2178,116 @@ html.nhung main { padding-top: 8px; max-width: none; }
 .lt-nut[aria-pressed="true"] small { background: rgba(255, 255, 255, .3); }
 .lt-moi { --mau: #06D6A0; --chu: #0F172A; } .lt-hot { --mau: #F97316; } .lt-choi { --mau: #8B5CF6; } .lt-chon { --mau: #EAB308; --chu: #0F172A; }
 @media (max-width: 760px) { .loc-the { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; } .lt-nut { flex: none; } }
+
+/* ---------- Máy tính đời thật (may-tinh-doi-that.html, may-tinh.js) ---------- */
+.mt { padding-block: 8px 40px; }
+.mt-tabs { margin-bottom: 18px; }
+@media (max-width: 760px) { .mt-tabs { margin-inline: -16px; padding-inline: 16px; } }
+.mt-khu { padding: 22px; border-radius: 24px; background: var(--panel); border: 1.5px solid var(--edge); box-shadow: 0 20px 40px -30px rgba(15, 23, 42, .5); }
+.mt-dau { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+.mt-ten { margin: 0 0 4px; font: 800 26px/1.2 var(--f-display); }
+.mt-mo { margin: 0; color: var(--muted); max-width: 640px; }
+.mt-video { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.mt-vid { padding: 6px 12px; border-radius: 999px; background: var(--grad); color: var(--on); font: 700 14px/1.2 var(--f-mono); text-decoration: none; white-space: nowrap; }
+.mt-vid.sap { background: var(--bg2); color: var(--muted); border: 1.5px dashed var(--edge); }
+.mt-luoi { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px; align-items: start; }
+.mt-nhap { display: flex; flex-direction: column; gap: 12px; }
+.mt-vi-du { margin: 0; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, var(--yellow) 22%, var(--panel)); font-size: 14px; line-height: 1.4; }
+.mt-hang { display: flex; flex-direction: column; gap: 6px; }
+.mt-hang-dau { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.mt-nhan { font: 600 14.5px/1.35 var(--f-body); }
+.mt-o-so { width: 9.5em; flex: none; padding: 8px 10px; border-radius: 10px; border: 1.5px solid var(--edge); background: var(--bg); color: var(--ink); font: 600 15px/1.2 var(--f-mono); text-align: right; }
+.mt-o-so:focus-visible { outline: 3px solid var(--blue); outline-offset: 1px; }
+.mt-keo { width: 100%; accent-color: var(--blue); }
+.mt-ra { align-self: flex-end; margin-top: -4px; font: 500 12.5px/1.2 var(--f-mono); color: var(--muted); }
+.mt-ds { margin: 0; padding: 12px; border-radius: 14px; border: 1.5px solid var(--edge); display: flex; flex-direction: column; gap: 10px; }
+.mt-ds-h { padding: 0 6px; font: 700 13px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .03em; color: var(--blue-chu); }
+.mt-ds .mt-hang.phia-gai { border-left: 4px solid #F472B6; padding-left: 8px; }
+.mt-ds .mt-hang.phia-trai { border-left: 4px solid #38BDF8; padding-left: 8px; }
+.mt-ds .mt-hang.phia-tre { border-left: 4px solid #FBBF24; padding-left: 8px; }
+.mt-chon { display: flex; flex-direction: column; gap: 6px; }
+.mt-chon-hang { display: flex; flex-wrap: wrap; gap: 6px; }
+.mt-chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink); font: 600 14px/1.2 var(--f-body); cursor: pointer; }
+.mt-chip[aria-checked="true"] { background: var(--blue); border-color: var(--blue); color: var(--on); }
+.mt-nut-phu { align-self: flex-start; }
+.mt-ket { display: flex; flex-direction: column; gap: 16px; }
+.mt-ket-luoi { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mt-ket-o { display: flex; flex-direction: column; gap: 2px; padding: 14px; border-radius: 16px; background: var(--bg); border: 1.5px solid var(--edge); min-width: 0; }
+.mt-ket-nhan { font: 600 13px/1.3 var(--f-body); color: var(--muted); }
+.mt-ket-so { font: 800 24px/1.15 var(--f-display); overflow-wrap: anywhere; }
+.mt-ket-phu { font: 500 12.5px/1.35 var(--f-mono); color: var(--muted); overflow-wrap: anywhere; }
+.mt-ket-o.mt-chinh { background: var(--grad); border-color: transparent; color: var(--on); }
+.mt-ket-o.mt-chinh .mt-ket-nhan, .mt-ket-o.mt-chinh .mt-ket-phu { color: inherit; opacity: .85; }
+.mt-ket-o.mt-chinh .mt-ket-so { font-size: 30px; }
+.mt-ket-o.mt-do { background: color-mix(in srgb, #EF4444 14%, var(--panel)); border-color: #F87171; }
+.mt-ket-o.mt-do .mt-ket-so { color: #DC2626; }
+.mt-ket-o.mt-xanh { background: color-mix(in srgb, #10B981 14%, var(--panel)); border-color: #34D399; }
+:root[data-theme="dark"] .mt-ket-o.mt-do .mt-ket-so { color: #F87171; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mt-ket-o.mt-do .mt-ket-so { color: #F87171; } }
+.mt-vis { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 16px; border: 1.5px dashed var(--edge); }
+.mt-vis-h { margin: 0; font: 700 14px/1.3 var(--f-body); }
+.mt-thanh-hop { display: flex; flex-direction: column; gap: 8px; }
+.mt-thanh { position: relative; display: flex; height: 26px; border-radius: 8px; overflow: hidden; background: var(--bg2); }
+.mt-doan { height: 100%; transition: width .25s; }
+.mt-vach { position: absolute; top: -2px; bottom: -2px; width: 3px; background: #DC2626; }
+.c-xanh { background: #38BDF8; } .c-tim { background: #A78BFA; } .c-cam { background: #FB923C; } .c-vang { background: #FACC15; } .c-xanh-nhat { background: #6EE7B7; }
+.mt-chu-giai { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; line-height: 1.35; }
+.mt-chu-giai-o { display: inline-flex; align-items: center; gap: 6px; }
+.mt-cham { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+.mt-noi-bat { margin: 0; padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, var(--sky) 14%, var(--panel)); font-size: 14.5px; line-height: 1.45; }
+.mt-noi-bat b { font: 800 17px/1.2 var(--f-display); }
+.mt-ghi-nho { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.mt-canh { margin: 0; padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, #EF4444 14%, var(--panel)); border: 1.5px solid #F87171; font-size: 14px; line-height: 1.45; }
+.mt-so-sanh { display: flex; flex-direction: column; gap: 6px; }
+.mt-ss-hang { display: grid; grid-template-columns: 3.2em 1fr auto; gap: 8px; align-items: center; font-size: 13.5px; }
+.mt-ss-nam { font: 600 13px/1 var(--f-mono); color: var(--muted); }
+.mt-ss-cot { height: 14px; border-radius: 7px; background: var(--bg2); overflow: hidden; }
+.mt-ss-cot i { display: block; height: 100%; background: linear-gradient(90deg, #FB923C, #EF4444); }
+.mt-cot-ds { display: flex; align-items: flex-end; gap: 2px; height: 120px; padding-top: 6px; border-bottom: 1.5px solid var(--edge); }
+.mt-cot { flex: 1; display: flex; align-items: flex-end; gap: 1px; height: 100%; min-width: 0; }
+.mt-cot i { flex: 1; border-radius: 3px 3px 0 0; min-height: 1px; }
+.mt-bac { display: flex; gap: 3px; height: 34px; }
+.mt-bac-o { display: grid; place-items: center; border-radius: 6px; min-width: 0; overflow: hidden; font: 700 12px/1 var(--f-mono); color: #0F172A; }
+.mt-mam-lop { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.mt-lop { padding: 6px 10px; border-radius: 10px; font: 700 13.5px/1.2 var(--f-mono); color: #0F172A; }
+.mt-lop-tong { font: 800 18px/1.2 var(--f-display); }
+.mt-so-do { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 6px; }
+.mt-ban { display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; font: 700 12.5px/1 var(--f-mono); color: #0F172A; }
+.mt-ban.phia-gai, .mt-cham.phia-gai { background: #F472B6; } .mt-ban.phia-trai, .mt-cham.phia-trai { background: #38BDF8; } .mt-ban.phia-tre, .mt-cham.phia-tre { background: #FBBF24; }
+.mt-ban.ghep, .mt-cham.ghep { background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .55) 0 4px, transparent 4px 8px); outline: 2px dashed #0F172A; outline-offset: -2px; }
+.mt-cham.ghep { background-color: #CBD5E1; }
+.mt-cham-ds { display: flex; flex-wrap: wrap; gap: 4px; }
+.mt-cham-ds i { width: 12px; height: 12px; border-radius: 50%; background: #34D399; }
+.mt-duoi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 22px; }
+.mt-ct, .mt-nguon, .mt-prompt { padding: 16px; border-radius: 16px; background: var(--bg); border: 1.5px solid var(--edge); min-width: 0; }
+.mt-ct, .mt-prompt.mt-rong { grid-column: 1 / -1; }
+.mt-ct-h { margin: 0 0 10px; font: 700 13px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .03em; color: var(--blue-chu); }
+.mt-ct-ds { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.mt-ct-ds li { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: 12px; align-items: baseline; }
+.mt-ct-ten { font: 600 14px/1.35 var(--f-body); }
+.mt-ct-phep { font: 500 13.5px/1.5 var(--f-mono); overflow-wrap: anywhere; color: var(--ink); background: none; }
+.mt-nguon-ds { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.mt-nguon-ds a { font-weight: 600; font-size: 14.5px; line-height: 1.4; }
+.mt-nguon-so { display: block; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.mt-prompt { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.mt-prompt .mt-ct-h { margin: 0; }
+.mt-prompt-chu { margin: 0; padding: 10px 12px; border-radius: 12px; background: var(--panel); border: 1.5px solid var(--edge); font-size: 14.5px; line-height: 1.5; }
+@media (max-width: 860px) {
+  .mt-khu { padding: 16px; border-radius: 20px; }
+  .mt-luoi, .mt-duoi { grid-template-columns: 1fr; }
+  .mt-dau { flex-direction: column; }
+  .mt-video { justify-content: flex-start; }
+  .mt-ct-ds li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 420px) {
+  .mt-ket-so { font-size: 20px; }
+  .mt-ket-o.mt-chinh .mt-ket-so { font-size: 24px; }
+  .mt-o-so { width: 8em; }
+}
+/* Thẻ xem trước "Máy tính đời thật" trong khối chơi thử của trang bài */
+.ct-mt { grid-template-columns: 1fr 1fr; align-content: center; gap: 8px; }
+.ct-mt-o { display: flex; flex-direction: column; padding: 10px; border-radius: 12px; background: var(--panel); border: 1.5px solid var(--edge); font: 800 22px/1.1 var(--f-display); }
+.ct-mt-o small { font: 600 12px/1.3 var(--f-body); color: var(--muted); }
+.ct-mt-that { background: #FB923C; border-color: #FB923C; color: #0F172A; }
+.ct-mt-that small { color: #431407; }
+.ct-mt-f { grid-column: 1 / -1; justify-self: end; padding: 3px 9px; border-radius: 999px; background: #0F172A; color: #FACC15; font: 700 13px/1.2 var(--f-mono); }
