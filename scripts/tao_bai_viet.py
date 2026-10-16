@@ -612,6 +612,8 @@ def the_ghep(so, q):
 # Thẻ "Tương tác" (giống nhãn Tương tác bên Vũ Trụ Khác): video nào có trò chơi trên web. Khoá là số video dạng chữ ("108", "5.1").
 # Dùng cho dòng thẻ dưới tiêu đề trang bài, và ghi ra data/tuong-tac.json để trang chủ (app.js) gắn nhãn lên thẻ series và từng video.
 TRO_CHOI_WEB = [
+    ("cuoc-goi-gia-giong.html", ("Cuộc gọi giả giọng", "The fake-voice call"), {str(x) for x in load("cuoc-goi")["video_lien_quan"]},
+     ("Người thân khóc xin tiền qua điện thoại. Bạn chọn từng câu đáp, rồi đặt mật khẩu gia đình.", "A crying relative calls asking for money. Pick each reply, then make a family safe word."), "goi"),
     ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO},
      ("Đọc tin nhắn, nghe cuộc gọi, rồi đoán: thật hay lừa đảo?", "Read the message, hear the call, then guess: real or scam?"), "lua-dao"),
     ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP},
@@ -630,6 +632,10 @@ for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
 
 # Hình xem trước nhỏ trên thẻ "Chơi thử" (HTML + CSS, không ảnh): người xem nhìn là biết trò chơi làm gì
 def hinh_choi(hinh):
+    if hinh == "goi":
+        return (f'<span class="ct-hinh ct-goi" aria-hidden="true"><span class="ct-goi-av">M</span><b>{t("Số không lưu", "Unknown number")}</b>'
+                f'<span class="ct-goi-noi">{t("“Mẹ ơi cứu con…”", "“Mom, help me…”")}</span>'
+                f'<span class="ct-chon"><span class="ct-gia">{t("Từ chối", "Decline")}</span><span>{t("Nghe", "Answer")}</span></span></span>')
     if hinh == "ghep":
         manh = [("vai", t("Vai trò", "Role")), ("boi", t("Bối cảnh", "Context")), ("viec", t("Nhiệm vụ", "Task")), ("dang", t("Định dạng", "Format"))]
         return ('<span class="ct-hinh ct-ghep" aria-hidden="true">' + "".join(f'<span class="ct-manh ct-{k}">{ten}</span>' for k, ten in manh) +
@@ -1814,6 +1820,96 @@ def tao_may_tinh():
                                                  desc, band, main, p, og_type="website", q="",
                                                  cuoi=f'<script src="{p}may-tinh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
+# ---------- trò chơi "Cuộc gọi giả giọng" (cuoc-goi-gia-giong.html): mô phỏng cuộc gọi rẽ nhánh, video 108, 109, 112 ----------
+# Nội dung ở data/cuoc-goi.json (cả hai ngôn ngữ), cách chơi ở cuoc-goi.js. Cuối trò: đặt mật khẩu gia đình, in hoặc tải thẻ nhỏ.
+def tao_cuoc_goi():
+    p = t("", "../")
+    D = load("cuoc-goi")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) and L in x else x
+    def video(so):
+        v = co_bai[so]
+        return {"so": so, "ten": seo[str(so)], "url": f"bai/{ten_file(v)}.html"}
+    cuoc = []
+    for c in D["cuoc"]:
+        nut = {}
+        for k, n in c["nut"].items():
+            x = {"dong": [{"tu": d["tu"], "chu": chu(d["chu"]), "cam": chu(d.get("cam", ""))} for d in n.get("dong", [])]}
+            if "ket" in n:
+                x["ket"] = n["ket"]
+            else:
+                x["chon"] = [{"chu": chu(o["chu"]), "muc": o["muc"], "toi": o["toi"]} for o in n["chon"]]
+            nut[k] = x
+        cuoc.append({"id": c["id"], "ten": chu(c["ten"]), "vai": chu(c["vai"]), "khung": {k: chu(x) for k, x in c["khung"].items()},
+                     "nut": nut, "dau_hieu": [chu(x) for x in c["dau_hieu"]], "giai": chu(c["giai"]), "video": video(c["video"])})
+    nhan = {
+        "cuoc": t("Cuộc gọi", "Call"), "khien": t("Khiên", "Shields"), "goi_den": t("Cuộc gọi đến", "Incoming call"), "goi_video": t("Cuộc gọi video", "Video call"),
+        "nghe": t("Nghe", "Answer"), "tu_choi": t("Từ chối", "Decline"), "reo": t("Điện thoại đang reo. Bạn làm gì?", "Your phone is ringing. What do you do?"),
+        "ban_noi": t("Bạn chọn", "Your move"), "ban": t("Bạn", "You"), "tin": t("Tin nhắn", "Text message"), "dang_noi": t("Đang nói…", "Speaking…"),
+        "ket_thuc": t("Cuộc gọi kết thúc", "Call ended"),
+        "ket": {"an-toan": t("An toàn!", "Safe!"), "tam": t("Tạm ổn, nhưng còn rủi ro", "OK, but risky"), "mat": t("Bạn đã mất tiền", "You lost the money")},
+        "dau_hieu": t("Dấu hiệu trong cuộc gọi này", "Signs in this call"), "dau_hieu_that": t("Vì sao lần này là thật", "Why this one was real"),
+        "duong_di": t("Các lựa chọn của bạn", "Your choices"), "xem_video": t("Xem video", "Watch video"), "tiep": t("Cuộc gọi tiếp theo", "Next call"),
+        "xem_ket": t("Xem kết quả", "See your result"), "bo_qua": t("Bỏ qua, đặt mật khẩu gia đình ngay", "Skip to making a family safe word"),
+        "hang": [[9, t("Người gác cổng của cả nhà", "Your family's gatekeeper")], [6, t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên tập thêm một lần", "Worth another try")]],
+        "on_lai": t("Xem lại video cho các cuộc gọi chưa trọn khiên", "Rewatch the videos for calls without full shields"),
+        "het_sai": t("Ba cuộc gọi, trọn chín khiên. Gửi trò này cho bố mẹ thử nhé!", "Three calls, all nine shields. Send this to your parents to try!"),
+        "phu": t("khiên", "shields"), "phu_ket": t("khiên bạn giữ được qua 3 cuộc gọi", "shields kept across 3 calls"),
+        "kiem": {"dai": t("Từ 3 tiếng trở lên", "At least 2 words"), "so": t("Không có số hay ngày tháng", "No numbers or dates"), "de": t("Không phải từ dễ đoán", "Not an easy guess")},
+        "the": {"h": t("Mật khẩu gia đình", "Family safe word"), "nha": t("Nhà mình", "Our family"), "mk": t("Mật khẩu:", "Safe word:"),
+                "luat": [t("Ai gọi đòi tiền gấp: cúp máy, gọi lại số đã lưu.", "Urgent money call? Hang up and call the saved number."),
+                         t("Không gọi lại được: hỏi mật khẩu. Sai hay ấp úng là cúp.", "Can't reach them? Ask the safe word. Wrong or stalling means hang up."),
+                         t("Không đọc mã OTP cho bất kỳ ai.", "Never read an OTP code to anyone."),
+                         t("Chuyện tiền không bao giờ vội.", "Money is never that urgent.")]},
+    }
+    mk = D["mat_khau"][L]
+    du_lieu = json.dumps({"cuoc": cuoc, "nhan": nhan, "mat_khau": mk, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    so_cuoc = len(cuoc)
+    desc = t(f"Trò chơi miễn phí: {so_cuoc} cuộc gọi giả lập, người thân khóc xin tiền, bạn thân gọi video deepfake. Chọn từng câu đáp, xem cuộc gọi rẽ ra sao, rồi đặt mật khẩu gia đình và in thẻ dán tủ lạnh.",
+             f"Free game: {so_cuoc} simulated calls, a crying relative asking for money, a deepfake video call from a friend. Pick each reply, see where the call goes, then make a family safe word and print a fridge card.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 4 phút · chơi trên điện thoại", "Game · 4 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Cuộc gọi giả giọng", "The fake-voice call")}</h1>\n'
+            f'<p class="lead">{t(f"{so_cuoc} cuộc gọi đổ chuông. Bạn chọn nghe hay không, nói gì, có chuyển tiền không. Cuối cùng tự đặt mật khẩu gia đình và in một thẻ nhỏ cho cả nhà.", f"{so_cuoc} calls ring in. You choose whether to answer, what to say and whether to send money. Then make your own family safe word and print a small card for everyone.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+    main = f"""<main class="cg" id="cg">
+<div class="cg-dau"><p class="cg-tien" id="cg-tien" aria-live="polite"></p><a class="cg-bo-qua" id="cg-bo-qua" href="#cg-mk">{t("Đặt mật khẩu gia đình ngay", "Make a family safe word now")} ↓</a><p class="cg-diem" id="cg-diem"></p></div>
+<div class="cg-san" id="cg-san"></div>
+<section class="cg-ket" id="cg-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="cg-ket-so"></p><p class="ld-ket-hang" id="cg-ket-hang"></p><p class="ld-ket-phu" id="cg-ket-phu"></p></div></div>
+<h2 class="ld-ket-h" id="cg-ket-h"></h2>
+<div class="ld-ket-video" id="cg-ket-video"></div>
+</section>
+<section class="cg-mk" id="cg-mk" aria-labelledby="cg-mk-h">
+<p class="cg-mk-buoc">{t("Bước cuối", "Last step")}</p>
+<h2 id="cg-mk-h">{t("Đặt mật khẩu gia đình", "Make a family safe word")}</h2>
+<p class="cg-mk-lead">{t("Một cụm từ bí mật cả nhà cùng biết. Ai gọi đòi tiền gấp mà không nói đúng, cúp máy ngay. Chọn cụm dễ nhớ mà khó đoán: đừng dùng tên thú cưng hay ngày sinh.", "A secret phrase the whole family knows. If someone calls asking for money and can't say it, hang up. Pick something easy to remember but hard to guess: no pet names or birthdays.")}</p>
+<div class="cg-mk-o">
+<div class="cg-mk-tao">
+<label class="cg-mk-nhan" for="cg-mk-o">{t("Mật khẩu của nhà bạn", "Your family's safe word")}</label>
+<div class="cg-mk-hang"><input id="cg-mk-o" type="text" autocomplete="off" spellcheck="false" maxlength="40" placeholder="{t("ví dụ: bánh xèo con diều tím", "e.g. purple kite pancake")}"><button type="button" class="btn" id="cg-mk-goi-y">{ic(p, "sparkles")}{t("Gợi ý", "Suggest")}</button></div>
+<ul class="cg-mk-kiem" id="cg-mk-kiem" aria-live="polite"></ul>
+<label class="cg-mk-nhan" for="cg-mk-nha">{t("Tên nhà (không bắt buộc)", "Family name (optional)")}</label>
+<input id="cg-mk-nha" type="text" autocomplete="off" maxlength="24" placeholder="{t("ví dụ: Nhà bà Tư", "e.g. The Nguyens")}">
+<label class="cg-mk-in"><input type="checkbox" id="cg-mk-ghi"> {t("In luôn mật khẩu lên thẻ", "Print the safe word on the card")}</label>
+<p class="cg-mk-meo">{t("Nên để trống rồi viết tay: thẻ dán tủ lạnh thì khách tới nhà cũng đọc được. Đừng nhắn mật khẩu qua tin nhắn hay đăng lên mạng, hãy nói trực tiếp trong bữa cơm.", "Better to leave it blank and write it by hand: guests can read a card on the fridge. Never text the safe word or post it online; tell everyone in person over dinner.")}</p>
+</div>
+<div class="cg-mk-xem">
+<div class="cg-the" id="cg-the"></div>
+<div class="cta"><button type="button" class="btn btn-yt" id="cg-in">{ic(p, "file-text")}{t("In thẻ", "Print card")}</button><button type="button" class="btn" id="cg-tai">{ic(p, "download")}{t("Tải ảnh thẻ", "Download card image")}</button></div>
+</div>
+</div>
+</section>
+<div class="cta cg-cuoi"><button type="button" class="btn" id="cg-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "cuoc-goi-gia-giong.html", t("Cuộc gọi giả giọng: thử xem bạn có bị lừa không", "The fake-voice call: would you fall for it?"), p)}
+<p class="ld-ghi">{t("Mọi tên người, số điện thoại và tài khoản trong trò chơi đều là hư cấu để luyện tập.", "All names, phone numbers and accounts in this game are made up for practice.")}
+{t("Mật khẩu bạn gõ và kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "The safe word you type and your results stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem video", "The game needs JavaScript. You can still watch")} <a href="bai/{ten_file(co_bai[108])}.html">{t("Cuộc gọi giả giọng người thân", "The cloned-voice call")}</a>.</p></noscript>
+<script type="application/json" id="cg-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "cuoc-goi-gia-giong.html", trang("cuoc-goi-gia-giong.html", t(f"Cuộc gọi giả giọng: trò chơi chống lừa đảo AI | {SITE}", f"The fake-voice call: a game against AI scams | {SITE}"),
+                                                  desc, band, main, p, og_type="website", q="",
+                                                  cuoi=f'<script src="{p}cuoc-goi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1871,7 +1967,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_may_tinh):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_cuoc_goi, tao_may_tinh):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1879,8 +1975,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "may-tinh-doi-that.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "may-tinh-doi-that.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "cuoc-goi-gia-giong.html", "may-tinh-doi-that.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "cuoc-goi-gia-giong.html": "0.7", "may-tinh-doi-that.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
