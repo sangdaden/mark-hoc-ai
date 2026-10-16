@@ -1,0 +1,117 @@
+/* Trò chơi "Bàn tách giọng ca" (tach-giong-nhac.html, tach-giong-nhac.js): bàn trộn 4 rãnh, ảnh phổ + mặt nạ, máy tách */
+.tg { --cam: #F97316; --lam: #0EA5E9; max-width: 1040px; margin: 0 auto; padding: 20px 16px 56px; display: grid; gap: 28px; }
+.tg-phan { padding: 22px; border-radius: 24px; background: var(--panel); border: 2px solid var(--edge); box-shadow: 0 24px 48px -36px rgba(15, 23, 42, .6); }
+.tg-phan h2 { margin: 0 0 6px; font: 800 22px/1.3 var(--f-display); }
+.tg-buoc { margin: 0 0 4px; font: 700 12.5px/1.4 var(--f-mono); color: var(--blue-chu); letter-spacing: .05em; }
+.tg-lead { margin: 0 0 18px; max-width: 720px; line-height: 1.55; color: var(--muted); }
+.tg-cuoi { background: none; border: 0; box-shadow: none; padding: 0; }
+
+/* 1. Bàn trộn */
+.tg-ban { display: grid; gap: 10px; }
+.tg-phat { justify-self: start; gap: 10px !important; }
+.tg-phat-ic { display: inline-grid; place-items: center; width: 22px; font-size: 13px; }
+.tg-rang-ds { display: grid; gap: 8px; }
+.tg-rang, .tg-tron { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; gap: 12px; padding: 8px; border-radius: 16px; background: var(--bg); border: 1.5px solid var(--edge); }
+.tg-tron { grid-template-columns: 150px minmax(0, 1fr); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+.tg-tron span { padding-left: 6px; font: 700 13px/1.35 var(--f-body); color: var(--blue-chu); }
+.tg-bat { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 0 8px; align-items: center; padding: 8px 12px; border-radius: 12px; border: 2px solid var(--mau); background: color-mix(in srgb, var(--mau) 14%, var(--panel)); color: var(--ink); font: inherit; text-align: left; cursor: pointer; }
+.tg-bat b { font: 800 15px/1.2 var(--f-display); }
+.tg-bat small { grid-column: 2; font: 600 11.5px/1.3 var(--f-mono); color: var(--muted); }
+.tg-cham { grid-row: span 2; width: 16px; height: 16px; border-radius: 50%; background: var(--mau); box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau) 30%, transparent); }
+.tg-rang.is-tat .tg-bat { background: var(--panel); border-style: dashed; }
+.tg-rang.is-tat .tg-cham { background: transparent; border: 2px solid var(--mau); box-shadow: none; }
+.tg-song { width: 100%; height: 48px; display: block; }
+
+/* 2. Ảnh phổ */
+.tg-pho-bo { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.tg-pho-khung { position: relative; display: grid; gap: 6px; padding-left: 22px; }
+.tg-truc-y { position: absolute; left: -14px; top: 40%; transform: rotate(-90deg); font: 600 11.5px/1 var(--f-mono); color: var(--muted); white-space: nowrap; }
+.tg-truc-x { justify-self: end; font: 600 11.5px/1 var(--f-mono); color: var(--muted); }
+.tg-pho { display: grid; gap: 3px; padding: 8px; border-radius: 14px; background: #0B1220; }
+.tg-o { aspect-ratio: 1; min-width: 0; padding: 0; border: 0; border-radius: 4px; cursor: pointer;
+  background: color-mix(in srgb, var(--cam) calc(var(--mn) * 100%), var(--lam)); opacity: var(--nl); transition: transform .12s, outline-color .12s; outline: 2px solid transparent; outline-offset: 1px; }
+.tg-o:hover { transform: scale(1.15); opacity: 1; }
+.tg-o.is-lan { background: repeating-linear-gradient(135deg, var(--cam) 0 4px, var(--lam) 4px 8px); }
+.tg-o.is-chon { outline-color: #FACC15; opacity: 1; transform: scale(1.15); }
+.tg-chu-giai { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0; font-size: 13px; color: var(--muted); }
+.tg-cg { display: inline-block; width: 14px; height: 14px; border-radius: 4px; margin-left: 4px; }
+.tg-cg-g { background: var(--cam); } .tg-cg-n { background: var(--lam); }
+.tg-cg-l { background: repeating-linear-gradient(135deg, var(--cam) 0 3px, var(--lam) 3px 6px); }
+.tg-o-the { display: grid; gap: 10px; align-content: start; min-height: 220px; padding: 16px; border-radius: 18px; background: var(--bg); border: 1.5px solid var(--edge); }
+.tg-o-the p { margin: 0; }
+.tg-o-vt { font: 600 12.5px/1.4 var(--f-mono); color: var(--muted); }
+.tg-o-ct { display: flex; align-items: center; gap: 10px; }
+.tg-o-so { display: grid; padding: 8px 12px; border-radius: 12px; background: var(--panel); border: 1.5px solid var(--edge); }
+.tg-o-so small { font-size: 12px; color: var(--muted); }
+.tg-o-so b { font: 800 24px/1.1 var(--f-display); }
+.tg-o-x { font: 800 20px/1 var(--f-display); color: var(--muted); }
+.tg-chia { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--edge); }
+.tg-chia i:first-child { background: var(--cam); }
+.tg-chia i:last-child { background: var(--lam); }
+.tg-chia-lon { height: 22px; border-radius: 8px; }
+.tg-o-kq { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; }
+.tg-k-g { color: #C2410C; } .tg-k-n { color: #0369A1; }
+.tg-o-nx { font-size: 14px; line-height: 1.5; }
+.tg-do { margin-top: 18px; padding-top: 18px; border-top: 1.5px dashed var(--edge); display: grid; gap: 12px; }
+.tg-do-hoi { margin: 0; line-height: 1.5; }
+.tg-do-chon { display: flex; gap: 10px; }
+.tg-do-chon .btn { min-width: 64px; justify-content: center; font: 800 18px/1 var(--f-display); }
+.tg-do-chon .is-dung { border-color: #10B981 !important; background: color-mix(in srgb, #10B981 16%, var(--panel)); }
+.tg-do-chon .is-sai { border-color: #EF4444 !important; background: color-mix(in srgb, #EF4444 14%, var(--panel)); }
+.tg-do-ph { margin: 0; font-weight: 700; }
+.tg-do-ph.is-dung { color: #047857; } .tg-do-ph.is-sai { color: #B91C1C; }
+.tg-vd-ds { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tg-vd { display: grid; gap: 6px; padding: 12px; border-radius: 14px; background: var(--bg); border: 1.5px solid var(--edge); }
+.tg-vd-so { font: 700 12px/1.3 var(--f-mono); color: var(--muted); }
+.tg-vd-ct { font: 800 18px/1.2 var(--f-display); }
+.tg-vd small { font-size: 12.5px; color: var(--muted); }
+
+/* 3. Máy tách */
+.tg-may { display: grid; gap: 16px; }
+.tg-che-do { display: flex; flex-wrap: wrap; gap: 8px; }
+.tg-cd { padding: 10px 16px; border-radius: 999px; border: 2px solid var(--edge); background: var(--bg); color: var(--ink); font: 700 15px/1.2 var(--f-body); cursor: pointer; }
+.tg-cd.is-on { border-color: transparent; background: var(--grad); color: #fff; }
+.tg-truot { display: grid; gap: 6px; max-width: 520px; font-size: 15px; }
+.tg-truot input { width: 100%; accent-color: var(--blue); }
+.tg-kho { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.tg-cong { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--edge); background: var(--bg); cursor: pointer; }
+.tg-cong input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--blue); flex: none; }
+.tg-cong span { display: grid; gap: 2px; }
+.tg-cong small { color: var(--muted); font-size: 13px; }
+.tg-sot { display: grid; grid-template-columns: auto minmax(0, 1fr) 56px; align-items: center; gap: 12px; font-weight: 700; }
+.tg-sot-thanh { height: 16px; border-radius: 8px; background: var(--bg2); border: 1.5px solid var(--edge); overflow: hidden; }
+.tg-sot-thanh i { display: block; height: 100%; width: 0; background: #10B981; transition: width .3s, background .3s; }
+.tg-sot-thanh i.is-vua { background: #F59E0B; }
+.tg-sot-thanh i.is-cao { background: #EF4444; }
+.tg-sot b { text-align: right; font: 800 18px/1 var(--f-mono); }
+.tg-nx { margin: 0; padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--blue) 8%, var(--bg)); line-height: 1.5; }
+
+/* Cuối trang */
+.tg-rut-ds { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.tg-rut { display: grid; gap: 6px; padding: 16px; border-radius: 18px; background: var(--panel); border: 1.5px solid var(--edge); }
+.tg-rut p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.tg-so { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--grad); color: #fff; font: 800 14px/1 var(--f-mono); }
+.tg-thu { display: flex; gap: 14px; align-items: center; margin-top: 16px; padding: 16px; border-radius: 18px; background: var(--panel); border: 2px dashed var(--edge); }
+.tg-thu p { margin: 0; line-height: 1.55; }
+.tg-cuoi .ld-vid small { font-size: 12.5px; }
+
+:root[data-theme="dark"] .tg-k-g { color: #FDBA74; }
+:root[data-theme="dark"] .tg-k-n { color: #7DD3FC; }
+:root[data-theme="dark"] .tg-do-ph.is-dung { color: #34D399; }
+:root[data-theme="dark"] .tg-do-ph.is-sai { color: #F87171; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tg-k-g { color: #FDBA74; }
+  :root:not([data-theme="light"]) .tg-k-n { color: #7DD3FC; }
+  :root:not([data-theme="light"]) .tg-do-ph.is-dung { color: #34D399; }
+  :root:not([data-theme="light"]) .tg-do-ph.is-sai { color: #F87171; }
+}
+@media (max-width: 760px) {
+  .tg-phan { padding: 16px; }
+  .tg-pho-bo { grid-template-columns: minmax(0, 1fr); }
+  .tg-rang, .tg-tron { grid-template-columns: 116px minmax(0, 1fr); gap: 8px; }
+  .tg-pho { gap: 2px; padding: 6px; }
+  .tg-o-the { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .tg-o, .tg-sot-thanh i { transition: none; } }
+html.nhung .tg { padding-top: 8px; }
+html.nhung .tg-cuoi .chia-se { display: none; }

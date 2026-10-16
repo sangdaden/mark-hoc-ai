@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phòng dự báo lũ: mô phỏng AI báo lũ trước 7 ngày | Mark học AI</title>
+<meta name="description" content="Trò chơi miễn phí: kéo lượng mưa trên thượng nguồn, chọn độ ẩm của đất, xem mực nước 7 ngày và vùng ngập của một xã hư cấu lan ra. Hiểu AI dự báo lũ sớm thế nào và giới hạn của nó.">
+<link rel="canonical" href="https://markhocai.com/du-bao-lu.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/du-bao-lu.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/du-bao-lu.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/du-bao-lu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phòng dự báo lũ: mô phỏng AI báo lũ trước 7 ngày | Mark học AI">
+<meta property="og:description" content="Trò chơi miễn phí: kéo lượng mưa trên thượng nguồn, chọn độ ẩm của đất, xem mực nước 7 ngày và vùng ngập của một xã hư cấu lan ra. Hiểu AI dự báo lũ sớm thế nào và giới hạn của nó.">
+<meta property="og:url" content="https://markhocai.com/du-bao-lu.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Mô phỏng · 3 phút · chơi trên điện thoại</p>
+<h1>Phòng dự báo lũ</h1>
+<p class="lead">Mưa hôm nay trên núi, lũ về ngày kia ở đồng bằng. Kéo lượng mưa và xem nước dâng tới nhà nào.</p>
+</div><img class="head-art" src="assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="lu" id="lu">
+<section class="lu-do" aria-labelledby="lu-do-h">
+<img src="assets/bit-y-tuong.svg" alt="" width="64" height="64">
+<div><h2 id="lu-do-h">Đoán trước đã</h2>
+<p>Lưu vực 500 km², đất ẩm. Mưa ít nhất bao nhiêu thì nước ở xã Bến Mây vượt báo động 2 (6,0 m)?</p>
+<div class="lu-do-chon" id="lu-do-chon"><button type="button" class="btn btn-nhe" data-mm="60">60 mm</button><button type="button" class="btn btn-nhe" data-mm="100">100 mm</button><button type="button" class="btn btn-nhe" data-mm="150">150 mm</button></div>
+<p class="lu-do-ph" id="lu-do-ph" aria-live="polite"></p></div>
+</section>
+<section class="lu-ban" aria-label="Bảng điều khiển">
+<label class="lu-truot"><span>Mưa trên thượng nguồn: <b id="lu-mm-chu">120 mm</b></span><input type="range" id="lu-mm" min="20" max="250" step="10" value="120"></label>
+<div class="lu-dat-ds" id="lu-dat-ds" role="radiogroup" aria-label="Đất trên lưu vực"><button type="button" class="lu-dat" data-dat="kho" role="radio" aria-checked="false"><b>Đất khô</b><small>25% nước mưa ra sông</small></button><button type="button" class="lu-dat" data-dat="am" role="radio" aria-checked="false"><b>Đất ẩm</b><small>40% ra sông</small></button><button type="button" class="lu-dat" data-dat="bao-hoa" role="radio" aria-checked="false"><b>Đất no nước</b><small>Mưa mấy ngày liền, 60% ra sông</small></button></div>
+<label class="lu-cong"><input type="checkbox" id="lu-ho"><span><b>Hồ thượng nguồn xả nước</b><small>Thứ model không thấy trong dữ liệu</small></span></label>
+</section>
+<section class="lu-tinh" id="lu-tinh" aria-live="polite"></section>
+<section class="lu-bo">
+<div class="lu-the lu-bieu"><h2>Mực nước 7 ngày tới</h2><svg id="lu-bieu" viewBox="0 0 640 316" role="img" aria-labelledby="lu-kl"></svg>
+<p class="lu-kl" id="lu-kl"></p></div>
+<div class="lu-the lu-cat"><h2>Xã Bến Mây (hư cấu), cắt ngang thung lũng</h2><svg id="lu-cat" viewBox="0 0 640 260" role="img" aria-labelledby="lu-nha"></svg>
+<div class="lu-ngay-bo"><label class="lu-ngay"><span id="lu-ngay-chu"></span><input type="range" id="lu-ngay" min="1" max="7" step="1" value="4"></label><button type="button" class="btn btn-nhe" id="lu-chay">▶ Chạy 7 ngày</button></div>
+<p class="lu-nha" id="lu-nha"></p></div>
+</section>
+<p class="lu-ho-chu" id="lu-ho-chu" hidden>Hồ thượng nguồn xả nước: nước thật vượt dự báo. Model chỉ học từ mưa và đất, không biết lịch xả hồ, nên cần tin chính thức.</p>
+<section class="lu-cuoi">
+<h2 class="ld-ket-h">Ba thứ model khó đoán</h2>
+<div class="lu-gh-ds"><div class="lu-gh lu-gh-ho"><span class="lu-gh-ic" aria-hidden="true"></span><b>Hồ chứa xả nước</b><p>Lịch xả hồ không nằm trong dữ liệu mưa.</p></div><div class="lu-gh lu-gh-de"><span class="lu-gh-ic" aria-hidden="true"></span><b>Đê vỡ</b><p>Một chỗ vỡ đổi hẳn đường nước chảy.</p></div><div class="lu-gh lu-gh-suoi"><span class="lu-gh-ic" aria-hidden="true"></span><b>Lũ quét suối nhỏ</b><p>Đến quá nhanh, quá cục bộ để báo trước nhiều ngày.</p></div></div>
+<h2 class="ld-ket-h">Ba điều rút ra</h2>
+<div class="lu-rut-ds"><div class="lu-rut"><span class="lu-so">1</span><b>Mưa đi trước, lũ theo sau</b><p>Nước mất vài ngày từ thượng nguồn xuống, đó là khoảng để báo trước.</p></div><div class="lu-rut"><span class="lu-so">2</span><b>Học từ hàng nghìn trạm</b><p>Model học hơn 5.000 trạm đo nên đoán được cả sông chưa có trạm.</p></div><div class="lu-rut"><span class="lu-so">3</span><b>Tin chính thức là tin cuối</b><p>Hồ xả, đê vỡ, lũ quét: nghe cơ quan khí tượng thủy văn và chính quyền.</p></div></div>
+<div class="lu-thu"><img src="assets/mark-a-ra-the.svg" alt="" width="72" height="68"><p><b>Thử ngay:</b> nhờ chatbot cho biết nơi bạn ở thuộc lưu vực sông nào, rồi tìm kênh cảnh báo thiên tai chính thức của tỉnh và bật thông báo.</p></div>
+<h2 class="ld-ket-h">Xem video của bài này</h2>
+<div class="ld-ket-video"><a class="ld-vid" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" data-so-video="564"><span class="ld-vid-so">#564</span><b>Dự báo lũ sớm bảy ngày</b><small class="muted">Sắp ra mắt trên kênh</small></a></div>
+<div class="chia-se">
+<p class="chia-se-h">Thấy bài có ích? Gửi cho một người bạn</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/du-bao-lu.html" data-tieu-de="Phòng dự báo lũ: kéo lượng mưa, xem nước dâng tới đâu" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-share"/></svg>Chia sẻ</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fdu-bao-lu.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/du-bao-lu.html" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-link"/></svg>Chép link</button></div>
+</div>
+</section>
+<p class="ld-ghi">Mọi con số là ví dụ, tính theo cách của video (120 mm × 500 km² = 60 triệu m³). Ngưỡng báo động thật mỗi trạm mỗi khác. Xã Bến Mây và các ngôi nhà là hư cấu; mô phỏng chạy ngay trên trình duyệt, không gọi AI thật. Khi có lũ, làm theo tin của cơ quan khí tượng thủy văn và chính quyền địa phương.</p>
+<noscript><p>Mô phỏng cần JavaScript.</p></noscript>
+<script type="application/json" id="lu-du-lieu">{"dat":[{"id":"kho","ra_song":0.25,"ten":"Đất khô","phu":"25% nước mưa ra sông"},{"id":"am","ra_song":0.4,"ten":"Đất ẩm","phu":"40% ra sông"},{"id":"bao-hoa","ra_song":0.6,"ten":"Đất no nước","phu":"Mưa mấy ngày liền, 60% ra sông"}],"so":{"luu_vuc_km2":500,"goc_trieu_m3":24,"nen_m":4.1,"tang_m":[0,0.5,1.3,2.2,1.8,1.1,0.6],"mu":0.75,"bao_dong":[5.0,6.0,7.0],"ho_xa_m":[0,0,0.5,1.0,0.9,0.5,0.2],"nha":[{"x":0.08,"cao":8.4},{"x":0.16,"cao":7.3},{"x":0.24,"cao":6.6},{"x":0.31,"cao":6.1},{"x":0.37,"cao":5.6},{"x":0.63,"cao":5.4},{"x":0.69,"cao":5.9},{"x":0.75,"cao":6.4},{"x":0.81,"cao":6.9},{"x":0.87,"cao":7.6},{"x":0.93,"cao":8.1},{"x":0.97,"cao":8.8}]},"nhan":{"mm":"mm","trieu_m3":"triệu m³","m":"m","mua":"Mưa trên thượng nguồn","luu_vuc":"Lưu vực","nuoc_mua":"Nước mưa đổ xuống","ra_song":"Chảy ra sông","ngay":"Ngày {n}","hom_nay":"Hôm nay","bd":["Báo động 1","Báo động 2","Báo động 3"],"du_bao":"AI dự báo","thuc_te":"Thực tế (hồ xả nước)","vuot":"Ngày {d} vượt báo động 2 · báo trước {n} ngày","vuot_ngay":"Vượt báo động 2 ngay hôm nay: không còn thời gian báo trước","khong_vuot":"Không vượt báo động 2 trong 7 ngày","dinh":"Đỉnh lũ {m} m vào ngày {d}","nha_ngap":"{n}/{t} nhà bị ngập","nha_kho":"Chưa nhà nào ngập","xem_ngay":"Xem ngày","chay":"Chạy 7 ngày","ho_chu":"Hồ thượng nguồn xả nước: nước thật vượt dự báo. Model chỉ học từ mưa và đất, không biết lịch xả hồ, nên cần tin chính thức.","do_dung":"Đúng rồi! Từ khoảng 100 mm (đất ẩm), ngày 4 nước chạm 6,0 m. Kéo thử 90 rồi 100 để thấy ranh giới.","do_sai":"Chưa đúng. Với đất ẩm, cần khoảng 100 mm thì ngày 4 nước mới chạm 6,0 m. Kéo thử 90 rồi 100 để thấy ranh giới."},"p":""}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/tro-choi/du-bao-lu.css?v=dev">
+<script src="du-bao-lu.js?v=dev" defer></script>
+<script src="bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"du-bao-lu","buoc":[{"chon":"#lu-do-chon","chu":"Đoán trước một con số: mưa bao nhiêu thì nước vượt báo động 2?"},{"chon":"#lu-mm","chu":"Kéo thanh này để đổi lượng mưa trên núi, rồi chọn đất khô, ẩm hay no nước."},{"chon":"#lu-bieu","chu":"Biểu đồ cho biết mực nước 7 ngày tới. Cột đỏ là ngày vượt báo động 2."},{"chon":"#lu-cat","chu":"Mặt cắt thung lũng: xem nước lan tới nhà nào. Bật thử “hồ xả nước” để thấy thứ model không đoán được."}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>

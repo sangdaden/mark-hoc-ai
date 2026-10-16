@@ -1,0 +1,21 @@
+{
+ "_ghi_chu": "Trò chơi Dự báo lũ (du-bao-lu.html), video 564 'Dự báo lũ sớm bảy ngày' (series AI và Trái Đất). Mọi số là ví dụ theo ket-qua/564.txt: 120 mm x 500 km2 = 60 triệu m3, 40% ra sông = 24 triệu m3, mực nước 7 ngày 4,1 4,6 5,4 6,3 5,9 5,2 4,7 m, báo động 2 ở 6,0 m. Mức nước ngày d = nen + tang[d] x (nuoc ra sông / 24 triệu)^mu; với số gốc ra đúng dãy của video. Xã Bến Mây và các nhà là hư cấu.",
+ "video_lien_quan": ["564"],
+ "luu_vuc_km2": 500,
+ "goc_trieu_m3": 24,
+ "nen_m": 4.1,
+ "tang_m": [0, 0.5, 1.3, 2.2, 1.8, 1.1, 0.6],
+ "mu": 0.75,
+ "bao_dong": [5.0, 6.0, 7.0],
+ "ho_xa_m": [0, 0, 0.5, 1.0, 0.9, 0.5, 0.2],
+ "dat": [
+  {"id": "kho", "ra_song": 0.25, "ten": {"vi": "Đất khô", "en": "Dry soil"}, "phu": {"vi": "25% nước mưa ra sông", "en": "25% of the rain reaches the river"}},
+  {"id": "am", "ra_song": 0.40, "ten": {"vi": "Đất ẩm", "en": "Damp soil"}, "phu": {"vi": "40% ra sông", "en": "40% reaches the river"}},
+  {"id": "bao-hoa", "ra_song": 0.60, "ten": {"vi": "Đất no nước", "en": "Soaked soil"}, "phu": {"vi": "Mưa mấy ngày liền, 60% ra sông", "en": "After days of rain, 60% reaches the river"}}
+ ],
+ "nha": [
+  {"x": 0.08, "cao": 8.4}, {"x": 0.16, "cao": 7.3}, {"x": 0.24, "cao": 6.6}, {"x": 0.31, "cao": 6.1},
+  {"x": 0.37, "cao": 5.6}, {"x": 0.63, "cao": 5.4}, {"x": 0.69, "cao": 5.9}, {"x": 0.75, "cao": 6.4},
+  {"x": 0.81, "cao": 6.9}, {"x": 0.87, "cao": 7.6}, {"x": 0.93, "cao": 8.1}, {"x": 0.97, "cao": 8.8}
+ ]
+}

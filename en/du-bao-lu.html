@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flood forecast room: simulate a 7-day AI flood forecast | Mark học AI</title>
+<meta name="description" content="Free game: drag the upstream rainfall, pick how wet the soil is, and watch a 7-day river forecast and the flood spread across a made-up village. See how AI forecasts floods early, and where it falls short.">
+<link rel="canonical" href="https://markhocai.com/en/du-bao-lu.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/du-bao-lu.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/du-bao-lu.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/du-bao-lu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flood forecast room: simulate a 7-day AI flood forecast | Mark học AI">
+<meta property="og:description" content="Free game: drag the upstream rainfall, pick how wet the soil is, and watch a 7-day river forecast and the flood spread across a made-up village. See how AI forecasts floods early, and where it falls short.">
+<meta property="og:url" content="https://markhocai.com/en/du-bao-lu.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Simulation · 3 minutes · works on your phone</p>
+<h1>Flood forecast room</h1>
+<p class="lead">Rain on the mountains today, floodwater in the valley days later. Drag the rainfall and see whose homes the water reaches.</p>
+</div><img class="head-art" src="../assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="lu" id="lu">
+<section class="lu-do" aria-labelledby="lu-do-h">
+<img src="../assets/bit-y-tuong.svg" alt="" width="64" height="64">
+<div><h2 id="lu-do-h">Guess first</h2>
+<p>A 500 km² basin, damp soil. How much rain does it take for the river at Ben May village to pass alarm level 2 (6.0 m)?</p>
+<div class="lu-do-chon" id="lu-do-chon"><button type="button" class="btn btn-nhe" data-mm="60">60 mm</button><button type="button" class="btn btn-nhe" data-mm="100">100 mm</button><button type="button" class="btn btn-nhe" data-mm="150">150 mm</button></div>
+<p class="lu-do-ph" id="lu-do-ph" aria-live="polite"></p></div>
+</section>
+<section class="lu-ban" aria-label="Controls">
+<label class="lu-truot"><span>Rain upstream: <b id="lu-mm-chu">120 mm</b></span><input type="range" id="lu-mm" min="20" max="250" step="10" value="120"></label>
+<div class="lu-dat-ds" id="lu-dat-ds" role="radiogroup" aria-label="Soil in the basin"><button type="button" class="lu-dat" data-dat="kho" role="radio" aria-checked="false"><b>Dry soil</b><small>25% of the rain reaches the river</small></button><button type="button" class="lu-dat" data-dat="am" role="radio" aria-checked="false"><b>Damp soil</b><small>40% reaches the river</small></button><button type="button" class="lu-dat" data-dat="bao-hoa" role="radio" aria-checked="false"><b>Soaked soil</b><small>After days of rain, 60% reaches the river</small></button></div>
+<label class="lu-cong"><input type="checkbox" id="lu-ho"><span><b>Upstream dam releases water</b><small>Something the model can't see in its data</small></span></label>
+</section>
+<section class="lu-tinh" id="lu-tinh" aria-live="polite"></section>
+<section class="lu-bo">
+<div class="lu-the lu-bieu"><h2>River level, next 7 days</h2><svg id="lu-bieu" viewBox="0 0 640 316" role="img" aria-labelledby="lu-kl"></svg>
+<p class="lu-kl" id="lu-kl"></p></div>
+<div class="lu-the lu-cat"><h2>Ben May village (made up), across the valley</h2><svg id="lu-cat" viewBox="0 0 640 260" role="img" aria-labelledby="lu-nha"></svg>
+<div class="lu-ngay-bo"><label class="lu-ngay"><span id="lu-ngay-chu"></span><input type="range" id="lu-ngay" min="1" max="7" step="1" value="4"></label><button type="button" class="btn btn-nhe" id="lu-chay">▶ Play 7 days</button></div>
+<p class="lu-nha" id="lu-nha"></p></div>
+</section>
+<p class="lu-ho-chu" id="lu-ho-chu" hidden>The upstream dam releases water: the real river beats the forecast. The model only learned rain and soil; it can't see the dam schedule, so official warnings matter.</p>
+<section class="lu-cuoi">
+<h2 class="ld-ket-h">Three things the model struggles with</h2>
+<div class="lu-gh-ds"><div class="lu-gh lu-gh-ho"><span class="lu-gh-ic" aria-hidden="true"></span><b>Reservoir releases</b><p>Release schedules aren't in the rain data.</p></div><div class="lu-gh lu-gh-de"><span class="lu-gh-ic" aria-hidden="true"></span><b>Broken dikes</b><p>One breach changes where the water goes.</p></div><div class="lu-gh lu-gh-suoi"><span class="lu-gh-ic" aria-hidden="true"></span><b>Flash floods on streams</b><p>Too fast and too local for days of warning.</p></div></div>
+<h2 class="ld-ket-h">Three takeaways</h2>
+<div class="lu-rut-ds"><div class="lu-rut"><span class="lu-so">1</span><b>Rain first, flood later</b><p>Water takes days to travel downstream; that gap is the warning time.</p></div><div class="lu-rut"><span class="lu-so">2</span><b>Learned from thousands of gauges</b><p>Learning from 5,000+ gauges lets it forecast rivers that have none.</p></div><div class="lu-rut"><span class="lu-so">3</span><b>Official alerts come first</b><p>Dam releases, dike breaks, flash floods: follow the weather agency and local authorities.</p></div></div>
+<div class="lu-thu"><img src="../assets/mark-a-ra-the.svg" alt="" width="72" height="68"><p><b>Try it:</b> ask a chatbot which river basin your home is in, then find your province's official disaster alert channel and turn on notifications.</p></div>
+<h2 class="ld-ket-h">Watch the video</h2>
+<div class="ld-ket-video"><a class="ld-vid" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" data-so-video="564"><span class="ld-vid-so">#564</span><b>Flood forecasts a week ahead</b><small class="muted">Coming soon on the channel</small></a></div>
+<div class="chia-se">
+<p class="chia-se-h">Found this useful? Send it to a friend</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/en/du-bao-lu.html" data-tieu-de="Flood forecast room: drag the rain, watch the river rise" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Share</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fdu-bao-lu.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/en/du-bao-lu.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Copy link</button></div>
+</div>
+</section>
+<p class="ld-ghi">All numbers are examples, worked out the way the video does (120 mm × 500 km² = 60 million m³). Real alarm levels differ at every gauge. Ben May village and its homes are made up; the simulation runs in your browser and calls no real AI. In a real flood, follow the weather agency and local authorities.</p>
+<noscript><p>The simulation needs JavaScript.</p></noscript>
+<script type="application/json" id="lu-du-lieu">{"dat":[{"id":"kho","ra_song":0.25,"ten":"Dry soil","phu":"25% of the rain reaches the river"},{"id":"am","ra_song":0.4,"ten":"Damp soil","phu":"40% reaches the river"},{"id":"bao-hoa","ra_song":0.6,"ten":"Soaked soil","phu":"After days of rain, 60% reaches the river"}],"so":{"luu_vuc_km2":500,"goc_trieu_m3":24,"nen_m":4.1,"tang_m":[0,0.5,1.3,2.2,1.8,1.1,0.6],"mu":0.75,"bao_dong":[5.0,6.0,7.0],"ho_xa_m":[0,0,0.5,1.0,0.9,0.5,0.2],"nha":[{"x":0.08,"cao":8.4},{"x":0.16,"cao":7.3},{"x":0.24,"cao":6.6},{"x":0.31,"cao":6.1},{"x":0.37,"cao":5.6},{"x":0.63,"cao":5.4},{"x":0.69,"cao":5.9},{"x":0.75,"cao":6.4},{"x":0.81,"cao":6.9},{"x":0.87,"cao":7.6},{"x":0.93,"cao":8.1},{"x":0.97,"cao":8.8}]},"nhan":{"mm":"mm","trieu_m3":"million m³","m":"m","mua":"Rain upstream","luu_vuc":"Basin","nuoc_mua":"Rain that falls","ra_song":"Reaches the river","ngay":"Day {n}","hom_nay":"Today","bd":["Alarm 1","Alarm 2","Alarm 3"],"du_bao":"AI forecast","thuc_te":"What happens (dam release)","vuot":"Day {d} passes alarm 2 · {n} days' warning","vuot_ngay":"Passes alarm 2 today: no time left to warn","khong_vuot":"Stays below alarm 2 for all 7 days","dinh":"Peak {m} m on day {d}","nha_ngap":"{n}/{t} homes flooded","nha_kho":"No homes flooded","xem_ngay":"Show day","chay":"Play 7 days","ho_chu":"The upstream dam releases water: the real river beats the forecast. The model only learned rain and soil; it can't see the dam schedule, so official warnings matter.","do_dung":"Right! From about 100 mm (damp soil), the river hits 6.0 m on day 4. Drag to 90, then 100 to see the line.","do_sai":"Not quite. With damp soil it takes about 100 mm for the river to reach 6.0 m on day 4. Drag to 90, then 100 to see the line."},"p":"../"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/tro-choi/du-bao-lu.css?v=dev">
+<script src="../du-bao-lu.js?v=dev" defer></script>
+<script src="../bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="../">{"ten":"du-bao-lu","buoc":[{"chon":"#lu-do-chon","chu":"Make a guess first: how much rain until the river passes alarm level 2?"},{"chon":"#lu-mm","chu":"Drag this to change the rain on the mountains, then pick dry, damp or soaked soil."},{"chon":"#lu-bieu","chu":"The chart shows the river level for the next 7 days. Red bars pass alarm level 2."},{"chon":"#lu-cat","chu":"The valley cross-section shows which homes the water reaches. Try the dam release to see what the model can't predict."}]}</script>
+<script src="../huong-dan.js?v=dev" defer></script>
+</body>
+</html>

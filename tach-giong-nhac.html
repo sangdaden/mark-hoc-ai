@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bàn tách giọng ca: AI tách giọng khỏi nhạc nền thế nào | Mark học AI</title>
+<meta name="description" content="Trò chơi miễn phí: bật tắt giọng ca, trống, bass, đàn trong một bài nhạc, xem ảnh phổ và mặt nạ, rồi tự chỉnh máy tách giọng để làm karaoke. Hiểu AI tách giọng làm thế nào trong 3 phút.">
+<link rel="canonical" href="https://markhocai.com/tach-giong-nhac.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/tach-giong-nhac.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/tach-giong-nhac.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/tach-giong-nhac.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bàn tách giọng ca: AI tách giọng khỏi nhạc nền thế nào | Mark học AI">
+<meta property="og:description" content="Trò chơi miễn phí: bật tắt giọng ca, trống, bass, đàn trong một bài nhạc, xem ảnh phổ và mặt nạ, rồi tự chỉnh máy tách giọng để làm karaoke. Hiểu AI tách giọng làm thế nào trong 3 phút.">
+<meta property="og:url" content="https://markhocai.com/tach-giong-nhac.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Phòng thử · 3 phút · bật loa nhé</p>
+<h1>Bàn tách giọng ca</h1>
+<p class="lead">Bài hát thu chung một file, vậy mà máy vẫn rút được giọng ca ra. Tự tay thử xem nó làm thế nào.</p>
+</div><img class="head-art" src="assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="tg" id="tg">
+<section class="tg-phan" aria-labelledby="tg-h1">
+<p class="tg-buoc">1/3</p><h2 id="tg-h1">Bàn trộn: bài hát có 4 rãnh</h2>
+<p class="tg-lead">Phòng thu ghi từng phần riêng rồi trộn lại thành một file. Bấm phát, rồi tắt bật từng rãnh để nghe mỗi phần.</p>
+<div class="tg-ban">
+<button type="button" class="btn btn-yt tg-phat" id="tg-phat"><span class="tg-phat-ic" aria-hidden="true">▶</span><span id="tg-phat-chu">Phát bài nhạc</span></button>
+<div class="tg-rang-ds" id="tg-rang-ds"><div class="tg-rang" data-rang="giong" style="--mau:#F97316"><button type="button" class="tg-bat" aria-pressed="true" data-rang="giong"><span class="tg-cham" aria-hidden="true"></span><b>Giọng ca</b><small>Đang bật</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="trong" style="--mau:#8B5CF6"><button type="button" class="tg-bat" aria-pressed="true" data-rang="trong"><span class="tg-cham" aria-hidden="true"></span><b>Trống</b><small>Đang bật</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="bass" style="--mau:#0EA5E9"><button type="button" class="tg-bat" aria-pressed="true" data-rang="bass"><span class="tg-cham" aria-hidden="true"></span><b>Bass</b><small>Đang bật</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="dan" style="--mau:#10B981"><button type="button" class="tg-bat" aria-pressed="true" data-rang="dan"><span class="tg-cham" aria-hidden="true"></span><b>Đàn phím</b><small>Đang bật</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div></div>
+<div class="tg-tron"><span>Bản trộn: cả 4 rãnh trong một file</span><canvas class="tg-song" id="tg-song-tron" width="600" height="56" aria-hidden="true"></canvas></div>
+</div>
+</section>
+<section class="tg-phan" aria-labelledby="tg-h2">
+<p class="tg-buoc">2/3</p><h2 id="tg-h2">Ảnh phổ và mặt nạ</h2>
+<p class="tg-lead">Máy biến âm thanh thành ảnh phổ: trục ngang là thời gian, trục dọc là cao độ. Model chấm mỗi ô một số từ 0 tới 1, gọi là mặt nạ: phần của giọng trong ô đó.</p>
+<div class="tg-pho-bo">
+<div class="tg-pho-khung"><span class="tg-truc-y">Cao độ ↑</span><div class="tg-pho" id="tg-pho" role="grid" aria-label="Ảnh phổ"></div><span class="tg-truc-x">Thời gian →</span>
+<p class="tg-chu-giai"><span class="tg-cg tg-cg-g"></span>giọng<span class="tg-cg tg-cg-n"></span>nhạc<span class="tg-cg tg-cg-l"></span>lẫn nhau</p></div>
+<div class="tg-o-the" id="tg-o-the" aria-live="polite"><p class="muted">Chạm một ô trên ảnh phổ để xem máy chia nó ra sao.</p></div>
+</div>
+<div class="tg-do">
+<p class="tg-do-hoi"><b>Đố nhanh:</b> Ô có năng lượng 8, mặt nạ giọng 0,5. Phần của giọng là bao nhiêu?</p>
+<div class="tg-do-chon" id="tg-do-chon"><button type="button" class="btn btn-nhe" data-dap="2">2</button><button type="button" class="btn btn-nhe" data-dap="4">4</button><button type="button" class="btn btn-nhe" data-dap="8">8</button></div>
+<p class="tg-do-ph" id="tg-do-ph" aria-live="polite"></p>
+<div class="tg-vd-ds" id="tg-vd-ds" hidden><div class="tg-vd"><span class="tg-vd-so">Ô 1</span><span class="tg-vd-ct">10 × 0,8</span><span class="tg-chia"><i style="flex:8.00"></i><i style="flex:2.00"></i></span><small>giọng 8 · nhạc 2</small></div><div class="tg-vd"><span class="tg-vd-so">Ô 2</span><span class="tg-vd-ct">6 × 0,1</span><span class="tg-chia"><i style="flex:0.60"></i><i style="flex:5.40"></i></span><small>giọng 0,6 · nhạc 5,4</small></div><div class="tg-vd"><span class="tg-vd-so">Ô 3</span><span class="tg-vd-ct">8 × 0,5</span><span class="tg-chia"><i style="flex:4.00"></i><i style="flex:4.00"></i></span><small>giọng 4 · nhạc 4</small></div><div class="tg-vd"><span class="tg-vd-so">Ô 4</span><span class="tg-vd-ct">2 × 0,9</span><span class="tg-chia"><i style="flex:1.80"></i><i style="flex:0.20"></i></span><small>giọng 1,8 · nhạc 0,2</small></div></div>
+</div>
+</section>
+<section class="tg-phan" aria-labelledby="tg-h3">
+<p class="tg-buoc">3/3</p><h2 id="tg-h3">Máy tách: tự làm karaoke</h2>
+<p class="tg-lead">Model học từ những bài có sẵn từng phần thu riêng. Học càng nhiều, mặt nạ càng chuẩn. Chọn kiểu nghe, kéo mức học, rồi thử làm khó máy.</p>
+<div class="tg-may">
+<div class="tg-che-do" id="tg-che-do" role="radiogroup" aria-label="Kiểu nghe"></div>
+<label class="tg-truot"><span>Model đã học: <b id="tg-muc-chu"></b></span><input type="range" id="tg-muc" min="0" max="4" step="1" value="1"></label>
+<div class="tg-kho">
+<label class="tg-cong"><input type="checkbox" id="tg-cung-dai"><span><b>Đàn chơi cùng dải với giọng</b><small>Đàn nhảy lên đúng quãng giọng hát</small></span></label>
+<label class="tg-cong"><input type="checkbox" id="tg-vang"><span><b>Thu trong phòng có tiếng vang</b><small>Giọng dội lại, đuôi tiếng kéo dài</small></span></label>
+</div>
+<div class="tg-sot"><span>Phần còn sót</span><span class="tg-sot-thanh"><i id="tg-sot-i"></i></span><b id="tg-sot-so"></b></div>
+<p class="tg-nx" id="tg-nx" aria-live="polite"></p>
+</div>
+</section>
+<section class="tg-phan tg-cuoi">
+<h2 class="ld-ket-h">Ba điều rút ra</h2>
+<div class="tg-rut-ds"><div class="tg-rut"><span class="tg-so">1</span><b>Âm thanh thành ảnh</b><p>Máy cắt âm thanh thành hàng nghìn ô theo cao độ và thời gian.</p></div><div class="tg-rut"><span class="tg-so">2</span><b>Mỗi ô một mặt nạ</b><p>Model đoán phần của giọng trong từng ô, học từ bài có phần thu riêng.</p></div><div class="tg-rut"><span class="tg-so">3</span><b>Tách được chưa phải của mình</b><p>Hát ở nhà khác đăng lên mạng. Chỉ tách bản thu bạn có quyền dùng.</p></div></div>
+<div class="tg-thu"><img src="assets/mark-a-ra-the.svg" alt="" width="72" height="68"><p><b>Thử ngay:</b> thu một đoạn bạn vừa hát vừa bật nhạc nền, mở tính năng tách giọng trong app chỉnh âm, nghe phần giọng còn sót tiếng gì.</p></div>
+<h2 class="ld-ket-h">Xem video của bài này</h2>
+<div class="ld-ket-video"><a class="ld-vid" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" data-so-video="555"><span class="ld-vid-so">#555</span><b>Tách giọng ca và nhạc nền</b><small class="muted">Sắp ra mắt trên kênh</small></a></div>
+<div class="chia-se">
+<p class="chia-se-h">Thấy bài có ích? Gửi cho một người bạn</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/tach-giong-nhac.html" data-tieu-de="Bàn tách giọng ca: tự xem AI rút giọng ra khỏi bài hát" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-share"/></svg>Chia sẻ</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Ftach-giong-nhac.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/tach-giong-nhac.html" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-link"/></svg>Chép link</button></div>
+</div>
+</section>
+<p class="ld-ghi">Bài nhạc trong trang là đoạn hư cấu do trình duyệt của bạn tự tạo ra, không dùng bài hát hay giọng ca sĩ thật. Máy tách ở đây là mô phỏng để thấy cách mặt nạ hoạt động, không gọi AI thật; số trên ô là ví dụ trong video.
+Không có gì gửi đi đâu.</p>
+<noscript><p>Phòng thử cần JavaScript.</p></noscript>
+<script type="application/json" id="tg-du-lieu">{"rang":[{"id":"giong","mau":"#F97316","ten":"Giọng ca"},{"id":"trong","mau":"#8B5CF6","ten":"Trống"},{"id":"bass","mau":"#0EA5E9","ten":"Bass"},{"id":"dan","mau":"#10B981","ten":"Đàn phím"}],"o_vi_du":[{"nang_luong":10,"mat_na":0.8},{"nang_luong":6,"mat_na":0.1},{"nang_luong":8,"mat_na":0.5},{"nang_luong":2,"mat_na":0.9}],"nhan":{"phat":"Phát bài nhạc","dung":"Dừng","bat":"Đang bật","tat":"Đã tắt","tron":"Bản trộn: cả 4 rãnh trong một file","o_chon":"Chạm một ô trên ảnh phổ để xem máy chia nó ra sao.","o_nl":"Năng lượng","o_mn":"Mặt nạ giọng","o_giong":"Phần giọng","o_nhac":"Phần nhạc","o_cao":"Cao độ","o_tg":"Thời điểm","giay":"giây","o_kho":"Mặt nạ gần 0,5: giọng và nhạc chồng lên nhau, máy đành chia đôi.","o_ro":"Mặt nạ rõ ràng: ô này gần như chỉ có một bên.","hoi_dung":"Đúng rồi! 8 × 0,5 = 4 cho giọng, 4 cho nhạc.","hoi_sai":"Chưa đúng. Phần giọng = năng lượng × mặt nạ = 8 × 0,5 = 4.","ro_muc":["Mới học vài bài","Học ít","Học vừa","Học nhiều","Học rất nhiều"],"sot":"Phần còn sót","che_do":{"tron":"Bản trộn gốc","giong":"Chỉ giọng","karaoke":"Karaoke (bỏ giọng)"},"nx":{"tron":"Đây là file gốc, chưa tách gì.","giong":"Máy giữ phần giọng của từng ô. Nghe kỹ: còn sót tiếng đàn, trống và tiếng lạo xạo không?","karaoke":"Máy bỏ phần giọng của từng ô. Giọng còn vọng lại bao nhiêu?"},"ghi_kho":"Đàn cùng dải hoặc có tiếng vang: nhiều ô mặt nạ quanh 0,5, tách khó hơn hẳn.","can_phat":"Bấm phát để nghe"},"p":""}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/tro-choi/tach-giong-nhac.css?v=dev">
+<script src="tach-giong-nhac.js?v=dev" defer></script>
+<script src="bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"tach-giong-nhac","buoc":[{"chon":"#tg-phat","chu":"Bật loa rồi bấm đây. Trình duyệt tự chơi một đoạn nhạc hư cấu có 4 rãnh."},{"chon":"#tg-rang-ds","chu":"Chạm từng rãnh để tắt bật: giọng, trống, bass, đàn. Nghe mỗi phần riêng ra sao."},{"chon":"#tg-pho","chu":"Đây là ảnh phổ. Chạm một ô để xem máy chia nó cho giọng và nhạc theo mặt nạ."},{"chon":"#tg-che-do","chu":"Cuối cùng, thử máy tách: chỉ giọng hoặc karaoke. Kéo mức học và làm khó máy để nghe phần còn sót."}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>
