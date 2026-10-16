@@ -2061,8 +2061,10 @@ html:has(.bt-hop[open]) { overflow: hidden; }
 /* Trang bài có trò chơi: khối "Xem 60 giây, thử 60 giây" (video trái, trò chơi phải; điện thoại trên dưới).
    Bấm "Chơi ngay ở đây": .mo, trò chơi tải vào iframe và tràn hết chiều ngang web, video thu thành một dòng.
    Cuối file: cột bên có mục lục trên máy tính rộng. */
-.xem-choi { max-width: 1080px; margin: -34px auto 0; padding: 0 16px; position: relative; z-index: 2; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.xem-choi { max-width: 960px; margin: 8px auto 40px; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 20px; align-items: stretch; }
 .xem-choi.chi-choi { grid-template-columns: minmax(0, 1fr); }
+.xc-dau { grid-column: 1 / -1; margin: 0; font: 800 clamp(22px, 2.6vw, 30px)/1.25 var(--f-display); text-wrap: balance; }
+.xc-xem .post-cover:not(.yt-lite) { aspect-ratio: 16 / 9; }
 .xc-o { display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 22px; background: var(--panel); border: 2px solid var(--edge); box-shadow: 0 22px 44px -26px rgba(15, 23, 42, .5); min-width: 0; }
 .xc-choi { border-color: #A78BFA; }
 .xc-h { display: flex; align-items: center; gap: 8px; margin: 0; font: 800 16px/1.25 var(--f-display); }
@@ -2084,7 +2086,7 @@ html:has(.bt-hop[open]) { overflow: hidden; }
 .xc-lai, .xc-dong { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 8px 14px; border-radius: 999px; cursor: pointer;
   font: 700 14px/1.2 var(--f-body); color: var(--blue); background: var(--panel); border: 1.5px solid color-mix(in srgb, var(--blue) 30%, var(--edge)); }
 .xc-lai:hover, .xc-dong:hover { border-color: var(--blue); }
-.xem-choi.mo { max-width: none; grid-template-columns: minmax(0, 1fr); padding: 0 clamp(12px, 2vw, 28px); }
+.xem-choi.mo { max-width: none; grid-template-columns: minmax(0, 1fr); }
 .xem-choi.mo .xc-xem { flex-direction: row; align-items: center; flex-wrap: wrap; padding: 10px 14px; }
 .xem-choi.mo .xc-xem > :not(.xc-h):not(.xc-lai) { display: none; }
 .xem-choi.mo .xc-xem .xc-h .so { background: #4ADE80; }
@@ -2092,13 +2094,13 @@ html:has(.bt-hop[open]) { overflow: hidden; }
 .xem-choi.mo .xc-ten-mo { display: inline; }
 .xem-choi.mo .xc-dong { align-self: center; }
 @media (max-width: 760px) {
-  .xem-choi { grid-template-columns: minmax(0, 1fr); margin-top: -18px; }
+  .xem-choi { grid-template-columns: minmax(0, 1fr); }
   .xc-xem .post-cover { aspect-ratio: 4 / 5; max-height: none; }
   .xc-gon .ct-hinh { min-height: 150px; padding: 14px; }
   .xc-gon .ct-ghep .ct-manh { font-size: 16px; padding: 12px; }
   .xc-ten { font-size: 22px; }
   .xc-gon .ct-nut { align-self: stretch; text-align: center; }
-  .xem-choi.mo { padding: 0 8px; }
+
   .xem-choi.mo .xc-choi { padding: 10px 6px; }
 }
 /* Trò chơi chạy trong iframe của trang bài (?nhung=1): bỏ đầu trang, chân trang và các nút nổi */
@@ -2130,9 +2132,18 @@ html.nhung main { padding-top: 8px; max-width: none; }
 @keyframes ct-vao { from { opacity: 0; transform: translateY(10px) scale(.92); } }
 @keyframes ct-song { 0% { opacity: .9; } 100% { opacity: .25; } }
 .doc-ben { display: none; }
+/* Trang bài rộng hơn cột đọc 760px chung (Sang 16/10: nội dung đưa ra hai bên nhiều hơn) */
+.doc-bai, .doc-cuoi { max-width: 960px; }
+.doc-bai { padding-bottom: 40px; }
+.doc-cuoi { padding-top: 0; }
 @media (min-width: 1120px) {
-  .doc-bai { max-width: 1080px; display: grid; grid-template-columns: minmax(0, 760px) 260px; gap: 44px; justify-content: center; align-items: start; }
+  .doc-bai { max-width: 1320px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 48px; align-items: start; }
   .doc-ben { display: block; position: sticky; top: 20px; }
+  .doc-cuoi, .xem-choi { max-width: 1320px; }
+  body:has(.doc-bai) .top, body:has(.doc-bai) .band-in, body:has(.doc-bai) .foot { max-width: 1320px; }
+  .doc-bai .post { padding: 36px 48px; }
+  .doc-bai .post-cover { margin: -36px -48px 0; }
+  .doc-bai .post p { font-size: 18px; }
 }
 .ben-dinh { display: flex; flex-direction: column; gap: 12px; }
 .ben-h { margin: 0; font: 600 13px/1.4 var(--f-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
