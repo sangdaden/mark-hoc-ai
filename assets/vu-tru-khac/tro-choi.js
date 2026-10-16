@@ -23,6 +23,9 @@
 // đợt 4 (Bài báo đổi cách ta học): duong-cong-on (đường cong quên và lịch ôn), gom-cum (gom cụm, con số 7), hai-duong-nho (hai đường nhớ của H.M.),
 // lan-bien (học trên bờ, dưới nước), ban-chat (bàn chật, tải nhận thức), tua-tuan (đọc hay tự kiểm tra), xep-cach-hoc (xếp 10 cách học),
 // duong-cong-sigma (kéo đường cong 2 sigma), nua-doi-on-tu (nửa đời của một từ), dap-an-hay-goi-y (xin đáp án hay xin gợi ý).
+// đợt 5 (Gen và bệnh hiếm): thang-dna (thang DNA, ảnh 51), cong-tac-num-van (công tắc và núm vặn, gen thông minh), dong-xu-gen (đồng xu gen Huntington),
+// dia-guthrie (đĩa Guthrie, PKU), boc-tham-gen (bốc thăm gen thalassemia), la-chan-hay-ganh-nang (lá chắn hay gánh nặng, hình liềm),
+// keo-tim-cho-cat (kéo tìm chỗ cắt, progeria), cua-nav17 (cửa Nav1.7, không biết đau), lap-trinh-keo (lập trình kéo CRISPR), sua-than-hay-phoi (sửa thân hay phôi).
 // Kéo thả dùng pointer events (chuột và cảm ứng), thêm cách chạm câu rồi chạm ngăn, và bàn phím (Enter/Space).
 (function () {
   var nguon = document.getElementById("vtk-tro-choi");
@@ -8152,6 +8155,1628 @@
     return s;
   }
   // ==== ĐỢT 4 M KẾT THÚC ====
+  // ==== ĐỢT 5 N BẮT ĐẦU ====
+  // Ba cảnh "Gen và bệnh hiếm": thang-dna (gen-buc-anh-51), cong-tac-num-van (gen-khong-co-gen-thong-minh), dong-xu-gen (gen-huntington).
+  // Sân khấu tối cố định tc-canh-toi, nên màu trong SVG giống nhau ở chế độ sáng và tối. Dùng lại m4Hen, m4Chay, m4Lai, m4Dat, m4Muot, m4Ket (đợt 4 M).
+  // Kéo bằng keoSvg (chuột và cảm ứng); chạm hoặc Enter trên vật thì vật tự vào chỗ đúng kế tiếp, thay cho kéo.
+  function n5Dat(v, p, muot) { if (muot) m4Muot(v.e, 280); else v.e.style.transition = ""; v.p = { x: p.x, y: p.y }; m4Dat(v.e, p.x, p.y); }
+  // Kéo vật v (lay(e) → {e, p}); tha(v, daKeo) khi nhả tay, chạm (daKeo = false) hoặc Enter/Space
+  function n5Keo(c, chon, lay, khoa, tha) {
+    keoSvg(c, chon, function (e, p, b, d) {
+      var v = lay(e); if (!v || khoa(v)) return false;
+      if (b === "bat") { v.lech = null; e.parentNode.appendChild(e); e.style.transition = ""; return; }
+      if (!v.lech) v.lech = { x: d.x - v.p.x, y: d.y - v.p.y };
+      n5Dat(v, { x: p.x - v.lech.x, y: p.y - v.lech.y });
+    }, function (e, p) { var v = lay(e); if (!v || khoa(v)) return; tha(v, !!p); });
+    c.addEventListener("keydown", function (ev) {
+      var e = ev.target.closest && ev.target.closest(chon); if (!e || (ev.key !== "Enter" && ev.key !== " ")) return;
+      ev.preventDefault(); var v = lay(e); if (!v || khoa(v)) return; tha(v, false);
+    });
+  }
+  function n5Chu(c, x, y, chu, lop, giua) { return svg(c, "text", giua ? { x: x, y: y, "text-anchor": "middle", class: lop } : { x: x, y: y, class: lop }, chu); }
+  function n5Luu(s, t) { if (t.luu) s.insertBefore(tao("p", "tc-n5-luu", t.luu), s.querySelector(".tc-nguon")); }
+  // Thanh ngang có nhãn (dùng cho kết cảnh): ds [{nhan, a, b?, chu}], b là đầu trên của một khoảng
+  function n5Thanh(c, y0, tieu, ds, x0, rong, max) {
+    var g = svg(c, "g", { class: "tc-n5-thanh" });
+    n5Chu(g, 10, y0, tieu, "tc-n5-dam");
+    ds.forEach(function (d, i) {
+      var y = y0 + 16 + i * 28;
+      n5Chu(g, 10, y + 14, d.nhan, "tc-n5-nho");
+      svg(g, "rect", { x: x0, y: y, width: rong, height: 18, rx: 4, class: "tc-n5-ray" });
+      var a = svg(g, "rect", { x: x0, y: y, width: 0, height: 18, rx: 4, class: "tc-n5-cot" }), b = d.b ? svg(g, "rect", { x: x0, y: y, width: 0, height: 18, rx: 4, class: "tc-n5-cot-mo" }) : null;
+      var so_ = n5Chu(g, x0 + 6, y + 14, "", "tc-n5-so");
+      d.e = { a: a, b: b, so: so_, y: y };
+    });
+    m4Chay(c.closest(".tc-khoi"), 1100, function (f) {
+      ds.forEach(function (d) {
+        var k = m4De(f), wa = d.a / max * rong * k, wb = d.b ? d.b / max * rong * k : wa;
+        d.e.a.setAttribute("width", wa); if (d.e.b) { d.e.b.setAttribute("width", wb); }
+        d.e.so.setAttribute("x", x0 + wb + 6); d.e.so.textContent = f >= 1 ? d.chu : "";
+      });
+    });
+    return g;
+  }
+
+  // ---------- Cảnh: ghép cái thang, rồi chép nó (ba mảnh ghép → điền chữ bắt cặp → tế bào chia, chữ sai được chép) ----------
+  // g.soi: sợi có sẵn (vd "AGTCGA"); g.sai: [vị trí, chữ sai]; g.chan_doan: [25, 35, 11]
+  // t.manh: [{dong, full, dat, goi_y}] cùng thứ tự t.o (ô đúng của mảnh i là ô i)
+  function thangDna(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), W = 520, H = 420, c = svg(san, "svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.doc_mac); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), tiep = nut(t.nut_tiep, true), chia = nut(t.nut_chia, true), sai = nut(t.nut_sai, false), lai = nut(t.nut_lai, false);
+    tiep.hidden = chia.hidden = sai.hidden = true; [tiep, chia, sai, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var man = svg(c, "g", {}), buoc = 1;
+    lai.onclick = function () { m4Lai(s, thangDna, g, t); };
+    var CAP = { A: "T", T: "A", G: "C", C: "G" };
+
+    // Màn 1: mô hình xoắn kép mờ, ba mảnh ghép
+    n5Chu(man, 10, 18, t.mo_hinh, "tc-n5-nho");
+    var mo = svg(man, "g", {}), phan = [0, 1, 2].map(function () { return svg(mo, "g", { class: "tc-dn-phan" }); });
+    function x1(y) { return 260 + 64 * Math.sin((y - 26) / 100 * 2 * Math.PI); }
+    function x2(y) { return 260 - 64 * Math.sin((y - 26) / 100 * 2 * Math.PI); }
+    for (var y = 30; y < 222; y += 11) { var a = x1(y), b = x2(y); if (Math.abs(a - b) > 10) { var m = (a + b) / 2; svg(phan[2], "line", { x1: a, x2: m, y1: y, y2: y, class: "tc-dn-bac-a" }); svg(phan[2], "line", { x1: m, x2: b, y1: y, y2: y, class: "tc-dn-bac-b" }); } }
+    var d1 = "", d2 = ""; for (y = 26; y <= 226; y += 4) { d1 += (y === 26 ? "M" : " L") + x1(y).toFixed(1) + " " + y; d2 += (y === 26 ? "M" : " L") + x2(y).toFixed(1) + " " + y; }
+    svg(phan[0], "path", { d: d1, class: "tc-dn-soi-a" });
+    for (var k = 0; k < 9; k++) { svg(phan[0], "circle", { cx: 120 + k * 8, cy: 40 + k * 8, r: 3, class: "tc-dn-x" }); svg(phan[0], "circle", { cx: 184 - k * 8, cy: 40 + k * 8, r: 3, class: "tc-dn-x" }); }
+    svg(phan[1], "path", { d: d2, class: "tc-dn-soi-b" });
+    svg(phan[1], "path", { d: "M" + (x1(226) - 7) + " 216 L" + x1(226) + " 230 L" + (x1(226) + 7) + " 216", class: "tc-dn-mui-a" });
+    svg(phan[1], "path", { d: "M" + (x2(26) - 7) + " 36 L" + x2(26) + " 22 L" + (x2(26) + 7) + " 36", class: "tc-dn-mui-b" });
+    var CW = 150, CH = 44, O = [8, 180, 352].map(function (x) { return { x: x, y: 240, w: 160, h: 72 }; });
+    O.forEach(function (o, j) { svg(man, "rect", { x: o.x, y: o.y, width: o.w, height: o.h, rx: 10, class: "tc-dn-o" }); n5Chu(man, o.x + o.w / 2, o.y + 16, t.o[j], "tc-dn-o-chu", true); });
+    var ns = tron([0, 1, 2]), xong1 = 0;
+    var the = t.manh.map(function (mm, i) {
+      var e = svg(man, "g", { class: "tc-keo tc-dn-the tc-dn-the-" + i, tabindex: "0", role: "button", "aria-label": mm.full, "data-i": i });
+      svg(e, "rect", { x: 0, y: 0, width: CW, height: CH, rx: 8 });
+      mm.dong.forEach(function (d, j) { n5Chu(e, CW / 2, CH / 2 + 4.5 + (j - (mm.dong.length - 1) / 2) * 15, d, "tc-dn-the-chu", true); });
+      var v = { i: i, e: e, k: -1, nha: { x: O[ns[i]].x + 5, y: 336 } }; n5Dat(v, v.nha); return v;
+    });
+    function datThe(v) {
+      v.k = v.i; n5Dat(v, { x: O[v.i].x + 5, y: O[v.i].y + 24 }, true); v.e.classList.add("tc-dn-khoa"); v.e.setAttribute("aria-disabled", "true");
+      phan[v.i].classList.add("tc-dn-sang"); cap.textContent = t.manh[v.i].dat; xong1++;
+      if (xong1 === 3) { cap.textContent = t.du; tiep.hidden = false; }
+    }
+    n5Keo(c, "g.tc-dn-the", function (e) { return the[+e.getAttribute("data-i")]; }, function (v) { return v.k >= 0 || buoc !== 1; }, function (v, keo) {
+      if (!keo) { datThe(v); return; }
+      var cx = v.p.x + CW / 2, cy = v.p.y + CH / 2, j = -1;
+      O.forEach(function (o, q) { if (cx > o.x && cx < o.x + o.w && cy > o.y - 24 && cy < o.y + o.h + 24) j = q; });
+      if (j === v.i) datThe(v); else { n5Dat(v, v.nha, true); if (j >= 0) cap.textContent = t.manh[v.i].goi_y; }
+    });
+
+    // Màn 2: điền sợi đối diện (viên chữ khớp như mảnh xếp hình: A–T hai chấu, G–C ba chấu)
+    var soi = g.soi.split(""), TW = 64, TH = 36, RY = function (r) { return 34 + r * 42; }, XA = 150, XB = 222;
+    var gL, gR, o2 = [], vien = [], chuL = [], tieu2;
+    function chau(gg, ch, x, y, trai) {
+      var n = ch === "A" || ch === "T" ? 2 : 3;
+      for (var q = 0; q < n; q++) svg(gg, "circle", { cx: x, cy: y + TH * (q + 1) / (n + 1), r: 4.5, class: trai ? "tc-dn-chau" : "tc-dn-lo" });
+    }
+    function veA(gg, ch, x, y, lop) { var e = svg(gg, "g", { class: lop }); svg(e, "rect", { x: x, y: y, width: TW, height: TH, rx: 6 }); chau(e, ch, x + TW, y, true); var tx = n5Chu(e, x + TW / 2 - 3, y + 24, ch, "tc-dn-chu-a", true); return { e: e, tx: tx }; }
+    function veB(gg, ch, x, y, lop) { var e = svg(gg, "g", { class: lop }); svg(e, "rect", { x: x, y: y, width: TW, height: TH, rx: 6 }); chau(e, ch, x, y, false); n5Chu(e, x + TW / 2 + 3, y + 24, ch, "tc-dn-chu-b", true); return e; }
+    function man2() {
+      buoc = 2; tiep.hidden = true; man.remove(); man = svg(c, "g", {});
+      tieu2 = n5Chu(man, 10, 18, t.mo_hinh2, "tc-n5-nho");
+      gL = svg(man, "g", {}); gR = svg(man, "g", {});
+      svg(gL, "line", { x1: XA - 6, x2: XA - 6, y1: RY(0) - 6, y2: RY(5) + TH + 6, class: "tc-dn-truc-a" });
+      svg(gR, "line", { x1: XB + TW + 6, x2: XB + TW + 6, y1: RY(0) - 6, y2: RY(5) + TH + 6, class: "tc-dn-truc-b" });
+      soi.forEach(function (ch, r) { chuL.push(veA(gL, ch, XA, RY(r), "tc-dn-vien-a")); o2.push({ r: r, can: CAP[ch], v: null, o: svg(man, "rect", { x: XB, y: RY(r), width: TW, height: TH, rx: 6, class: "tc-dn-o" }) }); });
+      man.appendChild(gR);
+      var chu = tron(soi.map(function (ch) { return CAP[ch]; }));
+      vien = chu.map(function (ch, i) {
+        var e = svg(man, "g", { class: "tc-keo tc-dn-vien", tabindex: "0", role: "button", "aria-label": dien(t.vien, { c: ch }), "data-i": i });
+        veB(e, ch, 0, 0, "");
+        var v = { i: i, ch: ch, e: e, o: -1, nha: { x: 14 + i * 84, y: 300 } }; n5Dat(v, v.nha); return v;
+      });
+      cap.textContent = t.cap2;
+    }
+    function datVien(v, ob) {
+      v.o = ob.r; ob.v = v; n5Dat(v, { x: XB, y: RY(ob.r) }, true); gR.appendChild(v.e); v.e.classList.remove("tc-keo"); v.e.removeAttribute("tabindex"); v.e.removeAttribute("role"); v.e.removeAttribute("aria-label");
+      cap.textContent = dien(t.khop, { a: soi[ob.r], b: v.ch });
+      if (o2.every(function (x) { return x.v; })) { cap.textContent = t.du2; chia.hidden = false; buoc = 3; m4Hen(s, function () { chia.focus({ preventScroll: true }); }, 50); }
+    }
+    tiep.onclick = man2;
+    n5Keo(c, "g.tc-dn-vien", function (e) { return vien[+e.getAttribute("data-i")]; }, function (v) { return v.o >= 0 || buoc !== 2; }, function (v, keo) {
+      if (!keo) { var ob = o2.filter(function (x) { return !x.v && x.can === v.ch; })[0]; if (ob) datVien(v, ob); return; }
+      var cx = v.p.x + TW / 2, cy = v.p.y + TH / 2, gan = null;
+      o2.forEach(function (x) { if (Math.abs(cx - (XB + TW / 2)) < 50 && Math.abs(cy - (RY(x.r) + TH / 2)) < 22) gan = x; });
+      if (gan && !gan.v && gan.can === v.ch) { datVien(v, gan); return; }
+      n5Dat(v, v.nha, true);
+      if (gan && !gan.v) cap.textContent = dien(t.khong_khop, { a: soi[gan.r], b: v.ch, c: gan.can });
+    });
+
+    // Màn 3: tế bào chia, mỗi sợi cũ làm khuôn cho một sợi mới
+    var moi = null, daSai = false;
+    function chiaRa() {
+      chia.disabled = true; sai.hidden = true; if (tieu2) tieu2.remove(); o2.forEach(function (x) { x.o.remove(); });
+      m4Chay(s, 900, function (f) { var d = 112 * m4De(f); gL.setAttribute("transform", "translate(" + (-d) + ",0)"); gR.setAttribute("transform", "translate(" + d + ",0)"); }, function () {
+        moi = svg(man, "g", { class: "tc-dn-moi" });
+        n5Chu(moi, 108, 18, t.ban_sao[0], "tc-n5-dam", true); n5Chu(moi, 330, 18, t.ban_sao[1], "tc-n5-dam", true);
+        svg(moi, "line", { x1: XB - 112 + TW + 6, x2: XB - 112 + TW + 6, y1: RY(0) - 6, y2: RY(5) + TH + 6, class: "tc-dn-truc-b tc-dn-nhat" });
+        svg(moi, "line", { x1: XA + 112 - 6, x2: XA + 112 - 6, y1: RY(0) - 6, y2: RY(5) + TH + 6, class: "tc-dn-truc-a tc-dn-nhat" });
+        soi.forEach(function (ch, r) {
+          var nb = veB(moi, CAP[ch], XB - 112, RY(r), "tc-dn-vien-b tc-dn-nhat");
+          veA(moi, CAP[o2[r].v.ch], XA + 112, RY(r), "tc-dn-vien-a tc-dn-nhat");
+          if (daSai && r === g.sai[0]) { nb.classList.add("tc-dn-do-moi"); svg(moi, "rect", { x: XA - 112 - 5, y: RY(r) - 5, width: TW * 2 + 18, height: TH + 10, rx: 9, class: "tc-dn-khoanh" }); }
+        });
+        if (!daSai) { cap.textContent = t.cap_chia; sai.hidden = false; chia.hidden = true; }
+        else {
+          cap.textContent = t.cap_sai2; chia.hidden = true;
+          n5Thanh(man, 302, t.chan_doan_tieu, g.chan_doan.map(function (p, i) { return { nhan: t.chan_doan[i], a: p, chu: p + "%" }; }), 250, 210, 40);
+          m4Hen(s, function () { m4Ket(ket, [t.ket]); n5Luu(s, t); lai.focus({ preventScroll: true }); }, 1200);
+        }
+      });
+    }
+    chia.onclick = chiaRa;
+    sai.onclick = function () {
+      daSai = true; sai.hidden = true; if (moi) moi.remove(); moi = null;
+      gL.setAttribute("transform", ""); gR.setAttribute("transform", "");
+      soi[g.sai[0]] = g.sai[1]; var l = chuL[g.sai[0]]; l.tx.textContent = g.sai[1]; l.e.classList.add("tc-dn-do");
+      l.e.querySelectorAll("circle").forEach(function (x) { x.remove(); }); chau(l.e, g.sai[1], XA + TW, RY(g.sai[0]), true);
+      cap.textContent = dien(t.cap_sai, { a: g.sai[1] }); chia.hidden = false; chia.disabled = false; chia.textContent = t.nut_chia_lai; chia.focus({ preventScroll: true });
+    };
+    s.appendChild(san); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: công tắc hay núm vặn? (một gen như công tắc → hàng nghìn núm vặn → điểm gen đoán từng người → chọn phôi) ----------
+  // g.num: số núm trên lưới; g.nguoi: [{d: điểm gen, h: chiều cao tương đối 0–1}] (minh họa); g.giai: [{a, b?}]; g.phoi: điểm gen 5 phôi (minh họa)
+  function congTacNumVan(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), W = 520, H = 420, c = svg(san, "svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.cap1); cap.setAttribute("aria-live", "polite");
+    var phu = tao("div", "tc-nv-phu");
+    var hang = tao("div", "tc-hang"), anKieng = nut(t.nut_an, false), ngauNhien = nut(t.nut_ngau, false), xem = nut(t.nut_xem, true), tiep = nut(t.nut_tiep, true), lai = nut(t.nut_lai, false);
+    anKieng.hidden = ngauNhien.hidden = xem.hidden = tiep.hidden = true; [anKieng, ngauNhien, xem, tiep, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var man = svg(c, "g", {}), buoc = 1;
+    lai.onclick = function () { m4Lai(s, congTacNumVan, g, t); };
+    function moi(tieu) { man.remove(); man = svg(c, "g", {}); n5Chu(man, 10, 20, tieu, "tc-n5-dam"); tiep.hidden = true; }
+    function nguoiNho(cha, x, y, lop) { var e = svg(cha, "g", { class: lop }); svg(e, "circle", { cx: x, cy: y + 10, r: 10 }); svg(e, "rect", { x: x - 14, y: y + 24, width: 28, height: 44, rx: 9 }); svg(e, "rect", { x: x - 11, y: y + 62, width: 8, height: 22, rx: 3 }); svg(e, "rect", { x: x + 3, y: y + 62, width: 8, height: 22, rx: 3 }); return e; }
+
+    // Màn 1: một công tắc
+    n5Chu(man, 10, 20, t.tieu1, "tc-n5-dam");
+    var tt = 0, ct = svg(man, "g", { class: "tc-nv-ct", tabindex: "0", role: "button", "aria-pressed": "false", "aria-label": t.cong_tac });
+    svg(ct, "rect", { x: 60, y: 150, width: 140, height: 56, rx: 28, class: "tc-nv-ray" });
+    var nuMo = svg(ct, "circle", { cx: 88, cy: 178, r: 22, class: "tc-nv-num-ct" });
+    n5Chu(man, 130, 132, t.gen_pah, "tc-nv-vang", true);
+    var ttChu = n5Chu(man, 130, 236, t.tt[0], "tc-n5-dam", true);
+    nguoiNho(man, 370, 104, "tc-nv-nguoi");
+    var bd = svg(man, "g", { class: "tc-nv-bd tc-nv-bd-0" }); svg(bd, "rect", { x: 290, y: 214, width: 160, height: 34, rx: 17 });
+    var bdChu = n5Chu(bd, 370, 236, t.trang[0], "tc-nv-bd-chu", true);
+    svg(man, "path", { d: "M214 178 L280 178", class: "tc-nv-mui" }); svg(man, "path", { d: "M272 171 L282 178 L272 185", class: "tc-nv-mui" });
+    function ve1() {
+      ct.setAttribute("aria-pressed", tt ? "true" : "false"); ct.classList.toggle("tc-nv-hong", tt > 0);
+      m4Muot(nuMo, 250); nuMo.setAttribute("transform", tt ? "translate(84,0)" : "");
+      ttChu.textContent = t.tt[tt ? 1 : 0]; bd.setAttribute("class", "tc-nv-bd tc-nv-bd-" + (tt === 1 ? 1 : 0)); bdChu.textContent = t.trang[tt];
+    }
+    m4Nut(ct, function () { if (buoc !== 1) return; tt = tt ? 0 : 1; ve1(); anKieng.hidden = tt !== 1; cap.textContent = tt ? t.cap_hong : t.cap1; });
+    anKieng.onclick = function () { tt = 2; ve1(); anKieng.hidden = true; cap.textContent = t.cap_an; tiep.hidden = false; tiep.focus({ preventScroll: true }); };
+
+    // Màn 2: hàng nghìn núm vặn
+    var num = [], cot, moiTruong = 0, tongDem = 0;
+    var nhan = tao("label", "tc-nv-nhan"), idT = g.id + "-moi-truong"; nhan.htmlFor = idT; nhan.textContent = t.moi_truong;
+    var thanh = tao("input"); thanh.type = "range"; thanh.min = -10; thanh.max = 10; thanh.step = 1; thanh.value = 0; thanh.id = idT;
+    phu.appendChild(nhan); phu.appendChild(thanh); phu.hidden = true;
+    function cao() { return 150 + num.reduce(function (a, n) { return a + n.v; }, 0) * 3 + moiTruong * 4.5; }
+    function veCot(muot) { var h = cao(); cot.style.transition = muot && !giam ? "height .35s, y .35s" : ""; cot.setAttribute("y", 290 - h); cot.setAttribute("height", h); }
+    function veNum(n) { n.kim.setAttribute("transform", "rotate(" + n.v * 120 + " " + n.x + " " + n.y + ")"); n.e.setAttribute("aria-valuenow", n.v); n.e.setAttribute("aria-valuetext", so(n.v, 1)); }
+    function daVan() { tongDem++; ngauNhien.hidden = false; if (tongDem >= 2) tiep.hidden = false; }
+    function man2() {
+      buoc = 2; moi(t.tieu2); anKieng.hidden = true; phu.hidden = false; cap.textContent = t.cap2;
+      for (var i = 0; i < g.num; i++) {
+        var x = 40 + (i % 6) * 50, y = 64 + Math.floor(i / 6) * 50;
+        var e = svg(man, "g", { class: "tc-nv-num", tabindex: "0", role: "slider", "aria-label": dien(t.num, { n: i + 1 }), "aria-valuemin": -1, "aria-valuemax": 1, "data-i": i });
+        svg(e, "circle", { cx: x, cy: y, r: 19 }); var kim = svg(e, "line", { x1: x, y1: y, x2: x, y2: y - 14, class: "tc-nv-kim" });
+        var n = { e: e, x: x, y: y, v: 0, kim: kim }; num.push(n); veNum(n);
+      }
+      svg(man, "line", { x1: 350, x2: 510, y1: 290, y2: 290, class: "tc-nv-dat" });
+      for (var q = 0; q <= 8; q++) svg(man, "line", { x1: 356, x2: q % 2 ? 364 : 370, y1: 290 - q * 30, y2: 290 - q * 30, class: "tc-nv-vach" });
+      cot = svg(man, "rect", { x: 400, y: 140, width: 56, height: 150, rx: 6, class: "tc-nv-cot" });
+      n5Chu(man, 428, 306, t.cot, "tc-n5-nho", true); veCot(false);
+      n5Chu(man, 10, 318, t.dem_tieu, "tc-n5-dam");
+      t.dem.forEach(function (d, k) { n5Chu(man, 10, 342 + k * 20, d, "tc-nv-dem"); });
+      n5Chu(man, 10, 410, t.dem_chu, "tc-n5-nho");
+      var keo0 = null;
+      keoSvg(c, "g.tc-nv-num", function (e, p, b, d) { if (buoc !== 2) return false; var n = num[+e.getAttribute("data-i")]; if (b === "bat") { keo0 = n.v; return; } n.v = Math.max(-1, Math.min(1, Math.round((keo0 + (d.y - p.y) / 40) * 4) / 4)); veNum(n); veCot(false); },
+        function (e, p) { var n = num[+e.getAttribute("data-i")]; if (!p) n.v = n.v > 0 ? -1 : n.v < 0 ? 0 : 1; veNum(n); veCot(true); cap.textContent = t.cap_num; daVan(); });
+      c.addEventListener("keydown", function (ev) {
+        var e = ev.target.closest && ev.target.closest("g.tc-nv-num"); if (!e || buoc !== 2) return; var n = num[+e.getAttribute("data-i")], b = { ArrowUp: .25, ArrowRight: .25, ArrowDown: -.25, ArrowLeft: -.25 }[ev.key];
+        if (b) n.v = Math.max(-1, Math.min(1, n.v + b)); else if (ev.key === "Enter" || ev.key === " ") n.v = n.v > 0 ? -1 : n.v < 0 ? 0 : 1; else return;
+        ev.preventDefault(); veNum(n); veCot(true); cap.textContent = t.cap_num; daVan();
+      });
+    }
+    thanh.oninput = function () { moiTruong = +thanh.value; veCot(true); cap.textContent = t.cap_moi; daVan(); };
+    ngauNhien.onclick = function () { num.forEach(function (n) { n.v = Math.round((Math.random() * 2 - 1) * 4) / 4; veNum(n); }); veCot(true); cap.textContent = t.cap_ngau; daVan(); };
+
+    // Màn 3: tám người với điểm gen chiều cao trên áo (minh họa); xếp theo điểm, rồi xem chiều cao thật
+    var ng = [], cho = [], SX = function (i) { return 10 + i * 63; };
+    function man3() {
+      buoc = 3; moi(t.tieu3); phu.hidden = true; ngauNhien.hidden = true; cap.textContent = t.cap3;
+      for (var i = 0; i < 8; i++) { svg(man, "rect", { x: SX(i), y: 158, width: 56, height: 108, rx: 8, class: "tc-dn-o" }); cho.push(null); }
+      svg(man, "path", { d: "M20 286 L490 286", class: "tc-nv-mui" }); svg(man, "path", { d: "M482 279 L492 286 L482 293", class: "tc-nv-mui" });
+      n5Chu(man, 260, 280, t.truc, "tc-n5-nho", true);
+      var nha = tron([0, 1, 2, 3, 4, 5, 6, 7]);
+      ng = g.nguoi.map(function (d, i) {
+        var e = svg(man, "g", { class: "tc-keo tc-nv-ng", tabindex: "0", role: "button", "aria-label": dien(t.nguoi, { d: d.d }), "data-i": i });
+        svg(e, "rect", { x: 0, y: 0, width: 56, height: 96, rx: 8, class: "tc-nv-ng-nen" });
+        nguoiNho(e, 28, 4, "tc-nv-ng-hinh"); n5Chu(e, 28, 58, d.d, "tc-nv-ng-so", true);
+        var v = { i: i, d: d, e: e, o: -1, nha: { x: SX(nha[i]), y: 34 } }; n5Dat(v, v.nha); return v;
+      });
+    }
+    function vaoCho(v, k) {
+      var cu = cho[k], tu = v.o; if (tu >= 0) cho[tu] = null;
+      if (cu && cu !== v) { if (tu >= 0) { cho[tu] = cu; cu.o = tu; n5Dat(cu, { x: SX(tu), y: 164 }, true); } else { cu.o = -1; n5Dat(cu, cu.nha, true); } }
+      cho[k] = v; v.o = k; n5Dat(v, { x: SX(k), y: 164 }, true);
+      var n = cho.filter(Boolean).length; xem.hidden = n < 8; cap.textContent = n < 8 ? dien(t.cap_dat, { n: n }) : t.cap_du;
+    }
+    n5Keo(c, "g.tc-nv-ng", function (e) { return ng[+e.getAttribute("data-i")]; }, function () { return buoc !== 3; }, function (v, keo) {
+      if (!keo) { if (v.o >= 0) { cho[v.o] = null; v.o = -1; n5Dat(v, v.nha, true); xem.hidden = true; cap.textContent = dien(t.cap_dat, { n: cho.filter(Boolean).length }); } else vaoCho(v, cho.indexOf(null)); return; }
+      var cx = v.p.x + 28, cy = v.p.y + 48, k = -1;
+      for (var i = 0; i < 8; i++) if (Math.abs(cx - SX(i) - 28) < 32 && cy > 120 && cy < 300) k = i;
+      if (k >= 0) vaoCho(v, k); else { if (v.o >= 0) cho[v.o] = null; v.o = -1; n5Dat(v, v.nha, true); xem.hidden = true; }
+    });
+    xem.onclick = function () {
+      buoc = 3.5; xem.hidden = true;
+      var dungThu = ng.every(function (v) { return v.o === v.i; });
+      ng.forEach(function (v) { v.o = v.i; n5Dat(v, { x: SX(v.i), y: 164 }, true); v.e.classList.add("tc-nv-khoa"); });
+      var nen = svg(man, "g", { class: "tc-nv-nen-cao" });
+      var dinh = g.nguoi.map(function (d, i) { return { x: SX(i) + 28, y: 266 - 220 * d.h }; });
+      var cotC = g.nguoi.map(function (d, i) { return svg(nen, "rect", { x: SX(i) + 6, y: 266, width: 44, height: 0, rx: 5, class: "tc-nv-cao" }); });
+      var duong = svg(man, "polyline", { points: dinh.map(function (p) { return p.x + "," + p.y; }).join(" "), class: "tc-nv-duong" }); duong.style.opacity = 0;
+      m4Hen(s, function () {
+        m4Chay(s, 1200, function (f) { cotC.forEach(function (r, i) { var h = 220 * g.nguoi[i].h * m4De(f); r.setAttribute("y", 266 - h); r.setAttribute("height", h); }); }, function () {
+          duong.style.opacity = 1; n5Chu(man, 510, 40, t.cao_that, "tc-nv-cao-chu").setAttribute("text-anchor", "end");
+          cap.textContent = (dungThu ? "" : t.cap_xep + " ") + t.cap_that;
+          n5Thanh(man, 314, t.giai_tieu, g.giai.map(function (x, i) { return { nhan: t.giai[i], a: x.a, b: x.b, chu: x.b ? x.a + "–" + x.b + "%" : x.a + "%" }; }), 250, 200, 50);
+          m4Hen(s, function () { tiep.hidden = false; }, 1100);
+        });
+      }, 450);
+    };
+
+    // Kết: chọn phôi điểm cao nhất
+    var phoi = [];
+    function man4() {
+      buoc = 4; moi(t.tieu4); cap.textContent = t.cap4;
+      var max = Math.max.apply(null, g.phoi);
+      phoi = g.phoi.map(function (d, i) {
+        var x = 64 + (i % 5) * 98, y = 66 + Math.floor(i / 5) * 84, e = svg(man, "g", { class: "tc-nv-phoi", tabindex: "0", role: "button", "aria-label": dien(t.phoi, { n: i + 1, d: d }) });
+        svg(e, "circle", { cx: x, cy: y, r: 28, class: "tc-nv-phoi-vo" });
+        [[-10, -8], [8, -10], [-11, 8], [10, 8], [0, -1], [-1, 16]].forEach(function (p) { svg(e, "circle", { cx: x + p[0], cy: y + p[1], r: 7, class: "tc-nv-te-bao" }); });
+        n5Chu(e, x, y + 46, dien(t.diem, { d: d }), "tc-n5-dam", true);
+        m4Nut(e, function () { chonPhoi(i, d === max); });
+        return e;
+      });
+    }
+    function chonPhoi(i, cao) {
+      if (buoc !== 4) return;
+      phoi.forEach(function (e, k) { e.classList.toggle("tc-nv-chon", k === i); });
+      if (!cao) { cap.textContent = t.chua_cao; return; }
+      buoc = 5; cap.textContent = t.cap_chon;
+      var X = function (v) { return 260 + v * 26; }, gT = svg(man, "g", {});
+      for (var k = 6; k >= 1; k--) svg(gT, "rect", { x: X(-k * 1.2), y: 234, width: k * 2.4 * 26, height: 36, rx: 18, class: "tc-nv-mo" });
+      svg(gT, "line", { x1: 40, x2: 480, y1: 252, y2: 252, class: "tc-nv-truc" });
+      svg(gT, "line", { x1: X(0), x2: X(0), y1: 226, y2: 278, class: "tc-nv-tb" });
+      n5Chu(gT, X(0), 296, t.tb, "tc-n5-nho", true);
+      var mk = svg(gT, "g", {}); svg(mk, "circle", { cx: 0, cy: 252, r: 9, class: "tc-nv-mk" });
+      var mkChu = n5Chu(gT, X(2.5), 222, "", "tc-nv-vang", true);
+      n5Chu(gT, 260, 330, t.mo_chu, "tc-n5-nho", true);
+      m4Chay(s, 1000, function (f) { mk.setAttribute("transform", "translate(" + X(2.5 * m4De(f)) + ",0)"); }, function () {
+        mkChu.textContent = t.loi;
+        m4Hen(s, function () { m4Ket(ket, [t.ket]); n5Luu(s, t); }, 500);
+      });
+    }
+    tiep.onclick = function () { if (buoc === 1) man2(); else if (buoc === 2) man3(); else man4(); m4Hen(s, function () { var h = man.querySelector("[tabindex]"); if (h) h.focus({ preventScroll: true }); }, 30); };
+    s.appendChild(san); s.appendChild(phu); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: tung đồng xu của gen (ghép bản gen cho con → sinh thêm nhiều lần → thước CAG → đồng hồ DNA) ----------
+  // g.du: số người con để hiện câu chốt; g.vung: ranh giới vùng CAG [26, 35, 39]; g.min, g.max: thang thước; g.nguong: 150
+  function dongXuGen(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), W = 520, H = 420, c = svg(san, "svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.cap1); cap.setAttribute("aria-live", "polite");
+    var phu = tao("div", "tc-hd-phu"); phu.hidden = true;
+    var hang = tao("div", "tc-hang"), sinh = nut(t.nut_sinh, true), chay = nut(t.nut_chay, true), tiep = nut(t.nut_tiep, true), lai = nut(t.nut_lai, false);
+    sinh.hidden = chay.hidden = tiep.hidden = true; [sinh, chay, tiep, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var man = svg(c, "g", {}), buoc = 1;
+    lai.onclick = function () { m4Lai(s, dongXuGen, g, t); };
+    var BW = 150, BH = 26;
+    function veBan(cha, x, y, dai, lop) {
+      var e = svg(cha, "g", { class: (lop || "") + (dai ? " tc-hd-dai" : " tc-hd-thuong") });
+      svg(e, "rect", { x: x, y: y, width: BW, height: BH, rx: 6 });
+      for (var k = 1; k < (dai ? 14 : 5); k++) svg(e, "line", { x1: x + 8 + k * (dai ? 9.5 : 9.5), x2: x + 8 + k * 9.5, y1: y + 5, y2: y + 9, class: "tc-hd-vach" });
+      n5Chu(e, x + BW / 2, y + 20, dai ? t.ban_dai : t.ban_thuong, "tc-hd-ban-chu", true);
+      return e;
+    }
+    // Màn 1: hai ô cha mẹ, ô con
+    var BO = [{ x: 16, y: 34, ten: t.cha_me }, { x: 324, y: 34, ten: t.nguoi_kia }];
+    BO.forEach(function (b) { svg(man, "rect", { x: b.x, y: b.y, width: 180, height: 118, rx: 12, class: "tc-hd-hop" }); n5Chu(man, b.x + 90, b.y + 22, b.ten, "tc-n5-dam", true); });
+    svg(man, "path", { d: "M106 156 Q130 190 182 236", class: "tc-hd-noi" }); svg(man, "path", { d: "M414 156 Q390 190 338 276", class: "tc-hd-noi" });
+    svg(man, "rect", { x: 170, y: 196, width: 180, height: 136, rx: 12, class: "tc-hd-hop tc-hd-hop-con" });
+    n5Chu(man, 260, 216, t.con, "tc-n5-dam", true);
+    var SL = [{ x: 185, y: 226 }, { x: 185, y: 266 }];
+    SL.forEach(function (p) { svg(man, "rect", { x: p.x, y: p.y, width: BW, height: BH, rx: 6, class: "tc-dn-o" }); });
+    var bdChu = n5Chu(man, 260, 318, "", "tc-hd-kq", true), trong = svg(man, "g", {});
+    var dong = svg(man, "g", { class: "tc-hd-xu", opacity: "0" }); svg(dong, "ellipse", { cx: 0, cy: 0, rx: 16, ry: 16 }); n5Chu(dong, 0, 5, "50%", "tc-hd-xu-chu", true);
+    var hang2 = svg(man, "g", {}), demChu = n5Chu(man, 20, 378, "", "tc-n5-dam");
+    svg(man, "rect", { x: 20, y: 388, width: 480, height: 16, rx: 8, class: "tc-n5-ray" });
+    var tiLe = svg(man, "rect", { x: 20, y: 388, width: 0, height: 16, rx: 8, class: "tc-hd-ti-le" });
+    svg(man, "line", { x1: 260, x2: 260, y1: 382, y2: 410, class: "tc-hd-nua" }); n5Chu(man, 266, 378, "50%", "tc-n5-nho");
+    var ban = [], mang = 0, tong = 0, con = [null, null];
+    [[0, 0, true], [0, 1, false], [1, 0, false], [1, 1, false]].forEach(function (b, i) {
+      var e = svg(man, "g", { class: "tc-keo tc-hd-keo", tabindex: "0", role: "button", "aria-label": dien(t.keo, { b: b[2] ? t.ban_dai : t.ban_thuong, ai: BO[b[0]].ten }), "data-i": i });
+      veBan(e, 0, 0, b[2]);
+      var v = { i: i, ai: b[0], dai: b[2], e: e, nha: { x: BO[b[0]].x + 15, y: BO[b[0]].y + 38 + b[1] * 36 } }; n5Dat(v, v.nha); ban.push(v);
+    });
+    function ghi(dai) {
+      tong++; if (dai) mang++;
+      bdChu.textContent = dai ? t.mang : t.khong; bdChu.setAttribute("class", "tc-hd-kq" + (dai ? " tc-hd-kq-mang" : ""));
+      if (tong <= 20) svg(hang2, "circle", { cx: 26 + (tong - 1) * 23.5, cy: 352, r: 8, class: dai ? "tc-hd-to-mang" : "tc-hd-to-khong" });
+      demChu.textContent = dien(t.dem, { m: mang, n: tong });
+      tiLe.style.transition = giam ? "" : "width .4s"; tiLe.setAttribute("width", 480 * mang / tong);
+      cap.textContent = tong >= g.du ? t.cap_du : dien(t.cap_con, { k: tong, kq: dai ? t.mang : t.khong });
+      if (tong >= g.du) tiep.hidden = false;
+      sinh.hidden = false; sinh.disabled = false;
+    }
+    function boVao(v) {
+      if (buoc !== 1 || tong) return;
+      if (con[v.ai]) con[v.ai].remove();
+      con[v.ai] = veBan(trong, SL[v.ai].x, SL[v.ai].y, v.dai);
+      n5Dat(v, v.nha, true);
+      if (con[0] && con[1]) ghi(!!con[0].classList.contains("tc-hd-dai"));
+      else cap.textContent = t.cap_mot;
+    }
+    n5Keo(c, "g.tc-hd-keo", function (e) { return ban[+e.getAttribute("data-i")]; }, function () { return buoc !== 1 || tong > 0; }, function (v, keo) {
+      if (!keo) { boVao(v); return; }
+      var cx = v.p.x + BW / 2, cy = v.p.y + BH / 2;
+      if (cx > 150 && cx < 370 && cy > 190 && cy < 340) boVao(v);
+      else n5Dat(v, v.nha, true);
+    });
+    sinh.onclick = function () {
+      sinh.disabled = true; trong.innerHTML = ""; con = [null, null]; bdChu.textContent = "";
+      var dai = Math.random() < 0.5, k = Math.random() < 0.5 ? 1 : 0;
+      dong.setAttribute("opacity", "1"); dong.setAttribute("transform", "translate(106,176)");
+      m4Chay(s, 700, function (f) { dong.setAttribute("transform", "translate(106,176) scale(" + Math.max(0.08, Math.abs(Math.cos(f * Math.PI * 4))) + ",1)"); }, function () {
+        dong.setAttribute("opacity", "0");
+        var a = veBan(trong, BO[0].x + 15, BO[0].y + 38 + (dai ? 0 : 36), dai), b = veBan(trong, BO[1].x + 15, BO[1].y + 38 + k * 36, false);
+        var da = { x: SL[0].x - (BO[0].x + 15), y: SL[0].y - (BO[0].y + 38 + (dai ? 0 : 36)) }, db = { x: SL[1].x - (BO[1].x + 15), y: SL[1].y - (BO[1].y + 38 + k * 36) };
+        m4Chay(s, 500, function (f) { var q = m4De(f); a.setAttribute("transform", "translate(" + da.x * q + "," + da.y * q + ")"); b.setAttribute("transform", "translate(" + db.x * q + "," + db.y * q + ")"); }, function () { ghi(dai); });
+      });
+    };
+
+    // Màn 2: thước CAG
+    var n = 20, the40 = false, nhan = tao("label", "tc-hd-nhan"), idT = g.id + "-cag", soChu = tao("b", "", "");
+    nhan.htmlFor = idT; nhan.appendChild(document.createTextNode(t.thanh + " ")); nhan.appendChild(soChu);
+    var thanh = tao("input"); thanh.type = "range"; thanh.min = g.min; thanh.max = g.max; thanh.step = 1; thanh.value = n; thanh.id = idT;
+    phu.appendChild(nhan); phu.appendChild(thanh);
+    var o3 = [], X = function (v) { return 30 + (v - g.min) / (g.max - g.min) * 460; }, mk, vTen, vChu;
+    function vung(v) { return v <= g.vung[0] ? 0 : v <= g.vung[1] ? 1 : v <= g.vung[2] ? 2 : 3; }
+    function ve2() {
+      var z = vung(n); soChu.textContent = n;
+      o3.forEach(function (o, i) { o.setAttribute("class", "tc-hd-o tc-hd-z" + (i < n ? z : "x")); });
+      mk.setAttribute("transform", "translate(" + X(n) + ",0)");
+      vTen.textContent = dien(t.so_lan, { n: n }) + " · " + t.vung[z].ten; vTen.setAttribute("class", "tc-hd-vt tc-hd-vt" + z); vChu.textContent = t.vung[z].chu;
+      if (z === 3) { cap.textContent = t.the40; if (!the40) { the40 = true; tiep.hidden = false; } } else cap.textContent = t.cap_vung;
+    }
+    function man2() {
+      buoc = 2; man.remove(); man = svg(c, "g", {}); c.setAttribute("viewBox", "0 0 520 340"); tiep.hidden = true; tiep.textContent = t.nut_tiep2; sinh.hidden = true; phu.hidden = false;
+      n5Chu(man, 10, 20, t.tieu2, "tc-n5-dam");
+      for (var i = 0; i < g.max; i++) { var r = svg(man, "g", {}); o3.push(r); var x = 22 + (i % 15) * 32, y = 34 + Math.floor(i / 15) * 24; svg(r, "rect", { x: x, y: y, width: 29, height: 19, rx: 3 }); n5Chu(r, x + 14.5, y + 13.5, "CAG", "tc-hd-cag", true); }
+      var ranh = [g.min - 0.5, g.vung[0] + 0.5, g.vung[1] + 0.5, g.vung[2] + 0.5, g.max + 0.5];
+      for (var z = 0; z < 4; z++) {
+        var a = X(Math.max(g.min, ranh[z])), b = X(Math.min(g.max, ranh[z + 1]));
+        svg(man, "rect", { x: a, y: 152, width: b - a, height: 30, class: "tc-hd-z" + z });
+        n5Chu(man, (a + b) / 2, 200, t.nhan_vung[z], "tc-hd-nv", true);
+      }
+      mk = svg(man, "g", { class: "tc-hd-mk" }); svg(mk, "path", { d: "M-9 134 L9 134 L0 148 Z" }); svg(mk, "line", { x1: 0, x2: 0, y1: 146, y2: 186 }); svg(mk, "rect", { x: -22, y: 120, width: 44, height: 70, style: "fill:transparent;stroke:none" });
+      svg(man, "rect", { x: 20, y: 216, width: 480, height: 72, rx: 10, class: "tc-hd-hop" });
+      vTen = n5Chu(man, 34, 244, "", "tc-hd-vt"); vChu = n5Chu(man, 34, 270, "", "tc-n5-nho");
+      n5Chu(man, 10, 318, t.thuoc_chu, "tc-n5-nho");
+      keoSvg(c, "g.tc-hd-mk", function (e, p) { if (buoc !== 2) return false; if (p) { n = Math.max(g.min, Math.min(g.max, Math.round(g.min + (p.x - 30) / 460 * (g.max - g.min)))); thanh.value = n; ve2(); } }, function () {});
+      ve2();
+    }
+    thanh.oninput = function () { n = +thanh.value; ve2(); };
+
+    // Màn 3: đồng hồ DNA trong tế bào thần kinh (tốc độ dài ra là minh họa)
+    var cot, tb, dongHo, kimTg;
+    function man3() {
+      buoc = 3; man.remove(); man = svg(c, "g", {}); phu.hidden = true; tiep.hidden = true; chay.hidden = false;
+      n5Chu(man, 10, 20, t.tieu3, "tc-n5-dam");
+      tb = svg(man, "g", { class: "tc-hd-tb" });
+      [[-60, -50], [-70, 10], [-40, 62], [20, -70]].forEach(function (p) { svg(tb, "path", { d: "M130 150 Q" + (130 + p[0] * 0.6) + " " + (150 + p[1] * 0.3) + " " + (130 + p[0]) + " " + (150 + p[1]), class: "tc-hd-nhanh" }); });
+      svg(tb, "path", { d: "M160 160 Q220 200 250 250", class: "tc-hd-nhanh" });
+      svg(tb, "circle", { cx: 130, cy: 150, r: 40, class: "tc-hd-than" }); svg(tb, "circle", { cx: 130, cy: 150, r: 16, class: "tc-hd-nhan-tb" });
+      var tbChu = n5Chu(man, 130, 226, "", "tc-hd-kq", true);
+      var X0 = 280, X1 = 500, M = 180, XX = function (v) { return X0 + v / M * (X1 - X0); };
+      n5Chu(man, X0, 88, t.cag_tb, "tc-n5-nho");
+      svg(man, "rect", { x: X0, y: 100, width: X1 - X0, height: 24, rx: 6, class: "tc-n5-ray" });
+      cot = svg(man, "rect", { x: X0, y: 100, width: XX(42) - X0, height: 24, rx: 6, class: "tc-hd-z3" });
+      svg(man, "line", { x1: XX(g.nguong), x2: XX(g.nguong), y1: 92, y2: 134, class: "tc-hd-nguong" });
+      n5Chu(man, XX(g.nguong), 150, dien(t.nguong, { n: g.nguong }), "tc-hd-vang", true);
+      n5Chu(man, 30, 282, t.thoi_gian, "tc-n5-nho");
+      svg(man, "rect", { x: 30, y: 292, width: 460, height: 12, rx: 6, class: "tc-n5-ray" });
+      kimTg = svg(man, "rect", { x: 30, y: 292, width: 0, height: 12, rx: 6, class: "tc-hd-tg" });
+      cap.textContent = t.cap3;
+      chay.onclick = function () {
+        chay.disabled = true; var qua = false;
+        m4Chay(s, 4200, function (f) {
+          var v = 42 + 138 * Math.pow(f, 3); cot.setAttribute("width", XX(v) - X0); kimTg.setAttribute("width", 460 * f);
+          if (v >= g.nguong && !qua) { qua = true; tb.classList.add("tc-hd-mo"); tbChu.textContent = t.tb_hong; }
+        }, function () {
+          if (!qua) { tb.classList.add("tc-hd-mo"); tbChu.textContent = t.tb_hong; }
+          cap.textContent = t.cap_dh; chay.hidden = true;
+          m4Ket(ket, [t.ket]); n5Luu(s, t); lai.focus({ preventScroll: true });
+        });
+      };
+    }
+    tiep.onclick = function () { if (buoc === 1) { man2(); thanh.focus({ preventScroll: true }); } else { man3(); chay.focus({ preventScroll: true }); } };
+    s.appendChild(san); s.appendChild(phu); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+  // ==== ĐỢT 5 N KẾT THÚC ====
+  // ==== ĐỢT 5 O BẮT ĐẦU ====
+  // Ba cảnh Gen và bệnh hiếm: dia-guthrie (#4 PKU, giọt máu ở gót chân), boc-tham-gen (#5 thalassemia), la-chan-hay-ganh-nang (#6 hồng cầu hình liềm).
+  // Cảnh giải thích (tế bào, gen, phả hệ), không có hình người bệnh, không thắng thua, không điểm. Sân khấu tối cố định (tc-canh-toi).
+  // Dùng lại jKeo, jChay, jHen, jLai, jKet, jDat, jVe, jMuot (đợt 3 J) và lHien, lChu, lDong, lTruot (đợt 4 L).
+  function o5Nut(e, fn) { e.addEventListener("click", fn); e.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fn(ev); } }); }
+  function o5Luu(s, t) { if (t.luu) s.appendChild(tao("p", "tc-o5-luu", t.luu)); }
+  function o5Tieu(c, chu) { return lChu(c, 16, 26, chu, "tc-o5-tieu"); }
+
+  // ---------- Cảnh: đĩa vi khuẩn của Guthrie (chấm 5 giọt máu lên giấy thấm, ủ đĩa, gắn cờ vòng rộng nhất; chọn giờ lấy máu; kéo phiếu kết quả tới việc nên làm) ----------
+  // Độ rộng vòng và đường tăng theo giờ là minh họa (không có thang số). t.be: 5 nhãn "Bé A".."Bé E"; t.phieu: 3 phiếu [{chu, dich}]; t.viec: 3 việc ([dòng]).
+  function diaGuthrie(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 600 400", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.cap1); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), u = nut(t.nut_u, true), tiep = nut(t.nut_tiep1, true), lai = nut(t.nut_lai, false);
+    u.disabled = true; tiep.hidden = true; [u, tiep, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var truot = lTruot(g.id + "-gio", t.nhan_gio, 0, 96, 1, 6, t.gio_dau, t.gio_cuoi); truot.hop.hidden = true;
+    var man = 1, pku = Math.floor(Math.random() * 5);
+    // ----- Màn 1 -----
+    var m1 = svg(c, "g", {}); o5Tieu(m1, t.man1);
+    svg(m1, "rect", { x: 24, y: 136, width: 300, height: 220, rx: 6, class: "tc-ogu-giay" });
+    lChu(m1, 36, 158, t.giay, "tc-ogu-giay-chu");
+    var VT = [[84, 212], [174, 212], [264, 212], [129, 296], [219, 296]];
+    var o = VT.map(function (v, i) {
+      svg(m1, "circle", { cx: v[0], cy: v[1], r: 24, class: "tc-ogu-o" });
+      lChu(m1, v[0], v[1] + 42, t.be[i], "tc-ogu-giay-chu", "middle");
+      return svg(m1, "circle", { cx: v[0], cy: v[1], r: 0, class: "tc-ogu-vet" });
+    });
+    var DX = 470, DY = 236, DR = 116;
+    var dia = svg(m1, "g", {});
+    svg(dia, "circle", { cx: DX, cy: DY, r: DR + 6, class: "tc-ogu-vanh" });
+    svg(dia, "circle", { cx: DX, cy: DY, r: DR, class: "tc-ogu-thach" });
+    lChu(m1, DX, 108, t.dia, "tc-o5-nhan", "middle");
+    var giot = t.be.map(function (b, i) {
+      var e = svg(c, "g", { class: "tc-keo tc-ogu-giot", tabindex: "0", role: "button", "aria-label": dien(t.aria_giot, { b: b }), "data-i": i });
+      svg(e, "rect", { x: 0, y: 0, width: 44, height: 58, rx: 10, class: "tc-ogu-giot-nen" });
+      svg(e, "path", { d: "M22 6 C22 6 7 28 7 39 a15 15 0 0 0 30 0 C37 28 22 6 22 6Z", class: "tc-ogu-mau" });
+      svg(e, "text", { x: 22, y: 45, "text-anchor": "middle", class: "tc-ogu-giot-chu" }, b.slice(-1));
+      var ob = { i: i, w: 44, h: 58, e: e, nha: { x: 30 + i * 58, y: 44 } }; ob.p = ob.nha; jDat(e, ob.nha.x, ob.nha.y); return ob;
+    });
+    var daCham = 0;
+    jKeo(c, "tc-ogu-giot", giot, function () { return man !== 1; }, function (ob, keo) {
+      if (keo && !(ob.p.x + 22 > 24 && ob.p.x + 22 < 324 && ob.p.y + 40 > 136 && ob.p.y + 29 < 356)) return false;
+      ob.xong = true; lHien(ob.e, false); daCham++;
+      var v = o[ob.i]; v.setAttribute("r", 17); v.classList.add("tc-ogu-vet-co");
+      cap.textContent = dien(t.da_cham, { b: t.be[ob.i], n: daCham });
+      if (daCham === 5) { u.disabled = false; cap.textContent = t.du_giot; u.focus({ preventScroll: true }); }
+    });
+    // Mẩu giấy trong đĩa, vòng vi khuẩn mọc quanh (minh họa)
+    var R0 = 20, RV = [26, 22, 28, 24, 23], vong = VT.map(function (v, i) {
+      var a = -Math.PI / 2 + i * 2 * Math.PI / 5, x = DX + 66 * Math.cos(a), y = DY + 66 * Math.sin(a);
+      var e = svg(dia, "g", { class: "tc-ogu-mau-g", "data-i": i, display: "none" });
+      var r = svg(e, "circle", { cx: 0, cy: 0, r: 0, class: "tc-ogu-vong" });
+      svg(e, "circle", { cx: 0, cy: 0, r: 11, class: "tc-ogu-manh" });
+      svg(e, "text", { x: 0, y: 4.5, "text-anchor": "middle", class: "tc-ogu-manh-chu" }, t.be[i].slice(-1));
+      var co = svg(e, "g", { display: "none" });
+      svg(co, "line", { x1: 0, y1: -8, x2: 0, y2: -40, class: "tc-ogu-can-co" }); svg(co, "path", { d: "M0 -40 L22 -33 L0 -26 Z", class: "tc-ogu-co" });
+      return { e: e, r: r, co: co, x: x, y: y, dich: i === pku ? 46 : RV[i] };
+    });
+    var daU = false, daCo = false;
+    u.onclick = function () {
+      if (daU) return; daU = true; u.disabled = true; cap.textContent = t.dang_u;
+      o.forEach(function (v) { v.setAttribute("r", 0); });
+      vong.forEach(function (v, i) { lHien(v.e, true); v.e.style.transition = ""; jDat(v.e, VT[i][0], VT[i][1]); });
+      jHen(s, function () {
+        vong.forEach(function (v) { jMuot(v.e, 700); jDat(v.e, v.x, v.y); });
+        jHen(s, function () {
+          dia.classList.add("tc-ogu-dem");
+          jChay(s, 1800, function (f) { vong.forEach(function (v) { v.r.setAttribute("r", (11 + (v.dich - 11) * f).toFixed(1)); }); }, function () {
+            dia.classList.remove("tc-ogu-dem"); cap.textContent = t.cham_vong;
+            vong.forEach(function (v, i) { v.e.setAttribute("tabindex", "0"); v.e.setAttribute("role", "button"); v.e.setAttribute("aria-label", dien(t.aria_vong, { b: t.be[i] })); v.e.classList.add("tc-ogu-chon"); });
+            vong[0].e.focus({ preventScroll: true });
+          });
+        }, 800);
+      }, 60);
+    };
+    vong.forEach(function (v, i) {
+      o5Nut(v.e, function () {
+        if (!v.e.hasAttribute("tabindex") || man !== 1) return;
+        if (i !== pku) { cap.textContent = dien(t.sai_vong, { b: t.be[i] }); return; }
+        lHien(v.co, true); if (!daCo) { daCo = true; tiep.hidden = false; }
+        cap.textContent = dien(t.dung_vong, { b: t.be[i] });
+      });
+    });
+    // ----- Màn 2: chọn giờ lấy máu (đường tăng là minh họa) -----
+    var m2 = svg(c, "g", { display: "none" }); o5Tieu(m2, t.man2);
+    var X0 = 50, X1 = 550, TY = 92;
+    function gx(h) { return X0 + (X1 - X0) * h / 96; }
+    svg(m2, "rect", { x: gx(24), y: TY - 16, width: gx(72) - gx(24), height: 32, rx: 6, class: "tc-ogu-cua" });
+    svg(m2, "line", { x1: X0, y1: TY, x2: X1, y2: TY, class: "tc-ogu-truc" });
+    [0, 24, 48, 72, 96].forEach(function (h) { svg(m2, "line", { x1: gx(h), y1: TY - 6, x2: gx(h), y2: TY + 6, class: "tc-ogu-truc" }); lChu(m2, gx(h), TY + 30, h + (h ? "" : " " + t.gio), "tc-o5-nho", "middle"); });
+    lChu(m2, gx(48), TY - 30, t.tot_nhat, "tc-ogu-tot", "middle");
+    lChu(m2, gx(24) + 6, TY - 30, t.cua, "tc-o5-nho");
+    var kim = svg(m2, "g", {}); svg(kim, "path", { d: "M0 -10 L7 -20 L-7 -20 Z", class: "tc-ogu-mau" }); svg(kim, "circle", { cx: 0, cy: 0, r: 7, class: "tc-ogu-kim" });
+    var gioChu = lChu(m2, 300, 156, "", "tc-ogu-gio", "middle");
+    var hai = [[170, t.be_khoe], [430, t.be_pku]].map(function (d) {
+      svg(m2, "circle", { cx: d[0], cy: 272, r: 86, class: "tc-ogu-vanh" }); svg(m2, "circle", { cx: d[0], cy: 272, r: 80, class: "tc-ogu-thach" });
+      var r = svg(m2, "circle", { cx: d[0], cy: 272, r: 22, class: "tc-ogu-vong" }); svg(m2, "circle", { cx: d[0], cy: 272, r: 11, class: "tc-ogu-manh" });
+      lChu(m2, d[0], 184, d[1], "tc-o5-nhan", "middle"); return r;
+    });
+    var daTruot = false;
+    function veGio() {
+      var h = +truot.o.value, f = 1 / (1 + Math.exp(-(h - 26) / 5)), f0 = 1 / (1 + Math.exp(26 / 5));
+      jDat(kim, gx(h), TY); gioChu.textContent = dien(t.gio_chu, { h: h });
+      hai[0].setAttribute("r", 22); hai[1].setAttribute("r", (22 + 30 * Math.max(0, (f - f0) / (1 - f0))).toFixed(1));
+      cap.textContent = h < 24 ? t.som : h > 72 ? t.muon : (h >= 44 && h <= 52 ? t.vua_48 : t.vua);
+    }
+    truot.o.addEventListener("input", function () { veGio(); if (!daTruot) { daTruot = true; tiep.hidden = false; } });
+    // ----- Màn 3: phiếu kết quả và việc nên làm -----
+    var m3 = svg(c, "g", { display: "none" }); o5Tieu(m3, t.man3);
+    lChu(m3, 24, 62, t.cot_phieu, "tc-o5-nho"); lChu(m3, 316, 62, t.cot_viec, "tc-o5-nho");
+    var hop = t.viec.map(function (v, k) {
+      var y = 74 + k * 102, e = svg(m3, "g", { class: "tc-ogu-hop", tabindex: "0", role: "button", "aria-label": v.join(" "), "data-k": k });
+      svg(e, "rect", { x: 312, y: y, width: 272, height: 88, rx: 10, class: "tc-ogu-hop-nen" });
+      var tag = lChu(e, 326, y + 22, "", "tc-ogu-hop-tag");
+      lDong(e, 448, y + (tag ? 48 : 40), v, "tc-o5-nhan", 17);
+      return { e: e, y: y, tag: tag, k: k };
+    });
+    var THU = [1, 2, 0], chon = null;
+    var phieu = t.phieu.map(function (ph, i) {
+      var e = svg(m3, "g", { class: "tc-keo tc-ogu-phieu", tabindex: "0", role: "button", "aria-label": dien(t.aria_phieu, { p: ph.chu }), "data-i": i });
+      svg(e, "rect", { x: 0, y: 0, width: 220, height: 56, rx: 6, class: "tc-ogu-phieu-nen" });
+      svg(e, "rect", { x: 0, y: 0, width: 10, height: 56, rx: 3, class: "tc-ogu-phieu-gay" });
+      svg(e, "text", { x: 115, y: 33, "text-anchor": "middle", class: "tc-ogu-phieu-chu" }, ph.chu);
+      var ob = { i: i, w: 220, h: 56, e: e, dich: ph.dich, nha: { x: 30, y: 90 + THU.indexOf(i) * 102 } }; ob.p = ob.nha; jDat(e, ob.nha.x, ob.nha.y); return ob;
+    });
+    var dung = 0;
+    function dat(ob, k) {
+      if (ob.dich !== k) {
+        cap.textContent = ob.i === 1 && k === 2 ? t.goi_y_kiem : dien(t.sai_hop, { p: t.phieu[ob.i].chu }); jVe(ob); return;
+      }
+      ob.xong = true; lHien(ob.e, false); dung++; chon = null;
+      phieu.forEach(function (x) { x.e.classList.remove("tc-ogu-dang-chon"); });
+      hop[k].tag.textContent = "✓ " + t.phieu[ob.i].chu; hop[k].e.classList.add("tc-ogu-hop-xong");
+      cap.textContent = t.phieu[ob.i].dung;
+      if (dung === 3) {
+        cap.textContent = t.xong3;
+        jKet(ket, [t.ket_dia, t.ket_gio, t.ket_phieu, tao("p", "tc-o5-vn", t.vn_tieu), [t.vn1, t.vn2], t.ket_hoi, t.ket_doc]);
+      }
+    }
+    jKeo(c, "tc-ogu-phieu", phieu, function () { return man !== 3; }, function (ob, keo) {
+      if (!keo) { chon = ob; phieu.forEach(function (x) { x.e.classList.toggle("tc-ogu-dang-chon", x === ob); }); cap.textContent = dien(t.da_chon, { p: t.phieu[ob.i].chu }); return false; }
+      var cx = ob.p.x + 110, cy = ob.p.y + 28, k = -1;
+      hop.forEach(function (h) { if (cx > 250 && cy > h.y - 14 && cy < h.y + 102) k = h.k; });
+      if (k < 0) return false; dat(ob, k);
+    });
+    hop.forEach(function (h) { o5Nut(h.e, function () { if (man !== 3) return; if (!chon) { cap.textContent = t.chon_truoc; return; } dat(chon, h.k); }); });
+    // ----- Chuyển màn -----
+    tiep.onclick = function () {
+      if (man === 1) {
+        man = 2; lHien(m1, false); lHien(m2, true); giot.forEach(function (x) { lHien(x.e, false); });
+        truot.hop.hidden = false; tiep.hidden = true; tiep.textContent = t.nut_tiep2; u.hidden = true; veGio(); cap.textContent = t.cap2; truot.o.focus({ preventScroll: true });
+      } else if (man === 2) {
+        man = 3; lHien(m2, false); lHien(m3, true); truot.hop.hidden = true; tiep.hidden = true; cap.textContent = t.cap3;
+        phieu[0].e.focus({ preventScroll: true });
+      }
+    };
+    lai.onclick = function () { jLai(s, diaGuthrie, g, t); };
+    s.appendChild(san); s.appendChild(truot.hop); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); o5Luu(s, t); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: bốc thăm gen (ghép huyết sắc tố 2 alpha + 2 beta; gen HBB lỗi; bố mẹ cùng mang gen bốc thăm cho từng lần mang thai) ----------
+  // Xác suất 25/50/25 mỗi lần mang thai (GeneReviews). Hình hồng cầu, vón cục, oxy là minh họa.
+  function bocThamGen(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 600 400", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.cap1); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), loi = nut(t.nut_loi, true), tiep = nut(t.nut_tiep, true), mang = nut(t.nut_mang, true), tram = nut(t.nut_100, false), lai = nut(t.nut_lai, false);
+    loi.hidden = tiep.hidden = mang.hidden = tram.hidden = true; [loi, tiep, mang, tram, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var man = 1;
+    // ----- Màn 1 -----
+    var m1 = svg(c, "g", {}); o5Tieu(m1, t.man1);
+    var CX = 300, CY = 156;
+    var te = svg(m1, "g", { class: "tc-obt-te" });
+    svg(te, "circle", { cx: CX, cy: CY, r: 112, class: "tc-obt-te-nen" });
+    var o2 = svg(m1, "g", { display: "none" }), o2c = svg(o2, "g", { class: "tc-obt-o2" });
+    for (var x = -48; x < 690; x += 48) svg(o2c, "text", { x: x, y: CY + 80, class: "tc-obt-o2-chu" }, "O₂");
+    var vo = svg(m1, "g", { display: "none" });
+    [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(function (d, k) { var a = k * Math.PI / 2 - Math.PI; svg(vo, "path", { d: "M" + (CX + 100 * Math.cos(a)).toFixed(1) + " " + (CY + 100 * Math.sin(a)).toFixed(1) + " A100 100 0 0 1 " + (CX + 100 * Math.cos(a + 1.2)).toFixed(1) + " " + (CY + 100 * Math.sin(a + 1.2)).toFixed(1), class: "tc-obt-manh-vo", "data-dx": d[0] * 18, "data-dy": d[1] * 14 }); });
+    var LOAI = ["a", "b", "b", "a"], O = [[234, 106], [304, 106], [234, 160], [304, 160]];
+    var cho = O.map(function (p, k) {
+      svg(te, "rect", { x: p[0], y: p[1], width: 62, height: 46, rx: 9, class: "tc-obt-cho" });
+      lChu(te, p[0] + 31, p[1] + 29, LOAI[k] === "a" ? "α" : "β", "tc-obt-cho-chu", "middle");
+      return { x: p[0], y: p[1], loai: LOAI[k], vat: null };
+    });
+    lChu(m1, CX, 296, t.khung, "tc-o5-nho", "middle");
+    var manh = [["a", 60], ["a", 140], ["b", 400], ["b", 480]].map(function (d, i) {
+      var e = svg(c, "g", { class: "tc-keo tc-obt-manh tc-obt-" + d[0], tabindex: "0", role: "button", "aria-label": d[0] === "a" ? t.aria_a : t.aria_b, "data-i": i });
+      svg(e, "rect", { x: 0, y: 0, width: 62, height: 46, rx: 9, class: "tc-obt-manh-nen" });
+      svg(e, "text", { x: 31, y: 31, "text-anchor": "middle", class: "tc-obt-manh-chu" }, d[0] === "a" ? "α" : "β");
+      var ob = { i: i, loai: d[0], w: 62, h: 46, e: e, nha: { x: d[1], y: 318 } }; ob.p = ob.nha; jDat(e, ob.nha.x, ob.nha.y); return ob;
+    });
+    lChu(m1, 131, 384, t.chuoi_a, "tc-o5-nho", "middle"); lChu(m1, 471, 384, t.chuoi_b, "tc-o5-nho", "middle");
+    var day = 0;
+    jKeo(c, "tc-obt-manh", manh, function () { return man !== 1; }, function (ob, keo) {
+      if (keo && Math.hypot(ob.p.x + 31 - CX, ob.p.y + 23 - CY) > 150) return false;
+      var k = -1; cho.forEach(function (q, j) { if (k < 0 && !q.vat && q.loai === ob.loai) k = j; });
+      if (k < 0) return false;
+      cho[k].vat = ob; ob.xong = true; ob.e.removeAttribute("tabindex"); ob.e.setAttribute("aria-disabled", "true");
+      ob.nha = { x: cho[k].x, y: cho[k].y }; jVe(ob); day++;
+      cap.textContent = dien(t.da_ghep, { n: day });
+      if (day === 4) { te.classList.add("tc-obt-te-day"); lHien(o2, true); cap.textContent = t.du; loi.hidden = false; loi.focus({ preventScroll: true }); }
+    });
+    var thua = [0, 1].map(function (k) {
+      var e = svg(m1, "g", { display: "none" });
+      svg(e, "rect", { x: 0, y: 0, width: 62, height: 46, rx: 9, class: "tc-obt-manh-nen tc-obt-a-nen" });
+      svg(e, "text", { x: 31, y: 31, "text-anchor": "middle", class: "tc-obt-manh-chu" }, "α"); return e;
+    });
+    loi.onclick = function () {
+      loi.disabled = true; cap.textContent = t.loi1;
+      manh.forEach(function (ob) { if (ob.loai === "b") ob.e.classList.add("tc-obt-mat"); });
+      thua.forEach(function (e, k) { lHien(e, true); jDat(e, 200 + k * 140, -60); c.appendChild(e); });
+      jHen(s, function () {
+        thua.forEach(function (e, k) { jMuot(e, 700); jDat(e, 262 + k * 22, 200 + k * 8, " rotate(" + (k ? 24 : -18) + ")"); });
+        jHen(s, function () {
+          cap.textContent = t.loi2; lHien(o2, false); te.classList.remove("tc-obt-te-day"); te.classList.add("tc-obt-te-teo");
+          jHen(s, function () {
+            lHien(te, false);
+            lHien(vo, true); vo.querySelectorAll("path").forEach(function (p) { jMuot(p, 900); p.setAttribute("transform", "translate(" + p.getAttribute("data-dx") + "," + p.getAttribute("data-dy") + ")"); });
+            cap.textContent = t.loi3; loi.hidden = true; tiep.hidden = false; tiep.focus({ preventScroll: true });
+          }, 1100);
+        }, 900);
+      }, 60);
+    };
+    // ----- Màn 2: bốc thăm -----
+    var m2 = svg(c, "g", { display: "none" }); o5Tieu(m2, t.man2);
+    function theGen(cha, x, y, loiGen) {
+      var e = svg(cha, "g", { class: "tc-obt-the" + (loiGen ? " tc-obt-the-loi" : "") });
+      svg(e, "rect", { x: 0, y: 0, width: 84, height: 40, rx: 7, class: "tc-obt-the-nen" });
+      svg(e, "text", { x: 42, y: 25, "text-anchor": "middle", class: "tc-obt-the-chu" }, loiGen ? t.the_loi : t.the_tot);
+      jDat(e, x, y); return e;
+    }
+    var BM = [{ x: 140, ten: t.bo, vuong: true }, { x: 460, ten: t.me, vuong: false }].map(function (d) {
+      var e = svg(m2, "g", {});
+      if (d.vuong) { svg(e, "rect", { x: d.x - 17, y: 44, width: 34, height: 34, class: "tc-obt-ky" }); svg(e, "rect", { x: d.x, y: 44, width: 17, height: 34, class: "tc-obt-ky-to" }); }
+      else { svg(e, "circle", { cx: d.x, cy: 61, r: 17, class: "tc-obt-ky" }); svg(e, "path", { d: "M" + d.x + " 44 A17 17 0 0 1 " + d.x + " 78 Z", class: "tc-obt-ky-to" }); }
+      lChu(e, d.x + (d.vuong ? -26 : 26), 66, d.ten, "tc-o5-nhan", d.vuong ? "end" : "start");
+      return { x: d.x, the: [theGen(m2, d.x - 90, 94, false), theGen(m2, d.x + 6, 94, true)] };
+    });
+    svg(m2, "line", { x1: 140, y1: 150, x2: 460, y2: 150, class: "tc-obt-day" }); svg(m2, "line", { x1: 300, y1: 150, x2: 300, y2: 172, class: "tc-obt-day" });
+    var con = svg(m2, "g", {}); jDat(con, 300, 200);
+    var conVien = svg(con, "circle", { cx: 0, cy: 0, r: 28, class: "tc-obt-con" }), conNua = svg(con, "path", { d: "M0 -28 A28 28 0 0 1 0 28 Z", class: "tc-obt-ky-to", display: "none" });
+    var conHoi = svg(con, "text", { x: 0, y: 7, "text-anchor": "middle", class: "tc-obt-hoi" }, "?");
+    var conChu = lChu(m2, 300, 246, "", "tc-o5-nhan", "middle");
+    var bay = [0, 1].map(function () { var e = svg(m2, "g", { display: "none" }); svg(e, "rect", { x: 0, y: 0, width: 84, height: 40, rx: 7, class: "tc-obt-the-nen" }); e.chu = svg(e, "text", { x: 42, y: 25, "text-anchor": "middle", class: "tc-obt-the-chu" }, ""); return e; });
+    var lichSu = svg(m2, "g", {}); lChu(m2, 24, 272, t.truoc_do, "tc-o5-nho");
+    var demChu = lChu(m2, 576, 272, "", "tc-o5-nho", "end");
+    var KQ = [t.kq0, t.kq1, t.kq2], LT = [25, 50, 25], cot = KQ.map(function (k, j) {
+      var y = 290 + j * 36; lChu(m2, 24, y + 17, k, "tc-o5-nhan");
+      svg(m2, "rect", { x: 230, y: y, width: 290, height: 22, rx: 5, class: "tc-obt-ray" });
+      var r = svg(m2, "rect", { x: 230, y: y, width: 0, height: 22, rx: 5, class: "tc-obt-cot tc-obt-cot" + j });
+      svg(m2, "line", { x1: 230 + 290 * LT[j] / 100, y1: y - 4, x2: 230 + 290 * LT[j] / 100, y2: y + 26, class: "tc-obt-lt" });
+      return { r: r, so: lChu(m2, 528, y + 17, "", "tc-obt-so") };
+    });
+    lChu(m2, 230 + 290 * 0.5, 397, t.vach_lt, "tc-o5-nho", "middle");
+    var dem = [0, 0, 0], ls = [];
+    function kyHieu(cha, x, y, r, n) {
+      var e = svg(cha, "g", {}); svg(e, "circle", { cx: x, cy: y, r: r, class: n === 2 ? "tc-obt-con tc-obt-con-benh" : "tc-obt-con" });
+      if (n === 1) svg(e, "path", { d: "M" + x + " " + (y - r) + " A" + r + " " + r + " 0 0 1 " + x + " " + (y + r) + " Z", class: "tc-obt-ky-to" }); return e;
+    }
+    function veDem() {
+      var n = dem[0] + dem[1] + dem[2];
+      cot.forEach(function (d, j) { var pc = n ? 100 * dem[j] / n : 0; d.r.setAttribute("width", (290 * pc / 100).toFixed(1)); d.so.textContent = n ? so(pc, 0) + "%" : ""; });
+      demChu.textContent = dien(t.so_lan, { n: n });
+      while (lichSu.firstChild) lichSu.removeChild(lichSu.firstChild);
+      ls.slice(-10).forEach(function (k, j) { kyHieu(lichSu, 165 + j * 26, 266, 9, k); });
+      if (n >= 10) jKet(ket, [dien(t.ket_dem, { n: n, a: so(100 * dem[0] / n, 0), b: so(100 * dem[1] / n, 0), c: so(100 * dem[2] / n, 0) }), t.ket_chot, t.ket_vn, t.ket_dao, t.ket_doc]);
+    }
+    function boc() { return (Math.random() < 0.5 ? 1 : 0) + (Math.random() < 0.5 ? 1 : 0); }
+    function datCon(n) {
+      lHien(conHoi, false); lHien(conNua, n === 1); conVien.setAttribute("class", n === 2 ? "tc-obt-con tc-obt-con-benh" : "tc-obt-con");
+      conChu.textContent = KQ[n];
+    }
+    var dang = false;
+    mang.onclick = function () {
+      if (dang) return; dang = true; mang.disabled = tram.disabled = true;
+      var a = Math.random() < 0.5 ? 1 : 0, b = Math.random() < 0.5 ? 1 : 0, n = a + b;
+      BM.forEach(function (bm, k) { bm.the.forEach(function (e, j) { e.classList.toggle("tc-obt-the-rut", j === (k ? b : a)); }); });
+      bay.forEach(function (e, k) {
+        var r = k ? b : a, x = BM[k].x + (r ? 6 : -90);
+        e.chu.textContent = r ? t.the_loi : t.the_tot; e.classList.toggle("tc-obt-the-loi", !!r);
+        e.style.transition = ""; lHien(e, true); jDat(e, x, 94); c.appendChild(e);
+      });
+      lHien(conHoi, true); lHien(conNua, false); conVien.setAttribute("class", "tc-obt-con"); conChu.textContent = "";
+      jHen(s, function () {
+        bay.forEach(function (e, k) { jMuot(e, 600); jDat(e, k ? 304 : 212, 180); });
+        jHen(s, function () {
+          bay.forEach(function (e) { lHien(e, false); }); datCon(n);
+          dem[n]++; ls.push(n); veDem();
+          cap.textContent = dien(t.lan_nay, { k: KQ[n] }) + (ls.length > 1 && ls[ls.length - 2] === 2 && n !== 2 ? " " + t.khong_nho : "");
+          dang = false; mang.disabled = tram.disabled = false;
+        }, 650);
+      }, 120);
+    };
+    tram.onclick = function () {
+      if (dang) return; dang = true; mang.disabled = tram.disabled = true; cap.textContent = t.dang_100;
+      var ket100 = []; for (var i = 0; i < 100; i++) ket100.push(boc());
+      var da = 0;
+      jChay(s, 1600, function (f) {
+        var toi = Math.round(100 * f); while (da < toi) { var n = ket100[da++]; dem[n]++; ls.push(n); } veDem();
+      }, function () {
+        datCon(ls[ls.length - 1]); cap.textContent = dien(t.xong_100, { n: dem[0] + dem[1] + dem[2] });
+        dang = false; mang.disabled = tram.disabled = false;
+      });
+    };
+    tiep.onclick = function () {
+      man = 2; lHien(m1, false); lHien(vo, false); lHien(m2, true); manh.forEach(function (ob) { lHien(ob.e, false); }); thua.forEach(function (e) { lHien(e, false); }); tiep.hidden = true; mang.hidden = tram.hidden = false;
+      cap.textContent = t.cap2; veDem(); mang.focus({ preventScroll: true });
+    };
+    lai.onclick = function () { jLai(s, bocThamGen, g, t); };
+    s.appendChild(san); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); o5Luu(s, t); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: lá chắn hay gánh nặng (đổi Glu thành Val ở vị trí 6; nhả oxy, hồng cầu cong và kẹt; thêm huyết sắc tố bào thai; ngôi làng 100 chấm qua các mùa sốt rét) ----------
+  // Làng là mô phỏng minh họa: nguy cơ sốt rét nặng mỗi mùa của AA = 0,3 × mức sốt rét (minh họa), của AS = 0,09 lần mức đó (theo tỉ số chênh 0,09, Taylor 2012),
+  // SS góp vào thế hệ sau 0,2 (minh họa). Tần số gen tính theo Hardy–Weinberg; không phải số liệu thật của làng nào.
+  function laChanHayGanhNang(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 600 400", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.cap1); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), nha = nut(t.nut_nha, true), thai = nut(t.nut_thai, true), tiep = nut(t.nut_tiep, true), mot = nut(t.nut_mot, true), muoi = nut(t.nut_10, false), lai = nut(t.nut_lai, false);
+    nha.disabled = true; thai.hidden = tiep.hidden = mot.hidden = muoi.hidden = true; [nha, thai, tiep, mot, muoi, lai].forEach(function (b) { hang.appendChild(b); });
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var truot = lTruot(g.id + "-sr", t.nhan_sr, 0, 100, 25, 100, t.sr_dau, t.sr_cuoi); truot.hop.hidden = true;
+    var man = 1, trangThai = "tron";
+    // ----- Màn 1 -----
+    var m1 = svg(c, "g", {}); o5Tieu(m1, t.man1);
+    var AA = ["Val", "His", "Leu", "Thr", "Pro", "Glu", "Glu", "Lys"], TX = 28, TW = 62, TG = 68, TY = 54;
+    var o6;
+    AA.forEach(function (a, k) {
+      lChu(m1, TX + k * TG + TW / 2, TY - 6, String(k + 1), "tc-o5-nho", "middle");
+      var e = svg(m1, "g", { class: k === 5 ? "tc-ohl-o6" : "" });
+      svg(e, "rect", { x: TX + k * TG, y: TY, width: TW, height: 40, rx: 7, class: "tc-ohl-o" });
+      var ch = lChu(e, TX + k * TG + TW / 2, TY + 26, a, "tc-ohl-o-chu", "middle");
+      if (k === 5) o6 = { e: e, ch: ch };
+    });
+    var maChu = lChu(m1, TX + 5 * TG + TW / 2, TY + 60, "GAG", "tc-ohl-ma", "middle");
+    lChu(m1, TX + 5 * TG - 8, TY + 60, t.ma, "tc-o5-nho", "end");
+    var val = svg(c, "g", { class: "tc-keo tc-ohl-val", tabindex: "0", role: "button", "aria-label": t.aria_val, "data-i": 0 });
+    svg(val, "rect", { x: 0, y: 0, width: TW, height: 40, rx: 7, class: "tc-ohl-val-nen" });
+    svg(val, "text", { x: TW / 2, y: 26, "text-anchor": "middle", class: "tc-ohl-val-chu" }, "Val");
+    var vObj = { i: 0, w: TW, h: 40, e: val, nha: { x: 46, y: 132 } }; vObj.p = vObj.nha; jDat(val, 46, 132);
+    var valNhan = lChu(m1, 120, 157, t.keo_val, "tc-o5-nhan");
+    // Mạch máu: rộng bên trái, hẹp bên phải
+    svg(m1, "path", { d: "M0 220 L400 220 Q450 220 470 246 L600 252 L600 318 L470 324 Q450 350 400 350 L0 350 Z", class: "tc-ohl-mach" });
+    svg(m1, "path", { d: "M0 220 L400 220 Q450 220 470 246 L600 252 M0 350 L400 350 Q450 350 470 324 L600 318", class: "tc-ohl-thanh" });
+    lChu(m1, 590, 242, t.mach_hep, "tc-o5-nho", "end");
+    var dong = [], te = [];
+    for (var k = 0; k < 10; k++) dong.push({ e: svg(m1, "circle", { r: 2.5, class: "tc-ohl-dong" }), x: k * 62, y: 250 + (k * 37) % 80 });
+    var SOI = "M-14 -6 L14 4 M-14 2 L14 -4 M-12 8 L12 -9";
+    [0, 1, 2].forEach(function (k) {
+      var e = svg(m1, "g", {});
+      var tron = svg(e, "g", {}); svg(tron, "circle", { cx: 0, cy: 0, r: 26, class: "tc-ohl-te" }); svg(tron, "circle", { cx: 0, cy: 0, r: 10, class: "tc-ohl-te-giua" });
+      var liem = svg(e, "g", { display: "none" }); svg(liem, "path", { d: "M-34 10 Q0 -40 34 10 Q0 -14 -34 10 Z", class: "tc-ohl-te" });
+      var cham = svg(e, "g", {}); [[-12, -8], [10, -10], [-4, 12], [14, 8], [-16, 6]].forEach(function (p) { svg(cham, "circle", { cx: p[0], cy: p[1], r: 2.6, class: "tc-ohl-hb" }); });
+      var soi = svg(e, "path", { d: SOI, class: "tc-ohl-soi", display: "none" });
+      te.push({ e: e, tron: tron, liem: liem, cham: cham, soi: soi, x: 60 + k * 150, y: 285 + (k - 1) * 18, dung: 0 });
+    });
+    var CHO = [486, 436, 386];
+    function veTe() {
+      te.forEach(function (q) { jDat(q.e, q.x, q.y); });
+      dong.forEach(function (d) { d.e.setAttribute("cx", d.x.toFixed(1)); d.e.setAttribute("cy", d.y); });
+    }
+    function hinh(k) {
+      te.forEach(function (q) { var l = k === "liem"; lHien(q.tron, !l); lHien(q.liem, l); lHien(q.soi, l || k === "thai"); q.soi.setAttribute("class", k === "thai" ? "tc-ohl-soi tc-ohl-soi-tan" : "tc-ohl-soi"); lHien(q.cham, !l); });
+    }
+    var kenh = null;
+    function chay() {
+      if (giam) { // tĩnh: đặt theo trạng thái
+        te.forEach(function (q, k) { q.x = trangThai === "liem" ? CHO[k] : 90 + k * 160; }); veTe(); return;
+      }
+      if (kenh) return;
+      kenh = requestAnimationFrame(function f() {
+        if (!s.isConnected || s._dung || man !== 1) { kenh = null; return; }
+        var tat = trangThai === "liem", v = trangThai === "thai" ? 1.1 : 1.6;
+        te.forEach(function (q, k) {
+          if (tat) { if (q.x > CHO[k] + 2) { q.x += 1.6; if (q.x > 640) q.x = -40; } else q.x += Math.max(0, Math.min(1.2, (CHO[k] - q.x) * 0.04)); }
+          else { q.x += v; if (q.x > 640) q.x = -40; }
+        });
+        dong.forEach(function (d) { if (!tat) { d.x += v * 1.3; if (d.x > 600) d.x = 0; } });
+        veTe(); kenh = requestAnimationFrame(f);
+      });
+    }
+    veTe(); chay();
+    jKeo(c, "tc-ohl-val", [vObj], function () { return man !== 1; }, function (ob, keo) {
+      if (keo) { var cx = ob.p.x + TW / 2, cy = ob.p.y + 20, x6 = TX + 5 * TG + TW / 2; if (Math.abs(cx - x6) > 40 || Math.abs(cy - (TY + 20)) > 50) { cap.textContent = t.sai_o; return false; } }
+      ob.xong = true; lHien(val, false); lHien(valNhan, false); o6.ch.textContent = "Val"; o6.e.classList.add("tc-ohl-o6-doi");
+      maChu.textContent = "GAG → GTG"; cap.textContent = t.da_doi; nha.disabled = false; nha.focus({ preventScroll: true });
+    });
+    nha.onclick = function () {
+      nha.disabled = true; trangThai = "liem"; hinh("liem");
+      if (giam) chay(); cap.textContent = t.liem; thai.hidden = false; thai.focus({ preventScroll: true });
+    };
+    thai.onclick = function () {
+      thai.disabled = true; trangThai = "thai"; hinh("thai");
+      if (giam) chay();
+      cap.textContent = t.thai_cap; tiep.hidden = false; tiep.focus({ preventScroll: true });
+    };
+    // ----- Màn 2: ngôi làng (mô phỏng minh họa) -----
+    var m2 = svg(c, "g", { display: "none" }); o5Tieu(m2, t.man2);
+    var nuaId = g.id + "-nua", defs = svg(c, "defs", {}), lg = svg(defs, "linearGradient", { id: nuaId, x1: "0", x2: "1", y1: "0", y2: "0" });
+    svg(lg, "stop", { offset: "0.5", "stop-color": "#F8FAFC" }); svg(lg, "stop", { offset: "0.5", "stop-color": "#DC2626" });
+    var dan = [];
+    for (var i = 0; i < 100; i++) dan.push(svg(m2, "circle", { cx: 40 + (i % 10) * 26, cy: 62 + Math.floor(i / 10) * 26, r: 9, class: "tc-ohl-ng" }));
+    var muoiG = svg(m2, "g", { display: "none" }), conMuoi = [0, 1, 2].map(function (k) {
+      var e = svg(muoiG, "g", {}); svg(e, "ellipse", { cx: 0, cy: 0, rx: 9, ry: 3.5, class: "tc-ohl-muoi" });
+      svg(e, "ellipse", { cx: -2, cy: -6, rx: 6, ry: 3, class: "tc-ohl-canh" }); svg(e, "ellipse", { cx: 3, cy: -6, rx: 6, ry: 3, class: "tc-ohl-canh" });
+      svg(e, "line", { x1: 9, y1: 0, x2: 17, y2: 2, class: "tc-ohl-voi" }); return e;
+    });
+    // Biểu đồ số người AS
+    var BX0 = 340, BX1 = 580, BY0 = 70, BY1 = 290;
+    lChu(m2, BX0, 56, t.bd_tieu, "tc-o5-nhan");
+    svg(m2, "line", { x1: BX0, y1: BY1, x2: BX1, y2: BY1, class: "tc-ohl-truc" }); svg(m2, "line", { x1: BX0, y1: BY0, x2: BX0, y2: BY1, class: "tc-ohl-truc" });
+    [0, 25, 50].forEach(function (v) { var y = BY1 - (BY1 - BY0) * v / 50; lChu(m2, BX0 - 6, y + 4, String(v), "tc-o5-nho", "end"); if (v) svg(m2, "line", { x1: BX0, y1: y, x2: BX1, y2: y, class: "tc-ohl-luoi" }); });
+    lChu(m2, BX1, BY1 + 20, t.bd_x, "tc-o5-nho", "end");
+    var duong = svg(m2, "polyline", { class: "tc-ohl-duong", points: "" }), diemCuoi = svg(m2, "circle", { r: 5, class: "tc-ohl-diem", cx: -20, cy: -20 });
+    [["tc-ohl-ng", t.aa], ["tc-ohl-ng tc-ohl-nua", t.as], ["tc-ohl-ng tc-ohl-ss", t.ss]].forEach(function (d, k) {
+      var x = 24 + k * 196, e = svg(m2, "circle", { cx: x + 9, cy: 340, r: 9, class: d[0] }); if (k === 1) e.style.fill = "url(#" + nuaId + ")";
+      lChu(m2, x + 24, 345, d[1], "tc-o5-nho");
+    });
+    var demChu = lChu(m2, 24, 382, "", "tc-o5-nhan");
+    var q = 0.03, theHe = 0, lsAS = [];
+    function soNg() { var nSS = Math.round(100 * q * q), nAS = Math.round(200 * q * (1 - q)); return { ss: nSS, as: nAS, aa: 100 - nSS - nAS }; }
+    var thuTu = []; for (var j = 0; j < 100; j++) thuTu.push(j);
+    function veLang(moi) {
+      var n = soNg(), loai = [];
+      for (var j = 0; j < n.aa; j++) loai.push(0); for (j = 0; j < n.as; j++) loai.push(1); for (j = 0; j < n.ss; j++) loai.push(2);
+      if (moi) thuTu = tron(thuTu);
+      dan.forEach(function (d, j) {
+        var l = loai[thuTu[j]]; d.setAttribute("class", "tc-ohl-ng" + (l === 1 ? " tc-ohl-nua" : l === 2 ? " tc-ohl-ss" : "") + (moi && !giam ? " tc-ohl-moi" : ""));
+        d.style.fill = l === 1 ? "url(#" + nuaId + ")" : "";
+        d.loai = l;
+      });
+      demChu.textContent = dien(t.dem, { aa: n.aa, as: n.as, ss: n.ss, g: theHe });
+      lsAS.push(n.as);
+      var pts = lsAS.map(function (v, k) { return (BX0 + Math.min(1, k / 30) * (BX1 - BX0)).toFixed(1) + "," + (BY1 - (BY1 - BY0) * Math.min(v, 50) / 50).toFixed(1); });
+      if (lsAS.length > 31) pts = lsAS.slice(-31).map(function (v, k) { return (BX0 + k / 30 * (BX1 - BX0)).toFixed(1) + "," + (BY1 - (BY1 - BY0) * Math.min(v, 50) / 50).toFixed(1); });
+      duong.setAttribute("points", pts.join(" ")); var cuoi = pts[pts.length - 1].split(","); diemCuoi.setAttribute("cx", cuoi[0]); diemCuoi.setAttribute("cy", cuoi[1]);
+      return n;
+    }
+    function mucSR() { return +truot.o.value / 100; }
+    function buoc() { // một thế hệ (tính liên tục, hiển thị làm tròn)
+      var r = 0.3 * mucSR(), wAA = 1 - r, wAS = 1 - 0.09 * r, wSS = 0.2, p = 1 - q;
+      q = (p * q * wAS + q * q * wSS) / (p * p * wAA + 2 * p * q * wAS + q * q * wSS); theHe++;
+    }
+    function viet() {
+      var n = soNg();
+      if (theHe >= 3) jKet(ket, [dien(mucSR() > 0 ? t.ket_co : t.ket_khong, { g: theHe, as: n.as }), t.ket_chot, t.ket_so, t.ket_mh, t.ket_doc]);
+    }
+    var dang2 = false;
+    function khoa(b) { dang2 = b; mot.disabled = muoi.disabled = b; truot.o.disabled = b; }
+    mot.onclick = function () {
+      if (dang2) return; khoa(true);
+      var r = 0.3 * mucSR(), aa = [], as = [];
+      dan.forEach(function (d) { if (d.loai === 0) aa.push(d); if (d.loai === 1) as.push(d); });
+      var nAA = Math.round(aa.length * r), nAS = Math.round(as.length * r * 0.09);
+      function sau() {
+        tron(aa).slice(0, nAA).concat(tron(as).slice(0, nAS)).forEach(function (d) { d.classList.add("tc-ohl-mo"); });
+        cap.textContent = r > 0 ? dien(t.mua, { a: nAA, n: aa.length, b: nAS, m: as.length }) : t.mua_khong;
+        jHen(s, function () { buoc(); veLang(true); viet(); khoa(false); }, 1300);
+      }
+      if (r > 0 && !giam) {
+        lHien(muoiG, true);
+        jChay(s, 1300, function (f) { conMuoi.forEach(function (e, k) { jDat(e, -20 + f * 330, 90 + k * 90 + Math.sin(f * 12 + k) * 14); }); }, function () { lHien(muoiG, false); sau(); });
+      } else sau();
+    };
+    muoi.onclick = function () {
+      if (dang2) return; khoa(true); cap.textContent = t.dang_10; var da = 0;
+      jChay(s, 1500, function (f) { var toi = Math.round(10 * f); while (da < toi) { buoc(); da++; veLang(da === 10); } }, function () {
+        viet(); cap.textContent = dien(t.xong_10, { g: theHe }); khoa(false);
+      });
+    };
+    truot.o.addEventListener("input", function () { cap.textContent = mucSR() > 0 ? dien(t.sr_co, { m: truot.o.value }) : t.sr_khong; });
+    tiep.onclick = function () {
+      man = 2; lHien(m1, false); lHien(m2, true); thai.hidden = nha.hidden = tiep.hidden = true; mot.hidden = muoi.hidden = false;
+      truot.hop.hidden = false; veLang(false); cap.textContent = t.cap2; mot.focus({ preventScroll: true });
+    };
+    lai.onclick = function () { jLai(s, laChanHayGanhNang, g, t); };
+    s.appendChild(san); s.appendChild(truot.hop); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); o5Luu(s, t); chanNguon(s, t);
+    return s;
+  }
+  // ==== ĐỢT 5 O KẾT THÚC ====
+  // ==== ĐỢT 5 P BẮT ĐẦU ====
+  // Bốn cảnh "Gen và bệnh hiếm" #7–#10: keo-tim-cho-cat (progeria: chiếc kéo tìm chỗ cắt), cua-nav17 (không biết đau: cánh cửa Nav1.7),
+  // lap-trinh-keo (CRISPR: lập trình chiếc kéo), sua-than-hay-phoi (em bé chỉnh gen: sửa cơ thể hay sửa phôi).
+  // Cảnh để giải thích (tế bào, gen, phân tử, cây phả hệ), không điểm, không thắng thua. Sân khấu nền tối cố định (tc-canh-toi): màu SVG giống nhau ở sáng và tối.
+  // Mỗi cảnh chia màn, nút "Tiếp" mở màn sau. Kéo bằng pointer events (chuột, cảm ứng); hoặc chạm vật rồi chạm đích, hoặc Enter trên vật rồi Enter trên đích.
+  function p5Hen(s, fn, ms) { var m = s._man; return setTimeout(function () { if (s.isConnected && !s._dung && s._man === m) fn(); }, giam ? Math.min(ms, 60) : ms); }
+  function p5Lai(s, lam, g, t) { s._dung = true; var moi = lam(g, t); s.parentNode.replaceChild(moi, s); var h = moi.querySelector("h2"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } }
+  function p5Chay(s, ms, buoc, xong) {
+    var m = s._man;
+    if (giam || ms <= 0) { buoc(1); if (xong) xong(); return; }
+    var t0 = null;
+    requestAnimationFrame(function f(ts) { if (!s.isConnected || s._dung || s._man !== m) return; if (t0 == null) t0 = ts; var x = Math.min(1, (ts - t0) / ms); buoc(x); if (x < 1) requestAnimationFrame(f); else if (xong) xong(); });
+  }
+  function p5Muot(e, ms) { e.style.transition = ms && !giam ? "transform " + ms + "ms ease, opacity " + ms + "ms ease" : ""; }
+  function p5Dat(e, x, y, ms) { p5Muot(e, ms); e.style.transform = "translate(" + x + "px," + y + "px)"; }
+  function p5Mo(e, v, ms) { p5Muot(e, ms); e.style.opacity = v; }
+  function p5DatVat(v, x, y, ms) { v.p = { x: x, y: y }; p5Dat(v.e, x, y, ms); }
+  function p5Nut(e, fn) { e.addEventListener("click", fn); e.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); fn(ev); } }); }
+  function p5Chu(c, x, y, chu, lop, neo) { return svg(c, "text", { x: x, y: y, "text-anchor": neo || "middle", class: lop || "tc-p5-chu" }, chu); }
+  function p5Dong(c, x, y, ds, lop, lh, neo) { return ds.map(function (d, k) { return p5Chu(c, x, y + k * (lh || 16), d, lop, neo); }); }
+  function p5Xoa(e) { while (e.firstChild) e.removeChild(e.firstChild); }
+  function p5Ket(ket, ds) { ket.innerHTML = ""; ds.forEach(function (d) { if (d) ket.appendChild(tao("p", "", d)); }); ket.hidden = false; }
+  function p5Vat(c, lop, nhan) { return svg(c, "g", { class: "tc-keo tc-p5-vat " + lop, tabindex: "0", role: "button", "aria-label": nhan }); }
+  function p5Dich(c, lop, nhan) { return svg(c, "g", { class: "tc-p5-dich " + lop, tabindex: "0", role: "button", "aria-label": nhan }); }
+  function p5Bat(b, on) { b.setAttribute("aria-pressed", on ? "true" : "false"); }
+  // Bàn kéo thả: o.vat [{e, x, y}] (x, y = chỗ nhà), o.dich [{e, x, y, r, tat}], o.tha(v, k): thả vào đích k (trả về false: vật về nhà),
+  // o.truot(v): thả ra ngoài; o.chon(v): vật được chọn bằng chạm hoặc Enter (khi có nhiều đích).
+  function p5Ban(c, o) {
+    var chon = null;
+    function mo() { return o.dich.filter(function (d) { return !d.tat; }); }
+    function danh(v) {
+      chon = v;
+      o.vat.forEach(function (x) { x.e.classList.toggle("tc-p5-chon", x === v); });
+      o.dich.forEach(function (d) { d.e.classList.toggle("tc-p5-mo", !!v && !d.tat); });
+      if (v && o.chon) o.chon(v);
+    }
+    function ve(v) { p5DatVat(v, v.x, v.y, 300); }
+    function bo(v, k) { danh(null); if (k < 0) { if (o.truot) o.truot(v); ve(v); } else if (o.tha(v, k) === false) ve(v); }
+    function cham(v) { var m = mo(); if (!m.length) return; if (m.length === 1) bo(v, o.dich.indexOf(m[0])); else danh(chon === v ? null : v); }
+    o.vat.forEach(function (v) {
+      p5DatVat(v, v.x, v.y, 0);
+      var cam = null, dau, goc, di = false;
+      v.e.addEventListener("pointerdown", function (ev) {
+        if (v.khoa) return; cam = ev.pointerId; dau = diemSvg(c, ev); goc = v.p; di = false;
+        try { c.setPointerCapture(ev.pointerId); } catch (er) { /* bỏ qua */ }
+        ev.preventDefault();
+      });
+      // Bắt con trỏ trên cả svg (không phải trên vật), vì vật được đưa lên trên cùng khi kéo và chuyển chỗ trong DOM làm mất bắt con trỏ.
+      c.addEventListener("pointermove", function (ev) {
+        if (cam !== ev.pointerId) return; var p = diemSvg(c, ev);
+        if (!di && Math.abs(p.x - dau.x) + Math.abs(p.y - dau.y) > 6) { di = true; danh(null); v.e.parentNode.appendChild(v.e); }
+        if (di) p5DatVat(v, goc.x + p.x - dau.x, goc.y + p.y - dau.y, 0);
+      });
+      c.addEventListener("pointerup", function (ev) {
+        if (cam !== ev.pointerId) return; cam = null;
+        if (v.khoa) return;
+        if (!di) { cham(v); return; }
+        var k = -1, gan = 1e9;
+        o.dich.forEach(function (d, i) { if (d.tat) return; var r = Math.hypot(v.p.x - d.x, v.p.y - d.y); if (r < d.r && r < gan) { gan = r; k = i; } });
+        bo(v, k);
+      });
+      c.addEventListener("pointercancel", function (ev) { if (cam === ev.pointerId) { cam = null; ve(v); } });
+      v.e.addEventListener("keydown", function (ev) { if (ev.key !== "Enter" && ev.key !== " ") return; ev.preventDefault(); if (!v.khoa) cham(v); });
+    });
+    o.dich.forEach(function (d, i) { p5Nut(d.e, function () { if (chon && !d.tat && !chon.khoa) bo(chon, i); }); });
+    return { danh: danh, ve: ve };
+  }
+  // Chiếc kéo vẽ quanh chốt (0,0), mũi hướng sang phải; trả về {e, a, b} để khép lưỡi
+  function p5Keo(c, lop, nhan, chu) {
+    var e = p5Vat(c, "tc-p5-keo " + lop, nhan);
+    svg(e, "circle", { r: 34, class: "tc-p5-vung" });
+    var noi = svg(e, "g", {});
+    function manh(goc) {
+      var m = svg(noi, "g", { transform: "rotate(" + goc + ")" });
+      svg(m, "path", { d: "M0 -3 L32 0 L0 3 Z", class: "tc-p5-luoi" });
+      svg(m, "line", { x1: 0, y1: 0, x2: -12, y2: 0, class: "tc-p5-can" });
+      svg(m, "circle", { cx: -19, cy: 0, r: 7, class: "tc-p5-quai" });
+      return m;
+    }
+    var a = manh(-18), b = manh(18);
+    svg(noi, "circle", { r: 2.6, class: "tc-p5-chot" });
+    if (chu) p5Chu(e, 0, 46, chu, "tc-p5-nho");
+    return { e: e, a: a, b: b, noi: noi };
+  }
+  function p5Khep(s, k, xong) {
+    p5Chay(s, 260, function (f) { k.a.setAttribute("transform", "rotate(" + (-18 + 16 * f) + ")"); k.b.setAttribute("transform", "rotate(" + (18 - 16 * f) + ")"); }, xong);
+  }
+  function p5DauX(c, x, y) { var e = svg(c, "g", { class: "tc-p5-x" }); svg(e, "circle", { cx: x, cy: y, r: 15 }); svg(e, "path", { d: "M" + (x - 6) + " " + (y - 6) + " L" + (x + 6) + " " + (y + 6) + " M" + (x + 6) + " " + (y - 6) + " L" + (x - 6) + " " + (y + 6) }); return e; }
+
+  // ---------- Cảnh: chiếc kéo tìm chỗ cắt (progeria, gen LMNA) ----------
+  // Màn 1: kéo chiếc kéo vào vạch cắt, đoạn cuối mang đuôi mỡ rơi ra, lamin A lót nhân tròn.
+  // Màn 2: kéo chữ T lên chữ C (GGC → GGT, vẫn glycine), 50 axit amin biến mất cùng vạch cắt, kéo trượt, nhân méo dần qua 3 nhịp.
+  // Màn 3: công tắc lonafarnib chặn gắn đuôi mỡ, nhân bớt méo; thanh tử vong (Gordon 2018). g.tu_vong: [[số ca, tổng] có thuốc, [số ca, tổng] không thuốc].
+  function pgVo(cx, cy, R, a) {
+    var d = "";
+    for (var i = 0; i <= 72; i++) { var th = i / 72 * 2 * Math.PI, r = R * (1 + a * (0.6 * Math.sin(3 * th + 0.6) + 0.4 * Math.sin(5 * th + 1.3))); d += (i ? "L" : "M") + (cx + r * Math.cos(th)).toFixed(1) + " " + (cy + r * Math.sin(th)).toFixed(1); }
+    return d + "Z";
+  }
+  function keoTimChoCat(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 520 340", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.m1_hoi); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), thuoc = nut(t.nut_thuoc, false), tiep = nut(t.nut_tiep[0], true), lai = nut(t.nut_lai, false); thuoc.classList.add("tc-p5-cong");
+    thuoc.hidden = true; tiep.hidden = true; lai.hidden = true; p5Bat(thuoc, false);
+    hang.appendChild(thuoc); hang.appendChild(tiep); hang.appendChild(lai);
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var NX = 445, NY = 160, NR = 56, Y = 150, X0 = 34, GOC = [0.3, 1.2, 2.2, 3.3, 4.3, 5.4];
+    s._man = 0;
+    function nhan(a) {
+      var n = { g: svg(c, "g", {}), a: a };
+      n.vo = svg(n.g, "path", { d: pgVo(NX, NY, NR, a), class: "tc-pg-nhan" });
+      n.lot = svg(n.g, "path", { d: pgVo(NX, NY, NR - 8, a), class: "tc-pg-lot" });
+      n.cham = svg(n.g, "g", {});
+      p5Chu(n.g, NX, NY + NR + 24, t.nhan_te_bao, "tc-p5-nho");
+      n.doi = function (a2, soCham) {
+        n.a = a2; n.vo.setAttribute("d", pgVo(NX, NY, NR, a2)); n.lot.setAttribute("d", pgVo(NX, NY, NR - 8, a2));
+        p5Xoa(n.cham);
+        GOC.slice(0, soCham || 0).forEach(function (th) { var r = NR * (1 + a2 * (0.6 * Math.sin(3 * th + 0.6) + 0.4 * Math.sin(5 * th + 1.3))) - 4; svg(n.cham, "circle", { cx: NX + r * Math.cos(th), cy: NY + r * Math.sin(th), r: 5.5, class: "tc-pg-duoi" }); });
+      };
+      return n;
+    }
+    function doan(e, a, b, y) { svg(e, "line", { x1: a, y1: y, x2: b, y2: y, class: "tc-pg-day" }); for (var x = a + 8; x < b; x += 16) svg(e, "circle", { cx: x, cy: y, r: 4.5, class: "tc-pg-hat" }); }
+    // Sợi tiền lamin A: thân (đầu + đoạn giữa có vạch cắt) và đoạn cuối mang đuôi mỡ
+    function soi() {
+      var o = { g: svg(c, "g", {}) };
+      o.than = svg(o.g, "g", {}); o.cuoi = svg(o.g, "g", {});
+      p5Chu(o.than, X0, Y - 22, t.tien_lamin, "tc-p5-nho", "start");
+      doan(o.than, X0, X0 + 196, Y);
+      o.giua = svg(o.than, "g", {}); doan(o.giua, X0 + 196, X0 + 256, Y);
+      o.vach = svg(o.giua, "g", {}); svg(o.vach, "line", { x1: X0 + 256, y1: Y - 20, x2: X0 + 256, y2: Y + 20, class: "tc-pg-vach" }); p5Chu(o.vach, X0 + 256, Y + 36, t.vach, "tc-pg-vach-chu");
+      doan(o.cuoi, X0 + 256, X0 + 300, Y);
+      svg(o.cuoi, "circle", { cx: X0 + 312, cy: Y, r: 11, class: "tc-pg-duoi" }); p5Chu(o.cuoi, X0 + 312, Y - 20, t.duoi, "tc-pg-duoi-chu");
+      return o;
+    }
+    function keo(khoa) { var k = p5Keo(c, "tc-pg-keo", t.nhan_keo, t.keo_chu); k.x = 78; k.y = 268; k.khoa = !!khoa; return k; }
+    var N, S, K;
+    function man1() {
+      s._man = 1; p5Xoa(c); cap.textContent = t.m1_hoi; tiep.hidden = true;
+      N = nhan(0); N.lot.style.opacity = "0"; S = soi();
+      var d = p5Dich(c, "tc-pg-dich", t.nhan_vach); svg(d, "rect", { x: X0 + 236, y: Y - 30, width: 40, height: 60, rx: 9, class: "tc-p5-dich-o" });
+      K = keo();
+      p5Ban(c, {
+        vat: [K], dich: [{ e: d, x: X0 + 236, y: Y, r: 48 }],
+        truot: function () { cap.textContent = t.m1_lech; },
+        tha: function (v) {
+          v.khoa = true; d.style.display = "none"; p5DatVat(v, X0 + 232, Y, 250);
+          p5Hen(s, function () {
+            p5Khep(s, K, function () {
+              p5Dat(S.cuoi, 26, 95, 900); S.cuoi.style.opacity = "0";
+              p5Hen(s, function () { p5Mo(K.e, 0, 500); p5Dat(S.than, 150, 8, 900); S.than.style.opacity = "0"; p5Mo(N.lot, 1, 900); }, 700);
+              p5Hen(s, function () { p5Chu(N.g, NX, NY + 5, t.lamin, "tc-pg-lamin-chu"); cap.textContent = t.m1_xong; tiep.textContent = t.nut_tiep[0]; tiep.hidden = false; }, 1700);
+            });
+          }, 260);
+        }
+      });
+    }
+    function man2() {
+      s._man = 2; p5Xoa(c); cap.textContent = t.m2_hoi; tiep.hidden = true;
+      N = nhan(0); N.lot.style.opacity = "0"; S = soi();
+      var gx = 250, gy = 50, o = [];
+      p5Chu(c, gx + 36, gy - 26, t.gen_chu, "tc-p5-nho");
+      p5Chu(c, gx - 36, gy + 7, "…", "tc-pg-chu-gen"); p5Chu(c, gx + 108, gy + 7, "…", "tc-pg-chu-gen");
+      ["G", "G", "C"].forEach(function (ch, i) { svg(c, "rect", { x: gx + i * 36 - 15, y: gy - 17, width: 30, height: 34, rx: 6, class: "tc-pg-o" }); o.push(p5Chu(c, gx + i * 36, gy + 7, ch, "tc-pg-chu-gen")); });
+      var duoiGen = p5Chu(c, gx + 36, gy + 36, t.bo_ba, "tc-p5-nho");
+      var dC = p5Dich(c, "tc-pg-dich", t.nhan_o_c); svg(dC, "rect", { x: gx + 72 - 18, y: gy - 20, width: 36, height: 40, rx: 7, class: "tc-p5-dich-o" });
+      var T = { e: p5Vat(c, "tc-pg-t", t.nhan_chu_t), x: 70, y: gy };
+      svg(T.e, "rect", { x: -18, y: -20, width: 36, height: 40, rx: 7, class: "tc-pg-t-nen" }); p5Chu(T.e, 0, 8, "T", "tc-pg-t-chu");
+      var nhanT = p5Chu(c, 70, gy + 36, t.keo_t, "tc-p5-nho");
+      K = keo(true); K.e.style.opacity = ".3";
+      var dS = p5Dich(c, "tc-pg-dich", t.nhan_soi); svg(dS, "rect", { x: X0 - 6, y: Y - 20, width: 290, height: 40, rx: 10, class: "tc-p5-dich-o" }); dS.style.display = "none";
+      var dichS = { e: dS, x: X0 + 150, y: Y, r: 120, tat: true };
+      p5Ban(c, {
+        vat: [T], dich: [{ e: dC, x: gx + 72, y: gy, r: 40 }],
+        truot: function () { cap.textContent = t.m2_hoi; },
+        tha: function (v) {
+          v.khoa = true; dC.style.display = "none"; p5DatVat(v, gx + 72, gy, 250); nhanT.style.display = "none";
+          p5Hen(s, function () { o[2].style.display = "none"; duoiGen.textContent = t.glycine; duoiGen.setAttribute("class", "tc-pg-dung"); }, 280);
+          p5Hen(s, function () {
+            p5Mo(S.giua, 0, 900); p5Dat(S.cuoi, -60, 0, 1000);
+            p5Chu(c, X0 + 226, Y + 40, t.mat50, "tc-pg-mat");
+          }, 1100);
+          p5Hen(s, function () { cap.textContent = t.m2_thu; K.khoa = false; K.e.style.opacity = "1"; dichS.tat = false; dS.style.display = ""; }, 2300);
+        }
+      });
+      p5Ban(c, {
+        vat: [K], dich: [dichS],
+        truot: function () { cap.textContent = t.m2_thu; },
+        tha: function (v) {
+          v.khoa = true; dichS.tat = true; dS.style.display = "none";
+          var x = p5DauX(c, X0 + 150, Y); p5Chu(x, X0 + 150, Y - 26, t.khong_cat, "tc-pg-sai");
+          K.noi.classList.add("tc-p5-rung");
+          p5Hen(s, function () { p5Mo(K.e, 0.3, 400); p5Mo(x, 0, 700); p5Dat(S.g, 120, 8, 1000); S.g.style.opacity = "0"; }, 1100);
+          [0.06, 0.12, 0.18].forEach(function (a, i) { p5Hen(s, function () { N.doi(a, 2 * (i + 1)); }, 1900 + i * 650); });
+          p5Hen(s, function () { p5Chu(N.g, NX, NY + 5, t.progerin, "tc-pg-lamin-chu"); cap.textContent = t.m2_xong; tiep.textContent = t.nut_tiep[1]; tiep.hidden = false; }, 3900);
+          return false;
+        }
+      });
+    }
+    var D, vien, enz;
+    function man3() {
+      s._man = 3; p5Xoa(c); tiep.hidden = true; thuoc.hidden = false; cap.textContent = t.m3_hoi;
+      N = nhan(0.18); N.doi(0.18, 6); p5Chu(N.g, NX, NY + 5, t.progerin, "tc-pg-lamin-chu");
+      var y = 92; p5Chu(c, X0, y - 22, t.soi_moi, "tc-p5-nho", "start"); doan(c, X0, X0 + 236, y);
+      enz = svg(c, "g", {}); svg(enz, "ellipse", { cx: X0 + 252, cy: 180, rx: 38, ry: 22, class: "tc-pg-enzym" }); p5Chu(enz, X0 + 252, 220, t.enzym, "tc-p5-nho");
+      D = svg(c, "circle", { cx: 0, cy: 0, r: 10, class: "tc-pg-duoi" }); p5Dat(D, X0 + 252, 166, 0);
+      vien = svg(c, "g", { class: "tc-pg-vien" }); svg(vien, "rect", { x: -40, y: -12, width: 80, height: 24, rx: 12 }); p5Chu(vien, 0, 5, t.nut_thuoc_ngan, "tc-pg-vien-chu");
+      p5Dat(vien, X0 + 252, 120, 0); vien.style.opacity = "0";
+      p5Hen(s, function () { p5Dat(D, X0 + 248, y, 700); }, 500);
+    }
+    var daBat = false;
+    thuoc.onclick = function () {
+      if (s._man !== 3) return;
+      var bat = thuoc.getAttribute("aria-pressed") !== "true"; p5Bat(thuoc, bat);
+      if (bat) {
+        p5Dat(D, X0 + 252, 166, 500); p5Dat(vien, X0 + 252, 150, 500); vien.style.opacity = "1";
+        var a0 = N.a; p5Chay(s, 900, function (f) { N.doi(a0 + (0.09 - a0) * f, f < 1 ? 6 : 3); });
+        cap.textContent = t.thuoc_bat;
+        if (!daBat) { daBat = true; cot(); }
+      } else {
+        p5Dat(vien, X0 + 252, 120, 400); vien.style.opacity = "0"; p5Dat(D, X0 + 248, 92, 700);
+        var a1 = N.a; p5Chay(s, 900, function (f) { N.doi(a1 + (0.18 - a1) * f, f < 1 ? 3 : 6); });
+        cap.textContent = t.thuoc_tat;
+      }
+    };
+    function cot() {
+      var cg = svg(c, "g", {}), X = 128, MAX = 250, ds = g.tu_vong.map(function (v) { return v[0] / v[1]; }), lon = Math.max.apply(null, ds);
+      p5Chu(cg, 14, 266, t.cot_tieu, "tc-p5-nho", "start");
+      var r = ds.map(function (p, i) {
+        var y = 278 + i * 28; p5Chu(cg, 14, y + 14, t.cot[i], "tc-p5-chu", "start");
+        return { p: p, b: svg(cg, "rect", { x: X, y: y, width: 0, height: 18, rx: 4, class: "tc-pg-cot tc-pg-cot-" + i }), n: p5Chu(cg, X + 6, y + 14, "", "tc-pg-so", "start"), v: g.tu_vong[i] };
+      });
+      p5Chay(s, 1100, function (f) { r.forEach(function (o) { var w = o.p / lon * MAX * (1 - Math.pow(1 - f, 3)); o.b.setAttribute("width", w); o.n.setAttribute("x", X + w + 6); }); }, function () {
+        r.forEach(function (o) { o.n.textContent = o.v[0] + "/" + o.v[1] + " (" + so(o.p * 100, 1) + "%)"; });
+        p5Ket(ket, [t.ket, t.ket_2]); lai.hidden = false;
+      });
+    }
+    tiep.onclick = function () { if (s._man === 1) man2(); else if (s._man === 2) man3(); };
+    lai.onclick = function () { p5Lai(s, keoTimChoCat, g, t); };
+    man1();
+    s.appendChild(san); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: cánh cửa Nav1.7 (không biết đau, gen SCN9A) ----------
+  // Màn 1: kéo ngón tay chạm lửa, xung qua cửa Nav1.7 được khuếch đại, não báo đau, tay rụt. Màn 2: kéo dấu X lên hai bản gen (bố, mẹ).
+  // Màn 3: nút vặn Tắt / Bình thường / Quá to. Màn 4: thả vien thuốc vào cửa Nav1.7 hay Nav1.8.
+  function cuaNav17(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 520 350", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.m1_hoi); cap.setAttribute("aria-live", "polite");
+    var nac = tao("div", "tc-hang tc-nav-nac"); nac.hidden = true;
+    var nutNac = t.nac.map(function (x, i) { var b = nut(x, false); p5Bat(b, false); b.onclick = function () { vanNac(i); }; nac.appendChild(b); return b; });
+    var hang = tao("div", "tc-hang"), tiep = nut(t.nut_tiep[0], true), lai = nut(t.nut_lai, false); tiep.hidden = true; lai.hidden = true;
+    hang.appendChild(tiep); hang.appendChild(lai);
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var Y = 180, FX = 60, BX = 466, s0 = 0;
+    s._man = 0;
+    var lua, tay, cua = [], nao, bong, giac, num;
+    function veLua() {
+      lua = svg(c, "g", { class: "tc-nav-lua" });
+      svg(lua, "path", { d: "M" + FX + " " + (Y - 36) + " C" + (FX + 16) + " " + (Y - 18) + " " + (FX + 24) + " " + (Y - 2) + " " + (FX + 17) + " " + (Y + 12) + " C" + (FX + 12) + " " + (Y + 22) + " " + (FX + 4) + " " + (Y + 26) + " " + FX + " " + (Y + 26) + " C" + (FX - 4) + " " + (Y + 26) + " " + (FX - 12) + " " + (Y + 22) + " " + (FX - 17) + " " + (Y + 12) + " C" + (FX - 24) + " " + (Y - 4) + " " + (FX - 10) + " " + (Y - 14) + " " + FX + " " + (Y - 36) + "Z", class: "tc-nav-lua-ngoai" });
+      svg(lua, "path", { d: "M" + FX + " " + (Y - 8) + " C" + (FX + 9) + " " + (Y + 2) + " " + (FX + 9) + " " + (Y + 18) + " " + FX + " " + (Y + 20) + " C" + (FX - 9) + " " + (Y + 18) + " " + (FX - 9) + " " + (Y + 4) + " " + FX + " " + (Y - 8) + "Z", class: "tc-nav-lua-trong" });
+      p5Chu(lua, FX, Y + 46, t.lua, "tc-p5-nho");
+    }
+    function veTay(keo) {
+      var e = keo ? p5Vat(c, "tc-nav-tay", t.nhan_tay) : svg(c, "g", { class: "tc-nav-tay" });
+      svg(e, "circle", { cx: 0, cy: -14, r: 32, class: "tc-p5-vung" });
+      svg(e, "rect", { x: -20, y: -62, width: 40, height: 30, rx: 10, class: "tc-nav-da" });
+      svg(e, "rect", { x: -10, y: -40, width: 20, height: 50, rx: 10, class: "tc-nav-da" });
+      svg(e, "ellipse", { cx: 0, cy: 3, rx: 5.5, ry: 4, class: "tc-nav-mong" });
+      var do_ = svg(e, "circle", { cx: 0, cy: 6, r: 9, class: "tc-nav-do" }); do_.style.opacity = "0";
+      return { e: e, x: FX, y: 82, do_: do_ };
+    }
+    function veDay(ds) {
+      svg(c, "line", { x1: FX + 36, y1: Y, x2: BX - 44, y2: Y, class: "tc-nav-vo" });
+      svg(c, "line", { x1: FX + 36, y1: Y, x2: BX - 44, y2: Y, class: "tc-nav-day" });
+      p5Chu(c, 142, Y - 14, t.day, "tc-nav-day-chu");
+      cua = ds.map(function (d) {
+        var o = { x: d.x, g: svg(c, "g", {}) };
+        svg(o.g, "rect", { x: d.x - 16, y: Y - 34, width: 32, height: 68, rx: 8, class: "tc-nav-khung" + (d.lop ? " " + d.lop : "") });
+        o.tren = svg(o.g, "rect", { x: d.x - 9, y: Y - 28, width: 18, height: 26, rx: 4, class: "tc-nav-la" });
+        o.duoi = svg(o.g, "rect", { x: d.x - 9, y: Y + 2, width: 18, height: 26, rx: 4, class: "tc-nav-la" });
+        p5Chu(o.g, d.x, Y - 44, d.ten, "tc-nav-ten-cua");
+        o.khoa = svg(o.g, "g", { class: "tc-nav-khoa" }); svg(o.khoa, "rect", { x: d.x - 8, y: Y - 6, width: 16, height: 13, rx: 2 }); svg(o.khoa, "path", { d: "M" + (d.x - 5) + " " + (Y - 6) + " V" + (Y - 11) + " A5 5 0 0 1 " + (d.x + 5) + " " + (Y - 11) + " V" + (Y - 6) }); o.khoa.style.display = "none";
+        return o;
+      });
+      nao = svg(c, "g", { class: "tc-nav-nao" });
+      svg(nao, "path", { d: "M" + (BX - 36) + " " + Y + " C" + (BX - 44) + " " + (Y - 40) + " " + (BX - 6) + " " + (Y - 50) + " " + BX + " " + (Y - 34) + " C" + (BX + 10) + " " + (Y - 52) + " " + (BX + 46) + " " + (Y - 36) + " " + (BX + 40) + " " + (Y - 4) + " C" + (BX + 48) + " " + (Y + 24) + " " + (BX + 14) + " " + (Y + 38) + " " + BX + " " + (Y + 26) + " C" + (BX - 16) + " " + (Y + 38) + " " + (BX - 44) + " " + (Y + 26) + " " + (BX - 36) + " " + Y + "Z", class: "tc-nav-nao-vo" });
+      svg(nao, "path", { d: "M" + BX + " " + (Y - 32) + " C" + (BX - 6) + " " + (Y - 10) + " " + (BX + 8) + " " + (Y + 6) + " " + BX + " " + (Y + 24) + " M" + (BX - 26) + " " + (Y - 10) + " C" + (BX - 14) + " " + (Y - 16) + " " + (BX - 12) + " " + Y + " " + (BX - 22) + " " + (Y + 10) + " M" + (BX + 26) + " " + (Y - 14) + " C" + (BX + 14) + " " + (Y - 6) + " " + (BX + 18) + " " + (Y + 8) + " " + (BX + 28) + " " + (Y + 12), class: "tc-nav-nao-nep" });
+      p5Chu(nao, BX, Y + 56, t.nao, "tc-p5-nho");
+      bong = svg(c, "g", { class: "tc-nav-bong" }); svg(bong, "rect", { x: BX - 66, y: Y - 100, width: 112, height: 34, rx: 12 });
+      bong.chu = p5Chu(bong, BX - 10, Y - 77, "", "tc-nav-bong-chu"); bong.style.opacity = "0";
+    }
+    function moCua(o, mo) { p5Dat(o.tren, 0, mo ? -14 : 0, 250); p5Dat(o.duoi, 0, mo ? 14 : 0, 250); }
+    function baoNao(chu) { if (chu) { bong.chu.textContent = chu; p5Mo(bong, 1, 250); nao.classList.add("tc-nav-sang"); } else { p5Mo(bong, 0, 200); nao.classList.remove("tc-nav-sang"); } }
+    // Gửi một xung từ lửa: dung = chỉ số cửa xung dừng lại (-1: đi tới não); xong()
+    function xung(dung, chu, xong) {
+      var p = svg(c, "circle", { cx: FX + 36, cy: Y, r: 4, class: "tc-nav-xung" }), dich = dung >= 0 ? cua[dung].x - 14 : BX - 40;
+      var moc = cua.map(function (o) { return o.x; }), daMo = {};
+      p5Chay(s, 1500, function (f) {
+        var x = FX + 36 + (dich - FX - 36) * f, qua = 0;
+        moc.forEach(function (m, i) { if (x > m - 30 && !daMo[i] && i !== dung) { daMo[i] = 1; moCua(cua[i], true); } if (x > m) qua++; });
+        p.setAttribute("cx", x); p.setAttribute("r", 4 + (qua ? 7 : 0));
+      }, function () {
+        if (dung >= 0) { p5Mo(p, 0, 500); cua[dung].g.classList.add("tc-p5-rung"); }
+        else { p.remove(); baoNao(chu); }
+        p5Hen(s, function () { cua.forEach(function (o) { moCua(o, false); }); if (p.isConnected) p.remove(); if (xong) xong(); }, 600);
+      });
+    }
+    function chamLua(xong) { p5DatVat(tay, FX, 132, 300); p5Hen(s, function () { lua.classList.add("tc-nav-chay"); xong(); }, 320); }
+    function rut() { p5DatVat(tay, FX, 70, 250); }
+    function tayKeo(lamTiep) {
+      tay = veTay(true);
+      p5Ban(c, { vat: [tay], dich: [{ e: lua, x: FX, y: 150, r: 52 }], truot: function () { cap.textContent = t.m1_lech; }, tha: function (v) { v.khoa = true; v.e.classList.remove("tc-keo"); v.e.removeAttribute("tabindex"); v.e.removeAttribute("role"); v.e.removeAttribute("aria-label"); chamLua(lamTiep); } });
+    }
+    function man1() {
+      s._man = 1; p5Xoa(c); cap.textContent = t.m1_hoi;
+      veLua(); veDay([{ x: 236, ten: "Nav1.7" }]);
+      tayKeo(function () { xung(-1, t.dau, function () { rut(); cap.textContent = t.m1_xong; tiep.textContent = t.nut_tiep[0]; tiep.hidden = false; }); });
+    }
+    function man2() {
+      s._man = 2; p5Xoa(c); cap.textContent = t.m2_hoi; tiep.hidden = true;
+      veLua(); veDay([{ x: 236, ten: "Nav1.7" }]); tay = veTay(false); p5DatVat(tay, FX, 70, 0);
+      var hong = 0, the = [0, 1].map(function (i) {
+        var x = 150 + i * 150, d = p5Dich(c, "tc-nav-the", t.the[i]);
+        svg(d, "rect", { x: x - 66, y: 236, width: 132, height: 40, rx: 9, class: "tc-nav-the-nen" });
+        p5Chu(d, x, 254, "SCN9A", "tc-nav-the-gen"); p5Chu(d, x, 269, t.the_nho[i], "tc-nav-the-nho");
+        return { e: d, x: x, y: 256, r: 62 };
+      });
+      giac = svg(c, "g", {}); var W = 70;
+      t.giac.forEach(function (x, i) { var gx = 12 + i * (W + 1.6), o = svg(giac, "g", { class: "tc-nav-giac" + (i >= 5 ? " tc-nav-giac-dau" : "") }); svg(o, "rect", { x: gx, y: 300, width: W - 4, height: 26, rx: 13 }); p5Chu(o, gx + (W - 4) / 2, 318, x, "tc-nav-giac-chu"); });
+      var X = { e: p5Vat(c, "tc-nav-xx", t.nhan_x), x: 470, y: 256 };
+      svg(X.e, "circle", { r: 20, class: "tc-nav-xx-nen" }); svg(X.e, "path", { d: "M-7 -7 L7 7 M7 -7 L-7 7", class: "tc-nav-xx-net" });
+      p5Ban(c, {
+        vat: [X], dich: the,
+        chon: function () { cap.textContent = t.chon_x; },
+        tha: function (v, k) {
+          var d = the[k]; d.tat = true; d.e.classList.add("tc-nav-hong"); var m = p5DauX(d.e, d.x + 52, 244); m.setAttribute("class", "tc-p5-x tc-nav-x-nho"); d.e.setAttribute("aria-label", t.the[k] + " " + t.da_hong);
+          hong++; v.khoa = true;
+          if (hong === 2) { p5Mo(v.e, 0, 200); v.e.style.display = "none"; }
+          chamLua(function () {
+            if (hong === 1) xung(-1, t.dau, function () { rut(); cap.textContent = t.m2_mot; v.khoa = false; });
+            else {
+              cua[0].khoa.style.display = ""; xung(0, "", function () {
+                p5Mo(tay.do_, 0.85, 1600); giac.classList.add("tc-nav-tat"); baoNao(t.yen);
+                cap.textContent = t.m2_hai; tiep.textContent = t.nut_tiep[1]; tiep.hidden = false;
+              });
+            }
+          });
+          return false;
+        }
+      });
+    }
+    var daQuaTo = false;
+    function man3() {
+      s._man = 3; p5Xoa(c); cap.textContent = t.m3_hoi; tiep.hidden = true; nac.hidden = false; nutNac.forEach(function (b) { p5Bat(b, false); });
+      veLua(); veDay([{ x: 236, ten: "Nav1.7" }]); tay = veTay(false); p5DatVat(tay, FX, 70, 0);
+      num = svg(c, "g", {}); svg(num, "circle", { cx: 236, cy: 290, r: 26, class: "tc-nav-num" });
+      num.kim = svg(num, "line", { x1: 236, y1: 290, x2: 236, y2: 268, class: "tc-nav-kim" });
+      t.nac.forEach(function (x, i) { var a = (-60 + i * 60) * Math.PI / 180; p5Chu(num, 236 + 48 * Math.sin(a), 290 - 40 * Math.cos(a) + (i === 1 ? -4 : 6), x, "tc-p5-nho"); });
+    }
+    function vanNac(i) {
+      if (Math.floor(s._man) !== 3) return;
+      s0++; s._man = 3 + s0 / 1000; // phiên mới: bỏ hoạt cảnh của lần vặn trước
+      Array.prototype.slice.call(c.querySelectorAll(".tc-nav-xung")).forEach(function (e) { e.remove(); }); moCua(cua[0], false);
+      nutNac.forEach(function (b, k) { p5Bat(b, k === i); });
+      num.kim.setAttribute("transform", "rotate(" + (-60 + i * 60) + " 236 290)");
+      cua[0].khoa.style.display = i === 0 ? "" : "none"; baoNao(""); tay.do_.style.opacity = "0"; lua.style.opacity = "1"; cua[0].g.classList.remove("tc-nav-chay-cua");
+      p5DatVat(tay, FX, 70, 200);
+      if (i === 0) chamLua(function () { xung(0, "", function () { cap.textContent = t.nac_cap[0]; baoNao(t.yen); }); });
+      else if (i === 1) chamLua(function () { xung(-1, t.dau, function () { rut(); cap.textContent = t.nac_cap[1]; }); });
+      else {
+        p5Mo(lua, 0.15, 300); cua[0].g.classList.add("tc-nav-chay-cua"); p5Mo(tay.do_, 0.85, 900);
+        xung(-1, t.rat, function () { xung(-1, t.rat, function () { xung(-1, t.rat, function () { cap.textContent = t.nac_cap[2]; }); }); });
+        if (!daQuaTo) { daQuaTo = true; tiep.textContent = t.nut_tiep[2]; tiep.hidden = false; }
+      }
+      cap.textContent = t.nac_dang[i];
+    }
+    function man4() {
+      s._man = 4; p5Xoa(c); nac.hidden = true; tiep.hidden = true; cap.textContent = t.m4_hoi;
+      veLua(); veDay([{ x: 200, ten: "Nav1.7" }, { x: 316, ten: "Nav1.8", lop: "tc-nav-khung-8" }]); tay = veTay(false); p5DatVat(tay, FX, 70, 0);
+      var V = { e: p5Vat(c, "tc-nav-vien", t.nhan_vien), x: 84, y: 290 };
+      svg(V.e, "rect", { x: -30, y: -13, width: 60, height: 26, rx: 13, class: "tc-nav-vien-a" }); svg(V.e, "path", { d: "M0 -13 H17 A13 13 0 0 1 17 13 H0 Z", class: "tc-nav-vien-b" });
+      p5Chu(c, 84, 324, t.vien, "tc-p5-nho");
+      var dc = cua.map(function (o, i) { var d = p5Dich(c, "tc-nav-dich", t.nhan_cua[i]); svg(d, "rect", { x: o.x - 24, y: Y - 42, width: 48, height: 84, rx: 10, class: "tc-p5-dich-o" }); return { e: d, x: o.x, y: Y, r: 46 }; });
+      var ghi = svg(c, "g", {});
+      p5Ban(c, {
+        vat: [V], dich: dc,
+        chon: function () { cap.textContent = t.chon_vien; },
+        tha: function (v, k) {
+          if (k === 0) { cap.textContent = t.m4_sai; p5Xoa(ghi); p5Dong(ghi, 200, 252, t.ghi_17, "tc-nav-ghi"); dc[0].tat = true; dc[0].e.style.display = "none"; return false; }
+          v.khoa = true; dc.forEach(function (d) { d.e.style.display = "none"; }); p5Xoa(ghi);
+          p5DatVat(v, 316, Y, 300); cua[1].khoa.style.display = "none";
+          chamLua(function () {
+            xung(1, "", function () {
+              baoNao(t.yen); rut(); cap.textContent = t.m4_dung;
+              p5Dong(ghi, 316, 248, t.ghi_18, "tc-nav-ghi-dung");
+              p5Ket(ket, [t.ket, t.ket_2]); lai.hidden = false;
+            });
+          });
+        }
+      });
+    }
+    tiep.onclick = function () { var m = Math.floor(s._man); if (m === 1) man2(); else if (m === 2) man3(); else if (m === 3) man4(); };
+    lai.onclick = function () { p5Lai(s, cuaNav17, g, t); };
+    man1();
+    s.appendChild(san); s.appendChild(cap); s.appendChild(nac); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: lập trình chiếc kéo (CRISPR) ----------
+  // Màn 1: kéo một mẩu RNA dẫn đường vào Cas9; Cas9 dò dọc chuỗi DNA, khớp thì cắt hai sợi; rồi chọn cách vá (vá vội, chép mẫu, chỉnh base).
+  // Thẻ cảnh báo cắt lệch bật ngẫu nhiên (minh họa, không phải tỉ lệ thật). Màn 2: kéo hai thẻ (casgevy 2023, em bé KJ 2025) vào ô ngoài/trong cơ thể.
+  // g.dna: chuỗi (chữ A/T/G/C); g.rna: các mẩu dẫn đường (chữ U thay T), rút gọn còn 8 chữ; g.canh_bao: xác suất bật thẻ cảnh báo; g.duong: ô đúng của từng thẻ.
+  function lapTrinhKeo(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 520 340", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.m1_hoi); cap.setAttribute("aria-live", "polite");
+    var canhBao = tao("p", "tc-cr-canh-bao"); canhBao.hidden = true;
+    var va = tao("div", "tc-hang"); va.hidden = true;
+    var nutVa = t.va.map(function (x, i) { var b = nut(x, false); b.onclick = function () { vaLai(i); }; va.appendChild(b); return b; });
+    var hang = tao("div", "tc-hang"), tiep = nut(t.nut_tiep, true), lai = nut(t.nut_lai, false); tiep.hidden = true; lai.hidden = true;
+    hang.appendChild(tiep); hang.appendChild(lai);
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    var SEQ = g.dna.split(""), N = SEQ.length, X0 = 26, DX = (520 - 2 * X0) / (N - 1), L = 8, BU = { A: "T", T: "A", G: "C", C: "G" };
+    var cot = [], dnaG, catO = -1, catJ = -1, lan = 0;
+    s._man = 0;
+    function cx(i) { return X0 + i * DX; }
+    function veDna() {
+      if (dnaG) dnaG.remove(); dnaG = svg(c, "g", {}); cot = [];
+      p5Chu(dnaG, 14, 26, t.dna, "tc-p5-nho", "start");
+      SEQ.forEach(function (ch, i) {
+        var e = svg(dnaG, "g", {}), x = cx(i);
+        svg(e, "line", { x1: x - DX / 2, y1: 50, x2: x + DX / 2, y2: 50, class: "tc-cr-truc" }); svg(e, "line", { x1: x - DX / 2, y1: 136, x2: x + DX / 2, y2: 136, class: "tc-cr-truc" });
+        svg(e, "line", { x1: x, y1: 78, x2: x, y2: 106, class: "tc-cr-bac" });
+        var a = p5Chu(e, x, 71, ch, "tc-cr-chu"), b = p5Chu(e, x, 124, BU[ch], "tc-cr-chu tc-cr-chu-duoi");
+        cot.push({ e: e, a: a, b: b });
+      });
+      dnaG.vet = svg(dnaG, "line", { x1: 0, y1: 40, x2: 0, y2: 146, class: "tc-cr-vet" }); dnaG.vet.style.display = "none";
+    }
+    function khop(r) { var q = r.replace(/U/g, "T"); return g.dna.indexOf(q); }
+    function tach(o, rong) { cot.forEach(function (k, i) { p5Dat(k.e, i > o ? rong : 0, 0, 500); }); if (rong) { dnaG.vet.setAttribute("x1", cx(o) + DX / 2 + rong / 2); dnaG.vet.setAttribute("x2", cx(o) + DX / 2 + rong / 2); dnaG.vet.style.display = ""; } else dnaG.vet.style.display = "none"; }
+    function man1() {
+      s._man = 1; p5Xoa(c); dnaG = null; veDna(); cap.textContent = t.m1_hoi;
+      var cas = svg(c, "g", {}); svg(cas, "ellipse", { cx: 112, cy: 252, rx: 72, ry: 44, class: "tc-cr-cas" });
+      p5Chu(cas, 112, 236, "Cas9", "tc-cr-cas-chu"); svg(cas, "rect", { x: 64, y: 248, width: 96, height: 22, rx: 6, class: "tc-cr-o-rna" }); p5Chu(cas, 112, 290, t.cho_rna, "tc-p5-nho");
+      var dCas = p5Dich(c, "tc-cr-dich", t.nhan_cas); svg(dCas, "ellipse", { cx: 112, cy: 252, rx: 80, ry: 52, class: "tc-p5-dich-o" });
+      p5Chu(c, 380, 182, t.rna_tieu, "tc-p5-nho");
+      var vat = g.rna.map(function (r, i) {
+        var e = p5Vat(c, "tc-cr-rna", dien(t.nhan_rna, { r: r })), y = 210 + i * 42;
+        svg(e, "rect", { x: -70, y: -15, width: 140, height: 30, rx: 8, class: "tc-cr-rna-nen" });
+        r.split("").forEach(function (ch, k) { p5Chu(e, -56 + k * 16, 6, ch, "tc-cr-rna-chu"); });
+        return { e: e, x: 380, y: y, r: r, i: i };
+      });
+      var ban = p5Ban(c, {
+        vat: vat, dich: [{ e: dCas, x: 112, y: 252, r: 90 }],
+        tha: function (v) {
+          vat.forEach(function (o) { o.khoa = true; }); p5DatVat(v, 112, 259, 250); dCas.style.display = "none";
+          cap.textContent = t.do_tim;
+          p5Hen(s, function () { p5Mo(cas, 0.25, 300); p5Mo(v.e, 0.25, 300); doTim(v, function (ok) {
+            if (ok) return;
+            p5Mo(cas, 1, 300); dCas.style.display = ""; v.e.classList.add("tc-cr-khong-khop"); v.e.setAttribute("aria-label", dien(t.nhan_rna, { r: v.r }) + " " + t.khong_khop_nhan);
+            ban.ve(v); p5Mo(v.e, 1, 300); vat.forEach(function (o) { o.khoa = false; });
+          }); }, 350);
+        }
+      });
+    }
+    // Cas9 mang mẩu RNA dò dọc chuỗi; khớp thì dừng và cắt
+    function doTim(v, xong) {
+      var j = khop(v.r), het = j >= 0 ? j : N - L, quet = svg(c, "g", { class: "tc-cr-quet" }), qn = svg(quet, "g", {});
+      svg(qn, "rect", { x: -DX / 2 - 6, y: 36, width: L * DX + 12, height: 116, rx: 18, class: "tc-cr-quet-nen" });
+      v.r.split("").forEach(function (ch, k) { p5Chu(qn, k * DX, 93, ch, "tc-cr-rna-chu tc-cr-rna-tren"); });
+      p5Chu(qn, (L - 1) * DX / 2, 168, "Cas9", "tc-cr-cas-chu");
+      var buoc = 0;
+      function di() {
+        p5Dat(quet, cx(buoc), 0, giam ? 0 : 130);
+        if (buoc >= het) {
+          p5Hen(s, function () {
+            if (j >= 0) {
+              quet.classList.add("tc-cr-khop"); p5Mo(v.e, 0, 300); p5Mo(c.querySelector(".tc-cr-cas").parentNode, 0, 300); catJ = j; catO = j + 5; lan++;
+              cap.textContent = t.khop;
+              p5Hen(s, function () {
+                tach(catO, 14); cap.textContent = t.da_cat; p5Mo(quet, 0.35, 400);
+                if (Math.random() < g.canh_bao) { canhBao.textContent = t.canh_bao[Math.floor(Math.random() * t.canh_bao.length)] + " " + t.canh_bao_nho; canhBao.hidden = false; }
+                va.hidden = false; xong(true);
+              }, 600);
+            } else { qn.classList.add("tc-p5-rung"); cap.textContent = t.khong_khop; p5Hen(s, function () { quet.remove(); xong(false); }, 900); }
+          }, 250);
+          return;
+        }
+        buoc++; p5Hen(s, di, 150);
+      }
+      if (giam) { buoc = het; di(); } else di();
+    }
+    var daVa = false, phuCu = null;
+    function vaLai(i) {
+      if (s._man !== 1 || catO < 0) return;
+      nutVa.forEach(function (b, k) { b.classList.toggle("tc-da-chon", k === i); });
+      veDna(); tach(catO, 14); var o = catO;
+      var phu = svg(c, "g", {}); if (phuCu) phuCu.remove(); phuCu = phu;
+      if (i === 0) {
+        p5Hen(s, function () {
+          p5Mo(cot[o].e, 0, 300); p5Mo(cot[o + 1].e, 0, 300);
+          cot.forEach(function (k, x) { if (x > o + 1) p5Dat(k.e, -2 * DX, 0, 600); else if (x <= o) p5Dat(k.e, 0, 0, 600); }); dnaG.vet.style.display = "none";
+          var den = svg(phu, "g", {}); svg(den, "circle", { cx: 476, cy: 24, r: 9, class: "tc-cr-den-do" }); p5Chu(den, 462, 28, t.gen_tat, "tc-cr-do-chu", "end");
+          cap.textContent = t.va_cap[0];
+        }, 400);
+      } else if (i === 1) {
+        var mau = svg(phu, "g", {}), sua = BU[SEQ[o]] === "A" ? "G" : "A";
+        svg(mau, "rect", { x: cx(o) - 3 * DX - 8, y: 150, width: 6 * DX + 16, height: 24, rx: 6, class: "tc-cr-mau" });
+        p5Chu(mau, cx(o), 167, t.mau, "tc-cr-mau-chu");
+        p5Dat(mau, 0, 60, 0); mau.style.opacity = "0";
+        p5Hen(s, function () { p5Dat(mau, 0, 0, 500); mau.style.opacity = "1"; }, 100);
+        p5Hen(s, function () { tach(o, 0); cot[o].a.textContent = sua; cot[o].b.textContent = BU[sua]; cot[o].e.classList.add("tc-cr-moi"); cap.textContent = t.va_cap[1]; }, 900);
+      } else {
+        tach(o, 0);
+        var k = -1; for (var x = catJ; x < catJ + L; x++) if (SEQ[x] === "A") { k = x; break; } if (k < 0) k = catJ;
+        var but = svg(phu, "rect", { x: cx(k) - 9, y: 54, width: 18, height: 24, rx: 4, class: "tc-cr-but" }); but.style.opacity = "0";
+        p5Hen(s, function () { p5Mo(but, 1, 250); }, 200);
+        p5Hen(s, function () { cot[k].a.textContent = "G"; cot[k].b.textContent = "C"; cot[k].e.classList.add("tc-cr-moi"); p5Mo(but, 0, 400); cap.textContent = t.va_cap[2]; }, 750);
+      }
+      if (!daVa) { daVa = true; p5Hen(s, function () { tiep.hidden = false; }, 900); }
+    }
+    function man2() {
+      s._man = 2; p5Xoa(c); dnaG = null; va.hidden = true; canhBao.hidden = true; tiep.hidden = true; cap.textContent = t.m2_hoi;
+      var dung = 0, o = [0, 1].map(function (i) {
+        var x = 16 + i * 252, d = p5Dich(c, "tc-cr-o", t.o[i]);
+        svg(d, "rect", { x: x, y: 128, width: 236, height: 200, rx: 14, class: "tc-cr-o-nen" });
+        p5Chu(d, x + 118, 150, t.o[i], "tc-cr-o-ten");
+        p5Dong(d, x + 118, 170, t.o_nho[i], "tc-p5-nho", 15);
+        return { e: d, x: x + 118, y: 230, r: 120, ghi: svg(c, "g", {}) };
+      });
+      var the = [0, 1].map(function (i) {
+        var e = p5Vat(c, "tc-cr-the", t.the[i]);
+        svg(e, "rect", { x: -100, y: -22, width: 200, height: 44, rx: 10, class: "tc-cr-the-nen" });
+        p5Chu(e, 0, 6, t.the[i], "tc-cr-the-chu");
+        return { e: e, x: 134 + i * 252, y: 60, i: i };
+      });
+      p5Ban(c, {
+        vat: the, dich: o,
+        chon: function (v) { cap.textContent = dien(t.da_chon, { the: t.the[v.i] }); },
+        tha: function (v, k) {
+          if (g.duong[v.i] !== k) { cap.textContent = t.sai_duong[v.i]; return false; }
+          v.khoa = true; v.e.classList.add("tc-cr-dung"); v.e.removeAttribute("tabindex"); p5DatVat(v, o[k].x, 222, 300);
+          p5Dong(o[k].ghi, o[k].x, 268, t.so[v.i], "tc-cr-so", 17);
+          cap.textContent = t.dung_duong[v.i];
+          if (++dung === 2) { o.forEach(function (d) { d.tat = true; }); p5Ket(ket, [t.ket, t.ket_2]); lai.hidden = false; }
+        }
+      });
+    }
+    tiep.onclick = function () { if (s._man === 1) man2(); };
+    lai.onclick = function () { p5Lai(s, lapTrinhKeo, g, t); };
+    man1();
+    s.appendChild(san); s.appendChild(cap); s.appendChild(canhBao); s.appendChild(va); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+
+  // ---------- Cảnh: sửa cơ thể hay sửa phôi? (hai em bé chỉnh gen, 2018) ----------
+  // Màn 1: kéo chiếc kéo vào "tế bào máu người lớn" hay "phôi một tế bào"; chấm đỏ dừng ở một người hay chảy xuống cả 7 vòng của cây phả hệ.
+  // Màn 2: phôi khảm, chạm 2 tế bào để lấy mẫu (tỉ lệ ngẫu nhiên, minh họa). Màn 3: xếp 3 thẻ CCR5 vào 2 ô. Màn 4: 4 công tắc, năm 2018 cả 4 là "không".
+  // g.ccr5: ô đúng của từng thẻ (0: đã nghiên cứu nhiều năm, 1: chưa ai biết tác dụng).
+  function suaThanHayPhoi(g, t) {
+    var s = khung(g, t), san = canh("tc-canh-toi"), c = svg(san, "svg", { viewBox: "0 0 520 340", role: "img", "aria-label": t.mo_ta });
+    var cap = tao("p", "tc-cap", t.m1_hoi); cap.setAttribute("aria-live", "polite");
+    var hang = tao("div", "tc-hang"), tiep = nut(t.nut_tiep[0], true), lai = nut(t.nut_lai, false); tiep.hidden = true; lai.hidden = true;
+    hang.appendChild(tiep); hang.appendChild(lai);
+    var ket = tao("div", "tc-dap tc-ket"); ket.hidden = true;
+    s._man = 0;
+    // Cây phả hệ 1 – 2 – 4 vòng tròn; trả về các vòng theo thế hệ
+    function cay(cx0) {
+      var e = svg(c, "g", {}), the_he = [[cx0], [cx0 - 48, cx0 + 48], [cx0 - 72, cx0 - 24, cx0 + 24, cx0 + 72]], Ys = [150, 214, 278], v = [];
+      svg(e, "path", { d: "M" + cx0 + " " + 163 + " V182 H" + (cx0 - 48) + " V201 M" + cx0 + " 182 H" + (cx0 + 48) + " V201 M" + (cx0 - 48) + " 227 V246 H" + (cx0 - 72) + " V265 M" + (cx0 - 48) + " 246 H" + (cx0 - 24) + " V265 M" + (cx0 + 48) + " 227 V246 H" + (cx0 + 24) + " V265 M" + (cx0 + 48) + " 246 H" + (cx0 + 72) + " V265", class: "tc-eb-nhanh" });
+      the_he.forEach(function (ds, k) { ds.forEach(function (x) { svg(e, "circle", { cx: x, cy: Ys[k], r: 13, class: "tc-eb-vong" }); var d = svg(e, "circle", { cx: x, cy: Ys[k], r: 6, class: "tc-eb-cham" }); d.style.opacity = "0"; v.push({ d: d, k: k }); }); });
+      return { e: e, v: v };
+    }
+    function man1() {
+      s._man = 1; p5Xoa(c); cap.textContent = t.m1_hoi; tiep.hidden = true;
+      var cays = [cay(130), cay(390)], xong = [false, false];
+      var nhanKet = [p5Chu(c, 130, 316, "", "tc-eb-ket-cay"), p5Chu(c, 390, 316, "", "tc-eb-ket-cay")];
+      var the = [0, 1].map(function (i) {
+        var x = 130 + i * 260, d = p5Dich(c, "tc-eb-the", t.the[i].join(" "));
+        svg(d, "rect", { x: x - 100, y: 34, width: 200, height: 52, rx: 12, class: "tc-eb-the-nen" });
+        p5Dong(d, x, 56, t.the[i], "tc-eb-the-chu", 17);
+        return { e: d, x: x, y: 60, r: 82 };
+      });
+      var K = p5Keo(c, "tc-eb-keo", t.nhan_keo); K.x = 260; K.y = 196;
+      p5Ban(c, {
+        vat: [K], dich: the,
+        chon: function () { cap.textContent = t.chon_keo; },
+        tha: function (v, k) {
+          the[k].tat = true; the[k].e.classList.add("tc-eb-da"); v.khoa = true;
+          p5DatVat(v, the[k].x - 70, 60, 250);
+          p5Hen(s, function () { p5Khep(s, K, function () {
+            var ds = k === 0 ? cays[0].v.slice(0, 1) : cays[1].v;
+            ds.forEach(function (o) { p5Hen(s, function () { p5Mo(o.d, 1, 400); }, 200 + o.k * 450); });
+            p5Hen(s, function () {
+              nhanKet[k].textContent = t.ket_cay[k]; cap.textContent = t.cap_cay[k]; xong[k] = true;
+              K.a.setAttribute("transform", "rotate(-18)"); K.b.setAttribute("transform", "rotate(18)");
+              if (xong[0] && xong[1]) { p5Mo(v.e, 0, 300); tiep.textContent = t.nut_tiep[0]; tiep.hidden = false; }
+              else { v.khoa = false; p5DatVat(v, v.x, v.y, 300); }
+            }, k === 0 ? 900 : 1700);
+          }); }, 270);
+        }
+      });
+    }
+    function man2() {
+      s._man = 2; p5Xoa(c); cap.textContent = t.m2_hoi; tiep.hidden = true;
+      var CX = 260, CY = 170, R = 112, dem = 0;
+      svg(c, "circle", { cx: CX, cy: CY, r: R + 14, class: "tc-eb-mang" });
+      p5Chu(c, CX, 26, t.phoi, "tc-p5-nho");
+      var vi = [[-55, -50], [10, -68], [68, -30], [-78, 15], [-10, 0], [55, 40], [-45, 68], [20, 82]];
+      var dsSua = tron([0, 1, 2, 3, 4, 5, 6, 7]).slice(0, 3 + Math.floor(Math.random() * 3));
+      var te = vi.map(function (p, i) {
+        var d = p5Dich(c, "tc-eb-te", dien(t.nhan_te, { n: i + 1 })), sua = dsSua.indexOf(i) >= 0;
+        var vong = svg(d, "circle", { cx: CX, cy: CY, r: 26, class: "tc-eb-te-vo" });
+        var ch = svg(d, "circle", { cx: CX + p[0], cy: CY + p[1] - 9, r: 7, class: "tc-eb-cham" }); ch.style.opacity = "0";
+        var ghi = p5Chu(d, CX + p[0], CY + p[1] + 14, "", "tc-eb-mau-chu");
+        p5Chay(s, 700, function (f) { var e = 1 - Math.pow(1 - f, 3); vong.setAttribute("cx", CX + p[0] * e); vong.setAttribute("cy", CY + p[1] * e); });
+        return { e: d, sua: sua, ch: ch, ghi: ghi, xem: false };
+      });
+      function lo(o) { o.xem = true; o.ch.style.opacity = o.sua ? "1" : "0"; o.ghi.textContent = o.sua ? t.da_sua : t.chua_sua; o.e.classList.add(o.sua ? "tc-eb-te-sua" : "tc-eb-te-chua"); }
+      te.forEach(function (o) {
+        p5Nut(o.e, function () {
+          if (o.xem || dem >= 2 || s._man !== 2) return; lo(o); dem++;
+          cap.textContent = dien(t.lay_mau, { kq: o.sua ? t.da_sua : t.chua_sua });
+          if (dem === 2) p5Hen(s, function () {
+            te.forEach(function (x) { if (!x.xem) { x.ch.style.opacity = x.sua ? "1" : "0"; x.e.classList.add(x.sua ? "tc-eb-te-sua" : "tc-eb-te-chua"); } });
+            cap.textContent = dien(t.m2_xong, { a: dsSua.length, b: 8 - dsSua.length }); tiep.textContent = t.nut_tiep[1]; tiep.hidden = false;
+          }, 900);
+        });
+      });
+    }
+    function man3() {
+      s._man = 3; p5Xoa(c); cap.textContent = t.m3_hoi; tiep.hidden = true;
+      var dat = 0, o = [0, 1].map(function (i) {
+        var x = 16 + i * 252, d = p5Dich(c, "tc-eb-o", t.o[i]);
+        svg(d, "rect", { x: x, y: 132, width: 236, height: 196, rx: 14, class: "tc-eb-o-nen tc-eb-o-" + i });
+        p5Chu(d, x + 118, 156, t.o[i], "tc-eb-o-ten");
+        return { e: d, x: x + 118, y: 230, r: 120, n: 0 };
+      });
+      var the = t.cua.map(function (ten, i) {
+        var e = p5Vat(c, "tc-eb-cua", ten);
+        svg(e, "rect", { x: -76, y: -22, width: 152, height: 44, rx: 10, class: "tc-eb-cua-nen" });
+        svg(e, "rect", { x: -66, y: -14, width: 18, height: 28, rx: 3, class: "tc-eb-cua-hinh tc-eb-cua-hinh-" + i });
+        p5Chu(e, 8, 5, ten, "tc-eb-cua-chu");
+        return { e: e, x: 86 + i * 174, y: 66, i: i };
+      });
+      p5Ban(c, {
+        vat: the, dich: o,
+        chon: function (v) { cap.textContent = dien(t.da_chon, { the: t.cua[v.i] }); },
+        tha: function (v, k) {
+          if (g.ccr5[v.i] !== k) { cap.textContent = t.sai_cua[v.i]; return false; }
+          v.khoa = true; v.e.removeAttribute("tabindex"); v.e.classList.add("tc-eb-dung"); p5DatVat(v, o[k].x, 194 + o[k].n * 52, 300); o[k].n++;
+          cap.textContent = t.dung_cua[v.i];
+          if (++dat === 3) { o.forEach(function (d) { d.tat = true; }); tiep.textContent = t.nut_tiep[2]; tiep.hidden = false; }
+        }
+      });
+    }
+    function man4() {
+      s._man = 4; p5Xoa(c); cap.textContent = t.m4_hoi; tiep.hidden = true;
+      var tat = 0;
+      p5Chu(c, 18, 28, t.cong_tieu, "tc-p5-nho", "start");
+      t.cau.forEach(function (q, i) {
+        var y = 52 + i * 66, d = p5Dich(c, "tc-eb-cong", q + ": " + t.bat_thu);
+        svg(d, "rect", { x: 12, y: y, width: 496, height: 56, rx: 12, class: "tc-eb-cong-nen" });
+        p5Chu(d, 28, y + 24, q, "tc-eb-cau", "start");
+        var ly = p5Chu(d, 28, y + 44, "", "tc-eb-ly", "start");
+        svg(d, "rect", { x: 440, y: y + 16, width: 52, height: 26, rx: 13, class: "tc-eb-ray" });
+        var num = svg(d, "circle", { cx: 453, cy: y + 29, r: 10, class: "tc-eb-num" }), xong = false;
+        p5Nut(d, function () {
+          if (s._man !== 4 || xong) return; xong = true;
+          p5Dat(num, 26, 0, 250);
+          p5Hen(s, function () { p5Dat(num, 0, 0, 250); d.classList.add("tc-eb-khong"); ly.textContent = t.ly[i]; d.setAttribute("aria-label", q + ": " + t.khong); cap.textContent = t.khong_cap; }, 450);
+          if (++tat === 4) p5Hen(s, function () { cap.textContent = t.bon_khong; p5Ket(ket, [t.ket, t.ket_2, t.ket_3]); lai.hidden = false; }, 900);
+        });
+      });
+    }
+    tiep.onclick = function () { if (s._man === 1) man2(); else if (s._man === 2) man3(); else if (s._man === 3) man4(); };
+    lai.onclick = function () { p5Lai(s, suaThanHayPhoi, g, t); };
+    man1();
+    s.appendChild(san); s.appendChild(cap); s.appendChild(hang); s.appendChild(ket); chanNguon(s, t);
+    return s;
+  }
+  // ==== ĐỢT 5 P KẾT THÚC ====
   var KHUON = { "quyet-dinh": quyetDinh, "doan": doan, "doan-so": doanSo, "phan-loai": phanLoai,
     "bac-thang": bacThang, "thu-tu": thuTu, "dem-cham": demCham, "phan-xa": phanXa, "dieu-khien": dieuKhien,
     "soi-loi": soiLoi, "hop-thu": hopThu, "ban-thai": banThai, "tri-nho": triNho, "dam-dong": damDong,
@@ -8159,6 +9784,22 @@
     "ve-duong": veDuong, "can-thang-bang": canThangBang, "chia-nhom": chiaNhom, "lan-theo-nguon": lanTheoNguon, "kim-tu-thap": kimTuThap, "xay-thap": xayThap,
     "dong-tien": dongTien, "doan-vi-tri": doanViTri, "nao-chia-doi": naoChiaDoi, "ban-tron": banTron, "hop-nhom": hopNhom, "nhan-chung": nhanChung,
     "cham-mu": chamMu, "hau-truong": hauTruong, "tong-dai": tongDai, "pheu": pheu, "ket-sat": ketSat, "nhap-vai": nhapVai };
+  // ==== ĐỢT 5 P ĐĂNG KÝ ====
+  KHUON["keo-tim-cho-cat"] = keoTimChoCat;
+  KHUON["cua-nav17"] = cuaNav17;
+  KHUON["lap-trinh-keo"] = lapTrinhKeo;
+  KHUON["sua-than-hay-phoi"] = suaThanHayPhoi;
+  // ==== HẾT ĐĂNG KÝ P ====
+  // ==== ĐỢT 5 O ĐĂNG KÝ ====
+  KHUON["dia-guthrie"] = diaGuthrie;
+  KHUON["boc-tham-gen"] = bocThamGen;
+  KHUON["la-chan-hay-ganh-nang"] = laChanHayGanhNang;
+  // ==== HẾT ĐĂNG KÝ O ====
+  // ==== ĐỢT 5 N ĐĂNG KÝ ====
+  KHUON["thang-dna"] = thangDna;
+  KHUON["cong-tac-num-van"] = congTacNumVan;
+  KHUON["dong-xu-gen"] = dongXuGen;
+  // ==== HẾT ĐĂNG KÝ N ====
   // ==== ĐỢT 4 M ĐĂNG KÝ ====
   KHUON["xep-cach-hoc"] = xepCachHoc;
   KHUON["duong-cong-sigma"] = duongCongSigma;
