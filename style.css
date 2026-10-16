@@ -1831,6 +1831,69 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .kit .book-sec { break-inside: avoid; }
 }
 
+/* Phòng thí nghiệm cảm biến 3D (phong-thi-nghiem-cam-bien.html, cam-bien.js) */
+.cb { max-width: 1120px; margin: 0 auto; padding: 24px 16px 56px; }
+.cb-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 16px; scrollbar-width: none; }
+.cb-tab { flex: none; padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink); font: 600 15px/1.2 var(--f-body); cursor: pointer; }
+.cb-tab[aria-selected="true"] { background: var(--grad); color: var(--on); border-color: transparent; }
+.cb-o { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+.cb-san { position: relative; aspect-ratio: 4 / 3; border-radius: 22px; overflow: hidden; border: 1.5px solid var(--edge); background: var(--bg2); box-shadow: 0 20px 40px -28px rgba(15, 23, 42, .55); }
+.cb-san canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.cb-nhan-3d { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.cb-nhan { position: absolute; transform: translate(-50%, -100%); padding: 4px 10px; border-radius: 999px; background: rgba(15, 23, 42, .85); color: #fff; font: 600 12.5px/1.3 var(--f-body); white-space: nowrap; }
+.cb-nhan.is-do { background: #dc2626; }
+.cb-nhan.is-radar { background: #047857; }
+.cb-loi { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 24px; text-align: center; color: var(--muted); }
+.cb-ben { display: flex; flex-direction: column; gap: 12px; }
+.cb-chon-cb { display: flex; flex-wrap: wrap; gap: 8px; }
+.cb-chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink); font: 600 14px/1.2 var(--f-body); cursor: pointer; }
+.cb-chip.is-chon { background: var(--blue); border-color: var(--blue); color: #fff; }
+.cb-chip:disabled { cursor: default; opacity: .8; }
+.cb-mo-ta, .cb-ly-do, .cb-cong-thuc { margin: 0; line-height: 1.55; color: var(--muted); }
+.cb-tach { align-self: flex-start; }
+.cb-bp { display: flex; flex-wrap: wrap; gap: 6px; }
+.cb-bp-nut { padding: 6px 12px; border-radius: 10px; border: 1.5px dashed var(--edge); background: transparent; color: var(--ink); font: 500 13.5px/1.3 var(--f-body); cursor: pointer; }
+.cb-bp-nut.is-chon { border-style: solid; border-color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, var(--panel)); }
+.cb-the { padding: 14px 16px; border-radius: 16px; background: var(--panel); border: 1.5px solid var(--edge); }
+.cb-the b { font: 800 17px/1.3 var(--f-display); }
+.cb-the p { margin: 6px 0 0; line-height: 1.55; }
+.cb-the .cb-goi-y { margin: 0; color: var(--muted); }
+.cb-ds { margin: 8px 0 0; padding-left: 18px; line-height: 1.5; }
+.cb-video { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: var(--panel); border: 1.5px solid var(--edge); color: var(--ink); text-decoration: none; }
+.cb-video:hover { border-color: var(--blue); }
+.cb-video-so { flex: none; padding: 2px 10px; border-radius: 999px; background: var(--grad); color: #fff; font: 700 13px/1.5 var(--f-mono); }
+.cb-video b { font-size: 14.5px; line-height: 1.35; }
+.cb-o-so { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cb-so { display: grid; gap: 2px; padding: 14px; border-radius: 16px; background: var(--grad); color: #fff; }
+.cb-so b { font: 800 28px/1.1 var(--f-display); }
+.cb-so span { font-size: 13px; opacity: .9; }
+.cb-thanh { display: grid; gap: 6px; font-weight: 600; }
+.cb-thanh input { width: 100%; accent-color: var(--blue); }
+.cb-nho { margin: 0; font: 500 13px/1.4 var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.cb-bang { padding: 12px; border-radius: 16px; background: var(--panel); border: 1.5px solid var(--edge); display: grid; gap: 6px; }
+.cb-bang-h { margin: 0 0 2px; font-weight: 700; }
+.cb-dong { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 14px; }
+.cb-dot { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; font-weight: 800; color: #fff; }
+.cb-dong-muc { font-size: 12.5px; color: var(--muted); }
+.muc-2 .cb-dot { background: #059669; }
+.muc-1 .cb-dot { background: #d97706; }
+.muc-0 .cb-dot { background: #94a3b8; }
+.cb-de { margin: 0; font: 700 18px/1.45 var(--f-body); }
+.cb-phan-hoi { padding: 14px 16px; border-radius: 16px; border: 2px solid var(--edge); background: var(--panel); }
+.cb-phan-hoi.is-dung { border-color: #10B981; }
+.cb-phan-hoi.is-sai { border-color: #EF4444; }
+.cb-phan-hoi b { font: 800 17px/1.3 var(--f-display); }
+.cb-phan-hoi p { margin: 6px 0 0; line-height: 1.55; }
+.cb-sau { display: grid; gap: 10px; }
+.cb-sau .btn { justify-self: start; }
+.cb-ket { display: grid; gap: 4px; padding: 20px; border-radius: 20px; background: var(--grad); color: #fff; }
+.cb-ket b { font: 800 48px/1 var(--f-display); }
+.cb-ghi { margin: 24px auto 0; max-width: 680px; text-align: center; font-size: 13.5px; color: var(--muted); }
+@media (max-width: 860px) {
+  .cb-o { grid-template-columns: minmax(0, 1fr); }
+  .cb-san { aspect-ratio: 1 / 1; max-height: 70vh; width: 100%; }
+}
+
 /* Trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html, lua-dao.js): màn hình điện thoại giả lập + bảng chọn */
 .ld { max-width: 940px; margin: 0 auto; padding: 28px 16px 56px; }
 .ld-dau { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 14px; font: 500 14px/1.4 var(--f-mono); color: var(--muted); }

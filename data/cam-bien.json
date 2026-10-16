@@ -1,0 +1,75 @@
+{
+ "_ghi_chu": "Phòng thí nghiệm cảm biến (phong-thi-nghiem-cam-bien.html, en/, cam-bien.js, Three.js trong assets/vendor/three). Dựa trên video 5 LiDAR và series Ba con mắt của AI (5.1-5.7). 'muc' là mức nhận biết: 2 = rõ, 1 = mờ / ước chừng, 0 = không biết. Bảng muc theo cảm biến -> thông tin -> thời tiết (nang, dem, mua, suong). Ghép nhiều cảm biến thì lấy mức cao nhất (sensor fusion).",
+ "cam_bien": {
+  "lidar": {
+   "ten": {"vi": "LiDAR", "en": "LiDAR"}, "video": "5",
+   "mo_ta": {"vi": "Bắn tia laser, đo thời gian tia dội về để biết khoảng cách. Ra một đám mây điểm 3D, chính xác tới từng centimet, ngày hay đêm như nhau.", "en": "Fires laser pulses and times their return to measure distance. Builds a 3D point cloud accurate to centimetres, day or night."},
+   "bo_phan": [
+    {"id": "de", "ten": {"vi": "Đế và động cơ", "en": "Base and motor"}, "chu": {"vi": "Quay cả đầu đo 10-20 vòng mỗi giây để quét đủ 360 độ quanh xe.", "en": "Spins the sensor head 10-20 times a second to sweep all 360° around the car."}},
+    {"id": "dau", "ten": {"vi": "Đầu quay", "en": "Spinning head"}, "chu": {"vi": "Chứa bộ phát và bộ thu. Mỗi vòng quay ghi lại hàng trăm nghìn điểm.", "en": "Holds the emitter and receiver. Each turn records hundreds of thousands of points."}},
+    {"id": "phat", "ten": {"vi": "Bộ phát laser", "en": "Laser emitter"}, "chu": {"vi": "Bắn những xung ánh sáng hồng ngoại rất ngắn, mắt người không thấy.", "en": "Fires very short infrared light pulses the human eye can't see."}},
+    {"id": "guong", "ten": {"vi": "Gương lái tia", "en": "Steering mirror"}, "chu": {"vi": "Đổi hướng tia laser lên xuống để quét nhiều tầng cùng lúc.", "en": "Tilts the beam up and down to scan several layers at once."}},
+    {"id": "thu", "ten": {"vi": "Mắt thu", "en": "Receiver"}, "chu": {"vi": "Đón ánh sáng dội về. Thời gian đi và về cho biết vật cách bao xa.", "en": "Catches the reflected light. The round-trip time tells how far the object is."}},
+    {"id": "mach", "ten": {"vi": "Mạch xử lý", "en": "Processing board"}, "chu": {"vi": "Đổi thời gian thành khoảng cách: quãng đường = tốc độ ánh sáng × thời gian ÷ 2.", "en": "Turns time into distance: distance = speed of light × time ÷ 2."}}
+   ]
+  },
+  "camera": {
+   "ten": {"vi": "Camera", "en": "Camera"}, "video": "5.2",
+   "mo_ta": {"vi": "Chụp ảnh màu như mắt người. Là con mắt duy nhất đọc được màu đèn và chữ trên biển báo, nhưng kém khi trời tối hay sương mù.", "en": "Takes colour pictures like a human eye. The only sensor that reads light colours and sign text, but it struggles in the dark or fog."},
+   "bo_phan": [
+    {"id": "vo", "ten": {"vi": "Vỏ chống nước", "en": "Waterproof housing"}, "chu": {"vi": "Giữ ống kính sạch và khô, thường đặt sau kính chắn gió.", "en": "Keeps the lens clean and dry, usually behind the windscreen."}},
+    {"id": "kinh", "ten": {"vi": "Ống kính", "en": "Lens"}, "chu": {"vi": "Nhiều lớp thấu kính gom ánh sáng lại thành ảnh rõ nét.", "en": "Several glass elements focus light into a sharp image."}},
+    {"id": "khau", "ten": {"vi": "Khẩu độ", "en": "Aperture"}, "chu": {"vi": "Mở to khi trời tối để lấy thêm ánh sáng, nhưng ảnh dễ nhòe.", "en": "Opens wide in the dark to let in more light, at the cost of blur."}},
+    {"id": "cam", "ten": {"vi": "Cảm biến ảnh", "en": "Image sensor"}, "chu": {"vi": "Hàng triệu điểm ảnh, mỗi điểm đo một màu đỏ, xanh lá hoặc xanh dương.", "en": "Millions of pixels, each measuring red, green or blue light."}},
+    {"id": "chip", "ten": {"vi": "Chip AI", "en": "AI chip"}, "chu": {"vi": "Mạng nơ-ron đọc ảnh: tìm người, xe, đèn đang đỏ hay xanh, biển ghi gì.", "en": "A neural network reads the image: people, vehicles, light colour, sign text."}}
+   ]
+  },
+  "radar": {
+   "ten": {"vi": "Radar", "en": "Radar"}, "video": "5.1",
+   "mo_ta": {"vi": "Phát sóng radio, đo sóng dội về. Biết khoảng cách và tốc độ ngay lập tức, xuyên mưa và sương mù, nhưng hình rất thô.", "en": "Sends radio waves and measures the echo. Knows distance and speed instantly and sees through rain and fog, but the picture is very coarse."},
+   "bo_phan": [
+    {"id": "nap", "ten": {"vi": "Nắp radome", "en": "Radome cover"}, "chu": {"vi": "Nắp nhựa cho sóng radio đi xuyên qua, thường giấu sau logo xe.", "en": "A plastic cover radio waves pass through, often hidden behind the car's badge."}},
+    {"id": "anten", "ten": {"vi": "Dãy ăng-ten", "en": "Antenna array"}, "chu": {"vi": "Nhiều ăng-ten nhỏ phát và thu sóng. So lệch giữa các ăng-ten để biết vật ở hướng nào.", "en": "Many small antennas send and receive. Comparing them tells which direction an object is in."}},
+    {"id": "chip", "ten": {"vi": "Chip sóng radio", "en": "Radio chip"}, "chu": {"vi": "Tạo sóng tần số 77 GHz. Hiệu ứng Doppler cho biết vật đang lại gần hay ra xa, nhanh cỡ nào.", "en": "Generates 77 GHz waves. The Doppler effect shows whether an object is approaching or leaving, and how fast."}},
+    {"id": "mach", "ten": {"vi": "Mạch xử lý", "en": "Processing board"}, "chu": {"vi": "Biến sóng dội thành danh sách vật: cách bao xa, hướng nào, tốc độ bao nhiêu.", "en": "Turns echoes into a list of objects: distance, direction, speed."}},
+    {"id": "vo", "ten": {"vi": "Vỏ kim loại", "en": "Metal case"}, "chu": {"vi": "Che chắn nhiễu, tản nhiệt cho chip.", "en": "Shields interference and cools the chip."}}
+   ]
+  }
+ },
+ "thoi_tiet": {
+  "nang": {"vi": "Nắng", "en": "Sunny"}, "dem": {"vi": "Đêm", "en": "Night"}, "mua": {"vi": "Mưa to", "en": "Heavy rain"}, "suong": {"vi": "Sương mù", "en": "Fog"}
+ },
+ "thong_tin": {
+  "nguoi": {"vi": "Người đi bộ ở đâu, cách bao xa", "en": "Where the pedestrian is, how far"},
+  "toc_do": {"vi": "Xe máy chạy nhanh cỡ nào", "en": "How fast the motorbike is going"},
+  "den": {"vi": "Đèn đang đỏ hay xanh", "en": "Is the light red or green"},
+  "bien": {"vi": "Biển báo ghi gì", "en": "What the sign says"}
+ },
+ "muc": {
+  "camera": {"nguoi": {"nang": 2, "dem": 1, "mua": 1, "suong": 0}, "toc_do": {"nang": 1, "dem": 1, "mua": 1, "suong": 0}, "den": {"nang": 2, "dem": 2, "mua": 2, "suong": 1}, "bien": {"nang": 2, "dem": 1, "mua": 1, "suong": 0}},
+  "lidar": {"nguoi": {"nang": 2, "dem": 2, "mua": 1, "suong": 0}, "toc_do": {"nang": 1, "dem": 1, "mua": 1, "suong": 0}, "den": {"nang": 0, "dem": 0, "mua": 0, "suong": 0}, "bien": {"nang": 0, "dem": 0, "mua": 0, "suong": 0}},
+  "radar": {"nguoi": {"nang": 1, "dem": 1, "mua": 1, "suong": 1}, "toc_do": {"nang": 2, "dem": 2, "mua": 2, "suong": 2}, "den": {"nang": 0, "dem": 0, "mua": 0, "suong": 0}, "bien": {"nang": 0, "dem": 0, "mua": 0, "suong": 0}}
+ },
+ "ly_do": {
+  "camera": {"vi": "Camera cần ánh sáng: đêm thì ảnh tối và nhòe, mưa sương thì mờ. Nhưng đèn giao thông tự phát sáng nên vẫn đọc được màu.", "en": "Cameras need light: at night images get dark and blurry, rain and fog blur them. Traffic lights glow, so their colour is still readable."},
+  "lidar": {"vi": "LiDAR tự mang ánh sáng nên đêm vẫn thấy rõ. Nhưng hạt mưa, hạt sương làm tia laser bị hắt tung, và LiDAR không thấy màu hay chữ.", "en": "LiDAR brings its own light, so night is no problem. But raindrops and fog scatter the laser, and it can't see colour or text."},
+  "radar": {"vi": "Sóng radio đi xuyên mưa và sương, đo tốc độ rất chuẩn. Nhưng hình quá thô: người chỉ là một đốm, không có màu, không có chữ.", "en": "Radio waves pass through rain and fog and measure speed precisely. But the picture is coarse: a person is just a blob, with no colour or text."}
+ },
+ "thu_thach": [
+  {"id": "dem-mua-den", "thoi_tiet": "mua", "can": {"den": 2}, "video": "5.2",
+   "de": {"vi": "Mưa to buổi tối. Xe cần biết đèn phía trước đang đỏ hay xanh.", "en": "Heavy rain in the evening. The car needs to know if the light ahead is red or green."},
+   "giai": {"vi": "Chỉ camera thấy được màu. Đèn giao thông tự phát sáng nên dù mưa camera vẫn đọc ra màu đỏ.", "en": "Only the camera sees colour. Traffic lights glow, so even in rain the camera reads red."}},
+  {"id": "suong-phanh", "thoi_tiet": "suong", "can": {"toc_do": 2, "nguoi": 1}, "video": "5.1",
+   "de": {"vi": "Sương mù dày trên cao tốc. Phía trước có xe máy và người, cần biết họ ở đâu và xe máy chạy nhanh cỡ nào.", "en": "Thick fog on the highway. There's a motorbike and a person ahead: where are they, and how fast is the bike?"},
+   "giai": {"vi": "Radar nhìn xuyên sương mù và đo tốc độ ngay lập tức. LiDAR và camera gần như mù trong sương dày.", "en": "Radar sees through fog and measures speed instantly. LiDAR and cameras are nearly blind in thick fog."}},
+  {"id": "dem-ao-toi", "thoi_tiet": "dem", "can": {"nguoi": 2}, "video": "5",
+   "de": {"vi": "Đêm không đèn đường. Một người mặc áo tối băng qua, xe cần biết chính xác người đó ở đâu.", "en": "A night with no streetlights. Someone in dark clothes is crossing: the car needs their exact position."},
+   "giai": {"vi": "LiDAR tự bắn ánh sáng nên đêm như ngày, cho vị trí chính xác từng centimet. Camera chỉ thấy lờ mờ, radar chỉ thấy một đốm.", "en": "LiDAR brings its own light, so night is like day, with centimetre-accurate positions. The camera sees a faint shape, radar just a blob."}},
+  {"id": "nang-bien", "thoi_tiet": "nang", "can": {"bien": 2}, "video": "5.2",
+   "de": {"vi": "Trời nắng đẹp. Xe cần đọc biển giới hạn tốc độ bên đường.", "en": "A sunny day. The car needs to read the speed-limit sign."},
+   "giai": {"vi": "Đọc chữ và số trên biển là việc của camera. LiDAR chỉ thấy một tấm phẳng, radar thấy một cột kim loại.", "en": "Reading the numbers on a sign is the camera's job. LiDAR sees a flat board, radar a metal pole."}},
+  {"id": "suong-ghep", "thoi_tiet": "suong", "can": {"den": 1, "toc_do": 2}, "video": "5.4",
+   "de": {"vi": "Sương mù ở ngã tư. Xe cần biết đèn đang màu gì, VÀ xe máy phía trước chạy nhanh cỡ nào.", "en": "Fog at a junction. The car needs the light's colour AND the speed of the motorbike ahead."},
+   "giai": {"vi": "Không cảm biến nào làm được một mình: camera đọc màu đèn, radar đo tốc độ. Ghép lại gọi là sensor fusion.", "en": "No single sensor can do both: the camera reads the light, radar measures speed. Combining them is called sensor fusion."}}
+ ]
+}
