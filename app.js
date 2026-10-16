@@ -8,7 +8,7 @@
     homNay: "Today on the channel", moiToanh: "Brand new? Start here", vung: "Area ", xemPhan1: "Watch part 1", xemVideo: "Watch the video",
     buoc: "Step ", batDau: "Start with #", stats: (a, b) => a + " videos · " + b + " series · a new video every day",
     soTheoDoi: "followers", soLuotXem: "views", soVideo: "videos", soSeries: "series", soNgay: (d, n) => "Channel figures on " + d + " across " + n + " platforms · ", soKit: "Media kit ›",
-    tatCa: "All", locSeries: "Filter by series", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
+    tatCa: "All", locThe: "Filter by tag", locSeries: "Filter by series", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
     hot: "Popular", noiBat: "Featured", moi: "New", choi: "Interactive", xemThem: n => "Show more series (" + n + " left)",
     hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
@@ -21,7 +21,7 @@
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
     buoc: "Bước ", batDau: "Bắt đầu với #", stats: (a, b) => a + " video" + " · " + b + " series · video mới mỗi ngày",
     soTheoDoi: "người theo dõi", soLuotXem: "lượt xem", soVideo: "video", soSeries: "series", soNgay: (d, n) => "Số liệu kênh ngày " + d + " trên " + n + " nền tảng · ", soKit: "Xem media kit ›",
-    tatCa: "Tất cả", locSeries: "Lọc theo series", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
+    tatCa: "Tất cả", locThe: "Lọc theo thẻ", locSeries: "Lọc theo series", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
     hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", choi: "Tương tác", xemThem: n => "Xem thêm series (còn " + n + ")",
     hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
@@ -68,6 +68,14 @@
       (co(moi) ? '<span class="hh hh-moi">' + S.moi + "</span>" : "") +
       (co(so => choi.has(String(so))) ? '<span class="hh hh-choi">' + ic("gamepad") + S.choi + "</span>" : "");
   };
+  // Thẻ của một series (để xếp series có thẻ lên đầu và lọc theo thẻ): Mới > Xem nhiều > Tương tác > Nổi bật
+  const LOAI_THE = [["moi", () => S.moi, ""], ["hot", () => S.hot, "flame"], ["choi", () => S.choi, "gamepad"], ["chon", () => S.noiBat, "star"]];
+  const theCua = g => {
+    const ds = g.items.map(v => v.so), co = f => ds.some(f);
+    return { moi: co(moi), hot: co(so => hot.has(so)), choi: co(so => choi.has(String(so))), chon: co(so => chon.has(so)) };
+  };
+  const diemThe = g => { const c = theCua(g); return (c.moi ? 8 : 0) + (c.hot ? 4 : 0) + (c.choi ? 2 : 0) + (c.chon ? 1 : 0); };
+  const xepThe = ds => ds.map((g, i) => [g, diemThe(g), i]).sort((a, b) => (b[1] > 0) - (a[1] > 0) || b[1] - a[1] || a[2] - b[2]).map(x => x[0]);
   const THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const ngayThang = d => EN ? THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : d.slice(8, 10) + "/" + d.slice(5, 7);
 
@@ -294,6 +302,24 @@
   };
 
   let soThe = 0;
+  // Hàng lọc theo thẻ trên lưới series: chỉ hiện thẻ đang có ít nhất một series; bấm lại thẻ đang chọn để bỏ lọc
+  let locThe = "";
+  const locTheo = ds => xepThe(locThe ? ds.filter(g => theCua(g)[locThe]) : ds);
+  const thanhLoc = ds => {
+    const dem = {};
+    ds.forEach(g => { const c = theCua(g); LOAI_THE.forEach(([k]) => { if (c[k]) dem[k] = (dem[k] || 0) + 1; }); });
+    if (locThe && !dem[locThe]) locThe = "";
+    const nut = LOAI_THE.filter(([k]) => dem[k]);
+    if (!nut.length) return "";
+    return '<div class="loc-the" role="group" aria-label="' + S.locThe + '"><button type="button" class="lt-nut" data-the="" aria-pressed="' + !locThe + '">' + esc(S.tatCa) + "</button>" +
+      nut.map(([k, ten, icon]) => '<button type="button" class="lt-nut lt-' + k + '" data-the="' + k + '" aria-pressed="' + (locThe === k) + '">' + (icon ? ic(icon) : "") + ten() + "<small>" + dem[k] + "</small></button>").join("") + "</div>";
+  };
+  const ganLoc = () => box.querySelectorAll(".lt-nut").forEach(b => b.addEventListener("click", () => {
+    locThe = b.dataset.the === locThe ? "" : b.dataset.the;
+    render();
+    const moi = box.querySelector('.lt-nut[data-the="' + locThe + '"]');
+    if (moi) moi.focus({ preventScroll: true });
+  }));
   // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
   // Đang tìm thì báo ngay dưới ô tìm có bao nhiêu video khớp và ẩn dải "Hôm nay": trên điện thoại kết quả nằm dưới hàng nhóm, người xem tưởng ô tìm không chạy
@@ -318,9 +344,11 @@
       // Lưới hiện trước 3 hàng thẻ, nút "Xem thêm" mở tiếp từng 3 hàng (3 cột trên máy tính, 2 cột trên điện thoại)
       const hang = matchMedia("(max-width: 760px)").matches ? 2 : 3;
       if (!soThe) soThe = hang * 3;
-      const con = groups.length - soThe;
-      box.innerHTML = '<p class="grid-note">' + S.goiY + '</p><ul class="series-grid">' + groups.slice(0, soThe).map(theHtml).join("") + "</ul>" +
+      const ds = locTheo(groups), het = locThe ? ds.length : soThe;
+      const con = ds.length - het;
+      box.innerHTML = '<p class="grid-note">' + S.goiY + '</p>' + thanhLoc(groups) + '<ul class="series-grid">' + ds.slice(0, het).map(theHtml).join("") + "</ul>" +
         (con > 0 ? '<button type="button" class="btn xem-them">' + S.xemThem(con) + "</button>" : "");
+      ganLoc();
       const nut = box.querySelector(".xem-them");
       if (nut) nut.addEventListener("click", () => {
         const dau = soThe;
@@ -335,7 +363,9 @@
     }
     // Chọn một nhóm (không tìm): lưới ảnh bìa đủ các series của nhóm
     if (!q && byNhom[current]) {
-      box.innerHTML = '<ul class="series-grid">' + byNhom[current].ds.map(id => theHtml(byId[id])).join("") + "</ul>";
+      const tat = byNhom[current].ds.map(id => byId[id]);
+      box.innerHTML = thanhLoc(tat) + '<ul class="series-grid">' + locTheo(tat).map(theHtml).join("") + "</ul>";
+      ganLoc();
       document.getElementById("rong").hidden = true;
       return;
     }

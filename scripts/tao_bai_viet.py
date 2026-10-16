@@ -410,7 +410,7 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <link rel="manifest" href="{p}site.webmanifest">
 {FONT}
 <link rel="stylesheet" href="{p}style.css?v=dev">
-<script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="{p}theo-doi.js?v=dev" defer></script>
 {chr(10).join(ld(j) for j in jsonld)}
 </head>
@@ -636,22 +636,27 @@ def hinh_choi(hinh):
     return ('<span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span>'
             '<span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span>')
 
-# Thẻ "Chơi thử" to ở cột phải đầu trang bài (điện thoại: nằm dưới nút Xem video). Video không có trò chơi thì trả về "".
-def the_choi_thu(so, q, p):
+# Khối "Xem 60 giây, thử 60 giây" ngay dưới đầu trang bài có trò chơi: video bên trái, trò chơi bên phải (điện thoại: trên dưới).
+# Trò chơi thu gọn thành thẻ giới thiệu; bấm "Chơi ngay ở đây" thì bai-viet.js tải trang trò chơi vào iframe (?nhung=1)
+# và mở rộng tràn chiều ngang web. Không có JS thì nút là link sang trang trò chơi. Video không có trò chơi: trả về "".
+def xem_choi(so, q, p, video):
     tro = TUONG_TAC.get(str(so))
     if not tro:
         return ""
     url, ten, moi, hinh = tro[0]
-    them = "".join(f'<a class="ct-them" href="{q}{u}">+ {t(*tn)}</a>' for u, tn, _, _ in tro[1:])
-    return (f'<div class="choi-thu"><a class="ct-the" href="{q}{url}">'
-            f'<span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span>'
-            f'{hinh_choi(hinh)}<b class="ct-ten">{t(*ten)}</b><span class="ct-moi">{t(*moi)}</span>'
-            f'<span class="ct-nut">{t("Chơi ngay", "Play now")} →</span></a>{them}</div>\n')
-
-# Đầu trang bài: chữ bên trái, thẻ "Chơi thử" bên phải (nếu có)
-def dau_bai(chu, so, q, p):
-    choi = the_choi_thu(so, q, p)
-    return f'<div class="bai-dau{" co-choi" if choi else ""}"><div class="bai-dau-chu">\n{chu}</div>\n{choi}</div>'
+    them = "".join(f'<a class="xc-them" href="{q}{u}">+ {t("Chơi thêm", "Also try")}: {t(*tn)}</a>' for u, tn, _, _ in tro[1:])
+    xem = ""
+    if video:
+        xem = (f'<div class="xc-o xc-xem"><p class="xc-h"><span class="so">1</span>{t("Xem 60 giây", "Watch 60 seconds")}</p>{video}'
+               f'<button type="button" class="xc-lai" hidden>{ic(p, "play")}{t("Xem lại video", "Watch the video again")}</button></div>')
+    return (f'<section class="xem-choi{"" if xem else " chi-choi"}" id="thu-choi" aria-label="{t("Xem và thử", "Watch and try")}">\n{xem}'
+            f'<div class="xc-o xc-choi" data-url="{q}{url}" data-ten="{esc(t(*ten))}"><p class="xc-h"><span class="so">{"2" if xem else "★"}</span>'
+            f'<span class="xc-tieu">{t("Thử 60 giây", "Try it in 60 seconds")}<span class="xc-ten-mo">: {t(*ten)}</span></span>'
+            f'<span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span></p>'
+            f'<div class="xc-gon">{hinh_choi(hinh)}<b class="xc-ten">{t(*ten)}</b><p class="xc-moi">{t(*moi)}</p>'
+            f'<a class="ct-nut xc-mo" href="{q}{url}">{t("Chơi ngay ở đây", "Play right here")} ↓</a>'
+            f'<span class="xc-meo">{t("Trò chơi mở ngay trong trang, không cần chuyển trang.", "The game opens right on this page.")}</span>{them}</div>'
+            f'<button type="button" class="xc-dong" hidden>{t("Thu gọn trò chơi", "Collapse the game")} ↑</button></div>\n</section>\n')
 
 # Mục lục "Trong bài": gắn id cho các h2 trong thân bài, trả về (thân bài, danh sách (id, chữ))
 def muc_luc(muc):
@@ -677,7 +682,7 @@ def cot_ben(ds, so, q, p, nut):
     ml = "".join(f'<li><a href="#{i}">{esc(html.unescape(x))}</a></li>' for i, x in ds)
     choi = ""
     for u, ten, _, _ in TUONG_TAC.get(str(so), []):
-        choi += (f'<a class="ben-choi" href="{q}{u}"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>'
+        choi += (f'<a class="ben-choi" href="#thu-choi" data-mo-choi><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>'
                  f'<span><small>{t("Chơi thử", "Try it")}</small>{t(*ten)}</span></a>')
     return (f'<aside class="doc-ben" aria-label="{t("Trong bài", "In this article")}"><div class="ben-dinh">'
             f'<p class="ben-h">{t("Trong bài", "In this article")}</p><ol class="ben-ml">{ml}</ol>{choi}'
@@ -721,14 +726,17 @@ def tao_bai(v):
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › <span>#{so:02d}</span></nav>\n'
             f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}{nhan_ngay(LICH.get(str(so)))}</p>\n'
             f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g, p)}{ghi_chu}</div>')
-    band = dau_bai(band, so, q, p)
     than, ds_muc = muc_luc(muc)
+    dau_video = anh_dau_bai(v, p)
+    khoi_choi = xem_choi(so, q, p, dau_video)
+    if khoi_choi:
+        dau_video = ""
     ket = t(f'Đây là bài viết từ video <b>{esc(tieu_de)}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
     cc_dau, cc_cuoi = khoi_cong_cu(v, p)
-    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + than +
+    main = (khoi_choi + f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + dau_video + cc_dau + than +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
@@ -820,12 +828,14 @@ def tao_bai_phu(s, x):
             f'<a href="{q}bai/{ten_file(cha)}.html">#{nhan_so(cha["so"])}</a> › <span>#{so}</span></nav>\n'
             f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}{nhan_ngay(x.get("ra_mat"))}</p>\n'
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
-    band = dau_bai(band, so, q, p)
     than, ds_muc = muc_luc(muc)
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau = (trinh_phat(yt, esc(x["tieu_de"])) if yt else "") + f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n'
-    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n{dau}' + than +
+    khoi_choi = xem_choi(so, q, p, trinh_phat(yt, esc(x["tieu_de"])) if yt else "")
+    if khoi_choi and yt:
+        dau = dau.replace(trinh_phat(yt, esc(x["tieu_de"])), "", 1)
+    main = (khoi_choi + f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n{dau}' + than +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
