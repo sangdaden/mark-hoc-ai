@@ -380,6 +380,9 @@ def lien_ket_ngon_ngu(goc):
     return (f'<link rel="alternate" hreflang="vi" href="{BASE}{goc}">\n<link rel="alternate" hreflang="en" href="{BASE}en/{goc}">\n'
             f'<link rel="alternate" hreflang="x-default" href="{BASE}{goc}">')
 
+# Popup "Cách chơi" (Bit dẫn đường): trang có data/huong-dan/<tên trang>.json tự có, xem scripts/huong_dan.py
+import huong_dan
+
 def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None, co_anh=None, ngay=None):
     # goc: đường dẫn trang không kèm tiền tố ngôn ngữ (vd. "bai/03-prompt.html"); trang thật nằm ở GOC + goc
     url = BASE + GOC + goc
@@ -427,7 +430,7 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <script src="{p}cai-dat.js?v=dev" defer></script>
 <script src="{p}cuon-hien.js?v=dev" defer></script>
 <script src="{p}bit-tro-ly.js?v=dev" defer></script>
-{cuoi}</body>
+{cuoi}{huong_dan.the(goc, p, LG)}</body>
 </html>
 """
 
