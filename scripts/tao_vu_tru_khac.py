@@ -23,7 +23,7 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết), hình tự vẽ assets/vu-tru-khac/bia/<slug>.svg nếu có và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
   vui-mung, ngac-nhien, like, chao, buon-ngu), bên dưới chỉ có số bài, tên, tác giả · năm · điểm. Mỗi khối chỉ hiện một hàng (ít nhất 4 thẻ), còn lại sau nút "Xem thêm". Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
-- Cập nhật sitemap.xml: trang góc sách và từng cuốn, cả hai thứ tiếng (scripts/tao_bai_viet.py dùng cùng hàm dong_sitemap).
+- Tạo lại sitemap.xml (scripts/tao_sitemap.py; file này không lưu trong git, pages.yml tạo khi đăng web).
 """
 import html
 import json
@@ -47,17 +47,9 @@ def dong_sitemap(tien_to=""):
 
 
 def cap_nhat_sitemap():
-    # Bỏ dòng góc sách cũ rồi chèn lại ngay sau trang phiêu lưu của từng ngôn ngữ (đúng thứ tự tao_bai_viet.py ghi)
-    f = R / "sitemap.xml"
-    dong = [d for d in f.read_text(encoding="utf-8").splitlines() if "vu-tru-khac" not in d]
-    ra = []
-    for d in dong:
-        ra.append(d)
-        for tien_to in ("", "en/"):
-            if f"<loc>{BASE}{tien_to}phieu-luu.html</loc>" in d:
-                ra += dong_sitemap(tien_to)
-    f.write_text("\n".join(ra) + "\n", encoding="utf-8")
-    print(f"  sitemap.xml: {sum('vu-tru-khac' in d for d in ra)} dòng góc sách")
+    # sitemap.xml tạo từ chính các file .html (scripts/tao_sitemap.py), không lưu trong git
+    import tao_sitemap
+    print(f"  sitemap.xml: {tao_sitemap.ghi()} trang")
 
 
 def lam_sach(s, en=False):

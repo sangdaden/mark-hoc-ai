@@ -41,7 +41,7 @@ kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
 video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 69.1...) nối tiếp một video chính, xem _ghi_chu trong file
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
 from video_moi import VIDEO_MOI_TU
-from tao_vu_tru_khac import dong_sitemap
+import tao_sitemap
 import anh_chia_se
 import tro_choi
 # Trình phát YouTube: mọi video đã đăng YouTube, kể cả 01-302 và tập phụ ("5.1"), Sang duyệt 16/10 (scripts/cap_nhat_youtube.py)
@@ -435,8 +435,9 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 </html>
 """
 
-# Trang riêng (trò chơi, công cụ, trang bán): hàm tạo trang gắn @trang_rieng("<tên>.html", "<ưu tiên sitemap>") tự vào
-# vòng tạo trang (cả VI lẫn EN) và sitemap.xml, không phải thêm tên vào danh sách chung nào.
+# Trang riêng (trò chơi, công cụ, trang bán): hàm tạo trang gắn @trang_rieng("<tên>.html") tự vào vòng tạo trang (cả VI
+# lẫn EN), không phải thêm tên vào danh sách chung nào. sitemap.xml tự có trang mới (scripts/tao_sitemap.py đọc file .html),
+# tham số ưu tiên thứ hai giữ lại cho file cũ, không còn dùng.
 # Trang mới nên viết thành file riêng scripts/trang/<tên>.py (xem scripts/trang/README.md), để các PR không sửa chung chỗ.
 TRANG_RIENG = []
 def trang_rieng(duong, uu_tien="0.7"):
@@ -2365,28 +2366,10 @@ def chay():
     if CHON == "all":
         anh_chia_se.luu()
 
-    # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html"] + [d for d, _, _ in TRANG_RIENG] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", **{d: u for d, u, _ in TRANG_RIENG}}
-    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for tien_to in ("", "en/"):
-        for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
-            sitemap.append(f"  <url><loc>{BASE}{tien_to}{d}</loc><priority>{uu_tien.get(d, '0.6')}</priority></url>")
-        # Lộ trình theo ngành viết tay (lo-trinh-nganh.html và en/lo-trinh-nganh.html), không do script này tạo
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}lo-trinh-nganh.html</loc><priority>0.8</priority></url>")
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}hoi-bit.html</loc><priority>0.8</priority></url>")  # Hỏi Bit viết tay, dữ liệu từ scripts/tao_hoi_dap.py
-        # Trang Chứng nhận (chung-nhan.html, en/chung-nhan.html) cũng viết tay
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}chung-nhan.html</loc><priority>0.6</priority></url>")
-        # Game Mark phiêu lưu (phieu-luu.html, en/phieu-luu.html) viết tay, câu hỏi lấy từ data/bo-kiem-tra.json
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}phieu-luu.html</loc><priority>0.7</priority></url>")
-        # Bản tin tuần (ban-tin.html, en/ban-tin.html) viết tay, nội dung từ data/ban-tin.json (scripts/tao_ban_tin.py)
-        sitemap.append(f"  <url><loc>{BASE}{tien_to}ban-tin.html</loc><priority>0.6</priority></url>")
-        # Góc sách "Mark ở vũ trụ khác" (scripts/tao_vu_tru_khac.py cũng tự cập nhật các dòng này khi thêm sách)
-        sitemap += dong_sitemap(tien_to)
-    sitemap.append("</urlset>")
-    ghi("sitemap.xml", "\n".join(sitemap) + "\n")
+    # sitemap.xml: tạo từ chính các file .html (scripts/tao_sitemap.py), không lưu trong git
+    so_trang = tao_sitemap.ghi()
     tro_choi.ghi_tuong_tac(TUONG_TAC)
-    print("sitemap.xml:", len(sitemap) - 3, "trang")
+    print("sitemap.xml:", so_trang, "trang (không lưu trong git, pages.yml tạo lại khi đăng)")
 
 if __name__ == "__main__":
     chay()

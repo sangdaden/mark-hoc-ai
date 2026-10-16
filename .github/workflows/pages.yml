@@ -25,6 +25,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Tạo sitemap.xml từ các trang đang có (không lưu trong git)
+        run: python3 scripts/tao_sitemap.py
       - name: Dựng góc Bài báo AI theo ngày hôm nay, rồi bỏ nguồn (đáp án, bài chưa mở) khỏi bản đăng
         run: |
           pip install --quiet cryptography

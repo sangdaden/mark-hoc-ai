@@ -267,6 +267,8 @@ def trang_goc(ds, lg):
 # ---------- chạy ----------
 def cap_nhat_sitemap(mo):
     f = R / "sitemap.xml"
+    if not f.exists():  # sitemap.xml không lưu trong git: chạy scripts/tao_sitemap.py trước (pages.yml làm vậy)
+        return
     cua_goc = re.compile(rf"<loc>{re.escape(BASE)}(en/)?bai-bao(\.html|/)")  # chỉ trang của góc này, không đụng vu-tru-khac/bai-bao-*
     dong = [d for d in f.read_text(encoding="utf-8").splitlines() if not cua_goc.search(d)]
     ra = []
