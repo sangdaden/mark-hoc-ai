@@ -1,0 +1,216 @@
+{
+ "_ghi_chu": "Trò 'Cuộc gọi giả giọng' (cuoc-goi-gia-giong.html, en/, cuoc-goi.js). Mỗi 'cuoc' là một cuộc gọi rẽ nhánh: 'khung.av' là chữ trên ảnh đại diện ('?' cho số lạ), 'nut' là các bước, bắt đầu ở 'reo' (màn hình đổ chuông). Mỗi bước có 'dong' (tu: ho = người gọi nói, tin = tin nhắn của người gọi, minh = bạn nói, he-thong = lời dẫn; cam = giọng điệu) và 'chon' (câu bạn chọn: muc tot/vua/xau, toi = bước tiếp theo) hoặc 'ket' (an-toan = 3 khiên, tam = 1 khiên, mat = 0). Cuối trò: tự đặt mật khẩu gia đình (gợi ý từ 'mat_khau') và in/tải thẻ nhỏ. Mọi tên người, số điện thoại, tài khoản là hư cấu. Mật khẩu người chơi gõ không gửi đi đâu.",
+ "video_lien_quan": [108, 109, 112],
+ "cuoc": [
+  {
+   "id": "con-trai-nua-dem", "video": 108,
+   "ten": {"vi": "Cuộc gọi lúc nửa đêm", "en": "The midnight call"},
+   "vai": {"vi": "Bạn là mẹ của Minh. Minh là sinh viên, đang ở trọ trên thành phố.", "en": "You are Minh's mom. Minh is a university student living in the city."},
+   "khung": {"loai": "goi", "av": "?", "ten": {"vi": "Số không lưu", "en": "Unknown number"}, "so": "09•• ••• 247", "gio": "23:47"},
+   "nut": {
+    "reo": {"chon": [
+     {"chu": {"vi": "Nghe máy", "en": "Answer"}, "muc": "vua", "toi": "nghe"},
+     {"chu": {"vi": "Từ chối, số lạ", "en": "Decline, unknown number"}, "muc": "tot", "toi": "tu-choi"}
+    ]},
+    "tu-choi": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Điện thoại reo lại ngay. Rồi một tin nhắn từ số đó:", "en": "The phone rings again straight away. Then a text from the same number:"}},
+     {"tu": "tin", "chu": {"vi": "Mẹ ơi nghe máy đi, con cấp cứu!!!", "en": "Mom pick up, it's an emergency!!!"}}
+    ], "chon": [
+     {"chu": {"vi": "Nghe máy", "en": "Answer"}, "muc": "vua", "toi": "nghe"},
+     {"chu": {"vi": "Tự gọi vào số của Minh đã lưu", "en": "Call Minh's saved number yourself"}, "muc": "tot", "toi": "goi-lai"}
+    ]},
+    "nghe": {"dong": [
+     {"tu": "ho", "cam": {"vi": "khóc nấc", "en": "sobbing"}, "chu": {"vi": "Mẹ ơi… con Minh đây… Con đâm xe vào người ta rồi, người ta đang giữ con ở đồn…", "en": "Mom… it's Minh… I hit someone with my bike, they're holding me at the station…"}}
+    ], "chon": [
+     {"chu": {"vi": "Minh hả? Con đang ở đâu?", "en": "Minh? Where are you?"}, "muc": "vua", "toi": "doi-tien"},
+     {"chu": {"vi": "Con cúp máy đi, mẹ gọi lại số con ngay.", "en": "Hang up, I'll call your number right back."}, "muc": "tot", "toi": "cup"},
+     {"chu": {"vi": "Trời ơi! Cần bao nhiêu, mẹ chuyển ngay!", "en": "Oh no! How much? I'll send it now!"}, "muc": "xau", "toi": "tien-ngay"}
+    ]},
+    "doi-tien": {"dong": [
+     {"tu": "ho", "cam": {"vi": "thì thào, gấp gáp", "en": "whispering, rushed"}, "chu": {"vi": "Con không nói lâu được. Phải nộp 20 triệu bồi thường ngay, không họ đưa con đi. Mẹ chuyển vào tài khoản anh cảnh sát nhé: TRAN VAN BINH.", "en": "I can't talk long. I have to pay 20 million in damages now or they'll take me away. Send it to the officer's account: TRAN VAN BINH."}}
+    ], "chon": [
+     {"chu": {"vi": "Hỏi chuyện chỉ người nhà biết: \"Tối qua nhà mình ăn món gì?\"", "en": "Ask something only family knows: \"What did we have for dinner last night?\""}, "muc": "tot", "toi": "hoi"},
+     {"chu": {"vi": "Để mẹ hỏi bố đã.", "en": "Let me ask your dad first."}, "muc": "vua", "toi": "hoi-bo"},
+     {"chu": {"vi": "Chuyển luôn, giọng đúng là Minh mà.", "en": "Send it, that's definitely Minh's voice."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "tien-ngay": {"dong": [
+     {"tu": "ho", "cam": {"vi": "khóc, giục", "en": "crying, pushing"}, "chu": {"vi": "Hai mươi triệu mẹ ơi, vào tài khoản TRAN VAN BINH, mẹ chuyển nhanh lên, họ đang giục con!", "en": "Twenty million, Mom, to the account TRAN VAN BINH, please hurry, they're pushing me!"}}
+    ], "chon": [
+     {"chu": {"vi": "Khoan, hỏi chuyện chỉ người nhà biết trước đã.", "en": "Wait, ask something only family knows first."}, "muc": "tot", "toi": "hoi"},
+     {"chu": {"vi": "Chuyển ngay cho con.", "en": "Send the money right away."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "hoi-bo": {"dong": [
+     {"tu": "ho", "cam": {"vi": "hoảng", "en": "panicking"}, "chu": {"vi": "Đừng nói với bố! Bố biết là bố giết con mất. Mẹ ơi nhanh lên…", "en": "Don't tell Dad! He'll kill me. Mom, please hurry…"}}
+    ], "chon": [
+     {"chu": {"vi": "Cúp máy, gọi lại số của Minh đã lưu", "en": "Hang up and call Minh's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Thôi được, mẹ chuyển.", "en": "Fine, I'll send it."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "hoi": {"dong": [
+     {"tu": "minh", "chu": {"vi": "Tối qua nhà mình ăn món gì, con?", "en": "What did we have for dinner last night?"}},
+     {"tu": "ho", "cam": {"vi": "im một lúc, rồi gắt", "en": "a pause, then snapping"}, "chu": {"vi": "Mẹ ơi giờ này hỏi chuyện đó làm gì! Con sắp bị đưa đi rồi!", "en": "Mom, why are you asking that now? They're about to take me away!"}}
+    ], "chon": [
+     {"chu": {"vi": "Cúp máy, gọi lại số của Minh đã lưu", "en": "Hang up and call Minh's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Chắc con hoảng quá nên quên. Chuyển thôi.", "en": "He's probably too scared to remember. Send it."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "cup": {"dong": [
+     {"tu": "ho", "cam": {"vi": "gào lên", "en": "shouting"}, "chu": {"vi": "Không được cúp! Điện thoại con bị thu rồi, đây là máy của anh cảnh sát!", "en": "Don't hang up! They took my phone, this is the officer's phone!"}}
+    ], "chon": [
+     {"chu": {"vi": "Vẫn cúp, gọi lại số của Minh đã lưu", "en": "Hang up anyway, call Minh's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Ừ thôi, mẹ chuyển.", "en": "OK, I'll send it."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "goi-lai": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Bạn gọi vào số của Minh trong danh bạ. Chuông đổ hai hồi.", "en": "You call Minh's number from your contacts. It rings twice."}},
+     {"tu": "ho", "cam": {"vi": "ngái ngủ", "en": "sleepy"}, "chu": {"vi": "Alo mẹ ạ? Con đang ở phòng trọ ôn bài mà. Có chuyện gì thế mẹ?", "en": "Hello, Mom? I'm in my room studying. What's going on?"}}
+    ], "ket": "an-toan"},
+    "mat": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Bạn chuyển 20 triệu. Nửa tiếng sau, Minh gọi từ số quen: con vẫn ở phòng trọ, chẳng có tai nạn nào cả.", "en": "You send 20 million. Half an hour later Minh calls from his usual number: he's in his room, there was no accident."}}
+    ], "ket": "mat"}
+   },
+   "dau_hieu": [
+    {"vi": "Số lạ, gọi lúc nửa đêm", "en": "Unknown number, in the middle of the night"},
+    {"vi": "Khóc lóc, hối thúc, không cho suy nghĩ", "en": "Crying and rushing you so you can't think"},
+    {"vi": "Đòi chuyển vào tài khoản người lạ", "en": "Money goes to a stranger's account"},
+    {"vi": "Dặn đừng nói với bố", "en": "\"Don't tell Dad\""},
+    {"vi": "Không trả lời được chuyện chỉ người nhà biết", "en": "Can't answer something only family knows"}
+   ],
+   "giai": {"vi": "Giọng nghe y hệt vẫn có thể là AI nhái giọng (voice clone), chỉ cần vài giây ghi âm từ video đăng trên mạng. Cách chắc nhất: cúp máy, tự gọi lại số đã lưu. Đừng gọi lại số vừa gọi tới.", "en": "A voice that sounds exactly right can still be an AI voice clone made from a few seconds of video posted online. The safest move: hang up and call the saved number yourself, never the number that just called."}
+  },
+  {
+   "id": "ban-than-goi-video", "video": 109,
+   "ten": {"vi": "Bạn thân gọi video", "en": "A video call from your best friend"},
+   "vai": {"vi": "Bạn là bạn thân của Tuấn. Vừa có tin nhắn từ tài khoản chat của Tuấn: \"Cho mình mượn 15 triệu, mai trả. Gấp lắm.\"", "en": "You are Tuan's best friend. A message just came from Tuan's chat account: \"Can I borrow 15 million? I'll pay you back tomorrow. It's urgent.\""},
+   "khung": {"loai": "video", "av": "T", "ten": {"vi": "Tuấn (bạn thân)", "en": "Tuan (best friend)"}, "so": {"vi": "Cuộc gọi video · ứng dụng chat", "en": "Video call · chat app"}, "gio": "21:12"},
+   "nut": {
+    "reo": {"chon": [
+     {"chu": {"vi": "Nghe máy", "en": "Answer"}, "muc": "vua", "toi": "nghe"},
+     {"chu": {"vi": "Từ chối", "en": "Decline"}, "muc": "vua", "toi": "tu-choi"}
+    ]},
+    "tu-choi": {"dong": [
+     {"tu": "tin", "chu": {"vi": "Sao không nghe? Nghe đi cho thấy mặt nè, mình thật mà.", "en": "Why didn't you pick up? Answer so you can see my face, it's really me."}}
+    ], "chon": [
+     {"chu": {"vi": "Gọi vào số điện thoại của Tuấn đã lưu", "en": "Call Tuan's saved phone number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Gọi video lại để xem mặt", "en": "Video call back to see his face"}, "muc": "vua", "toi": "nghe"}
+    ]},
+    "nghe": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Mặt Tuấn hiện lên, hơi mờ và giật. Tuấn vẫy tay.", "en": "Tuan's face appears, a bit blurry and choppy. He waves."}},
+     {"tu": "ho", "cam": {"vi": "vội", "en": "hurried"}, "chu": {"vi": "Thấy mình chưa? Mạng chỗ mình yếu quá…", "en": "Can you see me? The signal here is awful…"}}
+    ], "chon": [
+     {"chu": {"vi": "Bảo Tuấn quay nghiêng mặt, đưa tay qua trước mặt", "en": "Ask Tuan to turn his head and wave a hand in front of his face"}, "muc": "tot", "toi": "thu"},
+     {"chu": {"vi": "Hỏi: \"Cuối tuần rồi tụi mình đi đâu?\"", "en": "Ask: \"Where did we go last weekend?\""}, "muc": "tot", "toi": "hoi"},
+     {"chu": {"vi": "Thấy mặt rồi, yên tâm.", "en": "I can see his face, all good."}, "muc": "xau", "toi": "mat-song"}
+    ]},
+    "thu": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Khi bàn tay lướt qua, khuôn mặt méo đi một thoáng. Cuộc gọi tắt sau 7 giây.", "en": "As the hand passes, the face warps for a moment. The call drops after 7 seconds."}},
+     {"tu": "tin", "chu": {"vi": "Mất sóng rồi, nhắn nhé. Chuyển vào tài khoản NGUYEN VAN HUNG giúp mình, của anh họ mình.", "en": "Lost signal, let's text. Please send it to NGUYEN VAN HUNG, my cousin's account."}}
+    ], "chon": [
+     {"chu": {"vi": "Gọi vào số điện thoại của Tuấn đã lưu", "en": "Call Tuan's saved phone number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Nhắn hỏi Lan, bạn chung của hai người", "en": "Message Lan, a friend you both know"}, "muc": "tot", "toi": "ban-chung"},
+     {"chu": {"vi": "Chuyển thôi, chắc tại mạng lag.", "en": "Send it, it was probably just lag."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "hoi": {"dong": [
+     {"tu": "ho", "cam": {"vi": "ngập ngừng", "en": "hesitating"}, "chu": {"vi": "À… đi cà phê đó. Thôi mạng yếu quá, nhắn nhé!", "en": "Uh… we got coffee. Ugh, bad signal, let's text!"}},
+     {"tu": "he-thong", "chu": {"vi": "Cuộc gọi tắt. Cuối tuần rồi hai bạn đi đá bóng, không phải cà phê.", "en": "The call ends. Last weekend you two played football, not coffee."}},
+     {"tu": "tin", "chu": {"vi": "Chuyển vào tài khoản NGUYEN VAN HUNG giúp mình nhé, của anh họ mình.", "en": "Please send it to NGUYEN VAN HUNG, my cousin's account."}}
+    ], "chon": [
+     {"chu": {"vi": "Gọi vào số điện thoại của Tuấn đã lưu", "en": "Call Tuan's saved phone number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Chuyển, chắc Tuấn nhớ nhầm.", "en": "Send it, he probably just misremembered."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "mat-song": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Cuộc gọi tắt sau 7 giây.", "en": "The call drops after 7 seconds."}},
+     {"tu": "tin", "chu": {"vi": "Mất sóng rồi, nhắn nhé. Chuyển vào tài khoản NGUYEN VAN HUNG giúp mình, của anh họ mình.", "en": "Lost signal, let's text. Please send it to NGUYEN VAN HUNG, my cousin's account."}}
+    ], "chon": [
+     {"chu": {"vi": "Sao lại tài khoản người khác? Gọi số của Tuấn đã lưu", "en": "Why someone else's account? Call Tuan's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Chuyển luôn, vừa thấy mặt mà.", "en": "Send it, I just saw his face."}, "muc": "xau", "toi": "mat"}
+    ]},
+    "goi-lai": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Bạn gọi vào số điện thoại của Tuấn trong danh bạ.", "en": "You call Tuan's number from your contacts."}},
+     {"tu": "ho", "cam": {"vi": "ngạc nhiên", "en": "surprised"}, "chu": {"vi": "Alo? Mình đâu có nhắn gì! Chết, chắc tài khoản chat bị hack rồi. Cảm ơn đã gọi hỏi nha!", "en": "Hello? I didn't message you! Oh no, my chat account must be hacked. Thanks for calling to check!"}}
+    ], "ket": "an-toan"},
+    "ban-chung": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Lan gọi điện cho Tuấn rồi nhắn lại cho bạn.", "en": "Lan phones Tuan, then texts you back."}},
+     {"tu": "tin", "cam": {"vi": "Lan", "en": "Lan"}, "chu": {"vi": "Tuấn bảo không hề mượn tiền ai, tài khoản chat bị hack rồi. Đừng chuyển nha!", "en": "Tuan says he never asked anyone for money, his chat account got hacked. Don't send anything!"}}
+    ], "ket": "an-toan"},
+    "mat": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Bạn chuyển 15 triệu. Sáng hôm sau Tuấn đăng: \"Tài khoản chat của mình bị hack, ai nhận tin mượn tiền đừng chuyển nhé.\"", "en": "You send 15 million. The next morning Tuan posts: \"My chat account was hacked, if you got a message asking for money, don't send it.\""}}
+    ], "ket": "mat"}
+   },
+   "dau_hieu": [
+    {"vi": "Mượn tiền gấp qua tin nhắn", "en": "An urgent money request by message"},
+    {"vi": "Cuộc gọi rất ngắn, hình mờ, giật", "en": "A very short call with a blurry, choppy picture"},
+    {"vi": "Mặt méo khi quay nghiêng hay đưa tay qua", "en": "The face warps when turning or when a hand passes"},
+    {"vi": "Lấy cớ mất sóng để chuyển sang nhắn tin", "en": "\"Bad signal\" as an excuse to switch to text"},
+    {"vi": "Tài khoản nhận tiền mang tên người khác", "en": "The receiving account is in someone else's name"}
+   ],
+   "giai": {"vi": "Deepfake chạy được ngay trong cuộc gọi video, đắp mặt người khác lên mặt kẻ gian. Thấy mặt chưa chắc là thật. Quy tắc vàng: kiểm tra qua một kênh khác, như gọi số điện thoại đã lưu hoặc hỏi một người quen chung.", "en": "Deepfakes now run live in video calls, putting someone else's face over the scammer's. Seeing a face doesn't prove anything. Golden rule: check through a different channel, like the saved phone number or a friend you both know."}
+  },
+  {
+   "id": "con-gai-muon-may", "video": 112,
+   "ten": {"vi": "Con gái mượn máy bạn", "en": "Your daughter on a friend's phone"},
+   "vai": {"vi": "Bạn là bố của Na, học lớp 9. Nhà bạn đã có mật khẩu gia đình: \"dưa hấu đỏ\".", "en": "You are Na's dad. She's in 9th grade. Your family already has a safe word: \"red watermelon\"."},
+   "khung": {"loai": "goi", "av": "?", "ten": {"vi": "Số không lưu", "en": "Unknown number"}, "so": "08•• ••• 615", "gio": "17:20"},
+   "nut": {
+    "reo": {"chon": [
+     {"chu": {"vi": "Nghe máy", "en": "Answer"}, "muc": "vua", "toi": "nghe"},
+     {"chu": {"vi": "Từ chối, số lạ", "en": "Decline, unknown number"}, "muc": "vua", "toi": "tu-choi"}
+    ]},
+    "tu-choi": {"dong": [
+     {"tu": "tin", "chu": {"vi": "Bố ơi con Na đây, con mượn máy bạn Thảo. Bố nghe máy giúp con với ạ.", "en": "Dad it's Na, I'm on my friend Thao's phone. Please pick up."}}
+    ], "chon": [
+     {"chu": {"vi": "Gọi lại số của Na đã lưu", "en": "Call Na's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Gọi lại số này", "en": "Call this number back"}, "muc": "vua", "toi": "nghe"}
+    ]},
+    "nghe": {"dong": [
+     {"tu": "ho", "cam": {"vi": "vui vẻ, hơi vội", "en": "cheerful, a little rushed"}, "chu": {"vi": "Bố ơi con Na đây! Điện thoại con hết pin, con mượn máy bạn Thảo. Con quên mang tiền học thêm, bố chuyển giúp con 500 nghìn cho cô Hạnh được không ạ? Không gấp đâu, trước 6 giờ là được.", "en": "Dad, it's Na! My phone died so I'm using Thao's. I forgot my tutoring fee, could you send 500 thousand to Ms. Hanh? No rush, any time before 6 is fine."}}
+    ], "chon": [
+     {"chu": {"vi": "Hỏi mật khẩu gia đình", "en": "Ask for the family safe word"}, "muc": "tot", "toi": "mat-khau"},
+     {"chu": {"vi": "Gọi lại số của Na đã lưu", "en": "Call Na's saved number"}, "muc": "tot", "toi": "goi-lai"},
+     {"chu": {"vi": "Cúp máy, chặn số. Chắc chắn là lừa đảo!", "en": "Hang up and block it. Definitely a scam!"}, "muc": "vua", "toi": "chan"},
+     {"chu": {"vi": "Chuyển luôn, nghe đúng giọng Na.", "en": "Send it, that's Na's voice."}, "muc": "xau", "toi": "chuyen-lieu"}
+    ]},
+    "goi-lai": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Số của Na: \"Thuê bao quý khách vừa gọi hiện không liên lạc được.\" Máy Na hết pin thật.", "en": "Na's number: \"The number you are calling is unavailable.\" Her phone really is dead."}}
+    ], "chon": [
+     {"chu": {"vi": "Gọi lại số lạ kia, hỏi mật khẩu gia đình", "en": "Call the unknown number back and ask for the safe word"}, "muc": "tot", "toi": "mat-khau"},
+     {"chu": {"vi": "Chặn số lạ, mặc kệ", "en": "Block the unknown number and ignore it"}, "muc": "vua", "toi": "chan"}
+    ]},
+    "mat-khau": {"dong": [
+     {"tu": "minh", "chu": {"vi": "Mật khẩu nhà mình là gì con?", "en": "What's our family safe word?"}},
+     {"tu": "ho", "cam": {"vi": "cười", "en": "laughing"}, "chu": {"vi": "Dưa hấu đỏ! Bố cẩn thận ghê.", "en": "Red watermelon! You're so careful, Dad."}},
+     {"tu": "he-thong", "chu": {"vi": "Đúng mật khẩu, không hối thúc, số tiền nhỏ, cô Hạnh là cô giáo Na vẫn hay nhắc.", "en": "Right safe word, no pressure, a small amount, and Ms. Hanh is the tutor Na often mentions."}}
+    ], "chon": [
+     {"chu": {"vi": "Chuyển 500 nghìn cho cô Hạnh", "en": "Send 500 thousand to Ms. Hanh"}, "muc": "tot", "toi": "giup"}
+    ]},
+    "giup": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Tối đó Na về: \"Cảm ơn bố! May mà nhà mình có mật khẩu.\"", "en": "That evening Na gets home: \"Thanks, Dad! Good thing we have a safe word.\""}}
+    ], "ket": "an-toan"},
+    "chan": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Bạn chặn số. Tối đó Na về kể: con đứng chờ ở lớp học thêm cả buổi vì không có tiền đóng.", "en": "You block the number. That evening Na says she waited at tutoring the whole time because she couldn't pay."}}
+    ], "ket": "tam"},
+    "chuyen-lieu": {"dong": [
+     {"tu": "he-thong", "chu": {"vi": "Lần này may là Na thật. Nhưng nếu là kẻ gian nhái giọng, bạn đã mất tiền mà không hề biết.", "en": "Lucky this time, it really was Na. But if it had been a cloned voice, the money would be gone before you knew it."}}
+    ], "ket": "tam"}
+   },
+   "dau_hieu": [
+    {"vi": "Đúng mật khẩu gia đình", "en": "Gave the right safe word"},
+    {"vi": "Không hối thúc, không dặn giấu", "en": "No pressure, no secrecy"},
+    {"vi": "Số tiền nhỏ, người nhận quen thuộc", "en": "A small amount to someone familiar"},
+    {"vi": "Có lý do để không gọi lại được (máy hết pin thật)", "en": "A real reason the saved number didn't work (dead battery)"}
+   ],
+   "giai": {"vi": "Cảnh giác không có nghĩa là nghi mọi cuộc gọi. Khi không gọi lại được số đã lưu, mật khẩu gia đình giúp bạn kiểm tra trong vài giây. Mặt và giọng có thể giả, nhưng AI không biết mật khẩu nhà bạn.", "en": "Being careful doesn't mean distrusting every call. When the saved number doesn't answer, a family safe word lets you check in seconds. Faces and voices can be faked, but an AI doesn't know your family's safe word."}
+  }
+ ],
+ "mat_khau": {
+  "vi": {
+   "a": ["bánh xèo", "xôi gấc", "bún riêu", "cá kho", "chè đậu", "khoai lang", "cơm cháy", "bánh bò", "ốc luộc", "bắp nướng"],
+   "b": ["con diều", "xe đạp", "ô dù", "đèn lồng", "ghế nhựa", "nồi cơm", "quạt máy", "dép tổ ong", "cái ấm", "mũ len"],
+   "c": ["tím", "cam", "bạc", "xanh lá", "hồng", "vàng", "nâu", "trắng"],
+   "de_doan": ["mật khẩu", "matkhau", "password", "gia đình", "giadinh", "nhà mình", "yêu nhau", "123", "abc", "milu", "lu", "bông", "mèo", "chó", "cún", "mic", "kitty", "vàng"]
+  },
+  "en": {
+   "a": ["pancake", "mango", "dumpling", "pickle", "coconut", "popcorn", "noodle", "pretzel", "waffle", "radish"],
+   "b": ["kite", "teapot", "bicycle", "lantern", "umbrella", "sofa", "toaster", "slipper", "bucket", "scarf"],
+   "c": ["purple", "orange", "silver", "green", "pink", "yellow", "brown", "white"],
+   "de_doan": ["password", "family", "love", "home", "123", "abc", "buddy", "max", "bella", "charlie", "lucy", "kitty", "puppy"]
+  }
+ }
+}
