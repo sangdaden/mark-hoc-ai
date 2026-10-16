@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI plays games: tic-tac-toe against a computer, and an AI that games the rules | Mark học AI</title>
+<meta name="description" content="Free games from videos 434 and 437: play tic-tac-toe against a computer and drag “how many moves ahead” to watch minimax get stronger; write the reward rule for a boat race and watch the AI game it (reward hacking).">
+<link rel="canonical" href="https://markhocai.com/en/ai-choi-game.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/ai-choi-game.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/ai-choi-game.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/ai-choi-game.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI plays games: tic-tac-toe against a computer, and an AI that games the rules | Mark học AI">
+<meta property="og:description" content="Free games from videos 434 and 437: play tic-tac-toe against a computer and drag “how many moves ahead” to watch minimax get stronger; write the reward rule for a boat race and watch the AI game it (reward hacking).">
+<meta property="og:url" content="https://markhocai.com/en/ai-choi-game.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Game · 2 stations · runs in your browser</p>
+<h1>AI plays games</h1>
+<p class="lead">Try two ideas from the “How good is AI at games” series by hand: a computer that looks ahead so it never loses, and an AI that games the rules when the reward is set wrong.</p>
+</div><img class="head-art" src="../assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<link rel="stylesheet" href="../assets/ai-choi-game.css?v=dev">
+<main class="ag" id="ag">
+<nav class="ag-ngan" aria-label="Stations"><button type="button" class="ag-nut" data-tram="caro" aria-controls="tram-caro"><span class="ag-nut-so">434</span><span><b>Tic-tac-toe vs the computer</b><small>Video 434 · Drag the look-ahead</small></span></button><button type="button" class="ag-nut" data-tram="thuyen" aria-controls="tram-thuyen"><span class="ag-nut-so">437</span><span><b>The boat that games the rules</b><small>Video 437 · Write the reward rule</small></span></button></nav>
+<section class="ag-tram" id="tram-caro" hidden aria-labelledby="h-caro">
+<p class="ag-nhan">Station 1 · Video 434 · How good is AI at games, part 1/4</p>
+<h2 id="h-caro">Play tic-tac-toe against the computer: drag “how many moves ahead”</h2>
+<p class="ag-mo">You are <b>X</b>, the computer is <b>O</b>. It tries every possible move, looks a few moves ahead and scores each one. The further it looks, the harder it is to beat. At 9 it sees all the way to the end: the best you can do is draw.</p>
+<div class="ag-caro">
+<div class="ag-ban-o">
+<div class="ag-ban" id="cr-ban" role="group" aria-label="3x3 board"></div>
+<p class="ag-tb" id="cr-tb" aria-live="polite"></p>
+</div>
+<div class="ag-ben">
+<label class="ag-lbl" for="cr-sau">Computer looks ahead <b id="cr-sau-so">2</b> moves</label>
+<input type="range" id="cr-sau" min="1" max="9" step="1" value="2">
+<p class="ag-giai" id="cr-sau-giai"></p>
+<div class="ag-ty" aria-live="polite"><div class="ag-o is-xanh"><b><span id="cr-thang">0</span></b><span>You win</span></div><div class="ag-o "><b><span id="cr-hoa">0</span></b><span>Draw</span></div><div class="ag-o is-cam"><b><span id="cr-thua">0</span></b><span>Computer wins</span></div></div>
+<p class="ag-xet" id="cr-xet"></p>
+<label class="ag-chk"><input type="checkbox" id="cr-diem"> Show the computer's score for each empty square</label>
+<p class="ag-chu-giai" id="cr-chu-giai" hidden><span class="is-xanh">+1</span> you win · <span>0</span> draw · <span class="is-cam">−1</span> you lose <small>(if both play perfectly)</small></p>
+<div class="ag-hang"><button type="button" class="btn" id="cr-moi">New game</button><button type="button" class="btn btn-nhe" id="cr-may">New game, computer first</button></div>
+<button type="button" class="chip" id="cr-video">The position from video 434</button>
+</div>
+</div>
+<h3 class="ag-h3">Why a real board is too big to look through</h3>
+<div class="ag-so4"><div class="ag-o "><b>5,478</b><span>3x3 positions: checked in a blink</span></div><div class="ag-o "><b>255,168</b><span>different 3x3 games</span></div><div class="ag-o "><b>225</b><span>squares on a real 15x15 board</span></div><div class="ag-o is-cam"><b>33.7 hours</b><span>to look 6 moves ahead on 15x15, even at a billion sequences a second</span></div></div>
+<details class="ag-nap"><summary>Under the hood: how the computer scores moves (minimax)</summary>
+<p>The computer draws a tree where each branch is a possible move. On its turn it takes the highest-scoring branch; on yours it assumes you pick the branch worst for it. Leaves score +1 win, 0 draw, −1 loss, and the scores flow back up to the root. This is called minimax.</p>
+<p>When the look-ahead is shorter than the game, any branch without a winner yet scores 0, so the computer can't see your double-threat trap. Real 15x15 programs look only a few moves ahead, then score positions with rules of thumb (say an open four is worth +1,000 and an open three +100) and prune hopeless branches.</p>
+</details>
+</section>
+<section class="ag-tram" id="tram-thuyen" hidden aria-labelledby="h-thuyen">
+<p class="ag-nhan">Station 2 · Video 437 · How good is AI at games, part 4/4</p>
+<h2 id="h-thuyen">Write the reward rule, watch the AI game it</h2>
+<p class="ag-mo">You built a boat race and want the boat to finish. But the AI doesn't know what “finish” means: it only sees the score. Set the scoring rule below and let the AI play. It tries all 24 plans and picks the one with the most points.</p>
+<div class="ag-dua">
+<svg id="th-ve" class="ag-ve" viewBox="0 0 640 290" role="img" aria-label="Boat race course with a round lagoon and a finish line"></svg>
+<div class="ag-bang"><span>Score <b id="th-diem">0</b></span><span>Step <b id="th-buoc">0</b>/300</span><span id="th-dich" class="ag-dich"></span></div>
+</div>
+<div class="ag-luat">
+<p class="ag-lbl">Your scoring rule</p>
+<div class="ag-mau" role="group" aria-label="Sample rules"><button type="button" class="chip" id="th-cu">Rule from the video (old)</button><button type="button" class="chip" id="th-moi">Fixed rule</button></div>
+<label class="ag-lbl" for="th-m">Hit a target <b id="th-m-so"></b></label>
+<input type="range" id="th-m" min="0" max="20" step="1" value="10">
+<label class="ag-chk"><input type="checkbox" id="th-moc" checked> Targets come back after every lap</label>
+<label class="ag-lbl" for="th-f">Finish bonus <b id="th-f-so"></b></label>
+<input type="range" id="th-f" min="0" max="500" step="10" value="100">
+<label class="ag-chk"><input type="checkbox" id="th-gan"> +1 point for every step closer to the finish</label>
+<div class="ag-hang"><button type="button" class="btn btn-yt" id="th-chay">Let the AI play ▶</button></div>
+</div>
+<div class="ag-kq" id="th-kq" aria-live="polite" hidden></div>
+<ol class="ag-ke" id="th-ke" hidden></ol>
+<p class="ag-thach" id="th-thach"><b>Challenge:</b> change the rule so the AI finishes the race with at most 1 lap of the lagoon.</p>
+<details class="ag-nap"><summary>Under the hood: AI games the rules outside games too</summary>
+<p>Gaming the rules for points is called reward hacking. An experiment published in 2016 showed exactly this: an AI in a boat racing game circled a lagoon, never finished, and still outscored human players. The course here is an example drawn by the channel; the numbers match video 437.</p>
+<p>Chatbots learn from human ratings, so they sometimes say what pleases instead of what's true. Coding AIs sometimes tweak the tests to pass instead of fixing the bug. The cure is the same as in the game: reward what you actually want, and look at how the AI got there, not just the score.</p>
+</details>
+</section>
+<div class="chia-se">
+<p class="chia-se-h">Found this useful? Send it to a friend</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/en/ai-choi-game.html" data-tieu-de="AI plays games: tic-tac-toe against a computer, and an AI that games the rules" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Share</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Fai-choi-game.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/en/ai-choi-game.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Copy link</button></div>
+</div>
+<p class="ag-ghi">The race course, scores and positions are examples made by the channel. Everything runs on your device: no real AI calls, nothing is sent anywhere.</p>
+<noscript><p>The game needs JavaScript.</p></noscript>
+<script type="application/json" id="ag-du-lieu">{"nhan":{"x_luot":"Your turn (X).","may_nghi":"Computer is thinking…","thang":"You win! The computer only looked {n} moves ahead, so it missed your trap.","thang9":"You win!","thua":"The computer wins. Turn on the scores to see which squares are safe.","hoa":"Draw. With perfect play, tic-tac-toe is always a draw.","xet":"For its last move the computer checked {n} positions.","video":"The position from the video: X has 5 squares left. With scores on, only square 7 gets +1: it blocks O's diagonal and opens two winning lines.","sau":["Only sees its own instant wins. Easy to beat.","Also sees your next winning move and blocks it. Still falls for a double threat.","Starts setting its own traps. Much harder to beat.","Sees almost every line. Hardly ever loses.","Sees to the end of the game, as in the video: never loses."],"o":"Square","ke_thang":"Race straight to the finish","ke_vong":"{n} laps of the lagoon, then finish","ke_mai":"Circle forever ({n} laps), never finish","ai_chon":"AI picks","diem":"points","kq_mai":"The AI never finishes. Circling the lagoon earns {a} points, {x} times as much as racing to the finish ({b}). That's gaming the rules.","kq_long":"The AI does finish, but only after {n} laps of the lagoon to farm targets. Last place, high score.","kq_tot":"The AI races to the finish. Your rule rewards what you actually want.","kq_mot":"The AI finishes. It visits the lagoon once to collect each target a single time, since extra laps no longer pay. Your rule rewards what you actually want.","kq_khong":"There are no points to earn, so the AI has no reason to do anything. The boat stays put.","dat":"You fixed the rule! That's exactly the fix from video 437: reward what you want (progress to the finish), not something that can be farmed forever.","dich_ok":"Finished ✓","dich_khong":"Not finished","mau":"Each yellow dot is a target. The round lagoon has 3 targets that come back every lap.","vinh":"Lagoon","dich":"Finish","bat_dau":"Start"},"lg":"en"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<script src="../ai-choi-game.js?v=dev" defer></script>
+<script src="../bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="../">{"ten":"ai-choi-game","nhom":[{"id":"caro","khi":"#tram-caro","buoc":[{"chon":".ag-ngan","chu":"This page has two stations: tic-tac-toe and the rule-gaming boat. Click to switch.","bo_neu_an":true},{"chon":"#cr-ban","chu":"You are X. Tap an empty square to play; the computer answers as O."},{"chon":"#cr-sau","chu":"Drag this to make the computer look more or fewer moves ahead. At 9 it never loses."},{"chon":"#cr-diem","chu":"Tick this to see how the computer scores each empty square: +1 you win, 0 draw, −1 you lose."}]},{"id":"thuyen","khi":"#tram-thuyen","buoc":[{"chon":"#th-ve","chu":"This is the race course. Yellow dots are targets; the ones in the round lagoon come back every lap."},{"chon":".ag-luat","chu":"Set the scoring rule here: points per target, finish bonus, whether targets come back."},{"chon":"#th-chay","chu":"Press to let the AI play. It tries all 24 plans and picks the highest score, even if it never finishes."},{"chon":"#th-thach","chu":"Challenge: fix the rule so the AI actually finishes. Stuck? Press Fixed rule."}]}]}</script>
+<script src="../huong-dan.js?v=dev" defer></script>
+</body>
+</html>
