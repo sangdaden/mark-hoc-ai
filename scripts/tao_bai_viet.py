@@ -600,6 +600,15 @@ def the_lua_dao(so, q):
     return (f'<a class="next-step next-step-ld" href="{q}lua-dao-hay-that.html"><b>{t("Lừa đảo hay thật?", "Scam or real?")}</b>'
             f'<span>{t("Thử nhận ra chiêu lừa trong 10 tình huống trên điện thoại.", "Spot the tricks in 10 phone situations.")}</span></a>\n')
 
+# Bài của video về câu lệnh (data/ghep-cau-lenh.json, "video_lien_quan") có thêm thẻ mời chơi "Thợ ghép câu lệnh"
+VIDEO_GHEP = set(load("ghep-cau-lenh")["video_lien_quan"])
+
+def the_ghep(so, q):
+    if so not in VIDEO_GHEP:
+        return ""
+    return (f'<a class="next-step next-step-gh" href="{q}tho-ghep-cau-lenh.html"><b>{t("Thợ ghép câu lệnh", "Prompt builder")}</b>'
+            f'<span>{t("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve.")}</span></a>\n')
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -647,7 +656,7 @@ def tao_bai(v):
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
-            f'<aside class="next-steps">\n{the_lua_dao(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
+            f'<aside class="next-steps">\n{the_lua_dao(so, q)}{the_ghep(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
     ngay = LICH.get(str(so))
@@ -1553,6 +1562,67 @@ def tao_lua_dao():
                                                 desc, band, main, p, og_type="website", q="",
                                                 cuoi=f'<script src="{p}lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
+# ---------- trò chơi "Thợ ghép câu lệnh" (tho-ghep-cau-lenh.html): ghép mảnh câu lệnh, xem AI trả lời tốt lên ----------
+# Nội dung ở data/ghep-cau-lenh.json (cả hai ngôn ngữ), cách chơi ở ghep-cau-lenh.js. Câu trả lời của AI viết sẵn, không gọi AI thật.
+def tao_ghep_cau_lenh():
+    p = t("", "../")
+    D = load("ghep-cau-lenh")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) and L in x else x
+    def video(so):
+        v = co_bai[so]
+        return {"so": so, "ten": seo[str(so)], "url": f"bai/{ten_file(v)}.html"}
+    loai = {k: {"ten": x[L], "mau": x["mau"]} for k, x in D["loai"].items()}
+    viec = [{"id": c["id"], "ten": chu(c["ten"]), "goc": chu(c["goc"]), "video": video(c["video"]),
+             "manh": [{"id": m["id"], "loai": m["loai"], "chu": chu(m["chu"]), "giai": chu(m["giai"]), "can": bool(m.get("can")),
+                       "chinh": bool(m.get("chinh")), "bay": m.get("bay", "")} for m in c["manh"]],
+             "tra_loi": {k: chu(x) for k, x in c["tra_loi"].items()}, "sai_khi_tho": chu(c.get("sai_khi_tho", ""))} for c in D["viec"]]
+    mau = {"video": video(D["mau"]["video"]), "dong": [{"loai": d["loai"], "chu": d[L]} for d in D["mau"]["dong"]]}
+    nhan = {
+        "viec": t("Việc", "Task"), "sao": t("Sao", "Stars"), "cau_lenh": t("Câu lệnh của bạn", "Your prompt"), "goc": t("Câu gốc", "Starting line"),
+        "manh": t("Mảnh để ghép", "Pieces to add"), "huong": t("Chạm vào mảnh để thêm vào câu lệnh, chạm lần nữa để bỏ ra. Chỉ chọn mảnh thật sự giúp AI hiểu đúng ý.", "Tap a piece to add it to the prompt, tap again to remove it. Only pick pieces that really help the AI."),
+        "gui": t("Gửi cho AI", "Send to AI"), "ai": t("AI trả lời", "AI answers"), "sua": t("Sửa câu lệnh", "Edit prompt"),
+        "tiep": t("Việc tiếp theo", "Next task"), "xem_ket": t("Xem kết quả", "See your result"), "xem_video": t("Xem video", "Watch video"),
+        "chep": t("Chép câu lệnh", "Copy prompt"), "da_chep": t("Đã chép!", "Copied!"),
+        "muc": {"tho": t("Câu trả lời chung chung", "A generic answer"), "kha": t("Khá hơn rồi, còn thiếu chút", "Better, still missing something"), "tot": t("Đúng ý luôn!", "Spot on!")},
+        "co": t("Mảnh bạn đã dùng", "Pieces you used"), "thieu": t("Còn thiếu", "Still missing"), "bay": t("Mảnh nên bỏ", "Pieces to drop"),
+        "bay_loai": {"mo-ho": t("Mơ hồ", "Vague"), "nguoc": t("Làm kết quả tệ đi", "Makes it worse"), "nguy": t("Không nên giao cho AI", "Don't hand this to AI"), "lo-du-lieu": t("Lộ dữ liệu riêng tư", "Leaks private data")},
+        "canh_bao": t("Câu lệnh có dữ liệu riêng tư. Đừng dán thứ này vào AI thật.", "This prompt contains private data. Don't paste this into a real AI."),
+        "canh_bao_nguy": t("Việc này cần người thật, AI chỉ nên giúp bạn chuẩn bị câu hỏi.", "This needs a real person; AI should only help you prepare questions."),
+        "trong": t("Chưa có mảnh nào. Gửi thử câu gốc cũng được, để xem AI trả lời ra sao.", "No pieces yet. You can send the bare line to see what happens."),
+        "hang": [[18, t("Thợ ghép bậc thầy", "Master prompt builder")], [12, t("Thợ ghép lành nghề", "Skilled prompt builder")], [0, t("Thợ học việc", "Apprentice prompt builder")]],
+        "mau_h": t("Mẫu câu lệnh để dùng mãi", "A prompt template to keep"), "mau_lead": t("Gom mọi mảnh vào một mẫu có chỗ trống. Lần tới nhờ AI, chỉ cần điền vào.", "All the pieces in one fill-in template. Next time you ask an AI, just fill in the blanks."),
+        "on_lai": t("Xem lại video cho những việc chưa được 3 sao", "Rewatch the videos for tasks under 3 stars"), "het": t("Bạn được 3 sao mọi việc. Thử dùng mẫu bên dưới cho việc thật của bạn!", "Three stars on every task. Try the template below on a real task!"),
+        "choi_lai": t("Chơi lại", "Play again"), "phu": t("Mảnh bỏ đúng", "Traps avoided"),
+    }
+    du_lieu = json.dumps({"viec": viec, "loai": loai, "mau": mau, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    so_viec = len(viec)
+    desc = t(f"Trò chơi miễn phí: {so_viec} việc nhờ AI, từ bài đăng bán hàng tới email xin nghỉ phép. Ghép vai trò, bối cảnh, ví dụ, định dạng vào câu lệnh và xem câu trả lời của AI tốt lên ra sao.",
+             f"Free game: {so_viec} everyday AI tasks, from a sales post to a leave request. Snap role, context, examples and format into your prompt and watch the AI answer get better.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 5 phút · chơi trên điện thoại", "Game · 5 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Thợ ghép câu lệnh", "Prompt builder")}</h1>\n'
+            f'<p class="lead">{t(f"{so_viec} việc hằng ngày, mỗi việc bắt đầu bằng một câu lệnh mơ hồ. Ghép thêm mảnh, gửi cho AI, xem câu trả lời đổi ra sao. Cẩn thận vài mảnh bẫy!", f"{so_viec} everyday tasks, each starting with a vague prompt. Add pieces, send it to the AI and see how the answer changes. Watch out for a few trap pieces!")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
+    main = f"""<main class="gh" id="gh">
+<div class="gh-dau"><p class="gh-tien" id="gh-tien" aria-live="polite"></p><p class="gh-diem" id="gh-diem"></p></div>
+<div class="gh-san" id="gh-san"></div>
+<section class="gh-ket" id="gh-ket" hidden aria-live="polite">
+<div class="gh-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="gh-ket-so" id="gh-ket-so"></p><p class="gh-ket-hang" id="gh-ket-hang"></p><p class="gh-ket-phu" id="gh-ket-phu"></p></div></div>
+<h2 class="gh-ket-h" id="gh-ket-h"></h2>
+<div class="gh-ket-video" id="gh-ket-video"></div>
+<div class="gh-mau" id="gh-mau"></div>
+<div class="cta"><button type="button" class="btn" id="gh-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "tho-ghep-cau-lenh.html", t("Thợ ghép câu lệnh: ghép prompt, xem AI trả lời tốt lên", "Prompt builder: snap a prompt together and watch the AI improve"), p)}
+</section>
+<p class="gh-ghi">{t("Câu trả lời của AI trong trò chơi được viết sẵn để minh họa, không gọi AI thật. Tên người và tên gói cước là hư cấu.", "The AI answers in this game are pre-written to illustrate the idea; no real AI is called. Names and phone plans are made up.")}
+{t("Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "Your answers stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem series", "The game needs JavaScript. You can still watch the series")} <a href="bai/{ten_file(co_bai[101])}.html">{t("Hỏi AI cho ra kết quả", "Getting real results from AI")}</a>.</p></noscript>
+<script type="application/json" id="gh-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "tho-ghep-cau-lenh.html", trang("tho-ghep-cau-lenh.html", t(f"Thợ ghép câu lệnh: trò chơi luyện viết prompt | {SITE}", f"Prompt builder: a game for writing better prompts | {SITE}"),
+                                                 desc, band, main, p, og_type="website", q="",
+                                                 cuoi=f'<script src="{p}ghep-cau-lenh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1610,7 +1680,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1618,8 +1688,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
