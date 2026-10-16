@@ -2141,6 +2141,8 @@ html.nhung main { padding-top: 8px; max-width: none; }
   .doc-ben { display: block; position: sticky; top: 20px; }
   .doc-cuoi, .xem-choi { max-width: 1320px; }
   body:has(.doc-bai) .top, body:has(.doc-bai) .band-in, body:has(.doc-bai) .foot { max-width: 1320px; }
+  /* Hàng đầu trang bài đã rộng 1320px nên nút Vũ Trụ Khác nằm trong hàng, không đẩy ra lề phải (lề hẹp sẽ bị cắt mất) */
+  body:has(.doc-bai) .top-tools a.nut-vtk { position: static; transform: none; margin-right: 6px; }
   .doc-bai .post { padding: 36px 48px; }
   .doc-bai .post-cover { margin: -36px -48px 0; }
   .doc-bai .post p { font-size: 18px; }
