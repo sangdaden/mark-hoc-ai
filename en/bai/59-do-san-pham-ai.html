@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to measure AI product quality: sample questions and A/B tests","description":"A leaderboard tells you which model is best, but not whether your product is good. Three ways AI product makers measure: sample questions from real customers, signals from real users, and A/B tests.","inLanguage":"en","url":"https://markhocai.com/en/bai/59-do-san-pham-ai.html","mainEntityOfPage":"https://markhocai.com/en/bai/59-do-san-pham-ai.html","image":["https://markhocai.com/assets/anh/chia-se/en/59-do-san-pham-ai.jpg"],"datePublished":"2026-11-03","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI products are made"},"about":[{"@type":"DefinedTerm","name":"A/B test","url":"https://markhocai.com/en/tu-dien.html#a-b-test"},{"@type":"DefinedTerm","name":"Eval set","url":"https://markhocai.com/en/tu-dien.html#eval-set"},{"@type":"DefinedTerm","name":"Leaderboard","url":"https://markhocai.com/en/tu-dien.html#leaderboard"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"How AI products are made","item":"https://markhocai.com/en/#san-pham-ai"},{"@type":"ListItem","position":3,"name":"How to measure AI product quality: sample questions and A/B tests","item":"https://markhocai.com/en/bai/59-do-san-pham-ai.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="59" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=%C4%90o%20m%E1%BB%99t%20s%E1%BA%A3n%20ph%E1%BA%A9m%20AI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>Leaderboards aren&#x27;t enough</h2>
+<h2 id="muc-1">Leaderboards aren&#x27;t enough</h2>
 <p>A leaderboard says this model is the best. But whether your product is good, a leaderboard can&#x27;t tell you.</p>
 </section>
 <section>
 <p class="sec-chip">WAY 1</p>
-<h2>A set of sample questions</h2>
+<h2 id="muc-2">A set of sample questions</h2>
 <p>The first way: a set of sample questions, taken from real customer questions, with the right answers. A bakery might have fifty: cake prices, opening hours, how to order.</p>
 </section>
 <section>
 <p class="sec-chip">WAY 1</p>
-<h2>Rerun it every time you change something</h2>
+<h2 id="muc-3">Rerun it every time you change something</h2>
 <p>Every time you change something, the model or the instructions, rerun the whole set. Any question that used to be right and is now wrong shows up right away, before customers see it.</p>
 </section>
 <section>
 <p class="sec-chip">WAY 2</p>
-<h2>Signals from real users</h2>
+<h2 id="muc-4">Signals from real users</h2>
 <p>The second way: listen to real users. Not just the like and dislike buttons. If they ask the same thing again, they weren&#x27;t satisfied. If they edit the answer before using it, it was close. If they leave halfway, something&#x27;s wrong.</p>
 </section>
 <section>
 <p class="sec-chip">WAY 3</p>
-<h2>A/B testing</h2>
+<h2 id="muc-5">A/B testing</h2>
 <p>The third way: an A/B test. Half the customers see the old version, half see the new one. Whichever gets more cake orders wins.</p>
 </section>
 <section>
 <p class="sec-chip">RECAP</p>
-<h2>Three ways together</h2>
+<h2 id="muc-6">Three ways together</h2>
 <p>All three together: the question set keeps quality steady, real signals show where it hurts, and A/B tests help you choose a direction.</p>
 </section>
 <aside class="try" aria-labelledby="thu-59">
@@ -97,7 +98,7 @@
 </aside>
 <section>
 <p class="sec-chip">NEXT</p>
-<h2>Every answer costs money</h2>
+<h2 id="muc-7">Every answer costs money</h2>
 <p>But every answer being measured costs money. How much, and who pays? See you in part 5.</p>
 </section>
 <div class="post-end">
@@ -121,6 +122,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">Leaderboards aren&#x27;t enough</a></li><li><a href="#muc-2">A set of sample questions</a></li><li><a href="#muc-3">Rerun it every time you change something</a></li><li><a href="#muc-4">Signals from real users</a></li><li><a href="#muc-5">A/B testing</a></li><li><a href="#muc-6">Three ways together</a></li><li><a href="#thu-59">Click the button, add a reason</a></li><li><a href="#muc-7">Every answer costs money</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="59" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=%C4%90o%20m%E1%BB%99t%20s%E1%BA%A3n%20ph%E1%BA%A9m%20AI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

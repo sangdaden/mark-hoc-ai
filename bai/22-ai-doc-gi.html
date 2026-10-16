@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI học từ đâu? Huấn luyện và ngày khóa sổ kiến thức của AI","description":"Phần 4 của loạt \"Bên trong bộ não AI\". Ở phần 3 ta đã lắp xong bộ máy: cắt mảnh, bản đồ nghĩa, cơ chế chú ý. Nhưng bộ máy mới lắp thì chưa biết gì. Video này…","inLanguage":"vi","url":"https://markhocai.com/bai/22-ai-doc-gi.html","mainEntityOfPage":"https://markhocai.com/bai/22-ai-doc-gi.html","image":["https://markhocai.com/assets/anh/chia-se/22-ai-doc-gi.jpg"],"datePublished":"2026-10-10","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"Knowledge cutoff","url":"https://markhocai.com/tu-dien.html#knowledge-cutoff"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://markhocai.com/tu-dien.html#pretraining"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://markhocai.com/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"AI học từ đâu? Huấn luyện và ngày khóa sổ kiến thức của AI","item":"https://markhocai.com/bai/22-ai-doc-gi.html"}]}</script>
@@ -58,27 +58,28 @@
 <div class="cta"><a class="btn btn-yt" data-so="22" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/a0nFX_WA4Pw" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="a0nFX_WA4Pw" data-tieu-de="AI đã &quot;đọc&quot; gì để thông minh?"><img src="https://i.ytimg.com/vi/a0nFX_WA4Pw/hqdefault.jpg" width="480" height="360" alt="AI đã &quot;đọc&quot; gì để thông minh?" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/shorts/a0nFX_WA4Pw" target="_blank" rel="noopener" aria-label="Phát video: AI đã &quot;đọc&quot; gì để thông minh?"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2>Bộ não vừa lắp xong</h2>
+<h2 id="muc-1">Bộ não vừa lắp xong</h2>
 <p>Ta đã có bộ máy: cắt mảnh, bản đồ nghĩa, cơ chế chú ý. Nhưng lúc mới lắp xong, nó chẳng biết gì cả.</p>
 </section>
 <section>
-<h2>Đọc cả thư viện</h2>
+<h2 id="muc-2">Đọc cả thư viện</h2>
 <p>Rồi người ta cho nó đọc. Một lượng chữ khổng lồ: trang web, sách, bài báo, cả code máy tính. Nhiều hơn một người đọc cả ngàn đời.</p>
 </section>
 <section>
-<h2>Học bằng trò đoán chữ</h2>
+<h2 id="muc-3">Học bằng trò đoán chữ</h2>
 <p>Cách học rất đơn giản: che chữ tiếp theo và bắt nó đoán. Đoán sai thì tự chỉnh một chút. Lặp lại hàng tỉ lần, nó nắm được ngữ pháp, kiến thức, cả cách lập luận.</p>
 </section>
 <section>
-<h2>Ngày khóa sổ</h2>
+<h2 id="muc-4">Ngày khóa sổ</h2>
 <p>Nhưng việc đọc phải dừng ở một ngày, gọi là ngày khóa sổ. Mọi chuyện xảy ra sau ngày đó, AI không hề biết.</p>
 </section>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Hỏi tin mới thì sao?</h2>
+<h2 id="muc-5" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Hỏi tin mới thì sao?</h2>
 <p>Vì vậy, hỏi giá vàng hôm nay, luật mới hay tin tức tuần này, AI có thể trả lời bằng thông tin cũ, mà giọng vẫn rất chắc chắn.</p>
 </section>
 <aside class="try" aria-labelledby="thu-22">
@@ -90,7 +91,7 @@
   <button class="btn copy-btn" type="button" data-chep="prompt-22" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-copy"/></svg>Sao chép prompt</button></div>
 </aside>
 <section>
-<h2>Mới biết viết tiếp câu</h2>
+<h2 id="muc-6">Mới biết viết tiếp câu</h2>
 <p>Đọc xong cả thư viện, AI chỉ biết viết tiếp câu, chứ chưa biết trả lời câu hỏi. Vậy sao nó lại thành trợ lý lễ phép? Phần năm sẽ trả lời.</p>
 </section>
 <div class="post-end">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Bộ não vừa lắp xong</a></li><li><a href="#muc-2">Đọc cả thư viện</a></li><li><a href="#muc-3">Học bằng trò đoán chữ</a></li><li><a href="#muc-4">Ngày khóa sổ</a></li><li><a href="#muc-5">Hỏi tin mới thì sao?</a></li><li><a href="#thu-22">Hỏi ngày khóa sổ</a></li><li><a href="#muc-6">Mới biết viết tiếp câu</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="22" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/a0nFX_WA4Pw" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

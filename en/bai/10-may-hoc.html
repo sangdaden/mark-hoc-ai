@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is machine learning? Explained with a spam filter","description":"How does your inbox filter spam? The answer is machine learning: instead of writing rules by hand, we give the machine thousands of labeled examples and let it find the patterns.","inLanguage":"en","url":"https://markhocai.com/en/bai/10-may-hoc.html","mainEntityOfPage":"https://markhocai.com/en/bai/10-may-hoc.html","image":["https://markhocai.com/assets/anh/chia-se/en/10-may-hoc.jpg"],"datePublished":"2026-10-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Core ideas"},"about":[{"@type":"DefinedTerm","name":"Few-shot","url":"https://markhocai.com/en/tu-dien.html#few-shot"},{"@type":"DefinedTerm","name":"Machine learning","url":"https://markhocai.com/en/tu-dien.html#machine-learning"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"Core ideas","item":"https://markhocai.com/en/#nen-tang"},{"@type":"ListItem","position":3,"name":"What is machine learning? Explained with a spam filter","item":"https://markhocai.com/en/bai/10-may-hoc.html"}]}</script>
@@ -58,34 +58,35 @@
 <div class="cta"><a class="btn btn-yt" data-so="10" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=pcVja-ZpSic" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="pcVja-ZpSic" data-tieu-de="What is machine learning? Machines that learn from examples"><img src="https://i.ytimg.com/vi/pcVja-ZpSic/hqdefault.jpg" width="480" height="360" alt="What is machine learning? Machines that learn from examples" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/watch?v=pcVja-ZpSic" target="_blank" rel="noopener" aria-label="Play video: What is machine learning? Machines that learn from examples"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What is machine learning?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What is machine learning?</h2>
 <p>Your inbox knows which emails are spam on its own. Who taught it?</p>
 </section>
 <section>
 <p class="sec-chip">THE OLD WAY</p>
-<h2>Writing rules by hand</h2>
+<h2 id="muc-2">Writing rules by hand</h2>
 <p>The old way was writing rules by hand: if an email says &quot;you won&quot;, it&#x27;s spam. But spammers just change the wording and get through.</p>
 </section>
 <section>
 <p class="sec-chip">THE NEW WAY</p>
-<h2>Give the machine lots of examples</h2>
+<h2 id="muc-3">Give the machine lots of examples</h2>
 <p>Machine learning works differently. Instead of writing rules, you give the machine thousands of labeled examples: this is spam, this is a normal email.</p>
 </section>
 <section>
-<h2>The machine finds the patterns</h2>
+<h2 id="muc-4">The machine finds the patterns</h2>
 <p>The machine finds the signs by itself: lots of exclamation marks, unknown senders, pushing you to click a link. Nobody had to write those rules.</p>
 </section>
 <section>
 <p class="sec-chip">AROUND YOU</p>
-<h2>Machine learning is everywhere</h2>
+<h2 id="muc-5">Machine learning is everywhere</h2>
 <p>Your phone recognizing your face, voice assistants understanding you, apps suggesting movies: all of them learn from examples like this.</p>
 </section>
 <section>
-<h2>You can teach AI with examples too</h2>
+<h2 id="muc-6">You can teach AI with examples too</h2>
 <p>Chatbots work the same way. Instead of explaining at length what you want, give it a few examples.</p>
 </section>
 <aside class="try" aria-labelledby="thu-10">
@@ -117,6 +118,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">What is machine learning?</a></li><li><a href="#muc-2">Writing rules by hand</a></li><li><a href="#muc-3">Give the machine lots of examples</a></li><li><a href="#muc-4">The machine finds the patterns</a></li><li><a href="#muc-5">Machine learning is everywhere</a></li><li><a href="#muc-6">You can teach AI with examples too</a></li><li><a href="#thu-10">Give examples, ask for more</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="10" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=pcVja-ZpSic" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

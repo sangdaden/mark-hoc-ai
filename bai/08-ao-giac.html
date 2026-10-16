@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin","description":"Bạn hỏi AI ba cuốn sách hay, nó trả lời ngay, rất chắc chắn, nhưng một cuốn không hề tồn tại. Hiện tượng này gọi là ảo giác AI (hallucination). Video giải…","inLanguage":"vi","url":"https://markhocai.com/bai/08-ao-giac.html","mainEntityOfPage":"https://markhocai.com/bai/08-ao-giac.html","image":["https://markhocai.com/assets/anh/chia-se/08-ao-giac.jpg"],"datePublished":"2026-10-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Hallucination","url":"https://markhocai.com/tu-dien.html#hallucination"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://markhocai.com/#nen-tang"},{"@type":"ListItem","position":3,"name":"Ảo giác AI (hallucination) là gì? Vì sao AI bịa mà vẫn tự tin","item":"https://markhocai.com/bai/08-ao-giac.html"}]}</script>
@@ -58,32 +58,33 @@
 <div class="cta"><a class="btn btn-yt" data-so="8" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=AI%20%22%E1%BA%A3o%20gi%C3%A1c%22%2C%20v%C3%AC%20sao%20AI%20b%E1%BB%8Ba%20m%C3%A0%20v%E1%BA%ABn%20r%E1%BA%A5t%20t%E1%BB%B1%20tin%3F" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>Cuốn sách không tồn tại</h2>
+<h2 id="muc-1">Cuốn sách không tồn tại</h2>
 <p>Bạn hỏi AI ba cuốn sách hay. Nó trả lời ngay, rất chắc. Tìm thử thì một cuốn không hề tồn tại.</p>
 </section>
 <section>
-<h2>Hiện tượng có tên hẳn hoi</h2>
+<h2 id="muc-2">Hiện tượng có tên hẳn hoi</h2>
 <p>Hiện tượng này gọi là ảo giác AI: trả lời sai nhưng nghe như thật.</p>
 </section>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vì sao lại bịa?</h2>
+<h2 id="muc-3" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vì sao lại bịa?</h2>
 <p>Nhớ video trước: AI đoán chữ tiếp theo nghe hợp lý nhất. Khi không biết, nó không dừng lại, mà vẫn đoán ra một cái tên nghe rất giống thật.</p>
 </section>
 <section>
-<h2>Hay gặp ở đâu</h2>
+<h2 id="muc-4">Hay gặp ở đâu</h2>
 <p>Dễ gặp nhất ở số liệu, tên sách, điều luật và đường link.</p>
 </section>
 <section>
 <p class="sec-chip">CÁCH 1</p>
-<h2>Cho phép AI nói &quot;không biết&quot;</h2>
+<h2 id="muc-5">Cho phép AI nói &quot;không biết&quot;</h2>
 <p>Cách hạn chế: thêm câu &quot;nếu không chắc, hãy nói không biết&quot;.</p>
 </section>
 <section>
 <p class="sec-chip">CÁCH 2</p>
-<h2>Hỏi nguồn rồi tự kiểm tra</h2>
+<h2 id="muc-6">Hỏi nguồn rồi tự kiểm tra</h2>
 <p>Và hỏi nguồn. Bấm vào kiểm tra. Link không mở được, đừng tin.</p>
 </section>
 <aside class="try" aria-labelledby="thu-8">
@@ -115,6 +116,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Cuốn sách không tồn tại</a></li><li><a href="#muc-2">Hiện tượng có tên hẳn hoi</a></li><li><a href="#muc-3">Vì sao lại bịa?</a></li><li><a href="#muc-4">Hay gặp ở đâu</a></li><li><a href="#muc-5">Cho phép AI nói &quot;không biết&quot;</a></li><li><a href="#muc-6">Hỏi nguồn rồi tự kiểm tra</a></li><li><a href="#thu-8">Thêm hai câu này</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="8" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=AI%20%22%E1%BA%A3o%20gi%C3%A1c%22%2C%20v%C3%AC%20sao%20AI%20b%E1%BB%8Ba%20m%C3%A0%20v%E1%BA%ABn%20r%E1%BA%A5t%20t%E1%BB%B1%20tin%3F" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

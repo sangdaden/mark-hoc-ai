@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is an embedding? How AI understands word meaning with a map","description":"Part 2 of the series \"Inside AI's brain\". In part 1, AI cut sentences into pieces (tokens) and turned them into numbers. This part explains how those numbers carry meaning: AI puts words on a map.","inLanguage":"en","url":"https://markhocai.com/en/bai/20-ban-do-nghia.html","mainEntityOfPage":"https://markhocai.com/en/bai/20-ban-do-nghia.html","image":["https://markhocai.com/assets/anh/chia-se/en/20-ban-do-nghia.jpg"],"datePublished":"2026-10-09","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Inside AI's brain"},"about":[{"@type":"DefinedTerm","name":"Embedding","url":"https://markhocai.com/en/tu-dien.html#embedding"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"Inside AI's brain","item":"https://markhocai.com/en/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"What is an embedding? How AI understands word meaning with a map","item":"https://markhocai.com/en/bai/20-ban-do-nghia.html"}]}</script>
@@ -58,27 +58,28 @@
 <div class="cta"><a class="btn btn-yt" data-so="20" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/zPxe7VLy3uY" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="zPxe7VLy3uY" data-tieu-de="AI understands meaning with a map"><img src="https://i.ytimg.com/vi/zPxe7VLy3uY/hqdefault.jpg" width="480" height="360" alt="AI understands meaning with a map" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/shorts/zPxe7VLy3uY" target="_blank" rel="noopener" aria-label="Play video: AI understands meaning with a map"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So what do the numbers mean?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So what do the numbers mean?</h2>
 <p>Last time, we saw AI cut a sentence into pieces and turn them into numbers. So how do those numbers carry meaning? Let&#x27;s see.</p>
 </section>
 <section>
-<h2>A map of meaning</h2>
+<h2 id="muc-2">A map of meaning</h2>
 <p>AI places every word on a giant map. Words with similar meanings sit close together. Cat is next to dog, while truck is far away.</p>
 </section>
 <section>
-<h2>Coordinates are meaning</h2>
+<h2 id="muc-3">Coordinates are meaning</h2>
 <p>A word&#x27;s spot on the map is its meaning, written as a list of numbers. To tell how similar two words are, AI just measures the distance.</p>
 </section>
 <section>
-<h2>Math with meaning</h2>
+<h2 id="muc-4">Math with meaning</h2>
 <p>This map can even do math. Take king, subtract man, add woman, and you land very close to queen.</p>
 </section>
 <section>
-<h2>You already use it</h2>
+<h2 id="muc-5">You already use it</h2>
 <p>You use it every day. Type dog on the beach into your photo app, and the photos show up even though you never named them. The search works by meaning, not exact words.</p>
 </section>
 <aside class="try" aria-labelledby="thu-20">
@@ -88,7 +89,7 @@
   <p>Open the photo app on your phone and type receipt or birthday cake. And when you ask AI something, just say what you mean. No need to guess keywords.</p></div>
 </aside>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about a whole sentence?</h2>
+<h2 id="muc-6" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about a whole sentence?</h2>
 <p>But a sentence has a dozen words. AI has to find which words matter, and who &quot;it&quot; refers to. Part three explains that.</p>
 </section>
 <div class="post-end">
@@ -112,6 +113,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">So what do the numbers mean?</a></li><li><a href="#muc-2">A map of meaning</a></li><li><a href="#muc-3">Coordinates are meaning</a></li><li><a href="#muc-4">Math with meaning</a></li><li><a href="#muc-5">You already use it</a></li><li><a href="#thu-20">Search photos with words</a></li><li><a href="#muc-6">What about a whole sentence?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="20" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/zPxe7VLy3uY" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What are training and inference? Does AI learn from your questions?","description":"Does AI learn something every time you ask it a question? No. Bit explains the two stages: training, when a model learns once at huge cost, and inference, when it answers you.","inLanguage":"en","url":"https://markhocai.com/en/bai/129-inference-training.html","mainEntityOfPage":"https://markhocai.com/en/bai/129-inference-training.html","image":["https://markhocai.com/assets/anh/chia-se/en/129-inference-training.jpg"],"datePublished":"2026-12-01","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"AI on your own computer"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"AI on your own computer","item":"https://markhocai.com/en/#ai-tren-may"},{"@type":"ListItem","position":3,"name":"What are training and inference? Does AI learn from your questions?","item":"https://markhocai.com/en/bai/129-inference-training.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="129" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Training%20v%C3%A0%20inference%20kh%C3%A1c%20nhau%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI learn from my questions?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI learn from my questions?</h2>
 <p>Mark thinks that every time he asks a question, AI learns a little more from it.</p>
 </section>
 <section>
 <p class="sec-chip">TRAINING</p>
-<h2>Training: learn once, at great cost</h2>
+<h2 id="muc-2">Training: learn once, at great cost</h2>
 <p>Bit explains: there are two stages. Training is when the model learns, running on tens of thousands of GPUs for months and costing a fortune. Once it&#x27;s done, the knowledge in the model is frozen.</p>
 </section>
 <section>
 <p class="sec-chip">INFERENCE</p>
-<h2>Inference: every time you ask</h2>
+<h2 id="muc-3">Inference: every time you ask</h2>
 <p>Inference is when the model uses that knowledge to answer you. Each question takes just a few seconds of computing, and the model doesn&#x27;t change itself.</p>
 </section>
 <section>
 <p class="sec-chip">EXAMPLE</p>
-<h2>Like school and then work</h2>
+<h2 id="muc-4">Like school and then work</h2>
 <p>It&#x27;s like four years of university being training, and answering customers every day at work being inference.</p>
 </section>
 <section>
 <p class="sec-chip">REMEMBERING YOU</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So how does AI remember me?</h2>
+<h2 id="muc-5" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">So how does AI remember me?</h2>
 <p>AI remembers your name thanks to the Memory feature, notes sent along with each question, as in videos <a href="../bai/09-ai-quen.html">9</a> and <a href="../bai/27-day-ai-biet-ban.html">27</a>. The model isn&#x27;t learning again.</p>
 </section>
 <section>
 <p class="sec-chip">WHY IT MATTERS</p>
-<h2>It can run on your home computer</h2>
+<h2 id="muc-6">It can run on your home computer</h2>
 <p>Knowing this shows you: training needs a whole data center, but inference for a small model can run right on your laptop.</p>
 </section>
 <aside class="try" aria-labelledby="thu-129">
@@ -112,6 +113,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">Does AI learn from my questions?</a></li><li><a href="#muc-2">Training: learn once, at great cost</a></li><li><a href="#muc-3">Inference: every time you ask</a></li><li><a href="#muc-4">Like school and then work</a></li><li><a href="#muc-5">So how does AI remember me?</a></li><li><a href="#muc-6">It can run on your home computer</a></li><li><a href="#thu-129">Ask AI about its knowledge cutoff</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="129" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Training%20v%C3%A0%20inference%20kh%C3%A1c%20nhau%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo","description":"Chatbot AI trả lời trôi chảy như người thật. Nhưng nó có \"hiểu\" bạn không? Thật ra nó đang làm một việc rất giống bàn phím điện thoại gợi ý từ: đoán chữ tiếp…","inLanguage":"vi","url":"https://markhocai.com/bai/07-chatbot-doan-chu.html","mainEntityOfPage":"https://markhocai.com/bai/07-chatbot-doan-chu.html","image":["https://markhocai.com/assets/anh/chia-se/07-chatbot-doan-chu.jpg"],"datePublished":"2026-10-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Khái niệm nền tảng"},"about":[{"@type":"DefinedTerm","name":"Chain of thought","url":"https://markhocai.com/tu-dien.html#chain-of-thought"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://markhocai.com/tu-dien.html#pretraining"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Khái niệm nền tảng","item":"https://markhocai.com/#nen-tang"},{"@type":"ListItem","position":3,"name":"Chatbot AI hoạt động thế nào? Nó đoán chữ tiếp theo","item":"https://markhocai.com/bai/07-chatbot-doan-chu.html"}]}</script>
@@ -58,31 +58,32 @@
 <div class="cta"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="egVdIa15WAI" data-tieu-de="Chatbot AI thật ra đang làm gì?"><img src="https://i.ytimg.com/vi/egVdIa15WAI/hqdefault.jpg" width="480" height="360" alt="Chatbot AI thật ra đang làm gì?" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener" aria-label="Phát video: Chatbot AI thật ra đang làm gì?"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">AI có &quot;hiểu&quot; bạn không?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">AI có &quot;hiểu&quot; bạn không?</h2>
 <p>AI trả lời trôi chảy như người thật. Nhưng bên trong, nó đang làm một việc đơn giản đến bất ngờ.</p>
 </section>
 <section>
-<h2>Giống bàn phím gợi ý từ</h2>
+<h2 id="muc-2">Giống bàn phím gợi ý từ</h2>
 <p>Bạn đã thấy bàn phím điện thoại gợi ý chữ tiếp theo. Gõ &quot;chúc mừng sinh&quot;, nó đoán ngay chữ &quot;nhật&quot;.</p>
 </section>
 <section>
-<h2>Chatbot là bàn phím gợi ý siêu to</h2>
+<h2 id="muc-3">Chatbot là bàn phím gợi ý siêu to</h2>
 <p>Chatbot AI cũng đoán chữ tiếp theo, chỉ là được luyện trên lượng chữ khổng lồ, nhiều hơn một người đọc cả nghìn đời.</p>
 </section>
 <section>
-<h2>Từng chữ một</h2>
+<h2 id="muc-4">Từng chữ một</h2>
 <p>Khi bạn hỏi, nó chọn chữ hợp nhất, nối vào, rồi đoán chữ tiếp, cứ thế cho đến hết câu trả lời.</p>
 </section>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vì sao đoán chữ mà giỏi vậy?</h2>
+<h2 id="muc-5" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vì sao đoán chữ mà giỏi vậy?</h2>
 <p>Muốn đoán đúng, nó phải học được ngữ pháp, kiến thức và cả cách lập luận. Nên câu trả lời mới hay như vậy.</p>
 </section>
 <section>
-<h2>Hệ quả cần nhớ</h2>
+<h2 id="muc-6">Hệ quả cần nhớ</h2>
 <p>Nhưng nhớ: nó đoán thứ nghe hợp lý nhất, không phải lúc nào cũng là sự thật.</p>
 </section>
 <aside class="try" aria-labelledby="thu-7">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">AI có &quot;hiểu&quot; bạn không?</a></li><li><a href="#muc-2">Giống bàn phím gợi ý từ</a></li><li><a href="#muc-3">Chatbot là bàn phím gợi ý siêu to</a></li><li><a href="#muc-4">Từng chữ một</a></li><li><a href="#muc-5">Vì sao đoán chữ mà giỏi vậy?</a></li><li><a href="#muc-6">Hệ quả cần nhớ</a></li><li><a href="#thu-7">Hãy giải thích từng bước</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

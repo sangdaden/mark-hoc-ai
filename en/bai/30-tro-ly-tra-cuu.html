@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to ask AI about long documents and make it cite page numbers","description":"Part 4 of \"Your own AI assistant\". In part 3, each task got its own room (project) with its own document shelf. This video turns that shelf into a helper that looks things up and cites pages.","inLanguage":"en","url":"https://markhocai.com/en/bai/30-tro-ly-tra-cuu.html","mainEntityOfPage":"https://markhocai.com/en/bai/30-tro-ly-tra-cuu.html","image":["https://markhocai.com/assets/anh/chia-se/en/30-tro-ly-tra-cuu.jpg"],"datePublished":"2026-10-12","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Your own AI assistant"},"about":[{"@type":"DefinedTerm","name":"Citation","url":"https://markhocai.com/en/tu-dien.html#citation"},{"@type":"DefinedTerm","name":"Project","url":"https://markhocai.com/en/tu-dien.html#project"},{"@type":"DefinedTerm","name":"RAG","url":"https://markhocai.com/en/tu-dien.html#rag"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"Your own AI assistant","item":"https://markhocai.com/en/#tro-ly-rieng"},{"@type":"ListItem","position":3,"name":"How to ask AI about long documents and make it cite page numbers","item":"https://markhocai.com/en/bai/30-tro-ly-tra-cuu.html"}]}</script>
@@ -58,27 +58,28 @@
 <div class="cta"><a class="btn btn-yt" data-so="30" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Tr%E1%BB%A3%20l%C3%BD%20tra%20c%E1%BB%A9u%20t%C3%A0i%20li%E1%BB%87u%20ri%C3%AAng" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>A document shelf that answers</h2>
+<h2 id="muc-1">A document shelf that answers</h2>
 <p>Last time, each task got its own room with its own document shelf. Now let&#x27;s turn that shelf into a helper that looks things up for you.</p>
 </section>
 <section>
-<h2>Thick documents, small questions</h2>
+<h2 id="muc-2">Thick documents, small questions</h2>
 <p>Your company handbook is eighty pages, and you just want to know how many days off you get. Flipping through it takes all morning.</p>
 </section>
 <section>
-<h2>Ask the document directly</h2>
+<h2 id="muc-3">Ask the document directly</h2>
 <p>Put the document in a project and ask directly. AI finds the right section, as we saw in the last series, and answers with the page number.</p>
 </section>
 <section>
-<h2>Three places to use it today</h2>
+<h2 id="muc-4">Three places to use it today</h2>
 <p>It works right away with company handbooks, manuals for things at home, or your kid&#x27;s school rules.</p>
 </section>
 <section>
 <p class="sec-chip">GOLDEN RULE</p>
-<h2>Always double-check</h2>
+<h2 id="muc-5">Always double-check</h2>
 <p>The golden rule: make AI give the page number, and open it to check anything important. If it&#x27;s not in the document, AI must say so.</p>
 </section>
 <aside class="try" aria-labelledby="thu-30">
@@ -90,7 +91,7 @@
   <button class="btn copy-btn" type="button" data-chep="prompt-30" hidden><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-copy"/></svg>Copy prompt</button></div>
 </aside>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What if it worked every week by itself?</h2>
+<h2 id="muc-6" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What if it worked every week by itself?</h2>
 <p>Your assistant is good now, but it still waits for you to ask. Part five lets it do weekly work on its own.</p>
 </section>
 <div class="post-end">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">A document shelf that answers</a></li><li><a href="#muc-2">Thick documents, small questions</a></li><li><a href="#muc-3">Ask the document directly</a></li><li><a href="#muc-4">Three places to use it today</a></li><li><a href="#muc-5">Always double-check</a></li><li><a href="#thu-30">Ask the user manual</a></li><li><a href="#muc-6">What if it worked every week by itself?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="30" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Tr%E1%BB%A3%20l%C3%BD%20tra%20c%E1%BB%A9u%20t%C3%A0i%20li%E1%BB%87u%20ri%C3%AAng" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý","description":"Ở phần 4, AI đọc cả thư viện. Nhưng lúc đó nó chỉ biết nói tiếp câu như một con vẹt, chưa biết trả lời bạn. Phần 5 giải thích bước biến \"con vẹt\" thành trợ…","inLanguage":"vi","url":"https://markhocai.com/bai/23-con-vet-thanh-tro-ly.html","mainEntityOfPage":"https://markhocai.com/bai/23-con-vet-thanh-tro-ly.html","image":["https://markhocai.com/assets/anh/chia-se/23-con-vet-thanh-tro-ly.jpg"],"datePublished":"2026-10-10","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"RLHF","url":"https://markhocai.com/tu-dien.html#rlhf"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://markhocai.com/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Chatbot học cách trả lời và từ chối thế nào? Từ con vẹt thành trợ lý","item":"https://markhocai.com/bai/23-con-vet-thanh-tro-ly.html"}]}</script>
@@ -58,27 +58,28 @@
 <div class="cta"><a class="btn btn-yt" data-so="23" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/lcUNWaeS29I" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="lcUNWaeS29I" data-tieu-de="Từ &quot;con vẹt&quot; thành trợ lý"><img src="https://i.ytimg.com/vi/lcUNWaeS29I/hqdefault.jpg" width="480" height="360" alt="Từ &quot;con vẹt&quot; thành trợ lý" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/shorts/lcUNWaeS29I" target="_blank" rel="noopener" aria-label="Phát video: Từ &quot;con vẹt&quot; thành trợ lý"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2>Con vẹt chỉ biết nói tiếp</h2>
+<h2 id="muc-1">Con vẹt chỉ biết nói tiếp</h2>
 <p>Phần trước, AI đọc cả thư viện. Nhưng lúc đó nó giống con vẹt: chỉ biết nói tiếp câu, chứ chưa biết trả lời bạn.</p>
 </section>
 <section>
-<h2>Hỏi một đằng, nói một nẻo</h2>
+<h2 id="muc-2">Hỏi một đằng, nói một nẻo</h2>
 <p>Hỏi nó cách ngủ ngon, nó có thể viết tiếp thành một danh sách câu hỏi khác, vì trên mạng các câu hỏi hay đứng cạnh nhau như vậy.</p>
 </section>
 <section>
-<h2>Học từ hội thoại mẫu</h2>
+<h2 id="muc-3">Học từ hội thoại mẫu</h2>
 <p>Bước tiếp theo, con người viết hàng loạt đoạn hội thoại mẫu: hỏi thế này thì trả lời thế kia. AI học theo, và bắt đầu trả lời đúng câu được hỏi.</p>
 </section>
 <section>
-<h2>Con người chấm điểm</h2>
+<h2 id="muc-4">Con người chấm điểm</h2>
 <p>Rồi AI viết vài câu trả lời khác nhau, con người chấm cái nào tốt hơn. Câu hữu ích, lịch sự, trung thực được thưởng. Câu bịa đặt hay nguy hiểm bị trừ điểm.</p>
 </section>
 <section>
-<h2>Vì sao AI biết từ chối</h2>
+<h2 id="muc-5">Vì sao AI biết từ chối</h2>
 <p>Đây cũng là lúc AI học cách từ chối việc xấu, và học giọng điệu nhã nhặn mà bạn thấy hằng ngày.</p>
 </section>
 <aside class="try" aria-labelledby="thu-23">
@@ -90,7 +91,7 @@
   <button class="btn copy-btn" type="button" data-chep="prompt-23" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-copy"/></svg>Sao chép prompt</button></div>
 </aside>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Hỏi hai lần, hai đáp án?</h2>
+<h2 id="muc-6" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Hỏi hai lần, hai đáp án?</h2>
 <p>Nhưng sao cùng một câu hỏi, hỏi hai lần lại ra hai câu trả lời khác nhau? Phần sáu sẽ trả lời.</p>
 </section>
 <div class="post-end">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Con vẹt chỉ biết nói tiếp</a></li><li><a href="#muc-2">Hỏi một đằng, nói một nẻo</a></li><li><a href="#muc-3">Học từ hội thoại mẫu</a></li><li><a href="#muc-4">Con người chấm điểm</a></li><li><a href="#muc-5">Vì sao AI biết từ chối</a></li><li><a href="#thu-23">Dạy AI hiểu bạn</a></li><li><a href="#muc-6">Hỏi hai lần, hai đáp án?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="23" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/lcUNWaeS29I" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

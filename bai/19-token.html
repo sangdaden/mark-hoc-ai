@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Token là gì? Vì sao AI không đọc chữ như người","description":"Mở đầu series 8 phần \"Bên trong bộ não AI\". Phần 1 giải thích token: AI không đọc từng chữ cái như bạn, mà cắt câu thành các mảnh nhỏ, đổi mỗi mảnh thành một…","inLanguage":"vi","url":"https://markhocai.com/bai/19-token.html","mainEntityOfPage":"https://markhocai.com/bai/19-token.html","image":["https://markhocai.com/assets/anh/chia-se/19-token.jpg"],"datePublished":"2026-10-09","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"Token","url":"https://markhocai.com/tu-dien.html#token"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://markhocai.com/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Token là gì? Vì sao AI không đọc chữ như người","item":"https://markhocai.com/bai/19-token.html"}]}</script>
@@ -58,27 +58,28 @@
 <div class="cta"><a class="btn btn-yt" data-so="19" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/exwQxLMU6IQ" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="exwQxLMU6IQ" data-tieu-de="AI không đọc chữ, nó đọc &quot;mảnh&quot;"><img src="https://i.ytimg.com/vi/exwQxLMU6IQ/hqdefault.jpg" width="480" height="360" alt="AI không đọc chữ, nó đọc &quot;mảnh&quot;" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/shorts/exwQxLMU6IQ" target="_blank" rel="noopener" aria-label="Phát video: AI không đọc chữ, nó đọc &quot;mảnh&quot;"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2>Mở nắp bộ não AI</h2>
+<h2 id="muc-1">Mở nắp bộ não AI</h2>
 <p>Bạn dùng AI mỗi ngày, nhưng bên trong nó thật ra đang làm gì? Series tám phần này mở nắp bộ não AI. Phần một: AI không đọc chữ như bạn.</p>
 </section>
 <section>
-<h2>Chiếc kéo cắt câu</h2>
+<h2 id="muc-2">Chiếc kéo cắt câu</h2>
 <p>Trước khi hiểu bất cứ điều gì, AI cắt câu của bạn thành từng mảnh nhỏ, gọi là token. Có mảnh là cả một từ, có mảnh chỉ là một phần của từ.</p>
 </section>
 <section>
-<h2>Mỗi mảnh thành một con số</h2>
+<h2 id="muc-3">Mỗi mảnh thành một con số</h2>
 <p>Rồi mỗi mảnh được đổi thành một con số. Thứ AI thật sự nhìn thấy là một dãy số, không phải chữ cái.</p>
 </section>
 <section>
-<h2>Vì sao AI đếm chữ sai</h2>
+<h2 id="muc-4">Vì sao AI đếm chữ sai</h2>
 <p>Vì vậy AI hay đếm sai chữ cái. Nó không nhìn từng chữ, mà nhìn cả mảnh. Chữ cái nằm khuất bên trong mảnh nên dễ bị đếm sót.</p>
 </section>
 <section>
-<h2>Tiếng Việt tốn mảnh hơn</h2>
+<h2 id="muc-5">Tiếng Việt tốn mảnh hơn</h2>
 <p>Tiếng Việt có dấu thường bị cắt vụn hơn tiếng Anh. Cùng một ý, câu tiếng Việt tốn nhiều mảnh hơn. Mà độ dài AI đọc được, và giá tiền khi dùng AI, đều tính bằng mảnh.</p>
 </section>
 <aside class="try" aria-labelledby="thu-19">
@@ -90,7 +91,7 @@
   <button class="btn copy-btn" type="button" data-chep="prompt-19" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-copy"/></svg>Sao chép prompt</button></div>
 </aside>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Con số thì hiểu nghĩa sao?</h2>
+<h2 id="muc-6" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Con số thì hiểu nghĩa sao?</h2>
 <p>Nhưng nếu mỗi mảnh chỉ là một con số, làm sao AI biết &quot;mèo&quot; gần với &quot;chó&quot; hơn là &quot;xe tải&quot;? Phần hai sẽ trả lời.</p>
 </section>
 <div class="post-end">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Mở nắp bộ não AI</a></li><li><a href="#muc-2">Chiếc kéo cắt câu</a></li><li><a href="#muc-3">Mỗi mảnh thành một con số</a></li><li><a href="#muc-4">Vì sao AI đếm chữ sai</a></li><li><a href="#muc-5">Tiếng Việt tốn mảnh hơn</a></li><li><a href="#thu-19">Tách chữ rồi mới đếm</a></li><li><a href="#muc-6">Con số thì hiểu nghĩa sao?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="19" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/exwQxLMU6IQ" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How do AI chatbots work? They guess the next word","description":"AI chatbots answer as smoothly as a real person. But do they \"understand\" you? What they really do is a lot like your phone keyboard suggesting words: guessing the next word.","inLanguage":"en","url":"https://markhocai.com/en/bai/07-chatbot-doan-chu.html","mainEntityOfPage":"https://markhocai.com/en/bai/07-chatbot-doan-chu.html","image":["https://markhocai.com/assets/anh/chia-se/en/07-chatbot-doan-chu.jpg"],"datePublished":"2026-10-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Core ideas"},"about":[{"@type":"DefinedTerm","name":"Chain of thought","url":"https://markhocai.com/en/tu-dien.html#chain-of-thought"},{"@type":"DefinedTerm","name":"Pretraining","url":"https://markhocai.com/en/tu-dien.html#pretraining"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"Core ideas","item":"https://markhocai.com/en/#nen-tang"},{"@type":"ListItem","position":3,"name":"How do AI chatbots work? They guess the next word","item":"https://markhocai.com/en/bai/07-chatbot-doan-chu.html"}]}</script>
@@ -58,31 +58,32 @@
 <div class="cta"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="egVdIa15WAI" data-tieu-de="What is an AI chatbot really doing?"><img src="https://i.ytimg.com/vi/egVdIa15WAI/hqdefault.jpg" width="480" height="360" alt="What is an AI chatbot really doing?" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener" aria-label="Play video: What is an AI chatbot really doing?"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI &quot;understand&quot; you?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Does AI &quot;understand&quot; you?</h2>
 <p>AI answers as smoothly as a real person. But inside, it&#x27;s doing something surprisingly simple.</p>
 </section>
 <section>
-<h2>Like your keyboard&#x27;s word suggestions</h2>
+<h2 id="muc-2">Like your keyboard&#x27;s word suggestions</h2>
 <p>You&#x27;ve seen your phone keyboard suggest the next word. Type &quot;happy&quot;, and it guesses &quot;birthday&quot; right away.</p>
 </section>
 <section>
-<h2>A chatbot is a giant suggestion keyboard</h2>
+<h2 id="muc-3">A chatbot is a giant suggestion keyboard</h2>
 <p>An AI chatbot also guesses the next word. It&#x27;s just been trained on a huge amount of text, more than one person could read in a thousand lifetimes.</p>
 </section>
 <section>
-<h2>One word at a time</h2>
+<h2 id="muc-4">One word at a time</h2>
 <p>When you ask something, it picks the best-fitting word, adds it, then guesses the next one, again and again until the answer is done.</p>
 </section>
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How can guessing words be so good?</h2>
+<h2 id="muc-5" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">How can guessing words be so good?</h2>
 <p>To guess well, it has to learn grammar, facts and even how to reason. That&#x27;s why its answers sound so good.</p>
 </section>
 <section>
-<h2>What to remember</h2>
+<h2 id="muc-6">What to remember</h2>
 <p>But remember: it guesses what sounds most likely, and that&#x27;s not always the truth.</p>
 </section>
 <aside class="try" aria-labelledby="thu-7">
@@ -114,6 +115,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">Does AI &quot;understand&quot; you?</a></li><li><a href="#muc-2">Like your keyboard&#x27;s word suggestions</a></li><li><a href="#muc-3">A chatbot is a giant suggestion keyboard</a></li><li><a href="#muc-4">One word at a time</a></li><li><a href="#muc-5">How can guessing words be so good?</a></li><li><a href="#muc-6">What to remember</a></li><li><a href="#thu-7">Explain step by step</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="7" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/watch?v=egVdIa15WAI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

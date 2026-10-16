@@ -52,6 +52,50 @@
     });
   });
 
+  // Khối "Xem 60 giây, thử 60 giây" (trang bài có trò chơi): bấm "Chơi ngay ở đây" thì tải trang trò chơi vào iframe (?nhung=1,
+  // trang đó tự ẩn đầu/chân trang) và mở rộng tràn chiều ngang web; iframe cao theo nội dung nên không có thanh cuộn thứ hai.
+  var kc = document.querySelector(".xem-choi");
+  if (kc) {
+    var oChoi = kc.querySelector(".xc-choi"), nutDong = kc.querySelector(".xc-dong"), nutLai = kc.querySelector(".xc-lai"), khung = null;
+    var muot = matchMedia("(prefers-reduced-motion: no-preference)").matches ? "smooth" : "auto";
+    var moChoi = function (e) {
+      if (e) e.preventDefault();
+      if (!khung) {
+        khung = document.createElement("iframe");
+        khung.className = "xc-khung";
+        khung.title = oChoi.dataset.ten || "";
+        khung.src = oChoi.dataset.url + (oChoi.dataset.url.indexOf("?") < 0 ? "?" : "&") + "nhung=1";
+        khung.addEventListener("load", function () {
+          try {
+            var d = khung.contentDocument, m = d.querySelector("main") || d.body;
+            var b = d.createElement("base"); b.target = "_top"; d.head.appendChild(b);  // link trong trò chơi mở ở cả trang
+            var cao = function () { khung.style.height = Math.ceil(m.getBoundingClientRect().height + 24) + "px"; };
+            cao();
+            if (window.ResizeObserver) new ResizeObserver(cao).observe(m);
+          } catch (x) {}
+        });
+        nutDong.before(khung);
+      }
+      khung.hidden = false;
+      kc.classList.add("mo");
+      nutDong.hidden = false;
+      if (nutLai) nutLai.hidden = false;
+      kc.scrollIntoView({ behavior: muot, block: "start" });
+      if (window.mhaiDo) window.mhaiDo("mo-tro-choi", { tro: oChoi.dataset.url });
+    };
+    var thuGon = function () {
+      kc.classList.remove("mo");
+      if (khung) khung.hidden = true;
+      nutDong.hidden = true;
+      if (nutLai) nutLai.hidden = true;
+      kc.scrollIntoView({ behavior: muot, block: "start" });
+    };
+    kc.querySelector(".xc-mo").addEventListener("click", moChoi);
+    document.querySelectorAll("[data-mo-choi]").forEach(function (a) { a.addEventListener("click", moChoi); });
+    nutDong.addEventListener("click", thuGon);
+    if (nutLai) nutLai.addEventListener("click", thuGon);
+  }
+
   // Chép prompt: clipboard API, không được thì dùng textarea + execCommand
   function chep(text) {
     if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);

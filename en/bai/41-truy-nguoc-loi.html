@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is backpropagation? Explained simply","description":"AI has billions of knobs, and the mistake only shows up at the end. How does it know which knob to fix? Like a kitchen whose soup is too salty: the head chef traces back each step. That's backpropagation.","inLanguage":"en","url":"https://markhocai.com/en/bai/41-truy-nguoc-loi.html","mainEntityOfPage":"https://markhocai.com/en/bai/41-truy-nguoc-loi.html","image":["https://markhocai.com/assets/anh/chia-se/en/41-truy-nguoc-loi.jpg"],"datePublished":"2026-10-18","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Backpropagation","url":"https://markhocai.com/en/tu-dien.html#backpropagation"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://markhocai.com/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"What is backpropagation? Explained simply","item":"https://markhocai.com/en/bai/41-truy-nguoc-loi.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="41" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob caused the mistake?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob caused the mistake?</h2>
 <p>Last time: AI walks downhill in small steps to reduce the error. But with billions of knobs, how does it know which ones to turn, and by how much?</p>
 </section>
 <section>
 <p class="sec-chip">EXAMPLE</p>
-<h2>A bowl of noodle soup sent back</h2>
+<h2 id="muc-2">A bowl of noodle soup sent back</h2>
 <p>Picture a noodle soup kitchen with three cooks: one makes the broth, one cooks the noodles, one does the seasoning. A customer complains: the soup is too salty.</p>
 </section>
 <section>
 <p class="sec-chip">TRACING BACK</p>
-<h2>Trace back through each step</h2>
+<h2 id="muc-3">Trace back through each step</h2>
 <p>The head chef doesn&#x27;t scold the whole kitchen. He traces back from the bowl to each step. The heavy-handed seasoner has to change a lot, the noodle cook barely changes at all.</p>
 </section>
 <section>
 <p class="sec-chip">BACKPROPAGATION</p>
-<h2>The mistake flows backward</h2>
+<h2 id="muc-4">The mistake flows backward</h2>
 <p>A neural network does exactly that. The mistake at the output is passed back through each layer, from the last layer to the first. This is called backpropagation.</p>
 </section>
 <section>
 <p class="sec-chip">SHARING THE BLAME</p>
-<h2>More blame, bigger fix</h2>
+<h2 id="muc-5">More blame, bigger fix</h2>
 <p>Connections that caused more of the mistake get turned more, those that caused less get turned less. In a single backward pass, the machine knows how to fix every knob at once.</p>
 </section>
 <section>
 <p class="sec-chip">WHY IT MATTERS</p>
-<h2>The foundation of AI</h2>
+<h2 id="muc-6">The foundation of AI</h2>
 <p>Backpropagation plus gradient descent is the foundation of modern AI. The chatbots you use today were all trained this way.</p>
 </section>
 <aside class="try" aria-labelledby="thu-41">
@@ -99,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">PART 5</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about a new kind of test?</h2>
+<h2 id="muc-7" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What about a new kind of test?</h2>
 <p>Learning this way, a machine can get so good it memorizes all the practice questions. But what happens with a question it&#x27;s never seen? See you in part 5.</p>
 </section>
 <div class="post-end">
@@ -123,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">Which knob caused the mistake?</a></li><li><a href="#muc-2">A bowl of noodle soup sent back</a></li><li><a href="#muc-3">Trace back through each step</a></li><li><a href="#muc-4">The mistake flows backward</a></li><li><a href="#muc-5">More blame, bigger fix</a></li><li><a href="#muc-6">The foundation of AI</a></li><li><a href="#thu-41">Point to the exact mistake</a></li><li><a href="#muc-7">What about a new kind of test?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="41" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Truy%20ng%C6%B0%E1%BB%A3c%20l%E1%BB%97i" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How does AI learn? Weights, neurons and neural networks","description":"When AI \"learns\", what actually changes inside it? Take a small decision: go out for coffee this afternoon? Rain, a friend's invite, money left: each one is a knob (a weight). Meet the artificial neuron.","inLanguage":"en","url":"https://markhocai.com/en/bai/38-nut-van.html","mainEntityOfPage":"https://markhocai.com/en/bai/38-nut-van.html","image":["https://markhocai.com/assets/anh/chia-se/en/38-nut-van.jpg"],"datePublished":"2026-10-16","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"How AI learns"},"about":[{"@type":"DefinedTerm","name":"Neural network","url":"https://markhocai.com/en/tu-dien.html#mang-no-ron"},{"@type":"DefinedTerm","name":"Artificial neuron","url":"https://markhocai.com/en/tu-dien.html#no-ron-nhan-tao"},{"@type":"DefinedTerm","name":"Weights","url":"https://markhocai.com/en/tu-dien.html#trong-so"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"How AI learns","item":"https://markhocai.com/en/#ai-hoc"},{"@type":"ListItem","position":3,"name":"How does AI learn? Weights, neurons and neural networks","item":"https://markhocai.com/en/bai/38-nut-van.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="38" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What does AI actually learn?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What does AI actually learn?</h2>
 <p>Everyone says AI is &quot;trained&quot;. But when AI learns, what actually changes inside it? The answer: billions of tiny knobs.</p>
 </section>
 <section>
 <p class="sec-chip">EXAMPLE</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Go out for coffee?</h2>
+<h2 id="muc-2" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Go out for coffee?</h2>
 <p>Picture a small decision: should I go out for coffee this afternoon? You think about three things: is it raining, did a friend invite you, and do you have money left?</p>
 </section>
 <section>
 <p class="sec-chip">WEIGHTS</p>
-<h2>One knob for each thing</h2>
+<h2 id="muc-3">One knob for each thing</h2>
 <p>Each thing has its own knob, called a weight. A friend&#x27;s invite pushes hard toward &quot;go&quot;, rain pulls the other way. Add them all up, and if it passes a threshold, you decide: go.</p>
 </section>
 <section>
 <p class="sec-chip">NEURON</p>
-<h2>An artificial neuron</h2>
+<h2 id="muc-4">An artificial neuron</h2>
 <p>That is an artificial neuron: it takes a few numbers, multiplies them by weights, adds them up, then decides. Surprisingly simple.</p>
 </section>
 <section>
 <p class="sec-chip">NEURAL NETWORK</p>
-<h2>Stacked into layers</h2>
+<h2 id="muc-5">Stacked into layers</h2>
 <p>Stack thousands of neurons into layers, each layer passing its results to the next, and you have a neural network. The first layer spots lines, the middle layers spot ears and eyes, and the last layer says: cat.</p>
 </section>
 <section>
 <p class="sec-chip">LEARNING</p>
-<h2>Learning means turning the knobs itself</h2>
+<h2 id="muc-6">Learning means turning the knobs itself</h2>
 <p>Big chatbots have hundreds of billions of these knobs, and nobody turns them by hand. &quot;Learning&quot; means the machine turns each knob itself, a little at a time, until it gets the right answer.</p>
 </section>
 <aside class="try" aria-labelledby="thu-38">
@@ -97,7 +98,7 @@
 </aside>
 <section>
 <p class="sec-chip">PART 2</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob, which way?</h2>
+<h2 id="muc-7" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">Which knob, which way?</h2>
 <p>But how does the machine know which knob to turn, and which way? First, it has to know how wrong it is. See you in part 2.</p>
 </section>
 <div class="post-end">
@@ -121,6 +122,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">What does AI actually learn?</a></li><li><a href="#muc-2">Go out for coffee?</a></li><li><a href="#muc-3">One knob for each thing</a></li><li><a href="#muc-4">An artificial neuron</a></li><li><a href="#muc-5">Stacked into layers</a></li><li><a href="#muc-6">Learning means turning the knobs itself</a></li><li><a href="#thu-38">Watch the knobs turn themselves</a></li><li><a href="#muc-7">Which knob, which way?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="38" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=H%C3%A0ng%20t%E1%BB%B7%20chi%E1%BA%BFc%20n%C3%BAm%20v%E1%BA%B7n" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

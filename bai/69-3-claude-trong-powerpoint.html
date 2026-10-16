@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Từ bảng số Excel ra 5 slide họp, không gõ lại số nào","description":"Phần cuối: dùng kết quả Excel ở phần 2 để Claude dựng 5 slide họp nhân viên cho tiệm trà sữa. Bộ slide trong video là file PowerPoint thật nó làm ra. Cài…","inLanguage":"vi","url":"https://markhocai.com/bai/69-3-claude-trong-powerpoint.html","mainEntityOfPage":"https://markhocai.com/bai/69-3-claude-trong-powerpoint.html","image":["https://markhocai.com/assets/anh/chia-se/69-3-claude-trong-powerpoint.jpg"],"datePublished":"2026-10-21","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Claude trong công cụ"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Bộ đồ nghề Claude","item":"https://markhocai.com/#do-nghe-claude"},{"@type":"ListItem","position":3,"name":"Dùng Claude trong Chrome, Excel, PowerPoint thế nào?","item":"https://markhocai.com/bai/69-claude-trong-cong-cu.html"},{"@type":"ListItem","position":4,"name":"Từ bảng số Excel ra 5 slide họp, không gõ lại số nào","item":"https://markhocai.com/bai/69-3-claude-trong-powerpoint.html"}]}</script>
@@ -58,41 +58,42 @@
 <div class="cta"><a class="btn btn-yt" data-so="69.3" data-ngay="2026-10-21" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=T%E1%BB%AB%20b%E1%BA%A3ng%20s%E1%BB%91%20Excel%20ra%205%20slide%20h%E1%BB%8Dp%2C%20kh%C3%B4ng%20g%C3%B5%20l%E1%BA%A1i%20s%E1%BB%91%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <p class="post-xem"><span>Xem video trên</span><a class="nt nt-sm nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a><a class="nt nt-sm nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a><a class="nt nt-sm nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a><a class="nt nt-sm nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a></p>
 <section>
-<h2>Có số rồi, cần slide</h2>
+<h2 id="muc-1">Có số rồi, cần slide</h2>
 <p>Có số liệu rồi, giờ dì của Mark cần năm slide để họp nhân viên đầu tháng. Phần cuối này, Claude dựng bộ slide từ chính kết quả Excel ở phần hai, và đây là file PowerPoint thật nó làm ra.</p>
 </section>
 <section>
 <p class="sec-chip">CÀI ĐẶT</p>
-<h2>Cùng một add-in</h2>
+<h2 id="muc-2">Cùng một add-in</h2>
 <p>Trong PowerPoint, add-in nằm chung gói Claude for Microsoft 365 đã cài ở phần hai, bạn vào Home, Add-ins rồi bấm Claude. Nên chọn mẫu slide trước, vì Claude đọc slide master, tức khuôn của bộ slide, để dùng đúng phông chữ và màu.</p>
 </section>
 <section>
 <p class="sec-chip">NĂM SLIDE</p>
-<h2>Lấy số từ Excel</h2>
+<h2 id="muc-3">Lấy số từ Excel</h2>
 <p>Nhờ Claude dùng kết quả trong file Excel đang mở để dựng năm slide: tổng quan, món tăng, món giảm, giờ đông khách và đề xuất. Mọi con số trên slide lấy thẳng từ bảng tổng hợp, không phải gõ lại.</p>
 </section>
 <section>
 <p class="sec-chip">BIỂU ĐỒ THẬT</p>
-<h2>Bấm vào là sửa được</h2>
+<h2 id="muc-4">Bấm vào là sửa được</h2>
 <p>Biểu đồ trong slide là biểu đồ PowerPoint thật, bấm vào là sửa được số, không phải một tấm ảnh dán vào. Slide giờ đông khách cho thấy từ năm giờ chiều đến tám giờ tối chiếm bốn mươi hai phần trăm doanh thu.</p>
 </section>
 <section>
 <p class="sec-chip">SỬA MỘT SLIDE</p>
-<h2>Chỉ slide đó đổi</h2>
+<h2 id="muc-5">Chỉ slide đó đổi</h2>
 <p>Slide ba đang có năm dòng dài, nhờ rút gọn còn ba dòng, và chỉ slide đó thay đổi, các slide khác giữ nguyên.</p>
 </section>
 <section>
 <p class="sec-chip">SƠ ĐỒ</p>
-<h2>Gạch đầu dòng thành sơ đồ</h2>
+<h2 id="muc-6">Gạch đầu dòng thành sơ đồ</h2>
 <p>Slide đề xuất đang là ba gạch đầu dòng, nhờ Claude biến thành sơ đồ quy trình ba bước, rồi đưa lên đầu và thêm một slide mục lục cho cả bộ.</p>
 </section>
 <section>
 <p class="sec-chip">BẠN KIỂM</p>
-<h2>Đối chiếu từng con số</h2>
+<h2 id="muc-7">Đối chiếu từng con số</h2>
 <p>Bản nháp ra rất nhanh, nhưng bạn vẫn đối chiếu từng con số với file Excel trước khi trình chiếu. Thói quen như mỗi gạch đầu dòng chỉ một dòng thì ghi một lần vào ô Instructions.</p>
 </section>
 <aside class="try" aria-labelledby="thu-69.3">
@@ -103,7 +104,7 @@
 </aside>
 <section>
 <p class="sec-chip">TÓM TẮT</p>
-<h2>Ba chỗ làm việc</h2>
+<h2 id="muc-8">Ba chỗ làm việc</h2>
 <p>Vậy là ba chỗ làm việc: Chrome cho việc trên web, Excel cho bảng số, PowerPoint cho slide. Cả ba cần gói trả phí từ Pro trở lên, và lần nào bạn cũng là người kiểm cuối cùng.</p>
 </section>
 <div class="post-end">
@@ -122,6 +123,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Có số rồi, cần slide</a></li><li><a href="#muc-2">Cùng một add-in</a></li><li><a href="#muc-3">Lấy số từ Excel</a></li><li><a href="#muc-4">Bấm vào là sửa được</a></li><li><a href="#muc-5">Chỉ slide đó đổi</a></li><li><a href="#muc-6">Gạch đầu dòng thành sơ đồ</a></li><li><a href="#muc-7">Đối chiếu từng con số</a></li><li><a href="#thu-69.3">Slide nhiều chữ nhất</a></li><li><a href="#muc-8">Ba chỗ làm việc</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="69.3" data-ngay="2026-10-21" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=T%E1%BB%AB%20b%E1%BA%A3ng%20s%E1%BB%91%20Excel%20ra%205%20slide%20h%E1%BB%8Dp%2C%20kh%C3%B4ng%20g%C3%B5%20l%E1%BA%A1i%20s%E1%BB%91%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

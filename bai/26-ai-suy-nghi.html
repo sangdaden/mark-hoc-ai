@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Chế độ suy nghĩ của AI là gì? Khi nào nên bật reasoning","description":"Phần cuối của series \"Bên trong bộ não AI\". Các phần trước cho thấy AI trả lời bằng cách đoán từng chữ, chữ nào ra là ra luôn. Với bài toán khó, nói ngay thì…","inLanguage":"vi","url":"https://markhocai.com/bai/26-ai-suy-nghi.html","mainEntityOfPage":"https://markhocai.com/bai/26-ai-suy-nghi.html","image":["https://markhocai.com/assets/anh/chia-se/26-ai-suy-nghi.jpg"],"datePublished":"2026-10-10","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Bên trong bộ não AI"},"about":[{"@type":"DefinedTerm","name":"Reasoning","url":"https://markhocai.com/tu-dien.html#reasoning"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Bên trong bộ não AI","item":"https://markhocai.com/#bo-nao-ai"},{"@type":"ListItem","position":3,"name":"Chế độ suy nghĩ của AI là gì? Khi nào nên bật reasoning","item":"https://markhocai.com/bai/26-ai-suy-nghi.html"}]}</script>
@@ -58,19 +58,20 @@
 <div class="cta"><a class="btn btn-yt" data-so="26" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/4G50vezAZtU" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <figure class="post-cover yt-lite" data-yt="4G50vezAZtU" data-tieu-de="AI biết &quot;nghĩ&quot; trước khi nói"><img src="https://i.ytimg.com/vi/4G50vezAZtU/hqdefault.jpg" width="480" height="360" alt="AI biết &quot;nghĩ&quot; trước khi nói" decoding="async" fetchpriority="high"><a class="yt-play" href="https://www.youtube.com/shorts/4G50vezAZtU" target="_blank" rel="noopener" aria-label="Phát video: AI biết &quot;nghĩ&quot; trước khi nói"><svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/><path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>
 <section>
-<h2>Nói ngay thì dễ sai</h2>
+<h2 id="muc-1">Nói ngay thì dễ sai</h2>
 <p>Phần cuối. Đến giờ, AI trả lời bằng cách đoán từng chữ, chữ nào ra là ra luôn. Với bài toán khó, nói ngay thì dễ sai.</p>
 </section>
 <section>
-<h2>Tờ giấy nháp</h2>
+<h2 id="muc-2">Tờ giấy nháp</h2>
 <p>Các mô hình suy luận được dạy thêm một việc: viết nháp trước. Chia bài thành từng bước, thử một cách, tự kiểm lại, sai thì sửa, rồi mới đưa ra câu trả lời.</p>
 </section>
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Nhanh hay kỹ?</h2>
+<h2 id="muc-3" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Nhanh hay kỹ?</h2>
 <p>Đổi lại, nó chậm hơn và tốn hơn. Câu hỏi đơn giản thì không cần. Nhưng toán, lập kế hoạch, so sánh nhiều lựa chọn thì chế độ suy nghĩ giỏi hơn hẳn.</p>
 </section>
 <aside class="try" aria-labelledby="thu-26">
@@ -80,11 +81,11 @@
   <p>Với câu hỏi khó, bật chế độ suy nghĩ trong app chat. Câu hỏi đơn giản thì tắt đi cho nhanh.</p></div>
 </aside>
 <section>
-<h2>8 mảnh ghép bộ não AI</h2>
+<h2 id="muc-4">8 mảnh ghép bộ não AI</h2>
 <p>Vậy là bạn đã đi hết bộ não AI. Cắt chữ thành mảnh. Đặt nghĩa lên bản đồ. Chú ý đúng chỗ. Đọc cả thư viện. Được người dạy cách trả lời. Bốc thăm từng chữ. Đọc tài liệu của bạn. Và nghĩ trước khi nói.</p>
 </section>
 <section>
-<h2>Series tiếp theo</h2>
+<h2 id="muc-5">Series tiếp theo</h2>
 <p>Hiểu AI rồi, giờ là lúc biến nó thành trợ lý của riêng bạn. Đó là series tiếp theo.</p>
 </section>
 <div class="post-end">
@@ -108,6 +109,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Nói ngay thì dễ sai</a></li><li><a href="#muc-2">Tờ giấy nháp</a></li><li><a href="#muc-3">Nhanh hay kỹ?</a></li><li><a href="#thu-26">Bật chế độ suy nghĩ</a></li><li><a href="#muc-4">8 mảnh ghép bộ não AI</a></li><li><a href="#muc-5">Series tiếp theo</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="26" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/shorts/4G50vezAZtU" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

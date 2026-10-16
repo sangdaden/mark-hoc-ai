@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is tool calling? How AI uses tools","description":"AI has no window and no phone. So how does it know if it will rain tomorrow? The secret: AI doesn't press buttons itself. It just writes a \"request slip\", called a tool call, and the app does the rest.","inLanguage":"en","url":"https://markhocai.com/en/bai/72-ai-cam-cong-cu.html","mainEntityOfPage":"https://markhocai.com/en/bai/72-ai-cam-cong-cu.html","image":["https://markhocai.com/assets/anh/chia-se/en/72-ai-cam-cong-cu.jpg"],"datePublished":"2026-11-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"From one AI to a whole team"},"about":[{"@type":"DefinedTerm","name":"AI agent","url":"https://markhocai.com/en/tu-dien.html#ai-agent"},{"@type":"DefinedTerm","name":"Tool calling","url":"https://markhocai.com/en/tu-dien.html#tool-calling"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/en/"},{"@type":"ListItem","position":2,"name":"From one AI to a whole team","item":"https://markhocai.com/en/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"What is tool calling? How AI uses tools","item":"https://markhocai.com/en/bai/72-ai-cam-cong-cu.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>AI has no window</h2>
+<h2 id="muc-1">AI has no window</h2>
 <p>You ask AI whether it will rain in Da Lat tomorrow, and it answers right away, with the temperature too. But AI has no window and no phone. So where did that come from?</p>
 </section>
 <section>
 <p class="sec-chip">THE SECRET</p>
-<h2>AI can only write</h2>
+<h2 id="muc-2">AI can only write</h2>
 <p>The secret: AI doesn&#x27;t press any buttons itself. It can only write text. So when it needs outside information, it writes a request slip, called a tool call.</p>
 </section>
 <section>
 <p class="sec-chip">REQUEST SLIP</p>
-<h2>The slip makes a round trip</h2>
+<h2 id="muc-3">The slip makes a round trip</h2>
 <p>The slip says: use the weather tool, place Da Lat, tomorrow. The app reads the slip, asks a weather service, then hands the result back to AI.</p>
 </section>
 <section>
 <p class="sec-chip">TOOL CALLING</p>
-<h2>Only then does it answer</h2>
+<h2 id="muc-4">Only then does it answer</h2>
 <p>With the result in hand, AI writes its answer to you. That whole loop is called tool calling: AI calling a tool.</p>
 </section>
 <section>
 <p class="sec-chip">THE LIST</p>
-<h2>A tool board on the wall</h2>
+<h2 id="muc-5">A tool board on the wall</h2>
 <p>Each tool is one line of description: its name, what it does, what information it needs. AI reads that list to know when to use which one. Web search, checking a calendar, doing math: they all work this way.</p>
 </section>
 <section>
 <p class="sec-chip">DOES AI DECIDE?</p>
-<h2>The app holds the power</h2>
+<h2 id="muc-6">The app holds the power</h2>
 <p>Because AI only writes slips, the power to act stays with the app. If a slip asks to send email or pay money, a good app stops and asks you first.</p>
 </section>
 <aside class="try" aria-labelledby="thu-72">
@@ -99,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">NEXT</p>
-<h2>A hundred kinds of slips</h2>
+<h2 id="muc-7">A hundred kinds of slips</h2>
 <p>But every app uses its own kind of slip. To connect AI to a hundred tools, do you have to build it a hundred times? Part two: a shared port called MCP.</p>
 </section>
 <div class="post-end">
@@ -123,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">AI has no window</a></li><li><a href="#muc-2">AI can only write</a></li><li><a href="#muc-3">The slip makes a round trip</a></li><li><a href="#muc-4">Only then does it answer</a></li><li><a href="#muc-5">A tool board on the wall</a></li><li><a href="#muc-6">The app holds the power</a></li><li><a href="#thu-72">Catch the slip in action</a></li><li><a href="#muc-7">A hundred kinds of slips</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

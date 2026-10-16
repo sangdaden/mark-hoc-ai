@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Logging và tracing trong hệ thống AI là gì? Hộp đen của AI","description":"Chatbot bảo phí chuyển tiền là 0 đồng, khách vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào? Mỗi câu hỏi để lại một dòng log (nhật ký): giờ, câu hỏi đã…","inLanguage":"vi","url":"https://markhocai.com/bai/84-hop-den-cua-ai.html","mainEntityOfPage":"https://markhocai.com/bai/84-hop-den-cua-ai.html","image":["https://markhocai.com/assets/anh/chia-se/84-hop-den-cua-ai.jpg"],"datePublished":"2026-11-19","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Hậu trường một hệ thống AI"},"about":[{"@type":"DefinedTerm","name":"Logging","url":"https://markhocai.com/tu-dien.html#logging"},{"@type":"DefinedTerm","name":"Observability","url":"https://markhocai.com/tu-dien.html#observability"},{"@type":"DefinedTerm","name":"Tracing","url":"https://markhocai.com/tu-dien.html#tracing"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Hậu trường một hệ thống AI","item":"https://markhocai.com/#hau-truong"},{"@type":"ListItem","position":3,"name":"Logging và tracing trong hệ thống AI là gì? Hộp đen của AI","item":"https://markhocai.com/bai/84-hop-den-cua-ai.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>Một lời phàn nàn</h2>
+<h2 id="muc-1">Một lời phàn nàn</h2>
 <p>Một khách phàn nàn: chatbot bảo phí chuyển tiền là không đồng, nhưng tôi vẫn bị trừ tiền. Đội kỹ thuật lần lại bằng cách nào?</p>
 </section>
 <section>
 <p class="sec-chip">LOGGING</p>
-<h2>Mỗi câu hỏi một dòng</h2>
+<h2 id="muc-2">Mỗi câu hỏi một dòng</h2>
 <p>Bằng log, tức nhật ký. Mỗi câu hỏi để lại một dòng log: giờ, câu hỏi đã che thông tin, câu trả lời, mất bao lâu, tốn bao nhiêu.</p>
 </section>
 <section>
 <p class="sec-chip">TRACING</p>
-<h2>Một sợi chỉ qua các bước</h2>
+<h2 id="muc-3">Một sợi chỉ qua các bước</h2>
 <p>Nhưng một câu hỏi đi qua nhiều bước: cổng vào, tìm tài liệu, gọi mô hình, cổng ra. Trace nối các bước đó thành một sợi chỉ, để xem từng bước nhận gì, trả gì.</p>
 </section>
 <section>
 <p class="sec-chip">TÌM RA</p>
-<h2>Lỗi nằm ở đâu</h2>
+<h2 id="muc-4">Lỗi nằm ở đâu</h2>
 <p>Lần theo trace, họ thấy lỗi: bước tìm tài liệu đã lấy bảng phí cũ của năm ngoái. AI không bịa, nó đọc nhầm tài liệu. Sửa đúng chỗ đó, rồi thêm câu này vào eval set ở phần năm.</p>
 </section>
 <section>
 <p class="sec-chip">OBSERVABILITY</p>
-<h2>Nhìn rõ bên trong</h2>
+<h2 id="muc-5">Nhìn rõ bên trong</h2>
 <p>Khả năng nhìn rõ bên trong hệ thống như vậy, dân kỹ thuật gọi là observability.</p>
 </section>
 <section>
 <p class="sec-chip">RIÊNG TƯ</p>
-<h2>Nhật ký cũng phải giữ kín</h2>
+<h2 id="muc-6">Nhật ký cũng phải giữ kín</h2>
 <p>Nhưng log cũng chứa lời của khách. Nên phải che dữ liệu riêng, giới hạn người được xem, và xóa sau một thời gian.</p>
 </section>
 <aside class="try" aria-labelledby="thu-84">
@@ -97,7 +98,7 @@
 </aside>
 <section>
 <p class="sec-chip">PHẦN SAU</p>
-<h2>Biết trước khi có chuyện</h2>
+<h2 id="muc-7">Biết trước khi có chuyện</h2>
 <p>Lần lại khi có chuyện là tốt. Biết trước khi có chuyện còn tốt hơn. Phần cuối: monitoring.</p>
 </section>
 <div class="post-end">
@@ -121,6 +122,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Một lời phàn nàn</a></li><li><a href="#muc-2">Mỗi câu hỏi một dòng</a></li><li><a href="#muc-3">Một sợi chỉ qua các bước</a></li><li><a href="#muc-4">Lỗi nằm ở đâu</a></li><li><a href="#muc-5">Nhìn rõ bên trong</a></li><li><a href="#muc-6">Nhật ký cũng phải giữ kín</a></li><li><a href="#thu-84">Nhật ký của chính bạn</a></li><li><a href="#muc-7">Biết trước khi có chuyện</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

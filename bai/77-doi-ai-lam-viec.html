@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Multi-agent làm việc thế nào? Orchestrator, subagent và reviewer","description":"Một đội AI chia vai y như một tòa soạn. Orchestrator (agent trưởng) nhận việc, chia nhỏ và viết hướng dẫn rõ cho từng subagent (agent con): tìm gì, ở đâu…","inLanguage":"vi","url":"https://markhocai.com/bai/77-doi-ai-lam-viec.html","mainEntityOfPage":"https://markhocai.com/bai/77-doi-ai-lam-viec.html","image":["https://markhocai.com/assets/anh/chia-se/77-doi-ai-lam-viec.jpg"],"datePublished":"2026-11-12","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ một AI đến cả đội"},"about":[{"@type":"DefinedTerm","name":"A2A","url":"https://markhocai.com/tu-dien.html#a2a"},{"@type":"DefinedTerm","name":"Multi-agent","url":"https://markhocai.com/tu-dien.html#multi-agent"},{"@type":"DefinedTerm","name":"Orchestrator","url":"https://markhocai.com/tu-dien.html#orchestrator"},{"@type":"DefinedTerm","name":"Subagent","url":"https://markhocai.com/tu-dien.html#subagent"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Từ một AI đến cả đội","item":"https://markhocai.com/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"Multi-agent làm việc thế nào? Orchestrator, subagent và reviewer","item":"https://markhocai.com/bai/77-doi-ai-lam-viec.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="77" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>Như một tòa soạn</h2>
+<h2 id="muc-1">Như một tòa soạn</h2>
 <p>Một tòa soạn có tổng biên tập, phóng viên, và người soát lỗi. Multi-agent cũng chia vai như vậy.</p>
 </section>
 <section>
 <p class="sec-chip">ORCHESTRATOR</p>
-<h2>Giao việc cho rõ</h2>
+<h2 id="muc-2">Giao việc cho rõ</h2>
 <p>Orchestrator nhận việc từ bạn, chia nhỏ, và viết hướng dẫn rõ cho từng subagent: tìm gì, ở đâu, trả về dạng nào. Hướng dẫn mơ hồ là các subagent làm trùng việc của nhau.</p>
 </section>
 <section>
 <p class="sec-chip">SUBAGENT</p>
-<h2>Mỗi thợ một bộ đồ nghề</h2>
+<h2 id="muc-3">Mỗi thợ một bộ đồ nghề</h2>
 <p>Các subagent là thợ chuyên môn. Mỗi con có đúng bộ tools nó cần: con tìm web, con đọc bảng tính, con viết.</p>
 </section>
 <section>
 <p class="sec-chip">REVIEWER</p>
-<h2>Một con mắt khác</h2>
+<h2 id="muc-4">Một con mắt khác</h2>
 <p>Thêm một agent phản biện, gọi là reviewer: không viết gì, chỉ soi lỗi, kiểm nguồn, chỉ ra chỗ thiếu. Hai con mắt khác nhau bắt được lỗi mà một con bỏ sót.</p>
 </section>
 <section>
 <p class="sec-chip">GHÉP</p>
-<h2>Một kết quả cho bạn</h2>
+<h2 id="muc-5">Một kết quả cho bạn</h2>
 <p>Cuối cùng orchestrator ghép tất cả lại thành một kết quả cho bạn.</p>
 </section>
 <section>
 <p class="sec-chip">NGÔN NGỮ CHUNG</p>
-<h2>MCP và A2A</h2>
+<h2 id="muc-6">MCP và A2A</h2>
 <p>Các agent nói chuyện với nhau cũng cần chuẩn chung. MCP để agent cắm vào tools. Còn A2A, tức Agent to Agent, là chuẩn để agent của hãng này giao việc cho agent của hãng khác.</p>
 </section>
 <aside class="try" aria-labelledby="thu-77">
@@ -97,7 +98,7 @@
 </aside>
 <section>
 <p class="sec-chip">PHẦN SAU</p>
-<h2>Đội cũng có lúc rối</h2>
+<h2 id="muc-7">Đội cũng có lúc rối</h2>
 <p>Nhưng đội nào cũng có lúc rối. Phần cuối: khi multi-agent rối.</p>
 </section>
 <div class="post-end">
@@ -121,6 +122,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Như một tòa soạn</a></li><li><a href="#muc-2">Giao việc cho rõ</a></li><li><a href="#muc-3">Mỗi thợ một bộ đồ nghề</a></li><li><a href="#muc-4">Một con mắt khác</a></li><li><a href="#muc-5">Một kết quả cho bạn</a></li><li><a href="#muc-6">MCP và A2A</a></li><li><a href="#thu-77">Đội hai người tự làm</a></li><li><a href="#muc-7">Đội cũng có lúc rối</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="77" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

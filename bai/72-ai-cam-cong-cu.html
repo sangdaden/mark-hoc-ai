@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../style.css?v=dev">
-<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="../theo-doi.js?v=dev" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tool calling là gì? AI dùng công cụ như thế nào","description":"AI không có cửa sổ, cũng chẳng có điện thoại. Vậy sao nó biết mai Đà Lạt có mưa? Bí mật: AI không tự bấm nút nào cả. Nó chỉ viết một \"phiếu yêu cầu\", gọi là…","inLanguage":"vi","url":"https://markhocai.com/bai/72-ai-cam-cong-cu.html","mainEntityOfPage":"https://markhocai.com/bai/72-ai-cam-cong-cu.html","image":["https://markhocai.com/assets/anh/chia-se/72-ai-cam-cong-cu.jpg"],"datePublished":"2026-11-07","author":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"publisher":{"@type":"Organization","name":"Mark học AI","url":"https://markhocai.com/","logo":{"@type":"ImageObject","url":"https://markhocai.com/assets/logo.png"}},"isPartOf":{"@type":"CreativeWorkSeries","name":"Từ một AI đến cả đội"},"about":[{"@type":"DefinedTerm","name":"AI agent","url":"https://markhocai.com/tu-dien.html#ai-agent"},{"@type":"DefinedTerm","name":"Tool calling","url":"https://markhocai.com/tu-dien.html#tool-calling"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Mark học AI","item":"https://markhocai.com/"},{"@type":"ListItem","position":2,"name":"Từ một AI đến cả đội","item":"https://markhocai.com/#ca-doi-ai"},{"@type":"ListItem","position":3,"name":"Tool calling là gì? AI dùng công cụ như thế nào","item":"https://markhocai.com/bai/72-ai-cam-cong-cu.html"}]}</script>
@@ -58,35 +58,36 @@
 <div class="cta"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div>
 </div>
 </div>
-<main class="doc">
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>AI không có cửa sổ</h2>
+<h2 id="muc-1">AI không có cửa sổ</h2>
 <p>Bạn hỏi AI mai Đà Lạt có mưa không, nó trả lời ngay, kèm cả nhiệt độ. Nhưng AI không có cửa sổ, cũng chẳng có điện thoại. Vậy tin đó ở đâu ra?</p>
 </section>
 <section>
 <p class="sec-chip">BÍ MẬT</p>
-<h2>AI chỉ biết viết</h2>
+<h2 id="muc-2">AI chỉ biết viết</h2>
 <p>Bí mật là: AI không tự bấm nút nào cả. Nó chỉ biết viết chữ. Nên khi cần thông tin bên ngoài, nó viết một tờ phiếu yêu cầu, gọi là tool call.</p>
 </section>
 <section>
 <p class="sec-chip">PHIẾU YÊU CẦU</p>
-<h2>Tờ phiếu đi một vòng</h2>
+<h2 id="muc-3">Tờ phiếu đi một vòng</h2>
 <p>Phiếu ghi: dùng công cụ thời tiết, nơi Đà Lạt, ngày mai. Ứng dụng đọc phiếu, đi hỏi dịch vụ thời tiết, rồi đưa kết quả lại cho AI.</p>
 </section>
 <section>
 <p class="sec-chip">TOOL CALLING</p>
-<h2>Có kết quả mới trả lời</h2>
+<h2 id="muc-4">Có kết quả mới trả lời</h2>
 <p>Có kết quả trong tay, AI mới viết câu trả lời cho bạn. Cả vòng đó gọi là tool calling, tức là AI gọi công cụ.</p>
 </section>
 <section>
 <p class="sec-chip">DANH SÁCH</p>
-<h2>Bảng công cụ trên tường</h2>
+<h2 id="muc-5">Bảng công cụ trên tường</h2>
 <p>Mỗi công cụ, hay tool, là một dòng mô tả: tên, làm được gì, cần thông tin gì. AI đọc danh sách đó để biết lúc nào dùng cái nào. Tìm web, xem lịch, tính toán, đều theo cách này.</p>
 </section>
 <section>
 <p class="sec-chip">AI QUYẾT?</p>
-<h2>Quyền nằm ở ứng dụng</h2>
+<h2 id="muc-6">Quyền nằm ở ứng dụng</h2>
 <p>Vì AI chỉ viết phiếu, quyền làm hay không vẫn nằm ở ứng dụng. Phiếu xin gửi email hay trả tiền, ứng dụng tốt sẽ dừng lại hỏi bạn trước.</p>
 </section>
 <aside class="try" aria-labelledby="thu-72">
@@ -99,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">PHẦN SAU</p>
-<h2>Trăm kiểu phiếu</h2>
+<h2 id="muc-7">Trăm kiểu phiếu</h2>
 <p>Nhưng mỗi ứng dụng lại dùng một kiểu phiếu riêng. Nối AI với cả trăm công cụ, chẳng lẽ làm lại cả trăm lần? Phần hai: chiếc cổng chung tên là MCP.</p>
 </section>
 <div class="post-end">
@@ -123,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">AI không có cửa sổ</a></li><li><a href="#muc-2">AI chỉ biết viết</a></li><li><a href="#muc-3">Tờ phiếu đi một vòng</a></li><li><a href="#muc-4">Có kết quả mới trả lời</a></li><li><a href="#muc-5">Bảng công cụ trên tường</a></li><li><a href="#muc-6">Quyền nằm ở ứng dụng</a></li><li><a href="#thu-72">Bắt quả tang tờ phiếu</a></li><li><a href="#muc-7">Trăm kiểu phiếu</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="72" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Theo dõi kênh YouTube</a><span class="soon-note">Video này sắp ra mắt</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">
