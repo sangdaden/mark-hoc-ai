@@ -1,0 +1,355 @@
+{
+ "_ghi_chu": "Trò chơi 'Bit bắt lỗi' (bit-bat-loi.html, en/): một khuôn tìm chỗ sai, mỗi tập một bộ ca. Chữ luôn là [tiếng Việt, tiếng Anh]. Đoạn chữ chạm được: [vi, en] hoặc [vi, en, khoá lỗi]. Khung 'hinh' lấy SVG ở data/bit-bat-loi-hinh/<file>.svg, nhóm nào có data-loi là chỗ sai, @khoa@ trong SVG thay bằng chữ ở 'chu'. Khung 'bieu-do' vẽ cột bằng JS, kéo trục về 0 cũng tính là bắt được lỗi 'loi_truc'. Tên người, trang, ngân hàng, cửa hàng, đường link đều hư cấu. Câu trả lời của AI là bản minh họa do kênh viết theo kiểu lỗi AI hay mắc. Thêm tập mới: thêm ca có 'video' là số tập, scripts/tao_bai_viet.py tự gắn trò chơi vào trang bài.",
+ "bo": [
+  {"id": "lua-dao", "ten": ["Tin nhắn và lời mời lừa đảo", "Scam messages and offers"], "moi": ["Quảng cáo đầu tư, tin nhắn giả, việc nhẹ lương cao", "Investment ads, fake texts, easy-money jobs"], "mau": "#EF4444"},
+  {"id": "anh", "ten": ["Soi ảnh và mã QR", "Photos and QR codes"], "moi": ["Mã QR dán đè, ảnh lộ thông tin, ảnh do AI tạo", "Pasted-over QR codes, oversharing photos, AI images"], "mau": "#8B5CF6"},
+  {"id": "kiem-chung", "ten": ["Kiểm chứng tin", "Fact-checking"], "moi": ["Ảnh cũ gán chuyện mới, biểu đồ cắt trục, tin cũ", "Old photos in new stories, cut chart axes, stale facts"], "mau": "#0EA5E9"},
+  {"id": "ai-sai", "ten": ["AI trả lời sai", "When AI gets it wrong"], "moi": ["Tính sai, hiểu sai đề, đổi sai đơn vị, bịa nguồn", "Bad math, misread asks, wrong units, made-up sources"], "mau": "#F59E0B"}
+ ],
+ "ca": [
+  {"id": "qc-dau-tu", "bo": "lua-dao", "video": 110,
+   "de": ["dấu hiệu lừa đảo trong quảng cáo này", "scam signs in this ad"],
+   "khung": [{"loai": "chat", "kieu": "qc", "ten": ["Cộng Đồng Đầu Tư Thông Minh", "Smart Investing Community"], "phu": ["Được tài trợ", "Sponsored"],
+     "dong": [
+      {"tu": "he", "doan": [["Video 40 giây: một doanh nhân nổi tiếng ngồi trong phòng khách. ", "40-second video: a famous businessman in a living room. "], ["Khẩu hình hơi lệch với tiếng nói.", "His lips are slightly out of sync with the audio.", "khau-hinh"]]},
+      {"tu": "ho", "doan": [["Tôi chia sẻ bí quyết đã giúp tôi giàu lên: ", "I'm sharing the secret that made me rich: "], ["lãi 3% mỗi ngày, ", "3% profit every day, ", "lai-cao"], ["cam kết không bao giờ lỗ. ", "guaranteed never to lose. ", "cam-ket"], ["Chỉ còn 9 suất cho hôm nay. ", "Only 9 spots left today. ", "gap"], ["Bấm vào để vào nhóm chat kín, trợ lý của tôi sẽ hướng dẫn.", "Tap to join the private chat group, my assistant will guide you.", "nhom-kin"]]},
+      {"tu": "he", "doan": [["Thông tin trang: ", "Page info: "], ["tạo 3 ngày trước, ", "created 3 days ago, ", "trang-moi"], ["1.204 người theo dõi.", "1,204 followers."]]}
+     ]}],
+   "loi": {
+    "khau-hinh": ["Khẩu hình lệch tiếng: dấu hiệu video bị AI đổi khẩu hình và lồng giọng (deepfake).", "Lips out of sync: a sign the video's mouth and voice were swapped by AI (deepfake)."],
+    "lai-cao": ["3% mỗi ngày là hơn gấp đôi tiền sau một tháng. Không khoản đầu tư thật nào hứa như vậy.", "3% a day more than doubles your money in a month. No real investment promises that."],
+    "cam-ket": ["Cam kết không lỗ: không ai đoán chắc được thị trường.", "Guaranteed no loss: nobody can predict the market for sure."],
+    "gap": ["Chỉ còn vài suất: tạo cảm giác gấp để bạn không kịp kiểm tra.", "Only a few spots left: urgency so you don't stop to check."],
+    "nhom-kin": ["Kéo vào nhóm chat kín, nơi kẻ lừa dễ dắt bạn nạp tiền.", "Pulls you into a private chat, where scammers walk you into paying."],
+    "trang-moi": ["Trang mới lập vài ngày, không phải trang chính thức của người nổi tiếng.", "A page a few days old, not the celebrity's official page."]
+   },
+   "kiem": ["Người nổi tiếng thật không mời đầu tư qua quảng cáo lạ. Kiểm tra trang chính thức có dấu xác minh, rồi báo cáo quảng cáo.", "Real celebrities don't pitch investments through random ads. Check their verified official page, then report the ad."]},
+
+  {"id": "sms-giao-hang", "bo": "lua-dao", "video": 111,
+   "de": ["chỗ đáng ngờ trong tin nhắn này", "suspicious spots in this text"],
+   "khung": [{"loai": "chat", "kieu": "sms", "ten": ["GiaoNhanhSao", "FastStarShip"], "phu": ["SMS · 09:12", "SMS · 09:12"],
+     "dong": [
+      {"tu": "ho", "doan": [["Chào chị Thu Hà, đơn hàng SX20491 của chị ", "Hi Ms. Thu Ha, your order SX20491 "], ["không giao được do sai địa chỉ. ", "couldn't be delivered due to a wrong address. "], ["Vui lòng cập nhật trong 2 giờ, nếu không đơn sẽ bị hủy: ", "Please update within 2 hours or the order will be cancelled: ", "gap"], ["giaonhanhsao.vn-capnhat.top", "faststarship.com-update.top", "link"], [" Phí giao lại 12.000đ, ", " Redelivery fee 12,000 VND, "], ["thanh toán bằng thẻ ngân hàng trên trang.", "pay by bank card on the page.", "the"]]}
+     ]}],
+   "loi": {
+    "gap": ["Hạn chót 2 giờ: giục bạn làm ngay, không kịp suy nghĩ.", "A 2-hour deadline: rushes you so you don't think."],
+    "link": ["Tên miền lạ: phần chính là '.top', không phải trang của hãng giao hàng.", "Odd domain: the real site is the '.top' part, not the courier's site."],
+    "the": ["Phí nhỏ để lấy số thẻ thật. Đòi nhập thẻ qua link trong tin nhắn là dừng.", "A tiny fee to grab your real card number. A link asking for card details means stop."]
+   },
+   "kiem": ["Tin do AI viết giờ đúng chính tả, gọi đúng tên bạn. Đừng soi chính tả, soi yêu cầu: bấm link, nhập thẻ, đọc OTP. Muốn kiểm tra thì tự mở ứng dụng của hãng.", "AI-written texts now have perfect spelling and your name. Don't check the spelling, check the ask: tap a link, enter a card, read an OTP. To check, open the company's own app."]},
+
+  {"id": "chat-tien-dien", "bo": "lua-dao", "video": 111,
+   "de": ["chỗ đáng ngờ trong cuộc trò chuyện", "suspicious spots in this chat"],
+   "khung": [{"loai": "chat", "kieu": "chat", "ten": ["Điện Lực CSKH", "Power Co. Support"], "phu": ["Người lạ · chưa kết bạn", "Stranger · not in contacts"],
+     "dong": [
+      {"tu": "ho", "doan": [["Kính chào quý khách, hóa đơn tiền điện tháng này của gia đình ", "Dear customer, your household's electricity bill this month "], ["chưa thanh toán. ", "is unpaid. "], ["Hệ thống sẽ ngắt điện lúc 17:00 hôm nay.", "The system will cut your power at 5 p.m. today.", "doa"]]},
+      {"tu": "minh", "doan": [["Nhà tôi đóng tự động mà?", "Isn't ours on autopay?"]]},
+      {"tu": "ho", "doan": [["Dạ có thể hệ thống lỗi ạ. Quý khách ", "It may be a system error. Please "], ["cài ứng dụng DienLuc-HoTro.apk ", "install DienLuc-Support.apk ", "apk"], ["để em kiểm tra giúp, ", "so I can check for you, "], ["nhớ đọc mã OTP gửi về máy cho em nhé.", "and read me the OTP code sent to your phone.", "otp"]]}
+     ]}],
+   "loi": {
+    "doa": ["Dọa ngắt điện ngay trong ngày: tạo sợ hãi để bạn làm theo.", "Threat to cut power today: fear so you'll comply."],
+    "apk": ["Bảo cài file .apk ngoài kho ứng dụng: file đó có thể điều khiển điện thoại của bạn.", "Asks you to install an .apk outside the app store: it can take over your phone."],
+    "otp": ["Đòi mã OTP. Không nhân viên thật nào cần OTP của bạn.", "Asks for your OTP. No real staff member needs it."]
+   },
+   "kiem": ["Ba yêu cầu nguy hiểm: bấm link lạ, cài ứng dụng lạ, đọc OTP. Gặp một trong ba thì dừng, gọi tổng đài in trên hóa đơn.", "Three dangerous asks: tap a strange link, install a strange app, read an OTP. Any one of them means stop and call the number on your bill."]},
+
+  {"id": "app-dau-tu", "bo": "lua-dao", "video": 214,
+   "de": ["dấu hiệu lừa đảo của ứng dụng này", "scam signs in this app"],
+   "khung": [{"loai": "chat", "kieu": "web", "ten": ["AI Gold Robot", "AI Gold Robot"], "phu": ["Trang giới thiệu ứng dụng", "App landing page"],
+     "dong": [
+      {"tu": "ho", "doan": [["Robot AI giao dịch vàng 24/7. ", "AI robot trades gold 24/7. "], ["Lợi nhuận cố định 2% mỗi ngày, ", "Fixed profit of 2% per day, ", "loi-co-dinh"], ["AI không bao giờ thua lỗ.", "the AI never loses.", "khong-lo"]]},
+      {"tu": "ho", "doan": [["Nạp ngay hôm nay thưởng thêm 20%, ", "Deposit today for a 20% bonus, "], ["ưu đãi kết thúc sau 3 giờ.", "offer ends in 3 hours.", "giuc-nap"]]},
+      {"tu": "ho", "doan": [["Rút tiền về tài khoản: ", "Withdraw to your bank: "], ["cần đóng 15% phí xác minh trước khi rút.", "a 15% verification fee is required before withdrawing.", "phi-rut"]]},
+      {"tu": "ho", "doan": [["Hỗ trợ 1 kèm 1 trong ", "1-on-1 support in our "], ["nhóm VIP kín, ", "private VIP group, ", "nhom-kin"], ["có 4 năm hoạt động.", "running for 4 years."]]}
+     ]}],
+   "loi": {
+    "loi-co-dinh": ["Hứa lời cố định mỗi ngày: thị trường lên xuống, không ai trả đều như vậy được.", "A fixed daily profit: markets go up and down, nobody can pay that steadily."],
+    "khong-lo": ["'Không bao giờ lỗ' chính là cái bẫy. Không ai, kể cả AI, đoán chắc được giá.", "'Never loses' is the trap. Nobody, AI included, can predict prices for sure."],
+    "giuc-nap": ["Giục nạp gấp bằng thưởng có hạn giờ.", "Rushes you to deposit with a ticking bonus."],
+    "phi-rut": ["Rút tiền phải đóng phí trước: tiền đóng vào là mất, rồi sẽ có phí khác.", "A fee before you can withdraw: you pay, it's gone, then comes another fee."],
+    "nhom-kin": ["Nhóm chat kín để dắt bạn nạp thêm, khó bị người ngoài cảnh báo.", "A private group to push more deposits, away from anyone who'd warn you."]
+   },
+   "kiem": ["Dán lời mời vào chatbot (đã xóa thông tin riêng) và nhờ chỉ dấu hiệu lừa. Lỡ nạp tiền thì báo ngân hàng, công an, đừng nạp thêm để rút.", "Paste the offer into a chatbot (personal details removed) and ask for scam signs. If you already paid, tell your bank and the police, and don't pay more to withdraw."]},
+
+  {"id": "viec-nhe", "bo": "lua-dao", "video": 266,
+   "de": ["dấu hiệu lừa trong lời mời làm việc này", "scam signs in this job offer"],
+   "khung": [{"loai": "chat", "kieu": "chat", "ten": ["Tuyển CTV Online", "Online Part-timers Wanted"], "phu": ["Nhóm chat · 2.318 thành viên", "Group chat · 2,318 members"],
+     "dong": [
+      {"tu": "ho", "doan": [["Tuyển cộng tác viên làm tại nhà: ", "Work-from-home helpers wanted: "], ["chỉ cần thả tim video, 1 giờ mỗi ngày, lương 600.000đ/ngày.", "just like videos, 1 hour a day, 600,000 VND per day.", "de-luong-cao"]]},
+      {"tu": "ho", "doan": [["Nhiệm vụ đầu tiên: thả tim 3 video, ", "First task: like 3 videos, "], ["nhận ngay 30.000đ.", "get 30,000 VND right away.", "thuong-nho"]]},
+      {"tu": "minh", "doan": [["Mình nhận được 30.000đ rồi, thật luôn!", "I got the 30,000 VND, it's real!"]]},
+      {"tu": "ho", "doan": [["Chúc mừng bạn lên cấp VIP. ", "Congrats, you're now VIP. "], ["Nhiệm vụ VIP: nạp 3 triệu, sau 30 phút hoàn lại 3,6 triệu.", "VIP task: deposit 3 million, get 3.6 million back in 30 minutes.", "nap-truoc"]]}
+     ]}],
+   "loi": {
+    "de-luong-cao": ["Việc quá dễ mà lương quá cao: không ai trả 600 nghìn để bạn bấm tim.", "Too easy for too much money: nobody pays that much for likes."],
+    "thuong-nho": ["Thưởng nhỏ lúc đầu là mồi để bạn tin.", "A small early payout is bait to win your trust."],
+    "nap-truoc": ["Bắt nạp tiền trước để làm nhiệm vụ: tiền lớn này sẽ bị giữ luôn.", "Paying in first to do a task: this bigger sum gets kept."]
+   },
+   "kiem": ["Việc thật không bắt bạn đóng tiền hay nạp tiền. Lỡ chuyển thì báo ngân hàng, công an, đừng chuyển thêm để lấy lại.", "Real jobs never make you pay in. If you already sent money, tell your bank and the police, and don't send more to get it back."]},
+
+  {"id": "qr-quay", "bo": "anh", "video": 268,
+   "de": ["chỗ sai trước khi bạn chuyển tiền", "red flags before you pay"],
+   "khung": [
+    {"loai": "hinh", "ten": ["Quầy tạp hóa", "Corner shop counter"], "phu": ["Chạm vào chỗ đáng ngờ trên ảnh", "Tap anything suspicious in the photo"], "file": "qr-quay",
+     "chu": {"bien": ["TẠP HÓA CÔ BA", "AUNT BA'S STORE"], "quet": ["Quét để thanh toán", "Scan to pay"], "chu_quay": ["Chủ quầy: Trần Thị Ba", "Owner: Tran Thi Ba"], "gia": ["Nước suối 10.000đ", "Water 10,000 VND"]}},
+    {"loai": "chat", "kieu": "app", "ten": ["Ứng dụng ngân hàng", "Banking app"], "phu": ["Màn hình sau khi quét", "Screen after scanning"],
+     "dong": [
+      {"tu": "ho", "doan": [["Chuyển đến: ", "Send to: "], ["NGUYEN VAN KHANH", "NGUYEN VAN KHANH", "ten-nhan"], [" · Số tiền: 10.000đ", " · Amount: 10,000 VND"]]}
+     ]}],
+   "loi": {
+    "dan-de": ["Mã QR bị dán chồng lên mã cũ: mép bong và lệch khung.", "A QR sticker pasted over the original: peeling edge, off-center."],
+    "ten-nhan": ["Tên người nhận không phải chủ quầy. Đọc tên trước khi bấm chuyển.", "The recipient isn't the shop owner. Read the name before you tap send."]
+   },
+   "kiem": ["Nhìn mã trước khi quét, đọc tên người nhận trước khi chuyển. Tên lạ thì hỏi chủ quầy, đừng chuyển.", "Look at the code before scanning, read the name before sending. A strange name means ask the owner, don't send."]},
+
+  {"id": "qr-gui-xe", "bo": "anh", "video": 268,
+   "de": ["chỗ sai trên trang mở ra sau khi quét", "red flags on the page that opened"],
+   "khung": [{"loai": "chat", "kieu": "web", "ten": ["thanhtoan-guixe.vn-pay.click", "parking-pay.com-secure.click"], "phu": ["Mã QR dán ở cột bãi giữ xe", "QR code stuck on a parking-lot pole"],
+     "dong": [
+      {"tu": "ho", "doan": [["Phí gửi xe: 5.000đ. ", "Parking fee: 5,000 VND. "], ["Đăng nhập tài khoản ngân hàng để thanh toán.", "Log in to your bank account to pay.", "dang-nhap"]]},
+      {"tu": "ho", "doan": [["Tên đăng nhập ▢  Mật khẩu ▢ ", "Username ▢  Password ▢ "], ["Mã OTP ▢", "OTP code ▢", "otp"]]}
+     ]}],
+   "loi": {
+    "dang-nhap": ["Mã QR nơi công cộng mà mở trang đòi đăng nhập ngân hàng: thoát ra ngay.", "A public QR code that opens a bank login page: leave right away."],
+    "otp": ["Đòi nhập OTP trên trang lạ: kẻ gian dùng nó để rút tiền.", "An OTP box on a strange page: it lets thieves move your money."]
+   },
+   "kiem": ["Trả phí nhỏ thì quét bằng ứng dụng ngân hàng, xem tên người nhận. Lỡ nhập thông tin thì gọi ngân hàng khóa tài khoản.", "Pay small fees by scanning inside your banking app and check the name. If you typed your details, call the bank to lock the account."]},
+
+  {"id": "anh-khai-giang", "bo": "anh", "video": 270,
+   "de": ["thông tin bị lộ trong ảnh khoe con này", "things this proud-parent photo gives away"],
+   "khung": [{"loai": "hinh", "ten": ["Ảnh sắp đăng lên mạng", "Photo about to be posted"], "phu": ["Chạm vào chi tiết làm lộ thông tin", "Tap the details that give info away"], "file": "khai-giang",
+     "chu": {"truong": ["TRƯỜNG TIỂU HỌC HOA SEN", "LOTUS PRIMARY SCHOOL"], "the": ["LỚP 1A3", "CLASS 1A3"], "ten": ["Bé Na", "Na"], "lich": ["Tan học 16:30", "Pick-up 4:30 pm"], "chu_thich": ["Ngày đầu đi học của Na!", "Na's first day of school!"]}}],
+   "loi": {
+    "truong": ["Tên trường trên cổng: người lạ biết bé học ở đâu.", "The school name on the gate: strangers learn where she studies."],
+    "the": ["Thẻ tên ghi lớp và tên bé.", "The name tag shows her class and name."],
+    "lich": ["Bảng giờ tan học: người lạ biết lúc nào bé ra cổng.", "The pick-up time board: strangers learn when she walks out."],
+    "bien-so": ["Biển số xe nhà mình.", "Your family's license plate."]
+   },
+   "kiem": ["Trước khi đăng, soi số nhà, biển số, thẻ tên, tên trường, giờ giấc. Che bớt hoặc cắt ảnh, và nhờ chatbot soạn danh sách soi ảnh.", "Before posting, check for house numbers, plates, name tags, school names and schedules. Blur or crop, and ask a chatbot for a photo checklist."]},
+
+  {"id": "anh-du-lich", "bo": "anh", "video": 270,
+   "de": ["chỗ làm lộ thông tin trong bài đăng này", "oversharing spots in this post"],
+   "khung": [
+    {"loai": "chat", "kieu": "bai", "ten": ["Linh Đan", "Linh Dan"], "phu": ["Công khai · vừa xong", "Public · just now"],
+     "dong": [{"tu": "ho", "doan": [["Cả nhà lên đường đi biển ", "Whole family off to the beach "], ["5 ngày, nhà để trống luôn", "for 5 days, house is all empty", "nha-trong"], [", ai ghé tưới cây giùm nha!", ", anyone want to water my plants!"]]}]},
+    {"loai": "hinh", "ten": ["Ảnh kèm bài", "Attached photo"], "phu": ["Chạm vào chi tiết làm lộ thông tin", "Tap the details that give info away"], "file": "ve-may-bay",
+     "chu": {"hang": ["THẺ LÊN MÁY BAY", "BOARDING PASS"], "ten": ["HÀNH KHÁCH: TRAN LINH DAN", "PASSENGER: TRAN LINH DAN"], "ma": ["MÃ ĐẶT CHỖ: X7K2QP", "BOOKING CODE: X7K2QP"], "chuyen": ["CHUYẾN 2417 · GHẾ 14C", "FLIGHT 2417 · SEAT 14C"]}}],
+   "loi": {
+    "nha-trong": ["Báo cho người lạ biết nhà đang trống trong 5 ngày.", "Tells strangers your home is empty for 5 days."],
+    "ma-dat-cho": ["Mã đặt chỗ cộng họ tên là đủ để người khác vào xem, đổi, thậm chí hủy chuyến.", "Booking code plus name is enough for someone to view, change or even cancel the trip."],
+    "ma-vach": ["Mã vạch chứa thông tin vé, đọc được bằng điện thoại.", "The barcode holds the ticket details and any phone can read it."]
+   },
+   "kiem": ["Ảnh du lịch thì về nhà rồi hãy đăng. Không bao giờ đăng thẻ lên máy bay, kể cả khi đã che tên.", "Post trip photos after you get home. Never post a boarding pass, even with the name covered."]},
+
+  {"id": "anh-ai-quan", "bo": "anh", "video": 387,
+   "de": ["chỗ lộ ra đây là ảnh do AI tạo", "giveaways that this image is AI-made"],
+   "khung": [{"loai": "hinh", "ten": ["Ảnh lan truyền: quán cà phê mới mở", "Viral photo: a new café opening"], "phu": ["Ảnh minh họa kênh tự vẽ cho trò chơi", "Illustration drawn by the channel for this game"], "file": "anh-ai-quan",
+     "chu": {"bien": ["CẢ FHẺ", "COFEFE"], "bang": ["Mở cửa 7:00", "Open 7 am"]}}],
+   "loi": {
+    "tay": ["Bàn tay cầm ly có sáu ngón. Đếm ngón, xem khớp tay.", "The hand holding the cup has six fingers. Count fingers, check the joints."],
+    "chu": ["Chữ trên biển hiệu méo thành vô nghĩa. AI vẽ hình nét chữ chứ không đánh vần.", "The sign's letters melt into nonsense. AI draws letter shapes, it doesn't spell."]
+   },
+   "kiem": ["Soi bốn chỗ: tay, chữ, bóng, phản chiếu. Không thấy lỗi chưa chắc là ảnh thật: tìm ảnh ngược để xem bản đăng sớm nhất.", "Check four spots: hands, text, shadows, reflections. No visible flaw doesn't prove it's real: run a reverse image search for the earliest post."]},
+
+  {"id": "anh-ai-pho", "bo": "anh", "video": 387,
+   "de": ["chỗ lộ ra khung hình này do AI tạo", "giveaways that this frame is AI-made"],
+   "khung": [{"loai": "hinh", "ten": ["Khung hình cắt từ một video", "Frame grabbed from a video"], "phu": ["Ảnh minh họa kênh tự vẽ cho trò chơi", "Illustration drawn by the channel for this game"], "file": "anh-ai-pho", "chu": {}}],
+   "loi": {
+    "bong": ["Bóng cây đổ sang hướng khác hẳn bóng người và cột đèn. Cùng một mặt trời thì bóng phải gần song song.", "The tree's shadow points a different way from the person's and the lamp's. One sun means nearly parallel shadows."],
+    "guong": ["Áo trong gương màu xanh, áo thật màu đỏ.", "The shirt in the mirror is blue, the real one is red."]
+   },
+   "kiem": ["Vẽ một đường dọc theo từng bóng: các đường phải gần song song. Gương, kính, mặt nước thì so màu và chiều với vật thật.", "Trace a line along each shadow: they should be nearly parallel. In mirrors, glass and water, compare colors and direction with the real thing."]},
+
+  {"id": "anh-cu-lu", "bo": "kiem-chung", "video": 224,
+   "de": ["manh mối cho thấy ảnh này là chuyện cũ", "clues that this photo is an old story"],
+   "khung": [
+    {"loai": "chat", "kieu": "bai", "ten": ["Tin Nóng 24/7", "Hot News 24/7"], "phu": ["Công khai · 15 phút trước", "Public · 15 minutes ago"],
+     "dong": [{"tu": "ho", "doan": [["NÓNG: ", "BREAKING: "], ["ảnh vừa chụp sáng nay", "photo taken this morning", "vua-chup"], [", lũ ngập chợ thị trấn Sông Xanh. Chia sẻ để mọi người tránh!", ": floods swamp the Song Xanh town market. Share so people stay away!"]]}]},
+    {"loai": "hinh", "ten": ["Ảnh kèm bài", "Attached photo"], "phu": ["Soi chi tiết trong ảnh", "Look closely at the photo"], "file": "lu-cho",
+     "chu": {"bang_ron": ["MỪNG XUÂN KỶ HỢI 2019", "HAPPY LUNAR NEW YEAR 2019"], "cho": ["CHỢ BẾN ĐÁ", "BEN DA MARKET"]}},
+    {"loai": "chat", "kieu": "web", "ten": ["Tìm kiếm bằng hình ảnh", "Reverse image search"], "phu": ["3 kết quả giống hệt", "3 identical matches"],
+     "dong": [{"tu": "ho", "doan": [["Kết quả cũ nhất: Báo Miền Tây (hư cấu), ", "Earliest result: West News (fictional), "], ["đăng ngày 14/09/2019", "posted 14/09/2019", "ngay-dang"], [" · ảnh lũ ở chợ Bến Đá.", " · flood at Ben Da market."]]}]}
+   ],
+   "loi": {
+    "vua-chup": ["Lời kể nói 'vừa chụp sáng nay', nhưng ảnh đã xuất hiện từ năm 2019.", "The post says 'taken this morning', but the photo has been online since 2019."],
+    "bang-ron": ["Băng rôn ghi năm 2019: chi tiết trong ảnh không khớp với 'hôm nay'.", "The banner says 2019: a detail that doesn't fit 'today'."],
+    "ten-cho": ["Biển chợ ghi Bến Đá, không phải chợ Sông Xanh như lời kể.", "The market sign says Ben Da, not Song Xanh as the post claims."],
+    "ngay-dang": ["Tìm ảnh ngược ra bản đăng sớm nhất: năm 2019.", "Reverse search finds the earliest post: 2019."]
+   },
+   "kiem": ["Nhiều ảnh gây sốc là ảnh thật của chuyện cũ. Tìm ảnh ngược để xem lần đầu ảnh xuất hiện, rồi so biển hiệu, chữ, thời tiết với lời kể.", "Many shocking photos are real photos of old events. Reverse-search for the first appearance, then compare signs, text and weather with the story."]},
+
+  {"id": "ai-doan-noi", "bo": "kiem-chung", "video": 224,
+   "de": ["chỗ AI nói quá chắc khi soi ảnh", "spots where the AI is too sure about a photo"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bạn gửi ảnh một con đèo có sương", "You sent a photo of a misty mountain pass"],
+     "dong": [
+      {"tu": "minh", "doan": [["Ảnh này chụp ở đâu, khi nào?", "Where and when was this taken?"]]},
+      {"tu": "ai", "doan": [["Trong ảnh có sương mù, rừng thông và một biển chỉ đường bị mờ. ", "The photo shows fog, pine trees and a blurry road sign. "], ["Chắc chắn 100% đây là Đà Lạt ", "This is 100% certainly Da Lat ", "chac-chan"], ["vì có sương mù. ", "because there's fog. ", "ly-do"], ["Ảnh chụp đúng tuần này.", "It was taken this very week.", "thoi-gian"]]}
+     ]}],
+   "loi": {
+    "chac-chan": ["AI có thể đoán sai nơi chụp. Câu trả lời 'chắc chắn 100%' từ một tấm ảnh là dấu hiệu đáng ngờ.", "AI can misjudge locations. '100% certain' from one photo is a red flag."],
+    "ly-do": ["Sương mù và rừng thông có ở rất nhiều nơi, không đủ để chốt địa điểm.", "Fog and pines exist in many places, not enough to pin a location."],
+    "thoi-gian": ["Ảnh không cho biết được tuần chụp. AI đang bịa thêm chi tiết.", "A photo can't show which week it was taken. The AI is making that up."]
+   },
+   "kiem": ["Nhờ AI liệt kê chi tiết trong ảnh (biển hiệu, chữ, kiểu xe) là tốt. Kết luận nơi chụp, ngày chụp thì chỉ coi là manh mối để kiểm tiếp.", "Asking AI to list details (signs, text, car models) is useful. Treat its guess about place and date as a clue to check, not an answer."]},
+
+  {"id": "bieu-do-doanh-thu", "bo": "kiem-chung", "video": 226,
+   "de": ["chỗ biểu đồ làm bạn hiểu sai", "ways this chart misleads you"],
+   "khung": [
+    {"loai": "chat", "kieu": "bai", "ten": ["Trang Kinh Doanh Hay", "Smart Biz Page"], "phu": ["Công khai", "Public"],
+     "dong": [{"tu": "ho", "doan": [["Quán trà sữa Mây ", "Cloud Milk Tea shop "], ["doanh thu TĂNG GẤP 5 LẦN", "revenue UP 5 TIMES", "gap-5"], [" chỉ sau một năm!", " in just one year!"]]}]},
+    {"loai": "bieu-do", "ten": ["Biểu đồ kèm bài", "Chart in the post"], "phu": ["Kéo thanh trượt để dời điểm bắt đầu của trục", "Drag the slider to move where the axis starts"],
+     "tieu_de": ["Doanh thu (triệu đồng)", "Revenue (million VND)"], "cot": [["2024", 96], ["2025", 100]], "tu": 95, "loi_truc": "truc"}],
+   "loi": {
+    "truc": ["Trục dọc bắt đầu từ 95, không từ 0, nên cột 100 trông cao gấp 5 lần cột 96.", "The axis starts at 95, not 0, so the 100 bar looks five times taller than the 96 bar."],
+    "gap-5": ["Từ 96 lên 100 triệu chỉ tăng khoảng 4%, không phải gấp 5.", "Going from 96 to 100 million is only about a 4% rise, not 5 times."]
+   },
+   "kiem": ["Gặp biểu đồ thì nhìn số ở chân trục dọc trước. Chụp biểu đồ gửi chatbot, nhờ kiểm trục, mốc thời gian, nguồn số liệu và tả lại đúng tỉ lệ.", "With any chart, read the number at the bottom of the axis first. Send a screenshot to a chatbot and ask it to check the axis, time range and source, then describe the real ratio."]},
+
+  {"id": "bieu-do-nguy-co", "bo": "kiem-chung", "video": 226,
+   "de": ["chỗ tin này làm bạn sợ quá mức", "ways this post makes you more scared than you should be"],
+   "khung": [
+    {"loai": "chat", "kieu": "bai", "ten": ["Sức Khỏe Mỗi Ngày", "Daily Health"], "phu": ["Công khai", "Public"],
+     "dong": [{"tu": "ho", "doan": [["Uống nước đá buổi tối làm ", "Drinking iced water at night "], ["nguy cơ đau họng TĂNG GẤP ĐÔI!", "DOUBLES your risk of a sore throat!", "gap-doi"], [" Bỏ ngay kẻo hối hận.", " Quit now before it's too late."]]}]},
+    {"loai": "bieu-do", "ten": ["Biểu đồ kèm bài", "Chart in the post"], "phu": ["Chạm vào chỗ đáng ngờ, kể cả dòng chữ nhỏ", "Tap anything suspicious, including the fine print"],
+     "tieu_de": ["Số người đau họng", "People with a sore throat"], "cot": [[["Không uống đá", "No ice"], 1], [["Uống đá", "Iced water"], 2]], "tu": 0,
+     "chu_thich": ["Trên mỗi 10.000 người · khảo sát 2 tuần", "Per 10,000 people · 2-week survey"], "loi_chu_thich": "so-goc"}],
+   "loi": {
+    "gap-doi": ["'Gấp đôi' nghe đáng sợ, nhưng gấp đôi của một con số rất nhỏ thì vẫn rất nhỏ.", "'Double' sounds scary, but double a tiny number is still tiny."],
+    "so-goc": ["Dòng chữ nhỏ: chỉ 1 lên 2 người trên 10.000 người, khảo sát có 2 tuần.", "The fine print: just 1 to 2 people per 10,000, in a 2-week survey."]
+   },
+   "kiem": ["Nghe 'tăng gấp đôi' thì hỏi ngay: gấp đôi của bao nhiêu, trên bao nhiêu người, trong bao lâu.", "When you hear 'doubled', ask: double of what, out of how many people, over how long."]},
+
+  {"id": "tin-cu", "bo": "kiem-chung", "video": 388,
+   "de": ["lỗi thời gian trong câu trả lời của AI", "time mistakes in the AI's answers"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Hôm nay: thứ Bảy 17/04/2027", "Today: Saturday 17/04/2027"],
+     "dong": [
+      {"tu": "minh", "doan": [["Còn bao nhiêu ngày nữa tới Tết?", "How many days until Lunar New Year?"]]},
+      {"tu": "ai", "doan": [["Còn 67 ngày nữa là tới Tết, ngày 06/02/2027.", "67 days to go until Tet on 06/02/2027.", "tet"]]},
+      {"tu": "minh", "doan": [["Đặt giúp mình lịch họp cuối tháng Tư.", "Book me a meeting at the end of April."]]},
+      {"tu": "ai", "doan": [["Đã đặt lịch họp ", "Meeting booked for "], ["ngày 31/04/2027", "31/04/2027", "ngay-31"], [", 9:00 sáng.", ", 9:00 am."]]},
+      {"tu": "minh", "doan": [["Tuần này là tuần thứ mấy của năm?", "Which week of the year is this?"]]},
+      {"tu": "ai", "doan": [["Hôm nay 17/04/2027 thuộc tuần thứ 15 của năm.", "Today, 17/04/2027, is in week 15 of the year."]]}
+     ]}],
+   "loi": {
+    "tet": ["Tết 06/02/2027 đã qua 70 ngày rồi. Tết kế tiếp là 26/01/2028, còn 284 ngày.", "Tet on 06/02/2027 was 70 days ago. The next one is 26/01/2028, 284 days away."],
+    "ngay-31": ["Tháng Tư chỉ có 30 ngày, không có ngày 31.", "April has only 30 days. There is no 31st."]
+   },
+   "kiem": ["AI chỉ biết tới mốc dữ liệu của nó. Với câu hỏi ngày tháng, ghi rõ hôm nay là ngày nào và kiểm lại bằng lịch.", "AI only knows up to its training cutoff. For date questions, tell it today's date and double-check with a calendar."]},
+
+  {"id": "tinh-sai", "bo": "ai-sai", "video": 385,
+   "de": ["phép tính sai của AI", "math mistakes by the AI"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết", "Example written by the channel"],
+     "dong": [
+      {"tu": "minh", "doan": [["3 ly trà sữa, mỗi ly 25.000đ. Tổng bao nhiêu?", "3 milk teas at 25,000 VND each. What's the total?"]]},
+      {"tu": "ai", "doan": [["3 × 25.000đ = ", "3 × 25,000 = "], ["65.000đ", "65,000 VND", "ly"]]},
+      {"tu": "minh", "doan": [["Áo 100.000đ giảm 20% rồi giảm thêm 10%, tổng cộng giảm bao nhiêu?", "A 100,000 shirt gets 20% off, then another 10% off. Total discount?"]]},
+      {"tu": "ai", "doan": [["Giảm 20% rồi thêm 10% = ", "20% then 10% = "], ["giảm 30%", "30% off", "giam"]]},
+      {"tu": "minh", "doan": [["4 ly thì sao?", "What about 4 cups?"]]},
+      {"tu": "ai", "doan": [["4 × 25.000đ = 100.000đ", "4 × 25,000 = 100,000 VND"]]},
+      {"tu": "minh", "doan": [["Tháng trước 50 đơn, tháng này 75 đơn, tăng bao nhiêu phần trăm?", "50 orders last month, 75 this month. What's the percent increase?"]]},
+      {"tu": "ai", "doan": [["Từ 50 lên 75 là ", "From 50 to 75 is "], ["tăng 25%", "a 25% increase", "tang"]]}
+     ]}],
+   "loi": {
+    "ly": ["3 × 25.000 = 75.000đ, lệch 10.000đ.", "3 × 25,000 = 75,000, off by 10,000."],
+    "giam": ["100.000 → 80.000 → 72.000: chỉ giảm 28%, vì lần giảm sau tính trên giá đã giảm.", "100,000 → 80,000 → 72,000: only 28% off, because the second cut applies to the lower price."],
+    "tang": ["(75 − 50) / 50 = tăng 50%. Chia cho số cũ, không phải số mới.", "(75 − 50) / 50 = a 50% increase. Divide by the old number, not the new one."]
+   },
+   "kiem": ["AI đoán chữ tiếp theo chứ không bấm máy tính. Nhẩm ước lượng, bấm máy lại, hoặc bảo AI 'tính bằng code và in phép tính'.", "AI predicts the next word, it doesn't run a calculator. Estimate, recheck on a calculator, or tell it to 'compute with code and show the steps'."]},
+
+  {"id": "hieu-sai-de", "bo": "ai-sai", "video": 386,
+   "de": ["chỗ AI làm sai yêu cầu", "spots where the AI ignored the request"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết", "Example written by the channel"],
+     "dong": [
+      {"tu": "minh", "doan": [["Gợi ý 3 món quà sinh nhật cho mẹ, mẹ thích làm vườn và uống trà, dưới 500.000đ.", "Suggest 3 birthday gifts for Mom, who loves gardening and tea, under 500,000 VND."]]},
+      {"tu": "ai", "doan": [["1. Bộ ấm trà gốm thủ công ", "1. Handmade ceramic tea set "], ["1.200.000đ", "1,200,000 VND", "gia"], [" · 2. Bộ dụng cụ làm vườn 450.000đ · 3. Trà ô long hộp quà 380.000đ", " · 2. Gardening tool kit 450,000 VND · 3. Oolong tea gift box 380,000 VND"]]},
+      {"tu": "minh", "doan": [["Gợi ý một món chay cho bữa tối 2 người.", "Suggest a vegetarian dinner for 2."]]},
+      {"tu": "ai", "doan": [["Đậu hũ sốt cà chua: 2 bìa đậu hũ, 3 quả cà chua, ", "Tofu in tomato sauce: 2 blocks of tofu, 3 tomatoes, "], ["200g thịt bằm", "200 g minced pork", "thit"], [", hành lá, ", ", spring onion, "], ["nước mắm", "fish sauce", "mam"], [", tiêu.", ", pepper."]]}
+     ]}],
+   "loi": {
+    "gia": ["Ngân sách dưới 500.000đ mà món này hơn gấp đôi.", "The budget is under 500,000, this one costs more than double."],
+    "thit": ["Món chay mà có thịt bằm.", "A vegetarian dish with minced pork."],
+    "mam": ["Nước mắm làm từ cá, cũng không chay.", "Fish sauce is made from fish, not vegetarian either."]
+   },
+   "kiem": ["Liệt kê điều kiện thành số (1), (2), (3) và bảo AI nhắc lại đề trước khi làm. Đọc câu trả lời, soát từng điều kiện.", "Number your conditions (1), (2), (3) and ask the AI to repeat them before answering. Then check the answer against each one."]},
+
+  {"id": "don-vi", "bo": "ai-sai", "video": 539,
+   "de": ["câu đổi sai đơn vị", "unit conversion mistakes"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết", "Example written by the channel"],
+     "dong": [
+      {"tu": "minh", "doan": [["Chạy marathon là chạy bao nhiêu km?", "How many km is a marathon?"]]},
+      {"tu": "ai", "doan": [["Marathon dài ", "A marathon is "], ["26,2 km", "26.2 km", "marathon"], ["."]]},
+      {"tu": "minh", "doan": [["Công thức bánh ghi nướng 350 độ F, lò mình chỉnh độ C thì để bao nhiêu?", "The recipe says bake at 350°F. My oven uses Celsius, what do I set?"]]},
+      {"tu": "ai", "doan": [["Bạn đặt lò ", "Set your oven to "], ["350 độ C", "350°C", "do-c"], [" nhé.", "."]]},
+      {"tu": "minh", "doan": [["60 dặm một giờ là bao nhiêu km/giờ?", "What's 60 miles per hour in km/h?"]]},
+      {"tu": "ai", "doan": [["Khoảng 97 km/giờ.", "About 97 km/h."]]}
+     ]}],
+   "loi": {
+    "marathon": ["Marathon dài 26,2 dặm, tức khoảng 42,2 km. AI giữ con số, đổi nhầm chữ đơn vị.", "A marathon is 26.2 miles, about 42.2 km. The AI kept the number and swapped the unit."],
+    "do-c": ["350 độ F chỉ khoảng 177 độ C. Nhẩm nhanh: (350 − 30) / 2 = 160.", "350°F is only about 177°C. Quick check: (350 − 30) / 2 = 160."]
+   },
+   "kiem": ["Đọc đơn vị cạnh mỗi con số rồi nhẩm thô: dặm × 1,6 ≈ km, (độ F − 30) / 2 ≈ độ C.", "Read the unit next to each number and estimate: miles × 1.6 ≈ km, (°F − 30) / 2 ≈ °C."]},
+
+  {"id": "am-lich", "bo": "ai-sai", "video": 540,
+   "de": ["chỗ AI tính sai lịch âm", "lunar calendar mistakes"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết", "Example written by the channel"],
+     "dong": [
+      {"tu": "minh", "doan": [["Trung thu năm 2028 là ngày nào dương lịch?", "When is the Mid-Autumn Festival in 2028?"]]},
+      {"tu": "ai", "doan": [["Ngày 15/08/2028", "On 15/08/2028", "trung-thu"], [", vì Trung thu là rằm tháng Tám.", ", since it's the full moon of the 8th month."]]},
+      {"tu": "minh", "doan": [["Bé sinh ngày 15/01/2028 tuổi con gì?", "A baby born on 15/01/2028 is which zodiac animal?"]]},
+      {"tu": "ai", "doan": [["Bé ", "The baby is "], ["tuổi Thân", "a Monkey", "con-giap"], [", vì sinh năm 2028.", ", since 2028 is the Year of the Monkey."]]},
+      {"tu": "minh", "doan": [["Rằm là ngày bao nhiêu âm lịch?", "Which lunar day is the full moon day?"]]},
+      {"tu": "ai", "doan": [["Rằm là ngày 15 âm lịch.", "It's the 15th day of the lunar month."]]}
+     ]}],
+   "loi": {
+    "trung-thu": ["AI chép nguyên '15/8' sang lịch dương. Rằm tháng Tám năm 2028 là 03/10/2028, năm đó còn nhuận tháng Năm.", "The AI copied '15/8' straight into the solar calendar. That festival falls on 03/10/2028; 2028 even has a leap fifth month."],
+    "con-giap": ["Con giáp đổi vào mùng một Tết (26/01/2028), không đổi vào 1/1. Bé sinh 15/01/2028 vẫn tuổi Mùi.", "The zodiac year changes at Tet (26/01/2028), not on 1 January. A baby born 15/01/2028 is still a Goat."]
+   },
+   "kiem": ["Lịch âm phải tính theo mặt trăng, AI không học thuộc được. Ngày giỗ, ngày cưới thì tra lịch vạn niên Việt Nam và đối chiếu hai nguồn.", "Lunar dates must be computed from the moon, AI can't memorize them. For memorials and weddings, check a Vietnamese calendar and a second source."]},
+
+  {"id": "trich-dan", "bo": "ai-sai", "video": 541,
+   "de": ["nguồn có vấn đề trong câu trả lời này", "problem sources in this answer"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết · tên người và công ty là hư cấu", "Example written by the channel · names are fictional"],
+     "dong": [
+      {"tu": "minh", "doan": [["Cho mình vài số liệu có nguồn để viết bài.", "Give me some sourced facts for my article."]]},
+      {"tu": "ai", "doan": [["1. Trẻ học với AI đọc nhanh gấp 3 lần ", "1. Kids who learn with AI read 3 times faster "], ["(Lê & Smith, 2021, Tạp chí Giáo dục Quốc tế, tr. 44-58).", "(Le & Smith, 2021, International Journal of Education, pp. 44-58).", "bai-bia"]]},
+      {"tu": "ai", "doan": [["2. ", "2. "], ["Năm 2019, tòa đã xử vụ Hoàng và Công ty Sao Mai", "In 2019 a court ruled in Hoang v. Sao Mai Co.", "vu-kien"], [": chatbot nói sai thì công ty không chịu trách nhiệm.", " that companies aren't liable when their chatbot is wrong."]]},
+      {"tu": "ai", "doan": [["3. Theo WHO, ", "3. According to the WHO, "], ["2,2 tỷ người trên thế giới bị mù", "2.2 billion people worldwide are blind", "doc-sai"], [" (link trang WHO).", " (link to WHO page)."]]}
+     ]}],
+   "loi": {
+    "bai-bia": ["Có tác giả, năm, tạp chí, số trang mà bài không hề tồn tại. AI thuộc dáng trích dẫn nên ghép được trích dẫn giả trông chuẩn.", "Authors, year, journal and pages, yet the paper doesn't exist. AI knows the shape of a citation and can assemble a convincing fake."],
+    "vu-kien": ["Vụ kiện này do AI bịa. Năm 2023 ở Mỹ đã có luật sư bị phạt vì nộp lên tòa những vụ án do chatbot bịa.", "This case was invented. In 2023, US lawyers were fined for filing court cases a chatbot made up."],
+    "doc-sai": ["Nguồn có thật nhưng nói 2,2 tỷ người suy giảm thị lực gần hoặc xa, không phải 2,2 tỷ người mù.", "The source is real but says 2.2 billion people have near or distance vision impairment, not 2.2 billion blind."]
+   },
+   "kiem": ["Mở link, tra tên bài, đọc bài gốc, rồi tìm đúng câu được trích xem con số nói về ai, về cái gì.", "Open the link, search the title, read the original, then find the exact quoted line and check who and what the number is about."]},
+
+  {"id": "phan-tram", "bo": "ai-sai", "video": 542,
+   "de": ["lỗi phần trăm của AI", "percentage mistakes by the AI"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết", "Example written by the channel"],
+     "dong": [
+      {"tu": "minh", "doan": [["Tỉ lệ đậu của trường từ 40% lên 50%, tăng bao nhiêu?", "The school's pass rate went from 40% to 50%. How much is that increase?"]]},
+      {"tu": "ai", "doan": [["Tăng 10%.", "It rose 10%.", "diem-pt"]]},
+      {"tu": "minh", "doan": [["Áo 100.000đ giảm 50%, hôm sau tăng lại 50% thì giá bao nhiêu?", "A 100,000 shirt is cut 50%, then raised 50% the next day. New price?"]]},
+      {"tu": "ai", "doan": [["Về lại ", "Back to "], ["100.000đ", "100,000 VND", "giam-tang"], ["."]]},
+      {"tu": "minh", "doan": [["Hàng 100.000đ tăng 25% rồi giảm 20% thì sao?", "100,000 up 25%, then down 20%?"]]},
+      {"tu": "ai", "doan": [["Về đúng giá cũ 100.000đ.", "Exactly back to 100,000 VND."]]}
+     ]}],
+   "loi": {
+    "diem-pt": ["Từ 40% lên 50% là tăng 10 điểm phần trăm, tức tăng 25% so với 40.", "40% to 50% is up 10 percentage points, which is a 25% rise relative to 40."],
+    "giam-tang": ["100.000 giảm 50% còn 50.000, tăng 50% của 50.000 chỉ lên 75.000đ.", "100,000 minus 50% is 50,000; plus 50% of that is only 75,000."]
+   },
+   "kiem": ["Mỗi lần thấy phần trăm, hỏi: phần trăm của cái gì? Tính lại từng bước trên con số mới.", "Whenever you see a percent, ask: percent of what? Redo each step on the new number."]},
+
+  {"id": "trung-ten", "bo": "ai-sai", "video": 543,
+   "de": ["ý thuộc về người khác trùng tên", "facts that belong to someone else with the same name"],
+   "khung": [{"loai": "chat", "kieu": "ai", "ten": ["Chatbot", "Chatbot"], "phu": ["Bản minh họa do kênh viết · nhân vật hư cấu", "Example written by the channel · fictional person"],
+     "dong": [
+      {"tu": "minh", "doan": [["Giới thiệu ngắn về kỹ sư Phạm Minh An ở Đà Nẵng.", "Give me a short intro to engineer Pham Minh An from Da Nang."]]},
+      {"tu": "ai", "doan": [["Phạm Minh An là kỹ sư cầu đường, làm việc ở Đà Nẵng từ năm 2015. ", "Pham Minh An is a civil engineer who has worked in Da Nang since 2015. "], ["Anh từng giành huy chương vàng bơi 200 m tự do ", "He once won gold in the 200 m freestyle swim ", "boi"], ["và ", "and "], ["ra mắt album nhạc trẻ đầu tay năm 2019.", "released his debut pop album in 2019.", "ca-si"]]}
+     ]}],
+   "loi": {
+    "boi": ["Huy chương bơi là của một vận động viên trùng tên.", "The swimming medal belongs to an athlete with the same name."],
+    "ca-si": ["Album nhạc là của một ca sĩ trùng tên. AI gộp ba người thành một.", "The album belongs to a singer with the same name. The AI merged three people into one."]
+   },
+   "kiem": ["Hỏi về một người, thêm chi tiết riêng (nghề, nơi ở, năm) và bảo AI ghi nguồn cho từng ý. Ý nào không có nguồn từ chính người đó thì bỏ.", "When asking about a person, add specifics (job, city, year) and ask for a source per fact. Drop any fact not sourced to that person."]}
+ ]
+}

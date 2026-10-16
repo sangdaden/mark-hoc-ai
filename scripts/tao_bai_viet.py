@@ -618,11 +618,14 @@ TRO_CHOI_WEB = [
      ("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve."), "ghep"),
     ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"]),
      ("Đổi trời mưa, sương, đêm và xem LiDAR, radar, camera nhìn thấy gì.", "Switch to rain, fog or night and see what LiDAR, radar and camera pick up."), "cam-bien"),
+    # {so} trong url: trang bài mở thẳng bộ ca của chính video đó
+    ("bit-bat-loi.html?tap={so}", ("Bit bắt lỗi", "Bit's error hunt"), {str(c["video"]) for c in load("bit-bat-loi")["ca"]},
+     ("Chạm vào chỗ sai trong tin nhắn, bức ảnh, biểu đồ hay câu trả lời của AI.", "Tap the mistake in a message, a photo, a chart or an AI answer."), "bat-loi"),
 ]
 TUONG_TAC = {}
 for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
     for _so in _ds:
-        TUONG_TAC.setdefault(_so, []).append((_url, _ten, _moi, _hinh))
+        TUONG_TAC.setdefault(_so, []).append((_url.replace("{so}", _so), _ten, _moi, _hinh))
 
 # Hình xem trước nhỏ trên thẻ "Chơi thử" (HTML + CSS, không ảnh): người xem nhìn là biết trò chơi làm gì
 def hinh_choi(hinh):
@@ -630,6 +633,9 @@ def hinh_choi(hinh):
         manh = [("vai", t("Vai trò", "Role")), ("boi", t("Bối cảnh", "Context")), ("viec", t("Nhiệm vụ", "Task")), ("dang", t("Định dạng", "Format"))]
         return ('<span class="ct-hinh ct-ghep" aria-hidden="true">' + "".join(f'<span class="ct-manh ct-{k}">{ten}</span>' for k, ten in manh) +
                 '<span class="ct-sao">★★★</span></span>')
+    if hinh == "bat-loi":
+        return (f'<span class="ct-hinh ct-bl" aria-hidden="true"><span class="ct-tin">{t("Marathon dài", "A marathon is")} <span class="ct-sai">26,2 km</span></span>'
+                f'<span class="ct-tin">{t("Đặt lò 350 độ C", "Set the oven to 350°C")}</span><span class="ct-kinh"></span></span>')
     if hinh == "lua-dao":
         return (f'<span class="ct-hinh ct-ld" aria-hidden="true"><span class="ct-tin">{t("Mẹ ơi con đây, chuyển gấp cho con 20 triệu…", "Mom, it&#39;s me, send me 20 million now…")}</span>'
                 f'<span class="ct-chon"><span>{t("Thật", "Real")}</span><span class="ct-gia">{t("Lừa đảo", "Scam")}</span></span></span>')
@@ -1715,6 +1721,106 @@ def tao_ghep_cau_lenh():
                                                  desc, band, main, p, og_type="website", q="",
                                                  cuoi=f'<script src="{p}ghep-cau-lenh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
+# ---------- trò chơi "Bit bắt lỗi" (bit-bat-loi.html): một khuôn tìm chỗ sai, mỗi tập một bộ ca ----------
+# Nội dung ở data/bit-bat-loi.json (chữ là [vi, en]), ảnh ở data/bit-bat-loi-hinh/*.svg, cách chơi ở bat-loi.js.
+# ?tap=N chơi ngay các ca của video N (khối "Thử 60 giây" trong trang bài mở kiểu này), ?bo=<id> chơi một bộ.
+def tao_bat_loi():
+    p = t("", "../")
+    D = load("bit-bat-loi")
+    L = 0 if LG == "vi" else 1
+    chu = lambda x: x[L] if isinstance(x, list) else x
+    def video(so):
+        v = co_bai.get(so)
+        return {"so": so, "ten": seo[str(so)] if v else "", "url": f"bai/{ten_file(v)}.html" if v else ""}
+    def hinh(k):
+        svg = (R / "data" / "bit-bat-loi-hinh" / f"{k['file']}.svg").read_text(encoding="utf-8").strip()
+        for khoa, x in k.get("chu", {}).items():
+            svg = svg.replace(f"@{khoa}@", esc(chu(x)))
+        assert "@" not in re.sub(r'"[^"]*"', "", svg.split(">", 1)[1]), f"bit-bat-loi: {k['file']}.svg còn chữ @...@ chưa có trong 'chu'"
+        return svg.replace(' xmlns="http://www.w3.org/2000/svg"', "", 1)
+    def khung(k):
+        o = {"loai": k["loai"], "ten": chu(k.get("ten", "")), "phu": chu(k.get("phu", ""))}
+        if k["loai"] == "chat":
+            o["kieu"] = k.get("kieu", "chat")
+            o["dong"] = [{"tu": d["tu"], "doan": [{"chu": x[L] if len(x) > 1 else x[0], "loi": x[2] if len(x) > 2 else ""} for x in d["doan"]]} for d in k["dong"]]
+        elif k["loai"] == "hinh":
+            o["svg"] = hinh(k)
+        else:
+            o.update({"tieu_de": chu(k["tieu_de"]), "cot": [[chu(n), v] for n, v in k["cot"]], "tu": k.get("tu", 0),
+                      "loi_truc": k.get("loi_truc", ""), "chu_thich": chu(k.get("chu_thich", "")), "loi_chu_thich": k.get("loi_chu_thich", "")})
+        return o
+    def khoa_trong(k):
+        if k["loai"] == "chat":
+            return {x[2] for d in k["dong"] for x in d["doan"] if len(x) > 2}
+        if k["loai"] == "hinh":
+            return set(re.findall(r'data-loi="([^"]+)"', (R / "data" / "bit-bat-loi-hinh" / f"{k['file']}.svg").read_text(encoding="utf-8")))
+        return {x for x in (k.get("loi_truc"), k.get("loi_chu_thich")) if x}
+    ca = []
+    for c in D["ca"]:
+        co = set().union(*(khoa_trong(k) for k in c["khung"]))
+        assert co == set(c["loi"]), f"bit-bat-loi: ca {c['id']} có chỗ sai {sorted(co)} nhưng lời giải cho {sorted(c['loi'])}"
+        ca.append({"id": c["id"], "bo": c["bo"], "video": video(c["video"]), "de": chu(c["de"]),
+                   "khung": [khung(k) for k in c["khung"]], "loi": {k: chu(x) for k, x in c["loi"].items()}, "kiem": chu(c["kiem"])})
+    bo = [{"id": b["id"], "ten": chu(b["ten"]), "moi": chu(b["moi"]), "mau": b["mau"]} for b in D["bo"]]
+    nhan = {
+        "ca": t("Ca", "Case"), "tim": t("Tìm", "Find"), "da_bat": t("Đã bắt", "Caught"), "nham": t("Chạm nhầm", "Wrong taps"),
+        "huong": t("Chạm thẳng vào chữ hoặc chỗ trên ảnh mà bạn thấy sai.", "Tap the words or the spot in the picture that look wrong."),
+        "chiu": t("Chịu, xem đáp án", "I give up, show me"), "on": t("Chỗ này ổn", "This part is fine"),
+        "bat_het": t("Bắt hết rồi!", "You caught them all!"), "bat_duoc": t("Bạn bắt được", "You caught"), "bo_sot": t("Bạn bỏ sót", "You missed"),
+        "da_tim": t("Bắt được", "Caught"), "cach_kiem": t("Cách kiểm", "How to check"), "tiep": t("Ca tiếp theo", "Next case"), "xem_ket": t("Xem kết quả", "See your result"),
+        "xem_video": t("Xem video", "Watch video"), "sap_ra": t("sắp ra mắt", "coming soon"),
+        "ai": t("AI trả lời · bản minh họa do kênh viết", "AI answer · example written by the channel"), "ban": t("Bạn", "You"),
+        "truc_tu": t("Trục dọc bắt đầu từ", "Vertical axis starts at"), "keo_truc": t("Kéo trục về 0", "Drag the axis to 0"),
+        "tai_tro": t("Được tài trợ", "Sponsored"),
+        "tron": t("Trộn 8 ca", "Mixed, 8 cases"), "tron_moi": t("Hai ca mỗi bộ, đổi mỗi lần chơi", "Two cases from each set, new every time"),
+        "bo_cua": t("Bộ ca của video", "Cases from video"), "choi_bo_khac": t("Chơi bộ khác", "Play another set"), "choi_lai": t("Chơi lại", "Play again"),
+        "so_ca": t("ca", "cases"), "loi": t("lỗi", "errors"),
+        "hang": [[0.9, t("Mắt thần của Bit", "Bit's eagle eye")], [0.7, t("Thám tử tỉnh táo", "Sharp detective")], [0.4, t("Đang luyện mắt", "Eye in training")], [0, t("Cần soi kỹ hơn", "Look a little closer")]],
+        "on_lai": t("Xem lại video cho những ca còn sót", "Rewatch the videos for the cases you missed"), "het_sot": t("Không sót lỗi nào. Gửi thẻ điểm cho bạn bè thử sức!", "Not a single miss. Send your score card to a friend!"),
+        "the_diem": t("Thẻ điểm của bạn", "Your score card"), "luu_anh": t("Lưu ảnh", "Save image"), "chia_se_anh": t("Gửi thẻ điểm", "Share score card"),
+        "the_kicker": t("BIT BẮT LỖI", "BIT'S ERROR HUNT"), "the_bat": t("lỗi đã bắt", "errors caught"), "the_moi": t("Bạn bắt được mấy lỗi?", "How many can you catch?"),
+        "the_file": t("bit-bat-loi-diem", "bit-error-hunt-score"), "url": BASE + GOC + "bit-bat-loi.html",
+    }
+    du_lieu = json.dumps({"ca": ca, "bo": bo, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    so_ca, so_tap = len(ca), len({c["video"] for c in D["ca"]})
+    dem = {b["id"]: sum(c["bo"] == b["id"] for c in ca) for b in bo}
+    the_bo = "".join(f'<button type="button" class="bl-bo" data-bo="{b["id"]}" style="--mau:{b["mau"]}"><span class="bl-bo-so">{dem[b["id"]]}<small>{t("ca", "cases")}</small></span>'
+                     f'<b>{esc(b["ten"])}</b><span>{esc(b["moi"])}</span></button>' for b in bo)
+    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống từ {so_tap} video, chạm vào chỗ sai trong tin nhắn lừa đảo, ảnh lộ thông tin, biểu đồ cắt trục và câu trả lời AI tính sai. Cuối game có thẻ điểm để chia sẻ.",
+             f"Free game: {so_ca} cases from {so_tap} videos. Tap the mistake in scam texts, oversharing photos, cut-axis charts and wrong AI answers, then share your score card.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 3 phút · chơi trên điện thoại", "Game · 3 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Bit bắt lỗi", "Bit&#39;s error hunt")}</h1>\n'
+            f'<p class="lead">{t("Mỗi ca giấu vài chỗ sai: chữ lừa, chi tiết lộ, trục cắt, phép tính trật. Chạm thẳng vào chỗ đó, Bit chỉ cách kiểm và video để xem lại.", "Every case hides a few mistakes: a scammy line, a leaky detail, a cut axis, a botched sum. Tap right on it, and Bit shows how to check and which video to rewatch.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/bit-giai-thich.svg" alt="" width="180" height="170"></div>')
+    main = f"""<main class="bl" id="bl">
+<section class="bl-mo" id="bl-mo" aria-labelledby="bl-mo-h">
+<h2 class="bl-mo-h" id="bl-mo-h">{t("Chọn một bộ ca", "Pick a set")}</h2>
+<div class="bl-bo-ds"><button type="button" class="bl-bo bl-bo-tron" data-bo="tron"><span class="bl-bo-so">8<small>{t("ca", "cases")}</small></span><b>{t("Trộn 8 ca", "Mixed, 8 cases")}</b><span>{t("Hai ca mỗi bộ, đổi mỗi lần chơi", "Two cases from each set, new every time")}</span></button>{the_bo}</div>
+</section>
+<div class="bl-dau" id="bl-dau" hidden><p class="bl-tien" id="bl-tien" aria-live="polite"></p><p class="bl-diem" id="bl-diem"></p></div>
+<div class="bl-san" id="bl-san" hidden></div>
+<section class="bl-ket" id="bl-ket" hidden aria-live="polite">
+<div class="bl-ket-o">
+<figure class="bl-the"><img id="bl-the-anh" alt="" width="540" height="675"><figcaption>{t("Thẻ điểm của bạn", "Your score card")}</figcaption></figure>
+<div class="bl-ket-ben">
+<div class="bl-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="88" height="88"><div><p class="bl-ket-so" id="bl-ket-so"></p><p class="bl-ket-hang" id="bl-ket-hang"></p><p class="bl-ket-phu" id="bl-ket-phu"></p></div></div>
+<div class="cta"><button type="button" class="btn btn-yt" id="bl-chia-anh" hidden>{ic(p, "share")}{t("Gửi thẻ điểm", "Share score card")}</button><a class="btn" id="bl-luu-anh" download>{t("Lưu ảnh", "Save image")}</a></div>
+<h2 class="bl-ket-h" id="bl-ket-h"></h2>
+<div class="bl-ket-video" id="bl-ket-video"></div>
+<div class="cta"><button type="button" class="btn" id="bl-lai">{t("Chơi lại", "Play again")}</button><button type="button" class="btn" id="bl-khac">{t("Chơi bộ khác", "Play another set")}</button></div>
+</div>
+</div>
+{khoi_chia_se(BASE + GOC + "bit-bat-loi.html", t("Bit bắt lỗi: bạn bắt được mấy lỗi?", "Bit's error hunt: how many mistakes can you catch?"), p)}
+</section>
+<p class="bl-ghi">{t("Tên người, trang, cửa hàng, ngân hàng và đường link trong trò chơi đều là hư cấu. Câu trả lời của AI là bản minh họa do kênh viết theo kiểu lỗi AI hay mắc, ảnh do kênh tự vẽ.", "All names, pages, shops, banks and links in this game are made up. AI answers are examples the channel wrote in the style of common AI mistakes, and the pictures are drawn by the channel.")}
+{t("Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "Your answers stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem video", "The game needs JavaScript. You can still watch the video")} <a href="bai/{ten_file(co_bai[226])}.html">{t("Biểu đồ gây hiểu lầm", "Misleading charts")}</a>.</p></noscript>
+<script type="application/json" id="bl-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "bit-bat-loi.html", trang("bit-bat-loi.html", t(f"Bit bắt lỗi: trò chơi tìm chỗ sai, lừa đảo, ảnh và AI | {SITE}", f"Bit's error hunt: spot the mistake in scams, photos and AI answers | {SITE}"),
+                                           desc, band, main, p, og_type="website", q="",
+                                           cuoi=f'<script src="{p}bat-loi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1772,7 +1878,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_bat_loi):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1780,8 +1886,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "bit-bat-loi.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "bit-bat-loi.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
