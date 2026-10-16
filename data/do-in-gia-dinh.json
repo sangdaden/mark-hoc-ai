@@ -1,0 +1,167 @@
+{
+ "_ghi_chu": "Đồ in cho gia đình (do-in-gia-dinh.html): 4 tờ in theo video 141, 143, 422, 430. Mỗi tờ một phần trong 'to'; trang tạo ở scripts/trang/do-in-gia-dinh.py, cách chơi ở do-in.js. Mở thẳng một tờ: ?to=<id>. Mọi tình huống và nhân vật là hư cấu.",
+ "to": [
+  {
+   "id": "bat-loi",
+   "video": [141],
+   "ten": {"vi": "Cùng con bắt lỗi AI", "en": "Catch AI's mistakes with your kids"},
+   "ngan": {"vi": "Bắt lỗi AI", "en": "Catch AI mistakes"},
+   "mo": {"vi": "Đọc 3 câu trả lời của AI, chạm vào câu sai. Xong thì in phiếu bắt lỗi 7 tối để cả nhà chơi tiếp.", "en": "Read 3 AI answers and tap the wrong sentence. Then print a 7-night error-hunt sheet for the whole family."},
+   "icon": "search",
+   "thoi_quen": [
+    {"id": "nguon", "vi": "Hỏi AI lấy thông tin từ đâu, rồi mở nguồn đó ra xem", "en": "Ask AI where it got that, then open the source and look"},
+    {"id": "sach", "vi": "So với sách giáo khoa hoặc hỏi thầy cô", "en": "Compare with the textbook or ask a teacher"},
+    {"id": "choi", "vi": "Mỗi tối cùng tìm một lỗi, ai bắt được thì cộng điểm", "en": "Hunt for one mistake each night; whoever finds it scores"}
+   ],
+   "ca": [
+    {
+     "hoi": {"vi": "Con nhện có mấy chân?", "en": "How many legs does a spider have?"},
+     "cau": [
+      {"vi": "Nhện không phải côn trùng, nó thuộc nhóm hình nhện.", "en": "Spiders aren't insects; they're arachnids."},
+      {"vi": "Nhện có 6 chân, giống như kiến và ong.", "en": "A spider has 6 legs, just like ants and bees."},
+      {"vi": "Nhiều loài nhện giăng tơ để bắt mồi.", "en": "Many spiders spin webs to catch their food."}
+     ],
+     "sai": 1,
+     "dung": {"vi": "Nhện có 8 chân. Côn trùng như kiến, ong mới có 6 chân.", "en": "Spiders have 8 legs. Insects like ants and bees have 6."},
+     "kiem": "sach"
+    },
+    {
+     "hoi": {"vi": "Lên núi cao, nước sôi ở bao nhiêu độ?", "en": "At what temperature does water boil up a high mountain?"},
+     "cau": [
+      {"vi": "Ở ngang mực nước biển, nước sôi ở khoảng 100 độ C.", "en": "At sea level, water boils at about 100°C."},
+      {"vi": "Lên núi cao, không khí loãng nên nước phải nóng hơn 100 độ C mới sôi.", "en": "Up a high mountain the air is thinner, so water has to get hotter than 100°C to boil."},
+      {"vi": "Vì vậy nấu mì trên núi cao thường lâu chín hơn.", "en": "That's why noodles take longer to cook up high."}
+     ],
+     "sai": 1,
+     "dung": {"vi": "Trên cao áp suất không khí thấp nên nước sôi dưới 100 độ C. Nước sôi sớm mà chưa đủ nóng, nên mì lâu chín.", "en": "Up high the air pressure is lower, so water boils below 100°C. It boils sooner but isn't as hot, so noodles cook slower."},
+     "kiem": "nguon"
+    },
+    {
+     "hoi": {"vi": "Vì sao Mặt Trăng lúc tròn lúc khuyết?", "en": "Why does the Moon change shape?"},
+     "cau": [
+      {"vi": "Mặt Trăng không tự phát sáng, nó hắt lại ánh sáng Mặt Trời.", "en": "The Moon doesn't make its own light; it reflects sunlight."},
+      {"vi": "Trăng khuyết là vì bóng của Trái Đất che mất một phần Mặt Trăng.", "en": "The Moon looks smaller because Earth's shadow covers part of it."},
+      {"vi": "Khoảng 29,5 ngày thì trăng đi hết một vòng từ tròn tới khuyết rồi tròn lại.", "en": "It takes about 29.5 days to go from full, to thin, and back to full."}
+     ],
+     "sai": 1,
+     "dung": {"vi": "Trăng khuyết vì từ Trái Đất ta chỉ thấy một phần mặt được Mặt Trời chiếu sáng. Bóng Trái Đất che Mặt Trăng là nguyệt thực, hiếm hơn nhiều.", "en": "We only see part of the Moon's sunlit side from Earth. Earth's shadow on the Moon is a lunar eclipse, which is much rarer."},
+     "kiem": "sach"
+    }
+   ]
+  },
+  {
+   "id": "luat-nha",
+   "video": [143],
+   "ten": {"vi": "Luật dùng AI trong nhà", "en": "Our family AI rules"},
+   "ngan": {"vi": "Luật trong nhà", "en": "Family rules"},
+   "mo": {"vi": "Chọn luật cho nhà mình, ghi tên cả nhà, in ra dán tủ lạnh. Hẹn ngày cùng xem lại.", "en": "Pick your family's rules, add everyone's names, print it for the fridge. Set a date to review it together."},
+   "icon": "shield-check",
+   "luat": [
+    {"id": "rieng-tu", "goc": true, "icon": "lock", "vi": "Không đưa AI họ tên đầy đủ, địa chỉ nhà, ảnh bạn bè hay mật khẩu của bất kỳ ai.", "en": "Never give AI anyone's full name, home address, friends' photos or passwords."},
+    {"id": "tu-viet", "goc": true, "icon": "file-text", "vi": "AI giúp giải thích và gợi ý. Bài làm, lời chúc, tin nhắn quan trọng thì tự mình viết.", "en": "AI can explain and suggest. Homework, wishes and important messages we write ourselves."},
+    {"id": "kiem-tra", "goc": true, "icon": "search", "vi": "Kiểm tra trước khi tin: hỏi nguồn, so với sách, hỏi người lớn.", "en": "Check before you believe: ask for the source, compare with a book, ask a grown-up."},
+    {"id": "ke-ngay", "goc": true, "icon": "message-circle", "vi": "AI nói điều gì lạ hay làm con khó chịu thì kể ngay cho người lớn.", "en": "If AI says something strange or upsetting, tell a grown-up right away."},
+    {"id": "cho-chung", "icon": "users", "vi": "Dùng AI ở chỗ chung trong nhà, không mang vào phòng ngủ.", "en": "Use AI in shared rooms, not in the bedroom."},
+    {"id": "app-moi", "icon": "smartphone", "vi": "Hỏi bố mẹ trước khi cài hay thử một ứng dụng AI mới.", "en": "Ask a parent before installing or trying a new AI app."},
+    {"id": "bai-kiem-tra", "icon": "graduation-cap", "vi": "Không nhờ AI làm hộ bài kiểm tra hay bài nộp lấy điểm.", "en": "No asking AI to do tests or graded work for you."},
+    {"id": "nguoi-lon", "icon": "shield-check", "vi": "Người lớn cũng giữ luật: không dán ảnh, tên của con vào AI.", "en": "Grown-ups follow the rules too: no kids' photos or names in AI."},
+    {"id": "ke-loi", "icon": "star", "vi": "Mỗi tuần cả nhà kể nhau nghe một lần AI trả lời sai.", "en": "Once a week, everyone shares a time AI got something wrong."}
+   ]
+  },
+  {
+   "id": "so-tay",
+   "video": [422],
+   "ten": {"vi": "Sổ tay chữ to cho ông bà", "en": "Large-print phone guide for grandparents"},
+   "ngan": {"vi": "Sổ tay chữ to", "en": "Large-print guide"},
+   "mo": {"vi": "Chọn việc ông bà hay làm, điền đúng máy của ông bà, chọn cỡ chữ rồi in dán cạnh chỗ sạc điện thoại.", "en": "Pick the tasks your grandparents use, fill in their phone's details, choose a text size and print it for next to the charger."},
+   "icon": "book-open",
+   "o": [
+    {"id": "app", "vi": "Ứng dụng AI trông thế nào", "en": "What the AI app icon looks like", "goi_y": {"vi": "vd. hình ngôi sao màu cam", "en": "e.g. an orange star"}},
+    {"id": "chup", "vi": "Hai nút để chụp màn hình", "en": "The two buttons for a screenshot", "goi_y": {"vi": "vd. nút nguồn và nút giảm âm lượng", "en": "e.g. power and volume down"}},
+    {"id": "nhan", "vi": "Ứng dụng nhắn tin", "en": "Messaging app", "goi_y": {"vi": "vd. biểu tượng bong bóng xanh", "en": "e.g. the blue speech bubble"}},
+    {"id": "ten", "vi": "Gửi cho ai", "en": "Who to send it to", "goi_y": {"vi": "vd. cháu Minh", "en": "e.g. Minh"}},
+    {"id": "so", "vi": "Số điện thoại con cháu", "en": "Family phone number", "goi_y": {"vi": "để trống thì in dòng kẻ", "en": "leave blank to print a line"}}
+   ],
+   "viec": [
+    {"id": "giong-noi", "bat": true, "vi": "Hỏi AI bằng giọng nói", "en": "Ask AI by voice", "buoc": [
+     {"vi": "Mở ứng dụng AI: {app}.", "en": "Open the AI app: {app}."},
+     {"vi": "Bấm nút hình cái micro, nói chậm, nói trọn câu.", "en": "Tap the microphone button. Speak slowly, in full sentences."},
+     {"vi": "Nhìn chữ hiện ra. Đúng rồi mới bấm nút gửi (mũi tên).", "en": "Check the words that appear. Only then tap send (the arrow)."},
+     {"vi": "Câu đầu tiên luôn nói: trả lời ngắn, ba câu thôi.", "en": "Always start with: answer briefly, three sentences."}]},
+    {"id": "doc-giay", "bat": true, "vi": "Nhờ AI đọc tờ giấy chữ nhỏ", "en": "Have AI read small print", "buoc": [
+     {"vi": "Đặt tờ giấy trên bàn sáng.", "en": "Lay the paper on a bright table."},
+     {"vi": "Bấm nút hình máy ảnh trong ứng dụng AI, chụp thẳng cả tờ.", "en": "Tap the camera button in the AI app. Shoot the whole page, straight on."},
+     {"vi": "Nói: đọc giúp tôi, gom thành vài bước ngắn, chữ nào không rõ thì đừng đoán.", "en": "Say: read this for me in a few short steps, and don't guess what's unclear."},
+     {"vi": "Thuốc men: chỉ nhờ đọc chữ. Uống thế nào thì hỏi dược sĩ, bác sĩ.", "en": "Medicine: only ask it to read the words. Ask a pharmacist or doctor how to take it."}]},
+    {"id": "ket", "bat": true, "vi": "Kẹt, không biết bấm vào đâu", "en": "Stuck, not sure what to tap", "buoc": [
+     {"vi": "Chụp màn hình: bấm cùng lúc {chup}, rồi thả ra.", "en": "Take a screenshot: press {chup} together, then let go."},
+     {"vi": "Gửi ảnh cho AI, nói: tôi muốn ______, chỉ tôi từng bước một.", "en": "Send it to AI and say: I want to ______, show me one step at a time."},
+     {"vi": "Làm xong một bước, chụp màn hình mới, gửi tiếp.", "en": "After each step, take a new screenshot and send it."}]},
+    {"id": "gui-anh", "bat": true, "vi": "Gửi ảnh màn hình cho cháu", "en": "Send a screenshot to family", "buoc": [
+     {"vi": "Chụp màn hình như việc số 3.", "en": "Take a screenshot like in task 3."},
+     {"vi": "Mở ứng dụng nhắn tin: {nhan}. Chọn tên {ten}.", "en": "Open the messaging app: {nhan}. Pick {ten}."},
+     {"vi": "Bấm nút hình bức tranh, chọn ảnh vừa chụp, bấm gửi.", "en": "Tap the picture button, choose the screenshot, tap send."}]},
+    {"id": "loa", "bat": true, "vi": "Bật loa ngoài khi đang gọi", "en": "Turn on speaker during a call", "buoc": [
+     {"vi": "Trong cuộc gọi, bấm nút hình cái loa.", "en": "During a call, tap the speaker button."},
+     {"vi": "Bấm lần nữa để tắt loa ngoài.", "en": "Tap it again to turn the speaker off."}]},
+    {"id": "goi-video", "vi": "Gọi video cho con cháu", "en": "Video-call the family", "buoc": [
+     {"vi": "Mở ứng dụng nhắn tin: {nhan}. Chọn tên {ten}.", "en": "Open the messaging app: {nhan}. Pick {ten}."},
+     {"vi": "Bấm nút hình máy quay phim.", "en": "Tap the video camera button."},
+     {"vi": "Nói xong thì bấm nút tròn màu đỏ để tắt.", "en": "When you're done, tap the round red button."}]},
+    {"id": "chu-to", "vi": "Phóng to chữ trên máy", "en": "Make the text bigger", "buoc": [
+     {"vi": "Mở Cài đặt: biểu tượng bánh răng.", "en": "Open Settings: the gear icon."},
+     {"vi": "Tìm dòng Màn hình, rồi Cỡ chữ.", "en": "Find Display, then Text size."},
+     {"vi": "Kéo thanh trượt sang phải tới khi đọc rõ.", "en": "Drag the slider right until it's easy to read."}]},
+    {"id": "doc-to", "vi": "Nghe AI đọc to câu trả lời", "en": "Hear AI read the answer aloud", "buoc": [
+     {"vi": "Bấm nút hình cái loa dưới câu trả lời.", "en": "Tap the speaker button under the answer."},
+     {"vi": "Muốn dừng thì bấm lại nút đó.", "en": "Tap it again to stop."}]}
+   ],
+   "khong": [
+    {"vi": "Không đọc mã OTP (mã số gửi qua tin nhắn) cho bất kỳ ai, kể cả người xưng là ngân hàng, công an.", "en": "Never read out an OTP (the code sent by text) to anyone, even someone claiming to be the bank or police."},
+    {"vi": "Không chuyển tiền theo một cuộc gọi hay tin nhắn, dù giọng nghe giống con cháu. Cúp máy, gọi lại số đã lưu.", "en": "Never send money because of a call or text, even if the voice sounds like family. Hang up and call a saved number."},
+    {"vi": "Không gửi cho AI hay người lạ ảnh có mã số, mật khẩu, số dư, số tài khoản.", "en": "Never send AI or strangers photos showing codes, passwords, balances or account numbers."},
+    {"vi": "Không uống thuốc theo lời AI. Hỏi dược sĩ hoặc bác sĩ.", "en": "Never take medicine on AI's word. Ask a pharmacist or doctor."}
+   ]
+  },
+  {
+   "id": "bai-sai",
+   "video": [430],
+   "ten": {"vi": "Bài Toán sai ở bước nào", "en": "Find the first wrong step"},
+   "ngan": {"vi": "Bài Toán sai", "en": "Wrong math step"},
+   "mo": {"vi": "Chạm vào bước sai đầu tiên trong 3 bài làm của Vy. Xong thì in sổ lỗi để tự ghi lỗi của mình.", "en": "Tap the first wrong step in 3 of Vy's solutions. Then print a mistake log to track your own."},
+   "icon": "ruler",
+   "prompt": {"vi": "Đây là ảnh bài làm của em. Đừng giải lại. 1) Chép lại đề và từng bước em viết để em so. 2) Chỉ ra bước ĐẦU TIÊN bị sai và vì sao. 3) Hỏi em một câu gợi ý để em tự sửa. Chưa đưa đáp số.", "en": "Here's a photo of my work. Don't solve it again. 1) Copy the problem and each step I wrote so I can compare. 2) Point to the FIRST wrong step and why. 3) Ask me one hint question so I can fix it myself. Don't give the answer yet."},
+   "bai": [
+    {
+     "dang": {"vi": "Hệ thức Vi-ét", "en": "Vieta's formulas"},
+     "de": {"vi": "x² − 6x + 4 = 0. Tính 1/x₁ + 1/x₂.", "en": "x² − 6x + 4 = 0. Find 1/x₁ + 1/x₂."},
+     "buoc": ["a = 1, b = −6, c = 4", "x₁ + x₂ = −6, x₁x₂ = 4", "1/x₁ + 1/x₂ = (x₁ + x₂)/(x₁x₂) = −6/4 = −3/2"],
+     "sai": 1,
+     "goi_y": {"vi": "Theo Vi-ét, x₁ + x₂ = −b/a. Ở đây b = −6, vậy −b bằng bao nhiêu?", "en": "By Vieta, x₁ + x₂ = −b/a. Here b = −6, so what is −b?"},
+     "sua": ["Δ' = 9 − 4 = 5 > 0", "x₁ + x₂ = 6, x₁x₂ = 4", "1/x₁ + 1/x₂ = 6/4 = 3/2"],
+     "nho": {"vi": "Quên dấu trừ: x₁ + x₂ = −b/a. Kiểm Δ' trước.", "en": "Lost the minus: x₁ + x₂ = −b/a. Check Δ' first."}
+    },
+    {
+     "dang": {"vi": "Phương trình bậc nhất", "en": "Linear equations"},
+     "de": {"vi": "Giải phương trình 3(x − 2) = x + 4.", "en": "Solve 3(x − 2) = x + 4."},
+     "buoc": ["3x − 6 = x + 4", "3x − x = 4 − 6", "2x = −2", "x = −1"],
+     "sai": 1,
+     "goi_y": {"vi": "Chuyển −6 từ vế trái sang vế phải thì nó đổi dấu thành gì?", "en": "When −6 moves from the left side to the right, what does its sign become?"},
+     "sua": ["3x − x = 4 + 6", "2x = 10", "x = 5. Thử lại: 3(5 − 2) = 9 = 5 + 4 ✓"],
+     "sua_en": ["3x − x = 4 + 6", "2x = 10", "x = 5. Check: 3(5 − 2) = 9 = 5 + 4 ✓"],
+     "nho": {"vi": "Chuyển vế phải đổi dấu.", "en": "Moving a term across flips its sign."}
+    },
+    {
+     "dang": {"vi": "Căn bậc hai", "en": "Square roots"},
+     "de": {"vi": "Rút gọn √18 + √8.", "en": "Simplify √18 + √8."},
+     "buoc": ["√18 = √(9·2) = 3√2", "√8 = √(4·2) = 2√2", "3√2 + 2√2 = 5√4", "= 5 · 2 = 10"],
+     "sai": 2,
+     "goi_y": {"vi": "3 quả cam cộng 2 quả cam là 5 quả cam. Vậy 3√2 cộng 2√2 là 5 cái gì?", "en": "3 oranges plus 2 oranges is 5 oranges. So 3√2 plus 2√2 is 5 of what?"},
+     "sua": ["3√2 + 2√2 = (3 + 2)√2 = 5√2", "Thử: √18 + √8 ≈ 4,243 + 2,828 = 7,071", "5√2 ≈ 7,071 ✓"],
+     "sua_en": ["3√2 + 2√2 = (3 + 2)√2 = 5√2", "Check: √18 + √8 ≈ 4.243 + 2.828 = 7.071", "5√2 ≈ 7.071 ✓"],
+     "nho": {"vi": "Cộng căn đồng dạng: giữ √2, chỉ cộng số đứng trước.", "en": "Like radicals: keep √2, add only the numbers in front."}
+    }
+   ]
+  }
+ ]
+}
