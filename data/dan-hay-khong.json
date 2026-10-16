@@ -1,0 +1,390 @@
+{
+ "_ghi_chu": "Trò chơi 'Dán hay không dán?' (dan-hay-khong.html, dan-hay-khong.js), video 121 (và 15). Mỗi thẻ là một thứ định dán vào chatbot; dap_an: dan (dán thoải mái) | che (che bớt rồi dán) | khong (đừng dán). Đoạn có 'thay' là chỗ cần che (hiện bản thay sau khi trả lời), đoạn có 'nhay' là thông tin không được dán. Tên, số, địa chỉ đều hư cấu.",
+ "video_lien_quan": [
+  "121",
+  "15"
+ ],
+ "the": [
+  {
+   "id": "mat-khau",
+   "dap_an": "khong",
+   "viec": {
+    "vi": "Nhờ AI kiểm tra mật khẩu có đủ mạnh không",
+    "en": "Ask AI if your password is strong enough"
+   },
+   "doan": [
+    {
+     "vi": "Mật khẩu email của mình là ",
+     "en": "My email password is "
+    },
+    {
+     "vi": "MaiHoa@2468",
+     "en": "MaiHoa@2468",
+     "nhay": true
+    },
+    {
+     "vi": ", vậy đủ mạnh chưa?",
+     "en": ". Is that strong enough?"
+    }
+   ],
+   "giai": {
+    "vi": "Mật khẩu thật thì không dán vào đâu cả, kể cả nhờ “kiểm tra”. Muốn hỏi, hãy hỏi về một mật khẩu bịa có cùng kiểu.",
+    "en": "Never paste a real password anywhere, even to “check” it. Ask about a made-up password with the same pattern instead."
+   }
+  },
+  {
+   "id": "cong-thuc",
+   "dap_an": "dan",
+   "viec": {
+    "vi": "Nhờ AI nhân công thức bánh cho 6 người",
+    "en": "Ask AI to scale a cake recipe for 6"
+   },
+   "doan": [
+    {
+     "vi": "Công thức bánh bông lan cho 2 người: 2 quả trứng, 60 g bột, 40 g đường. Tính lại giúp mình cho 6 người.",
+     "en": "Sponge cake for 2: 2 eggs, 60 g flour, 40 g sugar. Please scale it for 6 people."
+    }
+   ],
+   "giai": {
+    "vi": "Không có gì riêng tư ở đây. Dán thoải mái.",
+    "en": "Nothing private here. Paste away."
+   }
+  },
+  {
+   "id": "bang-luong",
+   "dap_an": "che",
+   "viec": {
+    "vi": "Nhờ AI tính thưởng 10% cho cả phòng",
+    "en": "Ask AI to work out a 10% bonus for the team"
+   },
+   "doan": [
+    {
+     "vi": "Bảng lương phòng: ",
+     "en": "Team payroll: "
+    },
+    {
+     "vi": "Nguyễn Văn An",
+     "en": "Nguyen Van An",
+     "thay": {
+      "vi": "Nhân viên A",
+      "en": "Employee A"
+     }
+    },
+    {
+     "vi": " 18 triệu, ",
+     "en": " 18 million, "
+    },
+    {
+     "vi": "Trần Thị Bích",
+     "en": "Tran Thi Bich",
+     "thay": {
+      "vi": "Nhân viên B",
+      "en": "Employee B"
+     }
+    },
+    {
+     "vi": " 15 triệu, ",
+     "en": " 15 million, "
+    },
+    {
+     "vi": "Lê Minh Châu",
+     "en": "Le Minh Chau",
+     "thay": {
+      "vi": "Nhân viên C",
+      "en": "Employee C"
+     }
+    },
+    {
+     "vi": " 12 triệu. Tính thưởng 10% cho từng người.",
+     "en": " 12 million. Work out a 10% bonus for each."
+    }
+   ],
+   "giai": {
+    "vi": "Đổi tên thật thành Nhân viên A, B, C. AI vẫn tính đúng mà không biết ai là ai.",
+    "en": "Swap real names for Employee A, B, C. The AI still gets the maths right without knowing who is who."
+   }
+  },
+  {
+   "id": "otp",
+   "dap_an": "khong",
+   "viec": {
+    "vi": "Hỏi AI tin nhắn có mã này là gì",
+    "en": "Ask AI what this code message means"
+   },
+   "doan": [
+    {
+     "vi": "Ngân hàng vừa gửi: “Mã OTP của bạn là ",
+     "en": "The bank just sent: “Your OTP is "
+    },
+    {
+     "vi": "482 913",
+     "en": "482 913",
+     "nhay": true
+    },
+    {
+     "vi": "”. Có người gọi xin mã này để hoàn tiền, mình có nên đọc không?",
+     "en": "”. Someone called asking for it to give me a refund. Should I read it out?"
+    }
+   ],
+   "giai": {
+    "vi": "Mã OTP không đưa cho ai, kể cả AI. Muốn hỏi, chỉ cần tả tình huống, không kèm số. Và câu trả lời luôn là: đừng đọc mã cho ai.",
+    "en": "Never share an OTP, not even with an AI. Describe the situation without the number. And the answer is always: don't read the code to anyone."
+   }
+  },
+  {
+   "id": "bai-van",
+   "dap_an": "dan",
+   "viec": {
+    "vi": "Nhờ AI sửa chính tả bài văn tự viết",
+    "en": "Ask AI to proofread your own essay"
+   },
+   "doan": [
+    {
+     "vi": "Sửa chính tả giúp mình: “Mùa hè năm nay em được về quê ngoại, chiều nào cũng ra đồng thả diều…”",
+     "en": "Proofread this for me: “This summer I went to my grandparents' village and flew kites in the fields every afternoon…”"
+    }
+   ],
+   "giai": {
+    "vi": "Bài văn tự viết, không có tên thật hay số liệu riêng. Dán thoải mái.",
+    "en": "Your own writing, no real names or private numbers. Paste away."
+   }
+  },
+  {
+   "id": "can-cuoc",
+   "dap_an": "khong",
+   "viec": {
+    "vi": "Nhờ AI điền giúp tờ khai",
+    "en": "Ask AI to fill in a form for you"
+   },
+   "doan": [
+    {
+     "vi": "Đây là ảnh chụp ",
+     "en": "Here's a photo of "
+    },
+    {
+     "vi": "hai mặt căn cước của mình",
+     "en": "both sides of my ID card",
+     "nhay": true
+    },
+    {
+     "vi": ", điền giúp mình tờ khai đăng ký.",
+     "en": ". Fill in the registration form for me."
+    }
+   ],
+   "giai": {
+    "vi": "Số căn cước và ảnh giấy tờ là thứ kẻ gian cần nhất để mạo danh bạn. Nhờ AI giải thích từng ô của tờ khai, rồi tự điền.",
+    "en": "ID numbers and ID photos are exactly what scammers need to impersonate you. Ask the AI to explain each box, then fill it in yourself."
+   }
+  },
+  {
+   "id": "email-khach",
+   "dap_an": "che",
+   "viec": {
+    "vi": "Nhờ AI viết lại email cho lịch sự hơn",
+    "en": "Ask AI to make an email more polite"
+   },
+   "doan": [
+    {
+     "vi": "Viết lại cho lịch sự: “Chào chị ",
+     "en": "Make this more polite: “Hi "
+    },
+    {
+     "vi": "Phạm Thu Lan",
+     "en": "Pham Thu Lan",
+     "thay": {
+      "vi": "[Tên khách]",
+      "en": "[Customer]"
+     }
+    },
+    {
+     "vi": ", đơn ",
+     "en": ", order "
+    },
+    {
+     "vi": "#A-1029",
+     "en": "#A-1029",
+     "thay": {
+      "vi": "[mã đơn]",
+      "en": "[order no.]"
+     }
+    },
+    {
+     "vi": " giao tới ",
+     "en": " goes to "
+    },
+    {
+     "vi": "12 đường Hoa Sữa",
+     "en": "12 Milkwood Street",
+     "thay": {
+      "vi": "[địa chỉ]",
+      "en": "[address]"
+     }
+    },
+    {
+     "vi": " bị trễ, mai mới tới.”",
+     "en": " is late and arrives tomorrow.”"
+    }
+   ],
+   "giai": {
+    "vi": "AI chỉ cần giọng văn, không cần tên, mã đơn hay địa chỉ của khách. Thay bằng chỗ trống, chép kết quả rồi điền lại.",
+    "en": "The AI only needs the tone, not the customer's name, order number or address. Use blanks, then fill them back in."
+   }
+  },
+  {
+   "id": "khach-hang",
+   "dap_an": "khong",
+   "viec": {
+    "vi": "Nhờ AI chia nhóm khách hàng",
+    "en": "Ask AI to group your customers"
+   },
+   "doan": [
+    {
+     "vi": "Đây là file ",
+     "en": "Here's a file of "
+    },
+    {
+     "vi": "300 khách hàng kèm họ tên, số điện thoại",
+     "en": "300 customers with full names and phone numbers",
+     "nhay": true
+    },
+    {
+     "vi": " của công ty. Chia giúp mình thành nhóm khách mua nhiều, mua ít.",
+     "en": ". Split them into big and small spenders."
+    }
+   ],
+   "giai": {
+    "vi": "Dữ liệu khách hàng không phải của bạn để dán vào tài khoản AI cá nhân. Dùng công cụ công ty đã duyệt, hoặc xóa hẳn cột tên và số điện thoại trước.",
+    "en": "Customer data isn't yours to paste into a personal AI account. Use a tool your company approved, or delete the name and phone columns first."
+   }
+  },
+  {
+   "id": "xet-nghiem",
+   "dap_an": "che",
+   "viec": {
+    "vi": "Nhờ AI giải thích kết quả xét nghiệm",
+    "en": "Ask AI to explain a blood test"
+   },
+   "doan": [
+    {
+     "vi": "Giải thích giúp: bệnh nhân ",
+     "en": "Explain this: patient "
+    },
+    {
+     "vi": "Đỗ Văn Hòa",
+     "en": "Do Van Hoa",
+     "thay": {
+      "vi": "[ẩn tên]",
+      "en": "[name removed]"
+     }
+    },
+    {
+     "vi": ", mã ",
+     "en": ", ID "
+    },
+    {
+     "vi": "BN-55821",
+     "en": "BN-55821",
+     "thay": {
+      "vi": "[ẩn mã]",
+      "en": "[ID removed]"
+     }
+    },
+    {
+     "vi": ", đường huyết lúc đói 6,8 mmol/L. Chỉ số này có cao không?",
+     "en": ", fasting blood sugar 6.8 mmol/L. Is that high?"
+    }
+   ],
+   "giai": {
+    "vi": "AI chỉ cần con số để giải thích. Bỏ họ tên và mã bệnh nhân, rồi mang câu hỏi tới bác sĩ.",
+    "en": "The AI only needs the number. Remove the name and patient ID, then take your questions to a doctor."
+   }
+  },
+  {
+   "id": "loi-chuc",
+   "dap_an": "dan",
+   "viec": {
+    "vi": "Nhờ AI viết lời chúc sinh nhật",
+    "en": "Ask AI to write a birthday message"
+   },
+   "doan": [
+    {
+     "vi": "Viết giúp lời chúc sinh nhật cho mẹ 60 tuổi, mẹ thích trồng hoa và nấu ăn.",
+     "en": "Write a birthday message for my mum turning 60. She loves gardening and cooking."
+    }
+   ],
+   "giai": {
+    "vi": "Vài chi tiết chung chung để lời chúc ấm áp hơn, không có thông tin nhạy cảm. Dán thoải mái.",
+    "en": "A few general details to make it warmer, nothing sensitive. Paste away."
+   }
+  },
+  {
+   "id": "ke-hoach-mat",
+   "dap_an": "khong",
+   "viec": {
+    "vi": "Nhờ AI làm slide cho kế hoạch mới",
+    "en": "Ask AI to build slides for a new plan"
+   },
+   "doan": [
+    {
+     "vi": "Làm slide giúp mình từ ",
+     "en": "Make slides from "
+    },
+    {
+     "vi": "kế hoạch ra mắt sản phẩm chưa công bố của công ty, kèm giá bán và tên đối tác",
+     "en": "our company's unannounced product launch plan, with prices and partner names",
+     "nhay": true
+    },
+    {
+     "vi": ". Dùng tài khoản AI cá nhân của mình.",
+     "en": ". Using my personal AI account."
+    }
+   ],
+   "giai": {
+    "vi": "Bí mật công ty không đi vào tài khoản AI cá nhân. Hỏi xem công ty có tài khoản AI cam kết không dùng dữ liệu để huấn luyện không.",
+    "en": "Company secrets don't go into a personal AI account. Ask whether your company has an AI account that promises not to train on your data."
+   }
+  },
+  {
+   "id": "hop-dong",
+   "dap_an": "che",
+   "viec": {
+    "vi": "Nhờ AI tóm tắt hợp đồng thuê nhà",
+    "en": "Ask AI to summarise a rental contract"
+   },
+   "doan": [
+    {
+     "vi": "Tóm tắt các điều khoản chính: Bên A ",
+     "en": "Summarise the key terms: Party A "
+    },
+    {
+     "vi": "Vũ Thị Hằng, căn cước 0791•••••345",
+     "en": "Vu Thi Hang, ID 0791•••••345",
+     "thay": {
+      "vi": "[Bên A]",
+      "en": "[Party A]"
+     }
+    },
+    {
+     "vi": ", Bên B ",
+     "en": ", Party B "
+    },
+    {
+     "vi": "Ngô Quang Minh, căn cước 0482•••••108",
+     "en": "Ngo Quang Minh, ID 0482•••••108",
+     "thay": {
+      "vi": "[Bên B]",
+      "en": "[Party B]"
+     }
+    },
+    {
+     "vi": ", thuê 6 triệu/tháng, cọc 2 tháng…",
+     "en": ", rent 6 million a month, 2 months' deposit…"
+    }
+   ],
+   "giai": {
+    "vi": "Điều khoản mới là thứ cần tóm tắt. Thay tên và số căn cước hai bên bằng [Bên A], [Bên B] trước khi dán.",
+    "en": "The terms are what matter. Replace both names and ID numbers with [Party A] and [Party B] before pasting."
+   }
+  }
+ ]
+}
