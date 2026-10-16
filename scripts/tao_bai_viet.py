@@ -609,6 +609,26 @@ def the_ghep(so, q):
     return (f'<a class="next-step next-step-gh" href="{q}tho-ghep-cau-lenh.html"><b>{t("Thợ ghép câu lệnh", "Prompt builder")}</b>'
             f'<span>{t("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve.")}</span></a>\n')
 
+# Thẻ "Tương tác" (giống nhãn Tương tác bên Vũ Trụ Khác): video nào có trò chơi trên web. Khoá là số video dạng chữ ("108", "5.1").
+# Dùng cho dòng thẻ dưới tiêu đề trang bài, và ghi ra data/tuong-tac.json để trang chủ (app.js) gắn nhãn lên thẻ series và từng video.
+TRO_CHOI_WEB = [
+    ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO}),
+    ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP}),
+    ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"])),
+]
+TUONG_TAC = {}
+for _url, _ten, _ds in TRO_CHOI_WEB:
+    for _so in _ds:
+        TUONG_TAC.setdefault(_so, []).append((_url, _ten))
+
+def the_tuong_tac(so, q, p):
+    tro = TUONG_TAC.get(str(so))
+    if not tro:
+        return ""
+    lien = " · ".join(f'<a href="{q}{u}">{t(*ten)}</a>' for u, ten in tro)
+    return (f'<p class="tt-the"><span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span>'
+            f'<span>{t("Chơi thử", "Try it")}: {lien}</span></p>\n')
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -646,6 +666,7 @@ def tao_bai(v):
     ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')  # video của kênh nói tiếng Việt
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › <span>#{so:02d}</span></nav>\n'
             f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}{nhan_ngay(LICH.get(str(so)))}</p>\n'
+            f'{the_tuong_tac(so, q, p)}'
             f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g, p)}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(tieu_de)}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
@@ -742,6 +763,7 @@ def tao_bai_phu(s, x):
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › '
             f'<a href="{q}bai/{ten_file(cha)}.html">#{nhan_so(cha["so"])}</a> › <span>#{so}</span></nav>\n'
             f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}{nhan_ngay(x.get("ra_mat"))}</p>\n'
+            f'{the_tuong_tac(so, q, p)}'
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
@@ -1707,6 +1729,9 @@ def chay():
         sitemap += dong_sitemap(tien_to)
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
+    so_key = lambda k: [float(x) for x in k.split(".")]
+    (R / "data" / "tuong-tac.json").write_text(json.dumps({"_ghi_chu": "Tự tạo bởi scripts/tao_bai_viet.py (TRO_CHOI_WEB): số video có trò chơi tương tác trên web, app.js gắn nhãn Tương tác.",
+                                                          "video": sorted(TUONG_TAC, key=so_key)}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print("sitemap.xml:", len(sitemap) - 3, "trang")
 
 if __name__ == "__main__":

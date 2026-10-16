@@ -10,7 +10,7 @@
     soTheoDoi: "followers", soLuotXem: "views", soVideo: "videos", soSeries: "series", soNgay: (d, n) => "Channel figures on " + d + " across " + n + " platforms · ", soKit: "Media kit ›",
     tatCa: "All", locSeries: "Filter by series", sapRa: "Coming soon", le: n => n + (n === 1 ? " standalone video" : " standalone videos"), phan: n => n + " parts",
     raMat: "Out ", goiY: "Tap a series to see its videos.", dong: "Close", xemYt: n => "Watch video #" + n + " on YouTube (in Vietnamese)", docBai: "Read the article ›",
-    hot: "Popular", noiBat: "Featured", moi: "New", xemThem: n => "Show more series (" + n + " left)",
+    hot: "Popular", noiBat: "Featured", moi: "New", choi: "Interactive", xemThem: n => "Show more series (" + n + " left)",
     hoiBit: q => "Ask Bit: “" + q + "”, Bit answers with the exact part of a video ›",
     soKq: n => n === 1 ? "1 video matches, listed below ↓" : n + " videos match, listed below ↓", kq0: "No video matches. Try a shorter word or ask Bit above.",
     vxTieuDe: "Just watched a Mark video?", vxDan: "Type the number shown on the video to open its 1-minute lesson.", vxO: "Video number",
@@ -23,7 +23,7 @@
     soTheoDoi: "người theo dõi", soLuotXem: "lượt xem", soVideo: "video", soSeries: "series", soNgay: (d, n) => "Số liệu kênh ngày " + d + " trên " + n + " nền tảng · ", soKit: "Xem media kit ›",
     tatCa: "Tất cả", locSeries: "Lọc theo series", sapRa: "Sắp ra mắt", le: n => n + " video lẻ", phan: n => n + " phần",
     raMat: "Ra mắt ", goiY: "Bấm vào một series để xem danh sách video.", dong: "Đóng", xemYt: n => "Xem video #" + n + " trên YouTube", docBai: "Đọc bài viết ›",
-    hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", xemThem: n => "Xem thêm series (còn " + n + ")",
+    hot: "Xem nhiều", noiBat: "Nổi bật", moi: "Mới", choi: "Tương tác", xemThem: n => "Xem thêm series (còn " + n + ")",
     hoiBit: q => "Hỏi Bit: “" + q + "”, Bit trả lời bằng đúng đoạn trong video ›",
     soKq: n => n + " video khớp, xem ngay bên dưới ↓", kq0: "Chưa có video nào khớp. Thử từ ngắn hơn hoặc hỏi Bit ở trên.",
     vxTieuDe: "Vừa xem video của Mark?", vxDan: "Gõ số in trên video để mở bài học 1 phút của video đó.", vxO: "Số video",
@@ -40,10 +40,10 @@
   // series-bia.json: ảnh bìa từng series (scripts/tao_anh.py) cho đầu series và nút chọn series
   // noi-bat.json: pho_bien = video được xem nhiều nhất (scripts/gom_video.py tính từ sổ cái), noi_bat = video Sang chọn tay
   // nhom-series.json: nhóm lớn cho hàng chọn chủ đề (Sang 15/10: 59 series xếp một hàng cuộn ngang quá dài)
-  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat, nhomData, soLieu] = await Promise.all([load("kenh"), load("series"), load("videos"),
+  const [kenh, seriesVi, videosVi, banDo, lich, seriesEn, videosEn, anh, biaSeries, noiBat, nhomData, soLieu, tuongTac] = await Promise.all([load("kenh"), load("series"), load("videos"),
     load(EN ? "en/ban-do" : "ban-do"), load("lich-ra-mat").catch(() => ({})),
     EN ? load("en/series") : null, EN ? load("en/videos") : null, load("anh").catch(() => ({})), load("series-bia").catch(() => ({})),
-    load("noi-bat").catch(() => ({})), load("nhom-series").catch(() => ({ nhom: [] })), load("so-lieu-kenh").catch(() => null)]);
+    load("noi-bat").catch(() => ({})), load("nhom-series").catch(() => ({ nhom: [] })), load("so-lieu-kenh").catch(() => null), load("tuong-tac").catch(() => ({ video: [] }))]);
   // Bản tiếng Anh: thay tên/mô tả bằng bản dịch, giữ tên tiếng Việt (ytTen) để tìm video trên YouTube
   const series = EN ? seriesVi.map(s => Object.assign({}, s, seriesEn[s.id] || {})) : seriesVi;
   const videos = videosVi.map(v => {
@@ -58,12 +58,15 @@
   // Nhãn gây chú ý: Xem nhiều (pho_bien), Nổi bật (noi_bat), Mới (ra mắt trong 7 ngày gần nhất)
   const truoc7 = new Date(Date.parse(homNay) - 6 * 864e5).toISOString().slice(0, 10);
   const hot = new Set(noiBat.pho_bien || []), chon = new Set(noiBat.noi_bat || []);
+  // tuong-tac.json (tao_bai_viet.py): video có trò chơi trên web, nhãn "Tương tác" giống bên Vũ Trụ Khác
+  const choi = new Set((tuongTac.video || []).map(String));
   const moi = so => !!lich[so] && lich[so] <= homNay && lich[so] >= truoc7;
   const nhanHtml = (dsSo, the) => {
     const co = f => dsSo.some(f);
     return (co(so => chon.has(so)) ? '<span class="hh hh-chon">' + ic("star") + S.noiBat + "</span>" : "") +
       (co(so => hot.has(so)) ? '<span class="hh hh-hot">' + ic("flame") + S.hot + "</span>" : "") +
-      (co(moi) ? '<span class="hh hh-moi">' + S.moi + "</span>" : "");
+      (co(moi) ? '<span class="hh hh-moi">' + S.moi + "</span>" : "") +
+      (co(so => choi.has(String(so))) ? '<span class="hh hh-choi">' + ic("gamepad") + S.choi + "</span>" : "");
   };
   const THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const ngayThang = d => EN ? THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : d.slice(8, 10) + "/" + d.slice(5, 7);

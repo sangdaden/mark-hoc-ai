@@ -2055,3 +2055,10 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .gh-khay { grid-template-columns: minmax(0, 1fr); }
 }
 .gh-ben.is-cu .gh-tl, .gh-ben.is-cu .gh-ph { opacity: .45; }
+
+/* Thẻ "Tương tác" dưới tiêu đề trang bài: video có trò chơi trên web (TRO_CHOI_WEB trong tao_bai_viet.py) */
+.tt-the { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 6px 0 12px; font-size: 14.5px; }
+.tt-the .hh { margin-left: 0; }
+.tt-the a { font-weight: 700; }
+.band .tt-the { color: rgba(255, 255, 255, .92); }
+.band .tt-the a { color: #FDE047; text-decoration: underline; text-underline-offset: 3px; }
