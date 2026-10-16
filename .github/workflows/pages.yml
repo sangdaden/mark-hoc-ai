@@ -30,6 +30,8 @@ jobs:
           pip install --quiet cryptography
           python3 scripts/tao_bai_bao.py
           rm -rf bai-bao-nguon
+      - name: Ghi danh sách video có trò chơi (data/tuong-tac.json) từ data/tro-choi/*.json
+        run: python3 scripts/tro_choi.py
       - name: Gắn mã phiên bản để trình duyệt tải bản mới
         run: |
           find . -name "*.html" -not -path "./.git/*" -exec sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" {} +

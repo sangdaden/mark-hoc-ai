@@ -43,6 +43,7 @@ video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 6
 from video_moi import VIDEO_MOI_TU
 from tao_vu_tru_khac import dong_sitemap
 import anh_chia_se
+import tro_choi
 # Trình phát YouTube: mọi video đã đăng YouTube, kể cả 01-302 và tập phụ ("5.1"), Sang duyệt 16/10 (scripts/cap_nhat_youtube.py)
 YT_ID = load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
@@ -431,6 +432,16 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 </html>
 """
 
+# Trang riêng (trò chơi, công cụ, trang bán): hàm tạo trang gắn @trang_rieng("<tên>.html", "<ưu tiên sitemap>") tự vào
+# vòng tạo trang (cả VI lẫn EN) và sitemap.xml, không phải thêm tên vào danh sách chung nào.
+# Trang mới nên viết thành file riêng scripts/trang/<tên>.py (xem scripts/trang/README.md), để các PR không sửa chung chỗ.
+TRANG_RIENG = []
+def trang_rieng(duong, uu_tien="0.7"):
+    def gan(ham):
+        TRANG_RIENG.append((duong, uu_tien, ham))
+        return ham
+    return gan
+
 TO_CHUC = {"@type": "Organization", "name": SITE, "url": BASE, "logo": {"@type": "ImageObject", "url": BASE + "assets/logo.png"}}
 
 def yt_url(yt):
@@ -612,41 +623,16 @@ def the_ghep(so, q):
 
 # Thẻ "Tương tác" (giống nhãn Tương tác bên Vũ Trụ Khác): video nào có trò chơi trên web. Khoá là số video dạng chữ ("108", "5.1").
 # Dùng cho dòng thẻ dưới tiêu đề trang bài, và ghi ra data/tuong-tac.json để trang chủ (app.js) gắn nhãn lên thẻ series và từng video.
-TRO_CHOI_WEB = [
-    ("cuoc-goi-gia-giong.html", ("Cuộc gọi giả giọng", "The fake-voice call"), {str(x) for x in load("cuoc-goi")["video_lien_quan"]},
-     ("Người thân khóc xin tiền qua điện thoại. Bạn chọn từng câu đáp, rồi đặt mật khẩu gia đình.", "A crying relative calls asking for money. Pick each reply, then make a family safe word."), "goi"),
-    ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO},
-     ("Đọc tin nhắn, nghe cuộc gọi, rồi đoán: thật hay lừa đảo?", "Read the message, hear the call, then guess: real or scam?"), "lua-dao"),
-    ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP},
-     ("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve."), "ghep"),
-    ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"]),
-     ("Đổi trời mưa, sương, đêm và xem LiDAR, radar, camera nhìn thấy gì.", "Switch to rain, fog or night and see what LiDAR, radar and camera pick up."), "cam-bien"),
-    # Phòng thí nghiệm bộ não AI: mỗi trạm là một trò chơi riêng (?tram=), bai-viet.js nối thêm &nhung=1 khi nhúng
-    ("phong-thi-nghiem-bo-nao.html?tram=cat-manh", ("Máy cắt mảnh chữ", "Token cutter"), {"19", "60", "146"},
-     ("Gõ một câu, xem AI cắt thành mảnh nào và tốn bao nhiêu mảnh.", "Type a sentence and see which pieces the AI cuts it into, and how many."), "cat-manh"),
-    ("phong-thi-nghiem-bo-nao.html?tram=doan-chu", ("Đoán chữ tiếp theo", "Guess the next word"), {"7", "242"},
-     ("Bấm từng chữ AI gợi ý, tự tay viết một câu theo cách AI viết.", "Click the words the AI suggests and write a sentence the way an AI does."), "doan-chu"),
-    ("phong-thi-nghiem-bo-nao.html?tram=vong-quay", ("Vòng quay nhiệt độ", "Temperature wheel"), {"24"},
-     ("Kéo nhiệt độ, quay vòng và xem vì sao hỏi hai lần ra hai câu khác nhau.", "Drag the temperature, spin, and see why asking twice gives two answers."), "vong-quay"),
-    # {so} trong url: trang bài mở thẳng bộ ca của chính video đó
-    ("bit-bat-loi.html?tap={so}", ("Bit bắt lỗi", "Bit's error hunt"), {str(c["video"]) for c in load("bit-bat-loi")["ca"]},
-     ("Chạm vào chỗ sai trong tin nhắn, bức ảnh, biểu đồ hay câu trả lời của AI.", "Tap the mistake in a message, a photo, a chart or an AI answer."), "bat-loi"),
-    ("bo-loc-thien-vi.html", ("Tự dạy máy lọc hồ sơ", "Train a CV filter"), set(load("bo-loc-thien-vi")["video_lien_quan"]),
-     ("Cho máy học hồ sơ năm ngoái, xem nó loại người giỏi, rồi tìm cách sửa.", "Train it on last year's CVs, watch it reject top people, then fix it."), "thien-vi"),
-    ("dan-hay-khong.html", ("Dán hay không dán?", "Paste or don't paste?"), set(load("dan-hay-khong")["video_lien_quan"]),
-     ("Bảng lương, mã OTP, hợp đồng: thứ nào dán vào chatbot được, thứ nào phải che?", "Payroll, OTP codes, contracts: what can go into a chatbot, and what needs masking?"), "dan"),
-    ("may-tinh-doi-that.html", ("Máy tính đời thật", "Real-life calculators"), {str(so) for m in load("may-tinh")["may"] for so in m["video"]},
-     ("Đổi con số của chính bạn, xem kết quả, công thức và nguồn ngay trên trang.", "Plug in your own numbers and see the result, the formula and the source."), "may-tinh"),
-]
-# Trang có nhiều phần (Máy tính đời thật): bài của mỗi video mở thẳng đúng phần của nó (?may=<id>)
-DUONG_THEO_VIDEO = {("may-tinh-doi-that.html", str(so)): f"?may={m['id']}" for m in load("may-tinh")["may"] for so in m["video"]}
-TUONG_TAC = {}
-for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
-    for _so in _ds:
-        TUONG_TAC.setdefault(_so, []).append((_url.replace("{so}", _so) + DUONG_THEO_VIDEO.get((_url, _so), ""), _ten, _moi, _hinh))
+# Danh sách trò chơi: mỗi trò chơi một file data/tro-choi/<tên>.json (scripts/tro_choi.py), để các PR trò chơi không sửa chung một chỗ.
+TUONG_TAC = tro_choi.tuong_tac()
 
 # Hình xem trước nhỏ trên thẻ "Chơi thử" (HTML + CSS, không ảnh): người xem nhìn là biết trò chơi làm gì
+# Hình xem trước của trò chơi mới: đăng ký trong file riêng scripts/trang/<tên>.py, vd.
+#   HINH_CHOI["ten-hinh"] = lambda: f'<span class="ct-hinh ct-...">...</span>'
+HINH_CHOI = {}
 def hinh_choi(hinh):
+    if hinh in HINH_CHOI:
+        return HINH_CHOI[hinh]()
     if hinh == "goi":
         return (f'<span class="ct-hinh ct-goi" aria-hidden="true"><span class="ct-goi-av">M</span><b>{t("Số không lưu", "Unknown number")}</b>'
                 f'<span class="ct-goi-noi">{t("“Mẹ ơi cứu con…”", "“Mom, help me…”")}</span>'
@@ -1438,6 +1424,7 @@ def _khoi_qr(p, noi_dung_ck):
             f'<p class="uh-stk">Vietcombank · PHAN THANH SANG · <b>1021026372</b></p>'
             f'<p class="sp-ck">{t("Nội dung chuyển khoản", "Transfer note")}: <b>{esc(noi_dung_ck)}</b></p></div>')
 
+@trang_rieng("bo-giao-vien.html", "0.6")
 def tao_bo_giao_vien():
     p = t("", "../")
     nut_mess, nut_mail = _nut_lien_he(p, "Mua bộ bài giảng Kiểm chứng thông tin với AI", "Buying the Fact-checking with AI lesson kit")
@@ -1513,6 +1500,7 @@ def tao_bo_giao_vien():
     return GOC + "bo-giao-vien.html", trang("bo-giao-vien.html", t(f"Bộ bài giảng Kiểm chứng thông tin với AI cho giáo viên | {SITE}", f"Fact-checking with AI lesson kit for teachers | {SITE}"),
                                             desc, band, main, p, hien_tai="bo-giao-vien", og_type="website", jsonld=jsonld, q="")
 
+@trang_rieng("workshop.html", "0.6")
 def tao_workshop():
     p = t("", "../")
     nut_mess, nut_mail = _nut_lien_he(p, "Đăng ký workshop Dùng AI cho công việc", "Workshop sign-up: Using AI at work")
@@ -1591,6 +1579,7 @@ def tao_workshop():
 
 # ---------- Phòng thí nghiệm cảm biến 3D (phong-thi-nghiem-cam-bien.html): LiDAR, camera, radar ----------
 # Dữ liệu và chữ ở data/cam-bien.json, cảnh 3D ở cam-bien.js (Three.js r160 để sẵn trong assets/vendor/three, không gọi CDN).
+@trang_rieng("phong-thi-nghiem-cam-bien.html", "0.7")
 def tao_cam_bien():
     p = t("", "../")
     D = load("cam-bien")
@@ -1650,6 +1639,7 @@ def tao_cam_bien():
 
 # ---------- trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html): ca giả lập dựa trên video 14, 15, 108-112 ----------
 # Nội dung ở data/lua-dao.json (cả hai ngôn ngữ), cách chơi ở lua-dao.js. Trang chỉ nhúng chữ của ngôn ngữ đang tạo.
+@trang_rieng("lua-dao-hay-that.html", "0.7")
 def tao_lua_dao():
     p = t("", "../")
     D = load("lua-dao")
@@ -1705,6 +1695,7 @@ def tao_lua_dao():
 
 # ---------- trò chơi "Thợ ghép câu lệnh" (tho-ghep-cau-lenh.html): ghép mảnh câu lệnh, xem AI trả lời tốt lên ----------
 # Nội dung ở data/ghep-cau-lenh.json (cả hai ngôn ngữ), cách chơi ở ghep-cau-lenh.js. Câu trả lời của AI viết sẵn, không gọi AI thật.
+@trang_rieng("tho-ghep-cau-lenh.html", "0.7")
 def tao_ghep_cau_lenh():
     p = t("", "../")
     D = load("ghep-cau-lenh")
@@ -1766,7 +1757,8 @@ def tao_ghep_cau_lenh():
 
 # ---------- Phòng thí nghiệm bộ não AI (phong-thi-nghiem-bo-nao.html): bàn thí nghiệm, ngăn kéo trạm bên trái ----------
 # Cách chạy ở bo-nao.js. Trạm 1 dùng bộ tách mảnh thật (assets/vendor/gpt-tokenizer), trạm 6 dùng data/bo-nao/doan-chu*.json
-# (scripts/tao_doan_chu.py). Mỗi trạm mở riêng được bằng ?tram=<id> (TRO_CHOI_WEB nhúng từng trạm vào bài của video).
+# (scripts/tao_doan_chu.py). Mỗi trạm mở riêng được bằng ?tram=<id> (data/tro-choi/bo-nao-*.json nhúng từng trạm vào bài của video).
+@trang_rieng("phong-thi-nghiem-bo-nao.html", "0.7")
 def tao_bo_nao():
     p = t("", "../")
     D = load(t("bo-nao/doan-chu", "bo-nao/doan-chu-en"))
@@ -1878,6 +1870,7 @@ def tao_bo_nao():
 # ---------- trò chơi "Bit bắt lỗi" (bit-bat-loi.html): một khuôn tìm chỗ sai, mỗi tập một bộ ca ----------
 # Nội dung ở data/bit-bat-loi.json (chữ là [vi, en]), ảnh ở data/bit-bat-loi-hinh/*.svg, cách chơi ở bat-loi.js.
 # ?tap=N chơi ngay các ca của video N (khối "Thử 60 giây" trong trang bài mở kiểu này), ?bo=<id> chơi một bộ.
+@trang_rieng("bit-bat-loi.html", "0.7")
 def tao_bat_loi():
     p = t("", "../")
     D = load("bit-bat-loi")
@@ -1977,6 +1970,7 @@ def tao_bat_loi():
 
 # ---------- mô phỏng "Tự dạy máy lọc hồ sơ" (bo-loc-thien-vi.html): video 118 "AI cũng thiên vị" ----------
 # Hồ sơ hư cấu ở data/bo-loc-thien-vi.json, máy học (hồi quy logistic nhỏ) và cách chơi ở bo-loc-thien-vi.js.
+@trang_rieng("bo-loc-thien-vi.html", "0.7")
 def tao_bo_loc():
     p = t("", "../")
     D = load("bo-loc-thien-vi")
@@ -2061,6 +2055,7 @@ def tao_bo_loc():
 
 # ---------- trò chơi "Dán hay không dán?" (dan-hay-khong.html): video 121 "Dữ liệu của bạn đi đâu khi chat với AI" ----------
 # Thẻ ở data/dan-hay-khong.json (cả hai ngôn ngữ), cách chơi ở dan-hay-khong.js. Tên, số, địa chỉ trong thẻ đều hư cấu.
+@trang_rieng("dan-hay-khong.html", "0.7")
 def tao_dan_hay_khong():
     p = t("", "../")
     D = load("dan-hay-khong")
@@ -2115,6 +2110,7 @@ def tao_dan_hay_khong():
                                              cuoi=f'<script src="{p}dan-hay-khong.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 # ---------- Máy tính đời thật (may-tinh-doi-that.html): 6 máy tính theo video, mỗi máy hiện công thức và nguồn ----------
 # Hằng số và nguồn ở data/may-tinh.json (cả hai ngôn ngữ), cách tính ở may-tinh.js. Mở thẳng một máy bằng ?may=<id>.
+@trang_rieng("may-tinh-doi-that.html", "0.7")
 def tao_may_tinh():
     p = t("", "../")
     D = load("may-tinh")
@@ -2207,6 +2203,7 @@ def tao_may_tinh():
 
 # ---------- trò chơi "Cuộc gọi giả giọng" (cuoc-goi-gia-giong.html): mô phỏng cuộc gọi rẽ nhánh, video 108, 109, 112 ----------
 # Nội dung ở data/cuoc-goi.json (cả hai ngôn ngữ), cách chơi ở cuoc-goi.js. Cuối trò: đặt mật khẩu gia đình, in hoặc tải thẻ nhỏ.
+@trang_rieng("cuoc-goi-gia-giong.html", "0.7")
 def tao_cuoc_goi():
     p = t("", "../")
     D = load("cuoc-goi")
@@ -2335,6 +2332,10 @@ def tao_lam_theo():
     return GOC + "lam-theo.html", trang("lam-theo.html", t(f"File mẫu và prompt làm theo video | {SITE}", f"Sample files and prompts to follow along | {SITE}"),
                                         desc, band, main, p, og_type="website", cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', q="")
 
+# Trang riêng viết trong file riêng: scripts/trang/*.py chạy chung không gian tên với script này (dùng được trang(), t(), header()...)
+for _f in sorted((R / "scripts" / "trang").glob("*.py")):
+    exec(compile(_f.read_text(encoding="utf-8"), str(_f), "exec"), globals())
+
 def chay():
     def ghi(duong, noi_dung):
         f = R / duong
@@ -2352,7 +2353,9 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_cuoc_goi, tao_may_tinh, tao_bo_loc, tao_dan_hay_khong, tao_bat_loi, tao_bo_nao):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_lam_theo):
+            ghi(*ham())
+        for _, _, ham in TRANG_RIENG:
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -2360,8 +2363,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "cuoc-goi-gia-giong.html", "may-tinh-doi-that.html", "bo-loc-thien-vi.html", "dan-hay-khong.html", "bit-bat-loi.html", "phong-thi-nghiem-bo-nao.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "cuoc-goi-gia-giong.html": "0.7", "may-tinh-doi-that.html": "0.7", "bo-loc-thien-vi.html": "0.7", "dan-hay-khong.html": "0.7", "bit-bat-loi.html": "0.7", "phong-thi-nghiem-bo-nao.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html"] + [d for d, _, _ in TRANG_RIENG] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", **{d: u for d, u, _ in TRANG_RIENG}}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
@@ -2379,9 +2382,7 @@ def chay():
         sitemap += dong_sitemap(tien_to)
     sitemap.append("</urlset>")
     ghi("sitemap.xml", "\n".join(sitemap) + "\n")
-    so_key = lambda k: [float(x) for x in k.split(".")]
-    (R / "data" / "tuong-tac.json").write_text(json.dumps({"_ghi_chu": "Tự tạo bởi scripts/tao_bai_viet.py (TRO_CHOI_WEB): số video có trò chơi tương tác trên web, app.js gắn nhãn Tương tác.",
-                                                          "video": sorted(TUONG_TAC, key=so_key)}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    tro_choi.ghi_tuong_tac(TUONG_TAC)
     print("sitemap.xml:", len(sitemap) - 3, "trang")
 
 if __name__ == "__main__":

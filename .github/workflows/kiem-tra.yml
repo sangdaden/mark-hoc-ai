@@ -14,5 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: File trò chơi data/tro-choi/*.json đọc được
+        run: python3 scripts/tro_choi.py
       - name: Đủ VI + EN, có theo-doi.js, không link hỏng, JSON và sitemap đúng
         run: python3 scripts/kiem_tra_trang.py --goc "origin/${{ github.base_ref || 'main' }}"
