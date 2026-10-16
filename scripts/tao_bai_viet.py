@@ -618,6 +618,13 @@ TRO_CHOI_WEB = [
      ("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve."), "ghep"),
     ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"]),
      ("Đổi trời mưa, sương, đêm và xem LiDAR, radar, camera nhìn thấy gì.", "Switch to rain, fog or night and see what LiDAR, radar and camera pick up."), "cam-bien"),
+    # Phòng thí nghiệm bộ não AI: mỗi trạm là một trò chơi riêng (?tram=), bai-viet.js nối thêm &nhung=1 khi nhúng
+    ("phong-thi-nghiem-bo-nao.html?tram=cat-manh", ("Máy cắt mảnh chữ", "Token cutter"), {"19", "60", "146"},
+     ("Gõ một câu, xem AI cắt thành mảnh nào và tốn bao nhiêu mảnh.", "Type a sentence and see which pieces the AI cuts it into, and how many."), "cat-manh"),
+    ("phong-thi-nghiem-bo-nao.html?tram=doan-chu", ("Đoán chữ tiếp theo", "Guess the next word"), {"7", "242"},
+     ("Bấm từng chữ AI gợi ý, tự tay viết một câu theo cách AI viết.", "Click the words the AI suggests and write a sentence the way an AI does."), "doan-chu"),
+    ("phong-thi-nghiem-bo-nao.html?tram=vong-quay", ("Vòng quay nhiệt độ", "Temperature wheel"), {"24"},
+     ("Kéo nhiệt độ, quay vòng và xem vì sao hỏi hai lần ra hai câu khác nhau.", "Drag the temperature, spin, and see why asking twice gives two answers."), "vong-quay"),
 ]
 TUONG_TAC = {}
 for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
@@ -633,6 +640,16 @@ def hinh_choi(hinh):
     if hinh == "lua-dao":
         return (f'<span class="ct-hinh ct-ld" aria-hidden="true"><span class="ct-tin">{t("Mẹ ơi con đây, chuyển gấp cho con 20 triệu…", "Mom, it&#39;s me, send me 20 million now…")}</span>'
                 f'<span class="ct-chon"><span>{t("Thật", "Real")}</span><span class="ct-gia">{t("Lừa đảo", "Scam")}</span></span></span>')
+    if hinh == "cat-manh":
+        return ('<span class="ct-hinh ct-cm" aria-hidden="true"><span class="ct-cau">' +
+                "".join(f'<span>{m}</span>' for m in (["Xin", " ch", "ào", " Việt", " Nam"] if LG != "en" else ["Hello", " Vietnam", "!"])) +
+                f'</span><span class="ct-dem">{t("5 mảnh", "3 tokens")}</span></span>')
+    if hinh == "doan-chu":
+        return (f'<span class="ct-hinh ct-dc" aria-hidden="true"><span class="ct-cau">{t("Bạn có thể", "You can")} <i>▍</i></span><span class="ct-chon">' +
+                "".join(f'<span>{w} <b>{p}%</b></span>' for w, p in ([("bị", 25), ("bịa", 15), ("làm", 12)] if LG != "en" else [("click", 19), ("use", 14), ("ask", 14)])) +
+                '</span></span>')
+    if hinh == "vong-quay":
+        return (f'<span class="ct-hinh ct-vq" aria-hidden="true"><span class="ct-banh"></span><span class="ct-nhiet">{t("Nhiệt độ", "Temperature")} <b>0.7</b></span></span>')
     return ('<span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span>'
             '<span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span>')
 
@@ -1715,6 +1732,118 @@ def tao_ghep_cau_lenh():
                                                  desc, band, main, p, og_type="website", q="",
                                                  cuoi=f'<script src="{p}ghep-cau-lenh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
+# ---------- Phòng thí nghiệm bộ não AI (phong-thi-nghiem-bo-nao.html): bàn thí nghiệm, ngăn kéo trạm bên trái ----------
+# Cách chạy ở bo-nao.js. Trạm 1 dùng bộ tách mảnh thật (assets/vendor/gpt-tokenizer), trạm 6 dùng data/bo-nao/doan-chu*.json
+# (scripts/tao_doan_chu.py). Mỗi trạm mở riêng được bằng ?tram=<id> (TRO_CHOI_WEB nhúng từng trạm vào bài của video).
+def tao_bo_nao():
+    p = t("", "../")
+    D = load(t("bo-nao/doan-chu", "bo-nao/doan-chu-en"))
+    tram = [
+        ("cat-manh", "1", t("Cắt mảnh", "Tokens"), "19 · 146", True),
+        ("ban-do", "2", t("Bản đồ nghĩa", "Meaning map"), "20", False),
+        ("thu-tu", "3", t("Thứ tự chữ", "Word order"), "200", False),
+        ("attention", "4", t("Attention: chữ “nó”", "Attention: the word “it”"), "21", False),
+        ("tang", "5", t("Qua 12 tầng", "Through 12 layers"), "43", False),
+        ("doan-chu", "6", t("Đoán chữ tiếp", "Next word"), "7", True),
+        ("vong-quay", "7", t("Vòng quay nhiệt độ", "Temperature wheel"), "24", True),
+        ("nghi-truoc", "8", t("Nghĩ trước khi nói", "Think before answering"), "26", False),
+    ]
+    def li(x):
+        id_, so, ten, ep, mo = x
+        if mo:
+            return f'<li><button type="button" class="bn-nut" data-tram="{id_}" aria-controls="tram-{id_}"><span class="bn-so">{so}</span><span class="bn-ten">{ten}<small>{t("Video", "Video")} {ep}</small></span></button></li>'
+        return f'<li><span class="bn-nut bn-sap" aria-disabled="true"><span class="bn-so">{so}</span><span class="bn-ten">{ten}<small>{t("Sắp mở", "Coming soon")}</small></span></span></li>'
+    ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau" title="{t("Câu mẫu đi suốt các trạm (video 21)", "Sample sentence used across stations (video 21)")}">'
+            f'{t("Con mèo không nhảy qua bức tường vì nó quá mệt", "The cat did not jump over the wall because it was too tired")}</p><ol>' + "".join(li(x) for x in tram) + "</ol></nav>")
+    mau_vi = [("Con mèo không nhảy qua bức tường vì nó quá mệt", "The cat did not jump over the wall because it was too tired"),
+              ("Hôm nay trời nắng, mình đi uống cà phê với bạn.", "It is sunny today, so I am going for coffee with a friend."),
+              ("Nghiêng ngả, nguệch ngoạc, khuỷu tay", "Leaning, scribbled, elbow")]
+    if LG == "en":
+        mau = [(b, a) for a, b in mau_vi]
+    else:
+        mau = mau_vi
+    nut_mau = "".join(f'<button type="button" class="chip" data-cm-mau="{a}" data-cap=\'{json.dumps([a, b], ensure_ascii=False)}\'>{a[:28]}{"…" if len(a) > 28 else ""}</button>' for a, b in mau)
+    nut_mau += f'<button type="button" class="chip" data-cm-mau="{t("Mark học AI 🤖 markhocai.com", "Mark học AI 🤖 markhocai.com")}">{t("Có emoji và link", "Emoji and a link")}</button>'
+    cm = f'''<section class="bn-tram" id="tram-cat-manh" hidden aria-labelledby="h-cat-manh">
+<p class="bn-nhan">{t("Trạm 1 · Video 19, 146, 60", "Station 1 · Videos 19, 146, 60")}</p>
+<h2 id="h-cat-manh">{t("Gõ gì cũng được, xem AI cắt thành mảnh nào", "Type anything, see which tokens the AI cuts it into")}</h2>
+<p class="bn-mo">{t("AI không đọc từng chữ cái mà đọc từng <b>mảnh</b> (token). Mỗi màu dưới đây là một mảnh. Đây là bộ tách mảnh thật, cùng loại các chatbot đang dùng.", "AI doesn't read letter by letter. It reads <b>tokens</b>. Each colour below is one token. This is a real tokenizer, the same kind chatbots use.")}</p>
+<label class="bn-lbl" for="cm-chu">{t("Câu của bạn", "Your sentence")}</label>
+<textarea id="cm-chu" class="bn-o" rows="2" maxlength="600">{mau[0][0]}</textarea>
+<div class="bn-mau" role="group" aria-label="{t("Câu mẫu", "Sample sentences")}">{nut_mau}</div>
+<div class="cm-manh" id="cm-manh" aria-live="polite"></div>
+<p class="cm-so" id="cm-so"></p>
+<p class="cm-bot" id="cm-bot" aria-live="polite"></p>
+<div class="cm-them" id="cm-them" data-cap='{json.dumps([mau[0][0], mau[0][1]], ensure_ascii=False)}'>
+<p class="bn-lbl">{t("Cùng một ý, hai thứ tiếng", "Same idea, two languages")}</p>
+<div class="cm-hang"><span>{t("Tiếng Việt", "Vietnamese") if LG != "en" else "Vietnamese"}</span><span class="cm-thanh"><i class="{"cm-a" if LG != "en" else "cm-b"}"></i></span><b class="{"cm-a-so" if LG != "en" else "cm-b-so"}"></b></div>
+<div class="cm-hang"><span>{t("Tiếng Anh", "English")}</span><span class="cm-thanh"><i class="{"cm-b" if LG != "en" else "cm-a"}"></i></span><b class="{"cm-b-so" if LG != "en" else "cm-a-so"}"></b></div>
+<p class="bn-ghi">{t("Tiếng Việt thường tốn nhiều mảnh hơn vì chữ có dấu ít gặp hơn trong dữ liệu học. Nhiều mảnh hơn nghĩa là tốn tiền hơn và nhanh đầy trí nhớ hơn (video 146).", "Vietnamese usually costs more tokens because accented letters are rarer in training data. More tokens means higher cost and a context window that fills up faster (video 146).")}</p>
+</div>
+<details class="bn-nap"><summary>{t("Mở nắp: mảnh là gì bên trong máy?", "Under the hood: what is a token inside the machine?")}</summary>
+<p>{t("Mỗi mảnh là một con số trong một cuốn từ điển khoảng 200 nghìn mục. Chữ hay gặp như “the” chiếm trọn một mục, chữ có dấu ít gặp bị cắt nhỏ. Dấu ◇ là mảnh chỉ mang nửa chữ: một chữ có dấu bị cắt đôi.", "Each token is a number in a vocabulary of about 200,000 entries. Common words like “the” get a whole entry; rarer accented words are cut smaller. A ◇ marks a token that holds only half a character: one accented letter split in two.")}</p>
+<label class="bn-chk"><input type="checkbox" id="cm-tt"> {t("Hiện số thứ tự của mỗi mảnh trong từ điển", "Show each token's number in the vocabulary")}</label>
+<p>{t("Bộ tách mảnh ở đây là o200k_base, dùng trong các model GPT-4o. Claude, Gemini mỗi hãng có bộ riêng nên số mảnh lệch vài phần, nhưng cách cắt giống nhau về nguyên lý.", "This tokenizer is o200k_base, used by the GPT-4o models. Claude and Gemini each have their own, so counts differ a little, but the idea is the same.")}</p>
+</details>
+<div class="cm-tien"><label class="bn-lbl" for="cm-gia">{t("Giá ví dụ (đô la cho mỗi triệu mảnh)", "Example price (dollars per million tokens)")}</label>
+<input id="cm-gia" class="bn-so-o" type="number" min="0" step="0.1" value="3"><p id="cm-tien" class="bn-ghi"></p>
+<p class="bn-ghi">{t("Giá thật mỗi model khác nhau, xem trên trang của nhà cung cấp. Video 60 giải thích vì sao mỗi câu hỏi đều tốn tiền.", "Real prices differ by model; check the provider's page. Video 60 explains why every question costs money.")}</p></div>
+</section>'''
+    dc = f'''<section class="bn-tram" id="tram-doan-chu" hidden aria-labelledby="h-doan-chu">
+<p class="bn-nhan">{t("Trạm 6 · Video 7, 242", "Station 6 · Videos 7, 242")}</p>
+<h2 id="h-doan-chu">{t("Tự làm “chatbot”: chọn chữ tiếp theo từng chữ một", "Be the chatbot: pick the next word, one at a time")}</h2>
+<p class="bn-mo">{t("Chatbot thật ra chỉ đoán chữ tiếp theo, rồi lặp lại. Gõ vài chữ, máy đưa ra những chữ dễ đến tiếp theo kèm phần trăm. Bấm một chữ để nối vào câu.", "A chatbot really just guesses the next word, then repeats. Type a few words and the machine lists likely next words with their odds. Tap one to add it.")}</p>
+<label class="bn-lbl" for="dc-cau">{t("Câu đang viết", "Sentence so far")}</label>
+<textarea id="dc-cau" class="bn-o" rows="2">{t("Bạn có thể", "You can")} </textarea>
+<p class="dc-cach" id="dc-cach"></p>
+<div class="dc-ds" id="dc-ds" aria-live="polite"></div>
+<div class="bn-hang"><button type="button" class="btn" id="dc-chay">{t("Tự chạy 12 chữ", "Auto-write 12 words")}</button><button type="button" class="btn btn-nhe" id="dc-lai">{t("Viết lại từ đầu", "Start over")}</button></div>
+<details class="bn-nap"><summary>{t("Mở nắp: bộ đoán này học từ đâu?", "Under the hood: where did this guesser learn?")}</summary>
+<p>{t(f"Nó đã đọc {D['so_bai']} bài viết và {D['so_kich_ban']} kịch bản của chính kênh Mark học AI (khoảng {round(D['so_chu'] / 1000)} nghìn chữ) và đếm: sau 2 chữ này thì chữ nào hay đến. Vì thế nó viết ra câu có giọng Mark và Bit.", f"It read the {D['so_bai']} articles on this site (about {round(D['so_chu'], -3):,} words) and counted which word tends to follow each pair of words.")}</p>
+<p>{t("Chatbot thật học từ hàng nghìn tỷ chữ và nhìn cả đoạn hội thoại dài, không chỉ 2 chữ cuối. Nhìn được cả câu là nhờ attention, trạm 4.", "Real chatbots learn from trillions of words and look at the whole conversation, not just the last 2 words. Seeing the whole sentence is what attention does (station 4).")}</p>
+</details>
+</section>'''
+    vd = [("Hôm nay tôi muốn uống", "Today I want to drink")]
+    vq = f'''<section class="bn-tram" id="tram-vong-quay" hidden aria-labelledby="h-vong-quay">
+<p class="bn-nhan">{t("Trạm 7 · Video 24", "Station 7 · Video 24")}</p>
+<h2 id="h-vong-quay">{t("Vòng quay may mắn: vì sao hỏi 2 lần ra 2 đáp án", "The lucky wheel: why the same question gets two answers")}</h2>
+<p class="bn-mo">{t("AI chấm điểm mọi chữ có thể nói tiếp, rồi bốc thăm theo tỉ lệ đó. Ô càng to càng dễ trúng. Núm <b>nhiệt độ</b> làm các ô phình ra hay xẹp lại.", "The AI scores every word it could say next, then draws one by those odds. Bigger slices win more often. The <b>temperature</b> knob makes the slices bulge or even out.")}</p>
+<p class="vq-cau" id="vq-cau"></p>
+<div class="vq-ban">
+<canvas id="vq-ve" width="320" height="320" role="img" aria-label="{t("Vòng quay các chữ có thể nói tiếp", "Wheel of possible next words")}"></canvas>
+<div class="vq-ben">
+<label class="bn-lbl" for="vq-nhiet">{t("Nhiệt độ", "Temperature")} <b id="vq-nhiet-so"></b></label>
+<input type="range" id="vq-nhiet" min="0.1" max="2" step="0.1" value="1">
+<p class="bn-ghi" id="vq-giai" aria-live="polite"></p>
+<label class="bn-lbl" for="vq-topp">{t("Chỉ giữ các ô lớn (top-p)", "Keep only the big slices (top-p)")} <b id="vq-topp-so"></b></label>
+<input type="range" id="vq-topp" min="0.5" max="1" step="0.05" value="1">
+<p class="bn-ghi" id="vq-giu"></p>
+<div class="bn-hang"><button type="button" class="btn" id="vq-quay">{t("Quay", "Spin")}</button><button type="button" class="btn btn-nhe" id="vq-quay20">{t("Quay 20 lần", "Spin 20 times")}</button><button type="button" class="btn btn-nhe" id="vq-xoa">{t("Xóa đếm", "Clear tally")}</button></div>
+<p class="vq-kq" id="vq-dem" aria-live="polite"></p>
+</div></div>
+<ul class="vq-ds" id="vq-ds"></ul>
+<p class="bn-ghi">{t("Vạch mảnh là tỉ lệ ban đầu, cột màu là tỉ lệ sau khi chỉnh nhiệt độ. Số bên phải là số lần đã trúng.", "The thin mark is the original odds; the coloured bar is the odds after temperature. The number on the right counts wins.")}</p>
+<div class="bn-hang"><button type="button" class="chip" id="vq-video">{t("Số ví dụ trong video 24", "Example from video 24")}</button><button type="button" class="chip" id="vq-tram6">{t("Lấy tỉ lệ thật từ câu ở trạm 6", "Use real odds from the station 6 sentence")}</button></div>
+<p class="bn-ghi" id="vq-nguon"></p>
+<details class="bn-nap"><summary>{t("Mở nắp: công thức nhiệt độ", "Under the hood: the temperature formula")}</summary>
+<p>{t("Mỗi tỉ lệ được nâng lên lũy thừa 1/nhiệt độ rồi chia lại cho tổng bằng 100%. Nhiệt độ 0,5 làm ô to càng to; nhiệt độ 2 kéo các ô về gần nhau. Top-p giữ nhóm ô lớn nhất cộng lại đủ phần trăm đã chọn, bỏ hết ô nhỏ.", "Each probability is raised to the power 1/temperature, then rescaled to add up to 100%. Temperature 0.5 makes big slices bigger; 2 pulls them together. Top-p keeps the biggest slices that add up to the chosen share and drops the rest.")}</p>
+<p>{t("Trong app chat thường không chỉnh được nhiệt độ. Mẹo từ video: việc sáng tạo thì bấm “tạo lại” vài lần rồi chọn ý hay; việc cần chính xác thì bảo AI làm từng bước và tự kiểm lại.", "Chat apps usually hide the temperature. The tip from the video: for creative tasks, regenerate a few times and pick the best; for exact tasks, ask the AI to work step by step and check itself.")}</p>
+</details>
+</section>'''
+    tieu = t("Phòng thí nghiệm bộ não AI: tự tay thử token, đoán chữ, nhiệt độ", "AI brain lab: try tokens, next-word guessing and temperature yourself")
+    desc = t("Phòng thí nghiệm miễn phí: gõ một câu xem AI cắt thành mảnh nào bằng bộ tách token thật, tự làm chatbot đoán chữ tiếp theo, quay vòng nhiệt độ để hiểu vì sao hỏi 2 lần ra 2 đáp án.",
+             "Free hands-on lab: type a sentence and see the real tokenizer split it, build a next-word guesser yourself, and spin the temperature wheel to see why the same question gets two answers.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Phòng thí nghiệm · chạy ngay trên trình duyệt · không gọi AI thật", "Lab · runs in your browser · no real AI calls")}</p>\n'
+            f'<h1>{t("Phòng thí nghiệm bộ não AI", "AI brain lab")}</h1>\n'
+            f'<p class="lead">{t("Tự tay làm những gì loạt video “Bên trong bộ não AI” giải thích. Chọn một trạm bên trái, mỗi trạm chừng một phút.", "Do by hand what the “Inside the AI brain” videos explain. Pick a station on the left; each takes about a minute.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
+    main = (f'<main class="bn" id="bn">\n{ngan}\n<div class="bn-ban">\n{cm}\n{dc}\n{vq}\n'
+            f'{khoi_chia_se(BASE + GOC + "phong-thi-nghiem-bo-nao.html", tieu, p)}\n'
+            f'<p class="gh-ghi">{t("Mọi thứ chạy trên máy bạn, không gọi AI thật và không gửi gì đi đâu. Các trạm còn lại sẽ mở dần cùng các video.", "Everything runs on your device: no real AI calls, nothing is sent anywhere. The remaining stations open over time alongside the videos.")}</p>\n'
+            f'<noscript><p>{t("Phòng thí nghiệm cần JavaScript.", "The lab needs JavaScript.")}</p></noscript>\n</div>\n</main>')
+    return GOC + "phong-thi-nghiem-bo-nao.html", trang("phong-thi-nghiem-bo-nao.html", f"{tieu} | {SITE}", desc, band, main, p, og_type="website", q="",
+                                                       cuoi=f'<script src="{p}bo-nao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1772,7 +1901,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_bo_nao):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1780,8 +1909,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "phong-thi-nghiem-bo-nao.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "phong-thi-nghiem-bo-nao.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
