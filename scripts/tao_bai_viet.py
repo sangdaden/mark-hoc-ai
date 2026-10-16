@@ -43,8 +43,9 @@ video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 6
 from video_moi import VIDEO_MOI_TU
 from tao_vu_tru_khac import dong_sitemap
 import anh_chia_se
+# Trình phát YouTube: mọi video đã đăng YouTube, kể cả 01-302 và tập phụ ("5.1"), Sang duyệt 16/10 (scripts/cap_nhat_youtube.py)
+YT_ID = load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
-YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 esc = lambda s: html.escape(s or "", quote=True)
 
@@ -432,7 +433,12 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 
 TO_CHUC = {"@type": "Organization", "name": SITE, "url": BASE, "logo": {"@type": "ImageObject", "url": BASE + "assets/logo.png"}}
 
+def yt_url(yt):
+    return f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
+
 def yt_link(v):
+    if str(v["so"]) in YT_ID:  # đã đăng: mở thẳng video
+        return yt_url(YT_ID[str(v["so"])])
     tieu_de, _ = tach_tieu_de(VIDEO_VI[v["so"]])  # video tiếng Việt: tìm bằng tiêu đề gốc
     return kenh["youtube"] + "/search?query=" + quote(tieu_de, safe="")
 
@@ -480,12 +486,22 @@ def ten_video(v):
     """Tên video để làm chữ thay ảnh (alt): tên ngắn trong chu_de, bỏ phần series."""
     return tach_tieu_de(v)[0]
 
+def trinh_phat(yt, ten, anh=None):
+    """Ảnh bìa + nút phát YouTube (ten đã esc). Không có ảnh riêng thì dùng ảnh bìa của YouTube."""
+    anh = anh or (f'<img src="https://i.ytimg.com/vi/{yt["id"]}/hqdefault.jpg" width="480" height="360" alt="{ten}" decoding="async" '
+                  f'fetchpriority="high">')
+    return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
+            f'<a class="yt-play" href="{yt_url(yt)}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
+            f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
+            f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+
 def anh_dau_bai(v, p):
-    """Đầu bài của video mới (số >= VIDEO_MOI_TU):
+    """Đầu bài:
     - có mã YouTube (data/youtube-id.json, scripts/cap_nhat_youtube.py): ảnh bìa + nút phát, bấm mới tải trình phát
-      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm;
-    - chưa có mã: ảnh bìa (data/anh.json) kèm biểu tượng các nền tảng để xem video.
-    Video 01-302 không có gì ở đây (giữ như cũ)."""
+      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm. Không tự phát: YouTube không
+      tính lượt xem cho video nhúng tự phát;
+    - chưa có mã: ảnh bìa (data/anh.json, chỉ video mới) kèm biểu tượng các nền tảng để xem video.
+    Video 01-302 chưa đăng YouTube thì không có gì ở đây."""
     a, yt = ANH.get(str(v["so"])), YT_ID.get(str(v["so"]))
     ten = esc(ten_video(v))
     if a and a.get("bia"):
@@ -497,11 +513,7 @@ def anh_dau_bai(v, p):
     else:
         return ""
     if yt:
-        url = f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
-        return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
-                f'<a class="yt-play" href="{url}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
-                f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
-                f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+        return trinh_phat(yt, ten, anh)
     xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
     return (f'<figure class="post-cover">{anh}</figure>\n'
             f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n')
@@ -579,6 +591,15 @@ def than_bai(v, muc_nd, thu_mo_ta, prompt, p, q):
 
     return muc
 
+# Bài của video có ca trong trò chơi "Lừa đảo hay thật?" (data/lua-dao.json) có thêm thẻ mời chơi
+VIDEO_LUA_DAO = {c["video"] for c in load("lua-dao")["ca"]}
+
+def the_lua_dao(so, q):
+    if so not in VIDEO_LUA_DAO:
+        return ""
+    return (f'<a class="next-step next-step-ld" href="{q}lua-dao-hay-that.html"><b>{t("Lừa đảo hay thật?", "Scam or real?")}</b>'
+            f'<span>{t("Thử nhận ra chiêu lừa trong 10 tình huống trên điện thoại.", "Spot the tricks in 10 phone situations.")}</span></a>\n')
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -626,7 +647,7 @@ def tao_bai(v):
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
-            f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
+            f'<aside class="next-steps">\n{the_lua_dao(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
     url = BASE + GOC + goc
     ngay = LICH.get(str(so))
@@ -703,7 +724,8 @@ def tao_bai_phu(s, x):
         nav.append(the(sau, t("Phần tiếp theo ›", "Next part ›"), "nav-card next"))
 
     # Nút xem: tìm đúng tiêu đề tiếng Việt trên kênh YouTube; chưa tới ngày ra mắt thì bai-viet.js đổi thành link kênh (data-ngay)
-    tim = kenh["youtube"] + "/search?query=" + quote(next(y["tieu_de"] for y in video_phu_vi(s["id"]) if y["so"] == so), safe="")
+    yt = YT_ID.get(so)
+    tim = yt_url(yt) if yt else kenh["youtube"] + "/search?query=" + quote(next(y["tieu_de"] for y in video_phu_vi(s["id"]) if y["so"] == so), safe="")
     gan = f'data-so="{so}" data-ngay="{x.get("ra_mat", "")}" data-kenh="{esc(kenh["youtube"])}"'
     nut = f'<a class="btn btn-yt" {gan} href="{esc(tim)}" target="_blank" rel="noopener">{ic(p, "play")}{t("Xem video", "Watch video")}</a>'
     xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
@@ -714,7 +736,8 @@ def tao_bai_phu(s, x):
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
-    main = (f'<main class="doc">\n<article class="post">\n<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n' + "\n".join(muc) +
+    dau = (trinh_phat(yt, esc(x["tieu_de"])) if yt else "") + f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n'
+    main = (f'<main class="doc">\n<article class="post">\n{dau}' + "\n".join(muc) +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
@@ -1476,6 +1499,60 @@ def tao_cam_bien():
                                                         desc, band, main, p, og_type="website", q="",
                                                         cuoi=f'<script type="module" src="{p}cam-bien.js?v=dev"></script>\n')
 
+# ---------- trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html): ca giả lập dựa trên video 14, 15, 108-112 ----------
+# Nội dung ở data/lua-dao.json (cả hai ngôn ngữ), cách chơi ở lua-dao.js. Trang chỉ nhúng chữ của ngôn ngữ đang tạo.
+def tao_lua_dao():
+    p = t("", "../")
+    D = load("lua-dao")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) else x
+    ca = []
+    for c in D["ca"]:
+        v = co_bai[c["video"]]
+        ca.append({"id": c["id"], "loai": c["loai"], "dap_an": c["dap_an"], "co_khung": c.get("co_khung", ""),
+                   "khung": {k: chu(x) for k, x in c["khung"].items()},
+                   "dong": [{"tu": d["tu"], "doan": [{"chu": chu(x), "co": x.get("co", "")} for x in d["doan"]]} for d in c["dong"]],
+                   "co": {k: chu(x) for k, x in c["co"].items()}, "giai": chu(c["giai"]),
+                   "video": {"so": v["so"], "ten": seo[str(v["so"])], "url": f"bai/{ten_file(v)}.html"}})
+    nhan = {
+        "ca": t("Ca", "Case"), "diem": t("Điểm", "Score"), "huong": t("Chạm vào những chỗ bạn thấy đáng ngờ, rồi chọn.", "Tap anything that looks suspicious, then decide."),
+        "danh_dau": t("Đã đánh dấu", "Marked"), "cho": t("chỗ", "spots"), "lua": t("Lừa đảo", "Scam"), "that": t("Thật", "Real"),
+        "dung": t("Chuẩn rồi!", "Spot on!"), "sai": t("Chưa đúng!", "Not quite!"), "la_lua": t("Đây là lừa đảo.", "This is a scam."), "la_that": t("Đây là thật.", "This one is real."),
+        "tim_thay": t("Bạn tìm ra", "You found"), "bo_sot": t("Bạn bỏ sót", "You missed"), "khong_co": t("Không có dấu hiệu lừa đảo nào ở ca này.", "There are no scam signs in this case."),
+        "nham": t("Chỗ này bình thường", "This part is fine"), "xem_video": t("Xem video", "Watch video"), "tiep": t("Ca tiếp theo", "Next case"), "xem_ket": t("Xem kết quả", "See your result"),
+        "goi_den": t("Cuộc gọi đến", "Incoming call"), "goi_video": t("Cuộc gọi video", "Video call"), "nguoi_goi": t("Người gọi nói", "The caller says"),
+        "tai_tro": t("Quảng cáo", "Ad"), "ban": t("Bạn", "You"),
+        "hang": [[9, t("Thám tử chống lừa", "Scam detective")], [7, t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
+        "dau_hieu": t("dấu hiệu", "signs"), "on_lai": t("Ôn lại các video bạn trả lời sai", "Rewatch the videos for the cases you missed"), "het_sai": t("Bạn không sai ca nào. Gửi trò này cho bố mẹ thử xem!", "You got every case right. Send this to your parents to try!"),
+        "choi_lai": t("Chơi lại", "Play again"),
+    }
+    du_lieu = json.dumps({"ca": ca, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    so_ca, so_lua = len(ca), sum(c["dap_an"] == "lua" for c in ca)
+    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống giả lập trên điện thoại, cuộc gọi giả giọng người thân, gọi video deepfake, tin nhắn ngân hàng giả, quảng cáo đầu tư. Bạn nhận ra đâu là lừa đảo, đâu là thật?",
+             f"Free game: {so_ca} simulated phone situations, cloned-voice calls, deepfake video calls, fake bank texts and investment ads. Can you tell the scams from the real ones?")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 3 phút · chơi trên điện thoại", "Game · 3 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Lừa đảo hay thật?", "Scam or real?")}</h1>\n'
+            f'<p class="lead">{t(f"{so_ca} tình huống trên điện thoại. Chạm vào chỗ đáng ngờ, rồi chọn Lừa đảo hay Thật. Mỗi ca có Bit giải thích và video để xem lại.", f"{so_ca} situations on a phone screen. Tap what looks suspicious, then pick Scam or Real. Bit explains each case and links the video.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+    main = f"""<main class="ld" id="ld">
+<div class="ld-dau"><p class="ld-tien" id="ld-tien" aria-live="polite"></p><p class="ld-diem" id="ld-diem"></p></div>
+<div class="ld-san" id="ld-san"></div>
+<section class="ld-ket" id="ld-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="ld-ket-so"></p><p class="ld-ket-hang" id="ld-ket-hang"></p><p class="ld-ket-phu" id="ld-ket-phu"></p></div></div>
+<h2 class="ld-ket-h" id="ld-ket-h"></h2>
+<div class="ld-ket-video" id="ld-ket-video"></div>
+<div class="cta"><button type="button" class="btn" id="ld-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "lua-dao-hay-that.html", t("Lừa đảo hay thật? Thử nhận ra chiêu lừa bằng AI", "Scam or real? Try spotting AI scams"), p)}
+</section>
+<p class="ld-ghi">{t("Mọi tên người, ngân hàng, trang, số điện thoại và đường link trong trò chơi đều là hư cấu để luyện tập.", "All names, banks, pages, phone numbers and links in this game are made up for practice.")}
+{t("Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "Your answers stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem series", "The game needs JavaScript. You can still watch the series")} <a href="bai/{ten_file(co_bai[108])}.html">{t("Đừng để AI lừa", "Don't get fooled by AI")}</a>.</p></noscript>
+<script type="application/json" id="ld-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "lua-dao-hay-that.html", trang("lua-dao-hay-that.html", t(f"Lừa đảo hay thật? Trò chơi nhận ra lừa đảo bằng AI | {SITE}", f"Scam or real? A game for spotting AI scams | {SITE}"),
+                                                desc, band, main, p, og_type="website", q="",
+                                                cuoi=f'<script src="{p}lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1533,7 +1610,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_cam_bien):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1541,8 +1618,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "phong-thi-nghiem-cam-bien.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "phong-thi-nghiem-cam-bien.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):
