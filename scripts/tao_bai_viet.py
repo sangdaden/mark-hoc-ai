@@ -1695,16 +1695,16 @@ def tao_ghep_cau_lenh():
         "canh_bao": t("Câu lệnh có dữ liệu riêng tư. Đừng dán thứ này vào AI thật.", "This prompt contains private data. Don't paste this into a real AI."),
         "canh_bao_nguy": t("Việc này cần người thật, AI chỉ nên giúp bạn chuẩn bị câu hỏi.", "This needs a real person; AI should only help you prepare questions."),
         "trong": t("Chưa có mảnh nào. Gửi thử câu gốc cũng được, để xem AI trả lời ra sao.", "No pieces yet. You can send the bare line to see what happens."),
-        "hang": [[18, t("Thợ ghép bậc thầy", "Master prompt builder")], [12, t("Thợ ghép lành nghề", "Skilled prompt builder")], [0, t("Thợ học việc", "Apprentice prompt builder")]],
+        "hang": [[round(len(viec) * 18 / 7), t("Thợ ghép bậc thầy", "Master prompt builder")], [round(len(viec) * 12 / 7), t("Thợ ghép lành nghề", "Skilled prompt builder")], [0, t("Thợ học việc", "Apprentice prompt builder")]],
         "mau_h": t("Mẫu câu lệnh để dùng mãi", "A prompt template to keep"), "mau_lead": t("Gom mọi mảnh vào một mẫu có chỗ trống. Lần tới nhờ AI, chỉ cần điền vào.", "All the pieces in one fill-in template. Next time you ask an AI, just fill in the blanks."),
         "on_lai": t("Xem lại video cho những việc chưa được 3 sao", "Rewatch the videos for tasks under 3 stars"), "het": t("Bạn được 3 sao mọi việc. Thử dùng mẫu bên dưới cho việc thật của bạn!", "Three stars on every task. Try the template below on a real task!"),
         "choi_lai": t("Chơi lại", "Play again"), "phu": t("Mảnh bỏ đúng", "Traps avoided"),
     }
     du_lieu = json.dumps({"viec": viec, "loai": loai, "mau": mau, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     so_viec = len(viec)
-    desc = t(f"Trò chơi miễn phí: {so_viec} việc nhờ AI, từ bài đăng bán hàng tới email xin nghỉ phép. Ghép vai trò, bối cảnh, ví dụ, định dạng vào câu lệnh và xem câu trả lời của AI tốt lên ra sao.",
-             f"Free game: {so_viec} everyday AI tasks, from a sales post to a leave request. Snap role, context, examples and format into your prompt and watch the AI answer get better.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 5 phút · chơi trên điện thoại", "Game · 5 minutes · works on your phone")}</p>\n'
+    desc = t(f"Trò chơi miễn phí: {so_viec} việc nhờ AI, từ bài đăng bán hàng tới báo cáo tuần. Ghép vai trò, bối cảnh, ví dụ, định dạng vào câu lệnh và xem câu trả lời của AI tốt lên ra sao.",
+             f"Free game: {so_viec} everyday AI tasks, from a sales post to a weekly report. Snap role, context, examples and format into your prompt and watch the AI answer get better.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 10 phút · chơi trên điện thoại", "Game · 10 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Thợ ghép câu lệnh", "Prompt builder")}</h1>\n'
             f'<p class="lead">{t(f"{so_viec} việc hằng ngày, mỗi việc bắt đầu bằng một câu lệnh mơ hồ. Ghép thêm mảnh, gửi cho AI, xem câu trả lời đổi ra sao. Cẩn thận vài mảnh bẫy!", f"{so_viec} everyday tasks, each starting with a vague prompt. Add pieces, send it to the AI and see how the answer changes. Watch out for a few trap pieces!")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
