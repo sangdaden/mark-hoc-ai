@@ -120,6 +120,17 @@
     try { if (window.parent !== window) window.parent.addEventListener("scroll", ve, { passive: true }); } catch (e) {}
   }
 
+  // Nút nổi của trang (lên đầu, xuống nhanh, Bit trợ lý, gợi ý ngôn ngữ) che mất lời Bit, nhất là trên điện thoại.
+  // Khi trò mở trong trang bài, các nút đó nằm ở trang ngoài, trên cả khung trò chơi, nên phải ẩn cả bên đó.
+  var NUT_NOI = "#len-dau, .to-top, .bit-tl, #goi-y-ngon-ngu";
+  function anNutNoi(an) {
+    var ds = [document];
+    try { if (window.parent !== window && window.parent.document) ds.push(window.parent.document); } catch (e) {}
+    ds.forEach(function (d) {
+      [].forEach.call(d.querySelectorAll(NUT_NOI), function (e) { e.style.visibility = an ? "hidden" : ""; });
+    });
+  }
+
   function mo(g) {
     if (!lop) dung();
     nhom = g || nhomHienTai();
@@ -127,6 +138,7 @@
     truoc = document.activeElement;
     lop.hidden = false;
     document.documentElement.classList.add("hd-dang-mo");
+    anNutNoi(true);
     den(0, 1);
     if (window.mhaiDo) window.mhaiDo("mo-huong-dan", { tro: D.ten + (nhom.id ? "-" + nhom.id : "") });
   }
@@ -134,6 +146,7 @@
     if (!lop || lop.hidden) return;
     lop.hidden = true;
     document.documentElement.classList.remove("hd-dang-mo");
+    anNutNoi(false);
     ghi(khoa(nhom));
     var ve_ = nutMo && hien(nutMo) ? nutMo : truoc;
     if (ve_ && ve_.focus) try { ve_.focus({ preventScroll: true }); } catch (e) {}
