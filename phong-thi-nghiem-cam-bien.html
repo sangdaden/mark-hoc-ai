@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phòng thí nghiệm cảm biến 3D: LiDAR, camera, radar | Mark học AI</title>
+<meta name="description" content="Mô hình 3D chơi ngay trên web: tách rời LiDAR, camera, radar xem từng bộ phận, bắn tia laser đo khoảng cách, đổi trời nắng, đêm, mưa, sương mù để xem mỗi cảm biến của xe tự lái thấy gì.">
+<link rel="canonical" href="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phòng thí nghiệm cảm biến 3D: LiDAR, camera, radar | Mark học AI">
+<meta property="og:description" content="Mô hình 3D chơi ngay trên web: tách rời LiDAR, camera, radar xem từng bộ phận, bắn tia laser đo khoảng cách, đổi trời nắng, đêm, mưa, sương mù để xem mỗi cảm biến của xe tự lái thấy gì.">
+<meta property="og:url" content="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Phòng thí nghiệm 3D · Ba con mắt của AI</p>
+<h1>Phòng thí nghiệm cảm biến</h1>
+<p class="lead">Tự tay tách rời LiDAR, camera, radar, bắn tia laser đo khoảng cách, rồi đổi thời tiết để xem xe tự lái nhìn thấy gì qua từng con mắt.</p>
+</div><img class="head-art" src="assets/mark-a-ra-the.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="cb" id="cb">
+<div class="cb-tabs" role="tablist" aria-label="Các phần của phòng thí nghiệm"><button type="button" role="tab" class="cb-tab" id="cb-tab-mo-xe" aria-controls="cb-khu" aria-selected="true" data-tab="mo-xe">Mổ xẻ cảm biến</button><button type="button" role="tab" class="cb-tab" id="cb-tab-do-sang" aria-controls="cb-khu" aria-selected="false" data-tab="do-sang">Đo bằng ánh sáng</button><button type="button" role="tab" class="cb-tab" id="cb-tab-con-pho" aria-controls="cb-khu" aria-selected="false" data-tab="con-pho">Con phố 4 kiểu trời</button><button type="button" role="tab" class="cb-tab" id="cb-tab-thu-thach" aria-controls="cb-khu" aria-selected="false" data-tab="thu-thach">Thử thách</button></div>
+<div class="cb-o" id="cb-khu" role="tabpanel">
+<div class="cb-san" id="cb-san"><canvas id="cb-canvas" aria-label="Mô hình 3D"></canvas><div class="cb-nhan-3d" id="cb-nhan-3d" aria-hidden="true"></div><p class="cb-loi" id="cb-loi" hidden>Máy của bạn chưa chạy được đồ họa 3D (WebGL). Bạn vẫn dùng được bảng và thử thách bên cạnh.</p></div>
+<div class="cb-ben" id="cb-ben" aria-live="polite"></div>
+</div>
+<p class="cb-ghi">Mô hình đơn giản hóa để dễ hiểu, không phải bản vẽ kỹ thuật của một hãng nào. Mức nhận biết theo thời tiết lấy từ series <a href="bai/05-lidar.html">Ba con mắt của AI</a>.</p>
+<noscript><p>Phòng thí nghiệm cần JavaScript. Bạn vẫn xem được video <a href="bai/05-lidar.html">LiDAR</a>.</p></noscript>
+<script type="application/json" id="cb-du-lieu">{"cb":{"lidar":{"ten":"LiDAR","mo_ta":"Bắn tia laser, đo thời gian tia dội về để biết khoảng cách. Ra một đám mây điểm 3D, chính xác tới từng centimet, ngày hay đêm như nhau.","video":{"so":"5","ten":"LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào","url":"bai/05-lidar.html"},"bo_phan":[{"id":"de","ten":"Đế và động cơ","chu":"Quay cả đầu đo 10-20 vòng mỗi giây để quét đủ 360 độ quanh xe."},{"id":"dau","ten":"Đầu quay","chu":"Chứa bộ phát và bộ thu. Mỗi vòng quay ghi lại hàng trăm nghìn điểm."},{"id":"phat","ten":"Bộ phát laser","chu":"Bắn những xung ánh sáng hồng ngoại rất ngắn, mắt người không thấy."},{"id":"guong","ten":"Gương lái tia","chu":"Đổi hướng tia laser lên xuống để quét nhiều tầng cùng lúc."},{"id":"thu","ten":"Mắt thu","chu":"Đón ánh sáng dội về. Thời gian đi và về cho biết vật cách bao xa."},{"id":"mach","ten":"Mạch xử lý","chu":"Đổi thời gian thành khoảng cách: quãng đường = tốc độ ánh sáng × thời gian ÷ 2."}]},"camera":{"ten":"Camera","mo_ta":"Chụp ảnh màu như mắt người. Là con mắt duy nhất đọc được màu đèn và chữ trên biển báo, nhưng kém khi trời tối hay sương mù.","video":{"so":"5.2","ten":"AI đọc đèn đỏ, biển báo bằng camera thế nào","url":"bai/05-2-camera-doc-den-do.html"},"bo_phan":[{"id":"vo","ten":"Vỏ chống nước","chu":"Giữ ống kính sạch và khô, thường đặt sau kính chắn gió."},{"id":"kinh","ten":"Ống kính","chu":"Nhiều lớp thấu kính gom ánh sáng lại thành ảnh rõ nét."},{"id":"khau","ten":"Khẩu độ","chu":"Mở to khi trời tối để lấy thêm ánh sáng, nhưng ảnh dễ nhòe."},{"id":"cam","ten":"Cảm biến ảnh","chu":"Hàng triệu điểm ảnh, mỗi điểm đo một màu đỏ, xanh lá hoặc xanh dương."},{"id":"chip","ten":"Chip AI","chu":"Mạng nơ-ron đọc ảnh: tìm người, xe, đèn đang đỏ hay xanh, biển ghi gì."}]},"radar":{"ten":"Radar","mo_ta":"Phát sóng radio, đo sóng dội về. Biết khoảng cách và tốc độ ngay lập tức, xuyên mưa và sương mù, nhưng hình rất thô.","video":{"so":"5.1","ten":"Radar giúp xe nhìn xuyên sương mù thế nào","url":"bai/05-1-radar-nhin-xuyen-mua.html"},"bo_phan":[{"id":"nap","ten":"Nắp radome","chu":"Nắp nhựa cho sóng radio đi xuyên qua, thường giấu sau logo xe."},{"id":"anten","ten":"Dãy ăng-ten","chu":"Nhiều ăng-ten nhỏ phát và thu sóng. So lệch giữa các ăng-ten để biết vật ở hướng nào."},{"id":"chip","ten":"Chip sóng radio","chu":"Tạo sóng tần số 77 GHz. Hiệu ứng Doppler cho biết vật đang lại gần hay ra xa, nhanh cỡ nào."},{"id":"mach","ten":"Mạch xử lý","chu":"Biến sóng dội thành danh sách vật: cách bao xa, hướng nào, tốc độ bao nhiêu."},{"id":"vo","ten":"Vỏ kim loại","chu":"Che chắn nhiễu, tản nhiệt cho chip."}]}},"thoi_tiet":{"nang":"Nắng","dem":"Đêm","mua":"Mưa to","suong":"Sương mù"},"thong_tin":{"nguoi":"Người đi bộ ở đâu, cách bao xa","toc_do":"Xe máy chạy nhanh cỡ nào","den":"Đèn đang đỏ hay xanh","bien":"Biển báo ghi gì"},"muc":{"camera":{"nguoi":{"nang":2,"dem":1,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":2,"dem":2,"mua":2,"suong":1},"bien":{"nang":2,"dem":1,"mua":1,"suong":0}},"lidar":{"nguoi":{"nang":2,"dem":2,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}},"radar":{"nguoi":{"nang":1,"dem":1,"mua":1,"suong":1},"toc_do":{"nang":2,"dem":2,"mua":2,"suong":2},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}}},"ly_do":{"camera":"Camera cần ánh sáng: đêm thì ảnh tối và nhòe, mưa sương thì mờ. Nhưng đèn giao thông tự phát sáng nên vẫn đọc được màu.","lidar":"LiDAR tự mang ánh sáng nên đêm vẫn thấy rõ. Nhưng hạt mưa, hạt sương làm tia laser bị hắt tung, và LiDAR không thấy màu hay chữ.","radar":"Sóng radio đi xuyên mưa và sương, đo tốc độ rất chuẩn. Nhưng hình quá thô: người chỉ là một đốm, không có màu, không có chữ."},"thu_thach":[{"id":"dem-mua-den","thoi_tiet":"mua","can":{"den":2},"de":"Mưa to buổi tối. Xe cần biết đèn phía trước đang đỏ hay xanh.","giai":"Chỉ camera thấy được màu. Đèn giao thông tự phát sáng nên dù mưa camera vẫn đọc ra màu đỏ.","video":{"so":"5.2","ten":"AI đọc đèn đỏ, biển báo bằng camera thế nào","url":"bai/05-2-camera-doc-den-do.html"}},{"id":"suong-phanh","thoi_tiet":"suong","can":{"toc_do":2,"nguoi":1},"de":"Sương mù dày trên cao tốc. Phía trước có xe máy và người, cần biết họ ở đâu và xe máy chạy nhanh cỡ nào.","giai":"Radar nhìn xuyên sương mù và đo tốc độ ngay lập tức. LiDAR và camera gần như mù trong sương dày.","video":{"so":"5.1","ten":"Radar giúp xe nhìn xuyên sương mù thế nào","url":"bai/05-1-radar-nhin-xuyen-mua.html"}},{"id":"dem-ao-toi","thoi_tiet":"dem","can":{"nguoi":2},"de":"Đêm không đèn đường. Một người mặc áo tối băng qua, xe cần biết chính xác người đó ở đâu.","giai":"LiDAR tự bắn ánh sáng nên đêm như ngày, cho vị trí chính xác từng centimet. Camera chỉ thấy lờ mờ, radar chỉ thấy một đốm.","video":{"so":"5","ten":"LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào","url":"bai/05-lidar.html"}},{"id":"nang-bien","thoi_tiet":"nang","can":{"bien":2},"de":"Trời nắng đẹp. Xe cần đọc biển giới hạn tốc độ bên đường.","giai":"Đọc chữ và số trên biển là việc của camera. LiDAR chỉ thấy một tấm phẳng, radar thấy một cột kim loại.","video":{"so":"5.2","ten":"AI đọc đèn đỏ, biển báo bằng camera thế nào","url":"bai/05-2-camera-doc-den-do.html"}},{"id":"suong-ghep","thoi_tiet":"suong","can":{"den":1,"toc_do":2},"de":"Sương mù ở ngã tư. Xe cần biết đèn đang màu gì, VÀ xe máy phía trước chạy nhanh cỡ nào.","giai":"Không cảm biến nào làm được một mình: camera đọc màu đèn, radar đo tốc độ. Ghép lại gọi là sensor fusion.","video":{"so":"5.4","ten":"Sensor fusion: AI ghép LiDAR, radar, camera thế nào","url":"bai/05-4-sensor-fusion.html"}}],"nhan":{"tach":"Tách rời","gop":"Lắp lại","cham":"Chạm vào một bộ phận để xem nó làm gì. Kéo để xoay, chụm hai ngón để phóng to.","xem_video":"Xem video","ban":"Bắn tia laser","khoang":"Khoảng cách tới vật","thoi_gian":"Thời gian đi và về","cong_thuc":"Ánh sáng đi 30 cm mỗi nano giây (ns). Tia phải đi tới vật rồi quay về, nên khoảng cách = thời gian × 30 cm ÷ 2.","ns":"ns","m":"m","nhin":"Nhìn bằng","mat":"Mắt người","muc":["Không biết","Mờ, ước chừng","Rõ"],"ghep":"Ghép cả ba (sensor fusion)","bang":"Cảm biến này biết gì?","chon_cb":"Chọn ít cảm biến nhất mà vẫn đủ","kiem":"Kiểm tra","tiep":"Thử thách tiếp","dung_gon":"Chuẩn, và gọn nhất!","dung_thua":"Đủ rồi, nhưng có thể bỏ bớt một cảm biến.","thieu":"Chưa đủ.","thieu_gi":"Còn thiếu","ket":"Bạn giải gọn","lai":"Làm lại","thu_thach":"Thử thách","khong_3d":"Máy của bạn chưa chạy được đồ họa 3D (WebGL). Bạn vẫn xem được bảng và thử thách bên dưới, hoặc xem video.","nguoi":"Người đi bộ","xe_may":"Xe máy","kmh":"km/h","doc_den":"Camera đọc: đèn ĐỎ","doc_bien":"Biển: tối đa 40 km/h"},"p":""}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<script type="module" src="cam-bien.js?v=dev"></script>
+</body>
+</html>

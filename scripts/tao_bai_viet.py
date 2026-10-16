@@ -1417,6 +1417,65 @@ def tao_workshop():
     return GOC + "workshop.html", trang("workshop.html", t(f"Workshop Dùng AI cho công việc trong 2 giờ | {SITE}", f"Using AI at work: 2-hour workshop | {SITE}"),
                                         desc, band, main, p, hien_tai="workshop", og_type="website", q="")
 
+# ---------- Phòng thí nghiệm cảm biến 3D (phong-thi-nghiem-cam-bien.html): LiDAR, camera, radar ----------
+# Dữ liệu và chữ ở data/cam-bien.json, cảnh 3D ở cam-bien.js (Three.js r160 để sẵn trong assets/vendor/three, không gọi CDN).
+def tao_cam_bien():
+    p = t("", "../")
+    D = load("cam-bien")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) and L in x else x
+    def video(so):
+        so = str(so)
+        if "." in so:
+            cha, phu_so = so.split(".")
+            x = next(x for ss in video_phu for x in ss["tap"] if x["so"] == so)
+            ten = x["tieu_de"] if L == "vi" else load("en/video-phu")["tap"].get(so, {}).get("tieu_de", x["tieu_de"])
+            return {"so": so, "ten": ten, "url": f"bai/{int(cha):02d}-{phu_so}-{x['slug']}.html"}
+        v = co_bai[int(so)]
+        return {"so": so, "ten": seo[so], "url": f"bai/{ten_file(v)}.html"}
+    cb = {k: {"ten": chu(x["ten"]), "mo_ta": chu(x["mo_ta"]), "video": video(x["video"]),
+              "bo_phan": [{"id": b["id"], "ten": chu(b["ten"]), "chu": chu(b["chu"])} for b in x["bo_phan"]]} for k, x in D["cam_bien"].items()}
+    tt = [{"id": c["id"], "thoi_tiet": c["thoi_tiet"], "can": c["can"], "de": chu(c["de"]), "giai": chu(c["giai"]), "video": video(c["video"])} for c in D["thu_thach"]]
+    nhan = {
+        "tach": t("Tách rời", "Explode"), "gop": t("Lắp lại", "Assemble"), "cham": t("Chạm vào một bộ phận để xem nó làm gì. Kéo để xoay, chụm hai ngón để phóng to.", "Tap a part to see what it does. Drag to rotate, pinch to zoom."),
+        "xem_video": t("Xem video", "Watch video"), "ban": t("Bắn tia laser", "Fire the laser"), "khoang": t("Khoảng cách tới vật", "Distance to object"),
+        "thoi_gian": t("Thời gian đi và về", "Round-trip time"), "cong_thuc": t("Ánh sáng đi 30 cm mỗi nano giây (ns). Tia phải đi tới vật rồi quay về, nên khoảng cách = thời gian × 30 cm ÷ 2.", "Light travels 30 cm per nanosecond (ns). The pulse goes out and back, so distance = time × 30 cm ÷ 2."),
+        "ns": "ns", "m": "m", "nhin": t("Nhìn bằng", "View with"), "mat": t("Mắt người", "Human eye"),
+        "muc": [t("Không biết", "Can't tell"), t("Mờ, ước chừng", "Rough guess"), t("Rõ", "Clear")],
+        "ghep": t("Ghép cả ba (sensor fusion)", "All three (sensor fusion)"), "bang": t("Cảm biến này biết gì?", "What does this sensor know?"),
+        "chon_cb": t("Chọn ít cảm biến nhất mà vẫn đủ", "Pick the fewest sensors that still do the job"), "kiem": t("Kiểm tra", "Check"), "tiep": t("Thử thách tiếp", "Next challenge"),
+        "dung_gon": t("Chuẩn, và gọn nhất!", "Right, and as lean as it gets!"), "dung_thua": t("Đủ rồi, nhưng có thể bỏ bớt một cảm biến.", "That works, but you could drop a sensor."), "thieu": t("Chưa đủ.", "Not enough."),
+        "thieu_gi": t("Còn thiếu", "Still missing"), "ket": t("Bạn giải gọn", "Solved leanly"), "lai": t("Làm lại", "Try again"), "thu_thach": t("Thử thách", "Challenge"),
+        "khong_3d": t("Máy của bạn chưa chạy được đồ họa 3D (WebGL). Bạn vẫn xem được bảng và thử thách bên dưới, hoặc xem video.", "Your device can't run 3D graphics (WebGL). The tables and challenges below still work, or watch the videos."),
+        "nguoi": t("Người đi bộ", "Pedestrian"), "xe_may": t("Xe máy", "Motorbike"), "kmh": "km/h",
+        "doc_den": t("Camera đọc: đèn ĐỎ", "Camera reads: RED light"), "doc_bien": t("Biển: tối đa 40 km/h", "Sign: 40 km/h limit"),
+    }
+    du_lieu = json.dumps({"cb": cb, "thoi_tiet": {k: chu(x) for k, x in D["thoi_tiet"].items()}, "thong_tin": {k: chu(x) for k, x in D["thong_tin"].items()},
+                          "muc": D["muc"], "ly_do": {k: chu(x) for k, x in D["ly_do"].items()}, "thu_thach": tt, "nhan": nhan, "p": p},
+                         ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    desc = t("Mô hình 3D chơi ngay trên web: tách rời LiDAR, camera, radar xem từng bộ phận, bắn tia laser đo khoảng cách, đổi trời nắng, đêm, mưa, sương mù để xem mỗi cảm biến của xe tự lái thấy gì.",
+             "Interactive 3D models: take apart a LiDAR, camera and radar, fire a laser to measure distance, and switch between sun, night, rain and fog to see what each self-driving sensor sees.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Phòng thí nghiệm 3D · Ba con mắt của AI", "3D lab · The three eyes of AI")}</p>\n'
+            f'<h1>{t("Phòng thí nghiệm cảm biến", "Sensor lab")}</h1>\n'
+            f'<p class="lead">{t("Tự tay tách rời LiDAR, camera, radar, bắn tia laser đo khoảng cách, rồi đổi thời tiết để xem xe tự lái nhìn thấy gì qua từng con mắt.", "Take apart a LiDAR, a camera and a radar, fire a laser to measure distance, then change the weather to see what a self-driving car sees through each eye.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-a-ra-the.svg" alt="" width="180" height="170"></div>')
+    tabs = [("mo-xe", t("Mổ xẻ cảm biến", "Inside the sensors")), ("do-sang", t("Đo bằng ánh sáng", "Measuring with light")),
+            ("con-pho", t("Con phố 4 kiểu trời", "One street, four weathers")), ("thu-thach", t("Thử thách", "Challenge"))]
+    nut_tab = "".join(f'<button type="button" role="tab" class="cb-tab" id="cb-tab-{k}" aria-controls="cb-khu" aria-selected="{"true" if i == 0 else "false"}" data-tab="{k}">{esc(ten)}</button>' for i, (k, ten) in enumerate(tabs))
+    main = f"""<main class="cb" id="cb">
+<div class="cb-tabs" role="tablist" aria-label="{t("Các phần của phòng thí nghiệm", "Lab sections")}">{nut_tab}</div>
+<div class="cb-o" id="cb-khu" role="tabpanel">
+<div class="cb-san" id="cb-san"><canvas id="cb-canvas" aria-label="{t("Mô hình 3D", "3D model")}"></canvas><div class="cb-nhan-3d" id="cb-nhan-3d" aria-hidden="true"></div><p class="cb-loi" id="cb-loi" hidden>{t("Máy của bạn chưa chạy được đồ họa 3D (WebGL). Bạn vẫn dùng được bảng và thử thách bên cạnh.", "Your device can't run 3D graphics (WebGL). The panels and challenges still work.")}</p></div>
+<div class="cb-ben" id="cb-ben" aria-live="polite"></div>
+</div>
+<p class="cb-ghi">{t("Mô hình đơn giản hóa để dễ hiểu, không phải bản vẽ kỹ thuật của một hãng nào. Mức nhận biết theo thời tiết lấy từ series", "Simplified models for learning, not any manufacturer's design. Weather performance follows the series")} <a href="bai/{ten_file(co_bai[5])}.html">{t("Ba con mắt của AI", "The three eyes of AI")}</a>.</p>
+<noscript><p>{t("Phòng thí nghiệm cần JavaScript. Bạn vẫn xem được video", "The lab needs JavaScript. You can still watch the video")} <a href="bai/{ten_file(co_bai[5])}.html">LiDAR</a>.</p></noscript>
+<script type="application/json" id="cb-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "phong-thi-nghiem-cam-bien.html", trang("phong-thi-nghiem-cam-bien.html", t(f"Phòng thí nghiệm cảm biến 3D: LiDAR, camera, radar | {SITE}", f"3D sensor lab: LiDAR, camera, radar | {SITE}"),
+                                                        desc, band, main, p, og_type="website", q="",
+                                                        cuoi=f'<script type="module" src="{p}cam-bien.js?v=dev"></script>\n')
+
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
 def tao_lam_theo():
@@ -1474,7 +1533,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_cam_bien):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1482,8 +1541,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "phong-thi-nghiem-cam-bien.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "phong-thi-nghiem-cam-bien.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):

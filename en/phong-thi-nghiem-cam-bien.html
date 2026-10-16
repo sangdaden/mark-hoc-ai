@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3D sensor lab: LiDAR, camera, radar | Mark học AI</title>
+<meta name="description" content="Interactive 3D models: take apart a LiDAR, camera and radar, fire a laser to measure distance, and switch between sun, night, rain and fog to see what each self-driving sensor sees.">
+<link rel="canonical" href="https://markhocai.com/en/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/phong-thi-nghiem-cam-bien.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/phong-thi-nghiem-cam-bien.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="3D sensor lab: LiDAR, camera, radar | Mark học AI">
+<meta property="og:description" content="Interactive 3D models: take apart a LiDAR, camera and radar, fire a laser to measure distance, and switch between sun, night, rain and fog to see what each self-driving sensor sees.">
+<meta property="og:url" content="https://markhocai.com/en/phong-thi-nghiem-cam-bien.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">3D lab · The three eyes of AI</p>
+<h1>Sensor lab</h1>
+<p class="lead">Take apart a LiDAR, a camera and a radar, fire a laser to measure distance, then change the weather to see what a self-driving car sees through each eye.</p>
+</div><img class="head-art" src="../assets/mark-a-ra-the.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="cb" id="cb">
+<div class="cb-tabs" role="tablist" aria-label="Lab sections"><button type="button" role="tab" class="cb-tab" id="cb-tab-mo-xe" aria-controls="cb-khu" aria-selected="true" data-tab="mo-xe">Inside the sensors</button><button type="button" role="tab" class="cb-tab" id="cb-tab-do-sang" aria-controls="cb-khu" aria-selected="false" data-tab="do-sang">Measuring with light</button><button type="button" role="tab" class="cb-tab" id="cb-tab-con-pho" aria-controls="cb-khu" aria-selected="false" data-tab="con-pho">One street, four weathers</button><button type="button" role="tab" class="cb-tab" id="cb-tab-thu-thach" aria-controls="cb-khu" aria-selected="false" data-tab="thu-thach">Challenge</button></div>
+<div class="cb-o" id="cb-khu" role="tabpanel">
+<div class="cb-san" id="cb-san"><canvas id="cb-canvas" aria-label="3D model"></canvas><div class="cb-nhan-3d" id="cb-nhan-3d" aria-hidden="true"></div><p class="cb-loi" id="cb-loi" hidden>Your device can't run 3D graphics (WebGL). The panels and challenges still work.</p></div>
+<div class="cb-ben" id="cb-ben" aria-live="polite"></div>
+</div>
+<p class="cb-ghi">Simplified models for learning, not any manufacturer's design. Weather performance follows the series <a href="bai/05-lidar.html">The three eyes of AI</a>.</p>
+<noscript><p>The lab needs JavaScript. You can still watch the video <a href="bai/05-lidar.html">LiDAR</a>.</p></noscript>
+<script type="application/json" id="cb-du-lieu">{"cb":{"lidar":{"ten":"LiDAR","mo_ta":"Fires laser pulses and times their return to measure distance. Builds a 3D point cloud accurate to centimetres, day or night.","video":{"so":"5","ten":"What is LiDAR? How self-driving cars measure distance with light","url":"bai/05-lidar.html"},"bo_phan":[{"id":"de","ten":"Base and motor","chu":"Spins the sensor head 10-20 times a second to sweep all 360° around the car."},{"id":"dau","ten":"Spinning head","chu":"Holds the emitter and receiver. Each turn records hundreds of thousands of points."},{"id":"phat","ten":"Laser emitter","chu":"Fires very short infrared light pulses the human eye can't see."},{"id":"guong","ten":"Steering mirror","chu":"Tilts the beam up and down to scan several layers at once."},{"id":"thu","ten":"Receiver","chu":"Catches the reflected light. The round-trip time tells how far the object is."},{"id":"mach","ten":"Processing board","chu":"Turns time into distance: distance = speed of light × time ÷ 2."}]},"camera":{"ten":"Camera","mo_ta":"Takes colour pictures like a human eye. The only sensor that reads light colours and sign text, but it struggles in the dark or fog.","video":{"so":"5.2","ten":"How AI reads red lights and road signs with a camera","url":"bai/05-2-camera-doc-den-do.html"},"bo_phan":[{"id":"vo","ten":"Waterproof housing","chu":"Keeps the lens clean and dry, usually behind the windscreen."},{"id":"kinh","ten":"Lens","chu":"Several glass elements focus light into a sharp image."},{"id":"khau","ten":"Aperture","chu":"Opens wide in the dark to let in more light, at the cost of blur."},{"id":"cam","ten":"Image sensor","chu":"Millions of pixels, each measuring red, green or blue light."},{"id":"chip","ten":"AI chip","chu":"A neural network reads the image: people, vehicles, light colour, sign text."}]},"radar":{"ten":"Radar","mo_ta":"Sends radio waves and measures the echo. Knows distance and speed instantly and sees through rain and fog, but the picture is very coarse.","video":{"so":"5.1","ten":"How radar helps cars see through fog","url":"bai/05-1-radar-nhin-xuyen-mua.html"},"bo_phan":[{"id":"nap","ten":"Radome cover","chu":"A plastic cover radio waves pass through, often hidden behind the car's badge."},{"id":"anten","ten":"Antenna array","chu":"Many small antennas send and receive. Comparing them tells which direction an object is in."},{"id":"chip","ten":"Radio chip","chu":"Generates 77 GHz waves. The Doppler effect shows whether an object is approaching or leaving, and how fast."},{"id":"mach","ten":"Processing board","chu":"Turns echoes into a list of objects: distance, direction, speed."},{"id":"vo","ten":"Metal case","chu":"Shields interference and cools the chip."}]}},"thoi_tiet":{"nang":"Sunny","dem":"Night","mua":"Heavy rain","suong":"Fog"},"thong_tin":{"nguoi":"Where the pedestrian is, how far","toc_do":"How fast the motorbike is going","den":"Is the light red or green","bien":"What the sign says"},"muc":{"camera":{"nguoi":{"nang":2,"dem":1,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":2,"dem":2,"mua":2,"suong":1},"bien":{"nang":2,"dem":1,"mua":1,"suong":0}},"lidar":{"nguoi":{"nang":2,"dem":2,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}},"radar":{"nguoi":{"nang":1,"dem":1,"mua":1,"suong":1},"toc_do":{"nang":2,"dem":2,"mua":2,"suong":2},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}}},"ly_do":{"camera":"Cameras need light: at night images get dark and blurry, rain and fog blur them. Traffic lights glow, so their colour is still readable.","lidar":"LiDAR brings its own light, so night is no problem. But raindrops and fog scatter the laser, and it can't see colour or text.","radar":"Radio waves pass through rain and fog and measure speed precisely. But the picture is coarse: a person is just a blob, with no colour or text."},"thu_thach":[{"id":"dem-mua-den","thoi_tiet":"mua","can":{"den":2},"de":"Heavy rain in the evening. The car needs to know if the light ahead is red or green.","giai":"Only the camera sees colour. Traffic lights glow, so even in rain the camera reads red.","video":{"so":"5.2","ten":"How AI reads red lights and road signs with a camera","url":"bai/05-2-camera-doc-den-do.html"}},{"id":"suong-phanh","thoi_tiet":"suong","can":{"toc_do":2,"nguoi":1},"de":"Thick fog on the highway. There's a motorbike and a person ahead: where are they, and how fast is the bike?","giai":"Radar sees through fog and measures speed instantly. LiDAR and cameras are nearly blind in thick fog.","video":{"so":"5.1","ten":"How radar helps cars see through fog","url":"bai/05-1-radar-nhin-xuyen-mua.html"}},{"id":"dem-ao-toi","thoi_tiet":"dem","can":{"nguoi":2},"de":"A night with no streetlights. Someone in dark clothes is crossing: the car needs their exact position.","giai":"LiDAR brings its own light, so night is like day, with centimetre-accurate positions. The camera sees a faint shape, radar just a blob.","video":{"so":"5","ten":"What is LiDAR? How self-driving cars measure distance with light","url":"bai/05-lidar.html"}},{"id":"nang-bien","thoi_tiet":"nang","can":{"bien":2},"de":"A sunny day. The car needs to read the speed-limit sign.","giai":"Reading the numbers on a sign is the camera's job. LiDAR sees a flat board, radar a metal pole.","video":{"so":"5.2","ten":"How AI reads red lights and road signs with a camera","url":"bai/05-2-camera-doc-den-do.html"}},{"id":"suong-ghep","thoi_tiet":"suong","can":{"den":1,"toc_do":2},"de":"Fog at a junction. The car needs the light's colour AND the speed of the motorbike ahead.","giai":"No single sensor can do both: the camera reads the light, radar measures speed. Combining them is called sensor fusion.","video":{"so":"5.4","ten":"Sensor fusion: how AI combines LiDAR, radar and camera","url":"bai/05-4-sensor-fusion.html"}}],"nhan":{"tach":"Explode","gop":"Assemble","cham":"Tap a part to see what it does. Drag to rotate, pinch to zoom.","xem_video":"Watch video","ban":"Fire the laser","khoang":"Distance to object","thoi_gian":"Round-trip time","cong_thuc":"Light travels 30 cm per nanosecond (ns). The pulse goes out and back, so distance = time × 30 cm ÷ 2.","ns":"ns","m":"m","nhin":"View with","mat":"Human eye","muc":["Can't tell","Rough guess","Clear"],"ghep":"All three (sensor fusion)","bang":"What does this sensor know?","chon_cb":"Pick the fewest sensors that still do the job","kiem":"Check","tiep":"Next challenge","dung_gon":"Right, and as lean as it gets!","dung_thua":"That works, but you could drop a sensor.","thieu":"Not enough.","thieu_gi":"Still missing","ket":"Solved leanly","lai":"Try again","thu_thach":"Challenge","khong_3d":"Your device can't run 3D graphics (WebGL). The tables and challenges below still work, or watch the videos.","nguoi":"Pedestrian","xe_may":"Motorbike","kmh":"km/h","doc_den":"Camera reads: RED light","doc_bien":"Sign: 40 km/h limit"},"p":"../"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<script type="module" src="../cam-bien.js?v=dev"></script>
+</body>
+</html>
