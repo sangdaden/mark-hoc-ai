@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Không biết đau (Cox, Woods và cộng sự): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Một cậu bé ở Pakistan không bao giờ thấy đau dẫn các nhà khoa học tới gen SCN9A và kênh Nav1.7, công bố trên Nature năm 2006. Gen rõ, nhưng thuốc chặn Nav1.7 vẫn chưa thành; thuốc FDA duyệt năm 2025 nhắm kênh bên cạnh. Đọc từ bài báo trên Nature, quyết định của FDA và 13 nhận định được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/gen-khong-biet-dau.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Không biết đau (Cox, Woods và cộng sự): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Một cậu bé ở Pakistan không bao giờ thấy đau dẫn các nhà khoa học tới gen SCN9A và kênh Nav1.7, công bố trên Nature năm 2006. Gen rõ, nhưng thuốc chặn Nav1.7 vẫn chưa thành; thuốc FDA duyệt năm 2025 nhắm kênh bên cạnh. Đọc từ bài báo trên Nature, quyết định của FDA và 13 nhận định được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html">
+<meta property="og:image" content="https://markhocai.com/assets/vu-tru-khac/og/gen-khong-biet-dau.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bìa Không biết đau: Mark ở vũ trụ khác">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://markhocai.com/assets/vu-tru-khac/og/gen-khong-biet-dau.jpg">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #0F172A; --bia-2: #431407; --bia-nhan: #67E8F9; }
+:root { --vtk-nhan: #67E8F9; }
+body header { --ho-so: "Hồ sơ gen"; }
+</style>
+</head>
+<body>
+<nav class="mhai-thanh" aria-label="Điều hướng web"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/gen-khong-biet-dau.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../" aria-label="Mark học AI"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></nav>
+<main id="noi-dung">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Gen và bệnh hiếm #8: không biết đau. --night = cam cháy #C2410C (ngọn lửa, tín hiệu đau), --day = xanh ngọc (kênh Nav1.7); màu nhấn 2 của chủ đề là #67E8F9, dùng nguyên ở chế độ tối, chế độ sáng làm đậm thành #0E7490 để chữ đủ tương phản. */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #C2410C;
+  --day: #0E7490;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #FB923C; --day: #67E8F9; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #FB923C; --day: #67E8F9; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<style>
+.evalt { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.evalt th, .evalt td { padding: 9px 12px; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.evalt th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); width: 9.5rem; }
+.evalt td .nguon { margin-top: 2px; }
+@media (max-width: 520px) { .evalt th { width: 6.5rem; } }
+.three { display: grid; gap: 10px; counter-reset: c3; }
+.three p { background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--night); border-radius: 6px; padding: 10px 14px; }
+.invite { border: 1px solid var(--rule); border-left: 3px solid var(--day); background: var(--paper); border-radius: 6px; padding: 12px 14px; font-size: .95rem; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>Không biết đau</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpjODBhMTQyZC0zYjM0LTQzNTEtYWNiZS04MTI2YTM1OWRlYTcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKY+q6tTx1ZGdIYL3m4Pb60AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpjNjEwZjA2Yy1iYmQwLTQxNmQtYjUxMS00YzQ1OTk2YmUyZWFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoJVAedDmjBJdqVCG32AfU3AAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggDQ31y2/8Q+SaT5GjzPzZMQxxKaT6vx9Z7zTSJD1i13KkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaODnFhVQcRFNV36lLrJS8n8AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCC2cqa838gZknsd5nah4EwpSsULd/jxjoWMkYWxmy74KmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBi4Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmM4MGExNDJkLTNiMzQtNDM1MS1hY2JlLTgxMjZhMzU5ZGVhNy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmVhOTk0ZGQ2LWU4OTgtNGNhMS1iZTc4LTQxNzhkNWNlMzljM3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCANDfXLb/xD5JpPkaPM/NkxDHEppPq/H1nvNNIkPWLXcqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggwY5Rik9PsDV0ZJDvNeXEBBU3KCsshX4ugRJkHbTLR5SiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggZTgFGtjddyLkjihVDN6YQlaj/aXW6VQImWcUsJmYZu50Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQAyHdoZgMIcsjUKCNtUpkV7Ukgon8YjzHF4HLZjgVBwVOfR7VGdkYlSOSW86lcq32oow9Blw7QnSdYO31DqQv/c=</c2pa:manifest></metadata>
+<path d="M20 52 C10 46 10 34 18 24 C19 31 23 33 25 33 C24 24 28 16 34 12 C33 22 42 28 40 40 C39 48 32 54 26 54 C23 54 21 53 20 52 Z" fill="#FB923C" fill-opacity=".15" stroke="#FB923C" stroke-width="4"/>
+<path d="M26 47 C22 44 23 39 26 36 C27 40 30 41 31 41 C32 45 30 48 26 47 Z" fill="#FB923C" fill-opacity=".5" stroke="none"/>
+<path d="M60 22 C70 14 88 18 90 32 C96 40 88 52 78 50 C70 56 58 50 58 42 C50 36 52 26 60 22 Z" fill="#E2E8F0" fill-opacity=".1" stroke="#94A3B8" stroke-width="3.5"/>
+<path d="M64 32 c5 -3 10 -2 14 1 M70 41 c5 -3 10 -1 13 1" stroke="#94A3B8" stroke-width="2.5" opacity=".7"/>
+<path d="M8 78 h30" stroke="#FB923C" stroke-width="6"/>
+<rect x="40" y="66" width="16" height="24" rx="5" stroke="var(--bia-nhan, #67E8F9)" stroke-width="4"/>
+<path d="M42 70 l12 16 M54 70 l-12 16" stroke="#F87171" stroke-width="3.5"/>
+<path d="M60 78 h32" stroke="#94A3B8" stroke-width="3" stroke-dasharray="2 6" opacity=".7"/>
+<g fill="var(--bia-nhan, #67E8F9)"><circle cx="66" cy="62" r="2.6"/><circle cx="78" cy="62" r="2.6"/><circle cx="90" cy="62" r="2.6"/></g>
+</svg></span><img src="../assets/vu-tru-khac/mark/vui-mung.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="15" data-chu="vi">khoảng 15 phút đọc</b></p><a class="vtk-ray-o vtk-ray-tiep" href="gen-crispr.html"><small>Bài tiếp theo</small><b>CRISPR: chiếc kéo mượn từ vi khuẩn</b><span>Gen #009 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Gen và bệnh hiếm #8 · Đau · Gen SCN9A</span>
+  <h1>Không biết đau</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một ngọn lửa bên trái, một đường tín hiệu thần kinh đi qua một cánh cửa bị gạch chéo, và một bộ não yên lặng bên phải">
+    <path d="M22 44 C10 40 10 26 18 18 C18 26 24 26 24 20 C24 12 30 8 34 4 C34 14 42 18 40 30 C40 40 32 46 22 44 Z" fill="none" stroke="#C2410C" stroke-width="3"/>
+    <path d="M56 26 h70" stroke="#C2410C" stroke-width="4" stroke-linecap="round"/>
+    <rect x="132" y="12" width="20" height="28" rx="4" fill="none" stroke="#0E7490" stroke-width="3"/>
+    <path d="M128 8 l28 36" stroke="#B91C1C" stroke-width="3" stroke-linecap="round"/>
+    <path d="M160 26 h60" stroke="#C2410C" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 8" opacity=".45"/>
+    <path d="M246 30 C244 16 262 8 278 10 C290 6 306 12 308 24 C316 30 312 42 302 42 C296 48 282 48 276 44 C266 48 250 46 248 40 C240 38 242 32 246 30 Z" fill="none" stroke="#0E7490" stroke-width="3"/>
+    <path d="M262 28 h30" stroke="#0E7490" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+  </svg>
+  <p class="sub">Cox và cộng sự · Nature · 2006 · và thuốc giảm đau không opioid được FDA duyệt ngày 30/1/2025</p>
+  <div class="meta">
+    <div><span class="label">Câu chuyện</span><b>một cậu bé ở Pakistan không bao giờ thấy đau, và gia đình cậu</b></div>
+    <div><span class="label">Gen</span><b>SCN9A, làm ra kênh natri Nav1.7 trên dây thần kinh cảm nhận đau</b></div>
+    <div><span class="label">Hôm nay</span><b>thuốc chặn Nav1.7 chưa thành công; một kênh "anh em" là Nav1.8 thì có thuốc</b></div>
+    <div><span class="label">Nhãn</span><b>Vững về gen, Thận trọng về hướng thuốc</b></div>
+  </div>
+  <p class="nguon">Nguồn: Cox và cộng sự (2006), Nature 444: 894–898; FDA, thông cáo 30/1/2025 (đọc qua báo chuyên ngành).</p>
+  <p class="invite">Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#cau-hoi">Câu hỏi</a><a href="#cau-chuyen">Câu chuyện</a><a href="#co-che">Gen hoạt động thế nào</a><a href="#dan-chung">Kiểm chứng</a><a href="#moi-nhat">Hôm nay ra sao</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 28c-6-2-7-9-3-13 0 4 3 4 3 1 0-5 4-8 6-11 0 6 5 8 4 15-1 6-5 9-10 8z"/></svg><b>Không bao giờ thấy đau</b><span>Một số trẻ ở Pakistan sinh ra không biết đau, dù vẫn cảm nhận chạm, nóng, lạnh bình thường.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="12" y="6" width="8" height="20" rx="2"/><path d="M4 16h8M20 16h8"/></svg><b>Một cánh cửa hỏng</b><span>Năm 2006 tìm ra gen SCN9A: nó làm ra kênh Nav1.7, cửa khuếch đại tín hiệu đau.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v.5"/></svg><b>Không phải siêu năng lực</b><span>Trẻ tự cắn môi, lưỡi khi còn nhỏ; chấn thương không ai biết. Đau là tín hiệu bảo vệ.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 26c4-2 4-8 0-12M14 26c4-2 4-8 0-12"/><circle cx="24" cy="10" r="4"/></svg><b>Mất luôn khứu giác</b><span>Cùng một kênh có ở tế bào ngửi mùi, nên nhiều người cũng không ngửi được.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="5" width="16" height="22" rx="4"/><path d="M8 16h16"/></svg><b>Thuốc: đường vòng</b><span>Thuốc chặn Nav1.7 chưa thành công. Năm 2025, thuốc chặn kênh "anh em" Nav1.8 được FDA duyệt.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Cox và cộng sự (2006), Nature 444; OMIM #243000 (tóm tắt các cảm giác còn lại, tổn thương môi, lưỡi); Weiss và cộng sự (2011), Nature 472 (khứu giác); FDA 30/1/2025 (suzetrigine).</p>
+</section>
+
+<section id="cau-hoi">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi</h2></div>
+  <p class="thesis">Nếu bạn không bao giờ thấy đau, cuộc sống sẽ dễ hơn hay nguy hiểm hơn? Và một gia đình không biết đau đã dạy giới khoa học điều gì về cách cơ thể báo động?</p>
+  <p class="nguon">Câu hỏi là của Mark, dựa trên bài báo của Cox và cộng sự (2006).</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">Trước 2006</span><b>Một cậu bé ở Lahore</b><span>Đi trên than hồng, đâm dao qua tay, không thấy đau.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2006</span><b>Tìm ra gen</b><span>SCN9A hỏng thì "cửa" Nav1.7 không mở.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2015 đến 2025</span><b>Tìm thuốc giảm đau</b><span>Nav1.7 khó; Nav1.8 có thuốc năm 2025.</span></div>
+  </div>
+</section>
+
+<section id="cau-chuyen">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Câu chuyện</h2><p class="lead">Ai, ở đâu, khi nào: từ một màn biểu diễn đường phố đến một phòng thí nghiệm ở Cambridge.</p></div>
+  <div class="tl">
+    <div class="hot"><b>Trước 2006 · Lahore, Pakistan</b><span>Một cậu bé biểu diễn trên phố: đâm dao qua cánh tay, đi trên than hồng, mà không thấy đau. Cậu hay đến bệnh viện để băng lại vết thương sau mỗi buổi diễn. Các bác sĩ chú ý đến cậu.</span></div>
+    <div><b>Khoảng 14 tuổi · Một tai nạn</b><span>Cậu mất sau khi ngã từ một mái nhà, trước khi nhóm nghiên cứu kịp khám. Không biết đau không có nghĩa là không bị thương.</span></div>
+    <div class="hot"><b>Những năm sau · Ba gia đình</b><span>Nhóm của nhà di truyền học Geoffrey Woods (Viện Nghiên cứu Y khoa Cambridge, Anh) tìm thấy họ hàng của cậu, 4 đến 14 tuổi, cũng chưa từng thấy đau. Họ thuộc ba gia đình ở miền bắc Pakistan có hôn nhân giữa họ hàng.</span></div>
+    <div><b>Điều các em vẫn cảm nhận được</b><span>Chạm, nóng, lạnh, nhột, áp lực, vị trí tay chân đều bình thường. Trí tuệ bình thường theo cha mẹ và thầy cô. Nhưng trong 4 năm đầu đời, các em tự cắn môi, lưỡi đến tổn thương, có em phải mổ tạo hình môi.</span></div>
+    <div class="hot"><b>14/12/2006 · Bài báo trên Nature</b><span>Cox, Woods và cộng sự chỉ ra: mỗi gia đình mang một đột biến khác nhau, nhưng cả ba cùng làm hỏng một gen, SCN9A. Kết luận: gen này "thiết yếu, không thay thế được" cho cảm giác đau ở người.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Cox và cộng sự (2006), Nature 444: 894–898 (ba gia đình miền bắc Pakistan, ba đột biến, kết luận); OMIM #243000 tóm tắt bài báo (các cảm giác còn lại, trí tuệ, tổn thương môi và lưỡi trong 4 năm đầu); Nature News 13/12/2006, HealthDay, Naked Scientists (cậu bé ở Lahore, tuổi lúc mất, họ hàng 4–14 tuổi, nhóm Woods; nguồn thứ cấp).</p>
+  <details class="more"><summary>Vì sao hôn nhân giữa họ hàng lại giúp tìm ra gen?</summary><div>
+    <p>Bệnh này di truyền lặn: phải nhận bản gen hỏng từ cả bố lẫn mẹ mới mắc. Khi bố mẹ là họ hàng, hai bản gen của con dễ giống hệt nhau ở cùng một đoạn. Nhóm nghiên cứu dò tìm đoạn giống nhau đó ở các em mắc bệnh và thu hẹp về một vùng trên nhiễm sắc thể số 2, nơi có gen SCN9A.</p>
+    <p>Đây là chuyện về cách gen di truyền, không phải lời phán xét về phong tục của một cộng đồng.</p>
+  </div></details>
+  <p class="nguon">Nguồn: Cox và cộng sự (2006) (di truyền lặn, vùng 2q24.3).</p>
+</section>
+
+<section id="co-che">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Gen hoạt động thế nào, trong 3 câu</h2></div>
+  <div class="three">
+    <p><b>1.</b> Gen SCN9A làm ra kênh natri Nav1.7, một "cánh cửa" nhỏ trên màng của dây thần kinh cảm nhận đau.</p>
+    <p><b>2.</b> Khi da bị bỏng hay cắt, Nav1.7 khuếch đại tín hiệu nhỏ đủ mạnh để dây thần kinh phát xung lên tuỷ sống và não, và ta thấy "đau".</p>
+    <p><b>3.</b> Hỏng cả hai bản gen thì cửa không mở: tín hiệu tắt ngay từ đầu. Đột biến làm cửa mở quá dễ thì ngược lại: đau rát dữ dội.</p>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 290" role="img" aria-labelledby="kbco">
+        <title id="kbco">Hai hàng. Hàng trên, bình thường: ngọn lửa chạm da, tín hiệu đi qua cửa Nav1.7 mở, được khuếch đại, chạy lên tuỷ sống và não, não báo đau. Hàng dưới, mất SCN9A: cửa Nav1.7 không có, tín hiệu tắt dần, não yên lặng; nhưng chạm, nóng, lạnh vẫn đi đường khác.</title>
+        <text x="20" y="26" class="t-ink t-bold">bình thường</text>
+        <path d="M44 100 C30 96 28 80 36 72 C36 80 42 80 42 74 C42 66 48 60 52 56 C52 66 60 70 58 82 C58 94 52 102 44 100 Z" fill="none" stroke="var(--night)" stroke-width="3"/>
+        <text x="20" y="124">bỏng, cắt</text>
+        <path d="M80 80 h70" stroke="var(--night)" stroke-width="3"/>
+        <rect x="156" y="62" width="26" height="36" rx="5" fill="none" stroke="var(--day)" stroke-width="3"/><path d="M162 80 h14" stroke="var(--day)" stroke-width="3"/>
+        <text x="169" y="54" text-anchor="middle" class="t-day t-bold">Nav1.7 mở</text>
+        <path d="M190 80 h40 l10 -18 l12 36 l12 -36 l12 36 l10 -18 h110" fill="none" stroke="var(--night)" stroke-width="4" stroke-linejoin="round"/>
+        <text x="270" y="122" text-anchor="middle" class="t-night">tín hiệu được khuếch đại</text>
+        <text x="430" y="66" class="t-ink">tuỷ sống → não</text>
+        <path d="M560 84 C558 66 580 56 600 58 C616 52 638 60 640 74 C652 80 648 98 634 98 C626 106 608 106 600 102 C588 108 568 104 566 96 C556 94 556 86 560 84 Z" fill="none" stroke="var(--night)" stroke-width="3"/>
+        <text x="600" y="128" text-anchor="middle" class="t-night t-bold">"đau!" → rụt tay</text>
+        <line x1="20" y1="150" x2="700" y2="150" class="gridl"/>
+        <text x="20" y="176" class="t-ink t-bold">mất cả hai bản SCN9A</text>
+        <path d="M44 250 C30 246 28 230 36 222 C36 230 42 230 42 224 C42 216 48 210 52 206 C52 216 60 220 58 232 C58 244 52 252 44 250 Z" fill="none" stroke="var(--night)" stroke-width="3"/>
+        <path d="M80 230 h70" stroke="var(--night)" stroke-width="3"/>
+        <rect x="156" y="212" width="26" height="36" rx="5" fill="none" stroke="var(--bad)" stroke-width="3" stroke-dasharray="5 4"/>
+        <path d="M150 206 l38 48" stroke="var(--bad)" stroke-width="3"/>
+        <text x="169" y="200" text-anchor="middle" class="t-bad t-bold">không có cửa</text>
+        <path d="M190 230 h60" stroke="var(--night)" stroke-width="3" stroke-dasharray="3 9" opacity=".5"/>
+        <text x="270" y="270" text-anchor="middle" class="t-bad">tín hiệu tắt ngay từ đầu</text>
+        <path d="M560 234 C558 216 580 206 600 208 C616 202 638 210 640 224 C652 230 648 248 634 248 C626 256 608 256 600 252 C588 258 568 254 566 246 C556 244 556 236 560 234 Z" fill="none" stroke="var(--muted)" stroke-width="3"/>
+        <text x="600" y="278" text-anchor="middle">não yên lặng</text>
+        <text x="330" y="226" class="t-ok">chạm, nóng, lạnh vẫn đi</text><text x="330" y="242" class="t-ok">đường khác, bình thường</text>
+      </svg>
+    </div>
+    <figcaption><b>Không phải não "không biết đau", mà báo động không được gửi đi.</b> Ba gia đình mang ba đột biến khác nhau, đều làm gen ngừng sớm (đột biến "vô nghĩa"); kênh làm từ gen hỏng không cho dòng điện. Sơ đồ đơn giản hoá.<span class="nguon">Nguồn: Cox và cộng sự (2006), Nature 444: 894–898 (S459X, I767X, W897X; dòng điện không hơn nền); Dib-Hajj và cộng sự (2013), Nature Reviews Neuroscience (Nav1.7 khuếch đại tín hiệu nhỏ ở đầu dây thần kinh); OMIM #243000 (các cảm giác còn lại).</span></figcaption>
+  </figure>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 220" role="img" aria-labelledby="kbnut">
+        <title id="kbnut">Ba nút vặn âm lượng của cùng một gen SCN9A. Tắt: mất chức năng, không cảm thấy đau và thường mất khứu giác (Cox 2006; Weiss 2011). Bình thường: đau khi có tổn thương. Quá to: tăng chức năng, đỏ đau đầu chi (2004) và rối loạn đau cực độ kịch phát (2006).</title>
+        <g text-anchor="middle">
+          <circle cx="120" cy="90" r="48" fill="none" stroke="var(--muted)" stroke-width="4"/><path d="M120 90 L86 120" stroke="var(--muted)" stroke-width="6" stroke-linecap="round"/>
+          <text x="120" y="24" class="t-ink t-bold">tắt (mất chức năng)</text>
+          <text x="120" y="164" class="t-bad t-bold">không thấy đau</text><text x="120" y="182">thường mất khứu giác</text><text x="120" y="200">Cox 2006; Weiss 2011</text>
+          <circle cx="360" cy="90" r="48" fill="none" stroke="var(--day)" stroke-width="4"/><path d="M360 90 L360 46" stroke="var(--day)" stroke-width="6" stroke-linecap="round"/>
+          <text x="360" y="24" class="t-ink t-bold">bình thường</text>
+          <text x="360" y="164" class="t-day t-bold">đau khi bị thương</text><text x="360" y="182">báo động đúng lúc</text>
+          <circle cx="600" cy="90" r="48" fill="none" stroke="var(--night)" stroke-width="4"/><path d="M600 90 L634 120" stroke="var(--night)" stroke-width="6" stroke-linecap="round"/>
+          <text x="600" y="24" class="t-ink t-bold">quá to (tăng chức năng)</text>
+          <text x="600" y="164" class="t-night t-bold">đau rát dữ dội</text><text x="600" y="182">đỏ đau đầu chi; đau kịch phát</text><text x="600" y="200">Yang 2004; Fertleman 2006</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Một gen, ba kết cục.</b> Chính việc cùng một gen gây cả "không đau" lẫn "đau quá mức" làm giới nghiên cứu tin Nav1.7 là đích tốt cho thuốc giảm đau. Hình nút vặn là cách ví von của Mark.<span class="nguon">Nguồn: Cox và cộng sự (2006); Weiss và cộng sự (2011), Nature 472: 186–190; Yang và cộng sự (2004), J Med Genet 41(3): 171–174; Fertleman và cộng sự (2006), Neuron 52(5): 767–774.</span></figcaption>
+  </figure>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">13 điều hay được nói về người không biết đau, đối chiếu với nguồn gốc. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="6 vững, 3 cần thận trọng, 4 sai">
+    <div class="o" style="flex:6">6 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:4">4 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>Hỏng gen SCN9A làm người ta không cảm thấy đau từ khi sinh</span></summary><p class="note">Ba gia đình, ba đột biến khác nhau, cùng một gen (Cox và cộng sự 2006).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Họ vẫn cảm nhận được chạm, nóng, lạnh, áp lực</span></summary><p class="note">Chỉ cảm giác đau mất; các cảm giác khác bình thường (OMIM #243000, tóm tắt Cox 2006).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Nhiều người cũng mất khứu giác</span></summary><p class="note">Nav1.7 có cả ở tế bào khứu giác; người mất chức năng SCN9A không ngửi được mùi (Weiss và cộng sự 2011; MedlinePlus Genetics).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Cùng gen này, đột biến "tăng" gây đau rát dữ dội</span></summary><p class="note">Đỏ đau đầu chi (Yang và cộng sự 2004) và rối loạn đau cực độ kịch phát (Fertleman và cộng sự 2006).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Không biết đau khiến bị thương nhiều hơn, có thể giảm tuổi thọ</span></summary><p class="note">Tự cắn môi, lưỡi trong những năm đầu (OMIM); chấn thương lặp lại, tuổi thọ có thể ngắn hơn (MedlinePlus Genetics).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Năm 2025 có một lớp thuốc giảm đau không opioid mới được FDA duyệt</span></summary><p class="note">Suzetrigine, ngày 30/1/2025, cho đau cấp mức vừa đến nặng ở người lớn (FDA, qua báo chuyên ngành).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Cậu bé đi trên than hồng là người được nghiên cứu"</span></summary><p class="note">Cậu mất trước khi nhóm kịp khám. Bài báo nghiên cứu họ hàng của cậu (Nature News 2006, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Tìm ra SCN9A sẽ nhanh chóng cho thuốc giảm đau mới"</span></summary><p class="note">Gần 20 năm sau vẫn chưa có thuốc chặn Nav1.7 nào được duyệt. Một thuốc lớn dừng năm 2015 sau thử nghiệm pha 2 thất bại (Nature Reviews Drug Discovery 2019); tổng quan năm 2025 chỉ ra thí nghiệm trên chuột khác xa thử nghiệm ở người (Pain 2025).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Chặn Nav1.7 ở người lớn sẽ giống người sinh ra thiếu nó"</span></summary><p class="note">Người sinh ra thiếu kênh này cả đời, cơ thể có thể thích nghi khác. Một nghiên cứu (bản thảo đã bình duyệt, eLife 2025) cho thấy tế bào cảm nhận đau có thể dùng kênh natri khác thay thế.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Không biết đau là may mắn, một siêu năng lực"</span></summary><p class="note">Đau là báo động. Thiếu nó, trẻ tự làm mình bị thương mà không biết; cậu bé ở Lahore mất sau một cú ngã (OMIM; MedlinePlus; Nature News 2006).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Thuốc giảm đau mới năm 2025 nhắm vào chính Nav1.7"</span></summary><p class="note">Suzetrigine chặn Nav1.8, một kênh natri khác trên dây thần kinh cảm nhận đau (FDA 2025).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Mọi người không biết đau đều do gen SCN9A"</span></summary><p class="note">Bệnh không biết đau kèm không ra mồ hôi (CIPA) do gen NTRK1 (MedlinePlus Genetics). Một phụ nữ ở Scotland ít cảm thấy đau vì thay đổi ở gen FAAH và FAAH-OUT (British Journal of Anaesthesia 2019, đọc qua báo).</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Không biết đau đi kèm thiểu năng trí tuệ"</span></summary><p class="note">Với SCN9A, cha mẹ và thầy cô đánh giá trí tuệ các em bình thường (OMIM, tóm tắt Cox 2006). Khuyết tật trí tuệ hay gặp ở CIPA, một bệnh khác.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở Phần 9.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Hôm nay ra sao</h2><p class="lead">Từ một gen đến cuộc săn thuốc giảm đau không gây nghiện.</p></div>
+  <div class="tl">
+    <div><b>2011 · Mất cả khứu giác</b><span>Người mất chức năng SCN9A không ngửi được mùi; Nav1.7 cần cho tế bào khứu giác "nói chuyện" với não.</span></div>
+    <div class="hot"><b>2015 · Thuốc chặn Nav1.7 vấp ngã</b><span>Thuốc chặn Nav1.7 chọn lọc đầu tiên vào thử nghiệm lớn bị dừng sau pha 2 ở đau thần kinh do đái tháo đường. Nhiều chương trình khác cũng dừng.</span></div>
+    <div><b>2019 · Một gen khác, một câu chuyện khác</b><span>Một phụ nữ ở Scotland ít cảm thấy đau vì thay đổi ở gen FAAH-OUT. Cho thấy đau có nhiều "công tắc".</span></div>
+    <div><b>2021 · Tắt tạm gen ở chuột</b><span>Dùng một dạng CRISPR không cắt DNA (dCas9) để "tắt tạm" gen Nav1.7 ở tuỷ sống chuột: giảm đau kéo dài nhiều tuần đến nhiều tháng. Chỉ ở chuột.</span></div>
+    <div class="hot"><b>30/1/2025 · Thuốc qua "kênh anh em"</b><span>FDA duyệt suzetrigine, chặn Nav1.8, cho đau cấp mức vừa đến nặng ở người lớn, dựa trên hai thử nghiệm pha 3 sau mổ. FDA gọi đây là thuốc đầu tiên của một lớp thuốc giảm đau không opioid mới.</span></div>
+    <div><b>2025–2027 · Còn đang thử</b><span>Suzetrigine đang thử pha 3 cho đau thần kinh do đái tháo đường, dự kiến xong năm 2027. Chưa có kết quả (tra 16/10/2026).</span></div>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 200" role="img" aria-labelledby="kbkenh">
+        <title id="kbkenh">Hai kênh natri trên cùng dây thần kinh cảm nhận đau. Nav1.7, gen SCN9A: bằng chứng di truyền mạnh nhất, nhưng thuốc chặn chưa được duyệt. Nav1.8: thuốc suzetrigine được FDA duyệt 30/1/2025 cho đau cấp.</title>
+        <path d="M30 100 h660" stroke="var(--rule)" stroke-width="6" stroke-linecap="round"/>
+        <rect x="170" y="74" width="40" height="52" rx="6" fill="none" stroke="var(--night)" stroke-width="4"/>
+        <rect x="490" y="74" width="40" height="52" rx="6" fill="none" stroke="var(--day)" stroke-width="4"/>
+        <text x="30" y="60" class="t-ink">dây thần kinh cảm nhận đau</text>
+        <g text-anchor="middle">
+          <text x="190" y="150" class="t-night t-bold">Nav1.7 (gen SCN9A)</text><text x="190" y="168">bằng chứng gen mạnh nhất</text><text x="190" y="186" class="t-bad">thuốc chặn: chưa được duyệt</text>
+          <text x="510" y="150" class="t-day t-bold">Nav1.8</text><text x="510" y="168">kênh "anh em"</text><text x="510" y="186" class="t-ok">thuốc chặn: FDA duyệt 2025</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Gen chỉ đường, nhưng thuốc có thể đi đường vòng.</b> Phát hiện về Nav1.7 thúc đẩy cả ngành tìm thuốc chặn kênh natri; đích thành công đầu tiên lại là một kênh bên cạnh.<span class="nguon">Nguồn: Nature Reviews Drug Discovery (2019) (dừng năm 2015, nguồn thứ cấp); FDA 30/1/2025, qua Practical Neurology và Patient Care (suzetrigine, Nav1.8, hai thử nghiệm pha 3); ClinicalTrials.gov NCT06628908.</span></figcaption>
+  </figure>
+  <p class="nguon">Nguồn: Weiss và cộng sự (2011), Nature 472: 186–190; Yang và cộng sự (2025), Pain (PubMed 39928833); Habib và cộng sự (2019), British Journal of Anaesthesia (qua báo, nguồn thứ cấp); Moreno và cộng sự (2021), Science Translational Medicine (chuột; thời gian giảm đau theo UC San Diego và GEN News, nguồn thứ cấp); FDA 30/1/2025; ClinicalTrials.gov NCT06628908, NCT07231419.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Đánh giá</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 9, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Độ vững của phát hiện gen</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Hiểu được cơ chế đau</span><div class="bar"><i style="width:80%"></i></div><b>4/5</b></div>
+    <div class="score"><span>Thành thuốc từ chính gen này</span><div class="bar"><i class="low" style="width:20%"></i></div><b>1/5</b></div>
+    <div class="score"><span>Bài học cho người đọc</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Ba gia đình, ba đột biến, cùng một gen</li><li>Cùng gen gây cả "không đau" lẫn "đau quá mức"</li><li>Mở ra cả một ngành tìm thuốc giảm đau</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Rất ít người bệnh, khó nghiên cứu sâu</li><li>Thuốc chặn Nav1.7 chưa thành công</li><li>Kết quả trên chuột chưa chuyển được sang người</li></ul></div>
+  </div>
+  <p class="verdict">Nhãn: VỮNG về gen, THẬN TRỌNG về hướng thuốc. Một gia đình không biết đau cho cả thế giới thấy đau quý đến mức nào.</p>
+  <details class="more"><summary>Xem thêm: vì sao gen rõ mà thuốc lại khó?</summary><div>
+    <p>Người sinh ra thiếu Nav1.7 thiếu nó ở mọi tế bào, suốt đời. Một viên thuốc chỉ chặn một phần, trong vài giờ, và phải không đụng vào các kênh natri rất giống ở tim và não. Thí nghiệm trên chuột thường dùng chuột đực trẻ, đau do viêm, một liều; thử nghiệm ở người thường là đau thần kinh, uống nhiều ngày.</p>
+  </div></details>
+  <p class="nguon">Nguồn: Yang và cộng sự (2025), Pain (lệch giữa chuột và người); eLife bản thảo 2025 (kênh khác thay thế). Nhận xét là của Mark.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Bài học áp dụng: đau là tín hiệu, đừng chỉ tìm cách tắt nó</h2><p class="lead">Những người không biết đau cho thấy đau là hệ báo động. Biết đọc báo động thì hỏi bác sĩ đúng hơn.</p></div>
+  <p class="invite">Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</p>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 820 170" role="img" aria-labelledby="kbap">
+        <title id="kbap">Bốn thói quen: ghi lại cơn đau; hỏi nguyên nhân chứ không chỉ hỏi thuốc; đọc tin thuốc giảm đau mới: duyệt cho loại đau nào; nghi ngờ quảng cáo hết đau tức thì.</title>
+        <line x1="50" y1="60" x2="770" y2="60" stroke="var(--rule)" stroke-width="3"/>
+        <circle cx="110" cy="60" r="14" fill="var(--night)"/>
+        <g text-anchor="middle"><text x="110" y="30" class="t-ink t-bold">1 · ghi lại cơn đau</text><text x="110" y="100" class="t-night t-bold">ở đâu, khi nào</text><text x="110" y="116">mạnh mấy trên 10</text></g>
+        <circle cx="300" cy="60" r="14" fill="var(--day)"/>
+        <g text-anchor="middle"><text x="300" y="30" class="t-ink t-bold">2 · hỏi "vì sao đau"</text><text x="300" y="100" class="t-day t-bold">nguyên nhân trước</text><text x="300" y="116">thuốc sau</text></g>
+        <circle cx="490" cy="60" r="14" fill="var(--rem)"/>
+        <g text-anchor="middle"><text x="490" y="30" class="t-ink t-bold">3 · đọc tin thuốc mới</text><text x="490" y="100" class="t-rem t-bold">duyệt cho loại đau nào?</text><text x="490" y="116">cấp hay mạn tính</text></g>
+        <circle cx="680" cy="60" r="14" fill="var(--ok)"/>
+        <g text-anchor="middle"><text x="680" y="30" class="t-ink t-bold">4 · nghi ngờ quảng cáo</text><text x="680" y="100" class="t-ok t-bold">"hết đau tức thì"</text><text x="680" y="116">tắt báo động, không dập lửa</text></g>
+        <text x="410" y="152" text-anchor="middle" class="t-ink">Người không biết đau tự làm mình bị thương mà không hay. Cơn đau của bạn đang báo điều gì?</text>
+      </svg>
+    </div>
+    <figcaption><b>Mỗi thói quen dựa trên một điều có thật trong câu chuyện SCN9A.</b> Thuốc năm 2025 được duyệt cho đau cấp, thử nghiệm sau mổ; cho đau mạn tính thì còn đang thử.<span class="nguon">Nguồn: Cox và cộng sự (2006); OMIM #243000; FDA 30/1/2025; ClinicalTrials.gov NCT06628908. Các thói quen là đề xuất của Mark.</span></figcaption>
+  </figure>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="4" width="18" height="24" rx="3"/><path d="M11 11h10M11 16h10M11 21h6"/></svg><div><b>Ghi lại cơn đau</b><span>Ở đâu, bắt đầu khi nào, mạnh mấy trên thang 0–10, làm gì thì nặng hơn. Bác sĩ cần đúng những điều này.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M13 12a3 3 0 1 1 4 3c-1 .5-1 1.5-1 2.5M16 22v.5"/></svg><div><b>Hỏi "vì sao", không chỉ hỏi "uống gì"</b><span>Đau kéo dài hay đau lạ là tín hiệu cần tìm nguyên nhân. Đừng tự ý dùng thuốc để tắt nó.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="5" width="16" height="22" rx="4"/><path d="M8 16h16"/></svg><div><b>Đọc kỹ tin "thuốc giảm đau mới"</b><span>Thuốc được duyệt cho loại đau nào, ở ai, thử nghiệm sau ca mổ gì? Đừng suy ra cho mọi loại đau.</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l20 20M26 6L6 26"/></svg><div><b>Nghi ngờ "hết đau tức thì"</b><span>Sản phẩm hứa tắt đau ngay mà không nói nguyên nhân là đang hứa tắt chuông báo cháy.</span></div></div>
+  </div>
+  <details class="more"><summary>Tự kiểm tra: lần đau gần nhất của bạn</summary><div>
+    <p>1. Nhớ lại lần đau gần nhất kéo dài hơn vài ngày.</p>
+    <p>2. Bạn có nói được: đau ở đâu, từ khi nào, mạnh mấy trên 10, cái gì làm nặng hơn?</p>
+    <p>3. Bạn đã hỏi (hoặc biết) nguyên nhân chưa, hay chỉ hỏi thuốc?</p>
+    <p>4. Nếu thiếu từ hai ý trở lên: lần tới, ghi ra giấy trước khi đi khám.</p>
+  </div></details>
+  <p class="nguon">Bài tự kiểm tra là đề xuất của Mark, không phải quy trình của một nghiên cứu.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Cox và cộng sự (2006), Nature</b><span class="muted">Bài báo gốc. Phần tóm tắt ngắn, dễ đọc.</span></div>
+    <div><b>MedlinePlus Genetics, "Congenital insensitivity to pain"</b><span class="muted">Trang giải thích dễ hiểu của Thư viện Y khoa Quốc gia Mỹ.</span></div>
+    <div><b>Gen và bệnh hiếm #7: Progeria, đứa trẻ già nhanh</b><span class="muted">Một chữ cái đổi trên gen, và một gia đình lập quỹ nghiên cứu. <a href="gen-progeria.html">Đọc bài</a></span></div>
+    <div><b>Gen và bệnh hiếm #9: CRISPR, chiếc kéo mượn từ vi khuẩn</b><span class="muted">Công cụ mà nhóm năm 2021 dùng để "tắt tạm" gen Nav1.7 ở chuột đến từ đâu. <a href="gen-crispr.html">Đọc bài</a></span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Nguồn</h2><p class="lead">Nguồn chính là bài báo gốc, quyết định của FDA và cơ sở dữ liệu y khoa. Môi trường làm bài chặn NCBI và FDA, nên các con số được đối chiếu qua trích đoạn của chính các trang đó trong kết quả tìm kiếm (16/10/2026), chưa mở toàn văn. Nguồn thứ cấp ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Cox JJ và cộng sự (2006)</b>, "An SCN9A channelopathy causes congenital inability to experience pain", Nature 444: 894–898. <a href="https://pubmed.ncbi.nlm.nih.gov/17167479/">PubMed</a></li>
+    <li><b>OMIM #243000</b>, "Indifference to pain, congenital, autosomal recessive" (tóm tắt Cox 2006). <a href="https://www.omim.org/entry/243000">omim.org</a></li>
+    <li><b>Weiss J và cộng sự (2011)</b>, "Loss-of-function mutations in sodium channel Nav1.7 cause anosmia", Nature 472: 186–190, doi 10.1038/nature09975.</li>
+    <li><b>Yang Y và cộng sự (2004)</b>, đột biến SCN9A trong bệnh đỏ đau đầu chi nguyên phát, Journal of Medical Genetics 41(3): 171–174.</li>
+    <li><b>Fertleman CR và cộng sự (2006)</b>, "SCN9A mutations in paroxysmal extreme pain disorder: allelic variants underlie distinct channel defects and phenotypes", Neuron 52(5): 767–774.</li>
+    <li><b>Dib-Hajj SD, Yang Y, Black JA, Waxman SG (2013)</b>, "The NaV1.7 sodium channel: from molecule to man", Nature Reviews Neuroscience.</li>
+    <li><b>MedlinePlus Genetics</b>, "Congenital insensitivity to pain" và "Congenital insensitivity to pain with anhidrosis". <a href="https://medlineplus.gov/genetics/condition/congenital-insensitivity-to-pain">medlineplus.gov</a></li>
+    <li><b>Yang và cộng sự (2025)</b>, "Discordance between preclinical and clinical testing of NaV1.7-selective inhibitors for pain", Pain. <a href="https://pubmed.ncbi.nlm.nih.gov/39928833/">PubMed</a></li>
+    <li><b>FDA (30/1/2025)</b>, duyệt suzetrigine (Journavx) cho đau cấp mức vừa đến nặng ở người lớn (đọc qua Practical Neurology, Patient Care).</li>
+    <li><b>ClinicalTrials.gov</b> NCT06628908, NCT07231419, NCT06696443 (suzetrigine, đau thần kinh do đái tháo đường).</li>
+    <li><b>Moreno AM và cộng sự (2021)</b>, "Long-lasting analgesia via targeted in situ repression of NaV1.7 in mice", Science Translational Medicine.</li>
+    <li><b>Habib AM và cộng sự (2019)</b>, British Journal of Anaesthesia (ca FAAH-OUT).</li>
+    <li>Nguồn thứ cấp: Nature News 13/12/2006, HealthDay, The Naked Scientists (cậu bé ở Lahore, nhóm Woods, họ hàng 4–14 tuổi); Nature Reviews Drug Discovery 2019 (thuốc chặn Nav1.7 dừng năm 2015); eLife bản thảo đã bình duyệt 2025 (kênh khác thay thế); NBC News, Practical Neurology, Patient Care (chi tiết quyết định FDA 2025); UC San Diego, GEN News (Moreno 2021); PET, Technology Networks (ca Jo Cameron).</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Chia sẻ bài này"><p>Thấy bài có ích? Gửi cho một người bạn</p><div><button type="button" data-chia-se data-url="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html" data-tieu-de="Không biết đau" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Chia sẻ</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fvu-tru-khac%2Fgen-khong-biet-dau.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/vu-tru-khac/gen-khong-biet-dau.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Chép link</button></div></aside>
+<footer>Gen và bệnh hiếm #08. Các hình là sơ đồ minh họa tự vẽ, không dùng ảnh người bệnh hay chân dung người thật; số liệu lấy từ bài báo gốc, quyết định của cơ quan quản lý và cơ sở dữ liệu y khoa, nguồn thứ cấp được ghi rõ. Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</footer>
+</div>
+</main>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>

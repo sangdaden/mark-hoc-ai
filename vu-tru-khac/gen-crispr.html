@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CRISPR: chiếc kéo mượn từ vi khuẩn (Jinek, Doudna &amp; Charpentier): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác</title>
+<meta name="description" content="Từ đoạn lặp lạ trong vi khuẩn đến công cụ sửa gen đoạt Nobel Hoá học 2020, thuốc CRISPR đầu tiên năm 2023 và em bé KJ năm 2025. Đọc từ bài báo trên Science 2012, thông cáo Nobel, quyết định của cơ quan quản lý và NEJM, với 14 nhận định được kiểm chứng.">
+<link rel="canonical" href="https://markhocai.com/vu-tru-khac/gen-crispr.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/vu-tru-khac/gen-crispr.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/vu-tru-khac/gen-crispr.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/vu-tru-khac/gen-crispr.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRISPR: chiếc kéo mượn từ vi khuẩn (Jinek, Doudna &amp; Charpentier): tóm tắt, đánh giá và bài học | Mark ở vũ trụ khác">
+<meta property="og:description" content="Từ đoạn lặp lạ trong vi khuẩn đến công cụ sửa gen đoạt Nobel Hoá học 2020, thuốc CRISPR đầu tiên năm 2023 và em bé KJ năm 2025. Đọc từ bài báo trên Science 2012, thông cáo Nobel, quyết định của cơ quan quản lý và NEJM, với 14 nhận định được kiểm chứng.">
+<meta property="og:url" content="https://markhocai.com/vu-tru-khac/gen-crispr.html">
+<meta property="og:image" content="https://markhocai.com/assets/vu-tru-khac/og/gen-crispr.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bìa CRISPR: chiếc kéo mượn từ vi khuẩn: Mark ở vũ trụ khác">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://markhocai.com/assets/vu-tru-khac/og/gen-crispr.jpg">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<style>
+body { margin: 0; }
+.mhai-thanh { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 8px 16px; background: #0F172A; border-bottom: 2px solid #F59E0B;
+  font: 600 .92rem/1.2 system-ui, sans-serif; }
+.mhai-thanh a, .mhai-thanh button { color: #FFF7ED; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.mhai-thanh a:hover, .mhai-thanh button:hover { color: #FBBF24; }
+/* Nút quay về góc và nút đổi giao diện: viên thuốc viền hổ phách, cao 44px cho dễ bấm (Sang 13/10: nút cũ nhỏ quá) */
+.mhai-thanh .vtk-ve, .mhai-thanh .mhai-theme { min-height: 44px; box-sizing: border-box; padding: 4px 16px 4px 10px; border: 1.5px solid rgb(251 191 36 / .55);
+  border-radius: 999px; background: rgb(255 255 255 / .06); font: inherit; cursor: pointer; transition: background .15s, border-color .15s; }
+.mhai-thanh .vtk-ve:hover, .mhai-thanh .mhai-theme:hover { background: rgb(251 191 36 / .14); border-color: #FBBF24; }
+.mhai-thanh .vtk-ve > i { font: 700 1.6rem/1 system-ui, sans-serif; font-style: normal; color: #FBBF24; margin-top: -3px; }
+.mhai-thanh .vtk-ve img { height: 38px; width: auto; }
+.mhai-thanh .mhai-theme { padding: 4px 14px; }
+.mhai-thanh .mhai-theme svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mhai-thanh .mhai img { width: 24px; height: 24px; border-radius: 50%; }
+.mhai-thanh span { display: inline-flex; gap: 14px; align-items: center; }
+@media (max-width: 560px) { .mhai-thanh .mhai b, .mhai-thanh .mhai-theme b { display: none; } .mhai-thanh .mhai-theme { padding: 4px 11px; } }
+@media (max-width: 380px) { .mhai-thanh .vtk-ve img { height: 30px; } .mhai-thanh span { gap: 10px; } }
+body, body header { --bia-1: #0F172A; --bia-2: #123524; --bia-nhan: #F9A8D4; }
+:root { --vtk-nhan: #F9A8D4; }
+body header { --ho-so: "Hồ sơ gen"; }
+</style>
+</head>
+<body>
+<nav class="mhai-thanh" aria-label="Điều hướng web"><a class="vtk-ve" href="../vu-tru-khac.html" aria-label="Về Mark ở vũ trụ khác"><i aria-hidden="true">‹</i><img src="../assets/vu-tru-khac/logo-ngang-toi.webp" alt="Mark ở vũ trụ khác" width="760" height="168"></a><span><button type="button" class="mhai-theme" hidden></button><a href="../en/vu-tru-khac/gen-crispr.html" hreflang="en" lang="en">EN</a><a class="mhai" href="../" aria-label="Mark học AI"><img src="../assets/logo.png" alt="" width="24" height="24"><b>Mark học AI</b></a></span></nav>
+<main id="noi-dung">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: same visual-first template as the book write-ups. Gen và bệnh hiếm #9: CRISPR, --night = xanh lá #15803D (vi khuẩn, chuỗi DNA), --day = hồng #DB2777 (nhấn #F9A8D4, vết cắt) */
+:root {
+  --bg: #f2f4f7;
+  --paper: #fbfcfd;
+  --ink: #18202e;
+  --muted: #586274;
+  --rule: #d6dce5;
+  --grid: #e6eaf0;
+  --night: #15803D;
+  --day: #DB2777;
+  --rem: #0d7c84;
+  --ok: #2c7a3f;
+  --warn: #a76a00;
+  --bad: #b3352b;
+  --ok-bg: #e5f2e8;
+  --warn-bg: #fbf0d9;
+  --bad-bg: #f9e3e0;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+    --night: #4ADE80; --day: #F9A8D4; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+    --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d121b; --paper: #131a26; --ink: #e3e7ee; --muted: #9aa5b6; --rule: #283245; --grid: #1c2534;
+  --night: #4ADE80; --day: #F9A8D4; --rem: #54c6cc; --ok: #6cc983; --warn: #e6b04f; --bad: #f08a7e;
+  --ok-bg: #16301f; --warn-bg: #33270e; --bad-bg: #3a1a17; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 64px;
+}
+.wrap { max-width: 48rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: 1.55rem; font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--night); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; }
+.label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: 1rem; }
+
+header { padding-block: 44px 24px; display: grid; gap: 12px; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+header .sub { font-size: 1.1rem; color: var(--muted); font-style: italic; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 12px 20px; margin-top: 6px; }
+.meta div { display: grid; gap: 2px; min-width: 0; }
+.meta b { font-family: var(--font-display); font-weight: 500; font-size: .98rem; }
+.draft { justify-self: start; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; border: 1px dashed var(--muted); color: var(--muted); padding: 3px 8px; border-radius: 3px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-family: var(--font-display); font-size: .95rem; }
+.toc a { text-decoration: none; color: var(--muted); }
+.toc a:hover { color: var(--night); }
+
+section { padding-block: 40px 8px; display: grid; gap: 16px; }
+.sec-head { display: grid; gap: 4px; }
+
+/* essence cards */
+.cards5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.6rem, 1fr)); gap: 10px; }
+.ecard { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.ecard svg { width: 30px; height: 30px; color: var(--night); }
+.ecard b { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.ecard span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.ecard.warnc svg { color: var(--bad); }
+
+.thesis { font-family: var(--font-display); font-size: clamp(1.3rem, 3.6vw, 1.6rem); font-weight: 500; line-height: 1.3; border-left: 3px solid var(--night); padding-left: 18px; }
+
+/* 3-step flow */
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: stretch; }
+.flow .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 4px; min-width: 0; }
+.flow .step b { font-family: var(--font-display); }
+.flow .step span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.flow .arr { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+@media (max-width: 560px) { .flow { grid-template-columns: 1fr; } .flow .arr { justify-self: center; transform: rotate(90deg); } }
+
+/* book map */
+.chbar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; }
+.chbar div { display: flex; align-items: center; justify-content: center; color: var(--paper); font-weight: 600; min-width: 0; }
+.p1 { background: var(--night); } .p2 { background: var(--bad); } .p3 { background: var(--rem); } .p4 { background: var(--day); } .p5 { background: var(--ok); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 10px; }
+.part { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.part.b2 { border-top-color: var(--bad); } .part.b3 { border-top-color: var(--rem); } .part.b4 { border-top-color: var(--day); } .part.b5 { border-top-color: var(--ok); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--grid); color: var(--ink); line-height: 1.5; }
+
+/* concepts */
+.concept { display: grid; gap: 10px; padding-block: 16px; border-top: 1px solid var(--rule); }
+.concept:first-of-type { border-top: 0; padding-top: 0; }
+.concept .term { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.concept .en { font-family: var(--font-mono); font-size: .76rem; color: var(--muted); }
+figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; display: grid; gap: 8px; }
+figcaption { font-size: .86rem; color: var(--muted); line-height: 1.45; }
+figcaption b { color: var(--ink); font-family: var(--font-display); font-weight: 500; }
+.svgbox { overflow-x: auto; }
+.svgbox svg { display: block; width: 100%; min-width: 560px; height: auto; }
+svg text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+svg .t-ink { fill: var(--ink); }
+svg .t-night { fill: var(--night); }
+svg .t-day { fill: var(--day); }
+svg .t-rem { fill: var(--rem); }
+svg .t-bold { font-weight: 600; font-size: 12px; }
+svg .gridl { stroke: var(--grid); stroke-width: 1; }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+
+.fmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 10px; }
+.fcol { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fcol h3 { font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--night); }
+.fcol.rem .dot { background: var(--rem); } .fcol.body .dot { background: var(--day); }
+
+/* compare */
+.cmp { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.cmp th, .cmp td { padding: 8px 12px; border-top: 1px solid var(--rule); text-align: left; }
+.cmp th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); }
+.cmp td.y { color: var(--ok); font-weight: 600; } .cmp td.n { color: var(--bad); font-weight: 600; }
+.tablebox { overflow-x: auto; }
+
+/* evidence */
+.tally { display: flex; height: 26px; border-radius: 4px; overflow: hidden; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; }
+.tally div { display: flex; align-items: center; justify-content: center; }
+.tally .o { background: var(--ok-bg); color: var(--ok); } .tally .w { background: var(--warn-bg); color: var(--warn); } .tally .b { background: var(--bad-bg); color: var(--bad); }
+.evi { display: grid; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); overflow: hidden; }
+.evi details { border-top: 1px solid var(--rule); }
+.evi details:first-child { border-top: 0; }
+.evi summary { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+.evi summary::-webkit-details-marker { display: none; }
+.evi summary::after { content: "+"; font-family: var(--font-mono); color: var(--muted); }
+.evi details[open] summary::after { content: "–"; }
+.evi summary span:nth-child(2) { font-size: .95rem; line-height: 1.35; min-width: 0; }
+.evi .note { padding: 0 14px 12px calc(7.2rem + 24px); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; padding: 3px 7px; border-radius: 3px; white-space: nowrap; font-weight: 600; justify-self: start; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); } .tag.warn { color: var(--warn); background: var(--warn-bg); } .tag.bad { color: var(--bad); background: var(--bad-bg); }
+@media (max-width: 520px) { .evi summary { grid-template-columns: 1fr auto; } .evi summary .tag { grid-column: 1 / -1; } .evi .note { padding-left: 14px; } }
+
+/* scores */
+.scores { display: grid; gap: 10px; }
+.score { display: grid; grid-template-columns: 10.5rem 1fr auto; gap: 12px; align-items: center; }
+.score span:first-child { font-size: .95rem; }
+.bar { height: 8px; background: var(--grid); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--night); border-radius: 4px; }
+.bar i.low { background: var(--warn); }
+.score b { font-family: var(--font-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .score { grid-template-columns: 1fr auto; } .score .bar { grid-column: 1 / -1; grid-row: 2; } }
+.pm { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 10px; }
+.pm > div { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pm ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .93rem; }
+.pm .plus li::before { content: "+ "; color: var(--ok); font-family: var(--font-mono); font-weight: 600; }
+.pm .minus li::before { content: "− "; color: var(--bad); font-family: var(--font-mono); font-weight: 600; }
+.verdict { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+
+details.more { border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); }
+details.more summary { padding: 10px 14px; cursor: pointer; font-family: var(--font-display); font-size: .92rem; color: var(--night); }
+details.more > div { padding: 0 14px 14px; display: grid; gap: 10px; font-size: .95rem; }
+
+/* anytime rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 10px; }
+.rule { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.rule svg { width: 26px; height: 26px; color: var(--night); }
+.rule b { font-family: var(--font-display); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+.rule span { display: block; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+
+.quote { font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--rule); padding-left: 16px; display: grid; gap: 4px; }
+.quote .src { font-style: normal; font-size: .84rem; color: var(--muted); }
+
+.reads { display: grid; gap: 10px; }
+.reads div { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.reads span { font-size: .9rem; }
+
+.notes { border: 1px dashed var(--muted); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: .84rem; color: var(--muted); }
+svg .t-ok { fill: var(--ok); }
+svg .t-bad { fill: var(--bad); }
+.four { width: 100%; border-collapse: separate; border-spacing: 6px; font-size: .92rem; }
+.four th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); text-align: center; padding: 4px; }
+.four th.rowh { text-align: right; }
+.four td { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; vertical-align: top; }
+.four td b { display: block; font-family: var(--font-display); font-weight: 500; }
+.four td span { font-size: .84rem; color: var(--muted); }
+.four td.risk { border-left: 3px solid var(--bad); } .four td.safe { border-left: 3px solid var(--ok); }
+.pg { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+</style>
+
+<style>
+.nguon { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.srcs { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: .88rem; color: var(--muted); }
+.srcs b { color: var(--ink); font-weight: 600; }
+.tl { display: grid; gap: 0; border-left: 2px solid var(--rule); margin-left: 6px; }
+.tl div { position: relative; padding: 0 0 12px 18px; display: grid; gap: 2px; }
+.tl div::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--night); }
+.tl div.hot::before { background: var(--night); }
+.tl b { font-family: var(--font-display); font-weight: 500; }
+.tl span { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<style>
+.evalt { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule); font-size: .92rem; }
+.evalt th, .evalt td { padding: 9px 12px; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.evalt th { font-family: var(--font-display); font-weight: 500; font-size: .85rem; color: var(--muted); width: 9.5rem; }
+.evalt td .nguon { margin-top: 2px; }
+@media (max-width: 520px) { .evalt th { width: 6.5rem; } }
+.three { display: grid; gap: 10px; counter-reset: c3; }
+.three p { background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--night); border-radius: 6px; padding: 10px 14px; }
+.invite { border: 1px solid var(--rule); border-left: 3px solid var(--day); background: var(--paper); border-radius: 6px; padding: 12px 14px; font-size: .95rem; }
+</style>
+
+
+<style>
+.disc { border: 1px solid var(--rule); border-left: 3px solid var(--ok); background: var(--paper); border-radius: 6px; padding: 8px 12px; font-size: .9rem; color: var(--muted); }
+.ask { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 10px; counter-reset: q; }
+.ask div { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--night); border-radius: 6px; padding: 12px; display: grid; gap: 4px; }
+.ask b { font-family: var(--font-display); font-weight: 600; }
+.ask span { font-size: .88rem; color: var(--muted); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+<aside class="vtk-ray" aria-label="Tiện ích đọc"><div class="vtk-ray-bia" aria-hidden="true"><i>CRISPR: chiếc kéo mượn từ vi khuẩn</i><span class="h"><svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2ZjM3YjIyZS1lZjljLTQ5OTktOGUxMi01NjFjNDZlNjZjNjEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaNWpvOVeIIXAArWf557S5YwAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpiYTQxODA5Zi0yODM1LTQ5NzEtYTI3Ni0yMjgwYWNhYmMxMjZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNojiP2GIUCGsZMD3RHbitAawAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggmE93avf7hSd8IwsASGLiRa3Iw/cnl4SCqdf98V6iT7ukZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaIXeyxpYvbJubmQiHVkTbnwAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCCG0mbnWaDlkKyAPhF3BBSo4OiVgujBOnJ3aUYigVyuSmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBi4Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZmMzdiMjJlLWVmOWMtNDk5OS04ZTEyLTU2MWM0NmU2NmM2MS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmQyZTMzODZhLWVjZmQtNDgxZC1iY2U0LTY3YmM5YWVlZWI1MXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCYT3dq9/uFJ3wjCwBIYuJFrcjD9yeXhIKp1/3xXqJPu6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg0SlO72NRLMkksawQ47TpNJ1+vjmv9hn1G2DZiCopswKiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggKHnI/M7Tahau745q6unAHTt0ZAAvz81wefkWbZOnwVl0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQGYPrgentTQfKSni1NKCQIvXqAFpS9Q4WMSNYLarS6sVYBsC9fio/rH7VotRqT6NpA4MOGLIk0FKtie789Rw8fk=</c2pa:manifest></metadata>
+<path d="M6 30 C18 30 22 50 34 50 S50 30 62 30 S78 50 94 50" stroke="#4ADE80" stroke-width="4"/>
+<path d="M6 50 C18 50 22 30 34 30 S50 50 62 50 S78 30 94 30" stroke="#4ADE80" stroke-width="4" opacity=".55"/>
+<path d="M12 33v14M22 38v4M44 38v4M54 33v14M72 33v14M84 38v4" stroke="#86EFAC" stroke-width="2" opacity=".5"/>
+<path d="M60 18 V62" stroke="var(--bia-nhan, #F9A8D4)" stroke-width="3.5" stroke-dasharray="5 4"/>
+<g stroke="var(--bia-nhan, #F9A8D4)" stroke-width="4"><circle cx="58" cy="72" r="6"/><circle cx="58" cy="90" r="6"/><path d="M63 75 L86 87 M63 87 L86 75"/></g>
+<g stroke="#E2E8F0" stroke-width="3" opacity=".7"><rect x="8" y="72" width="30" height="16" rx="8" fill="#E2E8F0" fill-opacity=".1"/><path d="M15 80h3M21 80h3M27 80h3"/><path d="M38 80c5 0 5 4 9 4"/></g>
+</svg></span><img src="../assets/vu-tru-khac/mark/like.svg" alt="" width="300" height="340"></div><p class="vtk-ray-o"><small>Còn lại</small><b class="vtk-con-lai" data-phut="18" data-chu="vi">khoảng 18 phút đọc</b></p><a class="vtk-ray-o vtk-ray-tiep" href="gen-em-be-chinh-gen.html"><small>Bài tiếp theo</small><b>Hai em bé chỉnh gen ở Thâm Quyến</b><span>Gen #010 →</span></a></aside>
+
+<header>
+  <span class="draft">Mark ở vũ trụ khác</span>
+  <span class="label">Gen và bệnh hiếm #9 · Chỉnh sửa gen · Vi khuẩn</span>
+  <h1>CRISPR: chiếc kéo mượn từ vi khuẩn</h1>
+  <svg viewBox="0 0 320 52" width="320" height="52" style="max-width:100%" role="img" aria-label="Một chuỗi xoắn DNA màu xanh lá nằm ngang, ở giữa có một chiếc kéo nhỏ và một vết cắt màu hồng; bên phải là chuỗi đã được nối lại">
+    <path d="M10 14 C40 14 50 38 80 38 S120 14 150 14" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 38 C40 38 50 14 80 14 S120 38 150 38" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <g stroke="#15803D" stroke-width="2" opacity=".5"><path d="M24 17v18M40 22v9M120 22v9M136 17v18"/></g>
+    <path d="M160 6 v40" stroke="#EC4899" stroke-width="3" stroke-dasharray="4 4" stroke-linecap="round"/>
+    <g fill="none" stroke="#18202e" stroke-width="2.5" stroke-linecap="round"><circle cx="168" cy="10" r="5"/><circle cx="168" cy="42" r="5"/><path d="M172 13 L196 32 M172 39 L196 20"/></g>
+    <path d="M206 14 C230 14 240 38 262 38 S300 14 314 14" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round"/>
+    <path d="M206 38 C230 38 240 14 262 14 S300 38 314 38" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <circle cx="250" cy="26" r="5" fill="#EC4899"/>
+  </svg>
+  <p class="sub">Jinek, Doudna, Charpentier và cộng sự · Science · 2012</p>
+  <div class="meta">
+    <div><span class="label">Câu chuyện</span><b>từ đoạn lặp lạ trong vi khuẩn đến công cụ sửa gen</b></div>
+    <div><span class="label">Những người chính</span><b>Mojica, Barrangou, Charpentier, Doudna, Šikšnys, Zhang</b></div>
+    <div><span class="label">Hôm nay</span><b>thuốc CRISPR đầu tiên (2023), em bé KJ (2025)</b></div>
+    <div><span class="label">Nhãn</span><b>Vững về khoa học, Thận trọng về chữa bệnh</b></div>
+  </div>
+  <p class="nguon">Nguồn: Jinek và cộng sự (2012), Science 337(6096): 816–821; thông cáo Nobel Hoá học 2020; Frangoul và cộng sự (2024), NEJM 390: 1649–1662; Musunuru và cộng sự (2025), NEJM.</p>
+  <p class="disc">Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</p>
+</header>
+
+<nav class="toc" aria-label="Mục lục">
+  <a href="#tinh-hoa">Tinh hoa</a><a href="#cau-hoi">Câu hỏi</a><a href="#cau-chuyen">Câu chuyện</a><a href="#co-che">Gen hoạt động thế nào</a><a href="#dan-chung">Kiểm chứng</a><a href="#moi-nhat">Hôm nay ra sao</a><a href="#danh-gia">Đánh giá</a><a href="#ap-dung">Bài học áp dụng</a><a href="#doc-tiep">Đọc tiếp</a><a href="#nguon">Nguồn</a>
+<span class="vtk-toc-mark" aria-hidden="true"><img src="../assets/vu-tru-khac/mark-doc-sach.svg" alt="" width="150" height="170"><small>Mark đang đọc cùng bạn</small></span></nav>
+
+<section id="tinh-hoa">
+  <div class="sec-head"><span class="label">Đọc lại trong 1 phút</span><h2>Tinh hoa</h2></div>
+  <div class="cards5">
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="9" width="20" height="14" rx="7"/><path d="M11 16h2M15 16h2M19 16h2"/></svg><b>Vi khuẩn có "sổ ghi virus"</b><span>Vi khuẩn chép một mẩu DNA của virus từng tấn công nó vào gen mình, để lần sau nhận ra và cắt.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="4"/><circle cx="9" cy="23" r="4"/><path d="M12 11l15 10M12 21l15-10"/></svg><b>Năm 2012: kéo lập trình được</b><span>Jinek, Doudna, Charpentier cho thấy protein Cas9 cắt DNA đúng chỗ mà một mẩu RNA dẫn đường chỉ tới.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l3.5 7.5 8 1-6 5.5 1.5 8L16 22l-7 4 1.5-8-6-5.5 8-1z"/></svg><b>Nobel Hoá học 2020</b><span>Trao cho Charpentier và Doudna. Nhưng rất nhiều người khác đã góp những mảnh ghép trước đó.</span></div>
+    <div class="ecard"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="10"/><path d="M11 16c2-4 8-4 10 0"/></svg><b>Thuốc đầu tiên, 2023</b><span>Anh rồi Mỹ duyệt liệu pháp CRISPR cho hồng cầu hình liềm: 29/30 người không còn cơn tắc mạch ít nhất 12 tháng.</span></div>
+    <div class="ecard warnc"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 10v7M16 21v1"/></svg><b>Em bé KJ, 2025</b><span>Thuốc sửa một chữ trong gen, làm riêng cho một bé. Kết quả tốt, nhưng mới một ca và còn rất sớm.</span></div>
+  </div>
+  <p class="nguon">Nguồn: Barrangou và cộng sự (2007), Science 315: 1709–1712; Jinek và cộng sự (2012); thông cáo Nobel Hoá học 7/10/2020; Frangoul và cộng sự (2024), NEJM; Musunuru và cộng sự (2025), NEJM.</p>
+</section>
+
+<section id="cau-hoi">
+  <div class="sec-head"><span class="label">Phần 1</span><h2>Câu hỏi</h2></div>
+  <p class="thesis">Một cách vi khuẩn tự vệ trước virus, tìm thấy nhờ những người nghiên cứu vi khuẩn ở ruộng muối và trong hũ sữa chua, đã trở thành công cụ sửa gen cho con người như thế nào? Và đến nay nó chữa được gì, chưa chữa được gì?</p>
+  <p class="nguon">Câu hỏi và cách diễn đạt là của Mark, dựa trên thông cáo Nobel Hoá học 2020 và các bài báo ở Phần 9.</p>
+  <div class="flow" aria-label="Ba chặng của câu chuyện">
+    <div class="step"><span class="label">1987–2007</span><b>Đoạn lặp lạ</b><span>Ai cũng thấy, không ai hiểu. Rồi hiểu ra: đó là trí nhớ chống virus.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2012–2013</span><b>Chiếc kéo</b><span>Cas9 cắt đúng chỗ được chỉ. Rồi chạy được trong tế bào người.</span></div>
+    <span class="arr">→</span>
+    <div class="step"><span class="label">2023–2025</span><b>Đến người bệnh</b><span>Thuốc đầu tiên được duyệt, và một em bé được sửa gen riêng.</span></div>
+  </div>
+</section>
+
+<section id="cau-chuyen">
+  <div class="sec-head"><span class="label">Phần 2</span><h2>Câu chuyện</h2><p class="lead">Ai, ở đâu, khi nào: một khám phá do nhiều người, nhiều nước cùng ghép lại.</p></div>
+  <div class="tl">
+    <div><b>1987 · Nhật Bản: đoạn lặp lạ trong E. coli</b><span>Nhóm của Yoshizumi Ishino đọc một gen của vi khuẩn đường ruột và thấy ngay cạnh đó một chuỗi ngắn lặp đi lặp lại, xen giữa là các đoạn khác nhau. Không ai biết nó để làm gì.</span></div>
+    <div><b>Đầu những năm 1990 · Tây Ban Nha: ruộng muối Santa Pola</b><span>Francisco Mojica, nghiên cứu sinh ở Alicante, thấy các đoạn lặp tương tự ở một vi khuẩn cổ ưa mặn sống trong ruộng muối. Ông theo đuổi câu hỏi "chúng để làm gì" suốt hơn mười năm.</span></div>
+    <div><b>2002 · Có tên gọi</b><span>Nhóm của Ruud Jansen (Hà Lan) đặt tên CRISPR, viết tắt tiếng Anh của "các đoạn lặp ngắn đối xứng, xếp thành cụm, cách đều nhau", và tìm ra các gen cas luôn nằm cạnh.</span></div>
+    <div class="hot"><b>2005 · Lời giải: mẩu DNA của virus</b><span>Mojica so các đoạn xen giữa với kho dữ liệu và thấy chúng khớp với DNA của virus và plasmid. Ông đoán: đây là trí nhớ miễn dịch của vi khuẩn.</span></div>
+    <div><b>2007 · Hũ sữa chua chứng minh</b><span>Ở công ty sữa Danisco, Rodolphe Barrangou, Philippe Horvath và đồng nghiệp cho thấy vi khuẩn làm sữa chua chép thêm mẩu virus mới vào CRISPR sau khi bị tấn công, và từ đó kháng được virus đó.</span></div>
+    <div><b>2011 · Mảnh còn thiếu</b><span>Emmanuelle Charpentier (khi đó ở Thụy Điển) tìm ra tracrRNA, một phân tử RNA giúp chiếc kéo hoạt động. Cùng năm, bà bắt đầu làm việc với Jennifer Doudna (Berkeley, Mỹ).</span></div>
+    <div class="hot"><b>28/6/2012 · Bài báo trên Science</b><span>Jinek, Doudna, Charpentier và cộng sự cho thấy protein Cas9, được hai RNA dẫn đường, cắt đôi DNA đúng chỗ. Nối hai RNA thành một là có một chiếc kéo "lập trình" được: đổi mẩu RNA là đổi chỗ cắt. Cùng năm, nhóm Virginijus Šikšnys (Litva) cũng độc lập công bố Cas9 cắt DNA theo RNA.</span></div>
+    <div><b>2013 · Vào tế bào người</b><span>Nhóm Feng Zhang (Broad Institute) và nhóm George Church (Harvard) cho thấy Cas9 sửa được gen trong tế bào người và chuột. Từ đây, hàng nghìn phòng thí nghiệm dùng được CRISPR.</span></div>
+    <div><b>7/10/2020 · Nobel Hoá học</b><span>Trao cho Charpentier và Doudna "vì đã phát triển một phương pháp chỉnh sửa bộ gen".</span></div>
+  </div>
+  <p class="nguon">Nguồn: Ishino và cộng sự (1987), J Bacteriol 169: 5429–5433; Nakata và cộng sự (1989), J Bacteriol 171: 3553–3556; Mojica, Juez và Rodríguez-Valera (1993), Mol Microbiol 9(3): 613–621; Jansen và cộng sự (2002), Mol Microbiol 43: 1565–1575; Mojica và cộng sự (2005), J Mol Evol 60: 174–182; Barrangou và cộng sự (2007), Science 315: 1709–1712; Jinek và cộng sự (2012), Science 337: 816–821 (đăng trực tuyến 28/6/2012); Gasiunas và cộng sự (2012), PNAS 109(39): E2579–E2586; Cong và cộng sự (2013), Science 339: 819–823; Mali và cộng sự (2013), Science 339: 823; thông cáo Nobel Hoá học 7/10/2020. Chi tiết ruộng muối Santa Pola và bối cảnh Danisco theo The Scientist và ASU Embryo Project (nguồn thứ cấp).</p>
+  <details class="more"><summary>Vì sao nhiều người nghĩ CRISPR là "phát minh của hai người"?</summary><div>
+    <p>Giải Nobel mỗi năm trao cho tối đa ba người, và năm 2020 trao cho hai nhà khoa học đã biến cơ chế của vi khuẩn thành công cụ. Nhưng câu chuyện có ít nhất bốn nước: Nhật Bản (đoạn lặp đầu tiên), Tây Ban Nha và Hà Lan (hiểu ra và đặt tên), Pháp và Đan Mạch (thí nghiệm sữa chua của Danisco), Litva và Mỹ (chiếc kéo trong ống nghiệm và trong tế bào người).</p>
+    <p>Hai viện ở Mỹ (Đại học California, nơi Doudna làm việc, và Broad Institute, nơi Zhang làm việc) còn tranh chấp bằng sáng chế. Tháng 5/2025, toà phúc thẩm liên bang Mỹ trả vụ việc về Cục Sáng chế để xét lại. Ai "nghĩ ra trước" đến nay vẫn chưa ngã ngũ về mặt pháp lý.</p>
+  </div></details>
+  <p class="nguon">Nguồn: thông cáo Nobel Hoá học 2020; quyết định của Toà phúc thẩm liên bang Mỹ ngày 12/5/2025 trong vụ Regents of the University of California v. Broad Institute, qua tóm tắt của MoFo và White &amp; Case (nguồn thứ cấp).</p>
+</section>
+
+<section id="co-che">
+  <div class="sec-head"><span class="label">Phần 3</span><h2>Gen hoạt động thế nào</h2></div>
+  <div class="three">
+    <p><b>1.</b> Một mẩu RNA dẫn đường mang khoảng 20 chữ cái giống hệt đoạn DNA cần tìm. Nó dắt protein Cas9 dò dọc bộ gen cho đến khi gặp chỗ khớp.</p>
+    <p><b>2.</b> Ở chỗ khớp, Cas9 cắt đứt cả hai sợi DNA. Tế bào vội vá lại vết cắt; khi vá, nó có thể làm hỏng gen (tắt gen) hoặc chép theo một mẫu sửa mà nhà khoa học đưa vào.</p>
+    <p><b>3.</b> Các phiên bản mới như "chỉnh base" không cắt đứt DNA mà đổi đúng một chữ cái, ví dụ A thành G. Đây là cách đã dùng cho em bé KJ.</p>
+  </div>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 300" role="img" aria-labelledby="crm1">
+        <title id="crm1">Sơ đồ ba bước. Bước 1: RNA dẫn đường (hồng) dắt protein Cas9 (xanh lá) dò dọc chuỗi DNA. Bước 2: ở đoạn khớp, Cas9 cắt cả hai sợi. Bước 3: tế bào vá vết cắt, có thể tắt gen hoặc chép theo mẫu sửa; chỉnh base thì đổi một chữ mà không cắt đứt.</title>
+        <text x="20" y="24" class="t-ink t-bold">1 · dò tìm</text>
+        <text x="260" y="24" class="t-ink t-bold">2 · cắt hai sợi</text>
+        <text x="500" y="24" class="t-ink t-bold">3 · tế bào vá lại</text>
+        <g transform="translate(20 60)">
+          <path d="M0 40 H200" stroke="var(--muted)" stroke-width="3"/><path d="M0 70 H200" stroke="var(--muted)" stroke-width="3"/>
+          <g stroke="var(--rule)" stroke-width="2"><path d="M14 40v30M34 40v30M54 40v30M74 40v30M94 40v30M114 40v30M134 40v30M154 40v30M174 40v30M194 40v30"/></g>
+          <rect x="96" y="6" width="96" height="98" rx="34" fill="var(--night)" fill-opacity=".18" stroke="var(--night)" stroke-width="2.5"/>
+          <path d="M104 30 H186" stroke="var(--day)" stroke-width="4" stroke-linecap="round"/>
+          <text x="144" y="124" text-anchor="middle" class="t-night t-bold">Cas9</text>
+          <text x="144" y="142" text-anchor="middle" class="t-day">RNA dẫn đường (~20 chữ)</text>
+          <path d="M60 -6 H20 M28 -12 l-8 6 8 6" fill="none" stroke="var(--muted)" stroke-width="2"/>
+          <text x="0" y="170">dò dọc chuỗi đến khi khớp</text>
+        </g>
+        <g transform="translate(260 60)">
+          <path d="M0 40 H92 M108 40 H200" stroke="var(--muted)" stroke-width="3"/><path d="M0 70 H92 M108 70 H200" stroke="var(--muted)" stroke-width="3"/>
+          <g stroke="var(--rule)" stroke-width="2"><path d="M14 40v30M34 40v30M54 40v30M74 40v30M126 40v30M146 40v30M166 40v30M186 40v30"/></g>
+          <path d="M100 20 V92" stroke="var(--day)" stroke-width="3" stroke-dasharray="5 4"/>
+          <g fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"><circle cx="86" cy="104" r="7"/><circle cx="114" cy="104" r="7"/><path d="M90 98 L108 66 M110 98 L92 66"/></g>
+          <text x="100" y="142" text-anchor="middle" class="t-day t-bold">đứt cả hai sợi</text>
+          <text x="0" y="170">đúng chỗ RNA chỉ tới</text>
+        </g>
+        <g transform="translate(500 50)">
+          <rect x="0" y="0" width="200" height="56" rx="8" fill="var(--bad)" fill-opacity=".08" stroke="var(--bad)" stroke-width="1.5"/>
+          <text x="12" y="22" class="t-ink t-bold">vá vội → tắt gen</text><text x="12" y="42">thêm/bớt vài chữ</text>
+          <rect x="0" y="66" width="200" height="56" rx="8" fill="var(--night)" fill-opacity=".08" stroke="var(--night)" stroke-width="1.5"/>
+          <text x="12" y="88" class="t-night t-bold">chép theo mẫu sửa</text><text x="12" y="108">ít gặp hơn, khó hơn</text>
+          <rect x="0" y="132" width="200" height="56" rx="8" fill="var(--day)" fill-opacity=".1" stroke="var(--day)" stroke-width="1.5"/>
+          <text x="12" y="154" class="t-day t-bold">chỉnh base: A → G</text><text x="12" y="174">không cắt đứt (2016–2017)</text>
+        </g>
+        <text x="20" y="286">sơ đồ minh họa, không theo tỉ lệ</text>
+      </svg>
+    </div>
+    <figcaption><b>Một chiếc kéo đi theo bản đồ.</b> Đổi mẩu RNA dẫn đường là đổi chỗ cắt, vì vậy CRISPR rẻ và nhanh hơn nhiều so với các cách sửa gen trước đó, vốn phải thiết kế lại cả protein cho mỗi chỗ.<span class="nguon">Nguồn: Jinek và cộng sự (2012) (Cas9, RNA dẫn đường, cắt hai sợi); Cong và cộng sự (2013) (sửa gen trong tế bào người); Komor và cộng sự (2016), Nature 533: 420–424 và Gaudelli và cộng sự (2017), Nature 551: 464–471 (chỉnh base không cắt đứt). Khoảng 20 chữ: độ dài đoạn dẫn đường theo Jinek (2012) và Cong (2013).</span></figcaption>
+  </figure>
+  <figure>
+    <div class="svgbox">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="crm2">
+        <title id="crm2">Hai cách đưa chiếc kéo vào người bệnh. Bên trái, ngoài cơ thể (Casgevy, 2023): lấy tế bào gốc máu, sửa trong phòng thí nghiệm, hoá trị liều cao, truyền lại. Bên phải, trong cơ thể (em bé KJ, 2025): bọc thuốc trong hạt mỡ nano, truyền vào tĩnh mạch, thuốc đến gan và sửa một chữ.</title>
+        <rect x="20" y="16" width="330" height="196" rx="10" fill="var(--night)" fill-opacity=".07" stroke="var(--night)" stroke-width="2"/>
+        <text x="40" y="44" class="t-night t-bold">ngoài cơ thể · Casgevy (2023)</text>
+        <g class="t-ink"><text x="40" y="76" class="t-ink">1. lấy tế bào gốc máu của chính người bệnh</text><text x="40" y="102" class="t-ink">2. sửa gen trong phòng thí nghiệm</text><text x="40" y="128" class="t-ink">3. hoá trị liều cao để "dọn chỗ" tuỷ xương</text><text x="40" y="154" class="t-ink">4. truyền tế bào đã sửa trở lại</text></g>
+        <text x="40" y="190">bật lại hemoglobin thai nhi trong hồng cầu</text>
+        <rect x="370" y="16" width="330" height="196" rx="10" fill="var(--day)" fill-opacity=".08" stroke="var(--day)" stroke-width="2"/>
+        <text x="390" y="44" class="t-day t-bold">trong cơ thể · em bé KJ (2025)</text>
+        <text x="390" y="76" class="t-ink">1. đọc gen, tìm đúng chữ bị sai</text><text x="390" y="102" class="t-ink">2. làm thuốc riêng trong khoảng 6 tháng</text><text x="390" y="128" class="t-ink">3. bọc trong hạt mỡ nano, truyền tĩnh mạch</text><text x="390" y="154" class="t-ink">4. thuốc đến gan, đổi một chữ A → G</text>
+        <text x="390" y="190">không cần hoá trị dọn tuỷ</text>
+      </svg>
+    </div>
+    <figcaption><b>Cùng gốc CRISPR, hai đường đi khác nhau.</b> Cả hai đều sửa tế bào cơ thể, không sửa trứng hay tinh trùng, nên thay đổi không truyền sang con cái.<span class="nguon">Nguồn: Frangoul và cộng sự (2024), NEJM 390: 1649–1662 (quy trình exa-cel, hoá trị busulfan); thông cáo Vertex và ASGCT về quyết định FDA 8/12/2023 (gen BCL11A, hemoglobin thai nhi); Musunuru và cộng sự (2025), NEJM; thông cáo Penn Medicine và CHOP 15/5/2025 (khoảng 6 tháng, hạt nano lipid); MedlinePlus Genetics (tế bào cơ thể và tế bào mầm).</span></figcaption>
+  </figure>
+</section>
+
+<section id="dan-chung">
+  <div class="sec-head"><span class="label">Phần 4</span><h2>Kiểm chứng: chuyện thật và lời đồn</h2><p class="lead">14 điều hay được nói về CRISPR, đối chiếu với bài báo gốc và quyết định của cơ quan quản lý. Bấm từng dòng để xem lý do.</p></div>
+  <div class="tally" role="img" aria-label="9 vững, 3 cần thận trọng, 2 sai">
+    <div class="o" style="flex:9">9 VỮNG</div><div class="w" style="flex:3">3 THẬN TRỌNG</div><div class="b" style="flex:2">2 SAI</div>
+  </div>
+  <div class="evi">
+    <details><summary><span class="tag ok">VỮNG</span><span>CRISPR vốn là hệ miễn dịch của vi khuẩn chống virus</span></summary><p class="note">Các đoạn xen giữa khớp với DNA virus (Mojica 2005); vi khuẩn sữa chua chép mẩu virus mới vào và kháng được virus đó (Barrangou 2007).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Đoạn lặp lạ được thấy từ năm 1987, khi đó chưa ai hiểu</span></summary><p class="note">Ishino và cộng sự (1987) thấy đoạn lặp cạnh gen iap ở E. coli; Nakata và cộng sự (1989) mô tả đoạn 29 cặp base lặp 14 lần.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Tên CRISPR có từ đầu những năm 2000</span></summary><p class="note">Jansen và cộng sự (2002) dùng tên này trên Molecular Microbiology và tìm ra các gen cas đi kèm.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Năm 2012, Cas9 được "lập trình" bằng RNA để cắt đúng chỗ chọn</span></summary><p class="note">Jinek và cộng sự (2012), Science 337: 816–821; cùng năm nhóm Šikšnys công bố kết quả tương tự trên PNAS.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Nobel Hoá học 2020 trao cho Charpentier và Doudna</span></summary><p class="note">Thông cáo của Viện Hàn lâm Khoa học Hoàng gia Thụy Điển ngày 7/10/2020.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Liệu pháp CRISPR đầu tiên được duyệt năm 2023</span></summary><p class="note">Anh cấp phép có điều kiện ngày 16/11/2023; Mỹ (FDA) duyệt ngày 8/12/2023 cho hồng cầu hình liềm từ 12 tuổi (thông cáo MHRA, Vertex; ASGCT).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Trong thử nghiệm, 29 trên 30 người không còn cơn đau tắc mạch ít nhất 12 tháng</span></summary><p class="note">30 người đủ thời gian theo dõi trong 44 người được truyền; 29/30 (97%) không có cơn tắc mạch nặng ít nhất 12 tháng liên tục; 30/30 không phải nhập viện vì cơn này (Frangoul và cộng sự 2024, NEJM).</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Sửa gen tế bào cơ thể không truyền sang con cái</span></summary><p class="note">Chỉ thay đổi ở trứng, tinh trùng hay phôi mới truyền sang đời sau (MedlinePlus Genetics). Câu chuyện về chỉnh gen phôi là bài #10.</p></details>
+    <details><summary><span class="tag ok">VỮNG</span><span>Em bé KJ là người đầu tiên nhận thuốc chỉnh gen làm riêng, truyền thẳng vào cơ thể</span></summary><p class="note">Musunuru và cộng sự (2025), NEJM, đăng 15/5/2025; thông cáo Penn Medicine và CHOP cùng ngày.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"CRISPR đã chữa khỏi hồng cầu hình liềm cho mọi người"</span></summary><p class="note">Kết quả thử nghiệm rất tốt, nhưng người bệnh phải hoá trị liều cao (có thể ảnh hưởng khả năng sinh sản), thời gian theo dõi trung vị mới khoảng 19 tháng, và giá ở Mỹ là 2,2 triệu USD (Reuters, AAFP; nguồn thứ cấp). Rất ít bệnh viện làm được.</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"KJ đã khỏi bệnh hoàn toàn"</span></summary><p class="note">Bác sĩ của bé nói "vẫn còn rất sớm" và không gọi là chữa khỏi; bé vẫn cần chăm sóc. Không làm sinh thiết gan nên chưa biết bao nhiêu tế bào đã được sửa (Penn, CHOP; báo chí, nguồn thứ cấp).</p></details>
+    <details><summary><span class="tag warn">THẬN TRỌNG</span><span>"Giờ ai mắc bệnh hiếm cũng có thể có thuốc chỉnh gen riêng"</span></summary><p class="note">Mới có một ca được công bố. Nhóm của KJ dự kiến thử nghiệm cho các bé có rối loạn tương tự; FDA mới có dự thảo hướng dẫn (23/2/2026) cho loại thuốc cá nhân hoá này.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"Doudna và Charpentier một mình phát minh ra CRISPR"</span></summary><p class="note">Hai bà biến cơ chế thành công cụ. Phát hiện cơ chế là công của nhiều nhóm: Ishino, Mojica, Jansen, Barrangou và Horvath, Šikšnys; đưa vào tế bào người có nhóm Zhang và Church.</p></details>
+    <details><summary><span class="tag bad">SAI</span><span>"CRISPR chính xác tuyệt đối, không bao giờ cắt nhầm"</span></summary><p class="note">Có thể cắt lệch chỗ, và ngay tại chỗ cắt có thể mất đoạn lớn hoặc đảo lộn DNA (Kosicki, Tomberg và Bradley 2018, Nature Biotechnology 36: 765–771). Nhãn thuốc Casgevy có cảnh báo về chỉnh lệch đích.</p></details>
+  </div>
+  <p class="nguon">Nguồn: như ghi trong từng dòng; danh sách đầy đủ ở Phần 9.</p>
+</section>
+
+<section id="moi-nhat">
+  <div class="sec-head"><span class="label">Phần 5</span><h2>Hôm nay ra sao</h2><p class="lead">Từ thuốc đầu tiên đến em bé KJ, và điều còn đang chờ.</p></div>
+  <div class="tl">
+    <div class="hot"><b>16/11/2023 và 8/12/2023 · Thuốc CRISPR đầu tiên</b><span>Anh rồi Mỹ duyệt exa-cel (tên thương mại casgevy) cho hồng cầu hình liềm; Anh duyệt cả beta-thalassemia phụ thuộc truyền máu. Thuốc sửa tế bào gốc máu để bật lại hemoglobin thai nhi.</span></div>
+    <div><b>2024 · Kết quả đăng trên NEJM</b><span>29/30 người không có cơn tắc mạch ít nhất 12 tháng. Giá ở Mỹ 2,2 triệu USD một lần điều trị (nguồn thứ cấp).</span></div>
+    <div><b>8/2024 · KJ chào đời</b><span>Bé ở Philadelphia (Mỹ) mắc thiếu enzyme CPS1 nặng: gan không thải được amoniac, chất này tích lại trong máu và hại não. Bệnh rất hiếm, ước tính khoảng 1/200.000 đến 1/1.300.000 trẻ.</span></div>
+    <div class="hot"><b>2–4/2025 · Ba lần truyền thuốc</b><span>Nhóm của bác sĩ Kiran Musunuru và Rebecca Ahrens-Nicklas làm thuốc riêng trong khoảng 6 tháng; FDA cho phép dùng một tuần sau khi nộp hồ sơ. Liều đầu khi bé 6–7 tháng tuổi.</span></div>
+    <div><b>15/5/2025 · Bài báo NEJM</b><span>Bài báo mô tả ca điều trị và theo dõi ban đầu. Theo báo chí, bé ăn uống bình thường hơn và cần ít thuốc hơn; tháng 6/2025 bé về nhà sau 307 ngày nằm viện (nguồn thứ cấp).</span></div>
+    <div><b>12/2025 · Những bước đầu tiên</b><span>Bé tập đi những bước đầu tiên (MIT Technology Review 1/2026, nguồn thứ cấp). Bác sĩ vẫn nói: còn rất sớm.</span></div>
+    <div><b>23/2/2026 · FDA ra dự thảo hướng dẫn</b><span>Một "khung cơ chế hợp lý" cho thuốc gen làm riêng cho bệnh cực hiếm. Đây là dự thảo, không phải đường duyệt mới theo luật.</span></div>
+  </div>
+  <p class="nguon">Nguồn: thông cáo MHRA và Vertex 16/11/2023; FDA 8/12/2023 (qua ASGCT); Frangoul và cộng sự (2024), NEJM 390(18): 1649–1662; Musunuru và cộng sự (2025), NEJM, doi 10.1056/NEJMoa2504747; thông cáo Penn Medicine và CHOP 15/5/2025; ClinGen, báo cáo AC1046 (tần suất CPS1); dự thảo hướng dẫn FDA 23/2/2026 qua AJMC và Hogan Lovells (nguồn thứ cấp); giá theo Reuters và AAFP; 307 ngày theo NBC/AP; bước đi đầu tiên theo MIT Technology Review 12/1/2026 (nguồn thứ cấp). Tra ngày 16/10/2026.</p>
+</section>
+
+<section id="danh-gia">
+  <div class="sec-head"><span class="label">Phần 6</span><h2>Đánh giá</h2></div>
+  <p class="nguon">Điểm là đánh giá của Mark dựa trên các nguồn ở Phần 9, không phải số liệu của một nghiên cứu.</p>
+  <div class="scores">
+    <div class="score"><span>Độ vững của khoa học</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Ảnh hưởng đến nghiên cứu</span><div class="bar"><i style="width:100%"></i></div><b>5/5</b></div>
+    <div class="score"><span>Đã giúp được người bệnh</span><div class="bar"><i class="low" style="width:60%"></i></div><b>3/5</b></div>
+    <div class="score"><span>Đến được với số đông</span><div class="bar"><i class="low" style="width:20%"></i></div><b>1/5</b></div>
+  </div>
+  <div class="pm">
+    <div><span class="label">Điểm mạnh</span><ul class="plus"><li>Cơ chế được nhiều nhóm độc lập xác nhận</li><li>Đã có thuốc được duyệt, có số liệu thử nghiệm</li><li>Mở đường cho thuốc làm riêng cho bệnh cực hiếm</li></ul></div>
+    <div><span class="label">Điểm yếu</span><ul class="minus"><li>Có thể cắt lệch, mất đoạn ngoài ý muốn</li><li>Giá rất cao, quy trình nặng nề</li><li>Thời gian theo dõi còn ngắn</li></ul></div>
+  </div>
+  <p class="verdict">Vững về khoa học, Thận trọng về chữa bệnh: chiếc kéo đã chứng minh nó cắt đúng, còn đưa nó đến mọi người bệnh là chặng đường dài.</p>
+  <details class="more"><summary>Xem thêm: vì sao một ca như KJ vẫn quan trọng dù mới một người?</summary><div>
+    <p>Một ca thì chưa đủ để nói thuốc hiệu quả. Nhưng ca KJ cho thấy một quy trình mới khả thi: đọc gen, thiết kế thuốc, kiểm tra an toàn trên tế bào và động vật, được phép dùng, tất cả trong khoảng nửa năm.</p>
+    <p>Với hàng nghìn bệnh hiếm, mỗi bệnh chỉ vài người, không công ty nào làm thử nghiệm lớn được. Nếu quy trình "làm riêng" lặp lại được ở nhiều bé, đó mới là thay đổi lớn. Hiện chưa có dữ liệu đó.</p>
+  </div></details>
+  <p class="nguon">Phần "Xem thêm" là nhận xét của Mark, dựa trên các sự kiện có nguồn ở Phần 2 đến Phần 5.</p>
+</section>
+
+<section id="ap-dung">
+  <div class="sec-head"><span class="label">Phần 7</span><h2>Bài học áp dụng: đọc tin "chữa khỏi bằng chỉnh gen" thế nào</h2><p class="lead">Sẽ còn nhiều tin hay về CRISPR. Bốn câu hỏi giúp bạn biết tin đó đi xa đến đâu.</p></div>
+  <p class="disc">Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</p>
+  <div class="ask">
+    <div><b>1 · Bao nhiêu người?</b><span>Một ca, vài chục người trong thử nghiệm, hay hàng nghìn người? KJ là một ca; Casgevy có 30 người đủ theo dõi.</span></div>
+    <div><b>2 · Theo dõi bao lâu?</b><span>Vài tháng hay nhiều năm? Thuốc sửa gen cần theo dõi lâu để biết có tác dụng phụ muộn không.</span></div>
+    <div><b>3 · Sửa tế bào nào?</b><span>Tế bào cơ thể (không truyền sang con) hay phôi, trứng, tinh trùng (truyền sang đời sau, đang bị cấm ở nhiều nơi)?</span></div>
+    <div><b>4 · Ai đã duyệt, ở đâu?</b><span>Bài báo có bình duyệt? Cơ quan quản lý nào cho phép? "Đang thử nghiệm" khác "đã được duyệt".</span></div>
+  </div>
+  <div class="rules">
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M10 10l12 12"/></svg><div><b>Cẩn thận quảng cáo "CRISPR"</b><span>Thuốc chỉnh gen thật chỉ làm ở bệnh viện, theo thử nghiệm hoặc giấy phép. Không có viên uống hay mỹ phẩm "sửa gen".</span></div></div>
+    <div class="rule"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h20v14H14l-6 5v-5H6z"/></svg><div><b>Hỏi bác sĩ đúng câu</b><span>Nếu nhà có người mắc bệnh di truyền: "Bệnh này có thử nghiệm liệu pháp gen nào không? Ở đâu? Ai đủ điều kiện?"</span></div></div>
+  </div>
+  <details class="more"><summary>Tự kiểm tra: đọc một tin trong 5 phút</summary><div>
+    <p>1. Tìm một tin về "chữa khỏi bằng chỉnh gen" trên báo hoặc mạng xã hội.</p>
+    <p>2. Trả lời bốn câu hỏi ở trên. Câu nào tin không trả lời được?</p>
+    <p>3. Tin có nêu tên bài báo hoặc cơ quan duyệt không? Nếu không, coi là chưa kiểm chứng.</p>
+    <p>4. Viết lại tiêu đề cho đúng mức, ví dụ "một em bé được điều trị thử, kết quả ban đầu tốt".</p>
+  </div></details>
+  <p class="nguon">Bốn câu hỏi và bài tự kiểm tra là đề xuất của Mark, dựa trên các sự kiện ở Phần 4 và 5; phân biệt tế bào cơ thể và tế bào mầm theo MedlinePlus Genetics.</p>
+</section>
+
+<section id="doc-tiep">
+  <div class="sec-head"><span class="label">Phần 8</span><h2>Đọc tiếp</h2></div>
+  <div class="reads">
+    <div><b>Gen và bệnh hiếm #6: Hồng cầu hình liềm</b><span class="muted">Căn bệnh mà thuốc CRISPR đầu tiên nhắm tới, và vì sao nó từng là lá chắn chống sốt rét. <a href="gen-hong-cau-hinh-liem.html">Đọc bài</a></span></div>
+    <div><b>Gen và bệnh hiếm #5: Thalassemia</b><span class="muted">Bệnh máu di truyền rất gần với người Việt, cũng nằm trong giấy phép của Anh. <a href="gen-thalassemia.html">Đọc bài</a></span></div>
+    <div><b>Gen và bệnh hiếm #10: Hai em bé chỉnh gen</b><span class="muted">Khi chiếc kéo được dùng trên phôi người năm 2018, và vì sao cả giới khoa học lên tiếng. <a href="gen-em-be-chinh-gen.html">Đọc bài</a></span></div>
+    <div><b>Jennifer Doudna và Samuel Sternberg (2017), <i>A Crack in Creation</i></b><span class="muted">Sách của chính một người trong cuộc. Đọc cùng sách của Walter Isaacson, <i>The Code Breaker</i> (2021), để thấy nhiều phía hơn.</span></div>
+  </div>
+</section>
+
+<section id="nguon">
+  <div class="sec-head"><span class="label">Phần 9</span><h2>Nguồn</h2><p class="lead">Nguồn chính là bài báo gốc, thông cáo Nobel và quyết định của cơ quan quản lý. Môi trường làm bài chặn PubMed, FDA, Nobel và trang bệnh viện, nên các con số được đối chiếu qua trích đoạn của chính các trang đó trong kết quả tìm kiếm, chưa mở toàn văn. Nguồn thứ cấp ghi rõ.</p></div>
+  <ol class="srcs">
+    <li><b>Jinek M, Chylinski K, Fonfara I, Hauer M, Doudna JA, Charpentier E (2012)</b>, "A programmable dual-RNA-guided DNA endonuclease in adaptive bacterial immunity", Science 337(6096): 816–821. <a href="https://pubmed.ncbi.nlm.nih.gov/22745249/">PubMed</a></li>
+    <li><b>Nobel Prize in Chemistry 2020</b>, thông cáo báo chí 7/10/2020. <a href="https://www.nobelprize.org/prizes/chemistry/2020/press-release/">nobelprize.org</a></li>
+    <li><b>Ishino Y và cộng sự (1987)</b>, J Bacteriol 169: 5429–5433. <a href="https://pubmed.ncbi.nlm.nih.gov/3316184/">PubMed</a> · <b>Nakata A và cộng sự (1989)</b>, J Bacteriol 171: 3553–3556.</li>
+    <li><b>Mojica FJM, Juez G, Rodríguez-Valera F (1993)</b>, Mol Microbiol 9(3): 613–621 · <b>Mojica FJM và cộng sự (2005)</b>, "Intervening sequences of regularly spaced prokaryotic repeats derive from foreign genetic elements", J Mol Evol 60: 174–182.</li>
+    <li><b>Jansen R, van Embden JDA, Gaastra W, Schouls LM (2002)</b>, "Identification of genes that are associated with DNA repeats in prokaryotes", Mol Microbiol 43: 1565–1575.</li>
+    <li><b>Barrangou R và cộng sự (2007)</b>, "CRISPR provides acquired resistance against viruses in prokaryotes", Science 315: 1709–1712.</li>
+    <li><b>Gasiunas G, Barrangou R, Horvath P, Siksnys V (2012)</b>, PNAS 109(39): E2579–E2586. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3465414/">PMC</a></li>
+    <li><b>Cong L và cộng sự (2013)</b>, "Multiplex genome engineering using CRISPR/Cas systems", Science 339: 819–823 · <b>Mali P và cộng sự (2013)</b>, Science 339: 823.</li>
+    <li><b>Komor AC và cộng sự (2016)</b>, Nature 533: 420–424 · <b>Gaudelli NM và cộng sự (2017)</b>, Nature 551: 464–471.</li>
+    <li><b>Kosicki M, Tomberg K, Bradley A (2018)</b>, Nature Biotechnology 36: 765–771. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6390938/">PMC</a></li>
+    <li><b>Frangoul H và cộng sự (2024)</b>, "Exagamglogene autotemcel for severe sickle cell disease", NEJM 390(18): 1649–1662. <a href="https://pubmed.ncbi.nlm.nih.gov/38661449/">PubMed</a></li>
+    <li><b>FDA</b>, "FDA approves first gene therapies to treat patients with sickle cell disease", 8/12/2023. <a href="https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease">fda.gov</a> · <b>MHRA</b>, cấp phép Casgevy 16/11/2023.</li>
+    <li><b>Musunuru K, Ahrens-Nicklas RC và cộng sự (2025)</b>, "Patient-specific in vivo gene editing to treat a rare genetic disease", NEJM. <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2504747">nejm.org</a></li>
+    <li><b>MedlinePlus Genetics</b>, "What are the ethical issues surrounding gene therapy?". <a href="https://medlineplus.gov/genetics/understanding/therapy/ethics/">medlineplus.gov</a> · <b>ClinGen</b>, actionability report AC1046 (thiếu CPS1).</li>
+    <li>Nguồn thứ cấp: thông cáo Penn Medicine và CHOP 15/5/2025; NBC/AP và Philadelphia Inquirer 2025 (307 ngày); MIT Technology Review 12/1/2026; Reuters và AAFP (giá 2,2 triệu USD); AJMC, Hogan Lovells (dự thảo FDA 23/2/2026); MoFo, White &amp; Case (phán quyết 12/5/2025); The Scientist, ASU Embryo Project (Danisco, sữa chua).</li>
+  </ol>
+</section>
+
+<aside class="vtk-chia-se" aria-label="Chia sẻ bài này"><p>Thấy bài có ích? Gửi cho một người bạn</p><div><button type="button" data-chia-se data-url="https://markhocai.com/vu-tru-khac/gen-crispr.html" data-tieu-de="CRISPR: chiếc kéo mượn từ vi khuẩn" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Chia sẻ</button><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fvu-tru-khac%2Fgen-crispr.html" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg>Facebook</a><button type="button" data-chep-link="https://markhocai.com/vu-tru-khac/gen-crispr.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Chép link</button></div></aside>
+<footer>Gen và bệnh hiếm #09. Các hình là sơ đồ minh họa tự vẽ, không có ảnh người thật hay logo công ty; số liệu lấy từ bài báo gốc, thông cáo Nobel và quyết định của cơ quan quản lý, nguồn thứ cấp được ghi rõ, đối chiếu ở phần Kiểm chứng. Bài để đọc và hiểu, không thay lời khuyên của bác sĩ.</footer>
+</div>
+</main>
+<link rel="stylesheet" href="../assets/vu-tru-khac/doc.css?v=dev">
+<script src="../assets/vu-tru-khac/doc.js?v=dev" defer></script>
+</body>
+</html>
