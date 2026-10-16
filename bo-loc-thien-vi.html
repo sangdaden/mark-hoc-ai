@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tự dạy máy lọc hồ sơ: mô phỏng AI thiên vị (bias) | Mark học AI</title>
+<meta name="description" content="Mô phỏng miễn phí: tự dạy một máy lọc hồ sơ bằng 20 hồ sơ cũ, xem nó loại người giỏi vì giống dữ liệu năm ngoái, rồi thử sửa cho công bằng. Hiểu bias (thiên kiến) của AI trong 3 phút.">
+<link rel="canonical" href="https://markhocai.com/bo-loc-thien-vi.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/bo-loc-thien-vi.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/bo-loc-thien-vi.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/bo-loc-thien-vi.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tự dạy máy lọc hồ sơ: mô phỏng AI thiên vị (bias) | Mark học AI">
+<meta property="og:description" content="Mô phỏng miễn phí: tự dạy một máy lọc hồ sơ bằng 20 hồ sơ cũ, xem nó loại người giỏi vì giống dữ liệu năm ngoái, rồi thử sửa cho công bằng. Hiểu bias (thiên kiến) của AI trong 3 phút.">
+<meta property="og:url" content="https://markhocai.com/bo-loc-thien-vi.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Mô phỏng · 3 phút · chơi trên điện thoại</p>
+<h1>Tự dạy máy lọc hồ sơ</h1>
+<p class="lead">Cho máy học hồ sơ năm ngoái, xem nó chọn ai đi phỏng vấn, rồi tìm cách sửa khi nó thiên vị.</p>
+</div><img class="head-art" src="assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="tv" id="tv">
+<div class="tv-san" id="tv-san"></div>
+<section class="tv-ket" id="tv-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="tv-ket-so"></p><p class="ld-ket-hang">Người giỏi nhất bị loại</p><p class="ld-ket-phu" id="tv-ket-phu"></p></div></div>
+<h2 class="ld-ket-h">Ba điều rút ra</h2>
+<div class="tv-rut-ds"><div class="tv-rut"><span class="tv-so">1</span><b>Máy học lại cái lệch cũ</b><p>Dữ liệu năm ngoái lệch thì máy lệch theo, dù không ai dặn.</p></div><div class="tv-rut"><span class="tv-so">2</span><b>Giấu một ô là chưa đủ</b><p>Máy tìm ra dấu vết khác, như chữ “nữ” trong hồ sơ.</p></div><div class="tv-rut"><span class="tv-so">3</span><b>Dữ liệu sạch, người thật duyệt</b><p>Quyết định về con người: AI gợi ý, người chịu trách nhiệm.</p></div></div>
+<h2 class="ld-ket-h">Xem video của bài này</h2>
+<div class="ld-ket-video"><a class="ld-vid" id="tv-xem-video" href="bai/118-ai-thien-vi.html"><span class="ld-vid-so">#118</span><b>AI có thiên vị không? Bias trong AI đến từ đâu và cách giảm</b></a></div>
+<div class="cta"><button type="button" class="btn" id="tv-lai">Chơi lại</button></div>
+<div class="chia-se">
+<p class="chia-se-h">Thấy bài có ích? Gửi cho một người bạn</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/bo-loc-thien-vi.html" data-tieu-de="Tự dạy máy lọc hồ sơ: xem AI thiên vị ra sao" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-share"/></svg>Chia sẻ</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fbo-loc-thien-vi.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/bo-loc-thien-vi.html" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-link"/></svg>Chép link</button></div>
+</div>
+</section>
+<p class="ld-ghi">Công ty, tên người và hồ sơ đều là hư cấu. Máy trong trang là một mô hình học máy nhỏ chạy ngay trên trình duyệt của bạn, không gọi AI thật.
+Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.</p>
+<noscript><p>Mô phỏng cần JavaScript. Bạn vẫn có thể xem <a href="bai/118-ai-thien-vi.html">video AI cũng thiên vị</a>.</p></noscript>
+<script type="application/json" id="tv-du-lieu">{"ho_so_cu":[["Tuấn","nam",9,6,"robot",1],["Hùng","nam",8,5,"bong-da",1],["Dũng","nam",7,4,"co-vua",1],["Khoa","nam",7,2,"tieng-anh",1],["Phong","nam",6,5,"bong-da",1],["Sơn","nam",6,3,"nhiep-anh",1],["Hải","nam",5,4,"robot",1],["Trung","nam",5,2,"bong-da",1],["Lâm","nam",4,3,"tinh-nguyen",0],["Vinh","nam",6,1,"co-vua",1],["Thắng","nam",8,3,"bong-da",1],["Bình","nam",3,2,"nhiep-anh",0],["Kiên","nam",4,1,"bong-da",0],["Toàn","nam",2,1,"tieng-anh",0],["Nghĩa","nam",5,1,"robot",0],["Hương","nu",9,5,"co-vua-nu",0],["Mai","nu",8,4,"nu-ky-su",0],["Trang","nu",7,3,"tinh-nguyen",1],["Yến","nu",8,6,"bong-chuyen-nu",0],["Thảo","nu",6,2,"lap-trinh-nu",0]],"them":[["nu",9,4,1,1],["nu",8,3,1,1],["nu",7,5,0,1],["nu",6,2,1,1],["nu",5,3,1,0],["nu",4,2,0,0],["nu",3,1,1,0],["nu",7,1,1,1],["nu",8,6,1,1],["nu",6,4,0,1],["nu",5,2,1,0],["nu",2,2,1,0],["nu",9,2,0,1],["nu",7,3,1,1],["nu",4,4,1,0],["nu",3,3,0,0],["nam",9,3,0,1],["nam",7,2,0,1],["nam",6,4,0,1],["nam",5,5,0,0],["nam",4,3,0,0],["nam",3,2,0,0],["nam",5,1,0,0],["nam",2,4,0,0],["nam",8,5,0,1],["nam",6,1,0,1],["nam",4,2,0,0],["nam",3,4,0,0]],"ho_so_moi":[["Minh Anh","nu",9,4,"co-vua-nu"],["Thu Hà","nu",8,5,"nu-ky-su"],["Bảo Ngọc","nu",7,2,"tinh-nguyen"],["Khánh Linh","nu",5,1,"bong-chuyen-nu"],["Quốc Huy","nam",8,4,"robot"],["Đức Long","nam",6,3,"bong-da"],["Văn Tùng","nam",5,2,"co-vua"],["Hoàng Phúc","nam",4,1,"bong-da"]],"so_moi":4,"hoat_dong":{"co-vua-nu":{"chu":"Đội trưởng CLB cờ vua nữ","nu":true},"nu-ky-su":{"chu":"Thành viên Hội nữ kỹ sư trẻ","nu":true},"bong-chuyen-nu":{"chu":"CLB bóng chuyền nữ","nu":true},"lap-trinh-nu":{"chu":"Giải nhì cuộc thi lập trình nữ sinh","nu":true},"robot":{"chu":"CLB robot","nu":false},"bong-da":{"chu":"CLB bóng đá","nu":false},"co-vua":{"chu":"CLB cờ vua","nu":false},"tinh-nguyen":{"chu":"Tình nguyện mùa hè xanh","nu":false},"tieng-anh":{"chu":"CLB tiếng Anh","nu":false},"nhiep-anh":{"chu":"CLB nhiếp ảnh","nu":false}},"nhan":{"nam":"Nam","nu":"Nữ","ky_nang":"Kỹ năng","nam_kn":"năm kinh nghiệm","da_tuyen":"Đã tuyển","khong_tuyen":"Không tuyển","gioi":"Giỏi nhất","dac":{"kn":"Kỹ năng","exp":"Kinh nghiệm","nam":"Là nam","nu":"Có chữ “nữ” trong hồ sơ"},"da_giau":"đã giấu","ts_chu":"Thanh xanh: máy cộng điểm. Thanh đỏ: máy trừ điểm. Máy tự rút ra từ hồ sơ cũ, không ai dạy nó luật này.","nu_duoc_moi":"Nữ được mời phỏng vấn","gioi_bi_loai":"Người giỏi nhất bị loại","moi_pv":"Mời phỏng vấn","bi_loai":"Bị loại","cham_the":"Chạm vào một hồ sơ để xem máy cộng, trừ điểm vì sao.","vi_sao":"Máy chấm điểm như sau:","b1":"Hồ sơ năm ngoái","b1_lead":"Công ty Sao Mai (hư cấu) muốn có máy tự lọc hồ sơ. Họ đưa máy xem 20 hồ sơ năm ngoái và ai đã được tuyển. Năm ngoái, người tuyển dụng thường chọn nam.","nam_tuyen":"Nam được tuyển","nu_tuyen":"Nữ được tuyển","day_may":"Dạy máy học 20 hồ sơ này","b2":"Máy học được gì?","b2_lead":"Máy không được dặn phải thích nam. Nó chỉ tìm điểm chung của những người từng được tuyển. Giờ có 8 hồ sơ mới, máy chọn 4 người đi phỏng vấn.","moi_nop":"8 hồ sơ mới nộp","b2_bit":"Máy loại những người giỏi nhất, vì hồ sơ của họ không giống người được tuyển năm ngoái. AI không cố ý thiên vị, nó học lại đúng cái lệch có sẵn trong dữ liệu.","sua_may":"Thử sửa bộ lọc","b3":"Sửa bộ lọc","b3_lead":"Bật, tắt từng cách sửa. Máy học lại ngay và chọn lại 4 người. Mục tiêu: không bỏ sót người giỏi nhất.","hoi":"Đoán trước: chỉ cần giấu ô giới tính là máy hết thiên vị?","hoi_het":"Hết thiên vị","hoi_chua":"Chưa hết","hoi_dung":"Đoán đúng!","hoi_sai":"Chưa đúng!","hoi_giai":"Hồ sơ vẫn còn chữ như “CLB cờ vua nữ”. Máy học được chữ đó đi kèm với “không tuyển”, nên vẫn trừ điểm. Bật thử từng cách bên dưới để xem.","cong_an":"Giấu ô giới tính","cong_an_phu":"Máy không được thấy nam hay nữ","cong_xoa":"Xóa chữ lộ giới tính","cong_xoa_phu":"Bỏ chữ “nữ” trong tên câu lạc bộ, giải thưởng","cong_them":"Thêm 28 hồ sơ tuyển công bằng","cong_them_phu":"Hồ sơ 3 năm gần đây, tuyển theo năng lực","nx_goc":"Chưa sửa gì: máy vẫn học theo cái lệch năm ngoái.","nx_an":"Giấu ô giới tính chưa đủ: máy chuyển sang trừ điểm chữ “nữ” trong hồ sơ.","nx_xoa":"Xóa chữ “nữ” mà máy vẫn thấy ô giới tính, nên nó trừ thẳng vào đó.","nx_them":"Dữ liệu công bằng hơn giúp được một phần, nhưng cái lệch cũ vẫn còn kéo điểm.","nx_tot":"Máy giờ chọn theo kỹ năng và kinh nghiệm. Không bỏ sót người giỏi nào.","b4":"Sửa được rồi! Nhưng người thật vẫn phải xem lại.","b4_chu":"Ngoài đời, dấu vết giới tính, tuổi, quê quán nằm ở rất nhiều chỗ khó thấy. Với việc quyết định về con người như tuyển dụng hay cho vay, để AI gợi ý, còn người thật xem lại và chịu trách nhiệm.","xem_ket":"Xem kết quả","ket_phu":"Nữ được mời phỏng vấn: {a} → {b} người"},"p":""}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<script src="bo-loc-thien-vi.js?v=dev" defer></script>
+<script src="bai-viet.js?v=dev" defer></script>
+</body>
+</html>

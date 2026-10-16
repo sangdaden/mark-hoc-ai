@@ -1,4 +1,5 @@
 /* Trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html, en/): mỗi ca là một màn hình điện thoại giả lập.
+   Ca loại "bai-anh" (video 122) là bài đăng có ảnh; c.nut đổi chữ hai nút thành Ảnh AI / Ảnh thật.
    Dữ liệu: thẻ <script id="ld-du-lieu"> do scripts/tao_bai_viet.py tạo từ data/lua-dao.json.
    Người chơi chạm vào chỗ đáng ngờ (đánh dấu), rồi chọn Lừa đảo / Thật; sau đó hiện mọi dấu hiệu, lời giải và link video.
    Không lưu, không gửi gì ngoài vài sự kiện đếm (theo-doi.js). Chạy thử: ?do=thu, trạng thái ở window.__ld. */
@@ -73,7 +74,14 @@
     if (k.gio) dau.appendChild(el("span", "ld-gio", k.gio));
     if (loai === "quang-cao") dau.appendChild(el("span", "ld-tai-tro", N.tai_tro));
     dt.appendChild(dau);
-    if (k.anh) {
+    if (k.hinh) {
+      // Bài đăng có ảnh (ca ảnh AI, video 122): ảnh minh họa, dấu hiệu nằm ở thông tin nguồn gốc bên dưới
+      var khung = el("div", "ld-anh ld-anh-hinh");
+      var hinh = el("img");
+      hinh.src = D.p + k.hinh; hinh.alt = k.hinh_mo_ta || ""; hinh.width = 640; hinh.height = 360;
+      khung.appendChild(hinh);
+      dt.appendChild(khung);
+    } else if (k.anh) {
       var anh = el("div", "ld-anh");
       anh.appendChild(el("span", null, k.anh));
       dt.appendChild(anh);
@@ -106,7 +114,8 @@
     dem.setAttribute("aria-live", "polite");
     ben.appendChild(dem);
     var chon = el("div", "ld-chon");
-    [["lua", "🚩 " + N.lua], ["that", "✅ " + N.that]].forEach(function (x) {
+    var nhanCa = c.nut || {};
+    [["lua", (c.loai === "bai-anh" ? "🤖 " : "🚩 ") + (nhanCa.lua || N.lua)], ["that", (c.loai === "bai-anh" ? "📷 " : "✅ ") + (nhanCa.that || N.that)]].forEach(function (x) {
       var b = el("button", "btn ld-nut ld-nut-" + x[0], x[1]);
       b.type = "button";
       b.addEventListener("click", function () { tra(x[0]); });
@@ -145,7 +154,8 @@
     bit.alt = ""; bit.width = 64; bit.height = 64;
     ph.appendChild(bit);
     var chu = el("div");
-    chu.appendChild(el("b", "ld-ph-dau", (dung ? N.dung : N.sai) + " " + (c.dap_an === "lua" ? N.la_lua : N.la_that)));
+    var nhanCa = c.nut || {};
+    chu.appendChild(el("b", "ld-ph-dau", (dung ? N.dung : N.sai) + " " + (c.dap_an === "lua" ? nhanCa.la_lua || N.la_lua : nhanCa.la_that || N.la_that)));
     if (ds.length) {
       var ul = el("ul", "ld-ds-co");
       ds.forEach(function (k) {

@@ -1,5 +1,5 @@
 {
- "_ghi_chu": "Trò chơi 'Lừa đảo hay thật?' (lua-dao-hay-that.html, en/, lua-dao.js). Mỗi ca là một màn hình điện thoại giả lập. loai: goi | video | chat | sms | quang-cao | app. dap_an: lua | that. Mỗi dòng gồm các 'doan' (đoạn chữ); đoạn có 'co' là dấu hiệu, người chơi chạm vào để đánh dấu; giải thích nằm trong 'co' của ca. Mọi tên người, ngân hàng, trang, số điện thoại, đường link đều HƯ CẤU, không giả mạo tổ chức thật; link chỉ là chữ, không bấm được. Ca dựa trên video 14, 15, 108-112.",
+ "_ghi_chu": "Trò chơi 'Lừa đảo hay thật?' (lua-dao-hay-that.html, en/, lua-dao.js). Mỗi ca là một màn hình điện thoại giả lập. loai: goi | video | chat | sms | quang-cao | app | bai-anh (bài đăng có ảnh, khung.hinh là file ảnh). nut (không bắt buộc): đổi chữ hai nút và câu kết luận cho ca đó. dap_an: lua | that. Mỗi dòng gồm các 'doan' (đoạn chữ); đoạn có 'co' là dấu hiệu, người chơi chạm vào để đánh dấu; giải thích nằm trong 'co' của ca. Mọi tên người, ngân hàng, trang, số điện thoại, đường link đều HƯ CẤU, không giả mạo tổ chức thật; link chỉ là chữ, không bấm được. Ca dựa trên video 14, 15, 108-112.",
  "ca": [
   {
    "id": "goi-nua-dem", "video": 108, "dap_an": "lua", "loai": "goi",
@@ -53,6 +53,35 @@
    "giai": {"vi": "Deepfake chạy được ngay trong cuộc gọi video. Thấy mặt chưa chắc là thật: gọi lại vào số điện thoại đã lưu hoặc hỏi một người quen chung.", "en": "Deepfakes can run live inside a video call. Seeing a face isn't proof: call the saved phone number or ask a mutual friend."}
   },
   {
+   "id": "anh-ca-sau", "video": 122, "dap_an": "lua", "loai": "bai-anh",
+   "nut": {"lua": {"vi": "Ảnh AI / giả", "en": "AI / fake"}, "that": {"vi": "Ảnh thật", "en": "Real photo"}, "la_lua": {"vi": "Đây là ảnh AI hoặc ảnh giả.", "en": "This image is AI-made or fake."}, "la_that": {"vi": "Đây là ảnh thật.", "en": "This is a real photo."}},
+   "khung": {"ten": {"vi": "Tin Nóng Mỗi Phút", "en": "Breaking Every Minute"}, "phu": {"vi": "Trang lập 2 ngày trước · 14 phút", "en": "Page created 2 days ago · 14 min"}, "gio": "", "hinh": "assets/lua-dao/ca-sau-pho-ngap.svg", "hinh_mo_ta": {"vi": "Ảnh cá sấu bơi giữa phố ngập", "en": "Photo of a crocodile swimming down a flooded street"}},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "NÓNG: cá sấu xổng chuồng bơi giữa phố ngập sáng nay!!! ", "en": "BREAKING: escaped crocodile swimming down a flooded street this morning!!! "},
+     {"vi": "Chia sẻ gấp để mọi người tránh!", "en": "Share NOW so people stay away!", "co": "gap"},
+     {"vi": " Ảnh: người dân gửi.", "en": " Photo: sent in by a reader.", "co": "khong-nguon"}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Bạn bấm Content Credentials: ", "en": "You tap Content Credentials: "},
+     {"vi": "“Tạo bằng công cụ AI tạo ảnh”.", "en": "“Made with an AI image generator”.", "co": "c2pa"}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Tìm ảnh bằng hình: ", "en": "Reverse image search: "},
+     {"vi": "không báo nào đăng, ảnh xuất hiện lần đầu trên chính trang này.", "en": "no news site has it; it first appeared on this very page.", "co": "tim-nguoc"}
+    ]}
+   ],
+   "co": {
+    "trang-moi": {"vi": "Trang mới lập, tên chung chung, không phải cơ quan báo chí.", "en": "A brand-new page with a generic name, not a news outlet."},
+    "gap": {"vi": "Giục chia sẻ gấp trước khi kịp kiểm tra.", "en": "Pushes you to share before you can check."},
+    "khong-nguon": {"vi": "Không ghi ai chụp, chụp ở đâu.", "en": "No photographer, no location."},
+    "c2pa": {"vi": "Thông tin nguồn gốc (C2PA) ghi rõ ảnh do AI tạo.", "en": "The provenance info (C2PA) says it was AI-made."},
+    "tim-nguoc": {"vi": "Tìm ngược không thấy nguồn đáng tin nào.", "en": "Reverse search finds no trustworthy source."}
+   },
+   "co_khung": "trang-moi",
+   "giai": {"vi": "Nhiều công cụ AI giờ gắn watermark và thông tin nguồn gốc C2PA vào ảnh. Bấm Content Credentials nếu có, rồi làm ba bước: tìm ngược ảnh, xem ai đăng đầu tiên, đối chiếu với báo chính thống.", "en": "Many AI tools now add a watermark and C2PA provenance info to images. Tap Content Credentials if it's there, then do three checks: reverse image search, see who posted first, and compare with established news outlets."}
+  },
+  {
    "id": "quang-cao-dau-tu", "video": 110, "dap_an": "lua", "loai": "quang-cao",
    "khung": {"ten": {"vi": "Đầu Tư Thông Minh 247", "en": "Smart Invest 247"}, "phu": {"vi": "Được tài trợ · trang lập 3 ngày trước", "en": "Sponsored · page created 3 days ago"}, "gio": "", "anh": {"vi": "LÃI 30%/THÁNG", "en": "30% A MONTH"}},
    "dong": [
@@ -101,6 +130,27 @@
    ],
    "co": {},
    "giai": {"vi": "Thông báo nằm ngay trong ứng dụng bạn tự mở, không có link, không đòi mã, không bảo làm gì thêm. Đây là cách kiểm tra an toàn nhất.", "en": "The notice is inside the app you opened yourself: no link, no code, nothing to do. That's the safest way to check."}
+  },
+  {
+   "id": "anh-chay-cho", "video": 122, "dap_an": "that", "loai": "bai-anh",
+   "nut": {"lua": {"vi": "Ảnh AI / giả", "en": "AI / fake"}, "that": {"vi": "Ảnh thật", "en": "Real photo"}, "la_lua": {"vi": "Đây là ảnh AI hoặc ảnh giả.", "en": "This image is AI-made or fake."}, "la_that": {"vi": "Đây là ảnh thật.", "en": "This is a real photo."}},
+   "khung": {"ten": {"vi": "Nhật báo Sông Xanh", "en": "The Blue River Daily"}, "phu": {"vi": "Trang chính thức · 1 giờ", "en": "Official page · 1 h"}, "gio": "", "hinh": "assets/lua-dao/chay-cho.svg", "hinh_mo_ta": {"vi": "Ảnh xe cứu hỏa dập lửa ở dãy ki-ốt chợ", "en": "Photo of a fire truck fighting a fire at market stalls"}},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Cháy dãy ki-ốt chợ Bình Minh lúc 3 giờ sáng, không có thương vong. ", "en": "Fire at Dawn Market stalls at 3 a.m., no injuries. "},
+     {"vi": "Ảnh: phóng viên Lê Hạnh.", "en": "Photo: reporter Le Hanh."}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Bạn bấm Content Credentials: ", "en": "You tap Content Credentials: "},
+     {"vi": "“Chụp bằng máy ảnh, 03:12 ngày 12/10, chỉ chỉnh sáng tối”.", "en": "“Taken with a camera, 03:12 on 12 Oct, brightness edit only”."}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Tìm ảnh bằng hình: ", "en": "Reverse image search: "},
+     {"vi": "xuất hiện đầu tiên trên trang của báo, các trang khác đăng lại có ghi nguồn.", "en": "first appeared on the paper's site; others reposted it with credit."}
+    ]}
+   ],
+   "co": {},
+   "giai": {"vi": "Có tên người chụp, thông tin nguồn gốc ghi chụp bằng máy ảnh, và ảnh xuất hiện đầu tiên ở trang báo. Ba bước kiểm tra đều khớp. Biết kiểm tra rồi thì cũng không cần nghi mọi bức ảnh.", "en": "A named photographer, provenance saying it came from a camera, and the paper posted it first. All three checks line up. Once you know how to check, you don't need to doubt every photo."}
   },
   {
    "id": "zalo-hoan-tien", "video": 111, "dap_an": "lua", "loai": "chat",
@@ -166,6 +216,34 @@
     "otp": {"vi": "Đòi mã OTP.", "en": "Asks for the OTP."}
    },
    "giai": {"vi": "Chữ \"AI\" không làm một trang web đáng tin hơn. Mật khẩu, OTP, số thẻ, số căn cước thì không đưa cho bất kỳ AI hay trang lạ nào.", "en": "The word \"AI\" doesn't make a site more trustworthy. Never give passwords, OTPs, card or ID numbers to any AI or unknown site."}
+  },
+  {
+   "id": "anh-ve-tinh-bao", "video": 122, "dap_an": "lua", "loai": "bai-anh",
+   "nut": {"lua": {"vi": "Ảnh AI / giả", "en": "AI / fake"}, "that": {"vi": "Ảnh thật", "en": "Real photo"}, "la_lua": {"vi": "Đây là ảnh AI hoặc ảnh giả.", "en": "This image is AI-made or fake."}, "la_that": {"vi": "Đây là ảnh thật.", "en": "This is a real photo."}},
+   "khung": {"ten": {"vi": "Nhóm Hóng Tin Thời Tiết", "en": "Weather Gossip Group"}, "phu": {"vi": "Thành viên đăng lại · 3 giờ", "en": "Reposted by a member · 3 h"}, "gio": "", "hinh": "assets/lua-dao/ve-tinh-bao.svg", "hinh_mo_ta": {"vi": "Ảnh chụp màn hình ảnh vệ tinh một cơn bão khổng lồ", "en": "Screenshot of a satellite image of a huge storm"}},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Ảnh vệ tinh mới nhất: siêu bão lớn chưa từng thấy sắp đổ bộ! ", "en": "Latest satellite image: a record superstorm is about to hit! ", "co": "chua-tung"},
+     {"vi": "Không có nhãn AI nên chắc chắn là thật nhé mọi người.", "en": "There's no AI label, so it's definitely real, everyone.", "co": "khong-nhan"}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Bạn bấm Content Credentials: ", "en": "You tap Content Credentials: "},
+     {"vi": "không có thông tin (ảnh chụp màn hình).", "en": "no info (it's a screenshot).", "co": "chup-man-hinh"}
+    ]},
+    {"tu": "he-thong", "doan": [
+     {"vi": "Tìm ảnh bằng hình: ", "en": "Reverse image search: "},
+     {"vi": "bản gốc là ảnh minh họa đăng trên một trang ảnh, ghi “tạo bằng AI”.", "en": "the original is an illustration on a stock image site, labelled “AI-generated”.", "co": "tim-nguoc"}
+    ]}
+   ],
+   "co": {
+    "dang-lai": {"vi": "Ảnh đăng lại, không rõ ai đăng đầu tiên.", "en": "A repost; nobody knows who posted it first."},
+    "chua-tung": {"vi": "Lời lẽ giật gân, “chưa từng thấy”.", "en": "Sensational wording: “record”, “never seen”."},
+    "khong-nhan": {"vi": "Không có nhãn AI chưa chắc là ảnh thật.", "en": "No AI label doesn't mean it's real."},
+    "chup-man-hinh": {"vi": "Chụp màn hình làm mất watermark và thông tin nguồn gốc.", "en": "Screenshots strip watermarks and provenance info."},
+    "tim-nguoc": {"vi": "Tìm ngược ra bản gốc có ghi rõ là ảnh AI.", "en": "Reverse search finds the original, clearly labelled as AI."}
+   },
+   "co_khung": "dang-lai",
+   "giai": {"vi": "Dấu chìm và thông tin nguồn gốc có thể mất khi cắt ảnh, chụp lại màn hình hay đăng lại. Với tin thời tiết, xem trang chính thức của cơ quan khí tượng thay vì ảnh lan truyền.", "en": "Watermarks and provenance info can be lost when an image is cropped, screenshotted or reposted. For weather news, check the official weather service instead of viral images."}
   }
  ]
 }

@@ -593,12 +593,13 @@ def than_bai(v, muc_nd, thu_mo_ta, prompt, p, q):
 
 # Bài của video có ca trong trò chơi "Lừa đảo hay thật?" (data/lua-dao.json) có thêm thẻ mời chơi
 VIDEO_LUA_DAO = {c["video"] for c in load("lua-dao")["ca"]}
+SO_CA_LUA_DAO = len(load("lua-dao")["ca"])
 
 def the_lua_dao(so, q):
     if so not in VIDEO_LUA_DAO:
         return ""
     return (f'<a class="next-step next-step-ld" href="{q}lua-dao-hay-that.html"><b>{t("Lừa đảo hay thật?", "Scam or real?")}</b>'
-            f'<span>{t("Thử nhận ra chiêu lừa trong 10 tình huống trên điện thoại.", "Spot the tricks in 10 phone situations.")}</span></a>\n')
+            f'<span>{t(f"Thử nhận ra chiêu lừa trong {SO_CA_LUA_DAO} tình huống trên điện thoại.", f"Spot the tricks in {SO_CA_LUA_DAO} phone situations.")}</span></a>\n')
 
 # Bài của video về câu lệnh (data/ghep-cau-lenh.json, "video_lien_quan") có thêm thẻ mời chơi "Thợ ghép câu lệnh"
 VIDEO_GHEP = set(load("ghep-cau-lenh")["video_lien_quan"])
@@ -612,6 +613,8 @@ def the_ghep(so, q):
 # Thẻ "Tương tác" (giống nhãn Tương tác bên Vũ Trụ Khác): video nào có trò chơi trên web. Khoá là số video dạng chữ ("108", "5.1").
 # Dùng cho dòng thẻ dưới tiêu đề trang bài, và ghi ra data/tuong-tac.json để trang chủ (app.js) gắn nhãn lên thẻ series và từng video.
 TRO_CHOI_WEB = [
+    ("cuoc-goi-gia-giong.html", ("Cuộc gọi giả giọng", "The fake-voice call"), {str(x) for x in load("cuoc-goi")["video_lien_quan"]},
+     ("Người thân khóc xin tiền qua điện thoại. Bạn chọn từng câu đáp, rồi đặt mật khẩu gia đình.", "A crying relative calls asking for money. Pick each reply, then make a family safe word."), "goi"),
     ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO},
      ("Đọc tin nhắn, nghe cuộc gọi, rồi đoán: thật hay lừa đảo?", "Read the message, hear the call, then guess: real or scam?"), "lua-dao"),
     ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP},
@@ -625,14 +628,26 @@ TRO_CHOI_WEB = [
      ("Bấm từng chữ AI gợi ý, tự tay viết một câu theo cách AI viết.", "Click the words the AI suggests and write a sentence the way an AI does."), "doan-chu"),
     ("phong-thi-nghiem-bo-nao.html?tram=vong-quay", ("Vòng quay nhiệt độ", "Temperature wheel"), {"24"},
      ("Kéo nhiệt độ, quay vòng và xem vì sao hỏi hai lần ra hai câu khác nhau.", "Drag the temperature, spin, and see why asking twice gives two answers."), "vong-quay"),
+    ("bo-loc-thien-vi.html", ("Tự dạy máy lọc hồ sơ", "Train a CV filter"), set(load("bo-loc-thien-vi")["video_lien_quan"]),
+     ("Cho máy học hồ sơ năm ngoái, xem nó loại người giỏi, rồi tìm cách sửa.", "Train it on last year's CVs, watch it reject top people, then fix it."), "thien-vi"),
+    ("dan-hay-khong.html", ("Dán hay không dán?", "Paste or don't paste?"), set(load("dan-hay-khong")["video_lien_quan"]),
+     ("Bảng lương, mã OTP, hợp đồng: thứ nào dán vào chatbot được, thứ nào phải che?", "Payroll, OTP codes, contracts: what can go into a chatbot, and what needs masking?"), "dan"),
+    ("may-tinh-doi-that.html", ("Máy tính đời thật", "Real-life calculators"), {str(so) for m in load("may-tinh")["may"] for so in m["video"]},
+     ("Đổi con số của chính bạn, xem kết quả, công thức và nguồn ngay trên trang.", "Plug in your own numbers and see the result, the formula and the source."), "may-tinh"),
 ]
+# Trang có nhiều phần (Máy tính đời thật): bài của mỗi video mở thẳng đúng phần của nó (?may=<id>)
+DUONG_THEO_VIDEO = {("may-tinh-doi-that.html", str(so)): f"?may={m['id']}" for m in load("may-tinh")["may"] for so in m["video"]}
 TUONG_TAC = {}
 for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
     for _so in _ds:
-        TUONG_TAC.setdefault(_so, []).append((_url, _ten, _moi, _hinh))
+        TUONG_TAC.setdefault(_so, []).append((_url + DUONG_THEO_VIDEO.get((_url, _so), ""), _ten, _moi, _hinh))
 
 # Hình xem trước nhỏ trên thẻ "Chơi thử" (HTML + CSS, không ảnh): người xem nhìn là biết trò chơi làm gì
 def hinh_choi(hinh):
+    if hinh == "goi":
+        return (f'<span class="ct-hinh ct-goi" aria-hidden="true"><span class="ct-goi-av">M</span><b>{t("Số không lưu", "Unknown number")}</b>'
+                f'<span class="ct-goi-noi">{t("“Mẹ ơi cứu con…”", "“Mom, help me…”")}</span>'
+                f'<span class="ct-chon"><span class="ct-gia">{t("Từ chối", "Decline")}</span><span>{t("Nghe", "Answer")}</span></span></span>')
     if hinh == "ghep":
         manh = [("vai", t("Vai trò", "Role")), ("boi", t("Bối cảnh", "Context")), ("viec", t("Nhiệm vụ", "Task")), ("dang", t("Định dạng", "Format"))]
         return ('<span class="ct-hinh ct-ghep" aria-hidden="true">' + "".join(f'<span class="ct-manh ct-{k}">{ten}</span>' for k, ten in manh) +
@@ -650,6 +665,16 @@ def hinh_choi(hinh):
                 '</span></span>')
     if hinh == "vong-quay":
         return (f'<span class="ct-hinh ct-vq" aria-hidden="true"><span class="ct-banh"></span><span class="ct-nhiet">{t("Nhiệt độ", "Temperature")} <b>0.7</b></span></span>')
+    if hinh == "thien-vi":
+        hs = [("is-tuyen", "✓"), ("is-tuyen", "✓"), ("is-loai", "✗"), ("is-loai", "✗")]
+        return ('<span class="ct-hinh ct-tv" aria-hidden="true">' + "".join(f'<span class="ct-hs {c}"><i></i><i></i><b>{k}</b></span>' for c, k in hs) +
+                f'<span class="ct-tv-can">{t("Máy lọc", "Filter")} ⚖️</span></span>')
+    if hinh == "dan":
+        return (f'<span class="ct-hinh ct-dk" aria-hidden="true"><span class="ct-tin">{t("Mã OTP của bạn là 482 913…", "Your OTP is 482 913…")}</span>'
+                f'<span class="ct-chon"><span>{t("Dán", "Paste")}</span><span class="ct-che">{t("Che", "Mask")}</span><span class="ct-gia">{t("Đừng", "Don&#39;t")}</span></span></span>')
+    if hinh == "may-tinh":
+        return (f'<span class="ct-hinh ct-mt" aria-hidden="true"><span class="ct-mt-o"><small>{t("Quảng cáo", "Advertised")}</small>12%</span>'
+                f'<span class="ct-mt-o ct-mt-that"><small>{t("Lãi thật", "Real rate")}</small>{t("21,5%", "21.5%")}</span><span class="ct-mt-f">= f(x)</span></span>')
     return ('<span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span>'
             '<span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span>')
 
@@ -1631,6 +1656,7 @@ def tao_lua_dao():
                    "khung": {k: chu(x) for k, x in c["khung"].items()},
                    "dong": [{"tu": d["tu"], "doan": [{"chu": chu(x), "co": x.get("co", "")} for x in d["doan"]]} for d in c["dong"]],
                    "co": {k: chu(x) for k, x in c["co"].items()}, "giai": chu(c["giai"]),
+                   **({"nut": {k: chu(x) for k, x in c["nut"].items()}} if c.get("nut") else {}),
                    "video": {"so": v["so"], "ten": seo[str(v["so"])], "url": f"bai/{ten_file(v)}.html"}})
     nhan = {
         "ca": t("Ca", "Case"), "diem": t("Điểm", "Score"), "huong": t("Chạm vào những chỗ bạn thấy đáng ngờ, rồi chọn.", "Tap anything that looks suspicious, then decide."),
@@ -1640,14 +1666,14 @@ def tao_lua_dao():
         "nham": t("Chỗ này bình thường", "This part is fine"), "xem_video": t("Xem video", "Watch video"), "tiep": t("Ca tiếp theo", "Next case"), "xem_ket": t("Xem kết quả", "See your result"),
         "goi_den": t("Cuộc gọi đến", "Incoming call"), "goi_video": t("Cuộc gọi video", "Video call"), "nguoi_goi": t("Người gọi nói", "The caller says"),
         "tai_tro": t("Quảng cáo", "Ad"), "ban": t("Bạn", "You"),
-        "hang": [[9, t("Thám tử chống lừa", "Scam detective")], [7, t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
+        "hang": [[round(len(D["ca"]) * .9), t("Thám tử chống lừa", "Scam detective")], [round(len(D["ca"]) * .7), t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
         "dau_hieu": t("dấu hiệu", "signs"), "on_lai": t("Ôn lại các video bạn trả lời sai", "Rewatch the videos for the cases you missed"), "het_sai": t("Bạn không sai ca nào. Gửi trò này cho bố mẹ thử xem!", "You got every case right. Send this to your parents to try!"),
         "choi_lai": t("Chơi lại", "Play again"),
     }
     du_lieu = json.dumps({"ca": ca, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     so_ca, so_lua = len(ca), sum(c["dap_an"] == "lua" for c in ca)
-    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống giả lập trên điện thoại, cuộc gọi giả giọng người thân, gọi video deepfake, tin nhắn ngân hàng giả, quảng cáo đầu tư. Bạn nhận ra đâu là lừa đảo, đâu là thật?",
-             f"Free game: {so_ca} simulated phone situations, cloned-voice calls, deepfake video calls, fake bank texts and investment ads. Can you tell the scams from the real ones?")
+    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống giả lập trên điện thoại, cuộc gọi giả giọng người thân, gọi video deepfake, tin nhắn ngân hàng giả, quảng cáo đầu tư, ảnh tin nóng do AI tạo. Bạn nhận ra đâu là lừa đảo, đâu là thật?",
+             f"Free game: {so_ca} simulated phone situations, cloned-voice calls, deepfake video calls, fake bank texts, investment ads and AI-made news photos. Can you tell the fakes from the real ones?")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 3 phút · chơi trên điện thoại", "Game · 3 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Lừa đảo hay thật?", "Scam or real?")}</h1>\n'
             f'<p class="lead">{t(f"{so_ca} tình huống trên điện thoại. Chạm vào chỗ đáng ngờ, rồi chọn Lừa đảo hay Thật. Mỗi ca có Bit giải thích và video để xem lại.", f"{so_ca} situations on a phone screen. Tap what looks suspicious, then pick Scam or Real. Bit explains each case and links the video.")}</p>\n'
@@ -1699,16 +1725,16 @@ def tao_ghep_cau_lenh():
         "canh_bao": t("Câu lệnh có dữ liệu riêng tư. Đừng dán thứ này vào AI thật.", "This prompt contains private data. Don't paste this into a real AI."),
         "canh_bao_nguy": t("Việc này cần người thật, AI chỉ nên giúp bạn chuẩn bị câu hỏi.", "This needs a real person; AI should only help you prepare questions."),
         "trong": t("Chưa có mảnh nào. Gửi thử câu gốc cũng được, để xem AI trả lời ra sao.", "No pieces yet. You can send the bare line to see what happens."),
-        "hang": [[18, t("Thợ ghép bậc thầy", "Master prompt builder")], [12, t("Thợ ghép lành nghề", "Skilled prompt builder")], [0, t("Thợ học việc", "Apprentice prompt builder")]],
+        "hang": [[round(len(viec) * 18 / 7), t("Thợ ghép bậc thầy", "Master prompt builder")], [round(len(viec) * 12 / 7), t("Thợ ghép lành nghề", "Skilled prompt builder")], [0, t("Thợ học việc", "Apprentice prompt builder")]],
         "mau_h": t("Mẫu câu lệnh để dùng mãi", "A prompt template to keep"), "mau_lead": t("Gom mọi mảnh vào một mẫu có chỗ trống. Lần tới nhờ AI, chỉ cần điền vào.", "All the pieces in one fill-in template. Next time you ask an AI, just fill in the blanks."),
         "on_lai": t("Xem lại video cho những việc chưa được 3 sao", "Rewatch the videos for tasks under 3 stars"), "het": t("Bạn được 3 sao mọi việc. Thử dùng mẫu bên dưới cho việc thật của bạn!", "Three stars on every task. Try the template below on a real task!"),
         "choi_lai": t("Chơi lại", "Play again"), "phu": t("Mảnh bỏ đúng", "Traps avoided"),
     }
     du_lieu = json.dumps({"viec": viec, "loai": loai, "mau": mau, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     so_viec = len(viec)
-    desc = t(f"Trò chơi miễn phí: {so_viec} việc nhờ AI, từ bài đăng bán hàng tới email xin nghỉ phép. Ghép vai trò, bối cảnh, ví dụ, định dạng vào câu lệnh và xem câu trả lời của AI tốt lên ra sao.",
-             f"Free game: {so_viec} everyday AI tasks, from a sales post to a leave request. Snap role, context, examples and format into your prompt and watch the AI answer get better.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 5 phút · chơi trên điện thoại", "Game · 5 minutes · works on your phone")}</p>\n'
+    desc = t(f"Trò chơi miễn phí: {so_viec} việc nhờ AI, từ bài đăng bán hàng tới báo cáo tuần. Ghép vai trò, bối cảnh, ví dụ, định dạng vào câu lệnh và xem câu trả lời của AI tốt lên ra sao.",
+             f"Free game: {so_viec} everyday AI tasks, from a sales post to a weekly report. Snap role, context, examples and format into your prompt and watch the AI answer get better.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 10 phút · chơi trên điện thoại", "Game · 10 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Thợ ghép câu lệnh", "Prompt builder")}</h1>\n'
             f'<p class="lead">{t(f"{so_viec} việc hằng ngày, mỗi việc bắt đầu bằng một câu lệnh mơ hồ. Ghép thêm mảnh, gửi cho AI, xem câu trả lời đổi ra sao. Cẩn thận vài mảnh bẫy!", f"{so_viec} everyday tasks, each starting with a vague prompt. Add pieces, send it to the AI and see how the answer changes. Watch out for a few trap pieces!")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
@@ -1843,6 +1869,325 @@ def tao_bo_nao():
             f'<noscript><p>{t("Phòng thí nghiệm cần JavaScript.", "The lab needs JavaScript.")}</p></noscript>\n</div>\n</main>')
     return GOC + "phong-thi-nghiem-bo-nao.html", trang("phong-thi-nghiem-bo-nao.html", f"{tieu} | {SITE}", desc, band, main, p, og_type="website", q="",
                                                        cuoi=f'<script src="{p}bo-nao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+# ---------- mô phỏng "Tự dạy máy lọc hồ sơ" (bo-loc-thien-vi.html): video 118 "AI cũng thiên vị" ----------
+# Hồ sơ hư cấu ở data/bo-loc-thien-vi.json, máy học (hồi quy logistic nhỏ) và cách chơi ở bo-loc-thien-vi.js.
+def tao_bo_loc():
+    p = t("", "../")
+    D = load("bo-loc-thien-vi")
+    L = LG
+    v = co_bai[118]
+    hd = {k: {"chu": x[L], "nu": x["nu"]} for k, x in D["hoat_dong"].items()}
+    nhan = {
+        "nam": t("Nam", "Male"), "nu": t("Nữ", "Female"), "ky_nang": t("Kỹ năng", "Skills"), "nam_kn": t("năm kinh nghiệm", "years of experience"),
+        "da_tuyen": t("Đã tuyển", "Hired"), "khong_tuyen": t("Không tuyển", "Rejected"), "gioi": t("Giỏi nhất", "Top talent"),
+        "dac": {"kn": t("Kỹ năng", "Skills"), "exp": t("Kinh nghiệm", "Experience"), "nam": t("Là nam", "Is male"), "nu": t("Có chữ “nữ” trong hồ sơ", "Says “women's” on the CV")},
+        "da_giau": t("đã giấu", "hidden"),
+        "ts_chu": t("Thanh xanh: máy cộng điểm. Thanh đỏ: máy trừ điểm. Máy tự rút ra từ hồ sơ cũ, không ai dạy nó luật này.", "Green bar: the machine adds points. Red bar: it takes points away. It worked this out from the old CVs; nobody wrote these rules."),
+        "nu_duoc_moi": t("Nữ được mời phỏng vấn", "Women invited to interview"), "gioi_bi_loai": t("Người giỏi nhất bị loại", "Top candidates rejected"),
+        "moi_pv": t("Mời phỏng vấn", "Invite to interview"), "bi_loai": t("Bị loại", "Rejected"),
+        "cham_the": t("Chạm vào một hồ sơ để xem máy cộng, trừ điểm vì sao.", "Tap a CV to see why the machine added or took away points."),
+        "vi_sao": t("Máy chấm điểm như sau:", "How the machine scored it:"),
+        "b1": t("Hồ sơ năm ngoái", "Last year's CVs"),
+        "b1_lead": t("Công ty Sao Mai (hư cấu) muốn có máy tự lọc hồ sơ. Họ đưa máy xem 20 hồ sơ năm ngoái và ai đã được tuyển. Năm ngoái, người tuyển dụng thường chọn nam.",
+                     "Sao Mai Ltd. (made up) wants a machine to screen CVs. It shows the machine 20 CVs from last year and who got hired. Last year, the recruiters mostly picked men."),
+        "nam_tuyen": t("Nam được tuyển", "Men hired"), "nu_tuyen": t("Nữ được tuyển", "Women hired"),
+        "day_may": t("Dạy máy học 20 hồ sơ này", "Train the machine on these 20 CVs"),
+        "b2": t("Máy học được gì?", "What did the machine learn?"),
+        "b2_lead": t("Máy không được dặn phải thích nam. Nó chỉ tìm điểm chung của những người từng được tuyển. Giờ có 8 hồ sơ mới, máy chọn 4 người đi phỏng vấn.",
+                     "Nobody told the machine to prefer men. It just looked for what past hires had in common. Now 8 new CVs arrive and it picks 4 people to interview."),
+        "moi_nop": t("8 hồ sơ mới nộp", "8 new applications"),
+        "b2_bit": t("Máy loại những người giỏi nhất, vì hồ sơ của họ không giống người được tuyển năm ngoái. AI không cố ý thiên vị, nó học lại đúng cái lệch có sẵn trong dữ liệu.",
+                    "The machine rejected some of the strongest people because their CVs don't look like last year's hires. AI isn't biased on purpose; it copies the skew already in the data."),
+        "sua_may": t("Thử sửa bộ lọc", "Try to fix the filter"),
+        "b3": t("Sửa bộ lọc", "Fix the filter"),
+        "b3_lead": t("Bật, tắt từng cách sửa. Máy học lại ngay và chọn lại 4 người. Mục tiêu: không bỏ sót người giỏi nhất.",
+                     "Switch each fix on or off. The machine retrains instantly and picks 4 people again. Goal: don't miss the top candidates."),
+        "hoi": t("Đoán trước: chỉ cần giấu ô giới tính là máy hết thiên vị?", "Guess first: does hiding the gender box make the machine fair?"),
+        "hoi_het": t("Hết thiên vị", "Yes, it's fair"), "hoi_chua": t("Chưa hết", "Not yet"),
+        "hoi_dung": t("Đoán đúng!", "Good call!"), "hoi_sai": t("Chưa đúng!", "Not quite!"),
+        "hoi_giai": t("Hồ sơ vẫn còn chữ như “CLB cờ vua nữ”. Máy học được chữ đó đi kèm với “không tuyển”, nên vẫn trừ điểm. Bật thử từng cách bên dưới để xem.",
+                      "CVs still say things like “women's chess club”. The machine learned that word goes with “not hired”, so it still takes points off. Try each fix below."),
+        "cong_an": t("Giấu ô giới tính", "Hide the gender box"), "cong_an_phu": t("Máy không được thấy nam hay nữ", "The machine can't see male or female"),
+        "cong_xoa": t("Xóa chữ lộ giới tính", "Remove gender giveaways"), "cong_xoa_phu": t("Bỏ chữ “nữ” trong tên câu lạc bộ, giải thưởng", "Strip “women's” from clubs and awards"),
+        "cong_them": t("Thêm 28 hồ sơ tuyển công bằng", "Add 28 fairly hired CVs"), "cong_them_phu": t("Hồ sơ 3 năm gần đây, tuyển theo năng lực", "From the last 3 years, hired on skill"),
+        "nx_goc": t("Chưa sửa gì: máy vẫn học theo cái lệch năm ngoái.", "No fix yet: the machine still copies last year's skew."),
+        "nx_an": t("Giấu ô giới tính chưa đủ: máy chuyển sang trừ điểm chữ “nữ” trong hồ sơ.", "Hiding gender isn't enough: the machine now punishes the word “women's” instead."),
+        "nx_xoa": t("Xóa chữ “nữ” mà máy vẫn thấy ô giới tính, nên nó trừ thẳng vào đó.", "The word is gone, but the machine can still see the gender box, so it punishes that directly."),
+        "nx_them": t("Dữ liệu công bằng hơn giúp được một phần, nhưng cái lệch cũ vẫn còn kéo điểm.", "Fairer data helps, but the old skew still drags scores down."),
+        "nx_tot": t("Máy giờ chọn theo kỹ năng và kinh nghiệm. Không bỏ sót người giỏi nào.", "The machine now picks on skills and experience. No top candidate missed."),
+        "b4": t("Sửa được rồi! Nhưng người thật vẫn phải xem lại.", "Fixed! But a real person still needs to check."),
+        "b4_chu": t("Ngoài đời, dấu vết giới tính, tuổi, quê quán nằm ở rất nhiều chỗ khó thấy. Với việc quyết định về con người như tuyển dụng hay cho vay, để AI gợi ý, còn người thật xem lại và chịu trách nhiệm.",
+                    "In real life, clues about gender, age or hometown hide in many places. For decisions about people, like hiring or loans, let AI suggest and have a real person review and take responsibility."),
+        "xem_ket": t("Xem kết quả", "See your result"),
+        "ket_phu": t("Nữ được mời phỏng vấn: {a} → {b} người", "Women invited to interview: {a} → {b}"),
+    }
+    du_lieu = json.dumps({"ho_so_cu": D["ho_so_cu"], "them": D["them"], "ho_so_moi": D["ho_so_moi"], "so_moi": D["so_moi"], "hoat_dong": hd, "nhan": nhan, "p": p},
+                         ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    desc = t("Mô phỏng miễn phí: tự dạy một máy lọc hồ sơ bằng 20 hồ sơ cũ, xem nó loại người giỏi vì giống dữ liệu năm ngoái, rồi thử sửa cho công bằng. Hiểu bias (thiên kiến) của AI trong 3 phút.",
+             "Free simulation: train a CV-screening machine on 20 old CVs, watch it reject strong candidates because they don't match last year's hires, then try to make it fair. Understand AI bias in 3 minutes.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Mô phỏng · 3 phút · chơi trên điện thoại", "Simulation · 3 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Tự dạy máy lọc hồ sơ", "Train a CV filter")}</h1>\n'
+            f'<p class="lead">{t("Cho máy học hồ sơ năm ngoái, xem nó chọn ai đi phỏng vấn, rồi tìm cách sửa khi nó thiên vị.", "Teach a machine with last year&#39;s CVs, see who it picks for interviews, then find a way to fix it when it turns out biased.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+    rut = [("1", t("Máy học lại cái lệch cũ", "It copies the old skew"), t("Dữ liệu năm ngoái lệch thì máy lệch theo, dù không ai dặn.", "Skewed history makes a skewed machine, even if nobody asked.")),
+           ("2", t("Giấu một ô là chưa đủ", "Hiding one box isn't enough"), t("Máy tìm ra dấu vết khác, như chữ “nữ” trong hồ sơ.", "It finds other clues, like the word “women's”.")),
+           ("3", t("Dữ liệu sạch, người thật duyệt", "Clean data, human review"), t("Quyết định về con người: AI gợi ý, người chịu trách nhiệm.", "Decisions about people: AI suggests, a person decides."))]
+    the_rut = "".join(f'<div class="tv-rut"><span class="tv-so">{s}</span><b>{a}</b><p>{b}</p></div>' for s, a, b in rut)
+    main = f"""<main class="tv" id="tv">
+<div class="tv-san" id="tv-san"></div>
+<section class="tv-ket" id="tv-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="tv-ket-so"></p><p class="ld-ket-hang">{t("Người giỏi nhất bị loại", "Top candidates rejected")}</p><p class="ld-ket-phu" id="tv-ket-phu"></p></div></div>
+<h2 class="ld-ket-h">{t("Ba điều rút ra", "Three takeaways")}</h2>
+<div class="tv-rut-ds">{the_rut}</div>
+<h2 class="ld-ket-h">{t("Xem video của bài này", "Watch the video")}</h2>
+<div class="ld-ket-video"><a class="ld-vid" id="tv-xem-video" href="bai/{ten_file(v)}.html"><span class="ld-vid-so">#118</span><b>{esc(seo["118"])}</b></a></div>
+<div class="cta"><button type="button" class="btn" id="tv-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "bo-loc-thien-vi.html", t("Tự dạy máy lọc hồ sơ: xem AI thiên vị ra sao", "Train a CV filter and watch AI bias happen"), p)}
+</section>
+<p class="ld-ghi">{t("Công ty, tên người và hồ sơ đều là hư cấu. Máy trong trang là một mô hình học máy nhỏ chạy ngay trên trình duyệt của bạn, không gọi AI thật.", "The company, names and CVs are made up. The machine here is a tiny machine learning model running in your browser; no real AI is called.")}
+{t("Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "Your answers stay on your device.")}</p>
+<noscript><p>{t("Mô phỏng cần JavaScript. Bạn vẫn có thể xem", "The simulation needs JavaScript. You can still watch")} <a href="bai/{ten_file(v)}.html">{t("video AI cũng thiên vị", "the AI bias video")}</a>.</p></noscript>
+<script type="application/json" id="tv-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "bo-loc-thien-vi.html", trang("bo-loc-thien-vi.html", t(f"Tự dạy máy lọc hồ sơ: mô phỏng AI thiên vị (bias) | {SITE}", f"Train a CV filter: an AI bias simulation | {SITE}"),
+                                               desc, band, main, p, og_type="website", q="",
+                                               cuoi=f'<script src="{p}bo-loc-thien-vi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
+# ---------- trò chơi "Dán hay không dán?" (dan-hay-khong.html): video 121 "Dữ liệu của bạn đi đâu khi chat với AI" ----------
+# Thẻ ở data/dan-hay-khong.json (cả hai ngôn ngữ), cách chơi ở dan-hay-khong.js. Tên, số, địa chỉ trong thẻ đều hư cấu.
+def tao_dan_hay_khong():
+    p = t("", "../")
+    D = load("dan-hay-khong")
+    L = LG
+    the = [{"id": c["id"], "dap_an": c["dap_an"], "viec": c["viec"][L], "giai": c["giai"][L],
+            "doan": [dict({"chu": x[L]}, **({"thay": x["thay"][L]} if "thay" in x else {}), **({"nhay": 1} if x.get("nhay") else {})) for x in c["doan"]]}
+           for c in D["the"]]
+    n = len(the)
+    nhan = {
+        "the": t("Thẻ", "Card"), "diem": t("Điểm", "Score"), "tro_ly": t("Trợ lý AI", "AI assistant"), "tk_ca_nhan": t("Tài khoản cá nhân", "Personal account"),
+        "ban_dinh": t("Bạn định nhờ:", "You want to:"), "dang_dan": t("Đang dán vào ô chat", "About to paste"),
+        "hoi": t("Dán đoạn này vào chatbot được không?", "Can you paste this into the chatbot?"),
+        "dan": t("Dán thoải mái", "Paste it"), "che": t("Che bớt rồi dán", "Mask, then paste"), "khong": t("Đừng dán", "Don't paste"),
+        "da_che": t("Đã che, dán được", "Masked, safe to paste"), "an_toan": t("An toàn", "Safe"),
+        "dung": t("Chuẩn rồi!", "Spot on!"), "sai": t("Chưa đúng!", "Not quite!"),
+        "tiep": t("Thẻ tiếp theo", "Next card"), "xem_ket": t("Xem kết quả", "See your result"),
+        "hang": [[n, t("Người giữ kín bậc thầy", "Privacy pro")], [round(n * .75), t("Khá cẩn thận", "Pretty careful")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
+        "sai_nhieu": t("Bạn còn nhầm ở nhóm:", "You slipped on:"), "het_sai": t("Bạn không nhầm thẻ nào. Gửi trò này cho đồng nghiệp thử xem!", "No slip-ups. Send this to a colleague!"),
+    }
+    du_lieu = json.dumps({"the": the, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    desc = t(f"Trò chơi miễn phí: {n} thứ bạn định dán vào chatbot AI, từ bảng lương, mã OTP tới kết quả xét nghiệm. Chọn dán thoải mái, che bớt rồi dán, hay đừng dán, và xem cách che dữ liệu mà AI vẫn làm đúng việc.",
+             f"Free game: {n} things you might paste into an AI chatbot, from payroll and OTP codes to a blood test. Pick paste, mask then paste, or don't paste, and learn how to mask data so the AI still does the job.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 2 phút · chơi trên điện thoại", "Game · 2 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Dán hay không dán?", "Paste or don&#39;t paste?")}</h1>\n'
+            f'<p class="lead">{t(f"{n} thứ bạn định dán vào chatbot. Chọn dán thoải mái, che bớt rồi dán, hay đừng dán. Xem tận mắt cách che tên thật mà AI vẫn làm đúng việc.", f"{n} things you might paste into a chatbot. Pick paste, mask then paste, or don&#39;t paste. See how masking real names still lets the AI do the job.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
+    thoi_quen = [("✂️", t("Che trước khi dán", "Mask before pasting"), t("Tên thật thành Nhân viên A, B, C; địa chỉ thành [địa chỉ].", "Real names become Employee A, B, C; addresses become [address].")),
+                 ("🕶️", t("Dùng chat tạm thời", "Use temporary chat"), t("Cuộc trò chuyện không nằm lại trong lịch sử.", "The chat doesn't stay in your history.")),
+                 ("🏢", t("Việc công ty, tài khoản công ty", "Work data, work account"), t("Loại tài khoản cam kết không dùng dữ liệu để huấn luyện.", "One that promises not to train on your data."))]
+    the_tq = "".join(f'<div class="tv-rut"><span class="tv-so" aria-hidden="true">{a}</span><b>{b}</b><p>{c}</p></div>' for a, b, c in thoi_quen)
+    vids = "".join(f'<a class="ld-vid" data-so-video="{so}" href="bai/{ten_file(co_bai[so])}.html"><span class="ld-vid-so">#{so}</span><b>{esc(seo[str(so)])}</b></a>' for so in (121, 15))
+    main = f"""<main class="ld dk" id="dk">
+<div class="ld-dau"><p class="ld-tien" id="dk-tien" aria-live="polite"></p><p class="ld-diem" id="dk-diem"></p></div>
+<div class="ld-san" id="dk-san"></div>
+<section class="ld-ket" id="dk-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="dk-ket-so"></p><p class="ld-ket-hang" id="dk-ket-hang"></p><p class="ld-ket-phu" id="dk-ket-phu"></p></div></div>
+<h2 class="ld-ket-h">{t("Ba thói quen giữ dữ liệu an toàn", "Three habits that keep your data safe")}</h2>
+<div class="tv-rut-ds">{the_tq}</div>
+<label class="dk-viec-30"><input type="checkbox" id="dk-cai-dat"><span><b>{t("Việc 30 giây:", "30-second task:")}</b> {t("mở Settings của ứng dụng AI bạn dùng, tìm mục Privacy hay Data controls, chọn có cho dùng cuộc trò chuyện để huấn luyện hay không.", "open Settings in the AI app you use, find Privacy or Data controls, and choose whether your chats can be used for training.")}</span></label>
+<h2 class="ld-ket-h">{t("Xem lại video", "Watch the videos")}</h2>
+<div class="ld-ket-video">{vids}</div>
+<div class="cta"><button type="button" class="btn" id="dk-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "dan-hay-khong.html", t("Dán hay không dán? Thử xem bạn có lỡ dán nhầm gì vào AI", "Paste or don't paste? See what you shouldn't share with AI"), p)}
+</section>
+<p class="ld-ghi">{t("Mọi tên người, số, địa chỉ và công ty trong trò chơi đều là hư cấu. Trò chơi không gọi AI thật.", "All names, numbers, addresses and companies in this game are made up. No real AI is called.")}
+{t("Kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "Your answers stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem", "The game needs JavaScript. You can still watch")} <a href="bai/{ten_file(co_bai[121])}.html">{t("video Dữ liệu của bạn đi đâu", "the video on where your data goes")}</a>.</p></noscript>
+<script type="application/json" id="dk-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "dan-hay-khong.html", trang("dan-hay-khong.html", t(f"Dán hay không dán? Trò chơi giữ dữ liệu an toàn khi dùng AI | {SITE}", f"Paste or don't paste? A game about keeping your data safe with AI | {SITE}"),
+                                             desc, band, main, p, og_type="website", q="",
+                                             cuoi=f'<script src="{p}dan-hay-khong.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+# ---------- Máy tính đời thật (may-tinh-doi-that.html): 6 máy tính theo video, mỗi máy hiện công thức và nguồn ----------
+# Hằng số và nguồn ở data/may-tinh.json (cả hai ngôn ngữ), cách tính ở may-tinh.js. Mở thẳng một máy bằng ?may=<id>.
+def tao_may_tinh():
+    p = t("", "../")
+    D = load("may-tinh")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) and L in x else x
+    def video(so):
+        v = co_bai.get(so)
+        return {"so": so, "ten": seo.get(str(so), ""), "url": f"bai/{ten_file(v)}.html" if v else ""}
+    may = []
+    for m in D["may"]:
+        x = {k: m[k] for k in m if k not in ("ten", "ngan", "mo", "nguon", "prompt", "video", "mau")}
+        x.update({"ten": chu(m["ten"]), "ngan": chu(m["ngan"]), "mo": chu(m["mo"]), "prompt": chu(m["prompt"]),
+                  "video": [video(so) for so in m["video"]],
+                  "nguon": [{"ten": chu(n["ten"]), "so": chu(n["so"]), "url": n["url"]} for n in m["nguon"]]})
+        if "mau" in m:
+            x["mau"] = {k: dict(v, ten=chu(v["ten"])) for k, v in m["mau"].items()}
+        may.append(x)
+    nhan = {
+        "dong": {k: chu(v) for k, v in D["nhan_dong"].items()},
+        "cong_thuc": t("Công thức", "Formula"), "nguon": t("Nguồn số liệu", "Sources"), "vi_du": t("Số trong ô là số ví dụ của video. Thay bằng số của bạn.", "The numbers in the boxes are the video's examples. Swap in your own."),
+        "xem_video": t("Xem video", "Watch video"), "sap_ra": t("Video sắp ra", "Video coming soon"),
+        "chep": t("Chép câu lệnh", "Copy prompt"), "da_chep": t("Đã chép!", "Copied!"), "prompt_h": t("Nhờ AI kiểm lại cho số thật của bạn", "Ask AI to check it with your real numbers"),
+        "prompt_meo": t("AI đoán chữ chứ không bấm máy tính, nên nhờ nó viết công thức rồi để bảng tính tự cộng.", "AI predicts words, it doesn't calculate, so have it write formulas and let the spreadsheet add up."),
+        "d": "đ", "nam": t("năm", "year"), "thang": t("tháng", "months"), "thang1": t("tháng", "month"),
+        # điện nước
+        "dn_chu": t("Câu hỏi bằng chữ mỗi ngày", "Text questions per day"), "dn_anh": t("Ảnh AI tạo mỗi ngày", "AI images per day"), "dn_video": t("Video 5 giây mỗi tuần", "5-second videos per week"),
+        "dn_uoc": t("Số đo của ai cho câu hỏi chữ?", "Whose figure for a text question?"), "dn_google": "Google (0,24 Wh)" if L == "vi" else "Google (0.24 Wh)", "dn_openai": "OpenAI (0,34 Wh)" if L == "vi" else "OpenAI (0.34 Wh)",
+        "dn_dien": t("Điện cả năm", "Power per year"), "dn_tien": t("Tiền điện cả năm", "Power bill per year"), "dn_am": t("Bằng số ấm nước sôi", "Kettles boiled"), "dn_nuoc": t("Nước làm mát cả năm", "Cooling water per year"),
+        "dn_chia": t("Phần điện theo loại", "Where the power goes"), "dn_loai": [t("Chữ", "Text"), t("Ảnh", "Images"), t("Video", "Video")],
+        "dn_1video": t("1 video 5 giây tốn điện bằng", "One 5-second video uses as much power as"), "dn_cau": t("câu hỏi chữ", "text questions"),
+        "dn_the_gioi": t("Cả thế giới: điện cho trung tâm dữ liệu", "The whole world: data-centre electricity"), "dn_nuoc_ghi": t("Nước chỉ tính cho câu hỏi chữ: chưa có số công bố cho ảnh, video.", "Water counts text questions only: no published figure for images or video yet."),
+        "dn_giot": t("giọt", "drops"), "dn_am_don": t("ấm 1 lít", "1-litre kettles"),
+        # lãi vay
+        "lv_tien": t("Số tiền vay", "Loan amount"), "lv_lai": t("Lãi quảng cáo (%/tháng)", "Advertised rate (% per month)"), "lv_ky": t("Số tháng trả góp", "Months to repay"), "lv_phi": t("Phí trừ ngay khi giải ngân (%)", "Fees taken at payout (%)"),
+        "lv_cach": t("Lãi tính trên", "Interest charged on"), "lv_phang": t("Dư nợ ban đầu", "Original amount"), "lv_giam": t("Dư nợ giảm dần", "Declining balance"),
+        "lv_moi_thang": t("Trả mỗi tháng", "Monthly payment"), "lv_tong": t("Tổng phải trả", "Total repaid"), "lv_lai_phi": t("Lãi và phí", "Interest and fees"),
+        "lv_qc": t("Quảng cáo nhân 12", "Advert × 12"), "lv_that": t("Lãi thật mỗi năm", "Real yearly rate"), "lv_nam": t("%/năm", "%/year"),
+        "lv_bieu": t("Tiền lãi từng tháng", "Interest each month"), "lv_bieu_phang": t("Tính trên dư nợ ban đầu", "On the original amount"), "lv_bieu_giam": t("Nếu tính trên dư nợ còn lại", "If charged on what's left"),
+        "lv_tran": t("Trên 20%/năm: nếu bên cho vay không phải ngân hàng hay công ty tài chính, mức này vượt trần lãi của Bộ luật Dân sự.", "Above 20% a year: if the lender isn't a bank or finance company, this exceeds the Civil Code's interest cap."),
+        "lv_ghi": t("Chỉ để học cách đọc giấy tờ vay, không phải lời khuyên tài chính. Hỏi lại ngân hàng con số trong hợp đồng của bạn.", "For learning to read loan papers only, not financial advice. Check the figures in your own contract with the lender."),
+        # quỹ khẩn cấp
+        "qk_chi": t("Chi thiết yếu mỗi tháng", "Essential costs per month"), "qk_thang": t("Phòng thân bao nhiêu tháng", "Months to cover"), "qk_co": t("Đã có sẵn", "Already saved"),
+        "qk_ke_hoach": t("Muốn đủ trong (tháng)", "Reach it within (months)"), "qk_de_duoc": t("Hoặc: mỗi tháng để được", "Or: you can save per month"),
+        "qk_tong_chi": t("Chi thiết yếu một tháng", "Essentials per month"), "qk_muc_tieu": t("Mục tiêu quỹ", "Fund target"), "qk_moi_thang": t("Cần để dành mỗi tháng", "Save per month"), "qk_bao_lau": t("Để vậy thì đủ sau", "At that pace, done in"),
+        "qk_goi_y": t("Nhiều nguồn khuyên 3 đến 6 tháng. Có người phụ thuộc hay thu nhập không đều thì để nhiều hơn.", "Most sources say 3 to 6 months. More if others depend on you or your income is irregular."),
+        "qk_ghi": t("Chỉ ghi số tiền, đừng ghi số tài khoản. Gửi tiền ở đâu thì hỏi người có chuyên môn.", "Write amounts only, never account numbers. Ask a professional where to keep the money."),
+        "qk_du": t("Đã đủ quỹ!", "Fund complete!"),
+        # mâm cưới
+        "mc_gia": t("Giá mâm trên thực đơn", "Menu price per table"), "mc_phu_phi": t("Phụ phí phục vụ (%)", "Service surcharge (%)"), "mc_bia": t("Bia nước mỗi mâm", "Drinks per table"),
+        "mc_mam": t("Số mâm", "Tables"), "mc_ngan_sach": t("Ngân sách", "Budget"), "mc_co_dinh": t("Khoản cố định (thêm khách không đổi)", "Fixed costs (don't change with guests)"),
+        "mc_that": t("Giá thật mỗi mâm", "Real cost per table"), "mc_tong": t("Tổng thật", "Real total"), "mc_ngay_tho": t("Chỉ nhân giá thực đơn", "Menu price × tables only"),
+        "mc_thieu": t("Thiếu so với tổng thật", "Short of the real total"), "mc_con": t("Còn lại", "Left over"), "mc_vuot": t("Vượt ngân sách", "Over budget"), "mc_them": t("Đủ thêm tối đa", "Room for up to"), "mc_mam_don": t("mâm", "tables"),
+        "mc_thanh": [t("Cố định", "Fixed"), t("Theo mâm", "Per table"), t("Còn trống", "Spare")],
+        "mc_ghi": t("Phụ phí và bia nước tính thế nào tùy hợp đồng từng nhà hàng. Hỏi rõ trước khi ký.", "How surcharges and drinks are billed depends on each venue's contract. Ask before signing."),
+        # xếp bàn
+        "xb_ghe": t("Mỗi bàn ngồi", "Seats per table"), "xb_cong": t("Cộng thẳng 3 danh sách (chưa lọc trùng)", "Three lists added up (before removing duplicates)"), "xb_nguoi": t("người", "people"),
+        "xb_nhom": t("Số người thật từng nhóm (đã lọc trùng)", "Real headcount per group (duplicates removed)"),
+        "xb_tu_do": t("Ngồi tự do", "Anyone anywhere"), "xb_rieng": t("Mỗi nhóm bàn riêng", "Each group on its own"), "xb_ghep": t("Ghép người lẻ cùng phía", "Same-side leftovers share"),
+        "xb_ban": t("bàn", "tables"), "xb_tong": t("Tổng khách thật", "Real guest total"), "xb_du": t("Cộng thẳng là dư", "Adding lists straight up over-books"), "xb_tien": t("tiền oan, tính theo giá thật mỗi mâm", "wasted, at the real cost per table"),
+        "xb_so_do": t("Sơ đồ bàn (ghép người lẻ cùng phía)", "Table map (same-side leftovers share)"), "xb_le": t("bàn ghép", "shared table"),
+        # giá vốn
+        "gv_mau": t("Chọn mẫu", "Pick an example"), "gv_dong": t("Chi cho một cái", "Cost lines for one item"), "gv_hong": t("Cứ bao nhiêu cái thì hỏng 1 (0 = không hỏng)", "One spoiled in every … (0 = none)"),
+        "gv_gia_ban": t("Giá bán", "Selling price"), "gv_phi": t("Phí sàn (%)", "Marketplace fee (%)"), "gv_von": t("Vốn ban đầu (dụng cụ, làm thử, chụp ảnh)", "Starting capital (tools, test batches, photos)"),
+        "gv_gia_von": t("Giá vốn một cái", "Unit cost"), "gv_loi": t("Dư mỗi cái", "Profit per item"), "gv_hoa_von": t("Bán bao nhiêu thì hòa vốn", "Sales to break even"), "gv_cai": t("cái", "items"),
+        "gv_lo": t("Lỗ mỗi cái, không bao giờ hòa vốn", "Losing money on every item: never breaks even"),
+        "gv_nham": t("Lỗi hay gặp: chỉ cộng nguyên liệu chính", "Common mistake: adding only the main ingredients"), "gv_tuong": t("tưởng dư", "you think you make"),
+        "gv_san": t("Thử bán trên sàn, phí 15% (giả định)", "Try a marketplace at 15% fee (assumed)"),
+        "gv_ghi": t("Phí sàn 15% là giả định để minh họa, không phải biểu phí của sàn nào.", "The 15% fee is an assumption for illustration, not any marketplace's real rate."),
+    }
+    du_lieu = json.dumps({"may": may, "nhan": nhan, "lg": L, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    desc = t("6 máy tính miễn phí theo video Mark học AI: điện và nước cho mỗi câu hỏi AI, lãi thật của khoản vay, quỹ khẩn cấp, giá thật mỗi mâm cưới, xếp bàn, giá vốn và điểm hòa vốn. Mỗi kết quả hiện công thức và nguồn.",
+             "6 free calculators from Mark học AI videos: power and water per AI question, a loan's real interest, an emergency fund, the real cost per wedding table, seating, unit cost and break-even. Every result shows its formula and source.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Công cụ · 6 máy tính · chơi trên điện thoại", "Tools · 6 calculators · works on your phone")}</p>\n'
+            f'<h1>{t("Máy tính đời thật", "Real-life calculators")}</h1>\n'
+            f'<p class="lead">{t("Đổi con số của chính bạn, xem kết quả ngay. Công thức và nguồn nằm ngay bên dưới, để bạn kiểm lại từng phép tính.", "Plug in your own numbers and see the result at once. The formula and sources sit right below, so you can check every step.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
+    nut_tab = "".join(f'<button type="button" role="tab" class="cb-tab mt-tab" id="mt-tab-{m["id"]}" aria-controls="mt-khu" aria-selected="{"true" if i == 0 else "false"}" data-tab="{m["id"]}">{esc(m["ngan"])}</button>'
+                      for i, m in enumerate(may))
+    main = f"""<main class="mt" id="mt">
+<div class="cb-tabs mt-tabs" role="tablist" aria-label="{t("Chọn máy tính", "Pick a calculator")}">{nut_tab}</div>
+<div class="mt-khu" id="mt-khu" role="tabpanel"></div>
+{khoi_chia_se(BASE + GOC + "may-tinh-doi-that.html", t("Máy tính đời thật: tự tính lãi vay, quỹ khẩn cấp, mâm cưới, điện nước của AI", "Real-life calculators: loan interest, emergency fund, wedding tables, AI power"), p)}
+<p class="gh-ghi">{t("Máy chỉ tính trên máy bạn, không gửi con số nào đi đâu. Kết quả để học cách tính, không phải lời khuyên tài chính.", "Everything is calculated on your device; no numbers are sent anywhere. Results are for learning, not financial advice.")}</p>
+<noscript><p>{t("Máy tính cần JavaScript. Bạn vẫn có thể xem video", "The calculators need JavaScript. You can still watch the video")} <a href="bai/{ten_file(co_bai[212])}.html">{t("Lãi thật của khoản vay", "The real interest on a loan")}</a>.</p></noscript>
+<script type="application/json" id="mt-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "may-tinh-doi-that.html", trang("may-tinh-doi-that.html", t(f"Máy tính đời thật: lãi vay, quỹ khẩn cấp, mâm cưới, điện nước của AI | {SITE}", f"Real-life calculators: loans, emergency fund, weddings, AI power | {SITE}"),
+                                                 desc, band, main, p, og_type="website", q="",
+                                                 cuoi=f'<script src="{p}may-tinh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+
+# ---------- trò chơi "Cuộc gọi giả giọng" (cuoc-goi-gia-giong.html): mô phỏng cuộc gọi rẽ nhánh, video 108, 109, 112 ----------
+# Nội dung ở data/cuoc-goi.json (cả hai ngôn ngữ), cách chơi ở cuoc-goi.js. Cuối trò: đặt mật khẩu gia đình, in hoặc tải thẻ nhỏ.
+def tao_cuoc_goi():
+    p = t("", "../")
+    D = load("cuoc-goi")
+    L = LG
+    chu = lambda x: x[L] if isinstance(x, dict) and L in x else x
+    def video(so):
+        v = co_bai[so]
+        return {"so": so, "ten": seo[str(so)], "url": f"bai/{ten_file(v)}.html"}
+    cuoc = []
+    for c in D["cuoc"]:
+        nut = {}
+        for k, n in c["nut"].items():
+            x = {"dong": [{"tu": d["tu"], "chu": chu(d["chu"]), "cam": chu(d.get("cam", ""))} for d in n.get("dong", [])]}
+            if "ket" in n:
+                x["ket"] = n["ket"]
+            else:
+                x["chon"] = [{"chu": chu(o["chu"]), "muc": o["muc"], "toi": o["toi"]} for o in n["chon"]]
+            nut[k] = x
+        cuoc.append({"id": c["id"], "ten": chu(c["ten"]), "vai": chu(c["vai"]), "khung": {k: chu(x) for k, x in c["khung"].items()},
+                     "nut": nut, "dau_hieu": [chu(x) for x in c["dau_hieu"]], "giai": chu(c["giai"]), "video": video(c["video"])})
+    nhan = {
+        "cuoc": t("Cuộc gọi", "Call"), "khien": t("Khiên", "Shields"), "goi_den": t("Cuộc gọi đến", "Incoming call"), "goi_video": t("Cuộc gọi video", "Video call"),
+        "nghe": t("Nghe", "Answer"), "tu_choi": t("Từ chối", "Decline"), "reo": t("Điện thoại đang reo. Bạn làm gì?", "Your phone is ringing. What do you do?"),
+        "ban_noi": t("Bạn chọn", "Your move"), "ban": t("Bạn", "You"), "tin": t("Tin nhắn", "Text message"), "dang_noi": t("Đang nói…", "Speaking…"),
+        "ket_thuc": t("Cuộc gọi kết thúc", "Call ended"),
+        "ket": {"an-toan": t("An toàn!", "Safe!"), "tam": t("Tạm ổn, nhưng còn rủi ro", "OK, but risky"), "mat": t("Bạn đã mất tiền", "You lost the money")},
+        "dau_hieu": t("Dấu hiệu trong cuộc gọi này", "Signs in this call"), "dau_hieu_that": t("Vì sao lần này là thật", "Why this one was real"),
+        "duong_di": t("Các lựa chọn của bạn", "Your choices"), "xem_video": t("Xem video", "Watch video"), "tiep": t("Cuộc gọi tiếp theo", "Next call"),
+        "xem_ket": t("Xem kết quả", "See your result"), "bo_qua": t("Bỏ qua, đặt mật khẩu gia đình ngay", "Skip to making a family safe word"),
+        "hang": [[9, t("Người gác cổng của cả nhà", "Your family's gatekeeper")], [6, t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên tập thêm một lần", "Worth another try")]],
+        "on_lai": t("Xem lại video cho các cuộc gọi chưa trọn khiên", "Rewatch the videos for calls without full shields"),
+        "het_sai": t("Ba cuộc gọi, trọn chín khiên. Gửi trò này cho bố mẹ thử nhé!", "Three calls, all nine shields. Send this to your parents to try!"),
+        "phu": t("khiên", "shields"), "phu_ket": t("khiên bạn giữ được qua 3 cuộc gọi", "shields kept across 3 calls"),
+        "kiem": {"dai": t("Từ 3 tiếng trở lên", "At least 2 words"), "so": t("Không có số hay ngày tháng", "No numbers or dates"), "de": t("Không phải từ dễ đoán", "Not an easy guess")},
+        "the": {"h": t("Mật khẩu gia đình", "Family safe word"), "nha": t("Nhà mình", "Our family"), "mk": t("Mật khẩu:", "Safe word:"),
+                "luat": [t("Ai gọi đòi tiền gấp: cúp máy, gọi lại số đã lưu.", "Urgent money call? Hang up and call the saved number."),
+                         t("Không gọi lại được: hỏi mật khẩu. Sai hay ấp úng là cúp.", "Can't reach them? Ask the safe word. Wrong or stalling means hang up."),
+                         t("Không đọc mã OTP cho bất kỳ ai.", "Never read an OTP code to anyone."),
+                         t("Chuyện tiền không bao giờ vội.", "Money is never that urgent.")]},
+    }
+    mk = D["mat_khau"][L]
+    du_lieu = json.dumps({"cuoc": cuoc, "nhan": nhan, "mat_khau": mk, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    so_cuoc = len(cuoc)
+    desc = t(f"Trò chơi miễn phí: {so_cuoc} cuộc gọi giả lập, người thân khóc xin tiền, bạn thân gọi video deepfake. Chọn từng câu đáp, xem cuộc gọi rẽ ra sao, rồi đặt mật khẩu gia đình và in thẻ dán tủ lạnh.",
+             f"Free game: {so_cuoc} simulated calls, a crying relative asking for money, a deepfake video call from a friend. Pick each reply, see where the call goes, then make a family safe word and print a fridge card.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 4 phút · chơi trên điện thoại", "Game · 4 minutes · works on your phone")}</p>\n'
+            f'<h1>{t("Cuộc gọi giả giọng", "The fake-voice call")}</h1>\n'
+            f'<p class="lead">{t(f"{so_cuoc} cuộc gọi đổ chuông. Bạn chọn nghe hay không, nói gì, có chuyển tiền không. Cuối cùng tự đặt mật khẩu gia đình và in một thẻ nhỏ cho cả nhà.", f"{so_cuoc} calls ring in. You choose whether to answer, what to say and whether to send money. Then make your own family safe word and print a small card for everyone.")}</p>\n'
+            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+    main = f"""<main class="cg" id="cg">
+<div class="cg-dau"><p class="cg-tien" id="cg-tien" aria-live="polite"></p><a class="cg-bo-qua" id="cg-bo-qua" href="#cg-mk">{t("Đặt mật khẩu gia đình ngay", "Make a family safe word now")} ↓</a><p class="cg-diem" id="cg-diem"></p></div>
+<div class="cg-san" id="cg-san"></div>
+<section class="cg-ket" id="cg-ket" hidden aria-live="polite">
+<div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="cg-ket-so"></p><p class="ld-ket-hang" id="cg-ket-hang"></p><p class="ld-ket-phu" id="cg-ket-phu"></p></div></div>
+<h2 class="ld-ket-h" id="cg-ket-h"></h2>
+<div class="ld-ket-video" id="cg-ket-video"></div>
+</section>
+<section class="cg-mk" id="cg-mk" aria-labelledby="cg-mk-h">
+<p class="cg-mk-buoc">{t("Bước cuối", "Last step")}</p>
+<h2 id="cg-mk-h">{t("Đặt mật khẩu gia đình", "Make a family safe word")}</h2>
+<p class="cg-mk-lead">{t("Một cụm từ bí mật cả nhà cùng biết. Ai gọi đòi tiền gấp mà không nói đúng, cúp máy ngay. Chọn cụm dễ nhớ mà khó đoán: đừng dùng tên thú cưng hay ngày sinh.", "A secret phrase the whole family knows. If someone calls asking for money and can't say it, hang up. Pick something easy to remember but hard to guess: no pet names or birthdays.")}</p>
+<div class="cg-mk-o">
+<div class="cg-mk-tao">
+<label class="cg-mk-nhan" for="cg-mk-o">{t("Mật khẩu của nhà bạn", "Your family's safe word")}</label>
+<div class="cg-mk-hang"><input id="cg-mk-o" type="text" autocomplete="off" spellcheck="false" maxlength="40" placeholder="{t("ví dụ: bánh xèo con diều tím", "e.g. purple kite pancake")}"><button type="button" class="btn" id="cg-mk-goi-y">{ic(p, "sparkles")}{t("Gợi ý", "Suggest")}</button></div>
+<ul class="cg-mk-kiem" id="cg-mk-kiem" aria-live="polite"></ul>
+<label class="cg-mk-nhan" for="cg-mk-nha">{t("Tên nhà (không bắt buộc)", "Family name (optional)")}</label>
+<input id="cg-mk-nha" type="text" autocomplete="off" maxlength="24" placeholder="{t("ví dụ: Nhà bà Tư", "e.g. The Nguyens")}">
+<label class="cg-mk-in"><input type="checkbox" id="cg-mk-ghi"> {t("In luôn mật khẩu lên thẻ", "Print the safe word on the card")}</label>
+<p class="cg-mk-meo">{t("Nên để trống rồi viết tay: thẻ dán tủ lạnh thì khách tới nhà cũng đọc được. Đừng nhắn mật khẩu qua tin nhắn hay đăng lên mạng, hãy nói trực tiếp trong bữa cơm.", "Better to leave it blank and write it by hand: guests can read a card on the fridge. Never text the safe word or post it online; tell everyone in person over dinner.")}</p>
+</div>
+<div class="cg-mk-xem">
+<div class="cg-the" id="cg-the"></div>
+<div class="cta"><button type="button" class="btn btn-yt" id="cg-in">{ic(p, "file-text")}{t("In thẻ", "Print card")}</button><button type="button" class="btn" id="cg-tai">{ic(p, "download")}{t("Tải ảnh thẻ", "Download card image")}</button></div>
+</div>
+</div>
+</section>
+<div class="cta cg-cuoi"><button type="button" class="btn" id="cg-lai">{t("Chơi lại", "Play again")}</button></div>
+{khoi_chia_se(BASE + GOC + "cuoc-goi-gia-giong.html", t("Cuộc gọi giả giọng: thử xem bạn có bị lừa không", "The fake-voice call: would you fall for it?"), p)}
+<p class="ld-ghi">{t("Mọi tên người, số điện thoại và tài khoản trong trò chơi đều là hư cấu để luyện tập.", "All names, phone numbers and accounts in this game are made up for practice.")}
+{t("Mật khẩu bạn gõ và kết quả chỉ nằm trên máy bạn, không gửi đi đâu.", "The safe word you type and your results stay on your device.")}</p>
+<noscript><p>{t("Trò chơi cần JavaScript. Bạn vẫn có thể xem video", "The game needs JavaScript. You can still watch")} <a href="bai/{ten_file(co_bai[108])}.html">{t("Cuộc gọi giả giọng người thân", "The cloned-voice call")}</a>.</p></noscript>
+<script type="application/json" id="cg-du-lieu">{du_lieu}</script>
+</main>"""
+    return GOC + "cuoc-goi-gia-giong.html", trang("cuoc-goi-gia-giong.html", t(f"Cuộc gọi giả giọng: trò chơi chống lừa đảo AI | {SITE}", f"The fake-voice call: a game against AI scams | {SITE}"),
+                                                  desc, band, main, p, og_type="website", q="",
+                                                  cuoi=f'<script src="{p}cuoc-goi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
@@ -1901,7 +2246,7 @@ def chay():
             ghi(*tao_bai(v))
         for s, x in cac_bai_phu():
             ghi(*tao_bai_phu(s, x))
-        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_bo_nao):
+        for ham in (tao_tu_dien, tao_kiem_tra, tao_sach, tao_lo_trinh, tao_hop_tac, tao_dich_vu, tao_bo_giao_vien, tao_workshop, tao_lam_theo, tao_lua_dao, tao_cam_bien, tao_ghep_cau_lenh, tao_cuoc_goi, tao_may_tinh, tao_bo_loc, tao_dan_hay_khong, tao_bo_nao):
             ghi(*ham())
         print(lg, ":", len(thu_tu), "bài viết, tu-dien.html, kiem-tra.html, sach.html, lo-trinh-7-ngay.html, hop-tac.html, dich-vu.html, lam-theo.html")
     dat_ngon_ngu("vi")
@@ -1909,8 +2254,8 @@ def chay():
         anh_chia_se.luu()
 
     # sitemap: đủ trang của cả hai ngôn ngữ (bản Anh nằm trong en/, cùng tên file)
-    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "phong-thi-nghiem-bo-nao.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
-    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "phong-thi-nghiem-bo-nao.html": "0.7"}
+    trang_goc = ["", "tu-dien.html", "kiem-tra.html", "lo-trinh-7-ngay.html", "sach.html", "hop-tac.html", "dich-vu.html", "bo-giao-vien.html", "workshop.html", "ung-ho.html", "quyen-rieng-tu.html", "dieu-khoan.html", "lam-theo.html", "lua-dao-hay-that.html", "phong-thi-nghiem-cam-bien.html", "tho-ghep-cau-lenh.html", "cuoc-goi-gia-giong.html", "may-tinh-doi-that.html", "bo-loc-thien-vi.html", "dan-hay-khong.html", "phong-thi-nghiem-bo-nao.html"] + [f"bai/{ten_file(v)}.html" for v in thu_tu] + [f"bai/{ten_file(x)}.html" for _, x in cac_bai_phu()]
+    uu_tien = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8", "hop-tac.html": "0.5", "dich-vu.html": "0.6", "bo-giao-vien.html": "0.6", "workshop.html": "0.6", "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3", "lua-dao-hay-that.html": "0.7", "phong-thi-nghiem-cam-bien.html": "0.7", "tho-ghep-cau-lenh.html": "0.7", "cuoc-goi-gia-giong.html": "0.7", "may-tinh-doi-that.html": "0.7", "bo-loc-thien-vi.html": "0.7", "dan-hay-khong.html": "0.7", "phong-thi-nghiem-bo-nao.html": "0.7"}
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for tien_to in ("", "en/"):
         for d in sorted(trang_goc, key=lambda d: (d.startswith("bai/"), d)):

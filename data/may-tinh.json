@@ -1,0 +1,154 @@
+{
+ "_ghi_chu": "Máy tính đời thật (may-tinh-doi-that.html, en/, may-tinh.js). Mỗi máy là một thẻ, mở thẳng bằng ?may=<id>. Hằng số khoa học/giá lấy từ nguồn công bố (mục nguon của từng máy, có link); số mặc định trong ô nhập là số ví dụ của video (ghi rõ trên trang). Video có trang bài thì được thẻ Tương tác trỏ thẳng vào đúng máy (scripts/tao_bai_viet.py, TRO_CHOI_WEB).",
+ "may": [
+  {
+   "id": "dien-nuoc", "video": [120],
+   "ten": {"vi": "Điện và nước của AI", "en": "AI's power and water"},
+   "ngan": {"vi": "Điện nước AI", "en": "AI power"},
+   "mo": {"vi": "Bạn hỏi AI bao nhiêu câu mỗi ngày? Xem cả năm tốn bao nhiêu điện, bao nhiêu nước, bằng mấy ấm nước sôi.", "en": "How many questions do you ask AI a day? See a whole year of electricity and water, in kettles of boiling water."},
+   "mac_dinh": {"chu": 20, "anh": 1, "video": 0, "uoc": "google"},
+   "hang_so": {
+    "chu": {"google": {"wh": 0.24, "ml": 0.26}, "openai": {"wh": 0.34, "ml": 0.32}},
+    "anh_j": 2282, "video_j": 3400000,
+    "nhiet_rieng": 4.184, "am_lit": 1, "am_tang": 75,
+    "gia_kwh": 2204.07, "ml_giot": 0.05,
+    "iea_2024": 415, "iea_2030": 945
+   },
+   "nguon": [
+    {"ten": {"vi": "Google Cloud: đo tác động môi trường của AI (21/8/2025)", "en": "Google Cloud: measuring the environmental impact of AI inference (Aug 21, 2025)"},
+     "so": {"vi": "Câu hỏi chữ trung vị của Gemini: 0,24 Wh điện, 0,26 mL nước (khoảng 5 giọt)", "en": "Median Gemini text prompt: 0.24 Wh, 0.26 mL of water (about five drops)"},
+     "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference"},
+    {"ten": {"vi": "Sam Altman (OpenAI): The Gentle Singularity (10/6/2025)", "en": "Sam Altman (OpenAI): The Gentle Singularity (Jun 10, 2025)"},
+     "so": {"vi": "Một câu hỏi ChatGPT trung bình: 0,34 Wh, 0,000085 gallon nước (khoảng 0,32 mL). OpenAI không công bố cách đo.", "en": "Average ChatGPT query: 0.34 Wh and 0.000085 gallons of water (about 0.32 mL). OpenAI did not publish the method."},
+     "url": "https://blog.samaltman.com/the-gentle-singularity"},
+    {"ten": {"vi": "MIT Technology Review: We did the math on AI's energy footprint (20/5/2025)", "en": "MIT Technology Review: We did the math on AI's energy footprint (May 20, 2025)"},
+     "so": {"vi": "Một ảnh 1024×1024 (Stable Diffusion 3 Medium): khoảng 2.282 J; một video 5 giây (model video mã nguồn mở): khoảng 3,4 triệu J", "en": "One 1024×1024 image (Stable Diffusion 3 Medium): about 2,282 J; one 5-second video (open-source video model): about 3.4 million J"},
+     "url": "https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/"},
+    {"ten": {"vi": "Cơ quan Năng lượng Quốc tế (IEA): Energy and AI (10/4/2025)", "en": "International Energy Agency (IEA): Energy and AI (Apr 10, 2025)"},
+     "so": {"vi": "Trung tâm dữ liệu dùng khoảng 415 TWh năm 2024, dự báo khoảng 945 TWh năm 2030", "en": "Data centres used about 415 TWh in 2024, projected around 945 TWh by 2030"},
+     "url": "https://www.iea.org/news/ai-is-set-to-drive-surging-electricity-demand-from-data-centres-while-offering-the-potential-to-transform-how-the-energy-sector-works"},
+    {"ten": {"vi": "USGS: nhiệt dung riêng của nước", "en": "USGS: specific heat capacity of water"},
+     "so": {"vi": "4,184 J để nóng 1 g nước thêm 1 °C", "en": "4.184 J warms 1 g of water by 1 °C"},
+     "url": "https://www.usgs.gov/special-topics/water-science-school/science/specific-heat-capacity-and-water"},
+    {"ten": {"vi": "Bộ Công Thương: Quyết định 1279/QĐ-BCT, giá điện từ 10/5/2025", "en": "Vietnam Ministry of Industry and Trade: Decision 1279/QĐ-BCT, power prices from May 10, 2025"},
+     "so": {"vi": "Giá bán lẻ điện bình quân 2.204,07 đ/kWh (chưa VAT)", "en": "Average retail power price 2,204.07 VND/kWh (before VAT)"},
+     "url": "https://luatvietnam.vn/dien-luc/quyet-dinh-1279-qd-bct-cua-bo-cong-thuong-quy-dinh-ve-gia-ban-dien-399752-d1.html"}
+   ],
+   "prompt": {"vi": "Tuần này tôi hỏi AI khoảng 20 câu mỗi ngày và tạo vài ảnh. Viết giúp tôi công thức bảng tính để cộng điện năng theo từng loại, dùng số công bố có nguồn. Đừng tự cộng nhẩm.", "en": "This week I asked AI about 20 questions a day and made a few images. Write me spreadsheet formulas that add up the energy per type, using published, sourced figures. Don't do the sums in your head."}
+  },
+  {
+   "id": "lai-vay", "video": [212],
+   "ten": {"vi": "Lãi thật của khoản vay", "en": "The real interest on a loan"},
+   "ngan": {"vi": "Lãi vay thật", "en": "Real loan rate"},
+   "mo": {"vi": "Quảng cáo ghi \"chỉ 1%/tháng\". Đổi cách tính lãi và cộng phí, xem lãi thật mỗi năm là bao nhiêu.", "en": "The ad says \"just 1% a month\". Switch the interest method, add the fees, and see the real yearly rate."},
+   "mac_dinh": {"tien": 30000000, "lai": 1, "ky": 12, "phi": 0, "cach": "phang"},
+   "tran_dan_su": 20,
+   "nguon": [
+    {"ten": {"vi": "Ngân hàng Nhà nước: Thông tư 39/2016/TT-NHNN về cho vay", "en": "State Bank of Vietnam: Circular 39/2016/TT-NHNN on lending"},
+     "so": {"vi": "Hợp đồng vay phải ghi lãi suất và cách tính lãi; lãi không tính theo %/năm trên dư nợ thực tế thì phải ghi mức quy đổi %/năm", "en": "Loan contracts must state the rate and how interest is calculated; if it isn't % per year on the actual balance, the yearly equivalent must be stated"},
+     "url": "https://luatvietnam.vn/tai-chinh/thong-tu-39-2016-tt-nhnn-ngan-hang-nha-nuoc-viet-nam-112177-d1.html"},
+    {"ten": {"vi": "Thông tư 14/2017/TT-NHNN: phương pháp tính lãi (VnEconomy tóm tắt)", "en": "Circular 14/2017/TT-NHNN: how interest is calculated (VnEconomy summary)"},
+     "so": {"vi": "Tiền lãi = Σ (số dư thực tế × số ngày duy trì × lãi suất năm) ÷ 365", "en": "Interest = Σ (actual balance × days held × yearly rate) ÷ 365"},
+     "url": "https://vneconomy.vn/chot-cach-tinh-lai-suat-ngan-hang-theo-nam-365-ngay.htm"},
+    {"ten": {"vi": "Bộ luật Dân sự 2015, Điều 468", "en": "Vietnam Civil Code 2015, Article 468"},
+     "so": {"vi": "Vay giữa cá nhân, tổ chức thường: lãi thỏa thuận không vượt 20%/năm (ngân hàng, công ty tài chính theo luật riêng)", "en": "Ordinary civil loans: agreed interest may not exceed 20% a year (banks and finance companies follow their own law)"},
+     "url": "https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Bo-luat-dan-su-2015-296215.aspx"}
+   ],
+   "prompt": {"vi": "Đây là điều khoản vay của tôi (đã che họ tên, số căn cước): [dán vào đây]. Lãi tính trên dư nợ ban đầu hay dư nợ giảm dần? Liệt kê mọi khoản phí, rồi viết công thức bảng tính cho tổng phải trả. Đừng tự cộng nhẩm.", "en": "Here are my loan terms (name and ID number removed): [paste here]. Is interest charged on the original amount or the declining balance? List every fee, then write spreadsheet formulas for the total I'll repay. Don't do the sums in your head."}
+  },
+  {
+   "id": "quy-khan-cap", "video": [215],
+   "ten": {"vi": "Quỹ khẩn cấp", "en": "Emergency fund"},
+   "ngan": {"vi": "Quỹ khẩn cấp", "en": "Emergency fund"},
+   "mo": {"vi": "Nhập chi thiết yếu mỗi tháng, chọn số tháng muốn phòng thân, xem cần để dành bao nhiêu và bao lâu thì đủ.", "en": "Enter your essential monthly costs, pick how many months to cover, and see how much to save and how long it takes."},
+   "mac_dinh": {"dong": [["nha", 4000000], ["an", 3500000], ["dien-nuoc", 800000], ["di-lai", 700000], ["khac", 1000000]], "thang": 3, "co": 0, "ke_hoach": 6, "de_duoc": 3000000},
+   "nguon": [
+    {"ten": {"vi": "Fidelity: How much should I have in an emergency fund?", "en": "Fidelity: How much should I have in an emergency fund?"},
+     "so": {"vi": "Hướng tới 3 đến 6 tháng chi thiết yếu; để nhiều hơn nếu có người phụ thuộc hoặc nghề hay bị cắt giảm", "en": "Work toward 3 to 6 months of essential expenses; more if you have dependents or work in an industry with frequent layoffs"},
+     "url": "https://www.fidelity.com/learning-center/smart-money/emergency-fund"},
+    {"ten": {"vi": "Experian: How much emergency fund should I have?", "en": "Experian: How much emergency fund should I have?"},
+     "so": {"vi": "3 đến 6 tháng chi phí cơ bản, chỉ tính khoản thiết yếu: nhà, hóa đơn, ăn uống; thu nhập không đều thì để cao hơn", "en": "3 to 6 months of basic expenses, essentials only: housing, bills, groceries; aim higher with irregular income"},
+     "url": "https://www.experian.com/blogs/ask-experian/how-much-emergency-fund-should-i-have/"}
+   ],
+   "prompt": {"vi": "Chi thiết yếu mỗi tháng của tôi (chỉ ghi số tiền): nhà ..., ăn ..., điện nước ..., đi lại .... Dựng bảng tiết kiệm 6 tháng để đủ quỹ bằng 3 tháng chi thiết yếu, dùng công thức để bảng tự tính.", "en": "My essential monthly costs (amounts only): housing ..., food ..., utilities ..., transport .... Build a 6-month savings table to reach a fund of 3 months of essentials, with formulas so the sheet does the maths."}
+  },
+  {
+   "id": "mam-cuoi", "video": [414],
+   "ten": {"vi": "Giá thật mỗi mâm cưới", "en": "The real cost per wedding table"},
+   "ngan": {"vi": "Mâm cưới", "en": "Wedding tables"},
+   "mo": {"vi": "Giá mâm trên thực đơn chưa phải giá thật. Cộng phụ phí, bia nước và khoản cố định, xem ngân sách còn đủ thêm mấy mâm.", "en": "The menu price isn't the real price. Add the surcharge, drinks and fixed costs, and see how many more tables the budget allows."},
+   "mac_dinh": {"gia": 3800000, "phu_phi": 10, "bia": 600000, "mam": 40, "ngan_sach": 300000000, "co_dinh": [["anh", 18000000], ["ao", 12000000], ["nhan", 15000000], ["khac-cuoi", 32500000]]},
+   "nguon": [],
+   "prompt": {"vi": "Dựng bảng ngân sách cưới gồm 2 nhóm: chi theo mâm (giá mâm, phụ phí, bia nước) và chi cố định (ảnh, áo cưới, nhẫn, trang trí, thiệp, xe hoa, MC). Chỉ dựng cột và công thức, để trống ô giá cho mình điền.", "en": "Build a wedding budget table with 2 groups: per-table costs (menu price, surcharge, drinks) and fixed costs (photos, dress, rings, decor, invitations, car, MC). Only build the columns and formulas, leave the price cells empty for me."}
+  },
+  {
+   "id": "xep-ban", "video": [415],
+   "ten": {"vi": "Xếp khách vào bàn", "en": "Seat the guests"},
+   "ngan": {"vi": "Xếp bàn", "en": "Seating"},
+   "mo": {"vi": "Ba danh sách khách cộng thẳng là dư mâm. Nhập số người từng nhóm, xem ba cách xếp tốn bao nhiêu bàn.", "en": "Add three guest lists straight up and you over-book. Enter each group's headcount and compare three ways of seating."},
+   "mac_dinh": {"ghe": 10, "cong_thang": 471, "nhom": [
+     ["ho-gai", "gai", 78], ["xom-gai", "gai", 34], ["ban-bm-gai", "gai", 46],
+     ["ho-trai", "trai", 72], ["ban-bm-trai", "trai", 52], ["xom-trai", "trai", 28],
+     ["dn-thao", "tre", 26], ["dn-khoa", "tre", 31], ["ban-thao", "tre", 23], ["ban-khoa", "tre", 27]]},
+   "nguon": [],
+   "prompt": {"vi": "Đây là danh sách khách (đã xóa số điện thoại và địa chỉ): [dán vào đây]. Chỉ ra các cặp tên nghi trùng, kiểu gõ không dấu hay thiếu chữ lót. Đừng tự gộp, để mình quyết từng cặp.", "en": "Here's the guest list (phone numbers and addresses removed): [paste here]. Flag pairs of names that might be duplicates, like missing accents or a missing middle name. Don't merge them, let me decide each pair."}
+  },
+  {
+   "id": "gia-von", "video": [379, 218],
+   "ten": {"vi": "Giá vốn và điểm hòa vốn", "en": "Unit cost and break-even"},
+   "ngan": {"vi": "Giá vốn", "en": "Unit cost"},
+   "mo": {"vi": "Cộng đủ mọi dòng cho một sản phẩm, tính cả hàng hỏng và phí sàn, xem bán bao nhiêu cái mới hòa vốn.", "en": "Add up every line for one item, include spoiled batches and marketplace fees, and see how many you must sell to break even."},
+   "mau": {
+    "nen": {"ten": {"vi": "Hũ nến thơm (video 379)", "en": "Scented candle jar (video 379)"},
+            "dong": [["sap", 21600, true], ["tinh-dau", 10000, true], ["bac", 2000, false], ["hu", 12000, false], ["nhan-in", 1400, false], ["hop", 8000, false]],
+            "hong": 12, "gia_ban": 120000, "phi_san": 0, "von": 3000000},
+    "tra-sua": {"ten": {"vi": "Ly trà sữa (số ví dụ)", "en": "Cup of milk tea (example numbers)"},
+            "dong": [["tra", 1500, true], ["sua", 4000, true], ["duong", 500, false], ["tran-chau", 2500, false], ["ly", 2000, false], ["da", 500, false]],
+            "hong": 20, "gia_ban": 25000, "phi_san": 0, "von": 15000000}
+   },
+   "phi_san_vi_du": 15,
+   "nguon": [
+    {"ten": {"vi": "Small Business Trends: Break-even point formula", "en": "Small Business Trends: Break-even point formula"},
+     "so": {"vi": "Số cái hòa vốn = chi phí cố định ÷ (giá bán − chi phí biến đổi mỗi cái)", "en": "Break-even units = fixed costs ÷ (price − variable cost per unit)"},
+     "url": "https://smallbiztrends.com/break-even-point-formula/"}
+   ],
+   "prompt": {"vi": "Đây là các dòng chi cho một sản phẩm (giá mua thật): .... Cứ 12 cái thì hỏng 1. Viết công thức bảng tính cho giá vốn mỗi cái, tiền lời mỗi cái và số cái hòa vốn với vốn ban đầu ... đồng. Đừng tự tính nhẩm.", "en": "Here are the cost lines for one item (real purchase prices): .... One in 12 gets spoiled. Write spreadsheet formulas for unit cost, profit per unit, and break-even units with a starting capital of .... Don't do the maths in your head."}
+  }
+ ],
+ "nhan_dong": {
+  "nha": {"vi": "Nhà (thuê, trả góp)", "en": "Housing (rent, mortgage)"},
+  "an": {"vi": "Ăn uống", "en": "Food"},
+  "dien-nuoc": {"vi": "Điện, nước, mạng", "en": "Power, water, internet"},
+  "di-lai": {"vi": "Đi lại", "en": "Transport"},
+  "khac": {"vi": "Thiết yếu khác (thuốc, học phí)", "en": "Other essentials (medicine, school)"},
+  "anh": {"vi": "Ảnh, quay phim", "en": "Photos, video"},
+  "ao": {"vi": "Áo cưới, trang điểm", "en": "Dress, make-up"},
+  "nhan": {"vi": "Nhẫn cưới", "en": "Rings"},
+  "khac-cuoi": {"vi": "Trang trí, mâm quả, thiệp, xe hoa, MC", "en": "Decor, gift trays, invitations, car, MC"},
+  "ho-gai": {"vi": "Họ hàng nhà gái", "en": "Bride's relatives"},
+  "xom-gai": {"vi": "Hàng xóm nhà gái", "en": "Bride's neighbours"},
+  "ban-bm-gai": {"vi": "Bạn ba mẹ cô dâu", "en": "Bride's parents' friends"},
+  "ho-trai": {"vi": "Họ hàng nhà trai", "en": "Groom's relatives"},
+  "ban-bm-trai": {"vi": "Bạn ba mẹ chú rể", "en": "Groom's parents' friends"},
+  "xom-trai": {"vi": "Hàng xóm nhà trai", "en": "Groom's neighbours"},
+  "dn-thao": {"vi": "Đồng nghiệp Thảo", "en": "Thao's colleagues"},
+  "dn-khoa": {"vi": "Đồng nghiệp Khoa", "en": "Khoa's colleagues"},
+  "ban-thao": {"vi": "Bạn bè Thảo", "en": "Thao's friends"},
+  "ban-khoa": {"vi": "Bạn bè Khoa", "en": "Khoa's friends"},
+  "gai": {"vi": "Nhà gái", "en": "Bride's side"},
+  "trai": {"vi": "Nhà trai", "en": "Groom's side"},
+  "tre": {"vi": "Bạn cô dâu chú rể", "en": "Couple's friends"},
+  "sap": {"vi": "Sáp đậu nành", "en": "Soy wax"},
+  "tinh-dau": {"vi": "Tinh dầu thơm", "en": "Fragrance oil"},
+  "bac": {"vi": "Bấc gỗ", "en": "Wooden wick"},
+  "hu": {"vi": "Hũ thủy tinh, nắp", "en": "Glass jar, lid"},
+  "nhan-in": {"vi": "Nhãn in", "en": "Printed label"},
+  "hop": {"vi": "Hộp, giấy chống sốc", "en": "Box, padding"},
+  "tra": {"vi": "Trà", "en": "Tea"},
+  "sua": {"vi": "Sữa, bột kem", "en": "Milk, creamer"},
+  "duong": {"vi": "Đường", "en": "Sugar"},
+  "tran-chau": {"vi": "Trân châu", "en": "Tapioca pearls"},
+  "ly": {"vi": "Ly, nắp, ống hút", "en": "Cup, lid, straw"},
+  "da": {"vi": "Đá", "en": "Ice"}
+ }
+}
