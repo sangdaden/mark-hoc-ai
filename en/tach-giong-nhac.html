@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vocal splitter desk: how AI separates vocals from music | Mark học AI</title>
+<meta name="description" content="Free game: switch vocals, drums, bass and keys on and off in a song, explore the spectrogram and the mask, then tune a vocal splitter to make karaoke. See how AI separates vocals in 3 minutes.">
+<link rel="canonical" href="https://markhocai.com/en/tach-giong-nhac.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/tach-giong-nhac.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/tach-giong-nhac.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/tach-giong-nhac.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vocal splitter desk: how AI separates vocals from music | Mark học AI">
+<meta property="og:description" content="Free game: switch vocals, drums, bass and keys on and off in a song, explore the spectrogram and the mask, then tune a vocal splitter to make karaoke. See how AI separates vocals in 3 minutes.">
+<meta property="og:url" content="https://markhocai.com/en/tach-giong-nhac.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Lab · 3 minutes · turn your sound on</p>
+<h1>Vocal splitter desk</h1>
+<p class="lead">A song is mixed into one file, yet a machine can still pull the vocals out. Try it yourself and see how.</p>
+</div><img class="head-art" src="../assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="tg" id="tg">
+<section class="tg-phan" aria-labelledby="tg-h1">
+<p class="tg-buoc">1/3</p><h2 id="tg-h1">The mixing desk: a song has 4 tracks</h2>
+<p class="tg-lead">Studios record each part separately, then mix them into one file. Press play, then switch tracks on and off to hear each part.</p>
+<div class="tg-ban">
+<button type="button" class="btn btn-yt tg-phat" id="tg-phat"><span class="tg-phat-ic" aria-hidden="true">▶</span><span id="tg-phat-chu">Play the song</span></button>
+<div class="tg-rang-ds" id="tg-rang-ds"><div class="tg-rang" data-rang="giong" style="--mau:#F97316"><button type="button" class="tg-bat" aria-pressed="true" data-rang="giong"><span class="tg-cham" aria-hidden="true"></span><b>Vocals</b><small>On</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="trong" style="--mau:#8B5CF6"><button type="button" class="tg-bat" aria-pressed="true" data-rang="trong"><span class="tg-cham" aria-hidden="true"></span><b>Drums</b><small>On</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="bass" style="--mau:#0EA5E9"><button type="button" class="tg-bat" aria-pressed="true" data-rang="bass"><span class="tg-cham" aria-hidden="true"></span><b>Bass</b><small>On</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div><div class="tg-rang" data-rang="dan" style="--mau:#10B981"><button type="button" class="tg-bat" aria-pressed="true" data-rang="dan"><span class="tg-cham" aria-hidden="true"></span><b>Keys</b><small>On</small></button><canvas class="tg-song" width="600" height="56" aria-hidden="true"></canvas></div></div>
+<div class="tg-tron"><span>The mix: all 4 tracks in one file</span><canvas class="tg-song" id="tg-song-tron" width="600" height="56" aria-hidden="true"></canvas></div>
+</div>
+</section>
+<section class="tg-phan" aria-labelledby="tg-h2">
+<p class="tg-buoc">2/3</p><h2 id="tg-h2">Spectrogram and mask</h2>
+<p class="tg-lead">The machine turns sound into a spectrogram: time across, pitch up the side. The model gives every cell a number from 0 to 1 called the mask: the voice's share of that cell.</p>
+<div class="tg-pho-bo">
+<div class="tg-pho-khung"><span class="tg-truc-y">Pitch ↑</span><div class="tg-pho" id="tg-pho" role="grid" aria-label="Spectrogram"></div><span class="tg-truc-x">Time →</span>
+<p class="tg-chu-giai"><span class="tg-cg tg-cg-g"></span>voice<span class="tg-cg tg-cg-n"></span>music<span class="tg-cg tg-cg-l"></span>mixed</p></div>
+<div class="tg-o-the" id="tg-o-the" aria-live="polite"><p class="muted">Tap a cell on the spectrogram to see how the machine splits it.</p></div>
+</div>
+<div class="tg-do">
+<p class="tg-do-hoi"><b>Quick quiz:</b> A cell has energy 8 and a vocal mask of 0.5. How much goes to the voice?</p>
+<div class="tg-do-chon" id="tg-do-chon"><button type="button" class="btn btn-nhe" data-dap="2">2</button><button type="button" class="btn btn-nhe" data-dap="4">4</button><button type="button" class="btn btn-nhe" data-dap="8">8</button></div>
+<p class="tg-do-ph" id="tg-do-ph" aria-live="polite"></p>
+<div class="tg-vd-ds" id="tg-vd-ds" hidden><div class="tg-vd"><span class="tg-vd-so">Cell 1</span><span class="tg-vd-ct">10 × 0.8</span><span class="tg-chia"><i style="flex:8.00"></i><i style="flex:2.00"></i></span><small>voice 8 · music 2</small></div><div class="tg-vd"><span class="tg-vd-so">Cell 2</span><span class="tg-vd-ct">6 × 0.1</span><span class="tg-chia"><i style="flex:0.60"></i><i style="flex:5.40"></i></span><small>voice 0.6 · music 5.4</small></div><div class="tg-vd"><span class="tg-vd-so">Cell 3</span><span class="tg-vd-ct">8 × 0.5</span><span class="tg-chia"><i style="flex:4.00"></i><i style="flex:4.00"></i></span><small>voice 4 · music 4</small></div><div class="tg-vd"><span class="tg-vd-so">Cell 4</span><span class="tg-vd-ct">2 × 0.9</span><span class="tg-chia"><i style="flex:1.80"></i><i style="flex:0.20"></i></span><small>voice 1.8 · music 0.2</small></div></div>
+</div>
+</section>
+<section class="tg-phan" aria-labelledby="tg-h3">
+<p class="tg-buoc">3/3</p><h2 id="tg-h3">The splitter: make your own karaoke</h2>
+<p class="tg-lead">The model learns from songs that come with separate tracks. More training, sharper masks. Pick what to hear, drag the training level, then try making it harder.</p>
+<div class="tg-may">
+<div class="tg-che-do" id="tg-che-do" role="radiogroup" aria-label="Listen to"></div>
+<label class="tg-truot"><span>Model training: <b id="tg-muc-chu"></b></span><input type="range" id="tg-muc" min="0" max="4" step="1" value="1"></label>
+<div class="tg-kho">
+<label class="tg-cong"><input type="checkbox" id="tg-cung-dai"><span><b>Keys play in the vocal range</b><small>The keys move up into the singer's range</small></span></label>
+<label class="tg-cong"><input type="checkbox" id="tg-vang"><span><b>Recorded in an echoey room</b><small>The voice bounces back with a long tail</small></span></label>
+</div>
+<div class="tg-sot"><span>Leftover bleed</span><span class="tg-sot-thanh"><i id="tg-sot-i"></i></span><b id="tg-sot-so"></b></div>
+<p class="tg-nx" id="tg-nx" aria-live="polite"></p>
+</div>
+</section>
+<section class="tg-phan tg-cuoi">
+<h2 class="ld-ket-h">Three takeaways</h2>
+<div class="tg-rut-ds"><div class="tg-rut"><span class="tg-so">1</span><b>Sound becomes a picture</b><p>The machine cuts sound into thousands of cells by pitch and time.</p></div><div class="tg-rut"><span class="tg-so">2</span><b>One mask per cell</b><p>The model guesses the voice's share of each cell, learned from songs with separate tracks.</p></div><div class="tg-rut"><span class="tg-so">3</span><b>Splitting isn't owning</b><p>Singing at home isn't posting online. Only split recordings you have the rights to.</p></div></div>
+<div class="tg-thu"><img src="../assets/mark-a-ra-the.svg" alt="" width="72" height="68"><p><b>Try it:</b> record yourself singing over background music, open the vocal-separation feature in an audio app, and listen for what leaks into the vocal track.</p></div>
+<h2 class="ld-ket-h">Watch the video</h2>
+<div class="ld-ket-video"><a class="ld-vid" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" data-so-video="555"><span class="ld-vid-so">#555</span><b>Separating vocals from the backing track</b><small class="muted">Coming soon on the channel</small></a></div>
+<div class="chia-se">
+<p class="chia-se-h">Found this useful? Send it to a friend</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/en/tach-giong-nhac.html" data-tieu-de="Vocal splitter desk: see how AI pulls vocals out of a song" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-share"/></svg>Share</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fen%2Ftach-giong-nhac.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/en/tach-giong-nhac.html" hidden><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-link"/></svg>Copy link</button></div>
+</div>
+</section>
+<p class="ld-ghi">The song on this page is a made-up tune your own browser generates; no real song or singer is used. The splitter here is a simulation of how masks work, not a real AI; the cell numbers are the examples from the video.
+Nothing is sent anywhere.</p>
+<noscript><p>The lab needs JavaScript.</p></noscript>
+<script type="application/json" id="tg-du-lieu">{"rang":[{"id":"giong","mau":"#F97316","ten":"Vocals"},{"id":"trong","mau":"#8B5CF6","ten":"Drums"},{"id":"bass","mau":"#0EA5E9","ten":"Bass"},{"id":"dan","mau":"#10B981","ten":"Keys"}],"o_vi_du":[{"nang_luong":10,"mat_na":0.8},{"nang_luong":6,"mat_na":0.1},{"nang_luong":8,"mat_na":0.5},{"nang_luong":2,"mat_na":0.9}],"nhan":{"phat":"Play the song","dung":"Stop","bat":"On","tat":"Off","tron":"The mix: all 4 tracks in one file","o_chon":"Tap a cell on the spectrogram to see how the machine splits it.","o_nl":"Energy","o_mn":"Vocal mask","o_giong":"Voice part","o_nhac":"Music part","o_cao":"Pitch","o_tg":"Time","giay":"s","o_kho":"Mask near 0.5: voice and music overlap, so the machine just splits it.","o_ro":"A clear mask: this cell belongs mostly to one side.","hoi_dung":"Right! 8 × 0.5 = 4 for the voice, 4 for the music.","hoi_sai":"Not quite. Voice part = energy × mask = 8 × 0.5 = 4.","ro_muc":["A handful of songs","Little training","Some training","Lots of training","Huge training set"],"sot":"Leftover bleed","che_do":{"tron":"Original mix","giong":"Vocals only","karaoke":"Karaoke (no vocals)"},"nx":{"tron":"This is the original file, nothing split yet.","giong":"The machine keeps each cell's voice part. Listen closely: any keys, drums or crackle leaking through?","karaoke":"The machine removes each cell's voice part. How much voice still echoes through?"},"ghi_kho":"Keys in the same range or echo: many cells sit near a 0.5 mask, so splitting gets much harder.","can_phat":"Press play to listen"},"p":"../"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/tro-choi/tach-giong-nhac.css?v=dev">
+<script src="../tach-giong-nhac.js?v=dev" defer></script>
+<script src="../bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="../">{"ten":"tach-giong-nhac","buoc":[{"chon":"#tg-phat","chu":"Turn your sound on and press here. Your browser plays a made-up tune with 4 tracks."},{"chon":"#tg-rang-ds","chu":"Tap each track to switch it on or off: vocals, drums, bass, keys. Hear each part on its own."},{"chon":"#tg-pho","chu":"This is the spectrogram. Tap a cell to see how the mask splits it between voice and music."},{"chon":"#tg-che-do","chu":"Finally, try the splitter: vocals only or karaoke. Drag the training level and make it harder to hear the leftovers."}]}</script>
+<script src="../huong-dan.js?v=dev" defer></script>
+</body>
+</html>

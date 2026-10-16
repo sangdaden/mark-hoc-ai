@@ -1,0 +1,40 @@
+{
+ "_ghi_chu": "Trò chơi Xếp mốc lịch sử AI (dong-thoi-gian-ai.html), series Lịch sử AI trong sáu tập (512-517). Năm và câu từ videos/ke-hoach-501-600/thuc-hanh-lich-su-ai/dong-thoi-gian.csv (đã kiểm nguồn trong kich-ban-512-517.md). Dòng thời gian của chatbot ở vòng 2 là bản minh họa do kênh viết, có 2 năm sai cố ý.",
+ "video_lien_quan": ["512", "513", "514", "515", "516", "517"],
+ "moc": [
+  {"id": "turing", "nam": 1950, "tap": "512", "mau": "#2563EB",
+   "ten": {"vi": "Turing hỏi: máy có biết nghĩ không?", "en": "Turing asks: can machines think?"},
+   "goi_y": {"vi": "Một bài báo đổi câu hỏi thành trò chơi bắt chước", "en": "A paper turns the question into an imitation game"},
+   "chu": {"vi": "Bài báo trên tạp chí Mind đổi câu hỏi “máy có biết nghĩ không” thành trò chơi bắt chước.", "en": "A paper in the journal Mind turns “can machines think?” into an imitation game."}},
+  {"id": "dartmouth", "nam": 1956, "tap": "513", "mau": "#0EA5E9",
+   "ten": {"vi": "Dartmouth đặt tên “trí tuệ nhân tạo”", "en": "Dartmouth names “artificial intelligence”"},
+   "goi_y": {"vi": "Một dự án mùa hè ở trường đại học Mỹ", "en": "A summer project at a US college"},
+   "chu": {"vi": "Dự án mùa hè ở Dartmouth (đề xuất từ 31/8/1955) đặt tên artificial intelligence.", "en": "A summer project at Dartmouth (proposed 31 Aug 1955) coins the name artificial intelligence."}},
+  {"id": "mua-dong", "nam": 1974, "tap": "514", "mau": "#64748B",
+   "ten": {"vi": "Mùa đông AI thứ nhất", "en": "The first AI winter"},
+   "goi_y": {"vi": "Lời hứa đi trước kết quả, tiền bị cắt", "en": "Promises outran results, funding was cut"},
+   "chu": {"vi": "Khoảng 1974-1980: tiền nghiên cứu bị cắt sau các báo cáo ALPAC 1966 và Lighthill 1973.", "en": "Around 1974-1980: research money dries up after the ALPAC (1966) and Lighthill (1973) reports."}},
+  {"id": "deep-blue", "nam": 1997, "tap": "515", "mau": "#7C3AED",
+   "ten": {"vi": "Máy cờ Deep Blue thắng nhà vô địch", "en": "Deep Blue beats the chess champion"},
+   "goi_y": {"vi": "Tính rất nhanh, nhưng không tự học", "en": "Very fast search, no learning"},
+   "chu": {"vi": "Máy cờ thắng đương kim vô địch cờ vua thế giới 3,5 - 2,5, nhờ xét khoảng 200 triệu thế cờ mỗi giây.", "en": "A chess machine beats the reigning world champion 3.5-2.5 by checking about 200 million positions a second."}},
+  {"id": "imagenet", "nam": 2012, "tap": "516", "mau": "#059669",
+   "ten": {"vi": "Học sâu thắng cuộc thi ảnh ImageNet", "en": "Deep learning wins ImageNet"},
+   "goi_y": {"vi": "Nhiều dữ liệu, chạy trên GPU", "en": "Lots of data, trained on GPUs"},
+   "chu": {"vi": "Mạng AlexNet sai 15,3%, trong khi đội hạng nhì sai 26,2%.", "en": "The AlexNet network gets 15.3% wrong; the runner-up gets 26.2% wrong."}},
+  {"id": "transformer", "nam": 2017, "tap": "517", "mau": "#DB2777",
+   "ten": {"vi": "Bài báo Transformer ra đời", "en": "The Transformer paper"},
+   "goi_y": {"vi": "Nền móng của chatbot ngày nay", "en": "The foundation of today's chatbots"},
+   "chu": {"vi": "Bài báo “Attention Is All You Need” của 8 tác giả đặt nền cho chatbot ngày nay.", "en": "“Attention Is All You Need”, by 8 authors, lays the groundwork for today's chatbots."}}
+ ],
+ "chatbot": [
+  {"id": "turing", "nam": 1950, "sai": false},
+  {"id": "dartmouth", "nam": 1965, "sai": true,
+   "giai": {"vi": "Đúng là 1956. Chatbot đảo hai chữ số cuối, lỗi rất hay gặp khi máy đoán chữ tiếp theo.", "en": "It's 1956. The chatbot swapped the last two digits, a common slip when a model predicts the next token."}},
+  {"id": "mua-dong", "nam": 1974, "sai": false},
+  {"id": "deep-blue", "nam": 1996, "sai": true,
+   "giai": {"vi": "Năm 1996 máy chơi trận đầu và thua 2 - 4. Phải đến trận tái đấu năm 1997 máy mới thắng.", "en": "In 1996 the machine played its first match and lost 2-4. It only won the 1997 rematch."}},
+  {"id": "imagenet", "nam": 2012, "sai": false},
+  {"id": "transformer", "nam": 2017, "sai": false}
+ ]
+}
