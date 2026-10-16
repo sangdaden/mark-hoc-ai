@@ -31,7 +31,8 @@
     });
   }).catch(function () {});
 
-  // Trình phát YouTube (chỉ video mới có data/youtube-id.json): bấm ảnh bìa mới tải iframe youtube-nocookie.
+  // Trình phát YouTube (video đã đăng, data/youtube-id.json): bấm ảnh bìa mới tải iframe youtube-nocookie.
+  // Không tự phát khi mở trang: YouTube chỉ tính lượt xem khi người xem tự bấm phát.
   // Không chạy được JS thì nút phát vẫn là link mở YouTube.
   document.querySelectorAll(".yt-lite[data-yt]").forEach(function (fig) {
     var nut = fig.querySelector(".yt-play");
@@ -46,6 +47,7 @@
       f.referrerPolicy = "strict-origin-when-cross-origin";
       fig.appendChild(f);
       nut.remove();
+      if (window.mhaiDo) window.mhaiDo("phat-video", { yt: fig.dataset.yt });
       f.focus();
     });
   });

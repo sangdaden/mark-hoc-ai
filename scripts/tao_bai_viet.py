@@ -43,8 +43,9 @@ video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 6
 from video_moi import VIDEO_MOI_TU
 from tao_vu_tru_khac import dong_sitemap
 import anh_chia_se
+# Trình phát YouTube: mọi video đã đăng YouTube, kể cả 01-302 và tập phụ ("5.1"), Sang duyệt 16/10 (scripts/cap_nhat_youtube.py)
+YT_ID = load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}
 # Ảnh riêng từng video (scripts/tao_anh.py) chỉ dành cho video mới, số >= VIDEO_MOI_TU (scripts/video_moi.py)
-YT_ID = {k: v for k, v in (load("youtube-id") if (R / "data" / "youtube-id.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 ANH = {k: v for k, v in (load("anh") if (R / "data" / "anh.json").exists() else {}).items() if int(k) >= VIDEO_MOI_TU}
 esc = lambda s: html.escape(s or "", quote=True)
 
@@ -432,7 +433,12 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 
 TO_CHUC = {"@type": "Organization", "name": SITE, "url": BASE, "logo": {"@type": "ImageObject", "url": BASE + "assets/logo.png"}}
 
+def yt_url(yt):
+    return f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
+
 def yt_link(v):
+    if str(v["so"]) in YT_ID:  # đã đăng: mở thẳng video
+        return yt_url(YT_ID[str(v["so"])])
     tieu_de, _ = tach_tieu_de(VIDEO_VI[v["so"]])  # video tiếng Việt: tìm bằng tiêu đề gốc
     return kenh["youtube"] + "/search?query=" + quote(tieu_de, safe="")
 
@@ -480,12 +486,22 @@ def ten_video(v):
     """Tên video để làm chữ thay ảnh (alt): tên ngắn trong chu_de, bỏ phần series."""
     return tach_tieu_de(v)[0]
 
+def trinh_phat(yt, ten, anh=None):
+    """Ảnh bìa + nút phát YouTube (ten đã esc). Không có ảnh riêng thì dùng ảnh bìa của YouTube."""
+    anh = anh or (f'<img src="https://i.ytimg.com/vi/{yt["id"]}/hqdefault.jpg" width="480" height="360" alt="{ten}" decoding="async" '
+                  f'fetchpriority="high">')
+    return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
+            f'<a class="yt-play" href="{yt_url(yt)}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
+            f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
+            f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+
 def anh_dau_bai(v, p):
-    """Đầu bài của video mới (số >= VIDEO_MOI_TU):
+    """Đầu bài:
     - có mã YouTube (data/youtube-id.json, scripts/cap_nhat_youtube.py): ảnh bìa + nút phát, bấm mới tải trình phát
-      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm;
-    - chưa có mã: ảnh bìa (data/anh.json) kèm biểu tượng các nền tảng để xem video.
-    Video 01-302 không có gì ở đây (giữ như cũ)."""
+      youtube-nocookie (bai-viet.js), nên trang không tải gì của YouTube khi chưa bấm. Không tự phát: YouTube không
+      tính lượt xem cho video nhúng tự phát;
+    - chưa có mã: ảnh bìa (data/anh.json, chỉ video mới) kèm biểu tượng các nền tảng để xem video.
+    Video 01-302 chưa đăng YouTube thì không có gì ở đây."""
     a, yt = ANH.get(str(v["so"])), YT_ID.get(str(v["so"]))
     ten = esc(ten_video(v))
     if a and a.get("bia"):
@@ -497,11 +513,7 @@ def anh_dau_bai(v, p):
     else:
         return ""
     if yt:
-        url = f'https://www.youtube.com/watch?v={yt["id"]}' if yt.get("loai") == "dai" else f'https://www.youtube.com/shorts/{yt["id"]}'
-        return (f'<figure class="post-cover yt-lite" data-yt="{yt["id"]}" data-tieu-de="{ten}">{anh}'
-                f'<a class="yt-play" href="{url}" target="_blank" rel="noopener" aria-label="{t("Phát video", "Play video")}: {ten}">'
-                f'<svg viewBox="0 0 68 48" aria-hidden="true"><path class="yt-nen" d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z"/>'
-                f'<path fill="#fff" d="M27 34.5 45 24 27 13.5z"/></svg></a></figure>\n')
+        return trinh_phat(yt, ten, anh)
     xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
     return (f'<figure class="post-cover">{anh}</figure>\n'
             f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n')
@@ -703,7 +715,8 @@ def tao_bai_phu(s, x):
         nav.append(the(sau, t("Phần tiếp theo ›", "Next part ›"), "nav-card next"))
 
     # Nút xem: tìm đúng tiêu đề tiếng Việt trên kênh YouTube; chưa tới ngày ra mắt thì bai-viet.js đổi thành link kênh (data-ngay)
-    tim = kenh["youtube"] + "/search?query=" + quote(next(y["tieu_de"] for y in video_phu_vi(s["id"]) if y["so"] == so), safe="")
+    yt = YT_ID.get(so)
+    tim = yt_url(yt) if yt else kenh["youtube"] + "/search?query=" + quote(next(y["tieu_de"] for y in video_phu_vi(s["id"]) if y["so"] == so), safe="")
     gan = f'data-so="{so}" data-ngay="{x.get("ra_mat", "")}" data-kenh="{esc(kenh["youtube"])}"'
     nut = f'<a class="btn btn-yt" {gan} href="{esc(tim)}" target="_blank" rel="noopener">{ic(p, "play")}{t("Xem video", "Watch video")}</a>'
     xem = "".join(nut_nen_tang(k, p, "nt nt-sm") for k in ("youtube", "tiktok", "facebook", "instagram") if kenh.get(k))
@@ -714,7 +727,8 @@ def tao_bai_phu(s, x):
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
-    main = (f'<main class="doc">\n<article class="post">\n<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n' + "\n".join(muc) +
+    dau = (trinh_phat(yt, esc(x["tieu_de"])) if yt else "") + f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n'
+    main = (f'<main class="doc">\n<article class="post">\n{dau}' + "\n".join(muc) +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
