@@ -1974,3 +1974,84 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .ld-dt { min-height: 0; border-width: 8px; border-radius: 28px; }
   .ld-ben { position: static; }
 }
+
+/* Trò chơi "Thợ ghép câu lệnh" (tho-ghep-cau-lenh.html, ghep-cau-lenh.js): khung câu lệnh + khay mảnh ghép + câu trả lời của AI */
+.gh-dau { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 14px; font: 500 14px/1.4 var(--f-mono); color: var(--muted); }
+.gh-dau p { margin: 0; }
+.gh-diem { color: #D97706; font-weight: 700; }
+.gh-o { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.gh-viec-dau { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.gh-viec-ten { margin: 0; font: 800 22px/1.25 var(--f-display); }
+.gh-vid-so, .gh-vid-so:visited { flex: none; padding: 3px 10px; border-radius: 999px; background: var(--grad); color: #fff; font: 700 13px/1.5 var(--f-mono); text-decoration: none; }
+.gh-lenh { padding: 16px; border-radius: 20px; background: var(--panel); border: 2px solid var(--edge); box-shadow: 0 18px 36px -28px rgba(15, 23, 42, .5); }
+.gh-lenh-nhan { margin: 0 0 10px; font: 600 12.5px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.gh-lenh-ds { display: grid; gap: 8px; }
+.gh-dong { --mau: #64748B; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; margin: 0; padding: 8px 10px; border-radius: 12px; border-left: 4px solid var(--mau); background: color-mix(in srgb, var(--mau) 9%, var(--panel)); line-height: 1.5; animation: gh-vao .25s ease-out; }
+.gh-dong-goc { border-left-color: var(--edge); background: var(--bg2); }
+.gh-trong { margin: 4px 2px 0; font-size: 14px; color: var(--muted); }
+.gh-loai { --mau: #64748B; display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--mau); color: #fff; font: 700 11.5px/1.5 var(--f-body); white-space: nowrap; }
+.gh-loai-goc { background: var(--muted); }
+.gh-nut { margin-top: 16px; }
+.gh-khay-nhan { margin: 26px 0 4px; font: 800 18px/1.3 var(--f-display); }
+.gh-huong { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+.gh-khay { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.gh-manh { --mau: #64748B; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px; border-radius: 16px; border: 2px dashed color-mix(in srgb, var(--mau) 55%, var(--edge)); background: var(--panel); color: var(--ink); font: 500 14.5px/1.45 var(--f-body); text-align: left; cursor: pointer; transition: transform .12s, border-color .12s, background .12s; }
+.gh-manh:hover { transform: translateY(-1px); border-color: var(--mau); }
+.gh-manh:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.gh-manh[aria-pressed="true"] { border-style: solid; border-color: var(--mau); background: color-mix(in srgb, var(--mau) 14%, var(--panel)); }
+.gh-manh[aria-pressed="true"]::after { content: "✓"; align-self: flex-end; margin-top: -26px; font-weight: 800; color: var(--mau); }
+.gh-ben { position: sticky; top: 16px; display: grid; gap: 16px; }
+.gh-cho { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 28px 20px; border-radius: 20px; border: 2px dashed var(--edge); text-align: center; color: var(--muted); }
+.gh-cho p { margin: 0; max-width: 320px; }
+.gh-tl { padding: 16px; border-radius: 20px; background: var(--panel); border: 2px solid var(--edge); animation: gh-vao .3s ease-out; }
+.gh-muc-tot { border-color: #10B981; }
+.gh-muc-kha { border-color: #F59E0B; }
+.gh-muc-tho { border-color: #94A3B8; }
+.gh-tl-dau { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+.gh-tl-ai { font: 600 12.5px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.gh-tl-muc { padding: 3px 10px; border-radius: 999px; font: 700 13px/1.4 var(--f-body); color: #fff; background: #64748B; }
+.gh-muc-tot .gh-tl-muc { background: #059669; }
+.gh-muc-kha .gh-tl-muc { background: #D97706; }
+.gh-tl-than { padding: 12px 14px; border-radius: 16px 16px 16px 6px; background: var(--bg2); line-height: 1.6; }
+.gh-tl-than p, .gh-tl-than ul { margin: 0 0 8px; }
+.gh-tl-than > :last-child { margin-bottom: 0; }
+.gh-tl-than ul { padding-left: 20px; }
+.gh-bang-bao { overflow-x: auto; margin: 0 0 8px; }
+.gh-bang { border-collapse: collapse; width: 100%; font-size: 14px; }
+.gh-bang th, .gh-bang td { padding: 6px 8px; border: 1px solid var(--edge); text-align: left; vertical-align: top; }
+.gh-bang th { background: var(--panel); }
+.gh-canh-bao { margin: 0 0 10px; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, #EF4444 14%, var(--panel)); border: 1.5px solid #EF4444; font-weight: 600; font-size: 14px; }
+.gh-tl-than + .gh-canh-bao { margin: 10px 0 0; }
+.gh-ph { display: flex; gap: 14px; align-items: flex-start; padding: 16px; border-radius: 20px; background: var(--panel); border: 1.5px solid var(--edge); }
+.gh-ph img { flex: none; }
+.gh-sao { margin: 0; font-size: 26px; letter-spacing: 2px; color: #F59E0B; line-height: 1; }
+.gh-nhom-h { margin: 12px 0 6px; font: 600 12.5px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .03em; }
+.gh-nhom-h.is-co { color: #059669; }
+.gh-nhom-h.is-thieu { color: #D97706; }
+.gh-nhom-h.is-bay { color: #DC2626; }
+.gh-ds { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.gh-ds li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: start; padding: 8px 10px; border-radius: 12px; background: var(--bg2); line-height: 1.45; font-size: 14.5px; }
+.gh-sau { margin-top: 0; }
+.gh-ket { max-width: 720px; margin: 0 auto; }
+.gh-ket-the { display: flex; align-items: center; gap: 20px; padding: 24px; border-radius: 24px; background: var(--grad); color: #fff; box-shadow: 0 20px 40px -26px rgba(15, 23, 42, .6); }
+.gh-ket-the p { margin: 0; }
+.gh-ket-so { font: 800 52px/1 var(--f-display); }
+.gh-ket-hang { font: 800 22px/1.3 var(--f-display); margin-top: 6px !important; }
+.gh-ket-phu { opacity: .9; margin-top: 4px !important; }
+.gh-ket-h, .gh-mau-h { margin: 28px 0 12px; font: 800 20px/1.3 var(--f-display); }
+.gh-ket-video { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.gh-vid { display: grid; gap: 6px; padding: 14px; border-radius: 16px; background: var(--panel); border: 1.5px solid var(--edge); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
+.gh-vid:hover { border-color: var(--blue); transform: translateY(-1px); }
+.gh-vid .gh-vid-so { justify-self: start; }
+.gh-vid b { font-size: 15px; line-height: 1.4; }
+.gh-mau-lead { margin: -4px 0 12px; color: var(--muted); }
+.gh-mau-the { margin-bottom: 14px; display: grid; gap: 8px; }
+.gh-ghi { margin: 28px auto 0; max-width: 640px; text-align: center; font-size: 13.5px; color: var(--muted); }
+@keyframes gh-vao { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .gh-dong, .gh-tl { animation: none; } .gh-manh { transition: none; } }
+@media (max-width: 860px) {
+  .gh-o { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .gh-ben { position: static; }
+  .gh-khay { grid-template-columns: minmax(0, 1fr); }
+}
+.gh-ben.is-cu .gh-tl, .gh-ben.is-cu .gh-ph { opacity: .45; }

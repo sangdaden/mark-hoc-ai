@@ -1,0 +1,144 @@
+{
+ "_ghi_chu": "Trò 'Thợ ghép câu lệnh' (tho-ghep-cau-lenh.html, en/, ghep-cau-lenh.js). Mỗi 'viec' là một việc nhờ AI: câu lệnh gốc mơ hồ + các mảnh để ghép. can=true: mảnh cần có; chinh=true: thiếu mảnh này thì câu trả lời vẫn tệ dù có mảnh khác; bay: mảnh bẫy (mo-ho: không thêm thông tin, nguoc: làm kết quả tệ đi, nguy: việc không nên giao, lo-du-lieu: dán dữ liệu riêng tư, xem video 15). Câu trả lời của AI viết sẵn theo 3 mức: tho (thiếu nhiều), kha (có đủ mảnh chinh nhưng chưa đủ mọi mảnh cần), tot (đủ mọi mảnh cần). Không gọi AI thật. Dòng bắt đầu bằng '| ' là hàng bảng, '- ' là gạch đầu dòng, **chữ** là in đậm. Mọi tên người, tên gói cước là hư cấu.",
+ "loai": {
+  "vai": {"vi": "Vai trò", "en": "Role", "mau": "#8B5CF6"},
+  "boi-canh": {"vi": "Bối cảnh", "en": "Context", "mau": "#0EA5E9"},
+  "nhiem-vu": {"vi": "Nhiệm vụ", "en": "Task", "mau": "#F59E0B"},
+  "dinh-dang": {"vi": "Định dạng", "en": "Format", "mau": "#10B981"},
+  "vi-du": {"vi": "Ví dụ", "en": "Example", "mau": "#EC4899"},
+  "luat": {"vi": "Luật chơi", "en": "Ground rules", "mau": "#6366F1"},
+  "tung-buoc": {"vi": "Nghĩ từng bước", "en": "Step by step", "mau": "#14B8A6"},
+  "buoc": {"vi": "Chuỗi việc", "en": "Chain step", "mau": "#F97316"},
+  "tu-cham": {"vi": "Tự chấm", "en": "Self-check", "mau": "#E11D48"}
+ },
+ "viec": [
+  {
+   "id": "ca-phe-muoi", "video": 3,
+   "ten": {"vi": "Bài đăng cho quán cà phê", "en": "A post for a coffee shop"},
+   "goc": {"vi": "Viết bài quảng cáo.", "en": "Write an ad."},
+   "manh": [
+    {"id": "vai", "loai": "vai", "can": true, "chu": {"vi": "Bạn là người viết quảng cáo cho quán cà phê nhỏ.", "en": "You write ads for a small coffee shop."}, "giai": {"vi": "AI biết phải viết bằng giọng của ai.", "en": "The AI knows whose voice to write in."}},
+    {"id": "boi-canh", "loai": "boi-canh", "can": true, "chinh": true, "chu": {"vi": "Tôi bán cà phê muối, khách chủ yếu là sinh viên gần trường.", "en": "I sell salted coffee, mostly to students near the campus."}, "giai": {"vi": "AI biết bán món gì, cho ai đọc, nên viết đúng chuyện ôn thi, đúng túi tiền sinh viên.", "en": "The AI knows what you sell and who reads it, so it talks about exams and student budgets."}},
+    {"id": "nhiem-vu", "loai": "nhiem-vu", "can": true, "chinh": true, "chu": {"vi": "Viết bài đăng Facebook giới thiệu món mới, giá 25 nghìn.", "en": "Write a Facebook post introducing the new drink, priced at 25,000 VND."}, "giai": {"vi": "AI biết phải viết bài đăng Facebook chứ không phải tờ rơi, và có giá để nói.", "en": "The AI knows it's a Facebook post, not a flyer, and has a price to mention."}},
+    {"id": "dinh-dang", "loai": "dinh-dang", "can": true, "chu": {"vi": "Dưới 80 chữ, giọng vui, kết bằng một câu mời ghé quán.", "en": "Under 80 words, upbeat, ending with an invite to drop by."}, "giai": {"vi": "AI biết viết dài bao nhiêu, giọng gì, kết thế nào.", "en": "The AI knows the length, the tone and how to end."}},
+    {"id": "hay", "loai": "nhiem-vu", "bay": "mo-ho", "chu": {"vi": "Viết thật hay vào nhé.", "en": "Make it really good."}, "giai": {"vi": "Câu này không thêm thông tin gì. \"Hay\" theo ý ai, cho ai đọc? AI vẫn phải đoán.", "en": "This adds no information. Good for whom, read by whom? The AI still has to guess."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Chào mừng quý khách đến với cửa hàng của chúng tôi! Chúng tôi tự hào mang đến những sản phẩm chất lượng cao với giá cả hợp lý. Đội ngũ nhân viên tận tâm luôn sẵn sàng phục vụ quý khách. Hãy đến và trải nghiệm ngay hôm nay!", "en": "Welcome to our store! We are proud to offer high-quality products at reasonable prices. Our dedicated staff are always ready to serve you. Come and experience it today!"},
+    "kha": {"vi": "Giới thiệu món mới: Cà phê muối! Sự kết hợp độc đáo giữa vị đắng của cà phê và vị mặn nhẹ của lớp kem muối mang đến trải nghiệm hương vị khó quên. Món uống phù hợp cho mọi lứa tuổi, thích hợp thưởng thức vào buổi sáng hoặc buổi chiều. Giá chỉ 25.000 đồng.", "en": "Introducing our new drink: Salted Coffee! The unique combination of bitter coffee and a lightly salted cream creates an unforgettable taste experience. Suitable for all ages, perfect for mornings or afternoons. Only 25,000 VND."},
+    "tot": {"vi": "Ôn bài tới khuya mà mắt díp lại? ☕ Cà phê muối mới về quán: đắng vừa, kem muối béo béo mặn mặn, một ngụm là tỉnh cả buổi. Chỉ 25 nghìn, rẻ hơn ly trà sữa. Tan học ghé quán, rủ cả nhóm luôn nha!", "en": "Studying late and your eyes keep closing? ☕ Salted coffee just landed: smooth bitterness, creamy salted foam, one sip and you're awake. Just 25,000 VND, cheaper than bubble tea. Swing by after class and bring the whole group!"}
+   }
+  },
+  {
+   "id": "caption-banh-mi", "video": 101,
+   "ten": {"vi": "Caption đúng giọng của page", "en": "A caption in your page's voice"},
+   "goc": {"vi": "Viết caption cho ảnh bánh mì mới ra lò.", "en": "Write a caption for a photo of fresh-baked bread."},
+   "manh": [
+    {"id": "boi-canh", "loai": "boi-canh", "can": true, "chu": {"vi": "Đây là page của tiệm bánh nhỏ trong hẻm, khách quen là hàng xóm.", "en": "This is the page of a small bakery down an alley; regulars are the neighbours."}, "giai": {"vi": "AI biết đang nói với hàng xóm, không phải khách lạ.", "en": "The AI knows it's talking to neighbours, not strangers."}},
+    {"id": "vi-du", "loai": "vi-du", "can": true, "chinh": true, "chu": {"vi": "Đây là 3 caption cũ mình ưng: \"Bánh vừa ra lò, thơm tới đầu hẻm\" · \"Sáng mưa mà bánh vẫn nóng giòn chờ cả nhà\" · \"Hết sớm thì đừng buồn, mai mình nướng thêm mẻ nữa nha\". Viết theo giọng này.", "en": "Here are 3 old captions I like: \"Fresh out of the oven, you can smell it from the end of the alley\" · \"Rainy morning, but the bread is still warm and crusty for you\" · \"Sold out early? Don't be sad, we'll bake another batch tomorrow\". Write in this voice."}, "giai": {"vi": "Đưa ví dụ (few-shot) là cách nhanh nhất để AI bắt đúng giọng, độ dài, cả cách dùng emoji.", "en": "Examples (few-shot) are the fastest way for the AI to catch your voice, length and even emoji habits."}},
+    {"id": "dinh-dang", "loai": "dinh-dang", "can": true, "chu": {"vi": "Một hoặc hai câu thôi, tối đa một emoji.", "en": "One or two sentences, at most one emoji."}, "giai": {"vi": "Giữ caption ngắn như mấy bài cũ.", "en": "Keeps the caption as short as your old posts."}},
+    {"id": "ta-giong", "loai": "dinh-dang", "bay": "mo-ho", "chu": {"vi": "Viết giọng trẻ trung, gần gũi, đừng cứng mà cũng đừng lố.", "en": "Make it youthful and friendly, not stiff but not over the top."}, "giai": {"vi": "Tả giọng văn bằng tính từ thì mỗi người hiểu một kiểu. Đưa vài câu mẫu thì AI bắt được giọng ngay.", "en": "Describing a voice with adjectives means something different to everyone. A few sample lines work much better."}},
+    {"id": "chep", "loai": "vi-du", "bay": "nguoc", "chu": {"vi": "Mẫu đây: \"Bánh mì mới ra lò thơm ngon\". Viết y như vậy.", "en": "Here's the sample: \"Fresh bread, tasty and warm\". Write exactly like that."}, "giai": {"vi": "Ví dụ giống hệt việc cần làm thì AI chép gần y nguyên. Ví dụ nên khác chủ đề nhưng cùng giọng.", "en": "An example identical to the task gets copied almost word for word. Use examples on other topics in the same voice."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Thưởng thức ngay những ổ bánh mì nóng hổi, giòn rụm vừa mới ra lò! Bánh được làm từ nguyên liệu tươi ngon, đảm bảo vệ sinh an toàn thực phẩm. 🥖✨😋 #banhmi #bakery #ngon", "en": "Enjoy our hot, crispy loaves fresh from the oven! Made with fresh ingredients and the highest hygiene standards. 🥖✨😋 #bread #bakery #yummy"},
+    "kha": {"vi": "Mẻ bánh mì mới ra lò cho cả xóm mình đây! Giòn rụm, thơm phức, ghé tiệm sớm kẻo hết nha 🥖", "en": "A fresh batch for the whole neighbourhood! Crispy and fragrant, come early before it's gone 🥖"},
+    "tot": {"vi": "Mẻ đầu tiên vừa ra lò, giòn tới mức đứng đầu hẻm cũng nghe tiếng rắc 🥖", "en": "First batch just came out, so crusty you can hear the crunch from the end of the alley 🥖"}
+   }
+  },
+  {
+   "id": "lich-tap", "video": 102,
+   "ten": {"vi": "Lịch tập cho người mới", "en": "A workout plan for a beginner"},
+   "goc": {"vi": "Lên lịch tập thể dục cho tôi.", "en": "Make me a workout plan."},
+   "manh": [
+    {"id": "vai", "loai": "vai", "can": true, "chinh": true, "chu": {"vi": "Bạn là huấn luyện viên chuyên cho dân văn phòng hay đau lưng.", "en": "You are a coach who specialises in office workers with back pain."}, "giai": {"vi": "Vai càng cụ thể, câu trả lời càng sát: bài tập nhẹ cho lưng, không phải lịch của vận động viên.", "en": "The more specific the role, the closer the answer: gentle back-friendly moves, not an athlete's plan."}},
+    {"id": "boi-canh", "loai": "boi-canh", "can": true, "chu": {"vi": "Tôi 35 tuổi, ngồi máy tính 9 tiếng mỗi ngày, chưa tập bao giờ.", "en": "I'm 35, sit at a computer 9 hours a day and have never exercised."}, "giai": {"vi": "AI biết bạn mới bắt đầu và ngồi nhiều.", "en": "The AI knows you're a beginner who sits a lot."}},
+    {"id": "luat", "loai": "luat", "can": true, "chu": {"vi": "Mỗi buổi tối đa 20 phút, không cần dụng cụ. Thiếu thông tin thì hỏi lại tôi.", "en": "At most 20 minutes a session, no equipment. If you're missing information, ask me."}, "giai": {"vi": "Luật chơi (system prompt) giữ AI trong khung bạn làm được, và cho phép nó hỏi lại thay vì đoán.", "en": "Ground rules (a system prompt) keep the AI within what you can do and let it ask instead of guessing."}},
+    {"id": "chuyen-gia", "loai": "vai", "bay": "mo-ho", "chu": {"vi": "Bạn là chuyên gia.", "en": "You are an expert."}, "giai": {"vi": "\"Chuyên gia\" quá mơ hồ: chuyên gia gì, cho ai? Câu trả lời vẫn chung chung.", "en": "\"Expert\" is too vague: an expert in what, for whom? The answer stays generic."}},
+    {"id": "bac-si", "loai": "vai", "bay": "nguy", "chu": {"vi": "Bạn là bác sĩ, hãy chẩn đoán vì sao tôi đau lưng.", "en": "You are a doctor, diagnose why my back hurts."}, "giai": {"vi": "Giao vai bác sĩ không biến AI thành bác sĩ. Đau kéo dài thì đi khám người thật.", "en": "Calling the AI a doctor doesn't make it one. Persistent pain needs a real check-up."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Lịch tập gợi ý:\n- Thứ Hai: chạy bộ 45 phút\n- Thứ Ba: ngực và tay với tạ, 60 phút\n- Thứ Tư: nghỉ\n- Thứ Năm: squat và deadlift, 60 phút\n- Thứ Sáu: HIIT 30 phút\n- Cuối tuần: bơi hoặc đạp xe 90 phút", "en": "Suggested plan:\n- Monday: run 45 minutes\n- Tuesday: chest and arms with weights, 60 minutes\n- Wednesday: rest\n- Thursday: squats and deadlifts, 60 minutes\n- Friday: HIIT 30 minutes\n- Weekend: swim or cycle 90 minutes"},
+    "kha": {"vi": "Lịch cho người mới, mỗi buổi khoảng 30-40 phút:\n- Thứ Hai, Tư, Sáu: đi bộ nhanh 20 phút, plank 3 lần × 30 giây\n- Thứ Ba, Năm: giãn cơ toàn thân 15 phút\n- Nhớ khởi động kỹ trước khi tập.", "en": "A beginner plan, about 30-40 minutes a session:\n- Mon, Wed, Fri: brisk walk 20 minutes, plank 3 × 30 seconds\n- Tue, Thu: full-body stretching 15 minutes\n- Warm up well before each session."},
+    "tot": {"vi": "Cho mình hỏi trước: bạn đau ở thắt lưng hay vai gáy?\nTạm thời đây là lịch 20 phút, không cần dụng cụ:\n- Thứ Hai, Tư, Sáu: mèo-bò 1 phút, nâng hông 3 × 10, plank chống gối 3 × 20 giây\n- Thứ Ba, Năm: đi bộ nhanh 15 phút, giãn ngực ở khung cửa 2 phút\n- Mỗi tiếng ngồi máy tính: đứng dậy vươn vai 1 phút\nĐau nhói hoặc tê chân thì dừng và đi khám.", "en": "Quick question first: is the pain in your lower back or your neck and shoulders?\nFor now, a 20-minute plan with no equipment:\n- Mon, Wed, Fri: cat-cow 1 minute, glute bridges 3 × 10, knee plank 3 × 20 seconds\n- Tue, Thu: brisk walk 15 minutes, doorway chest stretch 2 minutes\n- Every hour at the computer: stand up and stretch for 1 minute\nIf you feel sharp pain or numbness in your legs, stop and see a doctor."}
+   }
+  },
+  {
+   "id": "mua-3-tang-1", "video": 103,
+   "ten": {"vi": "Bài toán mua sắm", "en": "A shopping sum"},
+   "goc": {"vi": "Mua 3 tặng 1, 120 nghìn một hộp. Cần 10 hộp thì trả bao nhiêu?", "en": "Buy 3 get 1 free, 120,000 VND a box. How much for 10 boxes?"},
+   "manh": [
+    {"id": "tung-buoc", "loai": "tung-buoc", "can": true, "chinh": true, "chu": {"vi": "Hãy nghĩ từng bước rồi mới ra đáp số.", "en": "Think step by step before giving the answer."}, "giai": {"vi": "AI nghĩ bằng chính chữ nó viết ra. Viết từng bước là có thêm chỗ để tính, và bạn nhìn ra ngay nó sai ở đâu.", "en": "The AI thinks through the words it writes. Writing steps gives it room to calculate, and lets you see where it goes wrong."}},
+    {"id": "dinh-dang", "loai": "dinh-dang", "can": true, "chu": {"vi": "Cuối cùng ghi đáp số trên một dòng riêng.", "en": "End with the answer on its own line."}, "giai": {"vi": "Đáp số nằm riêng một dòng, không bị chìm giữa đoạn văn.", "en": "The answer sits on its own line instead of getting lost in a paragraph."}},
+    {"id": "nhanh", "loai": "dinh-dang", "bay": "nguoc", "chu": {"vi": "Trả lời thật nhanh, chỉ cần con số.", "en": "Answer fast, just the number."}, "giai": {"vi": "Bắt AI trả lời ngay là lấy mất chỗ để nó tính. Với bài nhiều bước, câu trả lời nhanh hay sai.", "en": "Forcing an instant answer takes away its room to work. On multi-step sums, fast answers are often wrong."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "900 nghìn đồng.", "en": "900,000 VND."},
+    "kha": {"vi": "Cứ mua 3 hộp thì được tặng 1, tức 4 hộp chỉ trả tiền 3. 10 hộp gồm 2 lượt 4 hộp (8 hộp, trả 6) và 2 hộp lẻ phải trả đủ, nên bạn trả tiền 8 hộp, 8 × 120 nghìn là 960 nghìn đồng, chưa tính khuyến mãi khác nếu cửa hàng có áp dụng cho hai hộp lẻ.", "en": "For every 3 boxes you buy you get 1 free, so 4 boxes cost the price of 3. 10 boxes means 2 rounds of 4 (8 boxes, pay for 6) plus 2 extra boxes at full price, so you pay for 8 boxes, 8 × 120,000 which is 960,000 VND, not counting any other deals the shop might apply to the extra two."},
+    "tot": {"vi": "Bước 1: Mua 3 tặng 1, nên cứ 4 hộp chỉ trả tiền 3.\nBước 2: 10 hộp = 2 lượt 4 hộp (8 hộp, trả 6) + 2 hộp lẻ (trả 2).\nBước 3: Trả tiền 8 hộp: 8 × 120 = 960.\n**Đáp số: 960 nghìn đồng**", "en": "Step 1: Buy 3 get 1, so every 4 boxes cost the price of 3.\nStep 2: 10 boxes = 2 rounds of 4 (8 boxes, pay for 6) + 2 extra (pay for 2).\nStep 3: Pay for 8 boxes: 8 × 120 = 960.\n**Answer: 960,000 VND**"}
+   },
+   "sai_khi_tho": {"vi": "Đáp số sai: phải là 960 nghìn.", "en": "Wrong answer: it should be 960,000."}
+  },
+  {
+   "id": "goi-cuoc", "video": 104,
+   "ten": {"vi": "Chọn gói cước điện thoại", "en": "Picking a phone plan"},
+   "goc": {"vi": "So sánh giúp tôi 3 gói cước: Xanh 70, Vàng 120, Tím 200.", "en": "Compare 3 phone plans for me: Green 70, Gold 120, Purple 200."},
+   "manh": [
+    {"id": "boi-canh", "loai": "boi-canh", "can": true, "chu": {"vi": "Tôi dùng khoảng 5GB mỗi tháng, chủ yếu xem video trên xe buýt.", "en": "I use about 5GB a month, mostly watching videos on the bus."}, "giai": {"vi": "AI biết bạn dùng bao nhiêu để so cho đúng nhu cầu.", "en": "The AI knows your usage so it can compare against your needs."}},
+    {"id": "bang", "loai": "dinh-dang", "can": true, "chinh": true, "chu": {"vi": "Trả lời bằng bảng: Gói | Giá | Data | Hợp với ai.", "en": "Answer as a table: Plan | Price | Data | Best for."}, "giai": {"vi": "So sánh thì dùng bảng, nhìn là thấy khác nhau ở đâu.", "en": "For comparisons, a table shows the differences at a glance."}},
+    {"id": "ket-luan", "loai": "dinh-dang", "can": true, "chu": {"vi": "Thêm một dòng cuối: tôi nên chọn gói nào, vì sao.", "en": "Add a final line: which plan I should pick and why."}, "giai": {"vi": "Bạn hỏi để chọn, nên xin luôn kết luận.", "en": "You're asking in order to choose, so ask for the verdict."}},
+    {"id": "chi-tiet", "loai": "dinh-dang", "bay": "nguoc", "chu": {"vi": "Giải thích càng chi tiết càng tốt.", "en": "Explain in as much detail as possible."}, "giai": {"vi": "Bạn cần chọn gói, không cần bài văn. \"Càng chi tiết càng tốt\" thường ra năm đoạn dài, đọc xong vẫn chưa chọn được.", "en": "You need a pick, not an essay. \"As much detail as possible\" usually means five long paragraphs and still no decision."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Gói Xanh 70 là gói cước có mức giá phải chăng, phù hợp với người dùng có nhu cầu data cơ bản. Gói cung cấp 6GB mỗi tháng, đủ cho các nhu cầu lướt web và nhắn tin thông thường.\nGói Vàng 120 hướng tới nhóm khách hàng có nhu cầu cao hơn, với 2GB mỗi ngày, cho phép xem video và sử dụng mạng xã hội thoải mái hơn.\nGói Tím 200 là lựa chọn cao cấp với 5GB mỗi ngày kèm gọi nội mạng miễn phí, phù hợp người dùng nhiều.\nMỗi gói đều có ưu điểm riêng, tùy thuộc vào nhu cầu của bạn.", "en": "The Green 70 plan is an affordable option for users with basic data needs. It offers 6GB per month, enough for normal browsing and messaging.\nThe Gold 120 plan targets customers with higher needs, with 2GB per day for more comfortable video and social media use.\nThe Purple 200 plan is the premium choice with 5GB per day plus free on-network calls, suitable for heavy users.\nEach plan has its own advantages depending on your needs."},
+    "kha": {"vi": "| Gói | Giá/tháng | Data | Hợp với ai\n| Xanh 70 | 70 nghìn | 6GB/tháng | Dùng nhẹ\n| Vàng 120 | 120 nghìn | 2GB/ngày | Xem video nhiều\n| Tím 200 | 200 nghìn | 5GB/ngày, gọi nội mạng miễn phí | Dùng rất nhiều, gọi nhiều", "en": "| Plan | Price/month | Data | Best for\n| Green 70 | 70,000 | 6GB/month | Light use\n| Gold 120 | 120,000 | 2GB/day | Lots of video\n| Purple 200 | 200,000 | 5GB/day, free on-network calls | Heavy data and calls"},
+    "tot": {"vi": "| Gói | Giá/tháng | Data | Hợp với ai\n| Xanh 70 | 70 nghìn | 6GB/tháng | Dùng nhẹ\n| Vàng 120 | 120 nghìn | 2GB/ngày | Xem video nhiều\n| Tím 200 | 200 nghìn | 5GB/ngày, gọi nội mạng miễn phí | Dùng rất nhiều, gọi nhiều\n**Nên chọn Xanh 70.** Bạn dùng khoảng 5GB một tháng, gói 6GB là đủ và rẻ hơn Vàng 120 tới 50 nghìn mỗi tháng.", "en": "| Plan | Price/month | Data | Best for\n| Green 70 | 70,000 | 6GB/month | Light use\n| Gold 120 | 120,000 | 2GB/day | Lots of video\n| Purple 200 | 200,000 | 5GB/day, free on-network calls | Heavy data and calls\n**Pick Green 70.** You use about 5GB a month, so 6GB is enough and it's 50,000 cheaper than Gold 120 every month."}
+   }
+  },
+  {
+   "id": "sinh-nhat-me", "video": 105,
+   "ten": {"vi": "Kế hoạch sinh nhật mẹ", "en": "Planning Mom's birthday"},
+   "goc": {"vi": "Lên kế hoạch sinh nhật mẹ giúp tôi.", "en": "Help me plan Mom's birthday."},
+   "manh": [
+    {"id": "buoc-1", "loai": "buoc", "can": true, "chinh": true, "chu": {"vi": "Bước 1: Chỉ chốt khung trước: 20 khách, ngân sách 3 triệu, làm ở nhà tối thứ Bảy.", "en": "Step 1: Just pin down the frame first: 20 guests, a 3-million budget, at home on Saturday evening."}, "giai": {"vi": "Chốt khung trước, các bước sau dựa vào đó nên không lệch.", "en": "Pinning the frame first means every later step builds on it."}},
+    {"id": "buoc-2", "loai": "buoc", "can": true, "chinh": true, "chu": {"vi": "Bước 2 (sau khi chốt bước 1): Lên thực đơn cho 20 người trong 3 triệu.", "en": "Step 2 (once step 1 is settled): Plan a menu for 20 people within 3 million."}, "giai": {"vi": "Mỗi lượt AI chỉ lo một việc nên làm kỹ hơn, và dùng đúng con số đã chốt.", "en": "Each turn handles one job, so it's more thorough and uses the agreed numbers."}},
+    {"id": "buoc-3", "loai": "buoc", "can": true, "chu": {"vi": "Bước 3: Viết tin nhắn mời, nhắc đúng giờ và món chính đã chốt.", "en": "Step 3: Write the invite message, mentioning the time and main dish we settled on."}, "giai": {"vi": "Kết quả bước trước thành đầu vào cho bước sau, nên tin nhắn nhắc đúng món.", "en": "Each step's output feeds the next, so the invite names the right dish."}},
+    {"id": "mot-lan", "loai": "nhiem-vu", "bay": "nguoc", "chu": {"vi": "Làm hết mọi thứ trong một lần cho nhanh.", "en": "Do everything in one go to save time."}, "giai": {"vi": "Gom hết vào một lần thì phần nào cũng có mà phần nào cũng sơ sài. Chia từng bước, sai ở đâu sửa ngay ở đó.", "en": "Doing it all at once makes every part shallow. Step by step, you fix mistakes before they spread."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Kế hoạch sinh nhật mẹ:\n- Địa điểm: nhà hàng hoặc ở nhà\n- Khách mời: gia đình và bạn bè\n- Thực đơn: các món mẹ thích\n- Trang trí: bóng bay, hoa\n- Quà tặng: tùy ngân sách\n- Thiệp mời: gửi trước một tuần", "en": "Mom's birthday plan:\n- Venue: restaurant or at home\n- Guests: family and friends\n- Menu: Mom's favourite dishes\n- Decorations: balloons, flowers\n- Gift: depending on budget\n- Invitations: send a week ahead"},
+    "kha": {"vi": "Đã chốt: 20 khách, 3 triệu, ở nhà tối thứ Bảy.\nThực đơn (khoảng 2,6 triệu):\n- Gỏi cuốn 60 cuốn: 450 nghìn\n- Lẩu thái 3 nồi: 1,2 triệu\n- Gà luộc 2 con: 700 nghìn\n- Bánh kem: 250 nghìn\nCòn khoảng 400 nghìn cho nước uống và hoa.", "en": "Settled: 20 guests, 3 million, at home on Saturday evening.\nMenu (about 2.6 million):\n- Fresh spring rolls, 60 pieces: 450,000\n- Thai hotpot, 3 pots: 1.2 million\n- Boiled chicken, 2 birds: 700,000\n- Birthday cake: 250,000\nAbout 400,000 left for drinks and flowers."},
+    "tot": {"vi": "Đã chốt: 20 khách, 3 triệu, ở nhà tối thứ Bảy.\nThực đơn (khoảng 2,6 triệu):\n- Gỏi cuốn 60 cuốn: 450 nghìn\n- Lẩu thái 3 nồi: 1,2 triệu\n- Gà luộc 2 con: 700 nghìn\n- Bánh kem: 250 nghìn\nTin nhắn mời: \"Tối thứ Bảy này 18 giờ, cả nhà mình mừng sinh nhật mẹ ở nhà nhé. Có lẩu thái mẹ thích, nhớ tới đúng giờ để thổi nến cùng mẹ!\"", "en": "Settled: 20 guests, 3 million, at home on Saturday evening.\nMenu (about 2.6 million):\n- Fresh spring rolls, 60 pieces: 450,000\n- Thai hotpot, 3 pots: 1.2 million\n- Boiled chicken, 2 birds: 700,000\n- Birthday cake: 250,000\nInvite: \"This Saturday at 6 pm we're celebrating Mom's birthday at home. There's the Thai hotpot she loves, so come on time to blow out the candles with her!\""}
+   }
+  },
+  {
+   "id": "email-nghi-phep", "video": 106,
+   "ten": {"vi": "Email xin nghỉ phép", "en": "An email asking for leave"},
+   "goc": {"vi": "Viết email xin nghỉ phép 2 ngày gửi sếp.", "en": "Write an email to my boss asking for 2 days off."},
+   "manh": [
+    {"id": "boi-canh", "loai": "boi-canh", "can": true, "chinh": true, "chu": {"vi": "Tôi nghỉ thứ Năm và thứ Sáu tuần sau, chị Hoa làm thay, thứ Hai đi làm lại.", "en": "I'm off next Thursday and Friday, Hoa covers for me, and I'm back on Monday."}, "giai": {"vi": "Email có đủ ngày nghỉ, người làm thay, ngày quay lại.", "en": "The email gets the dates, who covers and when you're back."}},
+    {"id": "tu-cham", "loai": "tu-cham", "can": true, "chu": {"vi": "Viết xong, hãy chỉ ra 3 điểm yếu của email rồi viết lại bản tốt hơn.", "en": "When you're done, point out 3 weaknesses in the email, then rewrite a better version."}, "giai": {"vi": "Tự chấm (self-critique) bắt AI đọc lại và sửa những chỗ thiếu mà bản đầu bỏ qua.", "en": "Self-critique makes the AI reread and fix what the first draft missed."}},
+    {"id": "vai-sep", "loai": "vai", "can": true, "chu": {"vi": "Khi chấm, hãy đọc như thể bạn là sếp của tôi.", "en": "When reviewing, read it as if you were my boss."}, "giai": {"vi": "Chấm bằng mắt người nhận thì thấy đúng chỗ người nhận cần: ngày cụ thể, việc gấp hỏi ai.", "en": "Reviewing as the reader spots what the reader needs: exact dates, who to ask about urgent work."}},
+    {"id": "du-lieu", "loai": "boi-canh", "bay": "lo-du-lieu", "chu": {"vi": "Sếp tôi là anh Trần Minh Khang, số 0912 345 678. Tôi nghỉ để đi khám tim ở bệnh viện.", "en": "My boss is Tran Minh Khang, phone 0912 345 678. I'm taking leave for a heart check-up at the hospital."}, "giai": {"vi": "Tên đầy đủ, số điện thoại của người khác và chuyện sức khỏe là dữ liệu riêng tư. AI không cần chúng để viết email này: gõ \"sếp\", \"việc gia đình\" là đủ.", "en": "Someone's full name, phone number and your health details are private data. The AI doesn't need them for this email: \"my boss\" and \"family matters\" are enough."}}
+   ],
+   "tra_loi": {
+    "tho": {"vi": "Kính gửi anh/chị,\nEm xin phép nghỉ 2 ngày vì có việc riêng. Mong anh/chị xem xét và chấp thuận.\nTrân trọng.", "en": "Dear Sir/Madam,\nI would like to request 2 days off for personal reasons. I hope you will consider and approve.\nBest regards."},
+    "kha": {"vi": "Chào anh,\nEm xin nghỉ phép thứ Năm và thứ Sáu tuần sau. Trong hai ngày này chị Hoa sẽ làm thay phần việc của em. Thứ Hai em đi làm lại.\nEm cảm ơn anh.", "en": "Hi,\nI'd like to take next Thursday and Friday off. Hoa will cover my work on those two days. I'll be back on Monday.\nThank you."},
+    "tot": {"vi": "3 điểm yếu của bản đầu (đọc như sếp):\n- Thiếu tiêu đề, khó tìm lại trong hộp thư\n- Chưa nói việc gấp thì liên hệ ai\n- Chưa xác nhận đã bàn giao cho chị Hoa\nBản viết lại:\n**Tiêu đề: Xin nghỉ phép thứ Năm và thứ Sáu tuần sau**\nChào anh,\nEm xin nghỉ phép thứ Năm và thứ Sáu tuần sau, thứ Hai em đi làm lại. Em đã bàn giao phần việc cho chị Hoa; việc gấp anh cứ nhắn chị Hoa, buổi tối em vẫn đọc tin nhắn.\nEm cảm ơn anh.", "en": "3 weaknesses in the first draft (read as your boss):\n- No subject line, hard to find later\n- Doesn't say who to contact for urgent work\n- Doesn't confirm the handover to Hoa\nRewritten:\n**Subject: Leave request for next Thursday and Friday**\nHi,\nI'd like to take next Thursday and Friday off and will be back on Monday. I've handed my work over to Hoa; for anything urgent please message her, and I'll still check messages in the evening.\nThank you."}
+   }
+  }
+ ],
+ "mau": {
+  "video": 107,
+  "dong": [
+   {"loai": "vai", "vi": "Bạn là ___.", "en": "You are ___."},
+   {"loai": "boi-canh", "vi": "Tôi là ___, viết cho ___ đọc.", "en": "I am ___, writing for ___."},
+   {"loai": "nhiem-vu", "vi": "Hãy ___.", "en": "Please ___."},
+   {"loai": "vi-du", "vi": "Đây là ví dụ tôi thích: ___", "en": "Here are examples I like: ___"},
+   {"loai": "tung-buoc", "vi": "Việc có nhiều bước thì hãy nghĩ từng bước.", "en": "If it takes several steps, think step by step."},
+   {"loai": "dinh-dang", "vi": "Trình bày bằng ___, dài khoảng ___.", "en": "Format it as ___, about ___ long."},
+   {"loai": "tu-cham", "vi": "Viết xong, chỉ ra 3 điểm yếu rồi viết lại bản tốt hơn.", "en": "When done, point out 3 weaknesses and rewrite a better version."}
+  ]
+ },
+ "video_lien_quan": [3, 28, 101, 102, 103, 104, 105, 106, 107]
+}
