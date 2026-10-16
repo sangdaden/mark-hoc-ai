@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI chơi game: đánh caro với máy và xem AI lách luật để ăn điểm | Mark học AI</title>
+<meta name="description" content="Trò chơi miễn phí theo video 434 và 437: đánh caro 3x3 với máy rồi kéo thanh “nhìn trước mấy nước” để thấy minimax mạnh lên ra sao; tự đặt luật thưởng cho game đua thuyền và xem AI lách luật để ăn điểm (reward hacking).">
+<link rel="canonical" href="https://markhocai.com/ai-choi-game.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/ai-choi-game.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/ai-choi-game.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/ai-choi-game.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI chơi game: đánh caro với máy và xem AI lách luật để ăn điểm | Mark học AI">
+<meta property="og:description" content="Trò chơi miễn phí theo video 434 và 437: đánh caro 3x3 với máy rồi kéo thanh “nhìn trước mấy nước” để thấy minimax mạnh lên ra sao; tự đặt luật thưởng cho game đua thuyền và xem AI lách luật để ăn điểm (reward hacking).">
+<meta property="og:url" content="https://markhocai.com/ai-choi-game.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Trò chơi · 2 trạm · chạy ngay trên trình duyệt</p>
+<h1>AI chơi game</h1>
+<p class="lead">Tự tay thử hai ý của series “AI chơi game giỏi thế nào”: máy nhìn trước để không bao giờ thua, và AI lách luật khi điểm thưởng đặt sai.</p>
+</div><img class="head-art" src="assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<link rel="stylesheet" href="assets/ai-choi-game.css?v=dev">
+<main class="ag" id="ag">
+<nav class="ag-ngan" aria-label="Các trạm"><button type="button" class="ag-nut" data-tram="caro" aria-controls="tram-caro"><span class="ag-nut-so">434</span><span><b>Caro với máy</b><small>Video 434 · Kéo thanh nhìn trước</small></span></button><button type="button" class="ag-nut" data-tram="thuyen" aria-controls="tram-thuyen"><span class="ag-nut-so">437</span><span><b>Thuyền đua lách luật</b><small>Video 437 · Tự đặt luật thưởng</small></span></button></nav>
+<section class="ag-tram" id="tram-caro" hidden aria-labelledby="h-caro">
+<p class="ag-nhan">Trạm 1 · Video 434 · AI chơi game giỏi thế nào, phần 1/4</p>
+<h2 id="h-caro">Đánh caro với máy: kéo thanh “nhìn trước mấy nước”</h2>
+<p class="ag-mo">Bạn là <b>X</b>, máy là <b>O</b>. Máy thử từng nước có thể đi, nhìn trước vài nước rồi chấm điểm. Nhìn càng xa càng khó thắng. Kéo lên 9 là máy nhìn hết tới cuối ván: bạn cố mấy cũng chỉ hòa.</p>
+<div class="ag-caro">
+<div class="ag-ban-o">
+<div class="ag-ban" id="cr-ban" role="group" aria-label="Bàn caro 3x3"></div>
+<p class="ag-tb" id="cr-tb" aria-live="polite"></p>
+</div>
+<div class="ag-ben">
+<label class="ag-lbl" for="cr-sau">Máy nhìn trước <b id="cr-sau-so">2</b> nước</label>
+<input type="range" id="cr-sau" min="1" max="9" step="1" value="2">
+<p class="ag-giai" id="cr-sau-giai"></p>
+<div class="ag-ty" aria-live="polite"><div class="ag-o is-xanh"><b><span id="cr-thang">0</span></b><span>Bạn thắng</span></div><div class="ag-o "><b><span id="cr-hoa">0</span></b><span>Hòa</span></div><div class="ag-o is-cam"><b><span id="cr-thua">0</span></b><span>Máy thắng</span></div></div>
+<p class="ag-xet" id="cr-xet"></p>
+<label class="ag-chk"><input type="checkbox" id="cr-diem"> Hiện điểm máy chấm cho từng ô trống</label>
+<p class="ag-chu-giai" id="cr-chu-giai" hidden><span class="is-xanh">+1</span> bạn thắng · <span>0</span> hòa · <span class="is-cam">−1</span> bạn thua <small>(nếu cả hai chơi hoàn hảo)</small></p>
+<div class="ag-hang"><button type="button" class="btn" id="cr-moi">Ván mới</button><button type="button" class="btn btn-nhe" id="cr-may">Ván mới, máy đi trước</button></div>
+<button type="button" class="chip" id="cr-video">Thế cờ trong video 434</button>
+</div>
+</div>
+<h3 class="ag-h3">Vì sao caro thật thì máy không nhìn hết được</h3>
+<div class="ag-so4"><div class="ag-o "><b>5.478</b><span>thế cờ caro 3x3, máy duyệt hết trong chớp mắt</span></div><div class="ag-o "><b>255.168</b><span>ván caro 3x3 khác nhau</span></div><div class="ag-o "><b>225</b><span>ô trên bàn caro thật 15x15</span></div><div class="ag-o is-cam"><b>33,7 giờ</b><span>để nhìn trước 6 nước trên bàn 15x15, dù xét 1 tỉ chuỗi mỗi giây</span></div></div>
+<details class="ag-nap"><summary>Mở nắp: máy chấm điểm thế nào (minimax)</summary>
+<p>Máy vẽ ra một cây: mỗi nhánh là một nước có thể đi. Tới lượt máy thì chọn nhánh điểm cao nhất, tới lượt bạn thì máy giả sử bạn chọn nhánh tệ nhất cho nó. Lá cây chấm +1 thắng, 0 hòa, −1 thua, rồi dồn ngược lên gốc. Cách này gọi là minimax.</p>
+<p>Khi thanh “nhìn trước” ngắn hơn ván cờ, nhánh nào chưa phân thắng thua thì máy chấm 0, nên nó không thấy bẫy kẹp hai đường của bạn. Máy caro thật trên bàn 15x15 chỉ nhìn vài nước, rồi chấm thế cờ bằng mẹo (ví dụ hàng 4 còn mở +1.000 điểm, hàng 3 mở +100) và cắt tỉa nhánh vô vọng.</p>
+</details>
+</section>
+<section class="ag-tram" id="tram-thuyen" hidden aria-labelledby="h-thuyen">
+<p class="ag-nhan">Trạm 2 · Video 437 · AI chơi game giỏi thế nào, phần 4/4</p>
+<h2 id="h-thuyen">Tự đặt luật thưởng, xem AI lách luật để ăn điểm</h2>
+<p class="ag-mo">Bạn làm một game đua thuyền và muốn thuyền về đích. Nhưng AI không hiểu “về đích” là gì: nó chỉ thấy con số điểm. Đặt luật điểm bên dưới rồi bấm cho AI chơi. AI thử hết 24 kế hoạch và chọn cái nhiều điểm nhất.</p>
+<div class="ag-dua">
+<svg id="th-ve" class="ag-ve" viewBox="0 0 640 290" role="img" aria-label="Đường đua thuyền có một cái vịnh tròn và vạch đích"></svg>
+<div class="ag-bang"><span>Điểm <b id="th-diem">0</b></span><span>Bước <b id="th-buoc">0</b>/300</span><span id="th-dich" class="ag-dich"></span></div>
+</div>
+<div class="ag-luat">
+<p class="ag-lbl">Luật điểm của bạn</p>
+<div class="ag-mau" role="group" aria-label="Luật mẫu"><button type="button" class="chip" id="th-cu">Luật trong video (cũ)</button><button type="button" class="chip" id="th-moi">Luật đã sửa</button></div>
+<label class="ag-lbl" for="th-m">Đụng một mục tiêu <b id="th-m-so"></b></label>
+<input type="range" id="th-m" min="0" max="20" step="1" value="10">
+<label class="ag-chk"><input type="checkbox" id="th-moc" checked> Mục tiêu mọc lại sau mỗi vòng</label>
+<label class="ag-lbl" for="th-f">Thưởng về đích <b id="th-f-so"></b></label>
+<input type="range" id="th-f" min="0" max="500" step="10" value="100">
+<label class="ag-chk"><input type="checkbox" id="th-gan"> +1 điểm cho mỗi bước tiến gần đích</label>
+<div class="ag-hang"><button type="button" class="btn btn-yt" id="th-chay">Cho AI chơi ▶</button></div>
+</div>
+<div class="ag-kq" id="th-kq" aria-live="polite" hidden></div>
+<ol class="ag-ke" id="th-ke" hidden></ol>
+<p class="ag-thach" id="th-thach"><b>Thử thách:</b> đổi luật sao cho AI về đích mà lòng vòng trong vịnh không quá 1 vòng.</p>
+<details class="ag-nap"><summary>Mở nắp: ngoài đời AI cũng lách luật</summary>
+<p>Lách luật để ăn điểm gọi là reward hacking. Một thử nghiệm công bố năm 2016 có đúng chuyện này: AI chơi game đua thuyền chạy vòng trong vịnh, không bao giờ về đích mà điểm vẫn cao hơn người chơi. Đường đua ở đây là bản ví dụ do kênh vẽ, số khớp video 437.</p>
+<p>Chatbot học từ điểm người chấm nên có lúc nói cho vừa lòng thay vì nói đúng. AI viết code có lúc sửa bài kiểm tra cho qua thay vì sửa lỗi thật. Cách chữa giống trong trò: thưởng đúng thứ mình muốn, và xem cách AI làm chứ không chỉ nhìn điểm.</p>
+</details>
+</section>
+<div class="chia-se">
+<p class="chia-se-h">Thấy bài có ích? Gửi cho một người bạn</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/ai-choi-game.html" data-tieu-de="AI chơi game: đánh caro với máy và xem AI lách luật để ăn điểm" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-share"/></svg>Chia sẻ</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fai-choi-game.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/ai-choi-game.html" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-link"/></svg>Chép link</button></div>
+</div>
+<p class="ag-ghi">Đường đua, điểm số và các thế cờ là ví dụ do kênh làm. Mọi thứ chạy trên máy bạn, không gọi AI thật và không gửi gì đi đâu.</p>
+<noscript><p>Trò chơi cần JavaScript.</p></noscript>
+<script type="application/json" id="ag-du-lieu">{"nhan":{"x_luot":"Tới lượt bạn (X).","may_nghi":"Máy đang nghĩ…","thang":"Bạn thắng! Máy chỉ nhìn trước {n} nước nên không thấy bẫy của bạn.","thang9":"Bạn thắng!","thua":"Máy thắng. Bật “hiện điểm” để xem ô nào an toàn.","hoa":"Hòa. Hai bên chơi giỏi thì caro 3x3 luôn hòa.","xet":"Nước vừa rồi máy xét {n} thế cờ.","video":"Thế cờ trong video: X còn 5 ô. Bật điểm sẽ thấy chỉ ô 7 được +1: vừa chặn đường chéo của O vừa mở hai đường thắng.","sau":["Chỉ thấy nước thắng ngay của mình. Rất dễ thắng.","Thấy thêm nước bạn sắp thắng để chặn. Vẫn thua được bẫy kẹp hai đường.","Bắt đầu tự giăng bẫy. Khó thắng hơn hẳn.","Thấy gần hết mọi đường. Gần như không thua.","Nhìn hết tới cuối ván, giống trong video: không bao giờ thua."],"o":"Ô","ke_thang":"Chạy thẳng về đích","ke_vong":"{n} vòng trong vịnh rồi về đích","ke_mai":"Chạy vòng mãi ({n} vòng), không về đích","ai_chon":"AI chọn","diem":"điểm","kq_mai":"AI không thèm về đích. Chạy vòng trong vịnh được {a} điểm, gấp {x} lần chạy thẳng về đích ({b}). Đó là lách luật để ăn điểm.","kq_long":"AI có về đích, nhưng lòng vòng {n} vòng trong vịnh trước để ăn mục tiêu. Thuyền về chót mà điểm vẫn cao.","kq_tot":"AI về đích đàng hoàng. Luật điểm của bạn đã thưởng đúng thứ bạn muốn.","kq_mot":"AI về đích. Nó chỉ ghé vịnh 1 vòng để lấy mỗi mục tiêu một lần, vì chạy thêm vòng không còn được điểm. Luật của bạn đã thưởng đúng thứ bạn muốn.","kq_khong":"Không có điểm nào để ăn, nên AI chẳng có lý do làm gì cả. Thuyền đứng yên.","dat":"Bạn sửa được luật rồi! Đây đúng là cách sửa trong video 437: thưởng thứ mình muốn (tiến về đích), đừng thưởng thứ lặp lại được mãi.","dich_ok":"Về đích ✓","dich_khong":"Chưa về đích","mau":"Mỗi chấm vàng là một mục tiêu. Vịnh tròn có 3 mục tiêu mọc lại sau mỗi vòng.","vinh":"Vịnh","dich":"Đích","bat_dau":"Xuất phát"},"lg":"vi"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<script src="ai-choi-game.js?v=dev" defer></script>
+<script src="bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"ai-choi-game","nhom":[{"id":"caro","khi":"#tram-caro","buoc":[{"chon":".ag-ngan","chu":"Trang này có hai trạm: caro với máy và thuyền đua lách luật. Bấm để đổi trạm.","bo_neu_an":true},{"chon":"#cr-ban","chu":"Bạn là X. Chạm vào một ô trống để đánh, máy là O sẽ đánh lại."},{"chon":"#cr-sau","chu":"Kéo thanh này để máy nhìn trước nhiều hay ít nước. Kéo tới 9 là máy không bao giờ thua."},{"chon":"#cr-diem","chu":"Bật ô này để xem máy chấm điểm từng ô trống: +1 bạn thắng, 0 hòa, −1 bạn thua."}]},{"id":"thuyen","khi":"#tram-thuyen","buoc":[{"chon":"#th-ve","chu":"Đây là đường đua. Chấm vàng là mục tiêu, mục tiêu trong vịnh tròn mọc lại sau mỗi vòng."},{"chon":".ag-luat","chu":"Bạn đặt luật cộng điểm ở đây: điểm mỗi mục tiêu, thưởng về đích, có mọc lại hay không."},{"chon":"#th-chay","chu":"Bấm để AI chơi. Nó thử hết 24 kế hoạch và chọn cách nhiều điểm nhất, kể cả khi không về đích."},{"chon":"#th-thach","chu":"Thử thách: sửa luật sao cho AI chịu về đích. Bí thì bấm Luật đã sửa."}]}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>
