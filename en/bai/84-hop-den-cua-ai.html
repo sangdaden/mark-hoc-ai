@@ -51,42 +51,45 @@
   </nav>
 </header>
 <div class="band-in page-head">
+<div class="bai-dau"><div class="bai-dau-chu">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#84</span></nav>
 <p class="eyebrow">Video #84 · Behind the scenes of an AI system · Part 6/7 · <time class="ngay-dang" datetime="2026-11-19">Published Nov 19, 2026</time></p>
 <h1>What are logging and tracing in AI systems? AI&#x27;s black box recorder</h1>
 <p class="lead">The chatbot said transfers were free, but the customer was still charged. How does the tech team trace it?</p>
-<div class="cta"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+<div class="cta"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div></div>
 </div>
 </div>
-<main class="doc">
+</div>
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>A complaint</h2>
+<h2 id="muc-1">A complaint</h2>
 <p>A customer complains: the chatbot said transfers were free, but I was still charged. How does the tech team trace what happened?</p>
 </section>
 <section>
 <p class="sec-chip">LOGGING</p>
-<h2>One line per question</h2>
+<h2 id="muc-2">One line per question</h2>
 <p>With logs, a written record. Every question leaves a line in the log: the time, the question with private details hidden, the answer, how long it took and how much it cost.</p>
 </section>
 <section>
 <p class="sec-chip">TRACING</p>
-<h2>One thread through every step</h2>
+<h2 id="muc-3">One thread through every step</h2>
 <p>But one question goes through many steps: the gate in, finding documents, calling the model, the gate out. A trace ties those steps into one thread, so you can see what each step received and returned.</p>
 </section>
 <section>
 <p class="sec-chip">FOUND IT</p>
-<h2>Where the mistake was</h2>
+<h2 id="muc-4">Where the mistake was</h2>
 <p>Following the trace, they found the problem: the document search step pulled last year&#x27;s old fee table. AI didn&#x27;t make it up, it read the wrong document. They fix that exact spot, then add this question to the eval set from part five.</p>
 </section>
 <section>
 <p class="sec-chip">OBSERVABILITY</p>
-<h2>Seeing clearly inside</h2>
+<h2 id="muc-5">Seeing clearly inside</h2>
 <p>Being able to see clearly inside a system like this is what engineers call observability.</p>
 </section>
 <section>
 <p class="sec-chip">PRIVACY</p>
-<h2>Logs must be kept private too</h2>
+<h2 id="muc-6">Logs must be kept private too</h2>
 <p>But logs also contain what customers said. So private data has to be hidden, only some people can view them, and they&#x27;re deleted after a while.</p>
 </section>
 <aside class="try" aria-labelledby="thu-84">
@@ -97,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">NEXT</p>
-<h2>Knowing before things go wrong</h2>
+<h2 id="muc-7">Knowing before things go wrong</h2>
 <p>Tracing problems after the fact is good. Knowing before they happen is even better. The last part: monitoring.</p>
 </section>
 <div class="post-end">
@@ -121,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">A complaint</a></li><li><a href="#muc-2">One line per question</a></li><li><a href="#muc-3">One thread through every step</a></li><li><a href="#muc-4">Where the mistake was</a></li><li><a href="#muc-5">Seeing clearly inside</a></li><li><a href="#muc-6">Logs must be kept private too</a></li><li><a href="#thu-84">Your own log</a></li><li><a href="#muc-7">Knowing before things go wrong</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="84" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

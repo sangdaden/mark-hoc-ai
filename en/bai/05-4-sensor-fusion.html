@@ -51,44 +51,47 @@
   </nav>
 </header>
 <div class="band-in page-head">
+<div class="bai-dau co-choi"><div class="bai-dau-chu">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#nen-tang">Core ideas</a> › <a href="../bai/05-lidar.html">#05</a> › <span>#5.4</span></nav>
 <p class="eyebrow">Video #5.4 · AI&#x27;s three eyes · Part 5/8 · <time class="ngay-dang" datetime="2026-10-16">Published Oct 16, 2026</time></p>
-<p class="tt-the"><span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-gamepad"/></svg>Interactive</span><span>Try it: <a href="../phong-thi-nghiem-cam-bien.html">3D sensor lab</a></span></p>
 <h1>Sensor fusion: how AI combines LiDAR, radar and camera</h1>
 <p class="lead">Each eye is only partly sure. Combining the three clues, called sensor fusion, beats even the best single eye.</p>
-<div class="cta"><a class="btn btn-yt" data-so="5.4" data-ngay="2026-10-16" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Sensor%20fusion%3A%20AI%20gh%C3%A9p%20LiDAR%2C%20radar%2C%20camera%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+<div class="cta"><a class="btn btn-yt" data-so="5.4" data-ngay="2026-10-16" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Sensor%20fusion%3A%20AI%20gh%C3%A9p%20LiDAR%2C%20radar%2C%20camera%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div></div>
+<div class="choi-thu"><a class="ct-the" href="../phong-thi-nghiem-cam-bien.html"><span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-gamepad"/></svg>Interactive</span><span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span><b class="ct-ten">3D sensor lab</b><span class="ct-moi">Switch to rain, fog or night and see what LiDAR, radar and camera pick up.</span><span class="ct-nut">Play now →</span></a></div>
 </div>
 </div>
-<main class="doc">
+</div>
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <p class="post-xem"><span>Watch on</span><a class="nt nt-sm nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-youtube"/></svg></a><a class="nt nt-sm nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-tiktok"/></svg></a><a class="nt nt-sm nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg></a><a class="nt nt-sm nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-instagram"/></svg></a></p>
 <section>
-<h2>A rainy night, dark clothes</h2>
+<h2 id="muc-1">A rainy night, dark clothes</h2>
 <p>On a rainy night, a person in dark clothes steps into the road. The camera is only half sure it&#x27;s a person, radar sees something moving slowly, and LiDAR sees a shape 1.7 meters tall.</p>
 </section>
 <section>
 <p class="sec-chip">HOW IT WORKS</p>
-<h2>Three clues that match</h2>
+<h2 id="muc-2">Three clues that match</h2>
 <p>Combining several sensors into one conclusion is called sensor fusion. The human shape, the walking speed and the blurry figure on camera all match, so the AI is sure enough to brake.</p>
 </section>
 <section>
 <p class="sec-chip">STEP 1</p>
-<h2>Each eye reports a number</h2>
+<h2 id="muc-3">Each eye reports a number</h2>
 <p>For distance, each eye reports its own number, and each has its own error. The camera&#x27;s error is the largest.</p>
 </section>
 <section>
 <p class="sec-chip">STEP 2</p>
-<h2>Trust some eyes more</h2>
+<h2 id="muc-4">Trust some eyes more</h2>
 <p>The AI doesn&#x27;t take a simple average. It trusts the eyes with smaller errors more. Worked out, LiDAR gets 58 percent of the weight, radar 37 and the camera 4, giving 23.8 meters.</p>
 </section>
 <section>
 <p class="sec-chip">RESULT</p>
-<h2>Combined is more accurate</h2>
+<h2 id="muc-5">Combined is more accurate</h2>
 <p>The channel ran 10,000 trials with a true distance of 24 meters. LiDAR was off by 64 cm on average, while the combined estimate was off by only 49, better than even the best single eye.</p>
 </section>
 <section>
 <p class="sec-chip">COMMON MISTAKES</p>
-<h2>When the eyes disagree</h2>
+<h2 id="muc-6">When the eyes disagree</h2>
 <p>Fusion makes mistakes too. When the eyes report opposite things or the AI misreads them, the car can brake hard on an empty road, known as phantom braking. In 2022 the US opened an investigation after hundreds of complaints like this.</p>
 </section>
 <aside class="try" aria-labelledby="thu-5.4">
@@ -113,6 +116,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">A rainy night, dark clothes</a></li><li><a href="#muc-2">Three clues that match</a></li><li><a href="#muc-3">Each eye reports a number</a></li><li><a href="#muc-4">Trust some eyes more</a></li><li><a href="#muc-5">Combined is more accurate</a></li><li><a href="#muc-6">When the eyes disagree</a></li><li><a href="#thu-5.4">The blue dot on your map</a></li></ol><a class="ben-choi" href="../phong-thi-nghiem-cam-bien.html"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-gamepad"/></svg><span><small>Try it</small>3D sensor lab</span></a><div class="ben-xem"><a class="btn btn-yt" data-so="5.4" data-ngay="2026-10-16" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Sensor%20fusion%3A%20AI%20gh%C3%A9p%20LiDAR%2C%20radar%2C%20camera%20th%E1%BA%BF%20n%C3%A0o" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

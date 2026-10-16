@@ -612,22 +612,76 @@ def the_ghep(so, q):
 # Thẻ "Tương tác" (giống nhãn Tương tác bên Vũ Trụ Khác): video nào có trò chơi trên web. Khoá là số video dạng chữ ("108", "5.1").
 # Dùng cho dòng thẻ dưới tiêu đề trang bài, và ghi ra data/tuong-tac.json để trang chủ (app.js) gắn nhãn lên thẻ series và từng video.
 TRO_CHOI_WEB = [
-    ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO}),
-    ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP}),
-    ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"])),
+    ("lua-dao-hay-that.html", ("Lừa đảo hay thật?", "Scam or real?"), {str(x) for x in VIDEO_LUA_DAO},
+     ("Đọc tin nhắn, nghe cuộc gọi, rồi đoán: thật hay lừa đảo?", "Read the message, hear the call, then guess: real or scam?"), "lua-dao"),
+    ("tho-ghep-cau-lenh.html", ("Thợ ghép câu lệnh", "Prompt builder"), {str(x) for x in VIDEO_GHEP},
+     ("Ghép từng mảnh câu lệnh, xem câu trả lời của AI tốt lên ra sao.", "Snap prompt pieces together and watch the AI answer improve."), "ghep"),
+    ("phong-thi-nghiem-cam-bien.html", ("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), set(load("cam-bien")["video_lien_quan"]),
+     ("Đổi trời mưa, sương, đêm và xem LiDAR, radar, camera nhìn thấy gì.", "Switch to rain, fog or night and see what LiDAR, radar and camera pick up."), "cam-bien"),
 ]
 TUONG_TAC = {}
-for _url, _ten, _ds in TRO_CHOI_WEB:
+for _url, _ten, _ds, _moi, _hinh in TRO_CHOI_WEB:
     for _so in _ds:
-        TUONG_TAC.setdefault(_so, []).append((_url, _ten))
+        TUONG_TAC.setdefault(_so, []).append((_url, _ten, _moi, _hinh))
 
-def the_tuong_tac(so, q, p):
+# Hình xem trước nhỏ trên thẻ "Chơi thử" (HTML + CSS, không ảnh): người xem nhìn là biết trò chơi làm gì
+def hinh_choi(hinh):
+    if hinh == "ghep":
+        manh = [("vai", t("Vai trò", "Role")), ("boi", t("Bối cảnh", "Context")), ("viec", t("Nhiệm vụ", "Task")), ("dang", t("Định dạng", "Format"))]
+        return ('<span class="ct-hinh ct-ghep" aria-hidden="true">' + "".join(f'<span class="ct-manh ct-{k}">{ten}</span>' for k, ten in manh) +
+                '<span class="ct-sao">★★★</span></span>')
+    if hinh == "lua-dao":
+        return (f'<span class="ct-hinh ct-ld" aria-hidden="true"><span class="ct-tin">{t("Mẹ ơi con đây, chuyển gấp cho con 20 triệu…", "Mom, it&#39;s me, send me 20 million now…")}</span>'
+                f'<span class="ct-chon"><span>{t("Thật", "Real")}</span><span class="ct-gia">{t("Lừa đảo", "Scam")}</span></span></span>')
+    return ('<span class="ct-hinh ct-cb" aria-hidden="true"><span class="ct-vong"></span><span class="ct-vong"></span><span class="ct-vong"></span>'
+            '<span class="ct-cam"><span>LiDAR</span><span>Radar</span><span>Camera</span></span></span>')
+
+# Thẻ "Chơi thử" to ở cột phải đầu trang bài (điện thoại: nằm dưới nút Xem video). Video không có trò chơi thì trả về "".
+def the_choi_thu(so, q, p):
     tro = TUONG_TAC.get(str(so))
     if not tro:
         return ""
-    lien = " · ".join(f'<a href="{q}{u}">{t(*ten)}</a>' for u, ten in tro)
-    return (f'<p class="tt-the"><span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span>'
-            f'<span>{t("Chơi thử", "Try it")}: {lien}</span></p>\n')
+    url, ten, moi, hinh = tro[0]
+    them = "".join(f'<a class="ct-them" href="{q}{u}">+ {t(*tn)}</a>' for u, tn, _, _ in tro[1:])
+    return (f'<div class="choi-thu"><a class="ct-the" href="{q}{url}">'
+            f'<span class="hh hh-choi"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>{t("Tương tác", "Interactive")}</span>'
+            f'{hinh_choi(hinh)}<b class="ct-ten">{t(*ten)}</b><span class="ct-moi">{t(*moi)}</span>'
+            f'<span class="ct-nut">{t("Chơi ngay", "Play now")} →</span></a>{them}</div>\n')
+
+# Đầu trang bài: chữ bên trái, thẻ "Chơi thử" bên phải (nếu có)
+def dau_bai(chu, so, q, p):
+    choi = the_choi_thu(so, q, p)
+    return f'<div class="bai-dau{" co-choi" if choi else ""}"><div class="bai-dau-chu">\n{chu}</div>\n{choi}</div>'
+
+# Mục lục "Trong bài": gắn id cho các h2 trong thân bài, trả về (thân bài, danh sách (id, chữ))
+def muc_luc(muc):
+    ds, dem = [], [0]
+    def gan(m):
+        mo, cls, noi = m.group(0), m.group(1) or "", m.group(2)
+        cu = re.search(r'id="([^"]+)"', cls)
+        if cu:
+            hid = cu.group(1)
+        else:
+            dem[0] += 1
+            hid = f"muc-{dem[0]}"
+            mo = f'<h2 id="{hid}"{cls}>{noi}</h2>'
+        ds.append((hid, re.sub(r"<[^>]+>", "", noi).strip()))
+        return mo
+    than = re.sub(r'<h2((?:\s[^>]*)?)>(.*?)</h2>', gan, "\n".join(muc), flags=re.S)
+    return than, ds
+
+# Cột bên (máy tính rộng): mục lục bám theo khi cuộn + thẻ chơi thử nhỏ + nút xem video
+def cot_ben(ds, so, q, p, nut):
+    if len(ds) < 3:
+        return ""
+    ml = "".join(f'<li><a href="#{i}">{esc(html.unescape(x))}</a></li>' for i, x in ds)
+    choi = ""
+    for u, ten, _, _ in TUONG_TAC.get(str(so), []):
+        choi += (f'<a class="ben-choi" href="{q}{u}"><svg class="ic" aria-hidden="true"><use href="{p}assets/icons.svg#i-gamepad"/></svg>'
+                 f'<span><small>{t("Chơi thử", "Try it")}</small>{t(*ten)}</span></a>')
+    return (f'<aside class="doc-ben" aria-label="{t("Trong bài", "In this article")}"><div class="ben-dinh">'
+            f'<p class="ben-h">{t("Trong bài", "In this article")}</p><ol class="ben-ml">{ml}</ol>{choi}'
+            f'<div class="ben-xem">{nut}</div></div></aside>\n')
 
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
@@ -666,19 +720,21 @@ def tao_bai(v):
     ghi_chu = t("", '<span class="lang-note">Video in Vietnamese</span>')  # video của kênh nói tiếng Việt
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › <span>#{so:02d}</span></nav>\n'
             f'<p class="eyebrow">Video #{so:02d} · {esc(g["ten"])}{" · " + phan if phan else ""}{nhan_ngay(LICH.get(str(so)))}</p>\n'
-            f'{the_tuong_tac(so, q, p)}'
             f'<h1>{esc(h1)}</h1>\n<p class="lead">{esc(lead)}</p>\n<div class="cta">{nut_video(v, g, p)}{ghi_chu}</div>')
+    band = dau_bai(band, so, q, p)
+    than, ds_muc = muc_luc(muc)
     ket = t(f'Đây là bài viết từ video <b>{esc(tieu_de)}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(tieu_de)}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau_nav = (t("Video lẻ", "Standalone videos") if g.get("le") else "Series")
     vi_tri = "#" + format(so, "02d") if g.get("le") else t("Phần ", "Part ") + so_phan
     cc_dau, cc_cuoi = khoi_cong_cu(v, p)
-    main = (f'<main class="doc">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + "\n".join(muc) +
+    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + anh_dau_bai(v, p) + cc_dau + than +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n'
             f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
             f'<aside class="next-steps">\n{the_lua_dao(so, q)}{the_ghep(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
-            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
+            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>\n'
+            + cot_ben(ds_muc, so, q, p, nut_video(v, g, p)) + '</main>')
     url = BASE + GOC + goc
     ngay = LICH.get(str(so))
     og = anh_chia_se_bai(goc, tieu_de, g["ten"] + (" · " + phan if phan else ""), f"{so:02d}", ngay, SERIES_BIA.get(g["id"], {}).get("bia"))
@@ -763,17 +819,19 @@ def tao_bai_phu(s, x):
     band = (f'<nav class="crumbs" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="{q}">{t("Trang chủ", "Home")}</a> › <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> › '
             f'<a href="{q}bai/{ten_file(cha)}.html">#{nhan_so(cha["so"])}</a> › <span>#{so}</span></nav>\n'
             f'<p class="eyebrow">Video #{so} · {esc(s["ten"])} · {phan}{nhan_ngay(x.get("ra_mat"))}</p>\n'
-            f'{the_tuong_tac(so, q, p)}'
             f'<h1>{esc(x["tieu_de"])}</h1>\n<p class="lead">{esc(x["mo_ta"])}</p>\n<div class="cta">{nut}{ghi_chu}</div>')
+    band = dau_bai(band, so, q, p)
+    than, ds_muc = muc_luc(muc)
     ket = t(f'Đây là bài viết từ video <b>{esc(x["tieu_de"])}</b> của kênh Mark học AI. Xem video để thấy phần minh họa bằng hình động.',
             f'This article is based on the video <b>{esc(x["tieu_de"])}</b> from the Mark học AI channel. Watch the video (in Vietnamese) to see the animations.')
     dau = (trinh_phat(yt, esc(x["tieu_de"])) if yt else "") + f'<p class="post-xem"><span>{t("Xem video trên", "Watch on")}</span>{xem}</p>\n'
-    main = (f'<main class="doc">\n<article class="post">\n{dau}' + "\n".join(muc) +
+    main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n{dau}' + than +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut}</div>\n{khoi_chia_se(BASE + GOC + goc, x["tieu_de"], p)}</div>\n</article>\n'
             f'<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">Series <b>{esc(s["ten"])}</b> · {phan}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n'
             f'<aside class="next-steps">\n<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
-            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</main>')
+            f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>\n'
+            + cot_ben(ds_muc, so, q, p, nut) + '</main>')
     url = BASE + GOC + goc
     ngay = x.get("ra_mat")
     og = anh_chia_se_bai(goc, x["tieu_de"], s["ten"] + " · " + phan, so, ngay, None, s["ten"])

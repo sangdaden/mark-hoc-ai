@@ -51,42 +51,45 @@
   </nav>
 </header>
 <div class="band-in page-head">
+<div class="bai-dau"><div class="bai-dau-chu">
 <nav class="crumbs" aria-label="Đường dẫn"><a href="../">Trang chủ</a> › <a href="../#ai-hoc">AI học như thế nào</a> › <span>#40</span></nav>
 <p class="eyebrow">Video #40 · AI học như thế nào · Phần 3/7 · <time class="ngay-dang" datetime="2026-10-17">Lên kênh 17/10/2026</time></p>
 <h1>Gradient descent là gì? AI giảm sai số như xuống núi trong sương mù</h1>
 <p class="lead">Biết mình sai rồi, AI sửa theo hướng nào? Hãy tưởng tượng bạn bịt mắt đứng trên núi đầy sương.</p>
-<div class="cta"><a class="btn btn-yt" data-so="40" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Xu%E1%BB%91ng%20n%C3%BAi%20trong%20s%C6%B0%C6%A1ng%20m%C3%B9" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div>
+<div class="cta"><a class="btn btn-yt" data-so="40" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Xu%E1%BB%91ng%20n%C3%BAi%20trong%20s%C6%B0%C6%A1ng%20m%C3%B9" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div>
 </div>
 </div>
-<main class="doc">
+</div>
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vặn theo hướng nào?</h2>
+<h2 id="muc-1" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Vặn theo hướng nào?</h2>
 <p>Phần trước: AI đo cái sai bằng một con số, gọi là sai số. Giờ máy cần biết: vặn núm theo hướng nào thì con số đó giảm?</p>
 </section>
 <section>
 <p class="sec-chip">VÍ DỤ</p>
-<h2>Bịt mắt trên núi</h2>
+<h2 id="muc-2">Bịt mắt trên núi</h2>
 <p>Hình dung bạn bị bịt mắt, đứng trên sườn núi đầy sương. Bạn muốn xuống thung lũng, nhưng không nhìn thấy gì.</p>
 </section>
 <section>
 <p class="sec-chip">DÒ DỐC</p>
-<h2>Dò bằng bàn chân</h2>
+<h2 id="muc-3">Dò bằng bàn chân</h2>
 <p>Cách duy nhất: dùng chân dò quanh, xem phía nào dốc xuống nhiều nhất. Rồi bước một bước nhỏ về phía đó. Dò tiếp, bước tiếp.</p>
 </section>
 <section>
 <p class="sec-chip">NGỌN NÚI SAI SỐ</p>
-<h2>Độ cao là sai số</h2>
+<h2 id="muc-4">Độ cao là sai số</h2>
 <p>Với AI, độ cao chính là sai số. Mỗi chỗ đứng là một cách vặn các núm. Đi xuống nghĩa là sai ít đi. Cách học này gọi là thuật toán xuống dốc.</p>
 </section>
 <section>
 <p class="sec-chip">LẶP LẠI</p>
-<h2>Hàng triệu bước nhỏ</h2>
+<h2 id="muc-5">Hàng triệu bước nhỏ</h2>
 <p>Máy lặp lại việc dò và bước rất nhiều lần, có khi hàng triệu lần. Mỗi bước vặn mọi núm cùng lúc, và sai số giảm thêm một chút.</p>
 </section>
 <section>
 <p class="sec-chip">CẨN THẬN</p>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Bước dài hay bước ngắn?</h2>
+<h2 id="muc-6" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Bước dài hay bước ngắn?</h2>
 <p>Độ dài mỗi bước rất quan trọng. Bước quá dài, bạn nhảy vọt qua thung lũng, lên xuống loạn xạ. Bước quá ngắn, đi mãi vẫn chưa tới nơi.</p>
 </section>
 <aside class="try" aria-labelledby="thu-40">
@@ -97,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">PHẦN 4</p>
-<h2 class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Núm nào gây ra lỗi?</h2>
+<h2 id="muc-7" class="h-hoi"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="53">Núm nào gây ra lỗi?</h2>
 <p>Nhưng có hàng tỷ núm, còn lỗi chỉ hiện ra ở đầu ra cuối cùng. Làm sao biết núm nào phải chịu trách nhiệm? Hẹn bạn ở phần 4.</p>
 </section>
 <div class="post-end">
@@ -121,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>Bạn hiểu AI tới đâu?</b><span>Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.</span></a>
 <a class="next-step" href="../#bat-dau"><b>Mới đến kênh?</b><span>Bản đồ 7 vùng và lộ trình cho người mới.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="Trong bài"><div class="ben-dinh"><p class="ben-h">Trong bài</p><ol class="ben-ml"><li><a href="#muc-1">Vặn theo hướng nào?</a></li><li><a href="#muc-2">Bịt mắt trên núi</a></li><li><a href="#muc-3">Dò bằng bàn chân</a></li><li><a href="#muc-4">Độ cao là sai số</a></li><li><a href="#muc-5">Hàng triệu bước nhỏ</a></li><li><a href="#muc-6">Bước dài hay bước ngắn?</a></li><li><a href="#thu-40">Học như máy học</a></li><li><a href="#muc-7">Núm nào gây ra lỗi?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="40" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=Xu%E1%BB%91ng%20n%C3%BAi%20trong%20s%C6%B0%C6%A1ng%20m%C3%B9" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../assets/icons.svg#i-play"/></svg>Xem video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

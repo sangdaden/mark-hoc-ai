@@ -51,42 +51,45 @@
   </nav>
 </header>
 <div class="band-in page-head">
+<div class="bai-dau"><div class="bai-dau-chu">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#hau-truong">Behind the scenes of an AI system</a> › <span>#83</span></nav>
 <p class="eyebrow">Video #83 · Behind the scenes of an AI system · Part 5/7 · <time class="ngay-dang" datetime="2026-11-18">Published Nov 18, 2026</time></p>
 <h1>What is evaluation? Why you test again before switching AI models</h1>
 <p class="lead">An AI company releases a new model, faster and cheaper. Switch right away? Wait: newer isn&#x27;t always a better fit.</p>
-<div class="cta"><a class="btn btn-yt" data-so="83" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div>
+<div class="cta"><a class="btn btn-yt" data-so="83" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span><span class="lang-note">Video in Vietnamese</span></div></div>
 </div>
 </div>
-<main class="doc">
+</div>
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <section>
-<h2>Newer isn&#x27;t always a better fit</h2>
+<h2 id="muc-1">Newer isn&#x27;t always a better fit</h2>
 <p>An AI company just released a new model, faster and cheaper. The bank&#x27;s chatbot team wants to switch right away. Wait. Newer isn&#x27;t always a better fit.</p>
 </section>
 <section>
 <p class="sec-chip">EVAL SET</p>
-<h2>The product&#x27;s own test</h2>
+<h2 id="muc-2">The product&#x27;s own test</h2>
 <p>They already have a test set, called an eval set: a few hundred real customer questions with the answers they want, plus trick questions they&#x27;ve seen before.</p>
 </section>
 <section>
 <p class="sec-chip">REGRESSION TEST</p>
-<h2>Old and new take the test</h2>
+<h2 id="muc-3">Old and new take the test</h2>
 <p>The new model has to redo the whole old test, and its score is compared with the model that&#x27;s running now. This is called a regression test.</p>
 </section>
 <section>
 <p class="sec-chip">LLM AS A JUDGE</p>
-<h2>AI grades, people check</h2>
+<h2 id="muc-4">AI grades, people check</h2>
 <p>Grading hundreds of answers by hand takes a long time, so they use an AI as the judge, called LLM as a judge, grading against clear criteria. Then people double-check the hard ones.</p>
 </section>
 <section>
 <p class="sec-chip">SURPRISE</p>
-<h2>Better overall, worse where it matters</h2>
+<h2 id="muc-5">Better overall, worse where it matters</h2>
 <p>The results can be surprising: the new model does better on ninety questions, but worse on five about annual fees. Until those five are fixed, no switch.</p>
 </section>
 <section>
 <p class="sec-chip">NOT JUST THE MODEL</p>
-<h2>Change anything, test again</h2>
+<h2 id="muc-6">Change anything, test again</h2>
 <p>It&#x27;s not just switching models. Changing one word in the prompt or adding a document also means testing again. Unlike the benchmarks in the grading series, this eval set belongs to that product alone.</p>
 </section>
 <aside class="try" aria-labelledby="thu-83">
@@ -97,7 +100,7 @@
 </aside>
 <section>
 <p class="sec-chip">NEXT</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">When things go wrong, how do you trace it?</h2>
+<h2 id="muc-7" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">When things go wrong, how do you trace it?</h2>
 <p>The switch is done, and it&#x27;s live. If something goes wrong, how do you trace it? Part six: logging and tracing.</p>
 </section>
 <div class="post-end">
@@ -121,6 +124,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">Newer isn&#x27;t always a better fit</a></li><li><a href="#muc-2">The product&#x27;s own test</a></li><li><a href="#muc-3">Old and new take the test</a></li><li><a href="#muc-4">AI grades, people check</a></li><li><a href="#muc-5">Better overall, worse where it matters</a></li><li><a href="#muc-6">Change anything, test again</a></li><li><a href="#thu-83">Five questions of your own</a></li><li><a href="#muc-7">When things go wrong, how do you trace it?</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="83" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener">Follow on YouTube</a><span class="soon-note">Coming soon</span></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">

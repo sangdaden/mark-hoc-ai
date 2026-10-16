@@ -51,48 +51,51 @@
   </nav>
 </header>
 <div class="band-in page-head">
+<div class="bai-dau"><div class="bai-dau-chu">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> › <a href="../#do-nghe-claude">The Claude toolbox</a> › <a href="../bai/69-claude-trong-cong-cu.html">#69</a> › <span>#69.2</span></nav>
 <p class="eyebrow">Video #69.2 · Claude in your tools · Part 2/3 · <time class="ngay-dang" datetime="2026-10-19">Published Oct 19, 2026</time></p>
 <h1>Giving Claude 7,000 rows of Excel: it caught a double-count</h1>
 <p class="lead">Hand Claude a 7,341-row sales log right inside Excel: it catches a double-counted total, summarizes by item and builds a formula-based forecast.</p>
-<div class="cta"><a class="btn btn-yt" data-so="69.2" data-ngay="2026-10-19" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=%C4%90%C6%B0a%20Claude%207.000%20d%C3%B2ng%20Excel%3A%20n%C3%B3%20b%E1%BA%AFt%20%C4%91%C6%B0%E1%BB%A3c%20l%E1%BB%97i%20c%E1%BB%99ng%20g%E1%BA%A5p%20%C4%91%C3%B4i" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div>
+<div class="cta"><a class="btn btn-yt" data-so="69.2" data-ngay="2026-10-19" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=%C4%90%C6%B0a%20Claude%207.000%20d%C3%B2ng%20Excel%3A%20n%C3%B3%20b%E1%BA%AFt%20%C4%91%C6%B0%E1%BB%A3c%20l%E1%BB%97i%20c%E1%BB%99ng%20g%E1%BA%A5p%20%C4%91%C3%B4i" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a><span class="lang-note">Video in Vietnamese</span></div></div>
 </div>
 </div>
-<main class="doc">
+</div>
+<main class="doc doc-bai">
+<div class="doc-chinh">
 <article class="post">
 <p class="post-xem"><span>Watch on</span><a class="nt nt-sm nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-youtube"/></svg></a><a class="nt nt-sm nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-tiktok"/></svg></a><a class="nt nt-sm nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-facebook"/></svg></a><a class="nt nt-sm nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../../assets/nen-tang.svg#nt-instagram"/></svg></a></p>
 <section>
-<h2>A 7,341-row sales log</h2>
+<h2 id="muc-1">A 7,341-row sales log</h2>
 <p>Remember the bubble tea shop&#x27;s sales log of more than 7,000 rows from Mark&#x27;s aunt in video 301? This time we give that exact file to Claude, and every table and chart you&#x27;re about to see is a real Excel file it made.</p>
 </section>
 <section>
 <p class="sec-chip">SETUP</p>
-<h2>An add-in inside Excel</h2>
+<h2 id="muc-2">An add-in inside Excel</h2>
 <p>To use it right inside Excel, install the Claude for Microsoft 365 add-in from Microsoft Marketplace, then go to the Home tab, choose Add-ins and click Claude. The add-in runs on Excel for the web, Windows and Mac, and needs a paid plan, Pro or higher.</p>
 </section>
 <section>
 <p class="sec-chip">CATCHING ERRORS</p>
-<h2 class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What&#x27;s the real total?</h2>
+<h2 id="muc-3" class="h-hoi"><img src="../../assets/bit-y-tuong.svg" alt="" width="44" height="53">What&#x27;s the real total?</h2>
 <p>The first question was the total revenue for three months, and Claude didn&#x27;t just add up the whole column, because it noticed three monthly total rows mixed into the data. Adding everything would give almost 587 million, double the correct figure of 293 million.</p>
 </section>
 <section>
 <p class="sec-chip">SUMMARY</p>
-<h2>By item, by month</h2>
+<h2 id="muc-4">By item, by month</h2>
 <p>Next, ask it to summarize revenue by item and by month, color the items going up and down, then draw a column chart. Taro milk tea fell 57 percent, while peach lemongrass tea rose 42 percent.</p>
 </section>
 <section>
 <p class="sec-chip">FORMULAS</p>
-<h2>Change a number, it recalculates</h2>
+<h2 id="muc-5">Change a number, it recalculates</h2>
 <p>Then ask Claude to build an October forecast sheet with formulas, with one growth-rate cell for peach tea. Change that cell from 5 to 10 percent and the forecast total jumps from about 96 million to nearly 97.3 million, because the formulas stay intact instead of being overwritten with numbers.</p>
 </section>
 <section>
 <p class="sec-chip">CAREFUL</p>
-<h2>Work on a copy</h2>
+<h2 id="muc-6">Work on a copy</h2>
 <p>According to Anthropic&#x27;s guidance, Claude asks before overwriting data and can&#x27;t do macros yet. Work on a copy, and only open files you trust, because unfamiliar files can hide instructions.</p>
 </section>
 <section>
 <p class="sec-chip">SAY IT ONCE</p>
-<h2>The Instructions box</h2>
+<h2 id="muc-7">The Instructions box</h2>
 <p>In the add-in&#x27;s Settings there&#x27;s an Instructions box where you write your habits once, like using dots as thousands separators, so it does it your way every time.</p>
 </section>
 <aside class="try" aria-labelledby="thu-69.2">
@@ -103,7 +106,7 @@
 </aside>
 <section>
 <p class="sec-chip">PART 3</p>
-<h2>Next: PowerPoint</h2>
+<h2 id="muc-8">Next: PowerPoint</h2>
 <p>Part 3: take these results straight into PowerPoint as a five-slide staff meeting deck, without copying a single number.</p>
 </section>
 <div class="post-end">
@@ -122,6 +125,8 @@
 <a class="next-step" href="../kiem-tra.html"><b>How well do you know AI?</b><span>Several quizzes, score 80% for a certificate.</span></a>
 <a class="next-step" href="../#bat-dau"><b>New to the channel?</b><span>A 7-region map and a path for beginners.</span></a>
 </aside>
+</div>
+<aside class="doc-ben" aria-label="In this article"><div class="ben-dinh"><p class="ben-h">In this article</p><ol class="ben-ml"><li><a href="#muc-1">A 7,341-row sales log</a></li><li><a href="#muc-2">An add-in inside Excel</a></li><li><a href="#muc-3">What&#x27;s the real total?</a></li><li><a href="#muc-4">By item, by month</a></li><li><a href="#muc-5">Change a number, it recalculates</a></li><li><a href="#muc-6">Work on a copy</a></li><li><a href="#muc-7">The Instructions box</a></li><li><a href="#thu-69.2">Three unusual things</a></li><li><a href="#muc-8">Next: PowerPoint</a></li></ol><div class="ben-xem"><a class="btn btn-yt" data-so="69.2" data-ngay="2026-10-19" data-kenh="https://www.youtube.com/@markhocai" href="https://www.youtube.com/@markhocai/search?query=%C4%90%C6%B0a%20Claude%207.000%20d%C3%B2ng%20Excel%3A%20n%C3%B3%20b%E1%BA%AFt%20%C4%91%C6%B0%E1%BB%A3c%20l%E1%BB%97i%20c%E1%BB%99ng%20g%E1%BA%A5p%20%C4%91%C3%B4i" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="../../assets/icons.svg#i-play"/></svg>Watch video</a></div></div></aside>
 </main>
 <footer class="foot-band">
   <div class="foot">
