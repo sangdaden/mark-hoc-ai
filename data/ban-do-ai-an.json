@@ -1,0 +1,2196 @@
+{
+ "_ghi_chu": "Bản đồ AI ẩn (ban-do-ai-an.html). Mỗi điểm là một video: canh = tranh, vat = hình vẽ trong ban-do-ai-an.js (VAT), x/y = vị trí theo % trong tranh. sim.kieu: truot | chon | xac_suat | phan_loai (xem đầu ban-do-ai-an.js). Thêm tập mới: thêm một điểm; bài của video tự có thẻ Chơi thử khi bài lên web.",
+ "canh": [
+  {
+   "id": "dien-thoai",
+   "ten": {
+    "vi": "AI ẩn trong điện thoại",
+    "en": "Hidden AI in your phone"
+   },
+   "mo": {
+    "vi": "Chiếc điện thoại trong túi bạn có ít nhất 6 AI chạy ngầm. Bấm vào từng thứ quanh máy để xem nó làm gì.",
+    "en": "Your phone hides at least 6 AIs. Tap each thing around it to see what it does."
+   },
+   "ngan": {
+    "vi": "Điện thoại",
+    "en": "Phone"
+   }
+  },
+  {
+   "id": "thanh-pho",
+   "ten": {
+    "vi": "AI ẩn quanh thành phố",
+    "en": "Hidden AI around the city"
+   },
+   "mo": {
+    "vi": "Ra đường là gặp AI: từ bản tin thời tiết tới camera bãi xe. Bấm vào từng thứ trên phố.",
+    "en": "Step outside and AI is everywhere, from the weather report to the car-park camera. Tap each thing on the street."
+   },
+   "ngan": {
+    "vi": "Thành phố",
+    "en": "City"
+   }
+  },
+  {
+   "id": "nha",
+   "ten": {
+    "vi": "AI ẩn trong nhà bạn",
+    "en": "Hidden AI in your home"
+   },
+   "mo": {
+    "vi": "Robot, loa, camera, tivi, đồng hồ, máy giặt: thứ nào có AI thật, thứ nào chỉ dán nhãn? Bấm để thử.",
+    "en": "Robot, speaker, camera, TV, watch, washer: which have real AI and which just have the label? Tap to try."
+   },
+   "ngan": {
+    "vi": "Nhà bạn",
+    "en": "Home"
+   }
+  },
+  {
+   "id": "sieu-thi",
+   "ten": {
+    "vi": "AI ẩn trong siêu thị",
+    "en": "Hidden AI at the supermarket"
+   },
+   "mo": {
+    "vi": "Từ quầy tự tính tiền tới nhãn giảm giá cuối ngày, siêu thị dùng AI ở khắp nơi. Bấm để xem.",
+    "en": "From self-checkout to end-of-day markdowns, the supermarket runs on AI. Tap to see."
+   },
+   "ngan": {
+    "vi": "Siêu thị",
+    "en": "Supermarket"
+   }
+  }
+ ],
+ "diem": [
+  {
+   "id": "chup-dem",
+   "canh": "dien-thoai",
+   "vat": "chup-dem",
+   "x": 17,
+   "y": 22,
+   "video": [
+    408
+   ],
+   "ten": {
+    "vi": "Camera chụp đêm",
+    "en": "Night mode camera"
+   },
+   "ai_lam": {
+    "vi": "Chụp liền cả loạt tấm tối, xếp khớp rồi lấy trung bình từng điểm ảnh để ảnh sáng rõ, ít hạt.",
+    "en": "Shoots a burst of dark frames, aligns them and averages every pixel so the photo comes out bright and clean."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Số tấm ghép lại",
+     "en": "Frames merged"
+    },
+    "min": 1,
+    "max": 16,
+    "buoc": 1,
+    "dau": 1,
+    "don_vi": {
+     "vi": "tấm",
+     "en": "frames"
+    },
+    "ra": {
+     "nhan": {
+      "vi": "Nhiễu của một điểm ảnh (ví dụ)",
+      "en": "Noise on one pixel (example)"
+     },
+     "don_vi": {
+      "vi": "",
+      "en": ""
+     },
+     "le": 1,
+     "diem": [
+      [
+       1,
+       8
+      ],
+      [
+       2,
+       5.7
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       9,
+       2.7
+      ],
+      [
+       16,
+       2
+      ]
+     ],
+     "max": 8
+    },
+    "hinh": "nhieu",
+    "muc": [
+     {
+      "tu": 1,
+      "chu": {
+       "vi": "Một tấm: tăng sáng lên là hạt nổi như cát.",
+       "en": "One frame: brighten it and the grain looks like sand."
+      }
+     },
+     {
+      "tu": 4,
+      "chu": {
+       "vi": "4 tấm: nhiễu còn khoảng một nửa.",
+       "en": "4 frames: noise drops to about half."
+      }
+     },
+     {
+      "tu": 16,
+      "chu": {
+       "vi": "16 tấm: nhiễu chia 4, vì √16 = 4.",
+       "en": "16 frames: noise divided by 4, since √16 = 4."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Chi tiết thật tấm nào cũng có, còn nhiễu mỗi tấm lệch một kiểu nên cộng lại tự triệt tiêu bớt. Đó là chụp ảnh nhờ tính toán.",
+    "en": "Real details appear in every frame, but noise differs each time, so averaging cancels much of it. That is computational photography."
+   },
+   "thu": {
+    "vi": "Ở chỗ tối, chụp một cảnh hai lần: tắt rồi bật chế độ đêm, giữ yên tay, phóng to so hạt.",
+    "en": "In a dark spot, shoot one scene twice, night mode off then on with steady hands, and zoom in to compare grain."
+   }
+  },
+  {
+   "id": "ban-phim-doan-chu",
+   "canh": "dien-thoai",
+   "vat": "ban-phim",
+   "x": 17,
+   "y": 52,
+   "video": [
+    409
+   ],
+   "ten": {
+    "vi": "Bàn phím gợi ý chữ",
+    "en": "Predictive keyboard"
+   },
+   "ai_lam": {
+    "vi": "Một model tí hon ngay trong máy đoán chữ bạn sắp gõ, dựa trên những chữ bạn hay gõ sau đó.",
+    "en": "A tiny model on your phone guesses your next word from the words you usually type after it."
+   },
+   "sim": {
+    "kieu": "xac_suat",
+    "hoi": {
+     "vi": "Bàn phím sẽ gợi ý chữ nào đầu tiên?",
+     "en": "Which word will the keyboard suggest first?"
+    },
+    "vong": [
+     {
+      "vao": {
+       "vi": "Bạn gõ \"đi\". Tin nhắn cũ (ví dụ): sau \"đi\" có 6 lần làm, 3 lần ăn, 1 lần ngủ.",
+       "en": "You type \"đi\" (go). Old messages (example): after it come làm 6 times, ăn 3, ngủ 1."
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "làm",
+         "en": "làm (work)"
+        },
+        "p": 60
+       },
+       {
+        "chu": {
+         "vi": "ăn",
+         "en": "ăn (eat)"
+        },
+        "p": 30
+       },
+       {
+        "chu": {
+         "vi": "ngủ",
+         "en": "ngủ (sleep)"
+        },
+        "p": 10
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Mấy hôm nay bạn gõ \"đi chợ\" thêm 5 lần. Bạn gõ lại \"đi\".",
+       "en": "Lately you typed \"đi chợ\" (go to market) 5 more times. You type \"đi\" again."
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "làm",
+         "en": "làm (work)"
+        },
+        "p": 40
+       },
+       {
+        "chu": {
+         "vi": "chợ",
+         "en": "chợ (market)"
+        },
+        "p": 33
+       },
+       {
+        "chu": {
+         "vi": "ăn",
+         "en": "ăn (eat)"
+        },
+        "p": 20
+       },
+       {
+        "chu": {
+         "vi": "ngủ",
+         "en": "ngủ (sleep)"
+        },
+        "p": 7
+       }
+      ]
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Bàn phím chỉ đoán chữ hay gặp, không hiểu ý bạn. Nó học theo cách bạn gõ, nên mỗi máy đoán một kiểu.",
+    "en": "The keyboard only guesses common words; it doesn't understand you. It learns from your typing, so every phone guesses differently."
+   },
+   "thu": {
+    "vi": "Gõ \"hôm nay\", rồi bấm gợi ý đầu tiên 10 lần liền, xem bàn phím viết ra câu gì.",
+    "en": "Type \"hôm nay\" (today), tap the first suggestion 10 times in a row, and see what sentence appears."
+   }
+  },
+  {
+   "id": "mo-khoa-khuon-mat",
+   "canh": "dien-thoai",
+   "vat": "khuon-mat",
+   "x": 17,
+   "y": 82,
+   "video": [
+    410
+   ],
+   "ten": {
+    "vi": "Mở khóa khuôn mặt",
+    "en": "Face unlock"
+   },
+   "ai_lam": {
+    "vi": "Biến khuôn mặt thành một dãy số, rồi đo khoảng cách với dãy đã lưu. Đủ gần thì mở.",
+    "en": "Turns your face into a list of numbers and measures its distance to the stored one. Close enough, it unlocks."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Ngưỡng khoảng cách",
+     "en": "Distance threshold"
+    },
+    "min": 0.5,
+    "max": 0.8,
+    "buoc": 0.1,
+    "dau": 0.6,
+    "don_vi": {
+     "vi": "",
+     "en": ""
+    },
+    "ra": {
+     "nhan": {
+      "vi": "Chính chủ bị từ chối nhầm (ví dụ)",
+      "en": "Owner wrongly rejected (example)"
+     },
+     "don_vi": {
+      "vi": "%",
+      "en": "%"
+     },
+     "le": 1,
+     "diem": [
+      [
+       0.5,
+       6.7
+      ],
+      [
+       0.6,
+       0.6
+      ],
+      [
+       0.8,
+       0.0
+      ]
+     ],
+     "max": 7
+    },
+    "hinh": "thanh",
+    "muc": [
+     {
+      "tu": 0.5,
+      "chu": {
+       "vi": "Chặt: người lạ chỉ lọt 0,033%, nhưng bạn hay bị từ chối.",
+       "en": "Strict: strangers get in just 0.033%, but you get rejected often."
+      }
+     },
+     {
+      "tu": 0.6,
+      "chu": {
+       "vi": "0,6: bạn đo 0,34 nên mở; anh chị em giống mặt 0,67 thì khóa.",
+       "en": "0.6: you (0.34) unlock; a lookalike sibling (0.67) stays locked."
+      }
+     },
+     {
+      "tu": 0.8,
+      "chu": {
+       "vi": "Lỏng: bạn luôn mở được, nhưng người lạ lọt 2,311%.",
+       "en": "Loose: you always get in, but strangers get in 2.311% of the time."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Mở khóa khuôn mặt là phép so hai dãy số với một ngưỡng: chặt quá thì từ chối bạn, lỏng quá thì người lạ lọt.",
+    "en": "Face unlock compares two lists of numbers against a threshold: too strict rejects you, too loose lets strangers in."
+   },
+   "thu": {
+    "vi": "Đọc mô tả mở khóa khuôn mặt trong cài đặt bảo mật. Nếu ghi kém an toàn hơn mật mã, dùng vân tay hoặc mã số cho app ngân hàng.",
+    "en": "Read the face unlock note in security settings. If it says less secure than a passcode, use fingerprint or PIN for banking apps."
+   }
+  },
+  {
+   "id": "chan-giao-dich-la",
+   "canh": "dien-thoai",
+   "vat": "ngan-hang",
+   "x": 83,
+   "y": 22,
+   "video": [
+    411
+   ],
+   "ten": {
+    "vi": "App ngân hàng",
+    "en": "Banking app"
+   },
+   "ai_lam": {
+    "vi": "Học thói quen chi tiêu của bạn, chấm điểm mỗi giao dịch lệch bao xa và tạm chặn khi vượt ngưỡng.",
+    "en": "Learns your spending habits, scores how far each payment strays, and pauses it above a threshold."
+   },
+   "sim": {
+    "kieu": "phan_loai",
+    "hoi": {
+     "vi": "Bạn thường mua 7h-22h, quanh 111.000đ (ví dụ). Ngưỡng chặn là 5 điểm. Giao dịch nào bị chặn?",
+     "en": "You usually pay 7 a.m.-10 p.m., around 111,000 dong (example). The block threshold is 5 points. Which get blocked?"
+    },
+    "ngan": [
+     {
+      "vi": "Cho qua",
+      "en": "Allowed"
+     },
+     {
+      "vi": "Tạm chặn",
+      "en": "Paused"
+     }
+    ],
+    "muc": [
+     {
+      "chu": {
+       "vi": "Cà phê 8h sáng, 45.000đ, quán quen",
+       "en": "Coffee at 8 a.m., 45,000 dong, usual café"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Giờ quen, nơi quen, số tiền bình thường: 0 điểm.",
+       "en": "Usual hour, usual place, normal amount: 0 points."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Web lạ lúc 2h sáng, 9.800.000đ",
+       "en": "Unknown website at 2 a.m., 9,800,000 dong"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Giờ lạ +3, nơi mới +2, tiền lệch +7,4. Tổng 12,4, vượt ngưỡng 5.",
+       "en": "Odd hour +3, new merchant +2, unusual amount +7.4. Total 12.4, above 5."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Đặt khách sạn đi du lịch, 23h, 2.400.000đ",
+       "en": "Hotel booking on a trip, 11 p.m., 2,400,000 dong"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "3 + 2 + 5,0 = 10 điểm nên bị chặn, dù đúng là bạn. Đó là chặn nhầm, false positive.",
+       "en": "3 + 2 + 5.0 = 10 points, so it's blocked even though it's really you. A false positive."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Bữa trưa 12h, 111.000đ, chỗ hay ăn",
+       "en": "Lunch at noon, 111,000 dong, usual spot"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Đúng mức bạn hay tiêu, giờ quen, nơi quen: không lệch thói quen.",
+       "en": "Your typical amount, usual hour and place: nothing strays from habit."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Hệ thống không cần biết trước mọi kiểu lừa, chỉ cần biết thói quen của bạn. Hạ ngưỡng thì bắt thêm lừa đảo nhưng cũng chặn nhầm nhiều hơn.",
+    "en": "The system needn't know every scam, only your habits. A lower threshold catches more fraud but also blocks more real payments."
+   },
+   "thu": {
+    "vi": "Lưu số tổng đài in sau thẻ vào danh bạ và bật thông báo giao dịch. Ai gọi xin mã OTP là lừa.",
+    "en": "Save the hotline on the back of your card and turn on transaction alerts. Anyone asking for your OTP is a scammer."
+   }
+  },
+  {
+   "id": "ban-do-doan-gio",
+   "canh": "dien-thoai",
+   "vat": "ban-do",
+   "x": 83,
+   "y": 52,
+   "video": [
+    412
+   ],
+   "ten": {
+    "vi": "App bản đồ",
+    "en": "Maps app"
+   },
+   "ai_lam": {
+    "vi": "Đoán tốc độ từng đoạn đường vào lúc bạn sẽ tới đó, rồi cộng lại thành giờ đến.",
+    "en": "Predicts each road segment's speed for when you'll reach it, then adds them up into an arrival time."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Xuất phát 17:30 (ví dụ). Đoạn 2 dài 4 km, lúc này chạy 40 km/h, nhưng 6 phút sau, lúc bạn tới, thường còn 24 km/h. Bản đồ báo mấy phút?",
+     "en": "You leave at 5:30 p.m. (example). Segment 2 is 4 km at 40 km/h now, but usually 24 km/h 6 minutes later when you get there. What does the map say?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "14 phút, theo tốc độ đường lúc này",
+       "en": "14 minutes, using current traffic"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Chỉ nhìn hiện tại thì đoạn 2 mất 6 phút, tổng 14. Nhưng lúc bạn tới, đường đã chậm lại.",
+       "en": "Using only now, segment 2 takes 6 minutes, 14 in total. But by the time you arrive, it has slowed."
+      }
+     },
+     {
+      "chu": {
+       "vi": "18 phút, đoán theo lúc bạn tới từng đoạn",
+       "en": "18 minutes, predicting each segment for your arrival"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Đoạn 2 ở 24 km/h mất 10 phút. 6 + 10 + 2 = 18 phút, tới 17:48.",
+       "en": "Segment 2 at 24 km/h takes 10 minutes. 6 + 10 + 2 = 18 minutes, arriving at 5:48 p.m."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Không đoán được, phải đi mới biết",
+       "en": "Can't tell until you drive it"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Bản đồ dùng vị trí ẩn danh của nhiều máy và lịch sử từng giờ trong tuần để đoán trước.",
+       "en": "The map uses anonymous phone locations plus hourly history for each day of the week to predict ahead."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Bản đồ không chỉ nhìn kẹt xe bây giờ, mà đoán kẹt xe ở tương lai. Gặp tai nạn hay mưa to, nó tính lại và giờ đến có thể nhảy vài phút.",
+    "en": "The map doesn't just read today's traffic; it predicts future traffic. A crash or heavy rain makes it recalculate, so arrival can jump a few minutes."
+   },
+   "thu": {
+    "vi": "Trong 5 chuyến tới, ghi giờ bản đồ báo lúc xuất phát và giờ tới thật, rồi tính lệch trung bình.",
+    "en": "On your next 5 trips, note the map's arrival time when you leave and when you really arrive, then average the gap."
+   }
+  },
+  {
+   "id": "ngan-nga-tim-bai",
+   "canh": "dien-thoai",
+   "vat": "nhac",
+   "x": 83,
+   "y": 82,
+   "video": [
+    413
+   ],
+   "ten": {
+    "vi": "Tìm bài bằng ngân nga",
+    "en": "Hum to find a song"
+   },
+   "ai_lam": {
+    "vi": "Bỏ nhạc cụ và giọng, giữ giai điệu thành dãy số lên xuống, rồi so với kho bài hát.",
+    "en": "Drops instruments and voice, turns the melody into a list of ups and downs, then searches a song library."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Bạn ngân thấp hơn 5 nửa cung và lạc 2 nốt. Máy so dãy lên xuống với kho (ví dụ). Bài nào ra đầu?",
+     "en": "You hum 5 semitones low and miss 2 notes. The phone compares the ups and downs with its library (example). Which song comes first?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Kìa con bướm vàng",
+       "en": "Kìa con bướm vàng (a folk tune)"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Ngân thấp thì nốt nào cũng khác, nhưng dãy +2 +2 −4 vẫn y hệt. Chỉ lệch 4 nửa cung.",
+       "en": "Humming low changes every note, but the steps +2 +2 −4 stay the same. Off by only 4 semitones."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Giai điệu B",
+       "en": "Melody B"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Dãy lên xuống khác hẳn: lệch 29 nửa cung.",
+       "en": "Its ups and downs are very different: off by 29 semitones."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Giai điệu C",
+       "en": "Melody C"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Lệch 27 nửa cung, xa hơn nhiều so với bài đúng.",
+       "en": "Off by 27 semitones, far more than the right song."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Máy không nghe nốt tuyệt đối mà nghe giai điệu đi lên hay xuống, nên ngân lạc tông vẫn ra bài. Bài chưa có trong kho thì chịu.",
+    "en": "The phone tracks whether the melody goes up or down, not exact notes, so off-key humming still works. A song missing from the library can't be found."
+   },
+   "thu": {
+    "vi": "Mở tìm kiếm bằng giọng nói, chọn tìm bài hát, ngân 10 giây một bài bạn thích, xem bài đúng đứng thứ mấy.",
+    "en": "Open voice search, choose search for a song, hum 10 seconds of a favorite, and see where the right song ranks."
+   }
+  },
+  {
+   "id": "du-bao-thoi-tiet",
+   "canh": "thanh-pho",
+   "vat": "thoi-tiet",
+   "x": 14,
+   "y": 17,
+   "video": [
+    423
+   ],
+   "ten": {
+    "vi": "App thời tiết",
+    "en": "Weather app"
+   },
+   "ai_lam": {
+    "vi": "Model học từ hàng chục năm dữ liệu để đoán bầu trời, rồi báo mưa bằng một con số khả năng.",
+    "en": "A model learns from decades of past weather to forecast the sky, then gives rain as a chance."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Trong 10 ngày giống hôm nay, số ngày hôm sau có mưa",
+     "en": "Of the 10 most similar days, how many were followed by rain"
+    },
+    "min": 0,
+    "max": 10,
+    "buoc": 1,
+    "dau": 7,
+    "don_vi": {
+     "vi": "ngày",
+     "en": "days"
+    },
+    "ra": {
+     "nhan": {
+      "vi": "App báo khả năng mưa",
+      "en": "Chance of rain shown"
+     },
+     "don_vi": {
+      "vi": "%",
+      "en": "%"
+     },
+     "le": 0,
+     "diem": [
+      [
+       0,
+       0
+      ],
+      [
+       10,
+       100
+      ]
+     ],
+     "max": 100
+    },
+    "hinh": "thanh",
+    "muc": [
+     {
+      "tu": 0,
+      "chu": {
+       "vi": "Ít ngày giống hôm nay có mưa: khả năng thấp, nhưng vẫn có thể mưa.",
+       "en": "Few similar days brought rain: a low chance, but rain is still possible."
+      }
+     },
+     {
+      "tu": 4,
+      "chu": {
+       "vi": "Khoảng nửa nửa: mưa hay khô đều dễ xảy ra.",
+       "en": "Roughly half and half: rain or dry are both likely."
+      }
+     },
+     {
+      "tu": 7,
+      "chu": {
+       "vi": "Như ví dụ trong video: 7 trên 10 ngày có mưa, app báo 70%. Vẫn còn 3 ngày khô.",
+       "en": "Like the video's example: 7 of 10 days had rain, so 70%. Three days still stayed dry."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Báo 70% mưa là khả năng, không phải lời hứa. AI học từ quá khứ để đoán, nhưng bầu trời rất nhạy nên vẫn có lúc sai.",
+    "en": "70% rain is a chance, not a promise. AI learns from the past to predict, but the sky is so sensitive it still gets things wrong."
+   },
+   "thu": {
+    "vi": "Một tuần, mỗi tối ghi % mưa app báo cho ngày mai, hôm sau ghi có mưa không, rồi đếm ngày báo từ 70% mưa thật mấy ngày.",
+    "en": "For a week, note the app's chance of rain for tomorrow each evening, record if it rained, then count how many 70%+ days really got rain."
+   }
+  },
+  {
+   "id": "camera-bien-so",
+   "canh": "thanh-pho",
+   "vat": "bien-so",
+   "x": 24,
+   "y": 58,
+   "video": [
+    424
+   ],
+   "ten": {
+    "vi": "Camera bãi xe",
+    "en": "Parking gate camera"
+   },
+   "ai_lam": {
+    "vi": "Tìm tấm biển, cắt từng ký tự rồi đọc chữ bằng OCR, chỉ trong chớp mắt.",
+    "en": "It finds the plate, splits it into characters and reads them with OCR, in a blink."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Bùn che cột trái của số 8, mất 4 ô sáng trong lưới 35 ô. Máy đọc ra gì?",
+     "en": "Mud covers the left column of an 8, hiding 4 lit cells in a 35-cell grid. What does it read?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Vẫn là số 8",
+       "en": "Still an 8"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Chưa đúng. Giờ nó chỉ trùng mẫu số 8 ở 31/35 ô (89%), thua mẫu số 3 một ô.",
+       "en": "Not quite. It now matches the 8 template in only 31 of 35 cells (89%), one short of the 3."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Số 3",
+       "en": "A 3"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Đúng. Nó trùng mẫu số 3 ở 32/35 ô (91%), nhỉnh hơn mẫu số 8. Điểm sát nút nhưng máy vẫn đọc sai.",
+       "en": "Right. It matches the 3 template in 32 of 35 cells (91%), just ahead of the 8. Close scores, wrong answer."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Số 9",
+       "en": "A 9"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Chưa đúng. Mẫu số 9 chỉ trùng 29/35 ô (83%), xếp thứ ba.",
+       "en": "Not quite. The 9 template matches only 29 of 35 cells (83%), in third place."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Máy chọn mẫu giống nhất, kể cả khi điểm sát nút. Cách chữa là đọc nhiều khung hình rồi bỏ phiếu, điểm vẫn sát thì chuyển người kiểm.",
+    "en": "The machine picks the closest template, even when scores are neck and neck. The fix: read several frames and vote, and let a person check close calls."
+   },
+   "thu": {
+    "vi": "Viết một dãy số lên giấy, chụp thẳng, nghiêng và che một góc, rồi nhờ chatbot đọc xem kiểu nào bắt đầu sai.",
+    "en": "Write some digits on paper, photograph them straight, tilted and with a corner covered, then ask a chatbot to read each one."
+   }
+  },
+  {
+   "id": "app-goi-xe",
+   "canh": "thanh-pho",
+   "vat": "goi-xe",
+   "x": 50,
+   "y": 84,
+   "video": [
+    425
+   ],
+   "ten": {
+    "vi": "App gọi xe",
+    "en": "Ride-hailing app"
+   },
+   "ai_lam": {
+    "vi": "Ghép tài xế cho cả khu cùng lúc, đoán giờ đón và nâng giá khi nhiều người đặt mà ít xe.",
+    "en": "Matches drivers for a whole area at once, predicts pickup times and raises prices when cars run short."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Hệ số giá giờ tan tầm (ví dụ)",
+     "en": "Rush-hour price multiplier (example)"
+    },
+    "min": 1,
+    "max": 2,
+    "buoc": 0.1,
+    "dau": 1,
+    "don_vi": {
+     "vi": "lần",
+     "en": "x"
+    },
+    "ra": {
+     "nhan": {
+      "vi": "Số người còn đặt xe",
+      "en": "People still booking"
+     },
+     "don_vi": {
+      "vi": "người",
+      "en": "people"
+     },
+     "le": 0,
+     "diem": [
+      [
+       1,
+       30
+      ],
+      [
+       2,
+       10
+      ]
+     ],
+     "max": 30
+    },
+    "hinh": "thanh",
+    "muc": [
+     {
+      "tu": 1,
+      "chu": {
+       "vi": "Giá gốc: 30 người đặt mà chỉ 12 tài xế. Thiếu xe, ai cũng chờ lâu.",
+       "en": "Normal price: 30 people booking, only 12 drivers. Too few cars, long waits."
+      }
+     },
+     {
+      "tu": 1.3,
+      "chu": {
+       "vi": "Giá ×1,3: còn 24 người đặt, tài xế kéo tới thành 15.",
+       "en": "Price ×1.3: bookings drop to 24, drivers rise to 15."
+      }
+     },
+     {
+      "tu": 1.6,
+      "chu": {
+       "vi": "Giá ×1,6: 18 người đặt, 18 tài xế, vừa khớp. Cuốc 43.000đ thành 68.800đ.",
+       "en": "Price ×1.6: 18 bookings, 18 drivers, a match. A 43,000 VND ride becomes 68,800 VND."
+      }
+     },
+     {
+      "tu": 2,
+      "chu": {
+       "vi": "Giá ×2,0: chỉ còn 10 người đặt mà có 22 tài xế. Giờ lại dư xe.",
+       "en": "Price ×2.0: just 10 bookings but 22 drivers. Now there are too many cars."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "App không luôn gửi xe gần bạn nhất mà ghép cả loạt để cả khu chờ ít hơn. Giá lên khi người đặt nhiều hơn tài xế, và đổi rất nhanh theo từng khu.",
+    "en": "The app doesn't always send the closest car; it matches in batches so the whole area waits less. Prices rise when riders outnumber drivers and change fast by area."
+   },
+   "thu": {
+    "vi": "Cùng một điểm đến, xem giá trên app lúc tan tầm và lúc 21:00, chỉ xem không đặt, rồi ghi lại để so.",
+    "en": "For the same destination, check the app's price at rush hour and at 9 p.m. Just look, don't book, and note both."
+   }
+  },
+  {
+   "id": "xe-giao-hang",
+   "canh": "thanh-pho",
+   "vat": "giao-hang",
+   "x": 82,
+   "y": 82,
+   "video": [
+    426
+   ],
+   "ten": {
+    "vi": "Xe giao hàng",
+    "en": "Delivery van"
+   },
+   "ai_lam": {
+    "vi": "Chia đơn cho từng xe rồi tìm khéo một lộ trình ngắn, không cần thử hết mọi thứ tự giao.",
+    "en": "Splits orders between vans, then smartly finds a short route without trying every possible order."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Kho và 9 điểm giao (ví dụ). Luôn tới điểm gần nhất thì chạy 28,5 km. Gỡ hết chỗ đường bắt chéo thì còn bao nhiêu?",
+     "en": "A depot and 9 stops (example). Always going to the nearest stop takes 28.5 km. After untangling every crossing, how far?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Vẫn 28,5 km",
+       "en": "Still 28.5 km"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Chưa đúng. Mỗi lần gỡ một chỗ bắt chéo, máy đảo ngược đoạn giữa và lộ trình ngắn lại.",
+       "en": "Not quite. Each time a crossing is untangled, the middle part is reversed and the route gets shorter."
+      }
+     },
+     {
+      "chu": {
+       "vi": "23,1 km",
+       "en": "23.1 km"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Đúng. Bằng cách tốt nhất khi thử hết 362.880 thứ tự, dù máy không phải thử hết.",
+       "en": "Right. That equals the best of all 362,880 orders, without having to try them all."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Ngắn hơn cả cách tốt nhất",
+       "en": "Shorter than the best possible"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Không thể. Thử hết 362.880 thứ tự thì tốt nhất là 23,1 km. Gỡ chéo cũng không phải lúc nào cũng chạm tới mức đó.",
+       "en": "Impossible. Trying all 362,880 orders, the best is 23.1 km. Untangling doesn't always reach even that."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "20 điểm có hơn 2 tỉ tỉ thứ tự giao, thử 1 tỉ cách mỗi giây cũng mất 77 năm. Máy không thử hết mà tìm khéo, nhắm lộ trình tốt đều chứ không đòi tốt nhất.",
+    "en": "20 stops have over 2 billion billion orders; at a billion a second, trying them all takes 77 years. So the software searches smartly for reliably good, not perfect."
+   },
+   "thu": {
+    "vi": "Ghi 5 chỗ cần ghé cuối tuần, nối thử 2 thứ tự trên bản đồ, xem cách nào ít cây số hơn và chỗ nào đường bắt chéo.",
+    "en": "List 5 places to visit this weekend, map two different orders, and see which is shorter and where the paths cross."
+   }
+  },
+  {
+   "id": "tong-dai-tu-dong",
+   "canh": "thanh-pho",
+   "vat": "tong-dai",
+   "x": 60,
+   "y": 30,
+   "video": [
+    427
+   ],
+   "ten": {
+    "vi": "Tổng đài tự động",
+    "en": "Automated phone line"
+   },
+   "ai_lam": {
+    "vi": "Đổi giọng nói thành chữ, rồi chấm điểm câu bạn nói với từng việc nó làm được.",
+    "en": "Turns your voice into text, then scores what you said against each task it can do."
+   },
+   "sim": {
+    "kieu": "xac_suat",
+    "hoi": {
+     "vi": "Tổng đài sẽ hiểu bạn muốn làm gì?",
+     "en": "What will the line think you want?"
+    },
+    "vong": [
+     {
+      "vao": {
+       "vi": "Nghe rõ: “tôi bị mất thẻ rồi”",
+       "en": "Heard clearly: “I lost my card”"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Khóa thẻ",
+         "en": "Block card"
+        },
+        "p": 86
+       },
+       {
+        "chu": {
+         "vi": "Tra số dư",
+         "en": "Check balance"
+        },
+        "p": 10
+       },
+       {
+        "chu": {
+         "vi": "Gặp nhân viên",
+         "en": "Talk to an agent"
+        },
+        "p": 4
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Ồn quá, mất chữ “mất”: “tôi bị ... thẻ rồi”",
+       "en": "Too noisy, the word “lost” drops out: “I ... my card”"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Khóa thẻ",
+         "en": "Block card"
+        },
+        "p": 46
+       },
+       {
+        "chu": {
+         "vi": "Tra số dư",
+         "en": "Check balance"
+        },
+        "p": 37
+       },
+       {
+        "chu": {
+         "vi": "Gặp nhân viên",
+         "en": "Talk to an agent"
+        },
+        "p": 17
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Nói ngắn, đúng tên việc: “khóa thẻ”",
+       "en": "Short and to the point: “block card”"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Khóa thẻ",
+         "en": "Block card"
+        },
+        "p": 91
+       },
+       {
+        "chu": {
+         "vi": "Tra số dư",
+         "en": "Check balance"
+        },
+        "p": 6
+       },
+       {
+        "chu": {
+         "vi": "Gặp nhân viên",
+         "en": "Talk to an agent"
+        },
+        "p": 3
+       }
+      ]
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Dưới ngưỡng, ví dụ 60%, máy xin bạn nói lại vì làm nhầm còn tệ hơn. Nói ngắn, đúng tên việc, và đừng bao giờ đọc mã OTP qua điện thoại.",
+    "en": "Below a threshold, say 60%, the line asks again, because a wrong action is worse. Keep it short, name the task, and never read an OTP code over the phone."
+   },
+   "thu": {
+    "vi": "Nhờ trợ lý giọng nói đặt báo thức hai kiểu: một câu dài vòng vo và một câu ngắn đúng tên việc, xem kiểu nào máy hiểu ngay.",
+    "en": "Ask a voice assistant to set an alarm two ways, one long and rambling, one short and direct, and see which it gets at once."
+   }
+  },
+  {
+   "id": "camera-dich-bien",
+   "canh": "thanh-pho",
+   "vat": "dich-bien",
+   "x": 88,
+   "y": 30,
+   "video": [
+    428
+   ],
+   "ten": {
+    "vi": "Biển hiệu tiếng Nhật",
+    "en": "Japanese shop sign"
+   },
+   "ai_lam": {
+    "vi": "Đọc chữ trên biển, dịch cả cụm theo ngữ cảnh, rồi xóa chữ gốc và vẽ chữ Việt đè đúng chỗ.",
+    "en": "Reads the sign, translates the phrase in context, then paints the translation over the original."
+   },
+   "sim": {
+    "kieu": "phan_loai",
+    "hoi": {
+     "vi": "Dịch bằng camera: chỗ nào máy dễ đúng, chỗ nào nên kiểm lại?",
+     "en": "Camera translation: where does it do well, and where should you double-check?"
+    },
+    "ngan": [
+     {
+      "vi": "Máy dễ làm đúng",
+      "en": "Usually fine"
+     },
+     {
+      "vi": "Dễ sai, nên kiểm lại",
+      "en": "Double-check"
+     }
+    ],
+    "muc": [
+     {
+      "chu": {
+       "vi": "Bảng 3 chữ treo cửa quán, dịch cả cụm",
+       "en": "A 3-character sign on a shop door, read as a phrase"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Dịch cả cụm ra “đang chuẩn bị”, tức chưa mở. Dịch từng chữ mới ra “chuẩn bị giữa”.",
+       "en": "As a phrase it means “preparing”, so not open yet. Word by word it would be “preparation middle”."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Chữ thư pháp uốn lượn",
+       "en": "Flowing calligraphy"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Chữ cong, kiểu lạ dễ bị đọc sai ngay từ bước đầu, nên bản dịch ra lộn xộn.",
+       "en": "Curved, unusual letters get misread at the first step, so the translation comes out garbled."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Một chữ đứng riêng, không có câu",
+       "en": "A single word standing alone"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Biển ngắn thiếu ngữ cảnh nên dễ dịch sai nghĩa.",
+       "en": "Short signs lack context, so the meaning is easy to get wrong."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Thành phần trên gói bánh khi bạn bị dị ứng",
+       "en": "Ingredients on a snack when you have an allergy"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Chuyện dị ứng thì đừng chỉ tin bản dịch, hãy hỏi lại người bán.",
+       "en": "For allergies, don't trust the translation alone. Ask the seller."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Chữ in rõ trên biển thẳng, đủ cả câu",
+       "en": "Clear print on a flat sign, full sentence"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Chữ dễ đọc và đủ ngữ cảnh, máy thường dịch ổn.",
+       "en": "Easy to read and full of context, so it usually translates well."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Chữ dịch thường dài hơn: 3 chữ Nhật thành 13 ký tự Việt, nên máy phải thu nhỏ chữ hoặc chia dòng. Như cả series, máy học từ dữ liệu cũ để đoán và dễ sai ở chỗ hiếm gặp.",
+    "en": "Translations often run longer: 3 Japanese characters become 13 Vietnamese ones, so text must shrink or wrap. Like the whole series, it predicts from past data and slips on rare cases."
+   },
+   "thu": {
+    "vi": "Bật dịch bằng camera, dịch một chữ đứng riêng, rồi cả câu có chữ đó, xem nghĩa có đổi không.",
+    "en": "Open camera translation, translate one word on its own, then the whole sentence with it, and see if the meaning shifts."
+   }
+  },
+  {
+   "id": "robot-hut-bui",
+   "canh": "nha",
+   "vat": "robot-hut-bui",
+   "x": 34,
+   "y": 86,
+   "video": [
+    438
+   ],
+   "ten": {
+    "vi": "Robot hút bụi",
+    "en": "Robot vacuum"
+   },
+   "ai_lam": {
+    "vi": "Vừa chạy vừa vẽ bản đồ nhà, tự định vị trên đó rồi tìm đường ngắn nhất về đế sạc.",
+    "en": "Draws a map of your home as it moves, finds itself on it, then takes the shortest path back to the dock."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Chỉ đếm vòng bánh, bánh trượt 2%. Chạy 50 m thì robot lệch bao nhiêu? (ví dụ)",
+     "en": "Counting wheel turns only, with 2% slip. After 50 m, how far off is the robot? (example)"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Khoảng 1 mét",
+       "en": "About 1 meter"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "2% của 50 m là 1 m. Lệch dồn dần nên bản đồ méo, robot phải so lại tường quen để kéo vị trí về cho khớp.",
+       "en": "2% of 50 m is 1 m. The error piles up and warps the map, so the robot checks familiar walls to snap back into place."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Vài xăng ti mét",
+       "en": "A few centimeters"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Nghe nhỏ nhưng 2% cứ cộng dồn theo quãng đường: 50 m là lệch tới 1 m.",
+       "en": "It sounds small, but 2% keeps adding up with distance: 50 m means 1 m off."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Không lệch, bánh đếm chính xác",
+       "en": "None, wheels count perfectly"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Bánh hay trượt trên sàn trơn, nên chỉ đếm bánh thì bản đồ méo dần.",
+       "en": "Wheels slip on smooth floors, so counting them alone slowly warps the map."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Robot không chỉ đếm bánh mà vừa vẽ bản đồ vừa so lại chỗ đã thấy. Nhưng dời đế sạc, kê lại bàn ghế là nó dễ lạc.",
+    "en": "The robot doesn't just count wheel turns: it maps and re-checks places it has seen. Move the dock or the furniture and it can get lost."
+   },
+   "thu": {
+    "vi": "Sau một lần robot chạy, mở bản đồ trong app, dời một cái ghế, chạy lại và xem bản đồ tự sửa chỗ nào.",
+    "en": "After a cleaning run, open the map in the app, move a chair, run it again and see where the map updates."
+   }
+  },
+  {
+   "id": "loa-thong-minh",
+   "canh": "nha",
+   "vat": "loa",
+   "x": 11,
+   "y": 36,
+   "video": [
+    439
+   ],
+   "ten": {
+    "vi": "Loa thông minh",
+    "en": "Smart speaker"
+   },
+   "ai_lam": {
+    "vi": "Một model tí hon trong loa chấm điểm từng câu nghe được, chỉ thức dậy khi giống câu gọi đủ ngưỡng.",
+    "en": "A tiny model inside scores every phrase it hears and only wakes when it is close enough to the wake word."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Ngưỡng để loa thức dậy",
+     "en": "Wake-up threshold"
+    },
+    "min": 0.5,
+    "max": 0.7,
+    "buoc": 0.1,
+    "dau": 0.5,
+    "don_vi": {
+     "vi": "",
+     "en": ""
+    },
+    "ra": {
+     "nhan": {
+      "vi": "Lần bật nhầm mỗi ngày (ví dụ)",
+      "en": "False wakes per day (example)"
+     },
+     "don_vi": {
+      "vi": "lần",
+      "en": "times"
+     },
+     "le": 1,
+     "diem": [
+      [
+       0.5,
+       114
+      ],
+      [
+       0.6,
+       7
+      ],
+      [
+       0.7,
+       0.2
+      ]
+     ],
+     "max": 114
+    },
+    "hinh": "thanh",
+    "muc": [
+     {
+      "tu": 0.5,
+      "chu": {
+       "vi": "Nghe 5.000 câu thường mỗi ngày, bật nhầm khoảng 114 lần. Không lỡ lần gọi thật nào.",
+       "en": "Out of 5,000 ordinary phrases a day, it wakes by mistake about 114 times. No real calls missed."
+      }
+     },
+     {
+      "tu": 0.6,
+      "chu": {
+       "vi": "Còn khoảng 7 lần bật nhầm, vẫn không lỡ lần gọi nào.",
+       "en": "Down to about 7 false wakes, still no real calls missed."
+      }
+     },
+     {
+      "tu": 0.7,
+      "chu": {
+       "vi": "5 ngày mới nhầm 1 lần, nhưng cứ 100 lần gọi thật thì lỡ mất 3.",
+       "en": "Just 1 false wake every 5 days, but it misses 3 in every 100 real calls."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Ngưỡng thấp thì loa hay tự bật, ngưỡng cao thì hay lỡ lời gọi. Câu thoại na ná câu gọi vẫn có thể lọt qua.",
+    "en": "A low threshold means more false wakes, a high one means more missed calls. A line that sounds like the wake word can still slip through."
+   },
+   "thu": {
+    "vi": "Mở lịch sử giọng nói trong app của loa, tìm lần loa tự bật và nghe câu nào làm nó tưởng bạn gọi.",
+    "en": "Open the voice history in your speaker's app, find a time it woke on its own and hear which phrase fooled it."
+   }
+  },
+  {
+   "id": "camera-an-ninh",
+   "canh": "nha",
+   "vat": "camera-an-ninh",
+   "x": 88,
+   "y": 14,
+   "video": [
+    440
+   ],
+   "ten": {
+    "vi": "Camera an ninh",
+    "en": "Security camera"
+   },
+   "ai_lam": {
+    "vi": "Khoanh từng thứ trong hình, gắn nhãn người, mèo hay xe, kèm điểm tin cậy từ 0 tới 1.",
+    "en": "Boxes each thing in the frame and labels it person, cat or car, with a confidence score from 0 to 1."
+   },
+   "sim": {
+    "kieu": "phan_loai",
+    "hoi": {
+     "vi": "Camera chỉ báo khi điểm 'người' từ 0,6 trở lên. Cái nào làm điện thoại rung? (ví dụ)",
+     "en": "The camera alerts only when the 'person' score is 0.6 or more. Which ones make your phone buzz? (example)"
+    },
+    "ngan": [
+     {
+      "vi": "Báo động",
+      "en": "Alert"
+     },
+     {
+      "vi": "Im lặng",
+      "en": "Silent"
+     }
+    ],
+    "muc": [
+     {
+      "chu": {
+       "vi": "Người đi qua cổng: người 0,92",
+       "en": "Someone at the gate: person 0.92"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "0,92 vượt xa ngưỡng 0,6, báo đúng.",
+       "en": "0.92 is well above 0.6, a correct alert."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Con mèo đi ngang: người 0,20",
+       "en": "A cat walking by: person 0.20"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Model nhận ra mèo, điểm người thấp nên không báo.",
+       "en": "The model sees a cat, the person score is low, so no alert."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Cành lá đung đưa trong gió",
+       "en": "Branches swaying in the wind"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Cách cũ sẽ báo vì điểm ảnh đổi. Model không khoanh cành lá là người nên im.",
+       "en": "The old way would alert on changing pixels. The model doesn't box leaves as a person, so it stays quiet."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Mèo leo cột, bóng dài: người 0,62",
+       "en": "Cat on a post, long shadow: person 0.62"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Bóng đổ dài bị chấm giống người, vượt 0,6 nên báo nhầm.",
+       "en": "The long shadow scores like a person, passes 0.6 and triggers a false alert."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Người khuất sau cột: người 0,55",
+       "en": "Person half hidden by a post: person 0.55"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "0,55 dưới ngưỡng 0,6 nên bị lỡ, dù là người thật.",
+       "en": "0.55 is below 0.6, so it's missed, even though it's a real person."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Ví dụ 40 lần báo theo chuyển động chỉ còn 4 khi báo theo người: 3 người thật, 1 con mèo. Ít nhầm hơn, nhưng vẫn nhầm và vẫn lỡ.",
+    "en": "In the example, 40 motion alerts drop to 4 person alerts: 3 real people and 1 cat. Fewer mistakes, but still some errors and misses."
+   },
+   "thu": {
+    "vi": "Vào cài đặt camera, khoanh vùng chừa hàng cây ra, bật chỉ báo khi có người, rồi so số thông báo hai đêm.",
+    "en": "In the camera settings, draw a zone that skips the trees, turn on person-only alerts and compare two nights."
+   }
+  },
+  {
+   "id": "tivi-lam-net",
+   "canh": "nha",
+   "vat": "tivi",
+   "x": 56,
+   "y": 38,
+   "video": [
+    441
+   ],
+   "ten": {
+    "vi": "Tivi làm nét",
+    "en": "Upscaling TV"
+   },
+   "ai_lam": {
+    "vi": "Phóng phim cũ lên màn hình lớn, tự đoán và vẽ các điểm ảnh còn thiếu cho trông nét.",
+    "en": "Stretches old video to a big screen, guessing and drawing in the missing pixels so it looks sharp."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Phim Full HD chiếu trên tivi 4K. Bao nhiêu điểm ảnh bạn thấy là tivi tự đoán?",
+     "en": "A Full HD movie on a 4K TV. How many of the pixels you see are guessed by the TV?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "3 phần 4",
+       "en": "Three quarters"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Khoảng 2 triệu điểm phải thành hơn 8 triệu. Mỗi ô 2x2 có 1 điểm sẵn, 3 điểm phải đoán, tức 75%.",
+       "en": "About 2 million pixels must become over 8 million. Each 2x2 block has 1 known and 3 guessed: 75%."
+      }
+     },
+     {
+      "chu": {
+       "vi": "1 phần 4",
+       "en": "One quarter"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Ngược lại: chỉ 1 phần 4 là điểm gốc, 3 phần 4 còn lại là đoán.",
+       "en": "The reverse: only a quarter are original, the other three quarters are guessed."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Không có, tivi chỉ chiếu lại",
+       "en": "None, it just plays it"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Màn hình 4K cần gấp 4 lần số điểm ảnh, nên tivi buộc phải điền thêm.",
+       "en": "A 4K screen needs 4 times the pixels, so the TV has to fill in the rest."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Model học từ nhiều cặp ảnh mờ và nét nên vẽ mép sắc hơn cách lấy trung bình. Nhưng đoán có lúc sai: chữ, mặt người trông nét mà không đúng.",
+    "en": "Trained on many blurry and sharp image pairs, the model draws crisper edges than averaging. But guesses can be wrong: text and faces look sharp yet false."
+   },
+   "thu": {
+    "vi": "Mở một video cũ có chữ nhỏ, bật rồi tắt chế độ làm nét của tivi, so mép chữ và khuôn mặt.",
+    "en": "Play an old video with small text, turn the TV's enhancement on and off, and compare text edges and faces."
+   }
+  },
+  {
+   "id": "dong-ho-giac-ngu",
+   "canh": "nha",
+   "vat": "dong-ho",
+   "x": 63,
+   "y": 62,
+   "video": [
+    442
+   ],
+   "ten": {
+    "vi": "Đồng hồ đo giấc ngủ",
+    "en": "Sleep-tracking watch"
+   },
+   "ai_lam": {
+    "vi": "Cắt đêm thành từng đoạn 30 giây, đoán mỗi đoạn là thức, ngủ nông, ngủ sâu hay mơ từ nhịp tim và cử động.",
+    "en": "Cuts the night into 30-second slices and guesses awake, light, deep or dreaming from heart rate and movement."
+   },
+   "sim": {
+    "kieu": "xac_suat",
+    "hoi": {
+     "vi": "Đồng hồ sẽ đoán đoạn 30 giây này là gì? (ví dụ)",
+     "en": "What will the watch call this 30-second slice? (example)"
+    },
+    "vong": [
+     {
+      "vao": {
+       "vi": "Gần như nằm im, tim đập chậm và đều",
+       "en": "Barely moving, heart slow and steady"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Ngủ sâu",
+         "en": "Deep sleep"
+        },
+        "p": 70
+       },
+       {
+        "chu": {
+         "vi": "Ngủ nông",
+         "en": "Light sleep"
+        },
+        "p": 20
+       },
+       {
+        "chu": {
+         "vi": "Đang mơ",
+         "en": "Dreaming"
+        },
+        "p": 5
+       },
+       {
+        "chu": {
+         "vi": "Thức",
+         "en": "Awake"
+        },
+        "p": 5
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Tay cựa quậy, nhịp tim lên xuống nhiều",
+       "en": "Hand fidgeting, heart rate jumping around"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Thức",
+         "en": "Awake"
+        },
+        "p": 75
+       },
+       {
+        "chu": {
+         "vi": "Ngủ nông",
+         "en": "Light sleep"
+        },
+        "p": 15
+       },
+       {
+        "chu": {
+         "vi": "Đang mơ",
+         "en": "Dreaming"
+        },
+        "p": 5
+       },
+       {
+        "chu": {
+         "vi": "Ngủ sâu",
+         "en": "Deep sleep"
+        },
+        "p": 5
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Nằm im trong chăn lướt điện thoại",
+       "en": "Lying still under the blanket, scrolling a phone"
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Ngủ nông",
+         "en": "Light sleep"
+        },
+        "p": 50
+       },
+       {
+        "chu": {
+         "vi": "Thức",
+         "en": "Awake"
+        },
+        "p": 35
+       },
+       {
+        "chu": {
+         "vi": "Ngủ sâu",
+         "en": "Deep sleep"
+        },
+        "p": 10
+       },
+       {
+        "chu": {
+         "vi": "Đang mơ",
+         "en": "Dreaming"
+        },
+        "p": 5
+       }
+      ]
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Đồng hồ không đo sóng não, chỉ đoán. Đoán ngủ hay thức khá tốt, chia giai đoạn chỉ khớp mức thấp tới vừa, và không chẩn đoán bệnh.",
+    "en": "The watch doesn't read brain waves, it guesses. Asleep versus awake is fairly good, stages match only poorly to moderately, and it diagnoses nothing."
+   },
+   "thu": {
+    "vi": "7 sáng liền, vừa dậy tự chấm độ tỉnh táo từ 1 tới 5, rồi mới xem điểm giấc ngủ và so hai con số.",
+    "en": "For 7 mornings, rate your alertness 1 to 5 on waking, then check the sleep score and compare."
+   }
+  },
+  {
+   "id": "do-dien-ai",
+   "canh": "nha",
+   "vat": "may-giat",
+   "x": 88,
+   "y": 68,
+   "video": [
+    443
+   ],
+   "ten": {
+    "vi": "Máy giặt, máy lạnh có AI",
+    "en": "\"AI\" washer and AC"
+   },
+   "ai_lam": {
+    "vi": "Có món thật sự học thói quen nhà bạn, có món chỉ chạy bảng luật cố định rồi dán thêm chữ AI.",
+    "en": "Some truly learn your household's habits; others just follow a fixed rule table with an AI sticker on top."
+   },
+   "sim": {
+    "kieu": "phan_loai",
+    "hoi": {
+     "vi": "Món nào học từ dữ liệu, món nào chỉ là luật cố định? (ví dụ)",
+     "en": "Which ones learn from data, and which just follow fixed rules? (example)"
+    },
+    "ngan": [
+     {
+      "vi": "Luật cố định",
+      "en": "Fixed rules"
+     },
+     {
+      "vi": "Học từ dữ liệu",
+      "en": "Learns from data"
+     }
+    ],
+    "muc": [
+     {
+      "chu": {
+       "vi": "Máy giặt cân 4 ký đồ, chọn 45 lít nước",
+       "en": "Washer weighs 4 kg, picks 45 liters"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Tra bảng luật: lần nào 4 ký cũng 45 lít. Kiểu này có từ lâu trước chatbot. Chấm 1/3.",
+       "en": "A rule table: every 4 kg load gets 45 liters. This predates chatbots by a long way. Scores 1/3."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Máy lạnh hẹn giờ ngủ",
+       "en": "AC sleep timer"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Trong bảng chấm ví dụ chỉ được 1/3 câu hỏi.",
+       "en": "In the example scorecard it gets just 1 of 3 questions."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Tủ lạnh có camera nhận món",
+       "en": "Fridge camera that spots items"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Được 2/3 trong bảng chấm ví dụ: có học, nhưng chưa đạt đủ cả ba câu.",
+       "en": "Scores 2/3 in the example scorecard: it learns, but doesn't pass all three questions."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Máy lạnh học giờ bạn hay về",
+       "en": "AC that learns when you get home"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Học từ dữ liệu, dùng vài tuần thì tự đổi theo nếp nhà bạn. Chấm 3/3.",
+       "en": "It learns from data and adapts to your routine after a few weeks. Scores 3/3."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Hỏi ba câu: có học từ dữ liệu không, dùng lâu có tự đổi không, hãng có nói rõ dùng dữ liệu gì không.",
+    "en": "Ask three questions: does it learn from data, does it change over time, and does the maker say what data it uses."
+   },
+   "thu": {
+    "vi": "Chụp nhãn tính năng AI của một món đồ điện, nhờ chatbot trả lời ba câu hỏi, chỗ nào mơ hồ thì hỏi người bán.",
+    "en": "Photograph an appliance's AI feature label, ask a chatbot the three questions, and ask the seller about anything vague."
+   }
+  },
+  {
+   "id": "quay-tu-tinh-tien",
+   "canh": "sieu-thi",
+   "vat": "quay-tinh-tien",
+   "x": 80,
+   "y": 52,
+   "video": [
+    501
+   ],
+   "ten": {
+    "vi": "Quầy tự tính tiền",
+    "en": "Self-checkout"
+   },
+   "ai_lam": {
+    "vi": "Camera cạnh cân chụp món hàng, model chấm điểm từng loại để đoán tên, cân thì kiểm lại.",
+    "en": "A camera by the scale photographs the item, a model scores each type, and the scale double-checks."
+   },
+   "sim": {
+    "kieu": "xac_suat",
+    "hoi": {
+     "vi": "Màn hình sẽ gợi ý món nào đầu tiên?",
+     "en": "Which item will the screen suggest first?"
+    },
+    "vong": [
+     {
+      "vao": {
+       "vi": "Một túi táo đỏ đặt lên cân, không có mã vạch.",
+       "en": "A bag of red apples on the scale, no barcode."
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Táo đỏ",
+         "en": "Red apple"
+        },
+        "p": 72
+       },
+       {
+        "chu": {
+         "vi": "Cà chua",
+         "en": "Tomato"
+        },
+        "p": 18
+       },
+       {
+        "chu": {
+         "vi": "Lựu",
+         "en": "Pomegranate"
+        },
+        "p": 6
+       },
+       {
+        "chu": {
+         "vi": "Khác",
+         "en": "Other"
+        },
+        "p": 4
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Chanh hay tắc trong túi nilon mờ (ví dụ).",
+       "en": "Limes or kumquats in a cloudy plastic bag (example)."
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Chanh",
+         "en": "Lime"
+        },
+        "p": 46
+       },
+       {
+        "chu": {
+         "vi": "Tắc",
+         "en": "Kumquat"
+        },
+        "p": 44
+       },
+       {
+        "chu": {
+         "vi": "Khác",
+         "en": "Other"
+        },
+        "p": 10
+       }
+      ]
+     },
+     {
+      "vao": {
+       "vi": "Một quả táo hữu cơ, trông y như táo thường (ví dụ).",
+       "en": "An organic apple that looks just like a regular one (example)."
+      },
+      "nhan": [
+       {
+        "chu": {
+         "vi": "Táo thường",
+         "en": "Regular apple"
+        },
+        "p": 51
+       },
+       {
+        "chu": {
+         "vi": "Táo hữu cơ",
+         "en": "Organic apple"
+        },
+        "p": 45
+       },
+       {
+        "chu": {
+         "vi": "Khác",
+         "en": "Other"
+        },
+        "p": 4
+       }
+      ]
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Camera chỉ thấy bề ngoài. Điểm sát nhau thì máy hiện vài lựa chọn để bạn bấm, và quầy vẫn cần nhân viên.",
+    "en": "The camera only sees the surface. When scores are close it offers a few choices to tap, and checkouts still need staff."
+   },
+   "thu": {
+    "vi": "Chụp rổ trái cây gửi chatbot, nhờ gọi tên từng loại kèm mức chắc chắn, xem nó nhầm loại nào.",
+    "en": "Send a chatbot a photo of your fruit basket, ask it to name each fruit with a confidence level, and spot its mix-ups."
+   }
+  },
+  {
+   "id": "du-bao-nhap-hang",
+   "canh": "sieu-thi",
+   "vat": "ke-hang",
+   "x": 16,
+   "y": 42,
+   "video": [
+    502
+   ],
+   "ten": {
+    "vi": "Kệ sữa chua",
+    "en": "Yogurt shelf"
+   },
+   "ai_lam": {
+    "vi": "Mỗi đêm, AI dự báo hôm sau mỗi món bán bao nhiêu để siêu thị đặt hàng vừa đủ.",
+    "en": "Every night, AI forecasts tomorrow's sales of each item so the store orders just enough."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Một tuần bán 700 hộp, trung bình 100 hộp mỗi ngày. Đặt đều 100 mỗi ngày thì sao?",
+     "en": "A week sells 700 cups, 100 a day on average. What if you order 100 every day?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Vừa khít, không thiếu không dư",
+       "en": "A perfect fit, nothing short or left over"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Không đâu. Thứ ba chỉ bán 80, thứ bảy tới 140, nên ngày thì thiếu, ngày thì dư.",
+       "en": "No. Tuesday sells only 80, Saturday 140, so some days run short and others have leftovers."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Cả tuần vừa thiếu vừa dư",
+       "en": "Both short and over across the week"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Đúng. Thiếu 55 hộp, lại dư 55 hộp. Dự báo theo từng ngày thì chỉ thiếu 15, dư 8.",
+       "en": "Right. 55 cups short and 55 over. Forecasting day by day cuts that to 15 short and 8 over."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Chỉ dư, không bao giờ thiếu",
+       "en": "Only leftovers, never short"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Không đâu. Thứ bảy bán 140, đặt 100 là kệ trống. Cả tuần thiếu 55 hộp.",
+       "en": "No. Saturday sells 140, so ordering 100 leaves the shelf empty. The week is 55 cups short."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Trung bình là cái bẫy. Model học doanh số theo thứ, thời tiết, khuyến mãi, nhưng chuyện chưa từng có thì vẫn cần người sửa số.",
+    "en": "Averages are a trap. The model learns from weekdays, weather and promotions, but surprises still need a manager's fix."
+   },
+   "thu": {
+    "vi": "Dán số bán 2 tuần của một món cho chatbot, nhờ tính trung bình từng thứ, rồi so với trung bình chung.",
+    "en": "Paste two weeks of sales for one item into a chatbot, get the average per weekday, and compare it with the overall one."
+   }
+  },
+  {
+   "id": "giam-gia-cuoi-ngay",
+   "canh": "sieu-thi",
+   "vat": "do-tuoi",
+   "x": 46,
+   "y": 58,
+   "video": [
+    503
+   ],
+   "ten": {
+    "vi": "Nhãn giá điện tử",
+    "en": "Electronic price label"
+   },
+   "ai_lam": {
+    "vi": "AI đoán còn bao nhiêu hộp bán kịp trước hạn, không kịp thì hạ giá thêm một nấc.",
+    "en": "AI predicts how many packs will sell before expiry, and drops the price a step if not enough."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Còn 20 hộp cơm cuộn giá 60.000đ, hạn hôm nay. Cách nào thu nhiều nhất?",
+     "en": "20 packs of rice rolls at 60,000 dong, expiring today. Which way earns the most?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Giữ nguyên giá",
+       "en": "Keep the full price"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Chỉ bán 9 hộp, thu 540.000đ, bỏ 11 hộp (ví dụ).",
+       "en": "Only 9 sell: 540,000 dong, and 11 packs thrown out (example)."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Giảm 30% đồng loạt lúc 19 giờ",
+       "en": "A flat 30% off at 7 p.m."
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Thu 738.000đ, vẫn bỏ 5 hộp (ví dụ).",
+       "en": "Brings in 738,000 dong, still 5 packs wasted (example)."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Giảm dần theo từng nấc",
+       "en": "Cut the price step by step"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Bán hết 20 hộp, thu 864.000đ, không bỏ hộp nào (ví dụ).",
+       "en": "All 20 sell for 864,000 dong, nothing thrown out (example)."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Giá đổi theo giờ dễ chấp nhận khi là giảm giá đồ sắp hết hạn. Mua đồ giảm cuối ngày thì xem hạn và ăn sớm.",
+    "en": "Timed prices are easy to accept when it's a discount near expiry. With late discounts, check the date and eat it soon."
+   },
+   "thu": {
+    "vi": "Chụp tem giảm giá và tem giá thường của cùng một món, nhờ chatbot tính giá mỗi 100 g.",
+    "en": "Photograph the discount and regular labels of one item, and ask a chatbot for the price per 100 grams."
+   }
+  },
+  {
+   "id": "dem-khach-ban-do-nong",
+   "canh": "sieu-thi",
+   "vat": "camera-tran",
+   "x": 50,
+   "y": 15,
+   "video": [
+    504
+   ],
+   "ten": {
+    "vi": "Camera trên trần",
+    "en": "Ceiling camera"
+   },
+   "ai_lam": {
+    "vi": "Camera biến mỗi khách thành một chấm, đếm lượt qua cửa và vẽ bản đồ nóng chỗ khách dừng.",
+    "en": "The camera turns each shopper into a dot, counts visits at the door and maps where people stop."
+   },
+   "sim": {
+    "kieu": "phan_loai",
+    "hoi": {
+     "vi": "Camera đếm thế này là đúng hay nhầm?",
+     "en": "Is the camera counting right or wrong here?"
+    },
+    "ngan": [
+     {
+      "vi": "Đếm đúng",
+      "en": "Counted right"
+     },
+     {
+      "vi": "Đếm nhầm",
+      "en": "Miscounted"
+     }
+    ],
+    "muc": [
+     {
+      "chu": {
+       "vi": "Một khách bước qua vạch ảo ở cửa, bộ đếm +1",
+       "en": "A shopper crosses the door line, counter +1"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Đúng cách: chấm qua vạch ảo ở cửa thì cộng một lượt.",
+       "en": "That's how it works: a dot crossing the virtual line counts one visit."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Hai người đi sát vai nhau, bộ đếm chỉ +1",
+       "en": "Two people walk shoulder to shoulder, counter +1"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Hai người đi sát dễ bị gộp thành một chấm, nên thiếu một lượt.",
+       "en": "Two people close together can merge into one dot, so one visit is lost."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Nhân viên ra vào cửa 4 lần, bộ đếm +4",
+       "en": "A staff member passes the door 4 times, counter +4"
+      },
+      "ngan": 1,
+      "giai": {
+       "vi": "Nhân viên cũng bị đếm. 12 nhân viên, mỗi người 4 lần là 48 lượt không phải khách (ví dụ).",
+       "en": "Staff get counted too. 12 staff passing 4 times each is 48 visits that aren't shoppers (example)."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Khách đứng 3 giây trước kệ, ô sàn +3",
+       "en": "A shopper stands 3 seconds at a shelf, square +3"
+      },
+      "ngan": 0,
+      "giai": {
+       "vi": "Đúng cách: mỗi giây có người đứng trong ô 1 m thì ô được cộng một.",
+       "en": "That's how it works: each second someone stands in a 1-meter square, it gets plus one."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Kệ đông chưa chắc bán chạy: 300 người dừng ở kệ bánh kẹo, chỉ 30 mua (ví dụ). Đếm chỉ cần chấm, không cần khuôn mặt.",
+    "en": "Busy isn't the same as selling: 300 stop at the snacks, only 30 buy (example). Counting needs dots, not faces."
+   },
+   "thu": {
+    "vi": "Tả cho chatbot căn bếp và chỗ bạn đứng lâu nhất khi nấu, nhờ gợi ý xếp lại đồ cho đỡ đi lại.",
+    "en": "Describe your kitchen and where you stand longest while cooking, and ask a chatbot how to rearrange it to save steps."
+   }
+  },
+  {
+   "id": "goi-y-mua-kem",
+   "canh": "sieu-thi",
+   "vat": "xe-day",
+   "x": 22,
+   "y": 84,
+   "video": [
+    505
+   ],
+   "ten": {
+    "vi": "Giỏ hàng online",
+    "en": "Online cart"
+   },
+   "ai_lam": {
+    "vi": "App đếm hóa đơn xem món nào hay đi cùng nhau, rồi mời bạn mua kèm món đó.",
+    "en": "The app counts receipts to see which items go together, then suggests the partner item."
+   },
+   "sim": {
+    "kieu": "truot",
+    "nhan": {
+     "vi": "Hóa đơn có cả mì lẫn trứng (trong 2.000)",
+     "en": "Receipts with noodles and eggs (of 2,000)"
+    },
+    "min": 0,
+    "max": 2000,
+    "buoc": 100,
+    "dau": 200,
+    "don_vi": {
+     "vi": "hóa đơn",
+     "en": "receipts"
+    },
+    "ra": {
+     "nhan": {
+      "vi": "Người mua mì có mua trứng",
+      "en": "Noodle buyers who also buy eggs"
+     },
+     "don_vi": {
+      "vi": "%",
+      "en": "%"
+     },
+     "le": 0,
+     "diem": [
+      [
+       0,
+       0
+      ],
+      [
+       2000,
+       100
+      ]
+     ],
+     "max": 100
+    },
+    "hinh": "thanh",
+    "muc": [
+     {
+      "tu": 0,
+      "chu": {
+       "vi": "Thấp hơn mức bình thường 25%: không gợi ý trứng.",
+       "en": "Below the usual 25%: no egg suggestion."
+      }
+     },
+     {
+      "tu": 500,
+      "chu": {
+       "vi": "Bằng mức bình thường 25%: hai món chẳng liên quan.",
+       "en": "Same as the usual 25%: the two aren't related."
+      }
+     },
+     {
+      "tu": 600,
+      "chu": {
+       "vi": "Cao hơn 25%: hai món bắt đầu hay đi cùng nhau.",
+       "en": "Above 25%: the two start to go together."
+      }
+     },
+     {
+      "tu": 1000,
+      "chu": {
+       "vi": "50%, gấp đôi bình thường: trứng được gợi ý.",
+       "en": "50%, twice the usual rate: eggs get suggested."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Không phải cứ hay mua cùng là liên quan. Phải so với mức bình thường: món ai cũng mua như bánh mì thì chẳng nói lên gì.",
+    "en": "Bought together isn't enough. Compare with the usual rate: items everyone buys, like bread, prove nothing."
+   },
+   "thu": {
+    "vi": "Gõ món trong 5 hóa đơn đi chợ gần nhất, nhờ chatbot đếm cặp món hay đi cùng nhau.",
+    "en": "Type up your last 5 grocery receipts and ask a chatbot to count the pairs bought together."
+   }
+  },
+  {
+   "id": "chan-gian-lan",
+   "canh": "sieu-thi",
+   "vat": "may-the",
+   "x": 82,
+   "y": 24,
+   "video": [
+    506
+   ],
+   "ten": {
+    "vi": "Quầy đổi trả",
+    "en": "Returns desk"
+   },
+   "ai_lam": {
+    "vi": "Model chấm điểm rủi ro từng lượt trả hàng, điểm vượt ngưỡng thì chuyển người quản lý xem.",
+    "en": "A model scores the risk of each return, and anything over the threshold goes to a manager."
+   },
+   "sim": {
+    "kieu": "chon",
+    "hoi": {
+     "vi": "Không hóa đơn +30, lần trả thứ 5 trong tháng +25, đồ đã mặc +25. Tổng 80, ngưỡng 60. Máy làm gì?",
+     "en": "No receipt +30, fifth return this month +25, item worn +25. Total 80, threshold 60. What happens?"
+    },
+    "lua_chon": [
+     {
+      "chu": {
+       "vi": "Tự động từ chối hoàn tiền",
+       "en": "Refuse the refund automatically"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Không nên. Trong 50 lượt vượt ngưỡng, 30 là khách thật (ví dụ). Tự từ chối là làm oan họ.",
+       "en": "Better not. Of 50 returns over the threshold, 30 are honest (example). Auto-refusal would wrong them."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Chuyển người quản lý xem lại",
+       "en": "Send it to a manager to review"
+      },
+      "dung": true,
+      "giai": {
+       "vi": "Đúng. Điểm cao chỉ để người xem lại, không tự từ chối.",
+       "en": "Right. A high score only triggers human review, not an automatic no."
+      }
+     },
+     {
+      "chu": {
+       "vi": "Bỏ qua, hoàn tiền luôn",
+       "en": "Ignore it and refund right away"
+      },
+      "dung": false,
+      "giai": {
+       "vi": "Không. 80 điểm đã vượt ngưỡng 60, nên cần người kiểm tra thêm.",
+       "en": "No. 80 is over the 60 threshold, so a person should take a closer look."
+      }
+     }
+    ]
+   },
+   "y_chinh": {
+    "vi": "Sáu chỗ AI ngồi trong siêu thị đều đoán từ dữ liệu. Đoán thì có lúc sai, nên luôn cần người kiểm lại.",
+    "en": "All six places AI sits in a store guess from data. Guesses can be wrong, so a human always checks."
+   },
+   "thu": {
+    "vi": "Chụp chính sách đổi trả của một cửa hàng, nhờ chatbot tóm tắt 3 điều kiện và lúc nào bị kiểm tra thêm.",
+    "en": "Photograph a store's return policy and ask a chatbot for its 3 conditions and when customers get extra checks."
+   }
+  }
+ ]
+}

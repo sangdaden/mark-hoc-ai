@@ -1,0 +1,141 @@
+{
+ "nhom": [
+  {
+   "id": "bieu-do",
+   "khi": "#tram-bieu-do",
+   "buoc": [
+    {
+     "chon": ".pdl-ngan",
+     "vi": "Mỗi ngăn ở đây là một trạm thí nghiệm, cùng một tiệm trà sữa. Bấm để đổi trạm.",
+     "en": "Each drawer here is a lab station, all on the same milk tea shop. Click one to switch.",
+     "bo_neu_an": true
+    },
+    {
+     "chon": "#bd-cau",
+     "vi": "Chọn câu hỏi sếp đang hỏi.",
+     "en": "Pick the question the boss is asking."
+    },
+    {
+     "chon": "#bd-loai",
+     "vi": "Chọn loại biểu đồ để vẽ cùng một bảng số.",
+     "en": "Pick a chart type to draw the same numbers."
+    },
+    {
+     "chon": "#bd-ve",
+     "vi": "Xem biểu đồ, rồi đọc nhận xét của mình ngay bên dưới: đúng, tạm được hay làm người xem hiểu sai.",
+     "en": "Look at the chart, then read my verdict right below: right, so-so, or misleading."
+    }
+   ]
+  },
+  {
+   "id": "nguong",
+   "khi": "#tram-nguong",
+   "buoc": [
+    {
+     "chon": "#ng-ve",
+     "vi": "Mỗi chấm là một khách. Đỏ là khách thật sự bỏ quán, xanh là khách ở lại. Càng bên phải, model càng nghĩ khách sắp bỏ.",
+     "en": "Each dot is a customer. Red really left, blue stayed. The further right, the more the model thinks they'll leave."
+    },
+    {
+     "chon": "#ng-nguong",
+     "vi": "Kéo vạch ngưỡng. Ai nằm bên phải vạch tím thì nhận voucher.",
+     "en": "Drag the threshold. Everyone right of the purple line gets a voucher."
+    },
+    {
+     "chon": "#ng-thanh",
+     "vi": "Precision và recall đổi chỗ cho nhau khi bạn kéo.",
+     "en": "Precision and recall trade places as you drag."
+    },
+    {
+     "chon": "#ng-tot",
+     "vi": "Đổi giá voucher theo tiệm của bạn, rồi bấm đây để tìm ngưỡng lời nhất.",
+     "en": "Plug in your own voucher cost, then press here for the most profitable threshold."
+    }
+   ]
+  },
+  {
+   "id": "hoc-vet",
+   "khi": "#tram-hoc-vet",
+   "buoc": [
+    {
+     "chon": "#hv-sau",
+     "vi": "Kéo để cây quyết định sâu thêm, tức hỏi thêm nhiều câu có hoặc không.",
+     "en": "Drag to grow the decision tree deeper, asking more yes/no questions."
+    },
+    {
+     "chon": "#hv-ve",
+     "vi": "Đường xanh là điểm trên khách đã học, đường cam là điểm trên khách lạ. Khoảng hở càng lớn càng học vẹt.",
+     "en": "Blue is the score on customers it learned from, orange on new ones. The bigger the gap, the more it memorizes."
+    },
+    {
+     "chon": "#hv-o",
+     "vi": "Các ô này cho số chính xác ở độ sâu đang chọn.",
+     "en": "These tiles show the exact numbers at the chosen depth."
+    }
+   ]
+  },
+  {
+   "id": "pid",
+   "khi": "#tram-pid",
+   "buoc": [
+    {
+     "chon": ".pdl-num",
+     "vi": "Vặn 3 núm P, I, D, hoặc bấm một bộ số trong video.",
+     "en": "Turn the P, I, D knobs, or tap a setting from the video."
+    },
+    {
+     "chon": "#pid-ve",
+     "vi": "Đường xanh là tốc độ bánh, đường vàng là điện áp. Vạch đứt là đích 10 rad/s.",
+     "en": "The green line is wheel speed, the yellow line is voltage. The dashed line is the 10 rad/s target."
+    },
+    {
+     "chon": "#pid-o",
+     "vi": "Xem bánh vọt lố bao nhiêu, có về đúng đích không và điện áp rung cỡ nào.",
+     "en": "See how much it overshoots, whether it settles on target, and how much the voltage shakes."
+    }
+   ]
+  },
+  {
+   "id": "dinh-vi",
+   "khi": "#tram-dinh-vi",
+   "buoc": [
+    {
+     "chon": "#dv-ve",
+     "vi": "Bấm vào dấu cộng tím để tắt hoặc bật từng mốc dán trên trần.",
+     "en": "Tap a purple cross to switch that ceiling marker off or on."
+    },
+    {
+     "chon": "#dv-chay",
+     "vi": "Bấm để robot chạy 3 vòng giao hàng: xanh dương là đường thật, cam là odometry, xanh lá là EKF.",
+     "en": "Press to drive 3 delivery laps: blue is the true path, orange is odometry, green is the EKF."
+    },
+    {
+     "chon": "#dv-o",
+     "vi": "So sai số của odometry với EKF sau mỗi lần chạy.",
+     "en": "Compare odometry and EKF errors after each run."
+    }
+   ]
+  },
+  {
+   "id": "a-sao",
+   "khi": "#tram-a-sao",
+   "buoc": [
+    {
+     "chon": "#as-ban",
+     "vi": "Chọn bàn cần giao. R là chỗ robot đứng chờ.",
+     "en": "Pick the table to deliver to. R is where the robot waits."
+    },
+    {
+     "chon": "#as-ve",
+     "vi": "Ô vàng là ô thuật toán đã mở, đường tím là đường đi. Bấm lên bản đồ để dời cây cột hoặc thêm khách đứng chắn.",
+     "en": "Yellow cells are the ones the algorithm opened; the purple line is the route. Tap the map to move the pillar or add a customer in the way."
+    },
+    {
+     "chon": ".pdl-radio",
+     "vi": "Đổi qua Dijkstra để xem nó phải mở bao nhiêu ô cho cùng một đường.",
+     "en": "Switch to Dijkstra to see how many cells it opens for the same route."
+    }
+   ]
+  }
+ ]
+}

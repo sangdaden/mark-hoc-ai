@@ -1,0 +1,1415 @@
+{
+ "vai": [
+  {
+   "id": "phong-van",
+   "video": [
+    230
+   ],
+   "mau": "xanh",
+   "ten": {
+    "vi": "Phỏng vấn thử",
+    "en": "Mock interview"
+   },
+   "moi": {
+    "vi": "Bốn câu hỏi của nhà tuyển dụng. Trả lời chung chung là điểm ấn tượng tụt ngay.",
+    "en": "Four interview questions. Vague answers make the impression meter drop."
+   },
+   "canh": {
+    "vi": "Bạn vừa ra trường, ứng tuyển nhân viên marketing ở một chuỗi trà sữa nhỏ (hư cấu). Năm cuối bạn chạy fanpage câu lạc bộ, từ 800 lên 3.000 người theo dõi trong 4 tháng.",
+    "en": "You just graduated and are applying for a marketing assistant job at a small bubble tea chain (made up). In your final year you ran your club's fanpage, growing it from 800 to 3,000 followers in 4 months."
+   },
+   "do": {
+    "kieu": "an-tuong",
+    "nhan": {
+     "vi": "Ấn tượng",
+     "en": "Impression"
+    },
+    "trai": {
+     "vi": "Nhạt",
+     "en": "Forgettable"
+    },
+    "phai": {
+     "vi": "Nhớ tên bạn",
+     "en": "Remembers you"
+    },
+    "muc": [
+     [
+      75,
+      "tot"
+     ],
+     [
+      50,
+      "vua"
+     ],
+     [
+      0,
+      "xau"
+     ]
+    ]
+   },
+   "ket": {
+    "tot": {
+     "vi": "Được hẹn vòng 2",
+     "en": "Invited to round 2"
+    },
+    "vua": {
+     "vi": "Còn cân nhắc",
+     "en": "Still on the fence"
+    },
+    "xau": {
+     "vi": "“Bên chị sẽ báo sau nhé”",
+     "en": "“We'll let you know”"
+    }
+   },
+   "prompt": {
+    "vi": "Đóng vai nhà tuyển dụng vị trí nhân viên marketing. Mỗi lượt hỏi 1 câu, chờ tôi trả lời rồi mới hỏi tiếp. Hết 5 câu, chấm từng câu trả lời của tôi, chỉ chỗ còn chung chung và gợi ý 2 câu tôi nên hỏi lại nhà tuyển dụng.",
+    "en": "Play a recruiter hiring a marketing assistant. Ask one question per turn and wait for my answer before the next. After 5 questions, grade each of my answers, point out where I was vague, and suggest 2 questions I should ask the recruiter back."
+   },
+   "luot": [
+    {
+     "nguoi": {
+      "ten": {
+       "vi": "Chị Hạnh",
+       "en": "Ms. Hanh"
+      },
+      "chuc": {
+       "vi": "Trưởng nhóm marketing",
+       "en": "Marketing lead"
+      },
+      "av": "H"
+     },
+     "bat_dau": 40,
+     "dau": "q1",
+     "nut": {
+      "q1": {
+       "dong": [
+        {
+         "vi": "Chào em, mời em ngồi. Em giới thiệu ngắn về mình nhé.",
+         "en": "Hi, have a seat. Tell me a little about yourself."
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ em chăm chỉ, ham học hỏi và chịu được áp lực ạ.",
+          "en": "I'm hard-working, eager to learn and good under pressure."
+         },
+         "muc": "xau",
+         "toi": "q1b",
+         "bit": {
+          "vi": "Ai cũng nói ba chữ này. Không có ví dụ thì người nghe không nhớ được gì về bạn.",
+          "en": "Everyone says these words. Without an example, nothing about you sticks."
+         },
+         "doi": -15,
+         "dap": [
+          {
+           "vi": "Ừm. Em có thể kể một việc cụ thể cho thấy điều đó không?",
+           "en": "Hmm. Can you give me one concrete example of that?"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em vừa tốt nghiệp ngành truyền thông. Năm cuối em chạy fanpage câu lạc bộ, tăng từ 800 lên 3.000 người theo dõi trong 4 tháng.",
+          "en": "I just graduated in communications. In my final year I ran my club's fanpage and grew it from 800 to 3,000 followers in 4 months."
+         },
+         "muc": "tot",
+         "toi": "q2",
+         "bit": {
+          "vi": "Có bối cảnh, việc bạn làm và kết quả bằng con số. Người phỏng vấn sẽ nhớ con số 3.000.",
+          "en": "Context, what you did and a result with a number. The interviewer will remember 3,000."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Hay đó, có con số hẳn hoi. Mình sang câu tiếp nhé.",
+           "en": "Nice, a real number. Let's move on."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em sinh ra ở Huế, hồi nhỏ em rất thích vẽ, lên cấp ba em chuyển vào Sài Gòn, rồi…",
+          "en": "I was born in Hue, I loved drawing as a kid, then in high school we moved to Saigon, and then…"
+         },
+         "muc": "vua",
+         "toi": "q1b",
+         "bit": {
+          "vi": "Kể cả đời từ lúc nhỏ làm câu trả lời dài mà vẫn chưa nói được bạn hợp việc này ở điểm nào.",
+          "en": "Your whole life story makes the answer long without showing why you fit this job."
+         },
+         "doi": -5,
+         "dap": [
+          {
+           "vi": "Chị xin ngắt một chút nhé. Em kể một việc em từng làm liên quan tới marketing được không?",
+           "en": "Sorry to cut in. Can you tell me about one thing you've done related to marketing?"
+          }
+         ]
+        }
+       ]
+      },
+      "q1b": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ có ạ. Em chạy fanpage câu lạc bộ, đổi sang đăng video ngắn mỗi tối, sau 4 tháng từ 800 lên 3.000 người theo dõi.",
+          "en": "Yes. I ran my club's fanpage, switched to short videos every evening, and in 4 months it went from 800 to 3,000 followers."
+         },
+         "muc": "tot",
+         "toi": "q2",
+         "bit": {
+          "vi": "Cứu được rồi: một tình huống thật có bối cảnh, việc làm, kết quả.",
+          "en": "Saved: a real story with context, action and result."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "À, vậy là có kinh nghiệm thật. Mình sang câu tiếp.",
+           "en": "Ah, so you have real experience. Next question."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ thì em làm gì cũng cố gắng hết sức ạ.",
+          "en": "Well, I always give everything my best."
+         },
+         "muc": "xau",
+         "toi": "q2",
+         "bit": {
+          "vi": "Câu hỏi xin ví dụ mà vẫn trả lời chung chung là mất điểm lần hai.",
+          "en": "Being asked for an example and still staying vague loses points twice."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "Ừ… vậy mình sang câu tiếp nhé.",
+           "en": "Okay… let's move on."
+          }
+         ]
+        }
+       ]
+      },
+      "q2": {
+       "dong": [
+        {
+         "vi": "Kể chị nghe một lần em làm việc nhóm mà mọi người bất đồng.",
+         "en": "Tell me about a time your team disagreed."
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Nhóm em cãi nhau nên làm video hài hay video hướng dẫn. Em đề xuất làm thử cả hai bản nhỏ, đăng 3 ngày, bản nào nhiều lượt xem hơn thì làm tiếp. Nhóm chốt được trong một tuần.",
+          "en": "My team argued over funny videos versus how-to videos. I suggested making a small version of each, posting for 3 days and keeping whichever got more views. We settled it within a week."
+         },
+         "muc": "tot",
+         "toi": "q3",
+         "bit": {
+          "vi": "Bất đồng có thật, cách giải có thật, kết quả có thật. Đây đúng là câu chuyện người ta muốn nghe.",
+          "en": "A real disagreement, a real fix, a real result. Exactly what they want to hear."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Thử nhỏ rồi đo, chị thích cách đó.",
+           "en": "Test small, then measure. I like that."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em chưa bao giờ bất đồng với ai, em hòa đồng lắm ạ.",
+          "en": "I've never disagreed with anyone, I get along with everybody."
+         },
+         "muc": "xau",
+         "toi": "q3",
+         "bit": {
+          "vi": "Ai cũng từng bất đồng. Trả lời “chưa bao giờ” nghe như né câu hỏi.",
+          "en": "Everyone has disagreed with someone. “Never” sounds like dodging the question."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "Thật hả? Ừm… vậy câu tiếp nhé.",
+           "en": "Really? Hmm… next question then."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Hồi đó bạn trưởng nhóm làm việc rất tệ nên em phải gánh hết phần của cả nhóm.",
+          "en": "Our team leader was terrible, so I had to carry the whole team."
+         },
+         "muc": "xau",
+         "toi": "q3",
+         "bit": {
+          "vi": "Chê người cũ làm người nghe nghĩ: sau này bạn cũng sẽ kể xấu chỗ mới như vậy.",
+          "en": "Blaming others makes them think you'll talk about them the same way later."
+         },
+         "doi": -15,
+         "dap": [
+          {
+           "vi": "Chị hiểu rồi.",
+           "en": "I see."
+          }
+         ]
+        }
+       ]
+      },
+      "q3": {
+       "dong": [
+        {
+         "vi": "Điểm yếu lớn nhất của em là gì?",
+         "en": "What's your biggest weakness?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ chắc là em cầu toàn quá ạ.",
+          "en": "I guess I'm a bit of a perfectionist."
+         },
+         "muc": "xau",
+         "toi": "q4",
+         "bit": {
+          "vi": "Câu trả lời mẫu ai cũng thuộc. Người phỏng vấn nghe câu này mỗi ngày.",
+          "en": "The textbook answer. Interviewers hear it every single day."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "Câu này chị nghe nhiều rồi đó.",
+           "en": "I hear that one a lot."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em còn ngại nói trước đông người. Tháng này em xin thuyết trình ở câu lạc bộ mỗi tuần và tập trước với AI.",
+          "en": "I get nervous speaking in front of groups. This month I volunteer to present at my club every week and rehearse with AI first."
+         },
+         "muc": "tot",
+         "toi": "q4",
+         "bit": {
+          "vi": "Điểm yếu thật, kèm việc bạn đang làm để sửa. Thành thật mà vẫn chủ động.",
+          "en": "A real weakness plus what you're doing about it. Honest and proactive."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Tự biết và đang sửa, vậy là tốt.",
+           "en": "Knowing it and working on it. Good."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em nghĩ em không có điểm yếu nào đáng kể ạ.",
+          "en": "Honestly, I don't think I have any real weaknesses."
+         },
+         "muc": "xau",
+         "toi": "q4",
+         "bit": {
+          "vi": "Ai cũng có điểm yếu. Nói “không có” nghe như chưa từng nhìn lại mình.",
+          "en": "Everyone has one. Saying “none” sounds like you've never reflected."
+         },
+         "doi": -15,
+         "dap": [
+          {
+           "vi": "Ừm… được rồi.",
+           "en": "Hmm… okay."
+          }
+         ]
+        }
+       ]
+      },
+      "q4": {
+       "dong": [
+        {
+         "vi": "Cuối cùng, em có câu hỏi gì cho chị không?",
+         "en": "Last one: do you have any questions for me?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ không ạ, chị nói rõ hết rồi.",
+          "en": "No, you've covered everything."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Không hỏi gì dễ bị hiểu là bạn không quan tâm lắm tới công việc.",
+          "en": "No questions can read as not caring much about the job."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "Vậy hôm nay mình dừng ở đây nhé.",
+           "en": "Then let's wrap up here."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Ba tháng đầu, chị mong người ở vị trí này làm được điều gì ạ?",
+          "en": "What would you want this person to achieve in the first three months?"
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Câu hỏi ngược cho thấy bạn đã nghĩ tới việc làm tốt từ ngày đầu.",
+          "en": "A question back that shows you're already thinking about doing well from day one."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Câu hỏi hay. Ba tháng đầu chị cần em lo video ngắn cho hai cửa hàng mới. Hôm nay mình dừng ở đây nhé.",
+           "en": "Good question. In the first three months I need short videos for two new stores. Let's wrap up here."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ công ty có cho làm từ xa không, mấy giờ được về ạ?",
+          "en": "Can I work remotely, and what time do we finish?"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Hỏi quyền lợi không sai, nhưng là câu đầu tiên thì nghe như bạn chỉ lo giờ về.",
+          "en": "Asking about perks isn't wrong, but as your only question it sounds like you care most about leaving early."
+         },
+         "doi": -5,
+         "dap": [
+          {
+           "vi": "Cái đó phòng nhân sự sẽ nói sau nhé. Hôm nay mình dừng ở đây.",
+           "en": "HR will cover that later. Let's wrap up here."
+          }
+         ]
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "luong",
+   "video": [
+    231
+   ],
+   "mau": "xanh-la",
+   "ten": {
+    "vi": "Nói chuyện lương",
+    "en": "Salary talk"
+   },
+   "moi": {
+    "vi": "Nhà tuyển dụng hỏi lương mong muốn rồi trả giá thấp. Giữ khoảng của bạn mà vẫn mềm mỏng.",
+    "en": "The recruiter asks your expected salary, then lowballs you. Hold your range and stay friendly."
+   },
+   "canh": {
+    "vi": "Vòng cuối, vị trí nhân viên marketing. Bạn đã xem 3 tin tuyển dụng cùng vị trí và hỏi một chị trong nghề: khoảng 12 đến 14 triệu một tháng (số ví dụ). Lý do của bạn: fanpage tăng gấp gần 4 lần, tự dựng được video, có chứng chỉ quảng cáo.",
+    "en": "Final round for the marketing job. You checked 3 similar job ads and asked someone in the field: about 12 to 14 million dong a month (example numbers). Your reasons: a fanpage you grew almost 4x, you edit your own videos, and you hold an ads certificate."
+   },
+   "do": {
+    "kieu": "luong",
+    "nhan": {
+     "vi": "Mức đang bàn",
+     "en": "Current offer"
+    },
+    "don_vi": {
+     "vi": "triệu/tháng",
+     "en": "million/month"
+    },
+    "min": 8,
+    "max": 16,
+    "khoang": [
+     12,
+     14
+    ],
+    "khoang_nhan": {
+     "vi": "Khoảng bạn chuẩn bị",
+     "en": "Your prepared range"
+    },
+    "chua": {
+     "vi": "Chưa có con số",
+     "en": "No number yet"
+    },
+    "mat": {
+     "vi": "Mất lời mời",
+     "en": "Offer withdrawn"
+    },
+    "muc": [
+     [
+      12,
+      "tot"
+     ],
+     [
+      11,
+      "vua"
+     ],
+     [
+      0,
+      "xau"
+     ]
+    ]
+   },
+   "ket": {
+    "tot": {
+     "vi": "Chốt trong khoảng của bạn",
+     "en": "Landed in your range"
+    },
+    "vua": {
+     "vi": "Gần khoảng, còn hụt",
+     "en": "Close, but short"
+    },
+    "xau": {
+     "vi": "Hụt xa so với khoảng",
+     "en": "Well below your range"
+    }
+   },
+   "prompt": {
+    "vi": "Đóng vai nhà tuyển dụng vị trí [vị trí]. Hỏi tôi mức lương mong muốn, rồi trả giá thấp hơn khoảng tôi chuẩn bị là [khoảng lương]. Mỗi lượt chỉ nói 1 câu, chờ tôi đáp. Sau 3 lượt, nhận xét tôi đã giữ khoảng lương bình tĩnh và có lý do chưa.",
+    "en": "Play a recruiter for [job title]. Ask my expected salary, then offer less than my prepared range of [salary range]. Say one sentence per turn and wait for my reply. After 3 turns, tell me whether I held my range calmly and with reasons."
+   },
+   "luot": [
+    {
+     "nguoi": {
+      "ten": {
+       "vi": "Anh Tùng",
+       "en": "Mr. Tung"
+      },
+      "chuc": {
+       "vi": "Phòng nhân sự",
+       "en": "HR"
+      },
+      "av": "T"
+     },
+     "bat_dau": null,
+     "dau": "s1",
+     "nut": {
+      "s1": {
+       "dong": [
+        {
+         "vi": "Bên anh rất thích phần thi thực hành của em. Em mong muốn mức lương bao nhiêu?",
+         "en": "We loved your practical test. What salary are you expecting?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ em mới ra trường, 9 triệu là được rồi ạ.",
+          "en": "I'm a fresh graduate, 9 million is fine."
+         },
+         "muc": "xau",
+         "toi": "s_thap",
+         "bit": {
+          "vi": "Con số đầu tiên bạn nói thường thành trần. Nói thấp trước thì khó kéo lên lại.",
+          "en": "The first number you say often becomes the ceiling. Start low and it's hard to climb back."
+         },
+         "dat": 9,
+         "dap": [
+          {
+           "vi": "Ồ, được đó. Vậy bên anh chốt 9 triệu nhé!",
+           "en": "Oh, great. Then let's lock in 9 million!"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em xem các tin tuyển dụng cùng vị trí thì khoảng 12 đến 14 triệu. Với fanpage em tăng gần 4 lần, tự dựng được video và có chứng chỉ quảng cáo, em mong khoảng 13 đến 14 triệu.",
+          "en": "Similar job ads show about 12 to 14 million. Since I grew a fanpage almost 4x, edit my own videos and have an ads certificate, I'm hoping for 13 to 14 million."
+         },
+         "muc": "tot",
+         "toi": "s_tra",
+         "bit": {
+          "vi": "Một khoảng có nguồn, kèm ba lý do. Bạn neo cuộc nói chuyện ở mức của mình.",
+          "en": "A sourced range with three reasons. You anchored the talk at your level."
+         },
+         "dat": 10,
+         "dap": [
+          {
+           "vi": "Anh hiểu. Nhưng ngân sách bên anh cho vị trí này chỉ 10 triệu thôi.",
+           "en": "I see. But our budget for this role is only 10 million."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ anh cứ đưa ra con số trước ạ.",
+          "en": "Why don't you name a number first?"
+         },
+         "muc": "vua",
+         "toi": "s_tra",
+         "bit": {
+          "vi": "Không sai, nhưng bạn để bên kia neo con số. Thường họ sẽ neo thấp.",
+          "en": "Not wrong, but you let them set the anchor, and they usually anchor low."
+         },
+         "dat": 10,
+         "dap": [
+          {
+           "vi": "Người mới bên anh thường nhận 10 triệu.",
+           "en": "New hires here usually start at 10 million."
+          }
+         ]
+        }
+       ]
+      },
+      "s_thap": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ vâng ạ.",
+          "en": "Okay, sounds good."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Thấp hơn khoảng bạn tìm hiểu tới 3 triệu mỗi tháng, tức 36 triệu một năm.",
+          "en": "That's 3 million a month below your research, 36 million a year."
+         },
+         "dap": [
+          {
+           "vi": "Tốt quá, chào mừng em!",
+           "en": "Great, welcome aboard!"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em xin nói lại: em tìm hiểu thì vị trí này thường 12 đến 14 triệu, em mong được xem xét khoảng đó ạ.",
+          "en": "Let me correct myself: this role usually pays 12 to 14 million, I'd like to be considered in that range."
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Sửa được là tốt, nhưng đã lỡ nói 9 thì bên kia chỉ nhích lên một chút.",
+          "en": "Good save, but after saying 9 they'll only nudge up a little."
+         },
+         "dat": 11,
+         "dap": [
+          {
+           "vi": "Hmm, em vừa nói 9 mà. Thôi anh nâng lên 11 triệu nhé.",
+           "en": "Hmm, you just said 9. Okay, I'll raise it to 11 million."
+          }
+         ]
+        }
+       ]
+      },
+      "s_tra": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ vâng, 10 triệu cũng được ạ.",
+          "en": "Okay, 10 million works."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Nhận ngay con số đầu tiên. Lời trả giá đầu gần như luôn còn chỗ thương lượng.",
+          "en": "You took the first offer. A first offer almost always has room."
+         },
+         "dap": [
+          {
+           "vi": "Tốt, vậy mình chốt 10 triệu.",
+           "en": "Great, 10 million it is."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em hiểu ngân sách có giới hạn. Với việc em tự làm được cả video, em mong mình gặp nhau ở 13 triệu. Nếu chưa được, anh xem giúp em mốc xét lương sau thử việc ạ?",
+          "en": "I understand budgets are tight. Since I handle video on my own too, I'd hope we can meet at 13 million. If not, could we set a pay review after probation?"
+         },
+         "muc": "tot",
+         "toi": "s_giua",
+         "bit": {
+          "vi": "Bình tĩnh, nhắc lại lý do, và mở thêm một hướng khác ngoài con số.",
+          "en": "Calm, restate a reason, and open another option besides the number."
+         },
+         "dat": 12,
+         "dap": [
+          {
+           "vi": "Để anh hỏi lại sếp… Anh đưa được 12 triệu, và xét tăng lương sau 3 tháng.",
+           "en": "Let me check with my manager… I can do 12 million, with a raise review after 3 months."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "10 triệu thấp quá. Chỗ khác đã mời em 15 triệu rồi đó.",
+          "en": "10 million is too low. Another company already offered me 15."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Bịa lời mời khác rất dễ lộ, và làm mất lòng tin ngay vòng cuối.",
+          "en": "A made-up offer is easy to expose and destroys trust in the final round."
+         },
+         "dat": 10,
+         "dap": [
+          {
+           "vi": "Vậy chắc em nên cân nhắc bên đó. Bên anh giữ 10 triệu thôi.",
+           "en": "Then maybe you should take that one. We're staying at 10 million."
+          }
+         ]
+        }
+       ]
+      },
+      "s_giua": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ em đồng ý 12 triệu. Anh ghi giúp em mốc xét lương sau 3 tháng vào thư mời nhận việc nhé.",
+          "en": "I accept 12 million. Could you put the 3-month review in the offer letter?"
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Chốt trong khoảng, và xin ghi lời hứa ra giấy. Đây là kết đẹp nhất.",
+          "en": "Inside your range, and the promise in writing. The best ending."
+         },
+         "dap": [
+          {
+           "vi": "Được, anh gửi thư mời chiều nay. Chào mừng em!",
+           "en": "Sure, I'll send the letter this afternoon. Welcome!"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em vẫn muốn 14 triệu, không được thì thôi ạ.",
+          "en": "I still want 14 million, or nothing."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Họ đã nhích lên tới khoảng của bạn. Ra tối hậu thư lúc này dễ mất luôn lời mời.",
+          "en": "They already moved into your range. An ultimatum now can cost you the whole offer."
+         },
+         "dat": 0,
+         "dap": [
+          {
+           "vi": "Vậy rất tiếc, mức đó vượt ngân sách. Bên anh sẽ cân nhắc ứng viên khác.",
+           "en": "I'm sorry, that's over budget. We'll consider other candidates."
+          }
+         ]
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "khach",
+   "video": [
+    258,
+    377
+   ],
+   "mau": "cam",
+   "ten": {
+    "vi": "Năm khách khó tính",
+    "en": "Five tough customers"
+   },
+   "moi": {
+    "vi": "Bạn trực tin nhắn của tiệm nến. Năm khách lần lượt nhắn tới: làm khách nguội mà không hứa bừa.",
+    "en": "You answer a candle shop's messages. Five customers write in: calm them down without overpromising."
+   },
+   "canh": {
+    "vi": "Bạn trả lời tin nhắn cho tiệm nến thơm của Mark (hư cấu). Mỗi khách có một thanh tâm trạng: kéo về phía nguội là thắng. Nhưng lời hứa vượt chính sách tiệm thì không tính là thắng trọn.",
+    "en": "You answer messages for Mark's scented candle shop (made up). Each customer has a mood bar: move it toward calm to win. But a promise beyond shop policy never counts as a full win."
+   },
+   "chinh_sach": [
+    {
+     "vi": "Giao nội thành 2 đến 3 ngày.",
+     "en": "City delivery in 2 to 3 days."
+    },
+    {
+     "vi": "Đơn giao trễ hẹn: khách được hủy, hoàn đúng số tiền đã trả.",
+     "en": "Late order: the customer may cancel for a refund of what was paid."
+    },
+    {
+     "vi": "Hũ vỡ khi nhận: đổi mới trong 3 ngày, cần ảnh mở hộp.",
+     "en": "Broken on arrival: free replacement within 3 days, with an unboxing photo."
+    },
+    {
+     "vi": "Nến đã đốt thì không đổi trả.",
+     "en": "Burned candles can't be returned."
+    },
+    {
+     "vi": "Giảm giá: chỉ chủ tiệm duyệt.",
+     "en": "Discounts: owner approval only."
+    }
+   ],
+   "chinh_sach_nhan": {
+    "vi": "Chính sách của tiệm",
+    "en": "Shop policy"
+   },
+   "do": {
+    "kieu": "tam-trang",
+    "nhan": {
+     "vi": "Tâm trạng khách",
+     "en": "Customer mood"
+    },
+    "trai": {
+     "vi": "Nổi giận",
+     "en": "Furious"
+    },
+    "phai": {
+     "vi": "Nguội",
+     "en": "Calm"
+    },
+    "muc": [
+     [
+      65,
+      "tot"
+     ],
+     [
+      40,
+      "vua"
+     ],
+     [
+      0,
+      "xau"
+     ]
+    ]
+   },
+   "ket": {
+    "tot": {
+     "vi": "Khách nguội",
+     "en": "Calmed down"
+    },
+    "vua": {
+     "vi": "Còn lăn tăn",
+     "en": "Still unsure"
+    },
+    "xau": {
+     "vi": "Khách bỏ đi",
+     "en": "Walked away"
+    },
+    "hua": {
+     "vi": "Khách vui, nhưng tiệm phải gánh một lời hứa vượt chính sách",
+     "en": "Happy customer, but the shop is stuck with a promise beyond policy"
+    }
+   },
+   "prompt": {
+    "vi": "Đóng vai 5 khách khó tính của [sản phẩm/tiệm của bạn]: người tiết kiệm, người kỹ chất lượng, người mua quà đang giận, người sợ [điểm yếu của sản phẩm], người chưa từng mua. Lần lượt từng người nhắn một câu, chờ tôi trả lời. Chính sách của tiệm: [dán chính sách]. Sau mỗi câu trả lời, chấm xem tôi đã hiểu khách, nói rõ việc sẽ làm, hẹn thời gian cụ thể và không hứa vượt chính sách chưa.",
+    "en": "Play 5 tough customers of [your product/shop]: a bargain hunter, a quality stickler, an angry gift buyer, someone worried about [your product's weak spot], and a first-time buyer. One at a time, send me one message and wait for my reply. Shop policy: [paste policy]. After each reply, grade whether I understood the customer, said what I'll do, gave a specific time and avoided promising beyond policy."
+   },
+   "luot": [
+    {
+     "id": "tiet-kiem",
+     "nguoi": {
+      "ten": {
+       "vi": "Chị Lan",
+       "en": "Lan"
+      },
+      "chuc": {
+       "vi": "Người tiết kiệm",
+       "en": "The bargain hunter"
+      },
+      "av": "L"
+     },
+     "bat_dau": 40,
+     "dau": "a",
+     "nut": {
+      "a": {
+       "dong": [
+        {
+         "vi": "120 nghìn một hũ nến á? Siêu thị có loại 40 nghìn thôi. Sao bán đắt vậy em?",
+         "en": "120k for one candle? The supermarket sells them for 40k. Why so expensive?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Giá tiệm niêm yết rồi ạ. Chị thấy đắt thì có thể mua chỗ khác.",
+          "en": "Our prices are listed. If it's too much, you can shop elsewhere."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Đúng sự thật nhưng lạnh tanh. Khách hỏi “vì sao” mà bạn chỉ đáp “vì vậy”.",
+          "en": "True but icy. They asked “why” and you said “because”."
+         },
+         "doi": -30,
+         "dap": [
+          {
+           "vi": "Ừ, vậy chị mua chỗ khác.",
+           "en": "Fine, I'll shop elsewhere."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em hiểu, 120 nghìn không rẻ. Hũ này là sáp đậu nành, cháy khoảng 40 giờ. Chị muốn thử trước thì tiệm có hũ nhỏ 60 nghìn ạ.",
+          "en": "I get it, 120k isn't cheap. It's soy wax and burns for about 40 hours. If you'd like to try first, we have a small jar for 60k."
+         },
+         "muc": "tot",
+         "toi": "a2",
+         "bit": {
+          "vi": "Công nhận cảm giác của khách, giải thích bằng con số, rồi mở một lựa chọn rẻ hơn.",
+          "en": "Acknowledge the feeling, explain with numbers, then offer a cheaper option."
+         },
+         "doi": 30,
+         "dap": [
+          {
+           "vi": "À, hũ nhỏ thì cháy được bao lâu?",
+           "en": "Oh, and how long does the small one last?"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em giảm cho chị 50% luôn nha, chỉ riêng chị thôi!",
+          "en": "I'll give you 50% off, just for you!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Khách vui, nhưng giảm giá chỉ chủ tiệm được duyệt. Bạn vừa hứa điều tiệm không làm được.",
+          "en": "They're happy, but only the owner can approve discounts. You promised something the shop can't do."
+         },
+         "doi": 30,
+         "dap": [
+          {
+           "vi": "Thật hả? Vậy chị lấy 3 hũ!",
+           "en": "Really? Then I'll take 3!"
+          }
+         ],
+         "hua": true
+        }
+       ]
+      },
+      "a2": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ khoảng 15 giờ, đủ thắp mỗi tối một tiếng trong hai tuần ạ.",
+          "en": "About 15 hours, enough for an hour every evening for two weeks."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Trả lời đúng câu hỏi, có số cụ thể, không thêm lời hứa.",
+          "en": "Answers the actual question, with a number, no extra promises."
+         },
+         "doi": 10,
+         "dap": [
+          {
+           "vi": "Vậy chị lấy hũ nhỏ thử trước.",
+           "en": "Then I'll try the small one first."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ lâu lắm chị, dùng cả năm luôn ạ!",
+          "en": "Ages! It'll last you all year!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Nói quá để chốt đơn. Hai tuần sau khách sẽ quay lại hỏi vì sao hết rồi.",
+          "en": "Exaggerating to close the sale. In two weeks they'll be back asking why it's gone."
+         },
+         "doi": 10,
+         "dap": [
+          {
+           "vi": "Ồ, vậy thì rẻ quá. Chị lấy!",
+           "en": "Oh, that's a bargain then. I'll take it!"
+          }
+         ],
+         "hua": true
+        }
+       ]
+      }
+     }
+    },
+    {
+     "id": "ky-chat-luong",
+     "nguoi": {
+      "ten": {
+       "vi": "Anh Minh",
+       "en": "Minh"
+      },
+      "chuc": {
+       "vi": "Người kỹ chất lượng",
+       "en": "The quality stickler"
+      },
+      "av": "M"
+     },
+     "bat_dau": 45,
+     "dau": "a",
+     "nut": {
+      "a": {
+       "dong": [
+        {
+         "vi": "Bấc nến có lõi kim loại không? Tiệm có giấy kiểm định gì không?",
+         "en": "Does the wick have a metal core? Do you have any safety certificate?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ nến bên em an toàn 100%, tuyệt đối không có gì độc hại ạ.",
+          "en": "Our candles are 100% safe, absolutely nothing harmful."
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "“100%” và “tuyệt đối” là lời hứa bạn không chứng minh được. Khách kỹ tính sẽ hỏi tiếp.",
+          "en": "“100%” and “absolutely” are promises you can't prove. A careful customer will push back."
+         },
+         "doi": 10,
+         "dap": [
+          {
+           "vi": "Ừm, nói vậy thì ai chẳng nói được.",
+           "en": "Hmm, anyone can say that."
+          }
+         ],
+         "hua": true
+        },
+        {
+         "chu": {
+          "vi": "Dạ bấc là cotton, không lõi kim loại, em gửi anh ảnh thông tin của nhà cung cấp. Giấy kiểm định riêng thì tiệm chưa có, em nói thật để anh cân nhắc.",
+          "en": "The wick is cotton with no metal core, I'll send you the supplier's info. We don't have our own certificate yet, I'm telling you honestly so you can decide."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Trả lời đúng câu hỏi, đưa bằng chứng, và thật thà về điều tiệm chưa có.",
+          "en": "Answers the question, shows proof, and is honest about what the shop lacks."
+         },
+         "doi": 30,
+         "dap": [
+          {
+           "vi": "Nói thật vậy anh thích. Gửi anh ảnh nhé.",
+           "en": "I appreciate the honesty. Send me the photo."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Anh lo xa quá, ai dùng cũng thấy ổn mà.",
+          "en": "You worry too much, everyone says they're fine."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Gạt đi nỗi lo của khách là cách nhanh nhất để họ bỏ đi.",
+          "en": "Brushing off a worry is the fastest way to lose a customer."
+         },
+         "doi": -30,
+         "dap": [
+          {
+           "vi": "Thôi, anh không mua nữa.",
+           "en": "Never mind, I'll pass."
+          }
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "id": "mua-qua",
+     "nguoi": {
+      "ten": {
+       "vi": "Chị Thảo",
+       "en": "Thao"
+      },
+      "chuc": {
+       "vi": "Người mua quà, đang giận",
+       "en": "The gift buyer, angry"
+      },
+      "av": "T"
+     },
+     "bat_dau": 15,
+     "dau": "a",
+     "nut": {
+      "a": {
+       "dong": [
+        {
+         "vi": "ĐẶT TỪ THỨ HAI, HẸN THỨ TƯ, GIỜ THỨ SÁU VẪN CHƯA THẤY ĐÂU!!! Mai sinh nhật bạn chị rồi!",
+         "en": "ORDERED MONDAY, PROMISED WEDNESDAY, IT'S FRIDAY AND STILL NOTHING!!! My friend's birthday is tomorrow!"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Theo quy định, thời gian giao có thể chậm do đơn vị vận chuyển ạ.",
+          "en": "Per our policy, delivery may be delayed by the courier."
+         },
+         "muc": "xau",
+         "toi": "a_x",
+         "bit": {
+          "vi": "Câu trả lời như máy. Khách đang giận nghe “theo quy định” thì giận gấp đôi.",
+          "en": "A robot reply. An angry customer hearing “per our policy” gets twice as angry."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "Chị không cần nghe quy định! Chị cần quà!",
+           "en": "I don't need your policy! I need my gift!"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em xin lỗi chị, quà sinh nhật mà trễ thì sốt ruột thật. Em vừa kiểm tra: đơn đang ở kho quận 7. Em gọi bên giao ưu tiên và báo chị trước 12 giờ trưa nay đơn tới đâu.",
+          "en": "I'm so sorry, a late birthday gift is really stressful. I just checked: it's at the District 7 hub. I'll ask the courier to prioritize it and update you before noon today."
+         },
+         "muc": "tot",
+         "toi": "a2",
+         "bit": {
+          "vi": "Đủ ba ý của video 258: hiểu cảm xúc, nói rõ việc sẽ làm, hẹn giờ cụ thể.",
+          "en": "All three parts from video 258: feel, act, set a time."
+         },
+         "doi": 35,
+         "dap": [
+          {
+           "vi": "Ừ… nhưng nếu mai vẫn không tới thì sao?",
+           "en": "Okay… but what if it still doesn't come tomorrow?"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Em hoàn tiền gấp đôi cho chị nhé!",
+          "en": "I'll refund you double!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Khách nguôi ngay, nhưng chính sách chỉ hoàn đúng số tiền khi giao trễ. Ai trả phần gấp đôi?",
+          "en": "Instant calm, but policy only refunds the amount paid for late orders. Who pays the double?"
+         },
+         "doi": 40,
+         "dap": [
+          {
+           "vi": "Ừ, vậy được.",
+           "en": "Well, okay then."
+          }
+         ],
+         "hua": true
+        }
+       ]
+      },
+      "a_x": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Em xin lỗi chị. Em kiểm tra ngay: đơn đang ở kho quận 7, em gọi bên giao ưu tiên và báo chị trước 12 giờ trưa nay ạ.",
+          "en": "I'm sorry. Checking now: it's at the District 7 hub, I'll have it prioritized and update you before noon."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Kéo lại được: xin lỗi, việc cụ thể, giờ cụ thể. Nhưng câu đầu đã làm khách giận thêm.",
+          "en": "Recovered: apology, concrete action, a time. But the first reply already made it worse."
+         },
+         "doi": 35,
+         "dap": [
+          {
+           "vi": "Được, trước 12 giờ nhé.",
+           "en": "Fine, before noon then."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Dạ em xin lỗi chị ạ.",
+          "en": "I'm sorry."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Xin lỗi suông, không có việc sẽ làm hay thời gian, khách vẫn không biết bao giờ có quà.",
+          "en": "An empty apology, no action, no time. They still don't know when the gift arrives."
+         },
+         "doi": 5,
+         "dap": [
+          {
+           "vi": "Xin lỗi thì được gì? Chị hủy đơn.",
+           "en": "What good is sorry? I'm cancelling."
+          }
+         ]
+        }
+       ]
+      },
+      "a2": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Trưa nay em báo chị chính xác. Nếu không kịp sinh nhật, chị có thể hủy đơn và tiệm hoàn đủ tiền theo chính sách ạ.",
+          "en": "I'll update you by noon. If it can't make the birthday, you can cancel and we'll refund in full per our policy."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Hứa đúng điều tiệm làm được, khách biết trước đường lui.",
+          "en": "Promise only what the shop can do, and the customer knows their way out."
+         },
+         "doi": 20,
+         "dap": [
+          {
+           "vi": "Ừ, vậy chị chờ tới trưa.",
+           "en": "Okay, I'll wait until noon."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Chị yên tâm, chắc chắn mai tới. Không tới em đền chị gấp đôi!",
+          "en": "Don't worry, it'll definitely arrive. If not, I'll pay you back double!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "“Chắc chắn” khi đơn còn nằm kho, cộng lời đền bù vượt chính sách. Video 258 bảo gạch đúng câu này.",
+          "en": "“Definitely” while it's still at the hub, plus compensation beyond policy. Video 258 says cross out exactly this line."
+         },
+         "doi": 25,
+         "dap": [
+          {
+           "vi": "Nhớ lời em nói đó nha!",
+           "en": "I'm holding you to that!"
+          }
+         ],
+         "hua": true
+        }
+       ]
+      }
+     }
+    },
+    {
+     "id": "so-mui",
+     "nguoi": {
+      "ten": {
+       "vi": "Cô Ba",
+       "en": "Mrs. Ba"
+      },
+      "chuc": {
+       "vi": "Người sợ mùi hắc",
+       "en": "Sensitive to strong scents"
+      },
+      "av": "B"
+     },
+     "bat_dau": 50,
+     "dau": "a",
+     "nut": {
+      "a": {
+       "dong": [
+        {
+         "vi": "Lần trước cô đốt nến thơm mà nhức đầu quá. Nến của con có hắc không?",
+         "en": "Last time I burned a scented candle I got a headache. Is yours strong?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Dạ không hắc đâu cô, ai dùng cũng thích hết!",
+          "en": "Not strong at all, everyone loves it!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Bạn không biết cô nhạy mùi tới đâu mà đã hứa “không hắc”. Lỡ cô lại nhức đầu thì sao?",
+          "en": "You can't know how sensitive she is, yet promised “not strong”. What if she gets a headache again?"
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Vậy hả? Thôi để cô thử.",
+           "en": "Really? I'll give it a try."
+          }
+         ],
+         "hua": true
+        },
+        {
+         "chu": {
+          "vi": "Dạ mùi thì mỗi người cảm nhận khác, nên con không dám chắc. Tiệm có dòng không mùi. Cô thử hũ nhỏ không mùi trước, đốt trong phòng thoáng khoảng một tiếng thôi ạ.",
+          "en": "Everyone senses scent differently, so I can't promise. We have an unscented line. Try a small unscented jar first, in a ventilated room, for about an hour."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Không hứa điều không chắc, và đưa cách thử an toàn cho đúng nỗi lo của khách.",
+          "en": "No promise you can't keep, and a safe way to try that fits her worry."
+         },
+         "doi": 35,
+         "dap": [
+          {
+           "vi": "Con nói vậy cô yên tâm. Lấy cô một hũ nhỏ.",
+           "en": "That reassures me. I'll take a small one."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Cô bị nhức đầu chắc là do cơ địa thôi ạ.",
+          "en": "Your headache was probably just your body."
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Đổ lỗi cho khách, dù nhẹ nhàng, vẫn là đổ lỗi.",
+          "en": "Blaming the customer, however gently, is still blaming."
+         },
+         "doi": -30,
+         "dap": [
+          {
+           "vi": "Cơ địa cô thì cô biết. Thôi khỏi.",
+           "en": "I know my own body. Never mind."
+          }
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "id": "chua-mua",
+     "nguoi": {
+      "ten": {
+       "vi": "Bạn Khoa",
+       "en": "Khoa"
+      },
+      "chuc": {
+       "vi": "Người chưa từng mua nến",
+       "en": "Never bought a candle"
+      },
+      "av": "K"
+     },
+     "bat_dau": 50,
+     "dau": "a",
+     "nut": {
+      "a": {
+       "dong": [
+        {
+         "vi": "Nến thơm để làm gì vậy? Mua về rồi đốt kiểu gì?",
+         "en": "What are scented candles for? How do you even use one?"
+        }
+       ],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Mua combo 5 hũ đi bạn, đang giảm giá chỉ riêng hôm nay thôi!",
+          "en": "Grab the 5-jar combo, it's on sale today only!"
+         },
+         "muc": "xau",
+         "toi": "het",
+         "bit": {
+          "vi": "Khách hỏi để hiểu mà bị dồn mua, cộng một đợt giảm giá không có thật.",
+          "en": "They asked to understand and got pushed to buy, plus a sale that doesn't exist."
+         },
+         "doi": -20,
+         "dap": [
+          {
+           "vi": "Ơ, mình chỉ hỏi thôi mà…",
+           "en": "Uh, I was just asking…"
+          }
+         ],
+         "hua": true
+        },
+        {
+         "chu": {
+          "vi": "Nhiều người đốt buổi tối cho phòng thơm, dễ thư giãn. Lần đầu bạn đốt khoảng 1 đến 2 tiếng cho chảy đều mặt sáp, nhớ cắt bấc ngắn. Bạn thích mùi nhẹ kiểu trà hay ngọt kiểu vani?",
+          "en": "Many people light one in the evening to relax. The first time, burn it 1 to 2 hours so the top melts evenly, and trim the wick. Do you like light tea scents or sweet vanilla?"
+         },
+         "muc": "tot",
+         "toi": "a2",
+         "bit": {
+          "vi": "Giải thích đủ để người mới hiểu, rồi hỏi lại để tìm đúng thứ họ cần.",
+          "en": "Enough explanation for a beginner, then a question to find what they need."
+         },
+         "doi": 25,
+         "dap": [
+          {
+           "vi": "Trà đi. Mà lỡ mua về không thích mùi thì sao?",
+           "en": "Tea, I think. But what if I don't like the smell?"
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Sáp đậu nành có điểm nóng chảy khoảng 46 đến 52 độ, bấc cotton tẩm sáp, tỉ lệ tinh dầu 8%…",
+          "en": "Soy wax melts at about 46 to 52 degrees, cotton wicks are pre-waxed, fragrance load is 8%…"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Đúng hết, nhưng người mới cần biết dùng thế nào, chưa cần thông số.",
+          "en": "All correct, but a beginner needs how to use it, not specs."
+         },
+         "doi": -10,
+         "dap": [
+          {
+           "vi": "…Mình hỏi đơn giản thôi mà.",
+           "en": "…I just wanted the simple version."
+          }
+         ]
+        }
+       ]
+      },
+      "a2": {
+       "dong": [],
+       "chon": [
+        {
+         "chu": {
+          "vi": "Hũ đã đốt rồi thì tiệm không đổi được, nên bạn thử hũ nhỏ 60 nghìn trước, hoặc ghé tiệm ngửi thử nhé.",
+          "en": "Once a jar is burned we can't exchange it, so try a small 60k jar first, or come smell them in store."
+         },
+         "muc": "tot",
+         "toi": "het",
+         "bit": {
+          "vi": "Nói trước điều tiệm không làm, rồi đưa cách thử ít rủi ro.",
+          "en": "Say upfront what the shop can't do, then offer a low-risk way to try."
+         },
+         "doi": 20,
+         "dap": [
+          {
+           "vi": "Hợp lý. Cho mình hũ nhỏ mùi trà.",
+           "en": "Makes sense. A small tea one, please."
+          }
+         ]
+        },
+        {
+         "chu": {
+          "vi": "Không thích thì cứ gửi lại, em đổi hết cho bạn!",
+          "en": "If you don't like it, send it back and I'll swap it, no problem!"
+         },
+         "muc": "vua",
+         "toi": "het",
+         "bit": {
+          "vi": "Chính sách ghi rõ: nến đã đốt không đổi trả. Lời hứa này tiệm phải tự gánh.",
+          "en": "Policy says burned candles can't be returned. The shop now has to cover this promise."
+         },
+         "doi": 15,
+         "dap": [
+          {
+           "vi": "Ok, vậy lấy hũ to luôn!",
+           "en": "Great, I'll take the big one then!"
+          }
+         ],
+         "hua": true
+        }
+       ]
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
