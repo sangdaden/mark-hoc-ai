@@ -1,0 +1,348 @@
+/* Bộ công cụ "AI cho người làm y tế" (ai-y-te.html, en/), series 601-610 và 611-615.
+   Bảy trạm: che (che thông tin người bệnh), lenh (khung câu lệnh 5 phần), soat (soát 5 bước), de-hieu (tô thuật ngữ, câu dài,
+   gợi ý teach-back), quy-tac (một trang quy tắc cho khoa, in được), ban-do (lọc các loại công cụ), danh-gia (phiếu 6 câu hỏi, in được).
+   Mở thẳng một trạm bằng ?tram=<id> hoặc #<id>. Chữ và dữ liệu ở thẻ <script id="yt-du-lieu"> (lấy từ data/ai-y-te.json).
+   Mọi xử lý chạy trên máy: không gửi chữ người dùng dán vào đi đâu, không lưu lại; chỉ đếm sự kiện chọn trạm (theo-doi.js).
+   Che thông tin là quy tắc tìm theo mẫu (tên sau từ khóa, số giấy tờ, số điện thoại, ngày, mã hồ sơ, giường, địa chỉ),
+   không bắt được mọi thứ: trang luôn nhắc đọc lại. Thử trong console: window.__yt.che("BN Nguyễn Văn A ...").*/
+(function () {
+  "use strict";
+  var goc = document.getElementById("yt"), nguon = document.getElementById("yt-du-lieu");
+  if (!goc || !nguon) return;
+  var D = JSON.parse(nguon.textContent), N = D.nhan;
+  var S = window.__yt = {};
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, chu) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (chu != null) e.textContent = chu;
+    return e;
+  }
+  function thay(s, d) { return s.replace(/\{(\w+)\}/g, function (_, k) { return d[k]; }); }
+  function do_(ten, d) { if (window.mhaiDo) window.mhaiDo(ten, d || {}); }
+  function escHtml(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+  function chep(chu, tb) {
+    function xong(ok) {
+      if (!tb) return;
+      tb.textContent = ok ? N.da_chep : N.khong_chep;
+      clearTimeout(tb._h); tb._h = setTimeout(function () { tb.textContent = ""; }, 2500);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(chu).then(function () { xong(true); }, function () { xong(cuChep(chu)); });
+    } else xong(cuChep(chu));
+  }
+  function cuChep(chu) {
+    var t = el("textarea"); t.value = chu; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(t); return ok;
+  }
+
+  // ---------- chọn trạm ----------
+  var nut = [].slice.call(goc.querySelectorAll("[data-tram]"));
+  function moTram(id, bam) {
+    if (!$("tram-" + id)) id = "che";
+    [].slice.call(goc.querySelectorAll(".yt-tram")).forEach(function (s) { s.hidden = s.id !== "tram-" + id; });
+    nut.forEach(function (n) { n.setAttribute("aria-current", n.dataset.tram === id ? "true" : "false"); });
+    if (bam) {
+      try { history.replaceState(null, "", location.pathname + location.search.replace(/([?&])tram=[^&]*&?/, "$1").replace(/[?&]$/, "") + "#" + id); } catch (e) {}
+      do_("ai-y-te-tram", { tram: id });
+    }
+  }
+  nut.forEach(function (n) { n.addEventListener("click", function () { moTram(n.dataset.tram, true); }); });
+  var q = (location.search.match(/[?&]tram=([\w-]+)/) || [])[1] || location.hash.slice(1);
+  moTram(q || "che", false);
+
+  // ---------- in một phần của trang ----------
+  [].slice.call(goc.querySelectorAll("[data-in]")).forEach(function (b) {
+    b.addEventListener("click", function () {
+      var vung = $(b.dataset.in);
+      if (!vung) return;
+      document.documentElement.classList.add("yt-dang-in");
+      vung.classList.add("yt-in-day");
+      var bo = function () { document.documentElement.classList.remove("yt-dang-in"); vung.classList.remove("yt-in-day"); window.removeEventListener("afterprint", bo); };
+      window.addEventListener("afterprint", bo);
+      window.print();
+      setTimeout(bo, 1500);
+    });
+  });
+
+  // ================= 1. Che thông tin người bệnh =================
+  var L = "\\p{L}", TU = "\\p{Lu}[\\p{Ll}\\p{M}]*";
+  var DANH_XUNG = ["bn", "bệnh nhân", "người bệnh", "họ tên", "họ và tên", "tên", "ông", "bà", "anh", "chị", "cô", "chú", "bác", "cháu", "bé", "em", "con",
+    "bác sĩ", "bs", "điều dưỡng", "đd", "người nhà", "vợ", "chồng", "mẹ", "bố", "cha",
+    "patient", "pt", "name", "mr", "mrs", "ms", "miss", "dr", "next of kin", "nok", "wife", "husband", "mother", "father", "son", "daughter"];
+  var reDanhXung = new RegExp("(?:^|[^" + L + "])(?:" + DANH_XUNG.map(escRe).join("|") + ")\\.?\\s*[:\\-–]?\\s*\\(?\\s*$", "u");
+  var laDanhXung = function (w) { return DANH_XUNG.indexOf(w.toLowerCase().replace(/\.$/, "")) >= 0; };
+  var reTen = new RegExp("(?<![" + L + "])" + TU + "(?![" + L + "])(?:\\s+" + TU + "(?![" + L + "]))*", "gu");
+  var hoaThuong = function (s) { return s.split(" ").map(function (w) { var c = w.charAt(0); return "[" + c + c.toUpperCase() + "]" + escRe(w.slice(1)); }).join("\\s+"); };
+  var DIA = ["đường", "phố", "phường", "xã", "quận", "huyện", "thôn", "ấp", "xóm", "ngõ", "ngách", "hẻm", "kiệt", "khu phố", "thị trấn", "thị xã", "tỉnh"];
+  var MAU = [
+    { loai: "email", re: /[\w.+\-]+@[\w\-]+(?:\.[\w\-]+)+/g },
+    { loai: "bhyt", re: /(?<![A-Za-z0-9])[A-Z]{2}\d{13}(?!\d)/g },
+    { loai: "cccd", re: /(?:CCCD|CMND|căn cước(?: công dân)?|NHS (?:no\.?|number)|SSN|ID (?:no\.?|number))\s*(?:số\s*)?[:#]?\s*(\d[\d \-]{7,16}\d)/giu },
+    { loai: "cccd", re: /(?<!\d)\d{12}(?!\d)/g },
+    { loai: "ma", re: /(?:mã\s*(?:BA|bệnh án|BN|người bệnh|hồ sơ|y tế|lưu trữ)|số\s*(?:vào viện|lưu trữ|bệnh án|hồ sơ)|SVV|MRN|hospital (?:no\.?|number)|record (?:no\.?|number))\s*[:#]?\s*([A-Z0-9][A-Z0-9\-\/.]{2,20}[A-Z0-9])/giu },
+    { loai: "giuong", re: /(?:giường|bed)\s*(?:số\s*|no\.?\s*)?([A-Z]?\d{1,3}[A-Z]?)(?![\d])/giu },
+    { loai: "sdt", re: /(?<![\d+])(?:\+84|\+44|\+1|0)(?:[\s.\-]?\d){8,10}(?!\d)/g },
+    { loai: "nam-sinh", re: /(?:sinh năm|năm sinh|born in|year of birth)\s*[:\-]?\s*((?:19|20)\d{2})/giu },
+    { loai: "ngay", re: /(?<!\d)\d{1,2}[\/.\-]\d{1,2}[\/.\-](?:19|20)?\d{2}(?![\d\/.\-]\d)/g },
+    { loai: "dia-chi", re: /(?:địa chỉ|nơi ở|thường trú|tạm trú|address)\s*[:\-]?\s*([^\n]{3,90}?)(?=\s*(?:\.\s|\n|$|\.$|;))/giu },
+    { loai: "dia-chi", re: new RegExp("(?<![" + L + "])(?:" + DIA.map(hoaThuong).join("|") + ")\\s+(?:\\d+[A-Za-z]?|" + TU + ")(?:\\s+(?:\\d+|" + TU + "))*", "gu") },
+    { loai: "dia-chi", re: /(?<![\w])\d{1,4}[A-Za-z]?\s+(?:\p{Lu}\p{Ll}+\s+){1,3}(?:Street|St|Road|Rd|Avenue|Ave|Lane|Ln|Drive|Dr|Close|Way)\b\.?/gu }
+  ];
+
+  function timChe(text) {
+    var ds = [];
+    MAU.forEach(function (m) {
+      m.re.lastIndex = 0;
+      var k;
+      while ((k = m.re.exec(text))) {
+        if (!k[0]) { m.re.lastIndex++; continue; }
+        var chu = k[1] != null ? k[1] : k[0];
+        var bd = k.index + (k[1] != null ? k[0].lastIndexOf(k[1]) : 0);
+        ds.push({ loai: m.loai, bd: bd, kt: bd + chu.length, chu: chu, chon: true });
+      }
+    });
+    // Tên: chuỗi chữ viết hoa đầu, đứng sau một danh xưng (hoặc bắt đầu bằng danh xưng viết hoa: Ông, Mrs...)
+    reTen.lastIndex = 0;
+    var k;
+    while ((k = reTen.exec(text))) {
+      var tu = k[0].split(/\s+/), bd = k.index, bo = false;
+      while (tu.length > 1 && laDanhXung(tu[0])) { bd = text.indexOf(tu[1], bd + tu[0].length); tu.shift(); bo = true; }
+      if (tu.length === 1 && laDanhXung(tu[0])) continue;
+      var chu = tu.join(" ");
+      var truoc = text.slice(Math.max(0, bd - 30), bd);
+      if (bo || reDanhXung.test(truoc.toLowerCase())) ds.push({ loai: "ten", bd: bd, kt: bd + text.slice(bd).indexOf(tu[tu.length - 1]) + tu[tu.length - 1].length, chu: null, chon: true });
+      else if (tu.length >= 2) ds.push({ loai: "ten", bd: bd, kt: k.index + k[0].length, chu: null, chon: false, goi_y: true });
+    }
+    ds.forEach(function (x) { if (x.chu == null) x.chu = text.slice(x.bd, x.kt); });
+    // bỏ chỗ chồng nhau: ưu tiên chỗ được chọn sẵn, rồi chỗ dài hơn
+    ds.sort(function (a, b) { return (b.chon - a.chon) || ((b.kt - b.bd) - (a.kt - a.bd)) || (a.bd - b.bd); });
+    var giu = [];
+    ds.forEach(function (x) { if (!giu.some(function (y) { return x.bd < y.kt && y.bd < x.kt; })) giu.push(x); });
+    giu.sort(function (a, b) { return a.bd - b.bd; });
+    return giu;
+  }
+
+  var cheVao = $("che-vao"), cheRa = $("che-ra"), cheDs = $("che-ds"), cheTb = $("che-tb"), cheThem = [];
+  S.ds = [];
+  function nhanChe(ds) {
+    var dem = {}, nho = {};
+    ds.forEach(function (x) {
+      if (!x.chon) return;
+      var khoa = x.loai + "|" + x.chu.toLowerCase().replace(/\s+/g, " ");
+      if (!nho[khoa]) { dem[x.loai] = (dem[x.loai] || 0) + 1; nho[khoa] = dem[x.loai]; }
+      x.so = nho[khoa];
+    });
+    ds.forEach(function (x) {
+      var ten = N.loai[x.loai] || x.loai;
+      x.nhan = "[" + ten + ((x.loai === "ten" || x.loai === "them") && x.so ? " " + x.so : "") + "]";
+    });
+  }
+  function veChe() {
+    var text = cheVao.value;
+    nhanChe(S.ds);
+    var ra = "", vt = 0;
+    S.ds.forEach(function (x) { if (x.chon) { ra += text.slice(vt, x.bd) + x.nhan; vt = x.kt; } });
+    cheRa.value = ra + text.slice(vt);
+    cheDs.textContent = "";
+    S.ds.forEach(function (x, i) {
+      var li = el("li", x.goi_y ? "is-goi-y" : ""), lb = el("label"), o = el("input");
+      o.type = "checkbox"; o.checked = x.chon; o.dataset.i = i;
+      lb.appendChild(o);
+      lb.appendChild(el("span", "yt-che-nhan", x.chon ? x.nhan : "[" + (N.loai[x.loai] || x.loai) + "]"));
+      lb.appendChild(el("span", "yt-che-goc", x.chu));
+      if (x.goi_y) lb.appendChild(el("small", null, N.goi_y_ten));
+      li.appendChild(lb); cheDs.appendChild(li);
+    });
+    $("che-ds-h").hidden = !S.ds.length;
+    var n = S.ds.filter(function (x) { return x.chon; }).length;
+    $("che-chep").disabled = !text.trim();
+    cheTb.textContent = text.trim() ? (n ? thay(N.che_xong, { n: n }) : N.che_khong) : "";
+    S.ra = cheRa.value;
+  }
+  function chayChe() {
+    var text = cheVao.value;
+    if (!text.trim()) { cheTb.textContent = N.che_trong; return; }
+    var ds = timChe(text);
+    cheThem.forEach(function (w) {
+      var re = new RegExp("(?<![" + L + "\\d])" + escRe(w) + "(?![" + L + "\\d])", "giu"), k;
+      while ((k = re.exec(text))) ds.push({ loai: "them", bd: k.index, kt: k.index + k[0].length, chu: k[0], chon: true });
+    });
+    ds.sort(function (a, b) { return (a.loai === "them" ? -1 : 0) - (b.loai === "them" ? -1 : 0) || a.bd - b.bd; });
+    var giu = [];
+    ds.forEach(function (x) { if (!giu.some(function (y) { return x.bd < y.kt && y.bd < x.kt; })) giu.push(x); });
+    S.ds = giu.sort(function (a, b) { return a.bd - b.bd; });
+    veChe();
+  }
+  S.che = function (text) { cheVao.value = text; chayChe(); return cheRa.value; };
+  $("che-chay").addEventListener("click", function () { chayChe(); do_("ai-y-te-che"); });
+  $("che-mau").addEventListener("click", function () { cheVao.value = N.mau_che; cheThem = []; chayChe(); });
+  cheDs.addEventListener("change", function (e) {
+    var i = e.target.dataset.i;
+    if (i == null) return;
+    S.ds[i].chon = e.target.checked; veChe();
+  });
+  $("che-them").addEventListener("click", function () {
+    var w = $("che-them-o").value.trim();
+    if (!w) return;
+    if (cheThem.indexOf(w) < 0) cheThem.push(w);
+    $("che-them-o").value = ""; chayChe();
+  });
+  $("che-them-o").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); $("che-them").click(); } });
+  $("che-chep").addEventListener("click", function () { chep(cheRa.value, cheTb); });
+
+  // ================= 2. Khung câu lệnh =================
+  var O5 = ["vai_tro", "boi_canh", "viec", "dinh_dang", "gioi_han"], lenhChon = $("lenh-chon"), lenhRa = $("lenh-ra");
+  D.mau_lenh.forEach(function (m, i) {
+    var b = el("button", "chip", m.ten);
+    b.type = "button"; b.dataset.i = i; b.setAttribute("aria-pressed", "false");
+    lenhChon.appendChild(b);
+  });
+  function chonMau(i) {
+    var m = D.mau_lenh[i];
+    [].slice.call(lenhChon.children).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.i === i)); });
+    O5.forEach(function (k) { $("lenh-" + k).value = m[k]; });
+    $("lenh-luu-y").textContent = thay(N.lenh_video, { v: m.video });
+    veLenh();
+  }
+  function veLenh() {
+    var phan = O5.map(function (k) {
+      var v = $("lenh-" + k).value.trim();
+      if (k === "gioi_han" && v.indexOf(D.gioi_han_chung) < 0) v = (v ? v + "\n" : "") + D.gioi_han_chung;
+      return N.lenh_nhan[k] + ":\n" + v;
+    });
+    lenhRa.textContent = phan.join("\n\n");
+    var daChe = $("lenh-da-che").checked;
+    $("lenh-chep").disabled = !daChe;
+    var mo = /\[[^\]]+\]/.test($("lenh-boi_canh").value);
+    $("lenh-tb").textContent = !daChe ? N.lenh_che : (mo ? N.lenh_mo : "");
+    S.lenh = lenhRa.textContent;
+  }
+  lenhChon.addEventListener("click", function (e) { var b = e.target.closest("[data-i]"); if (b) chonMau(+b.dataset.i); });
+  O5.forEach(function (k) { $("lenh-" + k).addEventListener("input", veLenh); });
+  $("lenh-da-che").addEventListener("change", veLenh);
+  $("lenh-chep").addEventListener("click", function () { chep(lenhRa.textContent, $("lenh-tb")); do_("ai-y-te-lenh"); });
+  chonMau(0);
+
+  // ================= 3. Soát 5 bước =================
+  var soatO = [].slice.call(goc.querySelectorAll("[data-buoc]"));
+  function veSoat() {
+    var con = soatO.filter(function (o) { return !o.checked; }).length, ket = $("soat-ket"), ten = $("soat-ten").value.trim();
+    ket.className = "yt-ket " + (con ? "is-cho" : "is-xong");
+    ket.textContent = con ? thay(N.soat_con, { n: con }) : N.soat_xong + (ten ? " " + thay(N.soat_duyet, { ten: ten }) : "");
+  }
+  soatO.forEach(function (o) { o.addEventListener("change", veSoat); });
+  $("soat-ten").addEventListener("input", veSoat);
+  $("soat-lai").addEventListener("click", function () { soatO.forEach(function (o) { o.checked = false; }); veSoat(); });
+  veSoat();
+
+  // ================= 4. Viết cho người bệnh dễ hiểu =================
+  var TN = D.thuat_ngu.slice().sort(function (a, b) { return b[0].length - a[0].length; });
+  var reTN = TN.map(function (x) { return new RegExp("(?<![" + L + "])" + escRe(x[0]) + "(?![" + L + "])", "giu"); });
+  var dhDai = $("dh-dai");
+  function demChu(s) { return (s.match(/[\p{L}\p{N}]+(?:[\-'’][\p{L}\p{N}]+)*/gu) || []).length; }
+  function chayDH() {
+    var text = $("dh-vao").value.trim(), ket = $("dh-ket");
+    if (!text) { ket.hidden = true; $("dh-tb-chep").textContent = N.dh_trong; return; }
+    var nguong = +dhDai.value;
+    var cau = text.split(/(?<=[.!?…;])\s+|\n+/).map(function (c) { return c.trim(); }).filter(Boolean);
+    var gap = {}, soDai = 0, tongChu = 0, html = "";
+    cau.forEach(function (c) {
+      var n = demChu(c); tongChu += n;
+      var dai = n > nguong; if (dai) soDai++;
+      // tô thuật ngữ trong câu, cụm dài trước, không chồng nhau
+      var vung = [];
+      reTN.forEach(function (re, i) {
+        re.lastIndex = 0; var k;
+        while ((k = re.exec(c))) {
+          var bd = k.index, kt = bd + k[0].length;
+          if (!vung.some(function (v) { return bd < v.kt && v.bd < kt; })) { vung.push({ bd: bd, kt: kt, i: i }); gap[TN[i][0]] = TN[i][1]; }
+        }
+      });
+      vung.sort(function (a, b) { return a.bd - b.bd; });
+      var s = "", vt = 0;
+      vung.forEach(function (v) {
+        s += escHtml(c.slice(vt, v.bd)) + '<mark class="yt-tn" tabindex="0" title="' + escHtml(TN[v.i][1]) + '" data-thay="' + escHtml(TN[v.i][1]) + '">' + escHtml(c.slice(v.bd, v.kt)) + "</mark>";
+        vt = v.kt;
+      });
+      s += escHtml(c.slice(vt));
+      html += (dai ? '<span class="yt-dai" title="' + n + '">' + s + "</span>" : "<span>" + s + "</span>") + " ";
+    });
+    $("dh-xem").innerHTML = html;
+    var dsTn = Object.keys(gap);
+    var so = [[cau.length, N.dh_cau], [soDai, N.dh_dai], [dsTn.length, N.dh_tn], [cau.length ? Math.round(tongChu / cau.length) : 0, N.dh_tb]];
+    $("dh-so").innerHTML = so.map(function (x, i) { return '<div class="yt-so-o' + ((i === 1 || i === 2) && x[0] ? " is-cam" : "") + '"><b>' + x[0] + "</b><span>" + escHtml(x[1]) + "</span></div>"; }).join("");
+    var ul = $("dh-tn"); ul.textContent = "";
+    if (!dsTn.length) ul.appendChild(el("li", "yt-mo", N.dh_khong_tn));
+    dsTn.forEach(function (k) { var li = el("li"); li.appendChild(el("b", null, k)); li.appendChild(document.createTextNode(" → " + gap[k])); ul.appendChild(li); });
+    var hoi = [];
+    D.teach_back.forEach(function (x) { if (hoi.length < 3 && new RegExp(x[0], "iu").test(text)) hoi.push(x[1]); });
+    N.dh_tb_chung.forEach(function (h) { if (hoi.length < 3 && hoi.indexOf(h) < 0) hoi.push(h); });
+    var ol = $("dh-tb"); ol.textContent = "";
+    hoi.forEach(function (h) { ol.appendChild(el("li", null, h)); });
+    $("dh-lenh").textContent = thay(N.dh_lenh, { n: nguong, tn: dsTn.length ? dsTn.join(", ") : N.dh_khong_co });
+    $("dh-tb-chep").textContent = "";
+    ket.hidden = false;
+    S.dh = { cau: cau.length, dai: soDai, tn: dsTn, hoi: hoi };
+  }
+  dhDai.addEventListener("input", function () { $("dh-dai-so").textContent = dhDai.value; if (!$("dh-ket").hidden) chayDH(); });
+  $("dh-chay").addEventListener("click", function () { chayDH(); do_("ai-y-te-de-hieu"); });
+  $("dh-mau").addEventListener("click", function () { $("dh-vao").value = N.mau_dh; chayDH(); });
+  $("dh-chep").addEventListener("click", function () { chep($("dh-lenh").textContent, $("dh-tb-chep")); });
+
+  // ================= 5. Quy tắc cho khoa =================
+  var qtO = ["qt-khoa", "qt-cong-cu", "qt-duyet", "qt-su-co", "qt-ngay", "qt-ra-soat"];
+  try { $("qt-ngay").value = new Date().toISOString().slice(0, 10); } catch (e) {}
+  function veQT() {
+    var g = function (id) { return $(id).value.trim(); };
+    var duoc = [].slice.call(goc.querySelectorAll("[data-duoc]")).filter(function (o) { return o.checked; }).map(function (o) { return D.duoc[o.dataset.duoc]; });
+    var cam = [].slice.call(goc.querySelectorAll("[data-cam]")).filter(function (o) { return o.checked; }).map(function (o) { return D.cam[o.dataset.cam]; });
+    var li = function (ds) { return ds.map(function (x) { return "<li>" + escHtml(x) + "</li>"; }).join(""); };
+    var ngay = g("qt-ngay"), ngayHien = ngay ? (D.lg === "en" ? ngay : ngay.split("-").reverse().join("/")) : N.qt_chua;
+    $("qt-giay").innerHTML =
+      '<p class="yt-giay-nhan">' + escHtml(N.qt_tieu) + "</p><h3>" + escHtml(g("qt-khoa") || N.qt_khoa_trong) + "</h3>" +
+      '<p class="yt-giay-cc">' + escHtml(N.qt_cong_cu) + (g("qt-cong-cu") ? ": <b>" + escHtml(g("qt-cong-cu")) + "</b>" : ".") + "</p>" +
+      '<div class="yt-giay-2"><div class="is-xanh"><h4>✓ ' + escHtml(N.qt_duoc) + "</h4><ul>" + li(duoc) + "</ul></div>" +
+      '<div class="is-do"><h4>✕ ' + escHtml(N.qt_cam) + "</h4><ul>" + li(cam) + "</ul></div></div>" +
+      "<h4>" + escHtml(N.qt_luon) + "</h4><ol>" + li(N.qt_luon_ds) + "</ol>" +
+      '<p><b>' + escHtml(N.qt_duyet) + ":</b> " + escHtml(g("qt-duyet") || N.qt_chua) + "</p>" +
+      '<p><b>' + escHtml(N.qt_su_co) + ":</b> " + escHtml(g("qt-su-co") || N.qt_chua) + ". " + escHtml(N.qt_su_co_them) + "</p>" +
+      '<p class="yt-giay-ngay">' + escHtml(N.qt_ngay) + ": " + escHtml(ngayHien) + " · " + escHtml(thay(N.qt_ra_soat, { n: g("qt-ra-soat") })) + "</p>";
+  }
+  qtO.forEach(function (id) { $(id).addEventListener("input", veQT); $(id).addEventListener("change", veQT); });
+  goc.querySelector("#tram-quy-tac").addEventListener("change", veQT);
+  veQT();
+
+  // ================= 6. Bản đồ công cụ =================
+  var loc = [].slice.call(goc.querySelectorAll("[data-loc]"));
+  loc.forEach(function (b) {
+    b.addEventListener("click", function () {
+      loc.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      [].slice.call(goc.querySelectorAll(".yt-the")).forEach(function (c) { c.hidden = !!b.dataset.loc && c.dataset.loai !== b.dataset.loc; });
+    });
+  });
+
+  // ================= 7. Phiếu đánh giá =================
+  function veDG() {
+    var chua = 0, chan = [], ro = [], khong = [];
+    D.danh_gia.forEach(function (x, i) {
+      var o = goc.querySelector('input[name="dg-' + x.id + '"]:checked');
+      if (!o) { chua++; return; }
+      if (o.value === "khong") (x.chan ? chan : khong).push(i + 1);
+      if (o.value === "chua") ro.push(i + 1);
+    });
+    var ket = $("dg-ket"), chu, cls;
+    if (chan.length) { chu = thay(N.dg_chan, { ds: chan.join(", ") }); cls = "is-do"; }
+    else if (chua) { chu = thay(N.dg_chua, { n: chua }); cls = "is-cho"; }
+    else if (ro.length) { chu = thay(N.dg_chua_ro, { ds: ro.join(", ") }); cls = "is-cho"; }
+    else { chu = N.dg_thu + (khong.length ? " " + thay(N.dg_thu_luu_y, { ds: khong.join(", ") }) : ""); cls = "is-xong"; }
+    ket.className = "yt-ket " + cls; ket.textContent = chu;
+  }
+  $("dg-phieu").addEventListener("change", veDG);
+  veDG();
+})();
