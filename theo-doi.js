@@ -178,6 +178,8 @@
   // Lỗi JavaScript: tối đa 3 lỗi mỗi lần mở trang, cắt ngắn nội dung
   var so_loi = 0;
   window.addEventListener("error", function (e) {
+    // "ResizeObserver loop..." là cảnh báo vô hại của trình duyệt, không phải lỗi trang
+    if (/ResizeObserver loop/.test(String(e.message || ""))) return;
     if (so_loi++ >= 3) return;
     var file = String(e.filename || "").split("/").pop().split("?")[0];
     // ghi kèm trang và file ngay trong nhãn "loi" (bảng số liệu tuần chỉ chia theo nhãn này)
