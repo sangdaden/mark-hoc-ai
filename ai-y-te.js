@@ -22,11 +22,30 @@
   function thay(s, d) { return s.replace(/\{(\w+)\}/g, function (_, k) { return d[k]; }); }
   function do_(ten, d) { if (window.mhaiDo) window.mhaiDo(ten, d || {}); }
   function escHtml(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function bit(id, chu, loai) {
+    var e = $(id);
+    if (!e) return;
+    if (!chu) { e.hidden = true; e.textContent = ""; return; }
+    e.className = "yt-bit" + (loai ? " is-" + loai : "");
+    var anh = loai === "sai" ? "bit-sai-roi" : loai === "dung" ? "bit-vui" : "bit-giai-thich";
+    e.innerHTML = '<img src="' + D.p + "assets/" + anh + '.svg" alt="" width="44" height="44"><div></div>';
+    var o = e.lastChild;
+    (Array.isArray(chu) ? chu : [chu]).forEach(function (x) {
+      if (x && x.nodeType) o.appendChild(x); else o.appendChild(el("p", null, x));
+    });
+    e.hidden = false;
+  }
   function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 
   function chep(chu, tb) {
     function xong(ok) {
       if (!tb) return;
+      if (tb.tagName === "BUTTON") {
+        if (!tb._goc) tb._goc = tb.innerHTML;
+        tb.textContent = ok ? N.da_chep : N.khong_chep;
+        clearTimeout(tb._h); tb._h = setTimeout(function () { tb.innerHTML = tb._goc; }, 2000);
+        return;
+      }
       tb.textContent = ok ? N.da_chep : N.khong_chep;
       clearTimeout(tb._h); tb._h = setTimeout(function () { tb.textContent = ""; }, 2500);
     }
@@ -128,7 +147,7 @@
     return giu;
   }
 
-  var cheVao = $("che-vao"), cheRa = $("che-ra"), cheDs = $("che-ds"), cheTb = $("che-tb"), cheThem = [];
+  var cheVao = $("che-vao"), cheRa = $("che-ra"), cheDs = $("che-ds"), cheThem = [];
   S.ds = [];
   function nhanChe(ds) {
     var dem = {}, nho = {};
@@ -159,15 +178,15 @@
       if (x.goi_y) lb.appendChild(el("small", null, N.goi_y_ten));
       li.appendChild(lb); cheDs.appendChild(li);
     });
-    $("che-ds-h").hidden = !S.ds.length;
     var n = S.ds.filter(function (x) { return x.chon; }).length;
-    $("che-chep").disabled = !text.trim();
-    cheTb.textContent = text.trim() ? (n ? thay(N.che_xong, { n: n }) : N.che_khong) : "";
+    $("che-chep").hidden = !text.trim();
+    $("che-them-hang").hidden = !text.trim();
+    bit("che-bit", text.trim() ? (n ? thay(N.che_xong, { n: n }) : N.che_khong) : "", n ? "dung" : "");
     S.ra = cheRa.value;
   }
   function chayChe() {
     var text = cheVao.value;
-    if (!text.trim()) { cheTb.textContent = N.che_trong; return; }
+    if (!text.trim()) { bit("che-bit", N.che_trong, "sai"); return; }
     var ds = timChe(text);
     cheThem.forEach(function (w) {
       var re = new RegExp("(?<![" + L + "\\d])" + escRe(w) + "(?![" + L + "\\d])", "giu"), k;
@@ -194,20 +213,17 @@
     $("che-them-o").value = ""; chayChe();
   });
   $("che-them-o").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); $("che-them").click(); } });
-  $("che-chep").addEventListener("click", function () { chep(cheRa.value, cheTb); });
+  $("che-chep").hidden = true;
+  $("che-chep").addEventListener("click", function () { chep(cheRa.value, $("che-chep")); });
 
   // ================= 2. Khung câu lệnh =================
   var O5 = ["vai_tro", "boi_canh", "viec", "dinh_dang", "gioi_han"], lenhChon = $("lenh-chon"), lenhRa = $("lenh-ra");
-  D.mau_lenh.forEach(function (m, i) {
-    var b = el("button", "chip", m.ten);
-    b.type = "button"; b.dataset.i = i; b.setAttribute("aria-pressed", "false");
-    lenhChon.appendChild(b);
-  });
+  var lenhVideo = "";
   function chonMau(i) {
     var m = D.mau_lenh[i];
     [].slice.call(lenhChon.children).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.i === i)); });
     O5.forEach(function (k) { $("lenh-" + k).value = m[k]; });
-    $("lenh-luu-y").textContent = thay(N.lenh_video, { v: m.video });
+    lenhVideo = m.video;
     veLenh();
   }
   function veLenh() {
@@ -220,24 +236,23 @@
     var daChe = $("lenh-da-che").checked;
     $("lenh-chep").disabled = !daChe;
     var mo = /\[[^\]]+\]/.test($("lenh-boi_canh").value);
-    $("lenh-tb").textContent = !daChe ? N.lenh_che : (mo ? N.lenh_mo : "");
+    bit("lenh-bit", !daChe ? N.lenh_che : (mo ? N.lenh_mo : thay(N.lenh_ok, { v: lenhVideo })), daChe && !mo ? "dung" : "");
     S.lenh = lenhRa.textContent;
   }
   lenhChon.addEventListener("click", function (e) { var b = e.target.closest("[data-i]"); if (b) chonMau(+b.dataset.i); });
   O5.forEach(function (k) { $("lenh-" + k).addEventListener("input", veLenh); });
   $("lenh-da-che").addEventListener("change", veLenh);
-  $("lenh-chep").addEventListener("click", function () { chep(lenhRa.textContent, $("lenh-tb")); do_("ai-y-te-lenh"); });
+  $("lenh-chep").addEventListener("click", function () { chep(lenhRa.textContent, $("lenh-chep")); do_("ai-y-te-lenh"); });
   chonMau(0);
 
   // ================= 3. Soát 5 bước =================
   var soatO = [].slice.call(goc.querySelectorAll("[data-buoc]"));
   function veSoat() {
-    var con = soatO.filter(function (o) { return !o.checked; }).length, ket = $("soat-ket"), ten = $("soat-ten").value.trim();
-    ket.className = "yt-ket " + (con ? "is-cho" : "is-xong");
-    ket.textContent = con ? thay(N.soat_con, { n: con }) : N.soat_xong + (ten ? " " + thay(N.soat_duyet, { ten: ten }) : "");
+    var con = soatO.filter(function (o) { return !o.checked; }).length;
+    $("soat-thanh").style.width = ((5 - con) * 20) + "%";
+    bit("soat-bit", con ? thay(N.soat_con, { n: con }) : N.soat_xong, con ? "" : "dung");
   }
   soatO.forEach(function (o) { o.addEventListener("change", veSoat); });
-  $("soat-ten").addEventListener("input", veSoat);
   $("soat-lai").addEventListener("click", function () { soatO.forEach(function (o) { o.checked = false; }); veSoat(); });
   veSoat();
 
@@ -248,7 +263,8 @@
   function demChu(s) { return (s.match(/[\p{L}\p{N}]+(?:[\-'’][\p{L}\p{N}]+)*/gu) || []).length; }
   function chayDH() {
     var text = $("dh-vao").value.trim(), ket = $("dh-ket");
-    if (!text) { ket.hidden = true; $("dh-tb-chep").textContent = N.dh_trong; return; }
+    if (!text) { ket.hidden = true; bit("dh-bit-trong", N.dh_trong, "sai"); return; }
+    bit("dh-bit-trong", "");
     var nguong = +dhDai.value;
     var cau = text.split(/(?<=[.!?…;])\s+|\n+/).map(function (c) { return c.trim(); }).filter(Boolean);
     var gap = {}, soDai = 0, tongChu = 0, html = "";
@@ -277,23 +293,22 @@
     var dsTn = Object.keys(gap);
     var so = [[cau.length, N.dh_cau], [soDai, N.dh_dai], [dsTn.length, N.dh_tn], [cau.length ? Math.round(tongChu / cau.length) : 0, N.dh_tb]];
     $("dh-so").innerHTML = so.map(function (x, i) { return '<div class="yt-so-o' + ((i === 1 || i === 2) && x[0] ? " is-cam" : "") + '"><b>' + x[0] + "</b><span>" + escHtml(x[1]) + "</span></div>"; }).join("");
-    var ul = $("dh-tn"); ul.textContent = "";
-    if (!dsTn.length) ul.appendChild(el("li", "yt-mo", N.dh_khong_tn));
-    dsTn.forEach(function (k) { var li = el("li"); li.appendChild(el("b", null, k)); li.appendChild(document.createTextNode(" → " + gap[k])); ul.appendChild(li); });
     var hoi = [];
     D.teach_back.forEach(function (x) { if (hoi.length < 3 && new RegExp(x[0], "iu").test(text)) hoi.push(x[1]); });
     N.dh_tb_chung.forEach(function (h) { if (hoi.length < 3 && hoi.indexOf(h) < 0) hoi.push(h); });
-    var ol = $("dh-tb"); ol.textContent = "";
+    var ol = el("ol");
     hoi.forEach(function (h) { ol.appendChild(el("li", null, h)); });
+    bit("dh-bit", [soDai || dsTn.length ? N.dh_bit : N.dh_bit_tot, ol], soDai || dsTn.length ? "" : "dung");
     $("dh-lenh").textContent = thay(N.dh_lenh, { n: nguong, tn: dsTn.length ? dsTn.join(", ") : N.dh_khong_co });
-    $("dh-tb-chep").textContent = "";
     ket.hidden = false;
     S.dh = { cau: cau.length, dai: soDai, tn: dsTn, hoi: hoi };
   }
   dhDai.addEventListener("input", function () { $("dh-dai-so").textContent = dhDai.value; if (!$("dh-ket").hidden) chayDH(); });
   $("dh-chay").addEventListener("click", function () { chayDH(); do_("ai-y-te-de-hieu"); });
   $("dh-mau").addEventListener("click", function () { $("dh-vao").value = N.mau_dh; chayDH(); });
-  $("dh-chep").addEventListener("click", function () { chep($("dh-lenh").textContent, $("dh-tb-chep")); });
+  $("dh-chep").addEventListener("click", function () { chep($("dh-lenh").textContent, $("dh-chep")); });
+  $("dh-xem").addEventListener("click", function (e) { var m = e.target.closest("mark.yt-tn"); if (m) m.classList.toggle("is-mo"); });
+  $("dh-xem").addEventListener("keydown", function (e) { var m = e.target.closest("mark.yt-tn"); if (m && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); m.classList.toggle("is-mo"); } });
 
   // ================= 5. Quy tắc cho khoa =================
   var qtO = ["qt-khoa", "qt-cong-cu", "qt-duyet", "qt-su-co", "qt-ngay", "qt-ra-soat"];
@@ -319,13 +334,24 @@
   veQT();
 
   // ================= 6. Bản đồ công cụ =================
-  var loc = [].slice.call(goc.querySelectorAll("[data-loc]"));
-  loc.forEach(function (b) {
-    b.addEventListener("click", function () {
-      loc.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      [].slice.call(goc.querySelectorAll(".yt-the")).forEach(function (c) { c.hidden = !!b.dataset.loc && c.dataset.loai !== b.dataset.loc; });
+  var bdNut = [].slice.call(goc.querySelectorAll("[data-bd]"));
+  function moBD(k) {
+    var x = D.ban_do[k], the = $("bd-the");
+    bdNut.forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.bd === k)); });
+    the.textContent = "";
+    var dau = el("div", "yt-bd-dau");
+    dau.appendChild(el("span", "yt-bd-bt", x.bieu_tuong));
+    var h = el("div"); h.appendChild(el("h3", null, x.ten)); h.appendChild(el("p", "bn-nhan", "Video " + x.video)); dau.appendChild(h);
+    the.appendChild(dau);
+    var dl = el("dl");
+    ["lam_gi", "vi_du", "kiem", "nguoi"].forEach(function (f) {
+      var o = el("div", "yt-bd-o is-" + f); o.appendChild(el("dt", null, N.bd_nhan[f])); o.appendChild(el("dd", null, x[f])); dl.appendChild(o);
     });
-  });
+    the.appendChild(dl);
+    the.hidden = false;
+  }
+  bdNut.forEach(function (b) { b.addEventListener("click", function () { moBD(+b.dataset.bd); }); });
+  moBD(0);
 
   // ================= 7. Phiếu đánh giá =================
   function veDG() {
@@ -334,14 +360,16 @@
       var o = goc.querySelector('input[name="dg-' + x.id + '"]:checked');
       if (!o) { chua++; return; }
       if (o.value === "khong") (x.chan ? chan : khong).push(i + 1);
-      if (o.value === "chua") ro.push(i + 1);
+      if (o.value === "chua") ro.push(i);
     });
-    var ket = $("dg-ket"), chu, cls;
-    if (chan.length) { chu = thay(N.dg_chan, { ds: chan.join(", ") }); cls = "is-do"; }
-    else if (chua) { chu = thay(N.dg_chua, { n: chua }); cls = "is-cho"; }
-    else if (ro.length) { chu = thay(N.dg_chua_ro, { ds: ro.join(", ") }); cls = "is-cho"; }
-    else { chu = N.dg_thu + (khong.length ? " " + thay(N.dg_thu_luu_y, { ds: khong.join(", ") }) : ""); cls = "is-xong"; }
-    ket.className = "yt-ket " + cls; ket.textContent = chu;
+    if (chan.length) return bit("dg-bit", thay(N.dg_chan, { ds: chan.join(", ") }), "sai");
+    if (ro.length) {
+      var ul = el("ul");
+      ro.forEach(function (i) { var li = el("li"); li.appendChild(el("b", null, D.danh_gia[i].ngan + ": ")); li.appendChild(document.createTextNode(D.danh_gia[i].goi_y)); ul.appendChild(li); });
+      return bit("dg-bit", [N.dg_chua_ro, ul]);
+    }
+    if (chua) return bit("dg-bit", thay(N.dg_chua, { n: chua }));
+    bit("dg-bit", N.dg_thu + (khong.length ? " " + thay(N.dg_thu_luu_y, { ds: khong.join(", ") }) : ""), "dung");
   }
   $("dg-phieu").addEventListener("change", veDG);
   veDG();
