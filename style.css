@@ -970,6 +970,11 @@ h3 .ltn-tag { margin-right: 10px; vertical-align: 3px; }
 .ltn-bong h2 { margin: 0 0 6px; font: 800 clamp(22px, 2.8vw, 28px)/1.2 var(--f-display); text-wrap: balance; }
 .ltn-bong p { margin: 0; }
 .ltn-bong .ltn-ghi-chu { margin-top: 10px; font-size: 15px; color: var(--muted); }
+.ltn-trang { display: flex; gap: 12px; align-items: center; margin-top: 12px; padding: 12px 14px; border-radius: 16px; background: color-mix(in srgb, #8B5CF6 10%, var(--panel)); border: 1.5px solid color-mix(in srgb, #8B5CF6 45%, var(--edge)); color: var(--ink); text-decoration: none; transition: transform .15s, border-color .15s; }
+.ltn-trang:hover { transform: translateY(-1px); border-color: #8B5CF6; }
+.ltn-trang img { flex: none; width: 52px; height: auto; }
+.ltn-trang b { display: block; font: 700 16px/1.3 var(--f-display); color: #7C3AED; }
+.ltn-trang > span > span { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); line-height: 1.45; }
 .ltn-tien { margin-top: 22px; }
 .ltn-tien b { font: 600 15px/1.3 var(--f-body); }
 .ltn-tien .bar { margin: 10px 0 6px; }
