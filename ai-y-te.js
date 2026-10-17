@@ -235,7 +235,8 @@
     });
   }
   function chonMau(i) {
-    lenhMau = D.mau_lenh[i]; lenhVideo = lenhMau.video; S.lenhChon = {};
+    lenhMau = D.mau_lenh[i]; lenhVideo = lenhMau.video; S.lenhChon = {}; S.daGui = false;
+    $("lenh-tl").hidden = true; $("lenh-cho").hidden = false; $("lenh-ben").classList.remove("is-cu");
     [].slice.call(lenhChon.children).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.i === i)); });
     var khay = $("lenh-khay"); khay.textContent = "";
     manhCua(lenhMau).forEach(function (x) {
@@ -246,6 +247,7 @@
         S.lenhChon[x.id] = !S.lenhChon[x.id];
         b.setAttribute("aria-pressed", String(!!S.lenhChon[x.id]));
         veLenh(S.lenhChon[x.id] ? x : null);
+        if (S.daGui) $("lenh-ben").classList.add("is-cu");
       });
       khay.appendChild(b);
     });
@@ -275,20 +277,85 @@
     else bit("lenh-bit", can ? thay(N.lenh_dem, { n: can }) : N.lenh_bat_dau);
     S.lenh = co.length ? co.filter(function (x) { return !x.bay || !x.bay.muc; }).map(function (x) { return x.chu; }).join("\n") : lenhMau.goc;
   }
+  // chữ trả lời: dòng "| " là hàng bảng, "- " là gạch đầu dòng, **chữ** in đậm (giống ghep-cau-lenh.js)
+  function dam(cha, chu) {
+    chu.split("**").forEach(function (phan, i) { cha.appendChild(i % 2 ? el("strong", null, phan) : document.createTextNode(phan)); });
+  }
+  function veChu(cha, chu) {
+    var dong = chu.split("\n"), ul = null, bang = null;
+    dong.forEach(function (d) {
+      if (d.indexOf("| ") === 0) {
+        if (!bang) { var bao = el("div", "gh-bang-bao"); bang = el("table", "gh-bang"); bao.appendChild(bang); cha.appendChild(bao); }
+        var tr = el("tr"), o = d.slice(2).split(" | ");
+        o.forEach(function (x) { var c = el(bang.rows.length ? "td" : "th"); dam(c, x.trim()); tr.appendChild(c); });
+        bang.appendChild(tr); ul = null; return;
+      }
+      bang = null;
+      if (d.indexOf("- ") === 0) { if (!ul) { ul = el("ul"); cha.appendChild(ul); } var li = el("li"); dam(li, d.slice(2)); ul.appendChild(li); return; }
+      ul = null; var p_ = el("p"); dam(p_, d); cha.appendChild(p_);
+    });
+  }
+  function guiAI() {
+    var co = lenhDangChon(), can = co.filter(function (x) { return !x.bay; }).map(function (x) { return x.loai; });
+    var muc = can.length === 5 ? "tot" : (can.indexOf("viec") >= 0 && can.indexOf("boi_canh") >= 0 ? "kha" : "tho");
+    var coBay = function (id) { return co.some(function (x) { return x.id === "bay:" + id; }); };
+    var tl = $("lenh-tl"); tl.textContent = ""; tl.className = "gh-tl gh-muc-" + muc;
+    var dau = el("div", "gh-tl-dau"); dau.appendChild(el("span", "gh-tl-ai", N.ai)); dau.appendChild(el("span", "gh-tl-muc", N.muc[muc])); tl.appendChild(dau);
+    if (coBay("lo")) tl.appendChild(el("p", "gh-canh-bao", N.canh_lo));
+    var than = el("div", "gh-tl-than");
+    veChu(than, lenhMau.tra_loi[muc] + (coBay("nguy") ? "\n" + N.nguy_them : ""));
+    tl.appendChild(than);
+    if (coBay("nguy")) tl.appendChild(el("p", "gh-canh-bao", N.canh_nguy));
+    tl.hidden = false; $("lenh-cho").hidden = true; $("lenh-ben").classList.remove("is-cu");
+    var bay = coBay("lo") || coBay("nguy");
+    bit("lenh-bit", bay ? N.lenh_khoa : N["gui_" + muc], bay ? "sai" : (muc === "tot" ? "dung" : ""));
+    S.daGui = true; S.muc = muc;
+    try { tl.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" }); } catch (e) {}
+    do_("ai-y-te-gui", { muc: muc });
+  }
+  $("lenh-gui").addEventListener("click", guiAI);
   lenhChon.addEventListener("click", function (e) { var b = e.target.closest("[data-i]"); if (b) chonMau(+b.dataset.i); });
   $("lenh-lai").addEventListener("click", function () { chonMau(D.mau_lenh.indexOf(lenhMau)); });
   $("lenh-chep").addEventListener("click", function () { chep(S.lenh, $("lenh-chep")); do_("ai-y-te-lenh"); });
   chonMau(0);
 
-  // ================= 3. Soát 5 bước =================
-  var soatO = [].slice.call(goc.querySelectorAll("[data-buoc]"));
+  // ================= 3. Soát 5 bước: tìm 5 lỗi cài sẵn trong bản nháp AI, mỗi lỗi tick một thẻ =================
+  var soatO = [].slice.call(goc.querySelectorAll("[data-buoc]")), nhap = $("soat-nhap"), daTim = {};
+  D.ban_nhap.forEach(function (x, k) {
+    var c = el("button", "yt-cau", x.chu); c.type = "button"; c.dataset.k = k;
+    nhap.appendChild(c); nhap.appendChild(document.createTextNode(" "));
+  });
+  function soLoi() { return Object.keys(daTim).length; }
   function veSoat() {
-    var con = soatO.filter(function (o) { return !o.checked; }).length;
-    $("soat-thanh").style.width = ((5 - con) * 20) + "%";
-    bit("soat-bit", con ? thay(N.soat_con, { n: con }) : N.soat_xong, con ? "" : "dung");
+    var xong = soatO.filter(function (o) { return o.checked; }).length;
+    $("soat-thanh").style.width = (xong * 20) + "%";
+    $("soat-dem").textContent = soLoi() + "/5";
+    return xong;
   }
-  soatO.forEach(function (o) { o.addEventListener("change", veSoat); });
-  $("soat-lai").addEventListener("click", function () { soatO.forEach(function (o) { o.checked = false; }); veSoat(); });
+  function timLoi(c, hien) {
+    var x = D.ban_nhap[c.dataset.k];
+    if (!x.loi) { c.classList.add("is-ok"); bit("soat-bit", x.bit + " " + thay(N.soat_tim, { n: soLoi() })); return; }
+    c.classList.add("is-loi"); c.setAttribute("aria-pressed", "true");
+    daTim[x.loi] = true;
+    soatO.forEach(function (o) { if (o.dataset.buoc === x.loi) o.checked = true; });
+    veSoat();
+    if (hien) return;
+    bit("soat-bit", soLoi() === 5 ? N.soat_het : x.bit + " " + thay(N.soat_tim, { n: soLoi() }), soLoi() === 5 ? "dung" : "");
+  }
+  nhap.addEventListener("click", function (e) { var c = e.target.closest(".yt-cau"); if (c) timLoi(c); });
+  soatO.forEach(function (o) {
+    o.addEventListener("change", function () { if (veSoat() === 5 && soLoi() < 5) bit("soat-bit", N.soat_xong, "dung"); });
+  });
+  $("soat-dap").addEventListener("click", function () {
+    [].slice.call(nhap.querySelectorAll(".yt-cau")).forEach(function (c) { if (D.ban_nhap[c.dataset.k].loi) timLoi(c, true); });
+    bit("soat-bit", N.soat_het, "dung");
+  });
+  $("soat-lai").addEventListener("click", function () {
+    daTim = {};
+    [].slice.call(nhap.querySelectorAll(".yt-cau")).forEach(function (c) { c.classList.remove("is-loi", "is-ok"); c.removeAttribute("aria-pressed"); });
+    soatO.forEach(function (o) { o.checked = false; });
+    veSoat(); bit("soat-bit", "");
+  });
   veSoat();
 
   // ================= 4. Viết cho người bệnh dễ hiểu =================

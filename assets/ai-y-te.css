@@ -142,3 +142,24 @@ mark.yt-tn.is-mo::after { content: " → " attr(data-thay); font-weight: 600; co
   html.yt-dang-in .yt-in-day .btn, html.yt-dang-in .yt-in-day .yt-bit img { display: none !important; }
   html.yt-dang-in .yt-in-day .yt-hoi { break-inside: avoid; }
 }
+
+/* 2. lenh: khung hai cột của Thợ ghép (.gh-o), câu trả lời bên phải */
+.yt-gh { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.yt-gh .gh-ben { position: static; }
+.yt-gh .gh-cho { display: none; }
+.yt-gh .gh-khay { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.yt-hang-gh { margin-top: 14px; }
+.yt-gh .gh-ben .yt-bit { margin: 0; }
+
+/* 3. soat: bản nháp có 5 lỗi cài sẵn, chạm từng câu */
+.yt-nhap { padding: 16px 18px; border-radius: 16px; background: var(--bg); border: 1.5px dashed var(--edge); }
+.yt-nhap-tieu { display: flex; justify-content: space-between; gap: 10px; margin: 0 0 10px; font: 600 12.5px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.yt-nhap-dem { color: #8B5CF6; }
+.yt-nhap-than { line-height: 2; font-size: 16.5px; }
+.yt-cau { display: inline; padding: 2px 4px; margin: 0 -2px; border: 0; border-radius: 6px; background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: background .15s; }
+.yt-cau:hover { background: color-mix(in srgb, #8B5CF6 12%, transparent); }
+.yt-cau:focus-visible { outline: 3px solid #8B5CF6; outline-offset: 1px; }
+.yt-cau.is-loi { background: color-mix(in srgb, var(--yt-do) 16%, transparent); box-shadow: inset 0 -2px 0 var(--yt-do); }
+.yt-cau.is-ok { background: color-mix(in srgb, var(--yt-xanh) 12%, transparent); }
+
