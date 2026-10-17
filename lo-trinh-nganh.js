@@ -254,6 +254,13 @@
       document.dispatchEvent(new CustomEvent("mhai:lo-trinh", { detail: { so: tatCa } }));
     }
 
+    // Ngành hoặc nghề ngách có trang thực hành riêng (khóa "trang" trong data/lo-trinh-nganh.json): thẻ dẫn vào dưới lời chào
+    function theTrang(n) {
+      if (!n || !n.trang) return "";
+      const lg = EN ? "en" : "vi";
+      return '<a class="ltn-trang" href="' + n.trang.url + '"><img src="' + goc + 'assets/bit-giai-thich.svg" alt="" width="52" height="52"><span><b>' + esc(n.trang.ten[lg]) + ' ›</b><span>' + esc(n.trang.moi[lg]) + "</span></span></a>";
+    }
+
     function hien(c, cuon) {
       // đếm tương tác (xem theo-doi.js): chỉ gửi mã ngành có sẵn, nghề người xem tự gõ thì không gửi chữ
       if (window.mhaiDo && c && (c.ai || c.nghe)) window.mhaiDo("chon-nganh", { nganh: c.ai && D.nganh[c.ai] ? c.ai : "tu-go" });
@@ -261,7 +268,7 @@
       if (c && c.ai && D.nganh[c.ai]) {
         const n = D.nganh[c.ai];
         document.title = S.tieuDe(n.ngan);
-        veLoTrinh(n.ten, n.chao, "", n.buoc, n.nhanh);
+        veLoTrinh(n.ten, n.chao, theTrang(n), n.buoc, n.nhanh);
       } else if (c && c.nghe) {
         const t = timNghe(D, c.nghe);
         const sat = [...new Set(t.ngach.flatMap(n => n.so))];
@@ -289,10 +296,7 @@
           ghi = '<p class="ltn-ghi-chu">' + S.muon2 + mail + "</p>";
         }
         // Nghề ngách có trang thực hành riêng (vd. y tế: ai-y-te.html): thêm thẻ dẫn vào ngay dưới lời chào
-        const lg = EN ? "en" : "vi";
-        t.ngach.filter(n => n.trang).slice(0, 1).forEach(n => {
-          ghi += '<a class="ltn-trang" href="' + n.trang.url + '"><img src="' + goc + 'assets/bit-giai-thich.svg" alt="" width="52" height="52"><span><b>' + esc(n.trang.ten[lg]) + ' ›</b><span>' + esc(n.trang.moi[lg]) + "</span></span></a>";
-        });
+        t.ngach.filter(n => n.trang).slice(0, 1).forEach(n => { ghi += theTrang(n); });
         document.title = S.tieuDeNghe(c.nghe);
         veLoTrinh(S.ngheCuaBan(c.nghe), chao, ghi, buoc);
       } else {

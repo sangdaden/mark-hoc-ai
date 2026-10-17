@@ -1,0 +1,1163 @@
+{
+ "trang": "ai-hoc-sinh",
+ "eyebrow": {
+  "vi": "Thực hành · 7 trạm · chạy trên trình duyệt",
+  "en": "Hands-on · 7 stations · runs in your browser"
+ },
+ "h1": {
+  "vi": "AI cho học sinh cấp 3",
+  "en": "AI for high school students"
+ },
+ "lead": {
+  "vi": "Dùng AI để học giỏi hơn, không phải để làm hộ. Mỗi trạm một trò chơi ngắn.",
+  "en": "Use AI to learn better, not to do your homework. Each station is a quick game."
+ },
+ "hinh": "mark-a-ra-the.svg",
+ "bn_cau": {
+  "vi": "Một năm lớp 12, từ bài tập về nhà tới mùa thi",
+  "en": "One senior year, from homework to exam season"
+ },
+ "tieu": {
+  "vi": "AI cho học sinh cấp 3: 7 trò chơi thực hành",
+  "en": "AI for high school students: 7 hands-on games"
+ },
+ "desc": {
+  "vi": "Bảy trò chơi miễn phí cho học sinh cấp 3: học cùng AI hay nhờ làm hộ, AI nói thật hay bịa, ghép câu lệnh học tập, gia sư AI gợi ý từng bước, soi tin giả mùa thi, lập kế hoạch ôn thi và những điều không nên kể với chatbot.",
+  "en": "Seven free games for high school students: learning with AI vs. having it do the work, spotting AI mistakes, building study prompts, a step-by-step AI tutor, spotting fake exam news, planning revision and what never to tell a chatbot."
+ },
+ "ghi": {
+  "vi": "Mọi câu trả lời của AI trong trang đều viết sẵn để minh họa, không gọi AI thật. Tên người, tên nhóm là hư cấu. Không có gì được gửi đi.",
+  "en": "All AI answers here are pre-written examples; no real AI is called. Names and groups are fictional. Nothing is sent anywhere."
+ },
+ "tram": [
+  {
+   "id": "lam-ho",
+   "loai": "phan-loai",
+   "ten": {
+    "vi": "Học cùng hay làm hộ?",
+    "en": "Learn with or cheat?"
+   },
+   "nho": {
+    "vi": "Xếp vào rổ",
+    "en": "Sort it"
+   },
+   "h2": {
+    "vi": "Học cùng AI hay nhờ AI làm hộ?",
+    "en": "Learning with AI, or AI doing it?"
+   },
+   "mo": {
+    "vi": "Chạm thẻ → chạm rổ",
+    "en": "Tap a card → tap a basket"
+   },
+   "ro": [
+    {
+     "id": "hoc",
+     "ten": {
+      "vi": "Học cùng AI",
+      "en": "Learning with AI"
+     },
+     "bieu_tuong": "📚",
+     "mau": "#10B981"
+    },
+    {
+     "id": "ho",
+     "ten": {
+      "vi": "Nhờ làm hộ",
+      "en": "AI does it"
+     },
+     "bieu_tuong": "🚫",
+     "mau": "#DC2626"
+    }
+   ],
+   "the": [
+    {
+     "bt": "💡",
+     "chu": {
+      "vi": "Nhờ giải thích định luật Ôm",
+      "en": "Explain Ohm's law to me"
+     },
+     "dung": "hoc",
+     "giai": {
+      "vi": "Bạn vẫn tự hiểu bài.",
+      "en": "You still do the understanding."
+     }
+    },
+    {
+     "bt": "📸",
+     "chu": {
+      "vi": "Chụp đề kiểm tra, chép lời giải",
+      "en": "Snap the quiz, copy the answers"
+     },
+     "dung": "ho",
+     "giai": {
+      "vi": "Gian lận, lần sau vẫn không biết làm.",
+      "en": "Cheating, and you still can't do it."
+     }
+    },
+    {
+     "bt": "📝",
+     "chu": {
+      "vi": "Nhờ ra 10 câu hỏi tự ôn Sử",
+      "en": "Make me 10 History quiz questions"
+     },
+     "dung": "hoc",
+     "giai": {
+      "vi": "Tự kiểm tra giúp nhớ lâu.",
+      "en": "Self-testing helps you remember."
+     }
+    },
+    {
+     "bt": "📄",
+     "chu": {
+      "vi": "Nhờ viết cả bài văn để nộp",
+      "en": "Write my whole essay to hand in"
+     },
+     "dung": "ho",
+     "giai": {
+      "vi": "Bài không còn là của bạn.",
+      "en": "It's no longer your work."
+     }
+    },
+    {
+     "bt": "🔍",
+     "chu": {
+      "vi": "Viết xong, nhờ chỉ chỗ yếu",
+      "en": "Point out weak spots in my essay"
+     },
+     "dung": "hoc",
+     "giai": {
+      "vi": "Bạn viết, AI góp ý, bạn tự sửa.",
+      "en": "You write, AI comments, you revise."
+     }
+    },
+    {
+     "bt": "🧩",
+     "chu": {
+      "vi": "Xin gợi ý bước đầu bài Toán",
+      "en": "Give me a first hint on a maths problem"
+     },
+     "dung": "hoc",
+     "giai": {
+      "vi": "Qua chỗ bí mà vẫn tự giải.",
+      "en": "Unstuck, but still solving it yourself."
+     }
+    },
+    {
+     "bt": "👥",
+     "chu": {
+      "vi": "Nhờ làm cả bài tập nhóm",
+      "en": "Do our whole group project"
+     },
+     "dung": "ho",
+     "giai": {
+      "vi": "Cả nhóm không ai học được gì.",
+      "en": "Nobody in the group learns anything."
+     }
+    },
+    {
+     "bt": "🌐",
+     "chu": {
+      "vi": "Nhờ dịch cả bài đọc tiếng Anh",
+      "en": "Translate the whole English reading"
+     },
+     "dung": "ho",
+     "giai": {
+      "vi": "Hỏi vài từ thì được, dịch hết là bỏ luyện đọc.",
+      "en": "A few words is fine; all of it skips the practice."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Mẹo: đóng AI lại, bạn tự làm lại được không? Không được là làm hộ.",
+    "en": "Tip: close the AI. Can you redo it alone? If not, AI did it."
+   }
+  },
+  {
+   "id": "that-bia",
+   "loai": "bo-phieu",
+   "ten": {
+    "vi": "Thật hay bịa?",
+    "en": "True or made up?"
+   },
+   "nho": {
+    "vi": "Bỏ phiếu",
+    "en": "Vote"
+   },
+   "h2": {
+    "vi": "AI nói thật hay bịa?",
+    "en": "Is the AI right or making it up?"
+   },
+   "lua_chon": [
+    {
+     "id": "that",
+     "ten": {
+      "vi": "Thật",
+      "en": "True"
+     },
+     "bieu_tuong": "✅"
+    },
+    {
+     "id": "bia",
+     "ten": {
+      "vi": "Bịa",
+      "en": "Made up"
+     },
+     "bieu_tuong": "🤥"
+    }
+   ],
+   "cau": [
+    {
+     "bt": "📐",
+     "chu": {
+      "vi": "Δ = b² − 4ac ≥ 0 thì phương trình bậc hai có nghiệm thực.",
+      "en": "If Δ = b² − 4ac ≥ 0, a quadratic has real roots."
+     },
+     "dap": "that",
+     "giai": {
+      "vi": "Đúng như sách giáo khoa.",
+      "en": "Right, straight from the textbook."
+     }
+    },
+    {
+     "bt": "🏔️",
+     "chu": {
+      "vi": "Nước luôn sôi ở 100°C, kể cả trên núi cao.",
+      "en": "Water always boils at 100°C, even on a high mountain."
+     },
+     "dap": "bia",
+     "giai": {
+      "vi": "Lên cao áp suất thấp, nước sôi dưới 100°C.",
+      "en": "Higher up, lower pressure: it boils below 100°C."
+     }
+    },
+    {
+     "bt": "📖",
+     "chu": {
+      "vi": "Truyện Kiều có 3.254 câu thơ lục bát.",
+      "en": "The Tale of Kiều has 3,254 lines of verse."
+     },
+     "dap": "that",
+     "giai": {
+      "vi": "Đúng con số trong sách giáo khoa.",
+      "en": "Right, the textbook figure."
+     }
+    },
+    {
+     "bt": "🎓",
+     "chu": {
+      "vi": "Harvard (2021): nghe nhạc khi ôn bài tăng 47% điểm thi.",
+      "en": "Harvard (2021): music while revising raises scores 47%."
+     },
+     "dap": "bia",
+     "giai": {
+      "vi": "Không có nghiên cứu này. Trường nổi tiếng + số cụ thể = hay bịa.",
+      "en": "No such study. Famous name + exact number = classic fake."
+     }
+    },
+    {
+     "bt": "🌊",
+     "chu": {
+      "vi": "Vịnh Hạ Long thành Di sản thiên nhiên thế giới năm 1994.",
+      "en": "Hạ Long Bay became a World Natural Heritage site in 1994."
+     },
+     "dap": "that",
+     "giai": {
+      "vi": "Đúng, và lần hai năm 2000.",
+      "en": "Right, and again in 2000."
+     }
+    },
+    {
+     "bt": "💬",
+     "chu": {
+      "vi": "“Học, học nữa, học mãi” là câu của Nguyễn Trãi.",
+      "en": "“Study, study more, study forever” is Nguyễn Trãi's line."
+     },
+     "dap": "bia",
+     "giai": {
+      "vi": "Câu này thường ghi là của Lênin. AI hay gán nhầm trích dẫn.",
+      "en": "Usually credited to Lenin. AI often misattributes quotes."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "AI sai vẫn rất tự tin. Số, tên, trích dẫn: kiểm lại với sách.",
+    "en": "AI sounds sure even when wrong. Check numbers, names and quotes."
+   }
+  },
+  {
+   "id": "ghep",
+   "loai": "ghep",
+   "ten": {
+    "vi": "Ghép câu lệnh học tập",
+    "en": "Build a study prompt"
+   },
+   "nho": {
+    "vi": "Ghép mảnh",
+    "en": "Build it"
+   },
+   "h2": {
+    "vi": "Ghép câu lệnh để AI giúp học, không làm hộ",
+    "en": "Build a prompt so AI helps you learn"
+   },
+   "mo": {
+    "vi": "Chọn việc → chạm mảnh → Gửi cho AI. Né mảnh bẫy 🪤",
+    "en": "Pick a task → tap pieces → Send to AI. Avoid traps 🪤"
+   },
+   "loai_manh": {
+    "vai_tro": {
+     "ten": {
+      "vi": "Vai trò",
+      "en": "Role"
+     },
+     "mau": "#8B5CF6"
+    },
+    "boi_canh": {
+     "ten": {
+      "vi": "Bối cảnh",
+      "en": "Context"
+     },
+     "mau": "#0EA5E9"
+    },
+    "viec": {
+     "ten": {
+      "vi": "Nhiệm vụ",
+      "en": "Task"
+     },
+     "mau": "#F59E0B"
+    },
+    "dinh_dang": {
+     "ten": {
+      "vi": "Định dạng",
+      "en": "Format"
+     },
+     "mau": "#10B981"
+    },
+    "gioi_han": {
+     "ten": {
+      "vi": "Giới hạn",
+      "en": "Limits"
+     },
+     "mau": "#6366F1"
+    }
+   },
+   "khay": [
+    "boi_canh",
+    "bay:gian-lan",
+    "dinh_dang",
+    "vai_tro",
+    "bay:mo-ho",
+    "gioi_han",
+    "viec",
+    "bay:lo"
+   ],
+   "bay": [
+    {
+     "id": "gian-lan",
+     "loai": "viec",
+     "chu": {
+      "vi": "Giải hết, cho đáp án để chép.",
+      "en": "Solve it all, I just need answers to copy."
+     },
+     "bit": {
+      "vi": "Bẫy! Có đáp án mà không học được gì.",
+      "en": "Trap! Answers, but you learn nothing."
+     },
+     "muc": "sai",
+     "them": {
+      "vi": "**Đáp án:** (chỉ có kết quả, không giải thích)",
+      "en": "**Answers:** (results only, no explanation)"
+     },
+     "canh_sau": {
+      "vi": "⚠ Gặp bài tương tự là bí.",
+      "en": "⚠ A similar question will stump you."
+     }
+    },
+    {
+     "id": "lo",
+     "loai": "boi_canh",
+     "chu": {
+      "vi": "Em là Lan, lớp 12A1 trường X, nhà ở…",
+      "en": "I'm Lan, class 12A1 at X High, I live at…"
+     },
+     "bit": {
+      "vi": "Bẫy! Lộ tên, trường, địa chỉ nhà.",
+      "en": "Trap! Name, school and home address."
+     },
+     "muc": "sai",
+     "canh_truoc": {
+      "vi": "⚠ Bạn vừa gửi tên, trường, địa chỉ nhà cho AI.",
+      "en": "⚠ You just sent your name, school and address to the AI."
+     }
+    },
+    {
+     "id": "mo-ho",
+     "loai": "viec",
+     "chu": {
+      "vi": "Làm cho hay vào nhé.",
+      "en": "Make it really good."
+     },
+     "bit": {
+      "vi": "Mảnh này không thêm gì. Bỏ cũng được.",
+      "en": "This adds nothing. Drop it."
+     },
+     "muc": ""
+    }
+   ],
+   "viec": [
+    {
+     "ten": {
+      "vi": "Toán",
+      "en": "Maths"
+     },
+     "bieu_tuong": "📐",
+     "goc": {
+      "vi": "Giải bài này.",
+      "en": "Solve this."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là gia sư Toán lớp 12.",
+       "en": "You're a Year 12 maths tutor."
+      },
+      "boi_canh": {
+       "vi": "Bài x² − 5x + 6 = 0, mình bí bước tìm nghiệm.",
+       "en": "x² − 5x + 6 = 0, I'm stuck finding the roots."
+      },
+      "viec": {
+       "vi": "Gợi ý từng bước, chờ mình trả lời.",
+       "en": "Hint one step at a time, wait for me."
+      },
+      "dinh_dang": {
+       "vi": "Mỗi bước 2 câu + 1 câu hỏi.",
+       "en": "2 sentences + 1 question per step."
+      },
+      "gioi_han": {
+       "vi": "Không đưa đáp án cuối.",
+       "en": "Never give the final answer."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "x = 2 hoặc x = 3.",
+       "en": "x = 2 or x = 3."
+      },
+      "kha": {
+       "vi": "Δ = 25 − 24 = 1\nx = (5 ± 1) : 2 → x = 3 hoặc x = 2",
+       "en": "Δ = 25 − 24 = 1\nx = (5 ± 1) ÷ 2 → x = 3 or x = 2"
+      },
+      "tot": {
+       "vi": "**Bước 1:** Ở đây a, b, c là bao nhiêu?\n(Trả lời xong mình gợi ý tiếp 👉)",
+       "en": "**Step 1:** What are a, b and c here?\n(Answer and I'll give the next hint 👉)"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Sinh",
+      "en": "Biology"
+     },
+     "bieu_tuong": "🧬",
+     "goc": {
+      "vi": "Ôn Sinh cho mình.",
+      "en": "Help me revise Biology."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là bạn cùng ôn thi Sinh.",
+       "en": "You're my Biology study buddy."
+      },
+      "boi_canh": {
+       "vi": "Sắp kiểm tra chương Di truyền Menđen.",
+       "en": "Test coming up on Mendel's genetics."
+      },
+      "viec": {
+       "vi": "Hỏi mình 5 câu, dễ tới khó.",
+       "en": "Ask me 5 questions, easy to hard."
+      },
+      "dinh_dang": {
+       "vi": "Mỗi lần 1 câu, 4 lựa chọn.",
+       "en": "One at a time, 4 options."
+      },
+      "gioi_han": {
+       "vi": "Chỉ trong chương trình lớp 12.",
+       "en": "Stick to the Year 12 syllabus."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Sinh học nghiên cứu sự sống. Hãy đọc kỹ sách và làm nhiều bài tập.",
+       "en": "Biology is the study of life. Read your textbook and practise a lot."
+      },
+      "kha": {
+       "vi": "Câu 1: Menđen thí nghiệm trên loài nào?\nCâu 2: Tính trạng trội là gì?\nCâu 3–5: …",
+       "en": "Q1: Which species did Mendel use?\nQ2: What's a dominant trait?\nQ3–5: …"
+      },
+      "tot": {
+       "vi": "**Câu 1/5:** Menđen lai trên loài nào?\nA. Ruồi giấm  B. Đậu Hà Lan  C. Ngô  D. Chuột\nBạn chọn gì? 🤔",
+       "en": "**Q 1/5:** Which species did Mendel cross?\nA. Fruit flies  B. Pea plants  C. Maize  D. Mice\nYour pick? 🤔"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Tiếng Anh",
+      "en": "English"
+     },
+     "bieu_tuong": "🗣️",
+     "goc": {
+      "vi": "Nói tiếng Anh với mình.",
+      "en": "Speak English with me."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là bạn nói tiếng Anh vui vẻ.",
+       "en": "You're a friendly English chat partner."
+      },
+      "boi_canh": {
+       "vi": "Mình trình độ A2, sắp thi nói về sở thích.",
+       "en": "I'm A2 level, speaking test on hobbies soon."
+      },
+      "viec": {
+       "vi": "Hỏi từng câu ngắn, sửa lỗi sau mỗi lượt.",
+       "en": "Ask short questions, correct me each turn."
+      },
+      "dinh_dang": {
+       "vi": "Câu dưới 20 từ, lỗi để trong ngoặc.",
+       "en": "Under 20 words, corrections in brackets."
+      },
+      "gioi_han": {
+       "vi": "Không viết sẵn bài để học thuộc.",
+       "en": "Don't write a speech for me to memorise."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Hobbies are activities people do for fun. Common hobbies include reading, sports and music.",
+       "en": "Hobbies are activities people do for fun. Common hobbies include reading, sports and music."
+      },
+      "kha": {
+       "vi": "What is your hobby? Why? How often? With whom?",
+       "en": "What is your hobby? Why? How often? With whom?"
+      },
+      "tot": {
+       "vi": "Hi! 😊 What do you like doing after school?\n(Trả lời 1 câu, mình sửa rồi hỏi tiếp.)",
+       "en": "Hi! 😊 What do you like doing after school?\n(Answer in one sentence; I'll correct it and ask more.)"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Văn",
+      "en": "Literature"
+     },
+     "bieu_tuong": "✍️",
+     "goc": {
+      "vi": "Sửa bài văn này.",
+      "en": "Fix this essay."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là cô giáo Văn, góp ý nhẹ nhàng.",
+       "en": "You're a kind literature teacher."
+      },
+      "boi_canh": {
+       "vi": "Bài nghị luận về lòng biết ơn: [DÁN BÀI]",
+       "en": "My essay on gratitude: [PASTE ESSAY]"
+      },
+      "viec": {
+       "vi": "Chỉ ra 3 chỗ lập luận còn yếu.",
+       "en": "Point out 3 weak spots in the argument."
+      },
+      "dinh_dang": {
+       "vi": "Bảng: đoạn · vì sao yếu · hướng sửa.",
+       "en": "Table: part · why weak · how to fix."
+      },
+      "gioi_han": {
+       "vi": "Không viết lại thay mình.",
+       "en": "Don't rewrite it for me."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Bài khá tốt, cần trau chuốt câu chữ thêm. Cố gắng nhé!",
+       "en": "Quite good, polish the wording. Keep it up!"
+      },
+      "kha": {
+       "vi": "- Đoạn 2: thiếu dẫn chứng\n- Đoạn 3: lặp ý\n- Kết bài: ngắn",
+       "en": "- Paragraph 2: no evidence\n- Paragraph 3: repeats\n- Conclusion: short"
+      },
+      "tot": {
+       "vi": "| Đoạn | Vì sao yếu | Hướng sửa |\n| Mở bài | Chung chung | Mở bằng chuyện thật |\n| Ý 2 | Thiếu dẫn chứng | Thêm một tấm gương |\n| Kết bài | Lặp mở bài | Nói điều bạn sẽ làm |",
+       "en": "| Part | Why weak | How to fix |\n| Intro | Too general | Open with a real story |\n| Point 2 | No evidence | Add one real example |\n| Ending | Repeats intro | Say what you'll do |"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "gia-su",
+   "loai": "chat",
+   "ten": {
+    "vi": "Gia sư AI",
+    "en": "AI tutor"
+   },
+   "nho": {
+    "vi": "Trò chuyện",
+    "en": "Chat"
+   },
+   "h2": {
+    "vi": "Xin đáp án hay xin gợi ý?",
+    "en": "Ask for the answer, or a hint?"
+   },
+   "ten_ai": {
+    "vi": "Gia sư AI",
+    "en": "AI tutor"
+   },
+   "anh_ai": "🧑‍🏫",
+   "ten_ban": {
+    "vi": "Bạn",
+    "en": "You"
+   },
+   "anh_ban": "🙋",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Chào bạn 👋 Bí bài nào?",
+      "en": "Hi 👋 What are you stuck on?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Giải giùm 2x + 6 = 14, cho đáp án luôn",
+        "en": "Solve 2x + 6 = 14, just the answer"
+       },
+       "toi": "dap-an"
+      },
+      {
+       "chu": {
+        "vi": "Gợi ý bước đầu thôi, mình tự làm",
+        "en": "Just a first hint, I'll do the rest"
+       },
+       "toi": "goi-y1"
+      }
+     ]
+    },
+    {
+     "id": "dap-an",
+     "ai": {
+      "vi": "x = 4.",
+      "en": "x = 4."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ok, chép vào vở 👍",
+        "en": "OK, copying it 👍"
+       },
+       "toi": "ket-chep"
+      },
+      {
+       "chu": {
+        "vi": "Sao ra 4? Giải thích đi",
+        "en": "Why 4? Explain"
+       },
+       "toi": "goi-y1"
+      }
+     ]
+    },
+    {
+     "id": "ket-chep",
+     "ket": {
+      "vi": "Có đáp án mà không hiểu. Gặp 3x + 6 = 21 là bí.",
+      "en": "You have the answer, not the why. 3x + 6 = 21 will stump you."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "goi-y1",
+     "ai": {
+      "vi": "Cần để x đứng một mình. Bỏ “+ 6” bằng cách nào?",
+      "en": "Get x on its own. How do you remove “+ 6”?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Trừ 6 hai vế → 2x = 8",
+        "en": "Subtract 6 both sides → 2x = 8"
+       },
+       "toi": "goi-y2"
+      },
+      {
+       "chu": {
+        "vi": "Cộng 6 hai vế?",
+        "en": "Add 6 to both sides?"
+       },
+       "toi": "sai1"
+      }
+     ]
+    },
+    {
+     "id": "sai1",
+     "ai": {
+      "vi": "Cộng thì thành 2x + 12 😅 Thử phép ngược của cộng?",
+      "en": "That gives 2x + 12 😅 Try the opposite of adding?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "À, trừ 6 → 2x = 8",
+        "en": "Ah, subtract 6 → 2x = 8"
+       },
+       "toi": "goi-y2"
+      }
+     ]
+    },
+    {
+     "id": "goi-y2",
+     "ai": {
+      "vi": "Chuẩn! Bước cuối tự làm nhé?",
+      "en": "Spot on! Last step's yours?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Chia 2 → x = 4",
+        "en": "Divide by 2 → x = 4"
+       },
+       "toi": "ket-tu-lam"
+      },
+      {
+       "chu": {
+        "vi": "Chịu, cho đáp án đi",
+        "en": "I give up, tell me"
+       },
+       "toi": "goi-y3"
+      }
+     ]
+    },
+    {
+     "id": "goi-y3",
+     "ai": {
+      "vi": "Gợi ý cuối: 2x là 2 nhân x. Ngược của nhân là gì?",
+      "en": "Last hint: 2x is 2 times x. Opposite of times?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Chia! x = 8 : 2 = 4",
+        "en": "Divide! x = 8 ÷ 2 = 4"
+       },
+       "toi": "ket-tu-lam"
+      }
+     ]
+    },
+    {
+     "id": "ket-tu-lam",
+     "ai": {
+      "vi": "Đúng rồi, x = 4! 🎉 Thử 3x + 6 = 21 nhé.",
+      "en": "Yes, x = 4! 🎉 Now try 3x + 6 = 21."
+     },
+     "ket": {
+      "vi": "Bạn tự giải được, làm được cả bài tương tự. Xin gợi ý, đừng xin đáp án.",
+      "en": "You solved it and can do similar ones. Ask for hints, not answers."
+     },
+     "muc": "dung"
+    }
+   ]
+  },
+  {
+   "id": "tin-gia",
+   "loai": "tim-loi",
+   "kieu": "bai-dang",
+   "ten": {
+    "vi": "Tin lộ đề thi",
+    "en": "Leaked exam post"
+   },
+   "nho": {
+    "vi": "Soi tin giả",
+    "en": "Spot the fake"
+   },
+   "h2": {
+    "vi": "Bài đăng có 5 dấu hiệu đáng ngờ. Bạn thấy mấy?",
+    "en": "5 red flags in this post. How many can you spot?"
+   },
+   "mo": {
+    "vi": "Chạm vào chỗ đáng ngờ 🚩",
+    "en": "Tap anything suspicious 🚩"
+   },
+   "dau": {
+    "vi": "**Hội Ôn Thi 2K9 🔥** · 2 giờ · 🌏 nhóm hư cấu",
+    "en": "**Exam Prep 2K9 🔥** · 2h · 🌏 fictional group"
+   },
+   "cuoi": {
+    "vi": "👍 2,1K · 💬 356 · ↗ 1,2K lượt chia sẻ",
+    "en": "👍 2.1K · 💬 356 · ↗ 1.2K shares"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "🚨 NÓNG: Lộ đề thi tốt nghiệp môn Toán!!!",
+      "en": "🚨 BREAKING: Maths exam paper LEAKED!!!"
+     },
+     "loi": "tit",
+     "co": {
+      "vi": "Tít giật gân",
+      "en": "Clickbait"
+     },
+     "bit": {
+      "vi": "Tít giật gân, nhiều dấu chấm than.",
+      "en": "Sensational headline, lots of !!!"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Nguồn: một thầy trong Bộ, giấu tên.",
+      "en": "Source: a Ministry teacher, unnamed."
+     },
+     "loi": "nguon",
+     "co": {
+      "vi": "Nguồn giấu tên",
+      "en": "No real source"
+     },
+     "bit": {
+      "vi": "Nguồn giấu tên, không kiểm chứng được.",
+      "en": "Anonymous source, can't be checked."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Ảnh đề siêu nét 👇",
+      "en": "Super sharp photo 👇"
+     },
+     "anh": {
+      "vi": "ĐỀ THI TOÁN",
+      "en": "MATHS PAPER"
+     },
+     "loi": "anh",
+     "co": {
+      "vi": "Ảnh không phải bằng chứng",
+      "en": "A photo isn't proof"
+     },
+     "bit": {
+      "vi": "Ảnh “siêu nét” AI tạo trong vài giây.",
+      "en": "AI can make a “sharp” photo in seconds."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Mình cũng đang ôn, cố lên nha.",
+      "en": "I'm revising too, good luck all."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Câu này bình thường 👍",
+      "en": "This line is normal 👍"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Chuyển khoản 50k để nhận file đầy đủ.",
+      "en": "Transfer 50k to get the full file."
+     },
+     "loi": "tien",
+     "co": {
+      "vi": "Đòi tiền",
+      "en": "Asks for money"
+     },
+     "bit": {
+      "vi": "Đòi chuyển tiền: lừa đảo quen thuộc mùa thi.",
+      "en": "Asking for money: a classic exam-season scam."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Chia sẻ ngay trước khi bị xóa!",
+      "en": "Share before it's deleted!"
+     },
+     "loi": "gap",
+     "co": {
+      "vi": "Thúc ép",
+      "en": "Rushing you"
+     },
+     "bit": {
+      "vi": "Thúc chia sẻ để bạn không kịp nghĩ.",
+      "en": "Rushing you so you don't stop to think."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Không chia sẻ, không chuyển tiền. Kiểm tra trên trang của Bộ Giáo dục và Đào tạo.",
+    "en": "Don't share, don't pay. Check the Ministry of Education's official site."
+   }
+  },
+  {
+   "id": "ke-hoach",
+   "loai": "ke-hoach",
+   "ten": {
+    "vi": "Kế hoạch ôn thi",
+    "en": "Revision plan"
+   },
+   "nho": {
+    "vi": "Lập kế hoạch",
+    "en": "Plan it"
+   },
+   "h2": {
+    "vi": "Lập kế hoạch ôn thi",
+    "en": "Make a revision plan"
+   },
+   "mon": [
+    {
+     "ten": {
+      "vi": "Toán",
+      "en": "Maths"
+     },
+     "bieu_tuong": "📐"
+    },
+    {
+     "ten": {
+      "vi": "Văn",
+      "en": "Literature"
+     },
+     "bieu_tuong": "✍️"
+    },
+    {
+     "ten": {
+      "vi": "Anh",
+      "en": "English"
+     },
+     "bieu_tuong": "🇬🇧"
+    },
+    {
+     "ten": {
+      "vi": "Lý",
+      "en": "Physics"
+     },
+     "bieu_tuong": "⚡"
+    },
+    {
+     "ten": {
+      "vi": "Hóa",
+      "en": "Chemistry"
+     },
+     "bieu_tuong": "🧪"
+    },
+    {
+     "ten": {
+      "vi": "Sinh",
+      "en": "Biology"
+     },
+     "bieu_tuong": "🧬"
+    },
+    {
+     "ten": {
+      "vi": "Sử",
+      "en": "History"
+     },
+     "bieu_tuong": "📜"
+    },
+    {
+     "ten": {
+      "vi": "Địa",
+      "en": "Geography"
+     },
+     "bieu_tuong": "🗺️"
+    }
+   ],
+   "ngay": [
+    {
+     "vi": "T2",
+     "en": "Mon"
+    },
+    {
+     "vi": "T3",
+     "en": "Tue"
+    },
+    {
+     "vi": "T4",
+     "en": "Wed"
+    },
+    {
+     "vi": "T5",
+     "en": "Thu"
+    },
+    {
+     "vi": "T6",
+     "en": "Fri"
+    },
+    {
+     "vi": "T7",
+     "en": "Sat"
+    },
+    {
+     "vi": "CN",
+     "en": "Sun"
+    }
+   ]
+  },
+  {
+   "id": "an-toan",
+   "loai": "phan-loai",
+   "ten": {
+    "vi": "Kể gì với chatbot?",
+    "en": "What to tell a chatbot?"
+   },
+   "nho": {
+    "vi": "Xếp vào rổ",
+    "en": "Sort it"
+   },
+   "h2": {
+    "vi": "Kể gì với chatbot được?",
+    "en": "What can you tell a chatbot?"
+   },
+   "mo": {
+    "vi": "Chạm thẻ → chạm rổ",
+    "en": "Tap a card → tap a basket"
+   },
+   "ro": [
+    {
+     "id": "ok",
+     "ten": {
+      "vi": "Kể được",
+      "en": "Fine"
+     },
+     "bieu_tuong": "✅",
+     "mau": "#10B981"
+    },
+    {
+     "id": "can-than",
+     "ten": {
+      "vi": "Cẩn thận",
+      "en": "Careful"
+     },
+     "bieu_tuong": "⚠️",
+     "mau": "#F59E0B"
+    },
+    {
+     "id": "khong",
+     "ten": {
+      "vi": "Không bao giờ",
+      "en": "Never"
+     },
+     "bieu_tuong": "🔒",
+     "mau": "#DC2626"
+    }
+   ],
+   "the": [
+    {
+     "bt": "📐",
+     "chu": {
+      "vi": "Bài Toán đang bí",
+      "en": "A maths problem"
+     },
+     "dung": "ok",
+     "giai": {
+      "vi": "Cứ hỏi thoải mái.",
+      "en": "Ask away."
+     }
+    },
+    {
+     "bt": "🔑",
+     "chu": {
+      "vi": "Mật khẩu tài khoản",
+      "en": "Your passwords"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Không đưa ai, kể cả AI.",
+      "en": "Never to anyone, AI included."
+     }
+    },
+    {
+     "bt": "🏠",
+     "chu": {
+      "vi": "Tên, trường, địa chỉ nhà",
+      "en": "Name, school, home address"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Đủ để người lạ tìm ra bạn.",
+      "en": "Enough for a stranger to find you."
+     }
+    },
+    {
+     "bt": "💡",
+     "chu": {
+      "vi": "Ý tưởng thuyết trình nhóm",
+      "en": "Group presentation ideas"
+     },
+     "dung": "ok",
+     "giai": {
+      "vi": "Hỏi thoải mái, tự chọn ý.",
+      "en": "Ask, then choose ideas yourself."
+     }
+    },
+    {
+     "bt": "🔢",
+     "chu": {
+      "vi": "Mã OTP ngân hàng",
+      "en": "A bank OTP code"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Ai hỏi OTP là lừa đảo.",
+      "en": "Anyone asking for an OTP is a scam."
+     }
+    },
+    {
+     "bt": "📋",
+     "chu": {
+      "vi": "Bảng điểm có tên cả lớp",
+      "en": "Class marks with names"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Thông tin của người khác.",
+      "en": "It's other people's data."
+     }
+    },
+    {
+     "bt": "😔",
+     "chu": {
+      "vi": "Chuyện buồn, áp lực thi",
+      "en": "Feeling down, exam stress"
+     },
+     "dung": "can-than",
+     "giai": {
+      "vi": "AI nghe được, nhưng hãy nói với người thân, thầy cô, hoặc gọi Tổng đài 111.",
+      "en": "AI can listen, but talk to family, a teacher or a helpline too."
+     }
+    },
+    {
+     "bt": "🤒",
+     "chu": {
+      "vi": "Bệnh mình đang lo",
+      "en": "An illness you worry about"
+     },
+     "dung": "can-than",
+     "giai": {
+      "vi": "Hỏi để hiểu, đừng tự chẩn đoán.",
+      "en": "Ask to understand, don't self-diagnose."
+     }
+    },
+    {
+     "bt": "🤳",
+     "chu": {
+      "vi": "Ảnh mặt bạn bè chưa xin phép",
+      "en": "Friends' face photos, no permission"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Có thể bị dùng làm ảnh giả.",
+      "en": "They can be used for fakes."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Không dán lên bảng tin lớp được thì đừng dán vào chatbot.",
+    "en": "Wouldn't pin it on the class board? Don't paste it into a chatbot."
+   }
+  }
+ ]
+}
