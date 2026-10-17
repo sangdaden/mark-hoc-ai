@@ -130,7 +130,9 @@ mark.yt-tn.is-mo::after { content: " → " attr(data-thay); font-weight: 600; co
 @media (max-width: 760px) {
   .yt-hai, .yt-giay-2, .yt-phieu, .yt-bd dl { grid-template-columns: minmax(0, 1fr); }
   .yt-buoc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .yt-the-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yt-the, .yt-the-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .yt-chon { padding: 10px; gap: 8px; font-size: 13.5px; }
+  .yt-chon span { font-size: 20px; }
   .yt-so4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .yt-keo { margin-left: 0; }
 }
