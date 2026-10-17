@@ -29,7 +29,11 @@
     "vi": "Chỉ dùng thông tin đã cho. Chỗ nào thiếu thì ghi \"chưa có\", không tự đoán.",
     "en": "Use only the information given. Where something is missing, write \"not recorded\"; do not guess."
    },
-   "bieu_tuong": "📝"
+   "bieu_tuong": "📝",
+   "goc": {
+    "vi": "Tóm tắt ca này.",
+    "en": "Summarise this case."
+   }
   },
   {
    "id": "sbar",
@@ -58,7 +62,11 @@
     "vi": "Chỉ xếp lại thông tin đã ghi, không tự thêm nhận định. Mục nào không có thông tin thì ghi \"chưa có\" để điều dưỡng bổ sung.",
     "en": "Only rearrange what was recorded; do not add your own assessment. If a heading has no information, write \"not recorded\" so the nurse can fill it in."
    },
-   "bieu_tuong": "🔄"
+   "bieu_tuong": "🔄",
+   "goc": {
+    "vi": "Viết bàn giao ca.",
+    "en": "Write the handover."
+   }
   },
   {
    "id": "huong-dan",
@@ -87,7 +95,11 @@
     "vi": "Giữ nguyên mọi con số, liều và mốc thời gian như bản gốc, không thêm lời khuyên mới. Chỗ nào bản gốc không rõ thì đánh dấu [HỎI BÁC SĨ].",
     "en": "Keep every number, dose and time exactly as in the original, and add no new advice. Where the original is unclear, mark it [ASK THE DOCTOR]."
    },
-   "bieu_tuong": "👵"
+   "bieu_tuong": "👵",
+   "goc": {
+    "vi": "Viết hướng dẫn cho bệnh nhân.",
+    "en": "Write patient instructions."
+   }
   },
   {
    "id": "email",
@@ -116,7 +128,11 @@
     "vi": "Không thêm ý, con số hay cam kết nào ngoài các ý đã cho. Không đưa thông tin người bệnh vào email.",
     "en": "Add no points, figures or commitments beyond those given. Keep patient information out of the email."
    },
-   "bieu_tuong": "✉️"
+   "bieu_tuong": "✉️",
+   "goc": {
+    "vi": "Viết email cho phòng vật tư.",
+    "en": "Write an email to procurement."
+   }
   },
   {
    "id": "bien-ban",
@@ -145,7 +161,11 @@
     "vi": "Chỗ nào không rõ ai phụ trách hay hạn chót thì ghi \"cần hỏi lại\", không tự điền.",
     "en": "Where the owner or deadline is unclear, write \"to confirm\"; do not fill it in yourself."
    },
-   "bieu_tuong": "📋"
+   "bieu_tuong": "📋",
+   "goc": {
+    "vi": "Ghi biên bản họp.",
+    "en": "Write up the meeting."
+   }
   },
   {
    "id": "bao-cao",
@@ -174,7 +194,11 @@
     "vi": "Chỉ dùng số trong bảng, không đoán nguyên nhân. Nếu muốn nêu nguyên nhân thì ghi là giả thuyết cần khoa xác nhận.",
     "en": "Use only figures from the table and do not guess causes. Any possible cause must be labelled a hypothesis for the department to confirm."
    },
-   "bieu_tuong": "📈"
+   "bieu_tuong": "📈",
+   "goc": {
+    "vi": "Nhận xét số liệu tháng này.",
+    "en": "Comment on this month's figures."
+   }
   },
   {
    "id": "bai-bao",
@@ -203,7 +227,11 @@
     "vi": "Chỉ dùng bài đã đính kèm. Không tìm hay nhắc tới bài khác. Ý nào không có câu gốc trong bài thì ghi \"không thấy trong bài\".",
     "en": "Use only the attached paper. Do not search for or mention other papers. If a point has no source sentence in the paper, write \"not found in the paper\"."
    },
-   "bieu_tuong": "📚"
+   "bieu_tuong": "📚",
+   "goc": {
+    "vi": "Tóm tắt bài báo này.",
+    "en": "Summarise this paper."
+   }
   },
   {
    "id": "on-thi",
@@ -232,7 +260,11 @@
     "vi": "Đáp án và giải thích chỉ dựa vào tài liệu tôi đưa, không dùng kiến thức ngoài.",
     "en": "Base answers and explanations only on the material I gave, not on outside knowledge."
    },
-   "bieu_tuong": "🎯"
+   "bieu_tuong": "🎯",
+   "goc": {
+    "vi": "Ra đề ôn thi.",
+    "en": "Make some revision questions."
+   }
   }
  ],
  "gioi_han_chung": {
@@ -1342,6 +1374,74 @@
     "vi": "Trách nhiệm",
     "en": "Accountability"
    }
+  }
+ ],
+ "loai_manh": {
+  "vai_tro": {
+   "vi": "Vai trò",
+   "en": "Role",
+   "mau": "#8B5CF6"
+  },
+  "boi_canh": {
+   "vi": "Bối cảnh",
+   "en": "Context",
+   "mau": "#0EA5E9"
+  },
+  "viec": {
+   "vi": "Nhiệm vụ",
+   "en": "Task",
+   "mau": "#F59E0B"
+  },
+  "dinh_dang": {
+   "vi": "Định dạng",
+   "en": "Format",
+   "mau": "#10B981"
+  },
+  "gioi_han": {
+   "vi": "Giới hạn",
+   "en": "Limits",
+   "mau": "#6366F1"
+  }
+ },
+ "bay": [
+  {
+   "id": "lo",
+   "loai": "boi_canh",
+   "chu": {
+    "vi": "Đây là hồ sơ gốc: BN Nguyễn Văn A, sinh 12/03/1968, mã BA 24-018273, SĐT 0903 123 456…",
+    "en": "Here's the original record: Mr John Carter, DOB 12/03/1968, MRN 24-018273, phone 07700 900123…"
+   },
+   "bit": {
+    "vi": "Mảnh này lộ họ tên, ngày sinh, mã hồ sơ của người bệnh. Che ở Trạm 1 trước rồi mới dán vào AI.",
+    "en": "This piece leaks the patient's name, birth date and record number. De-identify it at Station 1 first."
+   },
+   "muc": "sai"
+  },
+  {
+   "id": "nguy",
+   "loai": "viec",
+   "chu": {
+    "vi": "Cho tôi luôn chẩn đoán và liều thuốc phù hợp.",
+    "en": "Also give me the diagnosis and the right dose."
+   },
+   "bit": {
+    "vi": "Chẩn đoán và liều thuốc là việc của người có chuyên môn, không giao cho AI.",
+    "en": "Diagnosis and dosing belong to qualified staff, not the AI."
+   },
+   "muc": "sai"
+  },
+  {
+   "id": "mo-ho",
+   "loai": "viec",
+   "chu": {
+    "vi": "Viết thật chuyên nghiệp vào nhé.",
+    "en": "Make it really professional."
+   },
+   "bit": {
+    "vi": "Mảnh này không cho AI biết thêm gì. Bỏ ra cũng được.",
+    "en": "This piece tells the AI nothing new. You can drop it."
+   },
+   "muc": ""
   }
  ]
 }

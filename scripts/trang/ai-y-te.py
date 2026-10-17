@@ -44,21 +44,16 @@ def tao_ai_y_te():
 <div class="yt-hang yt-them" id="che-them-hang" hidden><input type="text" id="che-them-o" class="bn-o yt-o-ngan" autocomplete="off" aria-label="{t("Chữ cần che thêm", "Word to hide")}" placeholder="{t("Còn sót chữ nào? Gõ vào đây", "Missed something? Type it here")}"><button type="button" class="btn btn-nhe" id="che-them">+ {t("Che thêm", "Hide it")}</button></div>
 </section>''')
 
-    lenh = (dau("lenh", 2, "604 · 606 · 608 · 609", t("Câu lệnh 5 phần cho việc của bạn", "A 5-part prompt for your task"),
-                t("Chọn một việc, sửa ô nếu cần, rồi chép.", "Pick a task, tweak the boxes if needed, then copy."))
+    lenh = (dau("lenh", 2, "604 · 606 · 608 · 609", t("Ghép câu lệnh 5 phần cho việc của bạn", "Build a 5-part prompt for your task"),
+                t("Chọn việc, rồi chạm vào mảnh để ghép. Cẩn thận vài mảnh bẫy!", "Pick a task, then tap pieces to build it. Watch out for traps!"))
             + '<div class="yt-the" id="lenh-chon" role="group" aria-label="' + t("Chọn việc", "Choose a task") + '">'
             + "".join(f'<button type="button" class="yt-chon" data-i="{k}" aria-pressed="false"><span aria-hidden="true">{m["bieu_tuong"]}</span>{esc(chon(m["ten"]))}</button>' for k, m in enumerate(D["mau_lenh"]))
             + f'''</div>
-<div class="yt-hai">
-<div class="yt-o-5">''' + "".join(f'<label class="bn-lbl" for="lenh-{k}"><span class="yt-so">{n}</span>{nhan}</label><textarea id="lenh-{k}" class="bn-o yt-o-nho" rows="{r}"></textarea>'
-                              for n, (k, nhan, r) in enumerate([("vai_tro", t("Vai trò", "Role"), 2), ("boi_canh", t("Bối cảnh (đã che)", "Context (de-identified)"), 3),
-                                                                ("viec", t("Việc cần làm", "Task"), 2), ("dinh_dang", t("Định dạng", "Format"), 2), ("gioi_han", t("Giới hạn", "Limits"), 2)], 1))
-            + f'''</div>
-<div><pre class="yt-ra" id="lenh-ra" tabindex="0" aria-label="{t("Câu lệnh để chép", "Your prompt")}"></pre>
-<label class="bn-chk"><input type="checkbox" id="lenh-da-che"> {t("Tôi đã che thông tin người bệnh", "I've removed patient details")}</label>
-<div class="yt-hang">{chep("lenh-chep", t("Chép câu lệnh", "Copy prompt"))}</div>
-{bit("lenh-bit")}</div>
-</div>
+<div class="gh-lenh"><p class="gh-lenh-nhan">{t("Câu lệnh của bạn", "Your prompt")}</p><div class="gh-lenh-ds" id="lenh-ds" aria-live="polite"></div></div>
+<p class="gh-khay-nhan">{t("Mảnh để ghép", "Pieces")}</p>
+<div class="gh-khay" id="lenh-khay"></div>
+{bit("lenh-bit")}
+<div class="yt-hang">{chep("lenh-chep", t("Chép câu lệnh", "Copy prompt"))}<button type="button" class="btn btn-nhe" id="lenh-lai">↺ {t("Ghép lại", "Start over")}</button></div>
 </section>''')
 
     buoc = [("nguon", "🔗", t("Nguồn có thật", "Sources exist"), t("Mở được, nói đúng điều AI tóm tắt", "Open them; they say what the AI claims")),
@@ -147,10 +142,11 @@ def tao_ai_y_te():
                  "giuong": t("GIƯỜNG", "BED"), "dia-chi": t("ĐỊA CHỈ", "ADDRESS"), "them": t("ĐÃ CHE", "HIDDEN")},
         "mau_che": t("BN Nguyễn Văn Hùng, nam, sinh ngày 12/03/1968, giường số 14, mã BA: 24-018273.\nĐịa chỉ: số 45 đường Lê Lợi, phường Bến Thành, TP.HCM. SĐT người nhà (chị Trần Thị Mai): 0903 123 456.\nCCCD 079068001234, thẻ BHYT DN4797915123456.\nVào viện vì sốt 3 ngày, ho khạc đờm vàng. Sáng nay T 38,6 độ, mạch 102, SpO2 94%. Đã cấy máu, chờ kết quả.\n(Ca giả để thử công cụ.)",
                      "Patient Mr John Carter, male, DOB 12/03/1968, bed 14, MRN: 24-018273.\nAddress: 45 Elm Street, Springfield. Next of kin (Mrs Anna Carter): +44 7700 900123, anna.carter@example.com.\nNHS no. 943 476 5919.\nAdmitted with 3 days of fever and productive cough. This morning T 38.6, HR 102, SpO2 94%. Blood cultures sent, awaiting results.\n(Fictional case for testing.)"),
-        "lenh_nhan": {"vai_tro": t("Vai trò", "Role"), "boi_canh": t("Bối cảnh", "Context"), "viec": t("Việc cần làm", "Task"), "dinh_dang": t("Định dạng", "Format"), "gioi_han": t("Giới hạn", "Limits")},
-        "lenh_che": t("Tick ô đã che thông tin người bệnh rồi mới chép được nhé.", "Tick the box confirming you've removed patient details to copy."),
-        "lenh_mo": t("Nhớ thay chữ trong [ngoặc vuông] bằng nội dung thật đã che.", "Remember to replace the [square brackets] with your real, de-identified content."),
-        "lenh_ok": t("Ô Giới hạn luôn có câu không chẩn đoán, không đưa liều thuốc. Video {v}.", "The Limits box always forbids diagnoses and doses. Video {v}."),
+        "lenh_goc": t("Câu gốc", "Starting line"), "lenh_trong": t("Chưa có mảnh nào. Câu gốc quá mơ hồ, AI sẽ đoán bừa.", "No pieces yet. The starting line is too vague; the AI will guess."),
+        "lenh_bat_dau": t("Câu gốc chỉ có một dòng mơ hồ. Chạm vào mảnh bên dưới để ghép thêm.", "The starting line is one vague sentence. Tap the pieces below to add to it."),
+        "lenh_dem": t("Đã ghép {n}/5 mảnh cần.", "{n} of 5 needed pieces added."),
+        "lenh_du": t("Đủ 5 mảnh! Chép câu lệnh, rồi thay chỗ [ngoặc vuông] bằng nội dung thật đã che. Video {v}.", "All 5 pieces! Copy it, then replace the [square brackets] with your real, de-identified content. Video {v}."),
+        "lenh_khoa": t("Bỏ mảnh bẫy ra rồi mới chép được nhé.", "Remove the trap piece before copying."),
         "soat_con": t("Còn {n} bước. Chưa dùng bản nháp này nhé.", "{n} checks to go. Don't use this draft yet."),
         "soat_xong": t("Đủ 5 bước. Bản nháp sẵn sàng dùng.", "All 5 checks done. The draft is ready to use."),
         "dh_cau": t("câu", "sentences"), "dh_dai": t("câu dài", "long"), "dh_tn": t("thuật ngữ", "terms"), "dh_tb": t("chữ / câu", "words / sentence"),
@@ -183,7 +179,9 @@ def tao_ai_y_te():
         "dg_thu_luu_y": t("Lưu ý câu {ds} là Không: ghi rõ cách xử lý trong kế hoạch dùng thử.", "Note that question {ds} is No: plan how to handle it in the trial."),
     }
     du_lieu = json.dumps({"nhan": nhan, "lg": L, "p": p, "mau_lenh": [{k: chon(v) for k, v in m.items()} for m in D["mau_lenh"]],
-                          "gioi_han_chung": chon(D["gioi_han_chung"]), "thuat_ngu": D["thuat_ngu"][L], "teach_back": D["teach_back"][L],
+                          "gioi_han_chung": chon(D["gioi_han_chung"]),
+                          "loai_manh": {k: {"ten": chon(v), "mau": v["mau"]} for k, v in D["loai_manh"].items()},
+                          "bay": [{"id": x["id"], "loai": x["loai"], "chu": chon(x["chu"]), "bit": chon(x["bit"]), "muc": x["muc"]} for x in D["bay"]], "thuat_ngu": D["thuat_ngu"][L], "teach_back": D["teach_back"][L],
                           "duoc": duoc, "cam": cam,
                           "ban_do": [{k: chon(x[k]) for k in ("ten", "video", "lam_gi", "vi_du", "kiem", "nguoi", "bieu_tuong")} for x in D["ban_do"]],
                           "danh_gia": [{"id": x["id"], "chan": x["chan"], "ngan": chon(x["ngan"]), "goi_y": chon(x["goi_y"])} for x in D["danh_gia"]]},

@@ -216,33 +216,68 @@
   $("che-chep").hidden = true;
   $("che-chep").addEventListener("click", function () { chep(cheRa.value, $("che-chep")); });
 
-  // ================= 2. Khung câu lệnh =================
-  var O5 = ["vai_tro", "boi_canh", "viec", "dinh_dang", "gioi_han"], lenhChon = $("lenh-chon"), lenhRa = $("lenh-ra");
-  var lenhVideo = "";
-  function chonMau(i) {
-    var m = D.mau_lenh[i];
-    [].slice.call(lenhChon.children).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.i === i)); });
-    O5.forEach(function (k) { $("lenh-" + k).value = m[k]; });
-    lenhVideo = m.video;
-    veLenh();
+  // ================= 2. Ghép câu lệnh (cùng kiểu Thợ ghép câu lệnh: .gh-lenh, .gh-dong, .gh-manh trong style.css) =================
+  var THU_TU = ["vai_tro", "boi_canh", "viec", "dinh_dang", "gioi_han"], lenhChon = $("lenh-chon"), lenhVideo = "", lenhMau = null;
+  // thứ tự mảnh trong khay: xen mảnh bẫy giữa các mảnh cần, cố định cho mọi việc
+  var KHAY = ["boi_canh", "bay:nguy", "dinh_dang", "vai_tro", "bay:mo-ho", "gioi_han", "viec", "bay:lo"];
+  S.lenhChon = {};
+  function nhanManh(loai) {
+    var l = D.loai_manh[loai], sp = el("span", "gh-loai", l.ten);
+    sp.style.setProperty("--mau", l.mau); return sp;
   }
-  function veLenh() {
-    var phan = O5.map(function (k) {
-      var v = $("lenh-" + k).value.trim();
-      if (k === "gioi_han" && v.indexOf(D.gioi_han_chung) < 0) v = (v ? v + "\n" : "") + D.gioi_han_chung;
-      return N.lenh_nhan[k] + ":\n" + v;
+  function manhCua(m) {
+    return KHAY.map(function (k) {
+      if (k.indexOf("bay:") === 0) {
+        var b = D.bay.filter(function (x) { return x.id === k.slice(4); })[0];
+        return { id: k, loai: b.loai, chu: b.chu, bay: b };
+      }
+      return { id: k, loai: k, chu: k === "gioi_han" ? m.gioi_han + " " + D.gioi_han_chung : m[k] };
     });
-    lenhRa.textContent = phan.join("\n\n");
-    var daChe = $("lenh-da-che").checked;
-    $("lenh-chep").disabled = !daChe;
-    var mo = /\[[^\]]+\]/.test($("lenh-boi_canh").value);
-    bit("lenh-bit", !daChe ? N.lenh_che : (mo ? N.lenh_mo : thay(N.lenh_ok, { v: lenhVideo })), daChe && !mo ? "dung" : "");
-    S.lenh = lenhRa.textContent;
+  }
+  function chonMau(i) {
+    lenhMau = D.mau_lenh[i]; lenhVideo = lenhMau.video; S.lenhChon = {};
+    [].slice.call(lenhChon.children).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.i === i)); });
+    var khay = $("lenh-khay"); khay.textContent = "";
+    manhCua(lenhMau).forEach(function (x) {
+      var b = el("button", "gh-manh"); b.type = "button"; b.dataset.id = x.id; b.setAttribute("aria-pressed", "false");
+      b.style.setProperty("--mau", D.loai_manh[x.loai].mau);
+      b.appendChild(nhanManh(x.loai)); b.appendChild(el("span", "gh-manh-chu", x.chu));
+      b.addEventListener("click", function () {
+        S.lenhChon[x.id] = !S.lenhChon[x.id];
+        b.setAttribute("aria-pressed", String(!!S.lenhChon[x.id]));
+        veLenh(S.lenhChon[x.id] ? x : null);
+      });
+      khay.appendChild(b);
+    });
+    veLenh(null);
+  }
+  function lenhDangChon() {
+    var ds = manhCua(lenhMau).filter(function (x) { return S.lenhChon[x.id]; });
+    return ds.sort(function (a, b) { return THU_TU.indexOf(a.loai) - THU_TU.indexOf(b.loai); });
+  }
+  function veLenh(vua) {
+    var ds = $("lenh-ds"), co = lenhDangChon();
+    ds.textContent = "";
+    var g = el("p", "gh-dong gh-dong-goc");
+    g.appendChild(el("span", "gh-loai gh-loai-goc", N.lenh_goc)); g.appendChild(el("span", "gh-dong-chu", lenhMau.goc));
+    ds.appendChild(g);
+    co.forEach(function (x) {
+      var d = el("p", "gh-dong"); d.style.setProperty("--mau", D.loai_manh[x.loai].mau);
+      d.appendChild(nhanManh(x.loai)); d.appendChild(el("span", "gh-dong-chu", x.chu)); ds.appendChild(d);
+    });
+    if (!co.length) ds.appendChild(el("p", "gh-trong", N.lenh_trong));
+    var bay = co.filter(function (x) { return x.bay && x.bay.muc === "sai"; });
+    var can = co.filter(function (x) { return !x.bay; }).length;
+    $("lenh-chep").disabled = !!bay.length;
+    if (vua && vua.bay) bit("lenh-bit", vua.bay.bit, vua.bay.muc);
+    else if (bay.length) bit("lenh-bit", N.lenh_khoa + " " + bay[0].bay.bit, "sai");
+    else if (can === 5) bit("lenh-bit", thay(N.lenh_du, { v: lenhVideo }), "dung");
+    else bit("lenh-bit", can ? thay(N.lenh_dem, { n: can }) : N.lenh_bat_dau);
+    S.lenh = co.length ? co.filter(function (x) { return !x.bay || !x.bay.muc; }).map(function (x) { return x.chu; }).join("\n") : lenhMau.goc;
   }
   lenhChon.addEventListener("click", function (e) { var b = e.target.closest("[data-i]"); if (b) chonMau(+b.dataset.i); });
-  O5.forEach(function (k) { $("lenh-" + k).addEventListener("input", veLenh); });
-  $("lenh-da-che").addEventListener("change", veLenh);
-  $("lenh-chep").addEventListener("click", function () { chep(lenhRa.textContent, $("lenh-chep")); do_("ai-y-te-lenh"); });
+  $("lenh-lai").addEventListener("click", function () { chonMau(D.mau_lenh.indexOf(lenhMau)); });
+  $("lenh-chep").addEventListener("click", function () { chep(S.lenh, $("lenh-chep")); do_("ai-y-te-lenh"); });
   chonMau(0);
 
   // ================= 3. Soát 5 bước =================
