@@ -288,6 +288,11 @@
           chao = sat.length ? S.chaoChungSat(sat.length) : S.chaoChung(c.nghe);
           ghi = '<p class="ltn-ghi-chu">' + S.muon2 + mail + "</p>";
         }
+        // Nghề ngách có trang thực hành riêng (vd. y tế: ai-y-te.html): thêm thẻ dẫn vào ngay dưới lời chào
+        const lg = EN ? "en" : "vi";
+        t.ngach.filter(n => n.trang).slice(0, 1).forEach(n => {
+          ghi += '<a class="ltn-trang" href="' + n.trang.url + '"><img src="' + goc + 'assets/bit-giai-thich.svg" alt="" width="52" height="52"><span><b>' + esc(n.trang.ten[lg]) + ' ›</b><span>' + esc(n.trang.moi[lg]) + "</span></span></a>";
+        });
         document.title = S.tieuDeNghe(c.nghe);
         veLoTrinh(S.ngheCuaBan(c.nghe), chao, ghi, buoc);
       } else {
