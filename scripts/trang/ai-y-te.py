@@ -90,7 +90,9 @@ def tao_ai_y_te():
 <div id="dh-ket" class="yt-ket-khoi" hidden>
 <div class="yt-so4" id="dh-so" aria-live="polite"></div>
 <div class="yt-xem" id="dh-xem"></div>
-<p class="bn-ghi"><mark class="yt-dai">{t("câu dài", "long sentence")}</mark> <mark class="yt-tn">{t("thuật ngữ", "medical term")}</mark> {t("chạm vào thuật ngữ để xem từ thay", "tap a term to see a plainer word")}</p>
+<p class="bn-ghi"><mark class="yt-dai">{t("câu dài", "long sentence")}</mark> <mark class="yt-tn">{t("thuật ngữ", "medical term")}</mark></p>
+<p class="gh-khay-nhan yt-h-nho" id="dh-tn-h">{t("Nên nói dễ hiểu hơn", "Say it more simply")}</p>
+<dl class="yt-ds-tn" id="dh-tn" aria-labelledby="dh-tn-h"></dl>
 {bit("dh-bit")}
 <details class="bn-nap"><summary>{t("Câu lệnh nhờ AI viết lại", "Prompt to have AI rewrite it")}</summary><pre class="yt-ra" id="dh-lenh" tabindex="0"></pre><div class="yt-hang">{chep("dh-chep", t("Chép câu lệnh", "Copy prompt"))}</div></details>
 </div>

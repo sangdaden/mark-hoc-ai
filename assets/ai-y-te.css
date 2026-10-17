@@ -74,8 +74,13 @@
 .yt-xem { padding: 14px 16px; border-radius: 14px; background: var(--bg); border: 1.5px solid var(--edge); line-height: 1.9; font-size: 16px; }
 .yt .yt-dai { background: var(--yt-vang); box-shadow: inset 0 -2px 0 #D97706; color: inherit; }
 mark.yt-tn { background: color-mix(in srgb, var(--yt-cam) 16%, transparent); color: inherit; border-radius: 5px; padding: 0 3px; box-shadow: inset 0 -2px 0 var(--yt-cam); cursor: pointer; }
-mark.yt-tn:focus-visible { outline: 2px solid #8B5CF6; }
-mark.yt-tn.is-mo::after { content: " → " attr(data-thay); font-weight: 600; color: var(--yt-xanh); }
+.yt-h-nho { margin: 4px 0 0; font-size: 16px; }
+.yt-ds-tn { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.yt-tn-o { padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1.5px solid var(--edge); transition: border-color .2s, background .2s; }
+.yt-tn-o dt { font-weight: 700; color: var(--ink); }
+.yt-tn-o dd { margin: 2px 0 0; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.yt-tn-o dd::before { content: "→ "; color: var(--yt-xanh); font-weight: 700; }
+.yt-tn-o.is-sang { border-color: var(--yt-cam); background: color-mix(in srgb, var(--yt-cam) 10%, var(--bg)); }
 .bn-ghi mark { padding: 0 4px; }
 
 /* 5. quy-tac */

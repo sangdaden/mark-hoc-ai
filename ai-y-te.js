@@ -385,7 +385,7 @@
       vung.sort(function (a, b) { return a.bd - b.bd; });
       var s = "", vt = 0;
       vung.forEach(function (v) {
-        s += escHtml(c.slice(vt, v.bd)) + '<mark class="yt-tn" tabindex="0" title="' + escHtml(TN[v.i][1]) + '" data-thay="' + escHtml(TN[v.i][1]) + '">' + escHtml(c.slice(v.bd, v.kt)) + "</mark>";
+        s += escHtml(c.slice(vt, v.bd)) + '<mark class="yt-tn" data-tn="' + escHtml(TN[v.i][0]) + '">' + escHtml(c.slice(v.bd, v.kt)) + "</mark>";
         vt = v.kt;
       });
       s += escHtml(c.slice(vt));
@@ -395,6 +395,10 @@
     var dsTn = Object.keys(gap);
     var so = [[cau.length, N.dh_cau], [soDai, N.dh_dai], [dsTn.length, N.dh_tn], [cau.length ? Math.round(tongChu / cau.length) : 0, N.dh_tb]];
     $("dh-so").innerHTML = so.map(function (x, i) { return '<div class="yt-so-o' + ((i === 1 || i === 2) && x[0] ? " is-cam" : "") + '"><b>' + x[0] + "</b><span>" + escHtml(x[1]) + "</span></div>"; }).join("");
+    // danh sách thuật ngữ và cách nói dễ hiểu, đọc được cả khi không rê chuột (trình đọc màn hình, điện thoại)
+    var dl = $("dh-tn"); dl.textContent = "";
+    dsTn.forEach(function (k) { var o = el("div", "yt-tn-o"); o.dataset.tn = k; o.appendChild(el("dt", null, k)); o.appendChild(el("dd", null, gap[k])); dl.appendChild(o); });
+    $("dh-tn-h").hidden = dl.hidden = !dsTn.length;
     var hoi = [];
     D.teach_back.forEach(function (x) { if (hoi.length < 3 && new RegExp(x[0], "iu").test(text)) hoi.push(x[1]); });
     N.dh_tb_chung.forEach(function (h) { if (hoi.length < 3 && hoi.indexOf(h) < 0) hoi.push(h); });
@@ -409,8 +413,14 @@
   $("dh-chay").addEventListener("click", function () { chayDH(); do_("ai-y-te-de-hieu"); });
   $("dh-mau").addEventListener("click", function () { $("dh-vao").value = N.mau_dh; chayDH(); });
   $("dh-chep").addEventListener("click", function () { chep($("dh-lenh").textContent, $("dh-chep")); });
-  $("dh-xem").addEventListener("click", function (e) { var m = e.target.closest("mark.yt-tn"); if (m) m.classList.toggle("is-mo"); });
-  $("dh-xem").addEventListener("keydown", function (e) { var m = e.target.closest("mark.yt-tn"); if (m && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); m.classList.toggle("is-mo"); } });
+  // chạm một thuật ngữ trong bài: sáng dòng tương ứng ở danh sách "Nên nói dễ hiểu hơn"
+  $("dh-xem").addEventListener("click", function (e) {
+    var m = e.target.closest("mark.yt-tn"); if (!m) return;
+    [].slice.call(document.querySelectorAll("#dh-tn .yt-tn-o")).forEach(function (o) {
+      var dung = o.dataset.tn === m.dataset.tn; o.classList.toggle("is-sang", dung);
+      if (dung) try { o.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (x) {}
+    });
+  });
 
   // ================= 5. Quy tắc cho khoa =================
   var qtO = ["qt-khoa", "qt-cong-cu", "qt-duyet", "qt-su-co", "qt-ngay", "qt-ra-soat"];
