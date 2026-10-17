@@ -1,0 +1,1644 @@
+{
+ "_ghi_chu": "Bộ công cụ AI cho người làm y tế (ai-y-te.html, en/): đi kèm series 'AI cho người làm y tế' (601-610) và 'Công cụ AI chuyên ngành y tế' (611-615). Trang do scripts/trang/ai-y-te.py tạo, cách chạy ở ai-y-te.js. Mỗi mục có vi và en. Bản đồ công cụ: chỉ ghi điều đã tra (ngày ở 'cap_nhat'), không giá, không xếp hạng, không logo.",
+ "cap_nhat": "2026-10-17",
+ "mau_lenh": [
+  {
+   "id": "tom-tat",
+   "video": "604",
+   "ten": {
+    "vi": "Tóm tắt ghi chép cho ca sau",
+    "en": "Summarise notes for the next shift"
+   },
+   "vai_tro": {
+    "vi": "Bạn là trợ lý viết hồ sơ cho điều dưỡng ở khoa nội.",
+    "en": "You are a documentation assistant for nurses on a medical ward."
+   },
+   "boi_canh": {
+    "vi": "Dưới đây là ghi chép trong ca của một người bệnh, đã che hết thông tin định danh:\n[DÁN GHI CHÉP ĐÃ CHE Ở ĐÂY]",
+    "en": "Below are this shift's notes for one patient, with all identifying details removed:\n[PASTE THE DE-IDENTIFIED NOTES HERE]"
+   },
+   "viec": {
+    "vi": "Tóm tắt cho người nhận ca sau, ưu tiên những việc cần làm trong vài giờ tới.",
+    "en": "Summarise for the nurse taking over, putting the tasks due in the next few hours first."
+   },
+   "dinh_dang": {
+    "vi": "Năm gạch đầu dòng, mỗi dòng dưới hai mươi chữ. Dòng cuối là việc cần làm ngay.",
+    "en": "Five bullet points, each under twenty words. The last line is what needs doing right away."
+   },
+   "gioi_han": {
+    "vi": "Chỉ dùng thông tin đã cho. Chỗ nào thiếu thì ghi \"chưa có\", không tự đoán.",
+    "en": "Use only the information given. Where something is missing, write \"not recorded\"; do not guess."
+   },
+   "bieu_tuong": "📝",
+   "goc": {
+    "vi": "Tóm tắt ca này.",
+    "en": "Summarise this case."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Bệnh nhân đang được theo dõi và điều trị tại khoa. Tình trạng chung tương đối ổn định. Cần tiếp tục theo dõi sát các dấu hiệu sinh tồn và báo bác sĩ khi có bất thường. Đảm bảo chế độ dinh dưỡng và nghỉ ngơi hợp lý.",
+     "en": "The patient is being monitored and treated on the ward. General condition is relatively stable. Continue to monitor vital signs closely and report any abnormality to the doctor. Ensure adequate nutrition and rest."
+    },
+    "kha": {
+     "vi": "- Sốt 3 ngày, sáng nay 38,6 độ, mạch 102.\n- Ho khạc đờm vàng.\n- SpO2 94% khí trời.\n- Đã cấy máu, chờ kết quả.\n- Bệnh nhân có thể bị viêm phổi, nên cân nhắc đổi kháng sinh.",
+     "en": "- Fever for 3 days, 38.6 this morning, HR 102.\n- Productive cough, yellow sputum.\n- SpO2 94% on room air.\n- Blood cultures sent, awaiting results.\n- Likely pneumonia; consider changing antibiotics."
+    },
+    "tot": {
+     "vi": "- Sốt ngày 3, sáng nay 38,6 độ, mạch 102.\n- Ho đờm vàng, SpO2 94% khí trời.\n- Đã cấy máu, **chưa có kết quả**.\n- Đường truyền: chưa có ghi chép.\n- **Việc ngay:** đo lại nhiệt độ và SpO2 lúc 14 giờ, xem kết quả cấy máu.",
+     "en": "- Day 3 of fever, 38.6 this morning, HR 102.\n- Yellow sputum, SpO2 94% on room air.\n- Blood cultures sent, **results pending**.\n- IV line: not recorded.\n- **Do now:** recheck temperature and SpO2 at 2 pm, chase blood cultures."
+    }
+   }
+  },
+  {
+   "id": "sbar",
+   "video": "606",
+   "ten": {
+    "vi": "Bàn giao ca theo SBAR",
+    "en": "Shift handover in SBAR"
+   },
+   "vai_tro": {
+    "vi": "Bạn là trợ lý giúp điều dưỡng sắp xếp bàn giao ca.",
+    "en": "You help nurses organise their shift handover."
+   },
+   "boi_canh": {
+    "vi": "Ghi chép rời trong ca của các người bệnh dưới đây đã che thông tin định danh, mỗi người bệnh ghi theo số giường giả (G1, G2...):\n[DÁN GHI CHÉP ĐÃ CHE Ở ĐÂY]",
+    "en": "Loose shift notes for the patients below, de-identified, each listed under a placeholder bed number (B1, B2...):\n[PASTE THE DE-IDENTIFIED NOTES HERE]"
+   },
+   "viec": {
+    "vi": "Xếp thông tin của từng người bệnh vào bốn mục SBAR: Situation (tình hình hiện tại), Background (bệnh sử liên quan), Assessment (nhận định đã ghi), Recommendation (việc ca sau cần làm).",
+    "en": "Sort each patient's information into the four SBAR headings: Situation, Background, Assessment (as recorded), Recommendation (what the next shift needs to do)."
+   },
+   "dinh_dang": {
+    "vi": "Mỗi người bệnh một khối, bốn dòng S, B, A, R. Việc cần làm trong 4 giờ tới đặt ở đầu dòng R.",
+    "en": "One block per patient with four lines S, B, A, R. Tasks due in the next 4 hours go first on the R line."
+   },
+   "gioi_han": {
+    "vi": "Chỉ xếp lại thông tin đã ghi, không tự thêm nhận định. Mục nào không có thông tin thì ghi \"chưa có\" để điều dưỡng bổ sung.",
+    "en": "Only rearrange what was recorded; do not add your own assessment. If a heading has no information, write \"not recorded\" so the nurse can fill it in."
+   },
+   "bieu_tuong": "🔄",
+   "goc": {
+    "vi": "Viết bàn giao ca.",
+    "en": "Write the handover."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Ca trực hôm nay nhìn chung ổn. Các bệnh nhân đều được chăm sóc đầy đủ theo y lệnh. Ca sau tiếp tục theo dõi và chăm sóc người bệnh như thường lệ.",
+     "en": "Today's shift was generally fine. All patients received care as ordered. The next shift should continue monitoring and caring for patients as usual."
+    },
+    "kha": {
+     "vi": "G1: sốt 38,6 độ, ho đờm, SpO2 94%, đã cấy máu. Nhận định: có thể viêm phổi nặng lên.\nG2: sau mổ ngày 2, đau 4/10, đã đi lại được. Nhận định: ổn.\nCa sau theo dõi tiếp.",
+     "en": "B1: fever 38.6, productive cough, SpO2 94%, cultures sent. Assessment: pneumonia may be worsening.\nB2: post-op day 2, pain 4/10, mobilising. Assessment: fine.\nNext shift: continue monitoring."
+    },
+    "tot": {
+     "vi": "**G1** · S: sốt 38,6 độ, mạch 102, SpO2 94%. B: vào viện 3 ngày, ho đờm vàng. A: chưa có. R: **14 giờ đo lại SpO2**, xem kết quả cấy máu.\n**G2** · S: sau mổ ngày 2, đau 4/10. B: mổ ruột thừa. A: đã ghi \"ổn định\". R: **16 giờ thay băng**, khuyến khích đi lại.",
+     "en": "**B1** · S: fever 38.6, HR 102, SpO2 94%. B: day 3 of admission, yellow sputum. A: not recorded. R: **recheck SpO2 at 2 pm**, chase blood cultures.\n**B2** · S: post-op day 2, pain 4/10. B: appendicectomy. A: recorded as \"stable\". R: **dressing change at 4 pm**, encourage walking."
+    }
+   }
+  },
+  {
+   "id": "huong-dan",
+   "video": "607",
+   "ten": {
+    "vi": "Tờ hướng dẫn cho người bệnh dễ hiểu",
+    "en": "Plain-language patient leaflet"
+   },
+   "vai_tro": {
+    "vi": "Bạn là người viết tài liệu giáo dục sức khỏe cho người bệnh và người nhà.",
+    "en": "You write health education leaflets for patients and their families."
+   },
+   "boi_canh": {
+    "vi": "Đây là nội dung hướng dẫn bác sĩ đã duyệt, viết bằng thuật ngữ chuyên môn:\n[DÁN NỘI DUNG HƯỚNG DẪN]\nNgười đọc là người lớn tuổi, đọc chậm, không quen thuật ngữ y khoa.",
+    "en": "These are the instructions the doctor approved, written in clinical language:\n[PASTE THE INSTRUCTIONS]\nThe reader is an older adult who reads slowly and does not know medical terms."
+   },
+   "viec": {
+    "vi": "Viết lại cho dễ hiểu và chia theo những lúc trong ngày (sáng, trưa, tối, khi có dấu hiệu nguy hiểm). Cuối bài thêm ba câu hỏi để nhân viên y tế hỏi lại người bệnh (teach-back).",
+    "en": "Rewrite it in plain language, organised by time of day (morning, midday, evening, warning signs). End with three questions staff can ask the patient to check understanding (teach-back)."
+   },
+   "dinh_dang": {
+    "vi": "Câu ngắn dưới mười lăm chữ. Thay thuật ngữ bằng việc cụ thể. Không quá một trang.",
+    "en": "Short sentences under fifteen words. Replace medical terms with concrete actions. No more than one page."
+   },
+   "gioi_han": {
+    "vi": "Giữ nguyên mọi con số, liều và mốc thời gian như bản gốc, không thêm lời khuyên mới. Chỗ nào bản gốc không rõ thì đánh dấu [HỎI BÁC SĨ].",
+    "en": "Keep every number, dose and time exactly as in the original, and add no new advice. Where the original is unclear, mark it [ASK THE DOCTOR]."
+   },
+   "bieu_tuong": "👵",
+   "goc": {
+    "vi": "Viết hướng dẫn cho bệnh nhân.",
+    "en": "Write patient instructions."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Người bệnh cần tuân thủ điều trị theo chỉ định, tránh gắng sức, theo dõi các dấu hiệu bất thường và tái khám đúng hẹn. Liên hệ cơ sở y tế khi cần thiết.",
+     "en": "The patient should adhere to treatment as indicated, avoid exertion, monitor for abnormal symptoms and attend follow-up. Contact a health facility if needed."
+    },
+    "kha": {
+     "vi": "- Uống kháng sinh 2 lần mỗi ngày, sau ăn, đủ 7 ngày.\n- Không xách đồ nặng trong 2 tuần.\n- Nếu vết mổ sưng đỏ thì đi khám.\n- Tái khám sau 7 ngày.",
+     "en": "- Take the antibiotic twice a day after meals for 7 days.\n- No heavy lifting for 2 weeks.\n- If the wound gets red and swollen, see a doctor.\n- Come back in 7 days."
+    },
+    "tot": {
+     "vi": "**Sáng và tối:** uống 1 viên thuốc sau khi ăn. Uống đủ 7 ngày, kể cả khi đã hết sốt.\n**Trong 2 tuần:** không xách đồ nặng, không leo quá một tầng cầu thang.\n**Đi khám ngay nếu:** sốt trên 38,5 độ, chỗ mổ sưng, nóng, chảy nước.\n**Ngày 7:** quay lại cắt chỉ, mang giấy ra viện.\n**Hỏi lại:** Mỗi ngày bác uống thuốc mấy lần?",
+     "en": "**Morning and evening:** take 1 tablet after food. Finish all 7 days, even if the fever is gone.\n**For 2 weeks:** don't lift anything heavy or climb more than one flight of stairs.\n**Get help now if:** fever over 38.5, the wound is swollen, hot or leaking.\n**Day 7:** come back to have the stitches out; bring your discharge papers.\n**Ask back:** How many times a day do you take the tablets?"
+    }
+   }
+  },
+  {
+   "id": "email",
+   "video": "608",
+   "ten": {
+    "vi": "Email, công văn nội bộ",
+    "en": "Internal email or memo"
+   },
+   "vai_tro": {
+    "vi": "Bạn là thư ký hành chính của một khoa trong bệnh viện.",
+    "en": "You are the administrative assistant for a hospital department."
+   },
+   "boi_canh": {
+    "vi": "Người nhận: [PHÒNG BAN / CHỨC DANH]. Ý chính cần nói:\n[GẠCH ĐẦU DÒNG CÁC Ý]",
+    "en": "Recipient: [DEPARTMENT / ROLE]. Key points:\n[BULLET THE POINTS]"
+   },
+   "viec": {
+    "vi": "Viết thành email ngắn, lịch sự, đúng văn phong hành chính.",
+    "en": "Turn this into a short, polite email in a formal administrative tone."
+   },
+   "dinh_dang": {
+    "vi": "Tiêu đề email, lời chào, tối đa ba đoạn, lời kết. Việc cần người nhận làm và hạn chót in đậm.",
+    "en": "Subject line, greeting, at most three paragraphs, sign-off. What the recipient must do and the deadline in bold."
+   },
+   "gioi_han": {
+    "vi": "Không thêm ý, con số hay cam kết nào ngoài các ý đã cho. Không đưa thông tin người bệnh vào email.",
+    "en": "Add no points, figures or commitments beyond those given. Keep patient information out of the email."
+   },
+   "bieu_tuong": "✉️",
+   "goc": {
+    "vi": "Viết email cho phòng vật tư.",
+    "en": "Write an email to procurement."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Kính gửi quý phòng, khoa chúng tôi có một số vấn đề cần trao đổi. Mong quý phòng sớm phản hồi. Trân trọng cảm ơn.",
+     "en": "Dear colleagues, our department has some issues to discuss. We look forward to your reply. Kind regards."
+    },
+    "kha": {
+     "vi": "Kính gửi Phòng Vật tư,\nKhoa Nội đề nghị cấp thêm 20 hộp găng tay cỡ M vì tồn kho sắp hết. Mong phòng xem xét.\nTrân trọng.",
+     "en": "Dear Procurement,\nThe Medical Ward requests 20 more boxes of size M gloves as stock is running low. Please consider.\nKind regards."
+    },
+    "tot": {
+     "vi": "**Tiêu đề:** Đề nghị cấp găng tay cỡ M trước thứ Sáu\nKính gửi Phòng Vật tư,\nKhoa Nội còn 3 hộp găng tay cỡ M, dùng hết trong khoảng 2 ngày. Khoa đề nghị **cấp 20 hộp trước thứ Sáu 23/10**.\nNếu cần phiếu đề xuất, xin báo để khoa gửi bổ sung.\nTrân trọng,\nĐiều dưỡng trưởng khoa Nội",
+     "en": "**Subject:** Request for size M gloves by Friday\nDear Procurement,\nThe Medical Ward has 3 boxes of size M gloves left, about 2 days' supply. We request **20 boxes by Friday 23 October**.\nIf you need a requisition form, let us know and we will send it.\nKind regards,\nWard Manager, Medical Ward"
+    }
+   }
+  },
+  {
+   "id": "bien-ban",
+   "video": "608",
+   "ten": {
+    "vi": "Biên bản giao ban, họp khoa",
+    "en": "Meeting minutes"
+   },
+   "vai_tro": {
+    "vi": "Bạn là thư ký ghi biên bản họp của khoa.",
+    "en": "You take the minutes for department meetings."
+   },
+   "boi_canh": {
+    "vi": "Ghi chú vội trong buổi giao ban sáng nay (đã bỏ tên người bệnh):\n[DÁN GHI CHÚ]",
+    "en": "Rough notes from this morning's meeting (patient names removed):\n[PASTE THE NOTES]"
+   },
+   "viec": {
+    "vi": "Soạn thành biên bản, tách riêng các quyết định và việc cần làm.",
+    "en": "Turn them into minutes, separating decisions from action items."
+   },
+   "dinh_dang": {
+    "vi": "Bảng bốn cột: quyết định hoặc việc cần làm, người phụ trách, hạn chót, ghi chú.",
+    "en": "A four-column table: decision or action, owner, deadline, notes."
+   },
+   "gioi_han": {
+    "vi": "Chỗ nào không rõ ai phụ trách hay hạn chót thì ghi \"cần hỏi lại\", không tự điền.",
+    "en": "Where the owner or deadline is unclear, write \"to confirm\"; do not fill it in yourself."
+   },
+   "bieu_tuong": "📋",
+   "goc": {
+    "vi": "Ghi biên bản họp.",
+    "en": "Write up the meeting."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Buổi họp diễn ra tốt đẹp. Các thành viên đã trao đổi nhiều vấn đề quan trọng và thống nhất sẽ thực hiện tốt các nhiệm vụ được giao.",
+     "en": "The meeting went well. Members discussed many important issues and agreed to carry out their assigned tasks."
+    },
+    "kha": {
+     "vi": "- Thống nhất đổi giờ giao ban sang 7 giờ 15.\n- Cần kiểm tra lại tủ thuốc cấp cứu.\n- Nhắc nhân viên rửa tay đúng quy trình.",
+     "en": "- Agreed to move handover to 7:15.\n- Emergency drug trolley needs checking.\n- Remind staff about hand hygiene."
+    },
+    "tot": {
+     "vi": "| Việc | Người phụ trách | Hạn |\n| Đổi giờ giao ban sang 7 giờ 15 | Trưởng khoa | từ 26/10 |\n| Kiểm tủ thuốc cấp cứu | ĐD Lan | 20/10 |\n| Nhắc rửa tay đúng quy trình | cần hỏi lại | cần hỏi lại |",
+     "en": "| Action | Owner | Due |\n| Move handover to 7:15 | Head of department | from 26 Oct |\n| Check emergency trolley | Nurse Lan | 20 Oct |\n| Hand hygiene reminder | to confirm | to confirm |"
+    }
+   }
+  },
+  {
+   "id": "bao-cao",
+   "video": "608",
+   "ten": {
+    "vi": "Nhận xét cho báo cáo tháng",
+    "en": "Commentary for a monthly report"
+   },
+   "vai_tro": {
+    "vi": "Bạn là chuyên viên kế hoạch tổng hợp của bệnh viện.",
+    "en": "You are a hospital planning officer."
+   },
+   "boi_canh": {
+    "vi": "Bảng số liệu tháng này và tháng trước của khoa (số tổng hợp, không có dữ liệu từng người bệnh):\n[DÁN BẢNG SỐ]",
+    "en": "This month's and last month's figures for the department (totals only, no individual patient data):\n[PASTE THE TABLE]"
+   },
+   "viec": {
+    "vi": "Viết đoạn nhận xét: thay đổi nào lớn nhất, tăng hay giảm bao nhiêu phần trăm.",
+    "en": "Write a commentary paragraph: what changed most, and by how many percent up or down."
+   },
+   "dinh_dang": {
+    "vi": "Một đoạn dưới 150 chữ, sau đó là danh sách các con số đã dùng kèm vị trí ô trong bảng.",
+    "en": "One paragraph under 150 words, then a list of every figure used with its cell in the table."
+   },
+   "gioi_han": {
+    "vi": "Chỉ dùng số trong bảng, không đoán nguyên nhân. Nếu muốn nêu nguyên nhân thì ghi là giả thuyết cần khoa xác nhận.",
+    "en": "Use only figures from the table and do not guess causes. Any possible cause must be labelled a hypothesis for the department to confirm."
+   },
+   "bieu_tuong": "📈",
+   "goc": {
+    "vi": "Nhận xét số liệu tháng này.",
+    "en": "Comment on this month's figures."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Trong tháng, hoạt động của khoa diễn ra ổn định, các chỉ tiêu cơ bản đều đạt. Khoa sẽ tiếp tục phát huy và khắc phục hạn chế trong tháng tới.",
+     "en": "This month the department ran smoothly and met its basic targets. We will build on this and address shortcomings next month."
+    },
+    "kha": {
+     "vi": "Số lượt điều trị nội trú tăng so với tháng trước, công suất giường cao. Nguyên nhân chủ yếu do dịch cúm mùa và thiếu nhân lực.",
+     "en": "Inpatient admissions rose compared with last month and bed occupancy was high, mainly because of seasonal flu and staff shortages."
+    },
+    "tot": {
+     "vi": "Lượt nội trú tháng 9 là 412, tăng **12%** so với tháng 8 (368). Ngày điều trị trung bình giảm từ 6,1 xuống 5,6.\nSố đã dùng: 412 (ô B2), 368 (ô C2), 6,1 (ô C4), 5,6 (ô B4).\nGiả thuyết cần khoa xác nhận: tăng do cúm mùa.",
+     "en": "September admissions were 412, up **12%** on August (368). Average length of stay fell from 6.1 to 5.6 days.\nFigures used: 412 (B2), 368 (C2), 6.1 (C4), 5.6 (B4).\nHypothesis for the department to confirm: seasonal flu."
+    }
+   }
+  },
+  {
+   "id": "bai-bao",
+   "video": "609",
+   "ten": {
+    "vi": "Tóm tắt một bài báo y khoa",
+    "en": "Summarise a medical paper"
+   },
+   "vai_tro": {
+    "vi": "Bạn là trợ lý đọc tài liệu cho nhân viên y tế.",
+    "en": "You help healthcare staff read research papers."
+   },
+   "boi_canh": {
+    "vi": "Tôi đính kèm toàn văn bài báo (tôi tự tìm trên PubMed hoặc trang tạp chí).",
+    "en": "I have attached the full text of the paper (I found it myself on PubMed or the journal's site)."
+   },
+   "viec": {
+    "vi": "Tóm tắt theo năm mục: câu hỏi nghiên cứu, đối tượng, cách làm, kết quả chính, hạn chế.",
+    "en": "Summarise under five headings: research question, population, methods, main results, limitations."
+   },
+   "dinh_dang": {
+    "vi": "Bảng năm hàng. Mỗi hàng kèm một đoạn trích nguyên văn từ bài và số trang.",
+    "en": "A five-row table. Each row includes a verbatim quote from the paper and its page number."
+   },
+   "gioi_han": {
+    "vi": "Chỉ dùng bài đã đính kèm. Không tìm hay nhắc tới bài khác. Ý nào không có câu gốc trong bài thì ghi \"không thấy trong bài\".",
+    "en": "Use only the attached paper. Do not search for or mention other papers. If a point has no source sentence in the paper, write \"not found in the paper\"."
+   },
+   "bieu_tuong": "📚",
+   "goc": {
+    "vi": "Tóm tắt bài báo này.",
+    "en": "Summarise this paper."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Bài báo nghiên cứu một vấn đề quan trọng trong y học. Kết quả cho thấy phương pháp mới có hiệu quả tốt (Smith và cộng sự, 2021). Cần thêm nghiên cứu để khẳng định.",
+     "en": "The paper studies an important medical question. Results show the new method works well (Smith et al., 2021). More research is needed."
+    },
+    "kha": {
+     "vi": "- Câu hỏi: nhắc tin nhắn có giúp uống thuốc đều hơn không.\n- Đối tượng: 600 người tăng huyết áp.\n- Kết quả: tỉ lệ uống đều tăng rõ.\n- Hạn chế: chưa nêu.",
+     "en": "- Question: do text reminders improve adherence?\n- Population: 600 people with hypertension.\n- Result: adherence clearly improved.\n- Limitations: not stated."
+    },
+    "tot": {
+     "vi": "| Mục | Tóm tắt | Trích bài gốc |\n| Câu hỏi | Tin nhắn nhắc có giúp uống thuốc đều hơn? | \"whether SMS reminders…\" tr. 2 |\n| Đối tượng | 600 người tăng huyết áp | \"600 adults…\" tr. 3 |\n| Kết quả | Uống đều tăng từ 61% lên 72% | \"61% vs 72%\" tr. 6 |\n| Hạn chế | Theo dõi 6 tháng | không thấy trong bài |",
+     "en": "| Item | Summary | Quote |\n| Question | Do SMS reminders improve adherence? | \"whether SMS reminders…\" p. 2 |\n| Population | 600 adults with hypertension | \"600 adults…\" p. 3 |\n| Result | Adherence 61% → 72% | \"61% vs 72%\" p. 6 |\n| Limitations | 6-month follow-up | not found in the paper |"
+    }
+   }
+  },
+  {
+   "id": "on-thi",
+   "video": "609",
+   "ten": {
+    "vi": "Câu hỏi ôn thi từ tài liệu",
+    "en": "Revision questions from my notes"
+   },
+   "vai_tro": {
+    "vi": "Bạn là người ra đề ôn tập cho nhân viên y tế.",
+    "en": "You write revision questions for healthcare staff."
+   },
+   "boi_canh": {
+    "vi": "Tài liệu ôn tập của tôi:\n[DÁN TÀI LIỆU]",
+    "en": "My revision material:\n[PASTE THE MATERIAL]"
+   },
+   "viec": {
+    "vi": "Ra mười câu trắc nghiệm bốn lựa chọn.",
+    "en": "Write ten multiple-choice questions with four options each."
+   },
+   "dinh_dang": {
+    "vi": "Mỗi câu: câu hỏi, bốn lựa chọn, đáp án, giải thích ngắn kèm câu trích từ tài liệu.",
+    "en": "Each one: the question, four options, the answer, a short explanation quoting the material."
+   },
+   "gioi_han": {
+    "vi": "Đáp án và giải thích chỉ dựa vào tài liệu tôi đưa, không dùng kiến thức ngoài.",
+    "en": "Base answers and explanations only on the material I gave, not on outside knowledge."
+   },
+   "bieu_tuong": "🎯",
+   "goc": {
+    "vi": "Ra đề ôn thi.",
+    "en": "Make some revision questions."
+   },
+   "tra_loi": {
+    "tho": {
+     "vi": "Câu 1: Điều nào sau đây đúng về chăm sóc người bệnh?\nA. Rất quan trọng  B. Không quan trọng  C. Tùy trường hợp  D. Cả A và C\nĐáp án: D.",
+     "en": "Q1: Which is true about patient care?\nA. Very important  B. Not important  C. It depends  D. A and C\nAnswer: D."
+    },
+    "kha": {
+     "vi": "Câu 1: Rửa tay thường quy gồm mấy bước?\nA. 4  B. 5  C. 6  D. 7\nĐáp án: C.",
+     "en": "Q1: How many steps are in routine hand washing?\nA. 4  B. 5  C. 6  D. 7\nAnswer: C."
+    },
+    "tot": {
+     "vi": "**Câu 1:** Theo tài liệu, rửa tay thường quy gồm mấy bước?\nA. 4  B. 5  C. 6  D. 7\n**Đáp án:** C. **Giải thích:** tài liệu ghi \"quy trình rửa tay 6 bước\" (mục 2).",
+     "en": "**Q1:** According to the material, how many steps are in routine hand washing?\nA. 4  B. 5  C. 6  D. 7\n**Answer:** C. **Why:** the material says \"the 6-step hand washing procedure\" (section 2)."
+    }
+   }
+  }
+ ],
+ "gioi_han_chung": {
+  "vi": "Không đưa ra chẩn đoán, chỉ định, tên thuốc hay liều thuốc mới.",
+  "en": "Do not give a diagnosis, order, new drug name or dose."
+ },
+ "thuat_ngu": {
+  "vi": [
+   [
+    "gắng sức",
+    "làm việc nặng, xách đồ nặng, leo nhiều cầu thang"
+   ],
+   [
+    "tái khám",
+    "quay lại khám"
+   ],
+   [
+    "dấu hiệu bất thường",
+    "nêu rõ từng dấu hiệu (sốt, đau tăng, chảy máu...)"
+   ],
+   [
+    "chỉ định",
+    "bác sĩ cho làm, bác sĩ yêu cầu"
+   ],
+   [
+    "chống chỉ định",
+    "không được dùng, không được làm"
+   ],
+   [
+    "liều",
+    "lượng thuốc mỗi lần"
+   ],
+   [
+    "liều dùng",
+    "lượng thuốc mỗi lần"
+   ],
+   [
+    "uống lúc đói",
+    "uống trước bữa ăn"
+   ],
+   [
+    "sau ăn no",
+    "ngay sau bữa ăn"
+   ],
+   [
+    "tác dụng phụ",
+    "cảm giác khó chịu có thể gặp khi dùng thuốc"
+   ],
+   [
+    "tác dụng không mong muốn",
+    "cảm giác khó chịu có thể gặp khi dùng thuốc"
+   ],
+   [
+    "dị ứng thuốc",
+    "nổi mẩn, ngứa, khó thở sau khi dùng thuốc"
+   ],
+   [
+    "phản vệ",
+    "phản ứng dị ứng nặng: khó thở, choáng, tụt huyết áp"
+   ],
+   [
+    "sốc phản vệ",
+    "phản ứng dị ứng nặng: khó thở, choáng, tụt huyết áp"
+   ],
+   [
+    "tăng huyết áp",
+    "huyết áp cao"
+   ],
+   [
+    "hạ huyết áp",
+    "huyết áp thấp"
+   ],
+   [
+    "tụt huyết áp",
+    "huyết áp xuống thấp, hoa mắt, choáng"
+   ],
+   [
+    "đường huyết",
+    "đường trong máu"
+   ],
+   [
+    "hạ đường huyết",
+    "đường trong máu xuống thấp: run tay, vã mồ hôi, đói cồn cào"
+   ],
+   [
+    "tăng đường huyết",
+    "đường trong máu cao"
+   ],
+   [
+    "đái tháo đường",
+    "bệnh tiểu đường"
+   ],
+   [
+    "rối loạn lipid máu",
+    "mỡ máu cao"
+   ],
+   [
+    "nhồi máu cơ tim",
+    "cơn đau tim do tắc mạch máu nuôi tim"
+   ],
+   [
+    "đột quỵ",
+    "tai biến mạch máu não"
+   ],
+   [
+    "suy tim",
+    "tim yếu, bơm máu kém"
+   ],
+   [
+    "suy thận",
+    "thận yếu, lọc máu kém"
+   ],
+   [
+    "phù",
+    "sưng (chân, mặt)"
+   ],
+   [
+    "khó thở",
+    "thở hụt hơi, thở không đủ"
+   ],
+   [
+    "ho ra máu",
+    "ho có máu"
+   ],
+   [
+    "xuất huyết",
+    "chảy máu"
+   ],
+   [
+    "xuất huyết tiêu hóa",
+    "chảy máu trong dạ dày, ruột (đi ngoài phân đen, nôn ra máu)"
+   ],
+   [
+    "đại tiện",
+    "đi ngoài"
+   ],
+   [
+    "tiểu tiện",
+    "đi tiểu"
+   ],
+   [
+    "bí tiểu",
+    "muốn tiểu mà không tiểu được"
+   ],
+   [
+    "tiêu chảy",
+    "đi ngoài phân lỏng nhiều lần"
+   ],
+   [
+    "táo bón",
+    "khó đi ngoài, phân cứng"
+   ],
+   [
+    "buồn nôn",
+    "cảm giác muốn nôn"
+   ],
+   [
+    "chóng mặt",
+    "thấy mọi thứ quay vòng"
+   ],
+   [
+    "choáng váng",
+    "hoa mắt, muốn ngã"
+   ],
+   [
+    "co giật",
+    "người giật liên tục, không tự dừng"
+   ],
+   [
+    "lơ mơ",
+    "ngủ li bì, gọi khó tỉnh"
+   ],
+   [
+    "hôn mê",
+    "gọi không tỉnh"
+   ],
+   [
+    "vết mổ",
+    "chỗ mổ"
+   ],
+   [
+    "chỉ khâu",
+    "chỉ ở chỗ mổ"
+   ],
+   [
+    "cắt chỉ",
+    "rút chỉ ở chỗ mổ"
+   ],
+   [
+    "thay băng",
+    "thay miếng gạc che vết thương"
+   ],
+   [
+    "nhiễm trùng",
+    "vết thương sưng, nóng, đỏ, đau, có mủ"
+   ],
+   [
+    "nhiễm khuẩn",
+    "vết thương sưng, nóng, đỏ, đau, có mủ"
+   ],
+   [
+    "dịch tiết",
+    "nước hoặc mủ chảy ra"
+   ],
+   [
+    "vô khuẩn",
+    "sạch, đã khử trùng"
+   ],
+   [
+    "kháng sinh",
+    "thuốc diệt vi khuẩn"
+   ],
+   [
+    "kháng viêm",
+    "thuốc giảm sưng viêm"
+   ],
+   [
+    "giảm đau",
+    "thuốc bớt đau"
+   ],
+   [
+    "hạ sốt",
+    "thuốc làm bớt sốt"
+   ],
+   [
+    "thuốc chống đông",
+    "thuốc làm máu khó đông, dễ chảy máu hơn"
+   ],
+   [
+    "lợi tiểu",
+    "thuốc làm đi tiểu nhiều"
+   ],
+   [
+    "dung nạp",
+    "hợp, không bị khó chịu"
+   ],
+   [
+    "tuân thủ điều trị",
+    "dùng thuốc đúng và đủ như bác sĩ dặn"
+   ],
+   [
+    "chế độ ăn",
+    "cách ăn uống"
+   ],
+   [
+    "ăn nhạt",
+    "ăn ít muối"
+   ],
+   [
+    "hạn chế muối",
+    "ăn ít muối, không chấm thêm"
+   ],
+   [
+    "ăn kiêng",
+    "tránh một số món theo dặn dò"
+   ],
+   [
+    "nhịn ăn",
+    "không ăn, không uống"
+   ],
+   [
+    "vận động",
+    "đi lại, tập nhẹ"
+   ],
+   [
+    "nghỉ ngơi tại giường",
+    "nằm nghỉ, hạn chế đi lại"
+   ],
+   [
+    "theo dõi",
+    "để ý và ghi lại"
+   ],
+   [
+    "sinh hiệu",
+    "mạch, nhiệt độ, huyết áp, nhịp thở"
+   ],
+   [
+    "dấu hiệu sinh tồn",
+    "mạch, nhiệt độ, huyết áp, nhịp thở"
+   ],
+   [
+    "nhiệt độ cơ thể",
+    "thân nhiệt, đo bằng nhiệt kế"
+   ],
+   [
+    "SpO2",
+    "độ bão hòa oxy, đo bằng kẹp ngón tay"
+   ],
+   [
+    "cận lâm sàng",
+    "xét nghiệm, chụp chiếu"
+   ],
+   [
+    "xét nghiệm",
+    "lấy máu hoặc nước tiểu để kiểm tra"
+   ],
+   [
+    "siêu âm",
+    "khám bằng máy siêu âm"
+   ],
+   [
+    "nội soi",
+    "đưa ống có camera vào để xem bên trong"
+   ],
+   [
+    "chẩn đoán",
+    "bệnh bác sĩ xác định"
+   ],
+   [
+    "tiên lượng",
+    "khả năng bệnh diễn tiến tốt hay xấu"
+   ],
+   [
+    "biến chứng",
+    "bệnh nặng thêm hoặc sinh thêm bệnh khác"
+   ],
+   [
+    "cấp cứu",
+    "đến bệnh viện ngay"
+   ],
+   [
+    "nhập viện",
+    "nằm viện"
+   ],
+   [
+    "xuất viện",
+    "ra viện, về nhà"
+   ],
+   [
+    "ngoại trú",
+    "khám và về nhà trong ngày"
+   ],
+   [
+    "nội trú",
+    "nằm lại bệnh viện"
+   ],
+   [
+    "phác đồ",
+    "cách điều trị bác sĩ đã chọn"
+   ],
+   [
+    "mạn tính",
+    "bệnh lâu dài"
+   ],
+   [
+    "cấp tính",
+    "bệnh mới xảy ra, diễn biến nhanh"
+   ],
+   [
+    "tái phát",
+    "bệnh quay lại"
+   ],
+   [
+    "di chứng",
+    "hậu quả để lại sau bệnh"
+   ],
+   [
+    "thai kỳ",
+    "thời gian mang thai"
+   ],
+   [
+    "hậu sản",
+    "thời gian sau sinh"
+   ],
+   [
+    "sơ sinh",
+    "em bé mới sinh"
+   ],
+   [
+    "tiêm chủng",
+    "tiêm vắc xin"
+   ],
+   [
+    "miễn dịch",
+    "sức đề kháng"
+   ],
+   [
+    "hô hấp",
+    "đường thở, việc thở"
+   ],
+   [
+    "tiêu hóa",
+    "dạ dày, ruột"
+   ],
+   [
+    "tim mạch",
+    "tim và mạch máu"
+   ],
+   [
+    "thần kinh",
+    "não và dây thần kinh"
+   ],
+   [
+    "dinh dưỡng",
+    "ăn uống"
+   ],
+   [
+    "mất nước",
+    "thiếu nước: khát, môi khô, tiểu ít"
+   ],
+   [
+    "bù nước",
+    "uống thêm nước, oresol"
+   ],
+   [
+    "oresol",
+    "gói muối pha nước uống khi tiêu chảy"
+   ]
+  ],
+  "en": [
+   [
+    "exertion",
+    "heavy work, lifting, climbing many stairs"
+   ],
+   [
+    "strenuous activity",
+    "heavy work, lifting, climbing many stairs"
+   ],
+   [
+    "follow-up",
+    "come back to see the doctor"
+   ],
+   [
+    "abnormal symptoms",
+    "list each sign (fever, more pain, bleeding...)"
+   ],
+   [
+    "indicated",
+    "your doctor wants you to"
+   ],
+   [
+    "contraindicated",
+    "must not be used"
+   ],
+   [
+    "dosage",
+    "how much medicine each time"
+   ],
+   [
+    "dose",
+    "how much medicine each time"
+   ],
+   [
+    "on an empty stomach",
+    "before eating"
+   ],
+   [
+    "adverse effects",
+    "side effects you might feel"
+   ],
+   [
+    "side effects",
+    "unwanted feelings the medicine may cause"
+   ],
+   [
+    "anaphylaxis",
+    "a severe allergic reaction: trouble breathing, fainting"
+   ],
+   [
+    "hypertension",
+    "high blood pressure"
+   ],
+   [
+    "hypotension",
+    "low blood pressure"
+   ],
+   [
+    "blood glucose",
+    "blood sugar"
+   ],
+   [
+    "hypoglycaemia",
+    "low blood sugar: shaking, sweating, very hungry"
+   ],
+   [
+    "hypoglycemia",
+    "low blood sugar: shaking, sweating, very hungry"
+   ],
+   [
+    "hyperglycaemia",
+    "high blood sugar"
+   ],
+   [
+    "hyperglycemia",
+    "high blood sugar"
+   ],
+   [
+    "diabetes mellitus",
+    "diabetes"
+   ],
+   [
+    "dyslipidaemia",
+    "high cholesterol"
+   ],
+   [
+    "myocardial infarction",
+    "heart attack"
+   ],
+   [
+    "cerebrovascular accident",
+    "stroke"
+   ],
+   [
+    "heart failure",
+    "a weak heart that pumps poorly"
+   ],
+   [
+    "renal failure",
+    "kidneys not working well"
+   ],
+   [
+    "renal",
+    "kidney"
+   ],
+   [
+    "oedema",
+    "swelling"
+   ],
+   [
+    "edema",
+    "swelling"
+   ],
+   [
+    "dyspnoea",
+    "shortness of breath"
+   ],
+   [
+    "dyspnea",
+    "shortness of breath"
+   ],
+   [
+    "haemoptysis",
+    "coughing up blood"
+   ],
+   [
+    "hemoptysis",
+    "coughing up blood"
+   ],
+   [
+    "haemorrhage",
+    "bleeding"
+   ],
+   [
+    "hemorrhage",
+    "bleeding"
+   ],
+   [
+    "gastrointestinal bleeding",
+    "bleeding in the stomach or gut (black stools, vomiting blood)"
+   ],
+   [
+    "urinary retention",
+    "can't pass urine"
+   ],
+   [
+    "diarrhoea",
+    "loose, watery stools"
+   ],
+   [
+    "constipation",
+    "hard stools, trouble going"
+   ],
+   [
+    "nausea",
+    "feeling sick"
+   ],
+   [
+    "vertigo",
+    "the room spinning"
+   ],
+   [
+    "syncope",
+    "fainting"
+   ],
+   [
+    "seizure",
+    "fit, shaking that doesn't stop"
+   ],
+   [
+    "drowsy",
+    "very sleepy, hard to wake"
+   ],
+   [
+    "incision",
+    "the cut from the operation"
+   ],
+   [
+    "sutures",
+    "stitches"
+   ],
+   [
+    "suture removal",
+    "taking the stitches out"
+   ],
+   [
+    "dressing change",
+    "changing the bandage"
+   ],
+   [
+    "infection",
+    "red, hot, swollen, painful, or pus"
+   ],
+   [
+    "discharge",
+    "fluid or pus coming out"
+   ],
+   [
+    "sterile",
+    "clean, germ-free"
+   ],
+   [
+    "antibiotic",
+    "medicine that kills bacteria"
+   ],
+   [
+    "anti-inflammatory",
+    "medicine that reduces swelling"
+   ],
+   [
+    "analgesic",
+    "painkiller"
+   ],
+   [
+    "antipyretic",
+    "medicine that brings down fever"
+   ],
+   [
+    "anticoagulant",
+    "blood thinner, you may bleed more easily"
+   ],
+   [
+    "diuretic",
+    "water tablet, makes you pass more urine"
+   ],
+   [
+    "adherence",
+    "taking your medicine exactly as told"
+   ],
+   [
+    "compliance",
+    "taking your medicine exactly as told"
+   ],
+   [
+    "low-sodium diet",
+    "eat less salt"
+   ],
+   [
+    "fasting",
+    "nothing to eat or drink"
+   ],
+   [
+    "mobilise",
+    "walk around, move gently"
+   ],
+   [
+    "mobilize",
+    "walk around, move gently"
+   ],
+   [
+    "bed rest",
+    "stay lying down, walk as little as possible"
+   ],
+   [
+    "monitor",
+    "watch and write down"
+   ],
+   [
+    "vital signs",
+    "pulse, temperature, blood pressure, breathing"
+   ],
+   [
+    "SpO2",
+    "oxygen level, measured with a finger clip"
+   ],
+   [
+    "investigations",
+    "tests and scans"
+   ],
+   [
+    "ultrasound",
+    "a scan with sound waves"
+   ],
+   [
+    "endoscopy",
+    "a camera tube to look inside"
+   ],
+   [
+    "diagnosis",
+    "the illness the doctor found"
+   ],
+   [
+    "prognosis",
+    "how the illness is likely to go"
+   ],
+   [
+    "complications",
+    "the illness getting worse or causing another problem"
+   ],
+   [
+    "admission",
+    "staying in hospital"
+   ],
+   [
+    "discharged",
+    "going home from hospital"
+   ],
+   [
+    "outpatient",
+    "seen and home the same day"
+   ],
+   [
+    "inpatient",
+    "staying in hospital"
+   ],
+   [
+    "chronic",
+    "long-lasting"
+   ],
+   [
+    "acute",
+    "sudden, fast-changing"
+   ],
+   [
+    "recurrence",
+    "the illness coming back"
+   ],
+   [
+    "postpartum",
+    "after giving birth"
+   ],
+   [
+    "neonate",
+    "newborn baby"
+   ],
+   [
+    "immunisation",
+    "vaccination"
+   ],
+   [
+    "immunization",
+    "vaccination"
+   ],
+   [
+    "respiratory",
+    "to do with breathing"
+   ],
+   [
+    "gastrointestinal",
+    "stomach and gut"
+   ],
+   [
+    "cardiovascular",
+    "heart and blood vessels"
+   ],
+   [
+    "neurological",
+    "brain and nerves"
+   ],
+   [
+    "dehydration",
+    "not enough water: thirsty, dry lips, little urine"
+   ],
+   [
+    "oral rehydration solution",
+    "salt-sugar drink for diarrhoea"
+   ]
+  ]
+ },
+ "teach_back": {
+  "vi": [
+   [
+    "thuốc|kháng sinh|uống",
+    "Bác/anh/chị nhắc lại giúp: mỗi ngày uống thuốc mấy lần, vào lúc nào?"
+   ],
+   [
+    "tái khám",
+    "Khi nào thì mình quay lại khám, và mang theo giấy tờ gì?"
+   ],
+   [
+    "nguy hiểm|cấp cứu|bất thường|sốt|chảy máu|khó thở",
+    "Những dấu hiệu nào thì phải đi khám ngay, không đợi tới hẹn?"
+   ],
+   [
+    "ăn|uống|muối|kiêng",
+    "Về ăn uống, mình cần tránh món gì và nên ăn gì?"
+   ],
+   [
+    "vận động|gắng sức|đi lại|tập|nghỉ",
+    "Trong tuần đầu, việc nào mình chưa được làm?"
+   ],
+   [
+    "vết mổ|băng|chỉ",
+    "Mình giữ chỗ mổ thế nào, khi nào thay băng hay cắt chỉ?"
+   ]
+  ],
+  "en": [
+   [
+    "medicine|medication|tablet|pill|dose|antibiotic|twice daily|once daily",
+    "Can you tell me, in your own words, how many times a day you take your medicine and when?"
+   ],
+   [
+    "follow-up|appointment|come back",
+    "When do you come back to see us, and what do you bring?"
+   ],
+   [
+    "urgent|emergency|warning|fever|bleeding|breath",
+    "Which signs mean you should get help straight away, without waiting for your appointment?"
+   ],
+   [
+    "eat|diet|salt|drink",
+    "What should you avoid eating, and what should you eat?"
+   ],
+   [
+    "exercise|exertion|activity|walk|rest|lift",
+    "In the first week, what are you not allowed to do yet?"
+   ],
+   [
+    "wound|incision|dressing|stitch",
+    "How will you look after the wound, and when is the dressing changed or the stitches removed?"
+   ]
+  ]
+ },
+ "quy_tac": {
+  "duoc": {
+   "vi": [
+    "Tóm tắt ghi chép đã che thông tin người bệnh",
+    "Bàn giao ca theo SBAR từ ghi chép đã che",
+    "Viết lại tài liệu cho người bệnh dễ hiểu (bác sĩ đã duyệt nội dung gốc)",
+    "Email, công văn, biên bản họp",
+    "Nhận xét báo cáo từ số liệu tổng hợp",
+    "Tóm tắt bài báo, soạn câu hỏi ôn thi",
+    "Dịch tài liệu chuyên môn (người có chuyên môn đọc lại)"
+   ],
+   "en": [
+    "Summarising de-identified notes",
+    "SBAR handover from de-identified notes",
+    "Rewriting patient materials in plain language (original approved by a doctor)",
+    "Emails, memos, meeting minutes",
+    "Report commentary from aggregate figures",
+    "Summarising papers, writing revision questions",
+    "Translating clinical documents (checked by a qualified person)"
+   ]
+  },
+  "cam": {
+   "vi": [
+    "Chẩn đoán, chỉ định, kê đơn, quyết định liều thuốc",
+    "Dán họ tên, ngày sinh, số CCCD, số thẻ BHYT, mã bệnh án, địa chỉ, số điện thoại của người bệnh",
+    "Tải ảnh phim, ảnh vết thương, ảnh có mặt người bệnh lên công cụ AI công cộng",
+    "Gửi bản AI viết cho người bệnh khi chưa có người có chuyên môn đọc và duyệt",
+    "Dùng công cụ AI chưa có trong danh sách được bệnh viện cho phép"
+   ],
+   "en": [
+    "Diagnosis, orders, prescribing, choosing doses",
+    "Pasting patient names, dates of birth, ID numbers, insurance numbers, record numbers, addresses or phone numbers",
+    "Uploading scans, wound photos or images showing a patient's face to public AI tools",
+    "Giving AI-written material to patients before a qualified person has read and approved it",
+    "Using AI tools not on the hospital's approved list"
+   ]
+  }
+ },
+ "ban_do": [
+  {
+   "loai": "ghi-chep",
+   "ten": {
+    "vi": "Ghi chép tự động (ambient scribe)",
+    "en": "Ambient scribes"
+   },
+   "video": "611",
+   "lam_gi": {
+    "vi": "Nghe cuộc trò chuyện trong buồng khám rồi soạn sẵn bản ghi chép theo mẫu bệnh án để bác sĩ đọc lại và ký.",
+    "en": "Listens to the consultation and drafts the clinical note in the record's format for the clinician to review and sign."
+   },
+   "vi_du": {
+    "vi": "Microsoft Dragon Copilot, Abridge, Ambience (chủ yếu bán cho bệnh viện ở Mỹ); Heidi (có bản dùng thử cho cá nhân)",
+    "en": "Microsoft Dragon Copilot, Abridge, Ambience (mostly sold to US health systems); Heidi (has a free tier for individuals)"
+   },
+   "kiem": {
+    "vi": "Người bệnh được báo và đồng ý ghi âm; dữ liệu lưu ở đâu; nghe tiếng Việt và giọng địa phương tốt tới đâu.",
+    "en": "Patient told and consents to recording; where the data is stored; how well it handles the local language and accents."
+   },
+   "nguoi": {
+    "vi": "Bác sĩ đọc lại từng dòng trước khi ký. Có thể nghe nhầm tên thuốc hoặc ghi thêm điều người bệnh không nói.",
+    "en": "The clinician reads every line before signing. It can mishear drug names or add things the patient never said."
+   },
+   "bieu_tuong": "🎙️",
+   "ngan": {
+    "vi": "Ghi chép tự động",
+    "en": "Ambient scribes"
+   }
+  },
+  {
+   "loai": "tra-cuu",
+   "ten": {
+    "vi": "Tra cứu bằng chứng y khoa",
+    "en": "Evidence search"
+   },
+   "video": "612",
+   "lam_gi": {
+    "vi": "Trả lời câu hỏi lâm sàng bằng cách tìm trong tài liệu y khoa đã xuất bản, mỗi ý kèm trích dẫn để mở bài gốc.",
+    "en": "Answers clinical questions from the published literature, with a citation for each point that opens the source."
+   },
+   "vi_du": {
+    "vi": "OpenEvidence; trợ lý AI trong một số cơ sở dữ liệu tra cứu lâm sàng",
+    "en": "OpenEvidence; AI assistants built into some clinical reference databases"
+   },
+   "kiem": {
+    "vi": "Mở từng trích dẫn xem có đúng câu đã tóm tắt; vấn đề ít nghiên cứu thì dễ tóm tắt sai; bằng chứng chủ yếu từ nước ngoài.",
+    "en": "Open each citation and check it says what the summary claims; sparse topics are easy to get wrong; most evidence comes from other countries."
+   },
+   "nguoi": {
+    "vi": "Quyết định điều trị theo hướng dẫn chẩn đoán điều trị của Bộ Y tế và phác đồ bệnh viện.",
+    "en": "Treatment decisions follow national guidelines and local protocols."
+   },
+   "bieu_tuong": "🔎",
+   "ngan": {
+    "vi": "Tra cứu bằng chứng",
+    "en": "Evidence search"
+   }
+  },
+  {
+   "loai": "hinh-anh",
+   "ten": {
+    "vi": "Đọc phim, chẩn đoán hình ảnh",
+    "en": "Medical imaging"
+   },
+   "video": "613",
+   "lam_gi": {
+    "vi": "Khoanh vùng nghi ngờ trên phim X-quang, CT; xếp phim cần đọc gấp lên trước. Là người đọc thứ hai.",
+    "en": "Marks suspicious areas on X-rays and CT and moves urgent studies up the queue. A second reader."
+   },
+   "vi_du": {
+    "vi": "DrAid của VinBrain (Việt Nam): hãng cho biết có mặt ở hơn 100 bệnh viện; được FDA Hoa Kỳ chấp thuận cho việc hỗ trợ phát hiện tràn khí màng phổi trên X-quang ngực",
+    "en": "DrAid by VinBrain (Vietnam): the company says it is used in over 100 hospitals; cleared by the US FDA to help detect pneumothorax on chest X-rays"
+   },
+   "kiem": {
+    "vi": "Chỉ tin trong đúng phạm vi đã được cấp phép; ở Việt Nam phần mềm này thuộc quản lý trang thiết bị y tế; số liệu độ chính xác thường do hãng tự công bố.",
+    "en": "Trust it only for the exact use it was cleared for; it is regulated as a medical device; accuracy figures are often the vendor's own."
+   },
+   "nguoi": {
+    "vi": "Kết luận trên phiếu trả lời là chữ ký của bác sĩ chẩn đoán hình ảnh.",
+    "en": "The report is signed by the radiologist."
+   },
+   "bieu_tuong": "🩻",
+   "ngan": {
+    "vi": "Đọc phim",
+    "en": "Imaging"
+   }
+  },
+  {
+   "loai": "canh-bao",
+   "ten": {
+    "vi": "Cảnh báo trong phần mềm bệnh viện",
+    "en": "Alerts in hospital software"
+   },
+   "video": "614",
+   "lam_gi": {
+    "vi": "Nhắc tương tác thuốc, dị ứng đã ghi, chỉ số vượt ngưỡng; loại mới dự đoán sớm người bệnh có nguy cơ trở nặng.",
+    "en": "Flags drug interactions, recorded allergies and out-of-range results; newer ones predict patients at risk of deteriorating."
+   },
+   "vi_du": {
+    "vi": "Tính năng trong phần mềm quản lý bệnh viện và bệnh án điện tử (tùy nhà cung cấp)",
+    "en": "Features inside hospital information systems and electronic records (varies by vendor)"
+   },
+   "kiem": {
+    "vi": "Đo mỗi loại cảnh báo đúng bao nhiêu lần; báo nhầm nhiều thì đề nghị chỉnh ngưỡng để tránh mệt mỏi vì chuông báo (alert fatigue).",
+    "en": "Track how often each alert is right; if it is mostly wrong, ask for the threshold to be tuned to avoid alert fatigue."
+   },
+   "nguoi": {
+    "vi": "Người đứng cạnh giường bệnh, đã nhìn và khám người bệnh.",
+    "en": "The person at the bedside who has seen and examined the patient."
+   },
+   "bieu_tuong": "🔔",
+   "ngan": {
+    "vi": "Cảnh báo lâm sàng",
+    "en": "Clinical alerts"
+   }
+  },
+  {
+   "loai": "chu-nghia",
+   "ten": {
+    "vi": "Chatbot đa năng cho việc chữ nghĩa",
+    "en": "General chatbots for paperwork"
+   },
+   "video": "601",
+   "lam_gi": {
+    "vi": "Tóm tắt, viết lại cho dễ hiểu, email, biên bản, báo cáo, ôn thi. Không làm riêng cho y tế.",
+    "en": "Summaries, plain-language rewrites, emails, minutes, reports, revision. Not built for healthcare."
+   },
+   "vi_du": {
+    "vi": "ChatGPT, Claude, Gemini, Copilot (chỉ dùng bản bệnh viện đã cho phép)",
+    "en": "ChatGPT, Claude, Gemini, Copilot (only versions your hospital has approved)"
+   },
+   "kiem": {
+    "vi": "Che thông tin người bệnh trước khi dán; dễ bịa số liệu và trích dẫn (hallucination); soát 5 bước trước khi dùng.",
+    "en": "De-identify before pasting; prone to inventing figures and citations (hallucination); run the 5 checks before use."
+   },
+   "nguoi": {
+    "vi": "Người có chuyên môn đọc và chịu trách nhiệm cho mọi bản dùng với người bệnh.",
+    "en": "A qualified person reads and takes responsibility for anything used with patients."
+   },
+   "bieu_tuong": "💬",
+   "ngan": {
+    "vi": "Chatbot đa năng",
+    "en": "General chatbots"
+   }
+  }
+ ],
+ "danh_gia": [
+  {
+   "id": "phep",
+   "chan": true,
+   "hoi": {
+    "vi": "Đã được cấp phép cho đúng việc này chưa?",
+    "en": "Approved for this exact use?"
+   },
+   "goi_y": {
+    "vi": "Hỏi số giấy phép, phạm vi được cấp phép, phân loại trang thiết bị y tế (nếu có).",
+    "en": "Ask for the approval number, the cleared indication and the device class (if any)."
+   },
+   "bieu_tuong": "📜",
+   "ngan": {
+    "vi": "Giấy phép",
+    "en": "Licence"
+   }
+  },
+  {
+   "id": "du-lieu",
+   "chan": true,
+   "hoi": {
+    "vi": "Dữ liệu người bệnh có ra khỏi bệnh viện, bị dùng để huấn luyện không?",
+    "en": "Does patient data leave the hospital or get used for training?"
+   },
+   "goi_y": {
+    "vi": "Đối chiếu với quy định bảo vệ dữ liệu cá nhân; xin văn bản cam kết của hãng.",
+    "en": "Check against data protection law; get the vendor's commitment in writing."
+   },
+   "bieu_tuong": "🗄️",
+   "ngan": {
+    "vi": "Dữ liệu",
+    "en": "Data"
+   }
+  },
+  {
+   "id": "bang-chung",
+   "chan": false,
+   "hoi": {
+    "vi": "Có nghiên cứu độc lập, không chỉ số liệu của hãng?",
+    "en": "Independent research, not just vendor figures?"
+   },
+   "goi_y": {
+    "vi": "Xin tên bài báo, nơi thực hiện, cỡ mẫu.",
+    "en": "Ask for the paper, where it was done and the sample size."
+   },
+   "bieu_tuong": "📊",
+   "ngan": {
+    "vi": "Bằng chứng",
+    "en": "Evidence"
+   }
+  },
+  {
+   "id": "tieng-viet",
+   "chan": false,
+   "hoi": {
+    "vi": "Đã thử trên người bệnh và hồ sơ Việt Nam?",
+    "en": "Tested on patients and records like ours?"
+   },
+   "goi_y": {
+    "vi": "Đề nghị chạy thử trên 20-50 ca đã che thông tin của chính khoa.",
+    "en": "Ask to trial it on 20-50 de-identified cases from your own department."
+   },
+   "bieu_tuong": "🇻🇳",
+   "ngan": {
+    "vi": "Tiếng Việt",
+    "en": "Local fit"
+   }
+  },
+  {
+   "id": "ket-noi",
+   "chan": false,
+   "hoi": {
+    "vi": "Chạy được với phần mềm bệnh viện đang dùng?",
+    "en": "Works with the hospital software you use?"
+   },
+   "goi_y": {
+    "vi": "Hỏi phòng công nghệ thông tin; xem có phải nhập liệu hai lần không.",
+    "en": "Ask IT; check whether staff would have to enter data twice."
+   },
+   "bieu_tuong": "🔌",
+   "ngan": {
+    "vi": "Kết nối",
+    "en": "Integration"
+   }
+  },
+  {
+   "id": "trach-nhiem",
+   "chan": true,
+   "hoi": {
+    "vi": "Khi AI sai thì ai chịu, báo sự cố ở đâu?",
+    "en": "Who is responsible when it's wrong, and where are incidents reported?"
+   },
+   "goi_y": {
+    "vi": "Ghi rõ trong hợp đồng và quy trình báo cáo sự cố của bệnh viện.",
+    "en": "Put it in the contract and the hospital's incident reporting process."
+   },
+   "bieu_tuong": "⚖️",
+   "ngan": {
+    "vi": "Trách nhiệm",
+    "en": "Accountability"
+   }
+  }
+ ],
+ "loai_manh": {
+  "vai_tro": {
+   "vi": "Vai trò",
+   "en": "Role",
+   "mau": "#8B5CF6"
+  },
+  "boi_canh": {
+   "vi": "Bối cảnh",
+   "en": "Context",
+   "mau": "#0EA5E9"
+  },
+  "viec": {
+   "vi": "Nhiệm vụ",
+   "en": "Task",
+   "mau": "#F59E0B"
+  },
+  "dinh_dang": {
+   "vi": "Định dạng",
+   "en": "Format",
+   "mau": "#10B981"
+  },
+  "gioi_han": {
+   "vi": "Giới hạn",
+   "en": "Limits",
+   "mau": "#6366F1"
+  }
+ },
+ "bay": [
+  {
+   "id": "lo",
+   "loai": "boi_canh",
+   "chu": {
+    "vi": "Đây là hồ sơ gốc: BN Nguyễn Văn A, sinh 12/03/1968, mã BA 24-018273, SĐT 0903 123 456…",
+    "en": "Here's the original record: Mr John Carter, DOB 12/03/1968, MRN 24-018273, phone 07700 900123…"
+   },
+   "bit": {
+    "vi": "Mảnh này lộ họ tên, ngày sinh, mã hồ sơ của người bệnh. Che ở Trạm 1 trước rồi mới dán vào AI.",
+    "en": "This piece leaks the patient's name, birth date and record number. De-identify it at Station 1 first."
+   },
+   "muc": "sai"
+  },
+  {
+   "id": "nguy",
+   "loai": "viec",
+   "chu": {
+    "vi": "Cho tôi luôn chẩn đoán và liều thuốc phù hợp.",
+    "en": "Also give me the diagnosis and the right dose."
+   },
+   "bit": {
+    "vi": "Chẩn đoán và liều thuốc là việc của người có chuyên môn, không giao cho AI.",
+    "en": "Diagnosis and dosing belong to qualified staff, not the AI."
+   },
+   "muc": "sai"
+  },
+  {
+   "id": "mo-ho",
+   "loai": "viec",
+   "chu": {
+    "vi": "Viết thật chuyên nghiệp vào nhé.",
+    "en": "Make it really professional."
+   },
+   "bit": {
+    "vi": "Mảnh này không cho AI biết thêm gì. Bỏ ra cũng được.",
+    "en": "This piece tells the AI nothing new. You can drop it."
+   },
+   "muc": ""
+  }
+ ],
+ "ban_nhap": {
+  "tieu": {
+   "vi": "Bản nháp AI viết: hướng dẫn ra viện (ca giả)",
+   "en": "AI draft: discharge instructions (fictional case)"
+  },
+  "doan": [
+   {
+    "chu": {
+     "vi": "Hướng dẫn sau ra viện cho ông Nguyễn Văn Hùng, giường 14.",
+     "en": "Discharge instructions for Mr John Carter, bed 14."
+    },
+    "loi": "bi-mat",
+    "bit": {
+     "vi": "Còn sót họ tên và số giường của người bệnh. Bước 4: không còn định danh.",
+     "en": "The patient's name and bed number slipped through. Check 4: no identifiers."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Bác đã ổn định, có thể về nhà.",
+     "en": "You are stable and can go home."
+    },
+    "loi": null,
+    "bit": {
+     "vi": "Câu này ổn.",
+     "en": "This sentence is fine."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Uống thuốc A 500 mcg mỗi 8 giờ, đủ 7 ngày.",
+     "en": "Take medicine A 500 mcg every 8 hours for 7 days."
+    },
+    "loi": "so",
+    "bit": {
+     "vi": "Đơn bác sĩ ghi 500 mg, AI chép thành mcg, nhỏ hơn 1.000 lần. Bước 2: con số, liều phải đối chiếu.",
+     "en": "The prescription says 500 mg; the AI wrote mcg, a thousand times less. Check 2: numbers and doses."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Uống nhiều nước, nghỉ ngơi, quay lại khám sau 7 ngày.",
+     "en": "Drink plenty of fluids, rest, and come back in 7 days."
+    },
+    "loi": null,
+    "bit": {
+     "vi": "Câu này ổn.",
+     "en": "This sentence is fine."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Theo Hướng dẫn Hô hấp Quốc tế 2023, trang 47, nên tập thở 10 phút mỗi sáng.",
+     "en": "According to the International Respiratory Guideline 2023, page 47, do 10 minutes of breathing exercises each morning."
+    },
+    "loi": "nguon",
+    "bit": {
+     "vi": "Tài liệu này không tồn tại, AI tự bịa ra cho có vẻ chắc chắn. Bước 1: nguồn phải mở ra được.",
+     "en": "This guideline doesn't exist; the AI made it up to sound authoritative. Check 1: sources must exist."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Người nhà có triệu chứng giống vậy cũng có thể uống thuốc này.",
+     "en": "Family members with similar symptoms can take this medicine too."
+    },
+    "loi": "doi-tuong",
+    "bit": {
+     "vi": "Thuốc kê cho một người không dùng chung được, nhất là trẻ em, thai phụ, người bệnh thận. Bước 3: đối tượng đặc biệt.",
+     "en": "Medicine prescribed for one person isn't for sharing, especially with children, pregnant women or people with kidney disease. Check 3: special groups."
+    }
+   },
+   {
+    "chu": {
+     "vi": "Người soạn: trợ lý AI.",
+     "en": "Prepared by: AI assistant."
+    },
+    "loi": "ky",
+    "bit": {
+     "vi": "Chưa có ai có chuyên môn đọc và ký. Bước 5: phải có người chịu trách nhiệm.",
+     "en": "No qualified person has read and signed it. Check 5: someone must take responsibility."
+    }
+   }
+  ]
+ }
+}
