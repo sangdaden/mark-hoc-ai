@@ -379,7 +379,7 @@ def footer(p, q=None):
             f'<a href="{q}kiem-tra.html">{t("Kiểm tra", "Quizzes")}</a><a href="{q}chung-nhan.html">{t("Chứng nhận", "Certificates")}</a>'
             f'<a href="{q}ho-so.html">{t("Hồ sơ học", "My profile")}</a>'
             f'<b>{t("Thực hành", "Practice")}</b><a href="{q}thuc-hanh.html">{t("Góc thực hành", "Practice corner")}</a>'
-            f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a></nav>\n'
+            f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a><a href="{q}bo-hoc-lieu-ai.html">{t("Học liệu 12 tiết", "12-lesson kit")}</a></nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
@@ -1531,6 +1531,7 @@ def tao_bo_giao_vien():
             f'<h1>{t("Bộ bài giảng: Kiểm chứng thông tin với AI", "Lesson kit: Fact-checking with AI")}</h1>\n'
             f'<p class="lead">{t("Một tiết 45 phút soạn sẵn từ series 5 video của kênh. Học sinh tập nhận ra tin sức khỏe lan truyền, ảnh cũ gán chuyện mới, nguồn do AI bịa, biểu đồ gây hiểu lầm, rồi nhớ 3 bước kiểm tra trước khi chia sẻ.", "A ready-to-teach 45-minute lesson built from the channel's 5-video series. Students practice spotting viral health claims, old photos with new stories, AI-invented sources and misleading charts, then learn 3 steps to check before sharing.")}</p>\n'
             f'<div class="cta"><a class="btn btn-yt" href="#mua">{t("Mua bộ bài giảng", "Buy the kit")} · {GIA_BO_GV}</a><a class="btn" href="#trong-bo">{t("Xem trong bộ có gì", "See what's inside")}</a></div>\n'
+            f'<p class="lead-note">🆓 {t("Dạy 12 tiết AI theo Khung của Bộ GD&ĐT?", "Teaching the 12 core AI lessons?")} <a href="bo-hoc-lieu-ai.html">{t("Xem bộ học liệu miễn phí", "See the free kit")} ›</a></p>\n'
             f'</div><img class="head-art sp-bia" src="{p}assets/san-pham/bo-giao-vien/bia.jpg" alt="{t("Bìa bộ bài giảng Kiểm chứng thông tin với AI", "Cover of the Fact-checking with AI lesson kit")}" width="600" height="450"></div>')
     so = [("45'", t("một tiết học trọn vẹn, có bảng thời gian", "one full lesson with a timeline")),
           ("16", t("slide trình chiếu kèm lời giảng", "slides with speaker notes")),
