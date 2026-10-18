@@ -67,6 +67,34 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hoiCoIch); else hoiCoIch();
 
+  // Đếm lượt bấm lời mời ([data-cta] cuối bài video) và mọi nút trên các trang kiếm tiền (sự kiện "cta" qua theo-doi.js)
+  document.addEventListener("click", function (e) {
+    if (!window.mhaiDo || !e.target.closest) return;
+    var c = e.target.closest("[data-cta]");
+    if (c) { window.mhaiDo("cta", { loai: c.getAttribute("data-cta"), tu: tep || "index.html" }); return; }
+    if (/^(dich-vu|workshop|bo-giao-vien|hop-tac|ung-ho)\.html$/.test(tep || "")) {
+      var b = e.target.closest("a.btn, button.btn, a[href^='mailto:']");
+      if (b) window.mhaiDo("cta", { loai: tep.replace(/\.html$/, ""), nut: (b.textContent || "").trim().slice(0, 40) });
+    }
+  });
+
+  // Nút "Xóa dữ liệu học" ([data-xoa-du-lieu], trang Quyền riêng tư và Hồ sơ học): xóa mọi khóa mhai-* trừ giao diện và ngôn ngữ
+  TD.xoaHet = function () {
+    try {
+      Object.keys(localStorage).forEach(function (k) { if (k.indexOf("mhai-") === 0 && k !== "mhai-theme" && k !== "mhai-lang") localStorage.removeItem(k); });
+      return true;
+    } catch (e) { return false; }
+  };
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-xoa-du-lieu]");
+    if (!b) return;
+    var EN = document.documentElement.lang === "en", bao = b.parentNode.querySelector(".td-xoa-bao");
+    if (!confirm(EN ? "Delete all learning progress saved on this device? This cannot be undone." : "Xóa mọi tiến độ học lưu trên máy này? Không lấy lại được.")) return;
+    var ok = TD.xoaHet();
+    if (bao) bao.textContent = ok ? (EN ? "Deleted." : "Đã xóa.") : (EN ? "Couldn't delete (storage blocked)." : "Không xóa được (trình duyệt chặn lưu trữ).");
+    if (ok && /ho-so\.html$/.test(location.pathname)) setTimeout(function () { location.reload(); }, 500);
+  });
+
   // Trang bài video (bai/NN-...): ở lại 20 giây hoặc đọc tới cuối thì tính là đã xem video đó.
   var m = location.pathname.match(/\/bai\/(\d+)-[^/]*$/);
   if (m) {

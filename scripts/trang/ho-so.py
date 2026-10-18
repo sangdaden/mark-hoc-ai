@@ -79,7 +79,8 @@ def tao_ho_so():
 <div class="hs-hang"><button type="button" class="btn" id="hs-chep">📋 {t("Chép mã tiến độ", "Copy progress code")}</button><span class="hs-bao" id="hs-bao" role="status"></span></div>
 <details class="hs-nhap"><summary>{t("Dán mã từ máy khác", "Paste a code from another device")}</summary>
 <textarea id="hs-ma-o" rows="3" spellcheck="false" aria-label="{t("Mã tiến độ", "Progress code")}"></textarea>
-<button type="button" class="btn btn-yt" id="hs-nhap">{t("Nhập tiến độ", "Import progress")}</button></details></section>
+<button type="button" class="btn btn-yt" id="hs-nhap">{t("Nhập tiến độ", "Import progress")}</button></details>
+<p class="hs-nhe"><button type="button" class="btn" data-xoa-du-lieu>🗑️ {t("Xóa dữ liệu học trên máy này", "Delete learning data on this device")}</button> <span class="td-xoa-bao" role="status"></span> <a href="quyen-rieng-tu.html">{t("Web lưu gì?", "What is stored?")}</a></p></section>
 <noscript><p>{t("Trang cần JavaScript.", "This page needs JavaScript.")}</p></noscript>
 <script type="application/json" id="hs-du-lieu">{du_lieu}</script>
 </main>"""

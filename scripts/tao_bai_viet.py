@@ -307,6 +307,12 @@ def ic(p, n):
 # Ngày video lên kênh (data/lich-ra-mat.json, cập nhật khi lên lịch video mới): ghi trên đầu bài.
 # Chưa tới ngày thì bai-viet.js đổi chữ "Lên kênh" thành "Ra mắt".
 LICH = load("lich-ra-mat")
+# Ngày đăng cho Google (ld+json datePublished, article:published_time) chỉ ghi khi video đã ra; bài lên web trước video
+# thì bỏ ngày (trước 18/10/2026 Google thấy 261 bài "đăng năm 2027"). Chữ "Ra mắt" trên trang vẫn do bai-viet.js lo theo data-ngay.
+import datetime as _dt
+HOM_NAY = _dt.datetime.now(_dt.timezone(_dt.timedelta(hours=7))).strftime("%Y-%m-%d")
+def ngay_da_ra(ngay):
+    return ngay if ngay and ngay <= HOM_NAY else None
 THANG_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 def nhan_ngay(d):
     if not d:
@@ -735,6 +741,48 @@ def cot_ben(ds, so, q, p, nut):
             f'<p class="ben-h">{t("Trong bài", "In this article")}</p><ol class="ben-ml">{ml}</ol>{choi}'
             f'<div class="ben-xem">{nut}</div></div></aside>\n')
 
+# Cuối bài video (thêm 18/10/2026): "Xem thêm" 4 bài cùng thuật ngữ hoặc cùng series (trước đó 277/310 bài có tối đa 3 link
+# sang bài khác), và thẻ mời theo nghề dẫn sang trang thực hành hoặc trang dịch vụ hợp với video (đếm lượt bấm qua data-cta).
+_CTA_NGHE = [  # (ngành trong data/lo-trinh-nganh.json, trang, tiêu đề, mô tả)
+    ("giao-vien", "bo-giao-vien.html", ("Bộ bài giảng AI cho giáo viên", "AI lesson kit for teachers"), ("Slide, phiếu bài tập và video dùng ngay trong lớp.", "Slides, worksheets and videos ready for class.")),
+    ("van-phong", "workshop.html", ("Workshop AI cho công việc", "AI at work workshop"), ("Một buổi thực hành cùng cả nhóm, có tài liệu mang về.", "A hands-on session for your team, with take-home notes.")),
+    ("ban-hang", "ai-ban-hang.html", ("AI cho người bán hàng", "AI for small sellers"), ("11 trạm thực hành: caption, khách giận, chatbot của tiệm.", "11 practice stations: captions, upset customers, a shop chatbot.")),
+    ("noi-dung", "dich-vu.html", ("Làm video giải thích cho bạn", "Explainer videos for you"), ("Kênh làm video ngắn theo yêu cầu cho doanh nghiệp, trường học.", "Short explainer videos made to order.")),
+    ("hoc-sinh", "ai-hoc-sinh.html", ("AI cho học sinh cấp 3", "AI for high school students"), ("11 trạm: học cùng AI hay làm hộ, thật hay bịa, gia sư AI.", "11 stations: learn with AI or cheat, true or made up, AI tutor.")),
+    ("gia-dinh", "ai-gia-dinh.html", ("AI cho gia đình", "AI for families"), ("11 trạm: cuộc gọi giả giọng, tin lừa đảo, luật dùng AI trong nhà.", "11 stations: fake-voice calls, scam texts, house rules for AI.")),
+]
+def _so_nganh():
+    d = load("lo-trinh-nganh")["nganh"]
+    chung = {s for b in d["moi-bat-dau"]["buoc"] for s in b.get("so", [])}
+    return {k: {s for b in d[k]["buoc"] for s in b.get("so", [])} - chung for k, *_ in _CTA_NGHE if k in d}
+_SO_NGANH = _so_nganh()
+
+def the_cta_nghe(so, q):
+    for k, trang_, ten, mo in _CTA_NGHE:
+        if so in _SO_NGANH.get(k, ()):
+            return (f'<a class="next-step next-step-cta" href="{q}{trang_}" data-cta="{k}">'
+                    f'<b>{t(*ten)}</b><span>{t(*mo)}</span></a>\n')
+    return ""
+
+def khoi_xem_them(v, q):
+    so, i = v["so"], thu_tu.index(v)
+    bo = {so} | {thu_tu[j]["so"] for j in (i - 1, i + 1) if 0 <= j < len(thu_tu)}
+    ds = []
+    for x in tu_dien:  # cùng thuật ngữ trước
+        if so in x["video"]:
+            for s in x["video"]:
+                if s not in bo and s in co_bai and s not in ds:
+                    ds.append(s)
+    for x in nhom_cua[so]["items"]:  # rồi cùng series
+        if x["so"] not in bo and x["so"] not in ds:
+            ds.append(x["so"])
+    ds = ds[:4]
+    if not ds:
+        return ""
+    return (f'<section class="related xem-them" aria-labelledby="xt-{so}">\n<h2 id="xt-{so}">{t("Xem thêm", "Read next")}</h2>\n<ul class="xt-ds">'
+            + "".join(f'<li><a href="{q}bai/{ten_file(co_bai[s])}.html"><span class="num">#{s:02d}</span>{esc(seo[str(s)])}</a></li>' for s in ds)
+            + '</ul>\n</section>\n')
+
 def tao_bai(v):
     so, g = v["so"], nhom_cua[v["so"]]
     muc_nd, meta, thu_mo_ta, prompt = noi_dung_en(v) if LG == "en" else noi_dung_vi(v)
@@ -786,16 +834,16 @@ def tao_bai(v):
     main = (f'<main class="doc doc-bai">\n<div class="doc-chinh">\n<article class="post">\n' + dau_video + cc_dau + than +
             f'\n<div class="post-end">\n<p>{ket}</p>\n<div class="cta">{nut_video(v, g, p)}</div>\n{cc_cuoi}{khoi_chia_se(BASE + GOC + goc, h1, p)}</div>\n</article>\n</div>\n'
             + cot_ben(ds_muc, so, q, p, nut_video(v, g, p)) + '</main>\n' + khoi_choi + '<div class="doc doc-cuoi">\n' +
-            f'{tu_html}\n<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
+            f'{tu_html}\n{khoi_xem_them(v, q)}<nav class="series-nav" aria-label="{t("Trong series", "In this series")}">\n<p class="series-nav-head">{dau_nav} <a href="{q}#{g["id"]}">{esc(g["ten"])}</a> · {vi_tri}</p>\n'
             f'<div class="nav-cards">{"".join(nav)}</div>\n</nav>\n' + khoi_tap_phu(so, q) +
-            f'<aside class="next-steps">\n{the_lua_dao(so, q)}{the_ghep(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
+            f'<aside class="next-steps">\n{the_cta_nghe(so, q)}{the_lua_dao(so, q)}{the_ghep(so, q)}<a class="next-step" href="{q}kiem-tra.html"><b>{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</b><span>{t("Nhiều bộ câu hỏi, đạt 80% nhận giấy chứng nhận.", "Several quizzes, score 80% for a certificate.")}</span></a>\n'
             f'<a class="next-step" href="{q}#bat-dau"><b>{t("Mới đến kênh?", "New to the channel?")}</b><span>{t("Bản đồ 7 vùng và lộ trình cho người mới.", "A 7-region map and a path for beginners.")}</span></a>\n</aside>\n</div>')
     url = BASE + GOC + goc
     ngay = LICH.get(str(so))
     og = anh_chia_se_bai(goc, tieu_de, g["ten"] + (" · " + phan if phan else ""), f"{so:02d}", ngay, SERIES_BIA.get(g["id"], {}).get("bia"))
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": h1[:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay} if ngay else {}), "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay_da_ra(ngay)} if ngay_da_ra(ngay) else {}), "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": g["ten"]},
          **({"about": [{"@type": "DefinedTerm", "name": x["thuat_ngu"], "url": BASE + GOC + "tu-dien.html#" + x["id"]} for x in lien_quan]} if lien_quan else {})},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -804,7 +852,7 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay)
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay_da_ra(ngay))
 
 # ---------- tập phụ (5.1-5.7, 69.1-69.3): bài riêng cho video số thập phân nối tiếp một video chính ----------
 # Dữ liệu: data/video-phu.json (+ data/en/video-phu.json, data/en/bai/<cha>-<phụ>-<slug>.json). Trang: bai/05-1-<slug>.html.
@@ -894,7 +942,7 @@ def tao_bai_phu(s, x):
     og = anh_chia_se_bai(goc, x["tieu_de"], s["ten"] + " · " + phan, so, ngay, None, s["ten"])
     jsonld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": x["tieu_de"][:110], "description": meta, "inLanguage": LG,
-         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay} if ngay else {}), "author": TO_CHUC, "publisher": TO_CHUC,
+         "url": url, "mainEntityOfPage": url, "image": [BASE + og], **({"datePublished": ngay_da_ra(ngay)} if ngay_da_ra(ngay) else {}), "author": TO_CHUC, "publisher": TO_CHUC,
          "isPartOf": {"@type": "CreativeWorkSeries", "name": s["ten"]}},
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Mark học AI", "item": BASE + GOC},
@@ -903,7 +951,7 @@ def tao_bai_phu(s, x):
             {"@type": "ListItem", "position": 4, "name": x["tieu_de"], "item": url}]},
     ]
     return GOC + goc, trang(goc, f'{x["tieu_de"]} | {SITE}', meta or x["mo_ta"], band, main, p, jsonld=jsonld, q=q,
-                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay)
+                            cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay_da_ra(ngay))
 
 def video_phu_vi(sid):
     return next(s["tap"] for s in video_phu if s["id"] == sid)
