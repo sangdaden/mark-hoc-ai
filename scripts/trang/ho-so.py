@@ -39,6 +39,14 @@ def _hs_cau_hoi():
     return cau, [d["ten"] for d in lt]
 
 
+def _hs_nang_luc():
+    """Bản đồ năng lực 4 chiều × 3 mức (data/nang-luc.json): tên theo ngôn ngữ đang tạo."""
+    d = load("nang-luc")
+    L = "en" if LG == "en" else "vi"
+    return {"chieu": [{"id": c["id"], "bt": c["bt"], "ten": c["ten"][L]} for c in d["chieu"]], "muc": [m["ten"][L] for m in d["muc"]],
+            "ngay": d["ngay"], "tram": d["tram"]}
+
+
 @trang_rieng("ho-so.html", "0.6")
 def tao_ho_so():
     p = t("", "../")
@@ -47,7 +55,7 @@ def tao_ho_so():
     tram = {f: [{"id": x[0], "ten": x[1]["en"] if L else x[1]["vi"], "nc": x[3]} for x in _tram_theo_trang(f)] for f, _, _ in _TH_NHOM}
     so_bo = sum(1 for b in json.loads((R / "data" / "bo-kiem-tra.json").read_text(encoding="utf-8"))["bo"])
     du_lieu = json.dumps({"cau": cau, "ten_ngay": ten_ngay, "tram": tram, "nhom": [[f, bt, nhom[L]] for f, bt, nhom in _TH_NHOM],
-                          "so_bo": so_bo, "url": BASE + GOC + "ho-so.html"}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+                          "so_bo": so_bo, "url": BASE + GOC + "ho-so.html", "nang_luc": _hs_nang_luc()}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     desc = t("Hồ sơ học AI của bạn: số ngày học tuần này, việc nên làm tiếp, ôn lại vài câu mỗi ngày và nhắc ôn vào lịch. Không cần tài khoản, mọi thứ lưu trên máy bạn.",
              "Your AI learning profile: days learned this week, what to do next, a few review questions a day and calendar reminders. No account; everything stays on your device.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Không cần tài khoản · lưu trên máy bạn", "No account · saved on your device")}</p>\n'
@@ -59,6 +67,9 @@ def tao_ho_so():
 <section class="hs-the hs-tuan" aria-labelledby="hs-tuan-h"><h2 id="hs-tuan-h">📅 {t("Tuần này", "This week")}</h2><ol class="hs-ngay" id="hs-ngay"></ol><p class="hs-tuan-chu" id="hs-tuan-chu"></p></section>
 <section class="hs-the hs-tiep" aria-labelledby="hs-tiep-h"><h2 id="hs-tiep-h">👉 {t("Việc tiếp theo", "Next step")}</h2><div id="hs-tiep"></div></section>
 <section class="hs-the hs-on" id="on" aria-labelledby="hs-on-h"><h2 id="hs-on-h">🔁 {t("Ôn hôm nay", "Today's review")}</h2><div id="hs-on" aria-live="polite"></div></section>
+<section class="hs-the hs-nl" aria-labelledby="hs-nl-h"><h2 id="hs-nl-h">🧭 {t("Bản đồ năng lực", "Skills map")}</h2>
+<p class="hs-nhe">{t("4 chiều × 3 mức, dựa trên khung năng lực AI cho học sinh của UNESCO (2024). Ô càng đậm, bạn làm càng nhiều ở đó.", "4 areas × 3 levels, based on UNESCO's AI competency framework for students (2024). The darker the cell, the more you have done there.")}</p>
+<div class="hs-nl-luoi" id="hs-nl" role="table" aria-label="{t("Bản đồ năng lực", "Skills map")}"></div></section>
 <section class="hs-the hs-tien" aria-labelledby="hs-tien-h"><h2 id="hs-tien-h">📈 {t("Tiến độ", "Progress")}</h2><ul class="hs-thanh-ds" id="hs-tien"></ul></section>
 <section class="hs-the hs-nhac" aria-labelledby="hs-nhac-h"><h2 id="hs-nhac-h">⏰ {t("Nhắc tôi ôn", "Remind me")}</h2>
 <p>{t("Chọn giờ bạn thường rảnh. Bấm nút để thêm 3 lời nhắc (sau 1, 3 và 7 ngày) vào lịch điện thoại. Không cần email.", "Pick a time you are usually free. Add 3 reminders (in 1, 3 and 7 days) to your phone calendar. No email needed.")}</p>

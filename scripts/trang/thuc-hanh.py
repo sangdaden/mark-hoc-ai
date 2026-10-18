@@ -19,6 +19,17 @@ HINH_CHOI["th-van-phong"] = lambda: (
               for n, v in [(t("Họ tên", "Name"), t("[HỌ TÊN]", "[NAME]")), (t("Số CCCD", "ID no."), t("[SỐ CCCD]", "[ID NO.]")), (t("Địa chỉ", "Address"), t("[ĐỊA CHỈ]", "[ADDRESS]"))])
     + '</span></span>')
 
+# Ba trang thực hành mới (Đợt 3, 18/10/2026): hình xem trước gọn, cùng kiểu thẻ chữ của th-hoc-sinh
+def _th_hinh_hai(bt, tren, trai, phai, m1, m2):
+    return lambda: ('<span class="ct-hinh" aria-hidden="true" style="display:grid;align-content:center;gap:8px">'
+                    f'<span style="justify-self:center;padding:7px 12px;border-radius:12px;background:var(--panel);border:2px dashed var(--edge);font:600 13px/1.3 var(--f-body)">{bt} {t(*tren)}</span>'
+                    '<span style="display:grid;grid-template-columns:1fr 1fr;gap:6px;width:min(100%,320px);justify-self:center;font:700 12px/1.2 var(--f-body);text-align:center">'
+                    f'<span style="padding:8px 4px;border-radius:12px;border:2px solid {m1};background:color-mix(in srgb,{m1} 14%,var(--panel))">{t(*trai)}</span>'
+                    f'<span style="padding:8px 4px;border-radius:12px;border:2px solid {m2};background:color-mix(in srgb,{m2} 12%,var(--panel))">{t(*phai)}</span></span></span>')
+HINH_CHOI["th-giao-vien"] = _th_hinh_hai("🍎", ("Soạn giáo án với AI", "Plan a lesson with AI"), ("✅ Soát lại", "✅ Check it"), ("🔒 Che tên học sinh", "🔒 Hide student names"), "#10B981", "#DC2626")
+HINH_CHOI["th-gia-dinh"] = _th_hinh_hai("📞", ("“Mẹ ơi, con đây…”", "“Mom, it's me…”"), ("🔑 Mật khẩu nhà", "🔑 Family password"), ("🚫 Không chuyển tiền", "🚫 Don't send money"), "#16A34A", "#EA580C")
+HINH_CHOI["th-ban-hang"] = _th_hinh_hai("🛍️", ("Caption bánh mới", "New cake caption"), ("✨ Đúng sự thật", "✨ Honest"), ("🚫 Hứa quá đà", "🚫 Overpromise"), "#F59E0B", "#DB2777")
+
 
 def _th_ngu(x, L):
     if isinstance(x, dict):

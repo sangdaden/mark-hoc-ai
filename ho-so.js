@@ -147,6 +147,28 @@
     });
   })();
 
+  // ---------- Bản đồ năng lực (data/nang-luc.json): ngày = Hiểu, trạm Cơ bản = Vận dụng, trạm Nâng cao = Sáng tạo ----------
+  (function () {
+    const NL = D.nang_luc, o = {};
+    NL.chieu.forEach(c => { o[c.id] = [[0, 0], [0, 0], [0, 0]]; });
+    Object.keys(NL.ngay).forEach(n => { const x = o[NL.ngay[n]][0]; x[1]++; if (xongNgay.includes(+n)) x[0]++; });
+    D.nhom.forEach(([f]) => (D.tram[f] || []).forEach(x => {
+      const c = (NL.tram[f] || {})[x.id]; if (!c || !o[c]) return;
+      const y = o[c][x.nc ? 2 : 1]; y[1]++; if ((tramAll[f] || {})[x.id]) y[0]++;
+    }));
+    const luoi = $("hs-nl"), hang = (cls, ...o2) => { const r = el("div", "hs-nl-hang " + cls); r.setAttribute("role", "row"); o2.forEach(x => r.appendChild(x)); luoi.appendChild(r); };
+    const o_ = (chu, role) => { const e = el("div", "hs-nl-o", chu); e.setAttribute("role", role); return e; };
+    hang("is-dau", o_("", "columnheader"), ...NL.muc.map(m => o_(m, "columnheader")));
+    NL.chieu.forEach(c => {
+      const dau = o_(c.bt + " " + c.ten, "rowheader");
+      hang("", dau, ...o[c.id].map(([a, b]) => {
+        const e = o_(b ? a + "/" + b : "–", "cell"), ty = b ? a / b : 0;
+        e.style.setProperty("--ty", ty); if (b && a >= b) e.classList.add("is-du"); if (!b) e.classList.add("is-trong");
+        return e;
+      }));
+    });
+  })();
+
   // ---------- Nhắc ôn: tệp .ics (RFC 5545), 3 sự kiện sau 1, 3, 7 ngày ----------
   const gio = $("hs-gio"), nhac = doc("mhai-nhac", null);
   if (nhac && /^\d\d:\d\d$/.test(nhac)) gio.value = nhac;

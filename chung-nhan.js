@@ -46,27 +46,29 @@ window.MHAI_CC = (function () {
 
   // ---------- Chữ trên chứng nhận ----------
   const T = EN ? {
-    nhan: { "chu-de": "CERTIFICATE OF COMPLETION · TOPIC", nganh: "CERTIFICATE OF COMPLETION · FIELD", "toan-dien": "CERTIFICATE OF COMPLETION · ALL-ROUND" },
-    ten: { "chu-de": "Topic Certificate of Completion", nganh: "Field Certificate of Completion", "toan-dien": "All-round Certificate of Completion" },
+    nhan: { "chu-de": "CERTIFICATE OF COMPLETION · TOPIC", nganh: "CERTIFICATE OF COMPLETION · FIELD", "toan-dien": "CERTIFICATE OF COMPLETION · ALL-ROUND", "thuc-hanh": "PRACTICE CERTIFICATE · SELF-ASSESSED" },
+    ten: { "chu-de": "Topic Certificate of Completion", nganh: "Field Certificate of Completion", "toan-dien": "All-round Certificate of Completion", "thuc-hanh": "Practice Certificate" },
     toanDien: "Mark học AI all-round", trao: "This certifies that",
     mo: {
       "chu-de": (t, s) => "has passed the “" + t + "” quiz with " + s + " correct answers.",
       nganh: (t, s, m) => "has finished the " + t + " learning path (" + m + " videos) and passed the field quiz with " + s + " correct answers.",
-      "toan-dien": () => "has finished the 7-day path and passed all 4 general AI quizzes: misconceptions, prompting, staying safe and AI at work."
+      "toan-dien": () => "has finished the 7-day path and passed all 4 general AI quizzes: misconceptions, prompting, staying safe and AI at work.",
+      "thuc-hanh": (t, s) => "has done " + s + " hands-on practice stations on the “" + t + "” page (self-assessed, in the browser)."
     },
-    huy: { gioi: "TOP SCORE", dat: "PASSED", nganh: "FIELD", toan: "ALL-ROUND" },
+    huy: { gioi: "TOP SCORE", dat: "PASSED", nganh: "FIELD", toan: "ALL-ROUND", thuc: "PRACTICE" },
     ky: "Mark & Bit · Mark học AI", ngay: "Date", dongHanh: "Your AI learning buddies", ma: "Verification code", mau: "SAMPLE",
     ngayIn: iso => new Date(iso + "T12:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
   } : {
-    nhan: { "chu-de": "GIẤY CHỨNG NHẬN · CHỦ ĐỀ", nganh: "GIẤY CHỨNG NHẬN · CHUYÊN NGÀNH", "toan-dien": "GIẤY CHỨNG NHẬN · TOÀN DIỆN" },
-    ten: { "chu-de": "Giấy chứng nhận chủ đề", nganh: "Giấy chứng nhận chuyên ngành", "toan-dien": "Giấy chứng nhận toàn diện" },
+    nhan: { "chu-de": "GIẤY CHỨNG NHẬN · CHỦ ĐỀ", nganh: "GIẤY CHỨNG NHẬN · CHUYÊN NGÀNH", "toan-dien": "GIẤY CHỨNG NHẬN · TOÀN DIỆN", "thuc-hanh": "CHỨNG NHẬN THỰC HÀNH · TỰ ĐÁNH GIÁ" },
+    ten: { "chu-de": "Giấy chứng nhận chủ đề", nganh: "Giấy chứng nhận chuyên ngành", "toan-dien": "Giấy chứng nhận toàn diện", "thuc-hanh": "Giấy chứng nhận thực hành" },
     toanDien: "Mark học AI toàn diện", trao: "Chứng nhận bạn",
     mo: {
       "chu-de": (t, s) => "đã vượt qua bài kiểm tra “" + t + "” với " + s + " câu đúng.",
       nganh: (t, s, m) => "đã học xong lộ trình " + t + " (" + m + " video) và vượt qua bài kiểm tra ngành với " + s + " câu đúng.",
-      "toan-dien": () => "đã hoàn thành Lộ trình 7 ngày và vượt qua cả 4 bài kiểm tra kiến thức chung: hiểu lầm về AI, viết prompt, dùng AI an toàn, AI trong công việc."
+      "toan-dien": () => "đã hoàn thành Lộ trình 7 ngày và vượt qua cả 4 bài kiểm tra kiến thức chung: hiểu lầm về AI, viết prompt, dùng AI an toàn, AI trong công việc.",
+      "thuc-hanh": (t, s) => "đã tự làm " + s + " trạm thực hành trên trang “" + t + "” (tự đánh giá, chạy trên trình duyệt)."
     },
-    huy: { gioi: "XUẤT SẮC", dat: "ĐẠT", nganh: "NGÀNH", toan: "TOÀN DIỆN" },
+    huy: { gioi: "XUẤT SẮC", dat: "ĐẠT", nganh: "NGÀNH", toan: "TOÀN DIỆN", thuc: "THỰC HÀNH" },
     ky: "Mark & Bit · Mark học AI", ngay: "Ngày cấp", dongHanh: "Bạn đồng hành học AI", ma: "Mã xác minh", mau: "MẪU",
     ngayIn: iso => { const [y, m, d] = iso.split("-"); return "Ngày " + d + " tháng " + m + " năm " + y; }
   };
@@ -187,6 +189,7 @@ window.MHAI_CC = (function () {
       tao: "Make certificate", lamBai: "Take the quiz", moLt: "Open the path", mo7: "Open the 7-day path",
       nhom: [["toan", "All-round Certificate of Completion", "The big one: finish the 7-day path and pass all 4 general quizzes."],
         ["nganh", "Field Certificates of Completion", "Pass the field quiz and tick off every video in that field's learning path."],
+        ["thuc-hanh", "Practice Certificates", "Do at least 90% of the stations on a practice page. Self-assessed: it records practice, not an exam."],
         ["chu-de", "Topic Certificates of Completion", "Score 80% or more on any quiz. A perfect score gets the gold badge."],
         ["bay", "7-day path Certificate of Completion", "Finish all 7 days of the beginner path. You make this one on the 7-day path page."]],
       bay: "Completed Mark học AI basics", taiPng: "Download PNG", inPdf: "Print or save as PDF", linkedin: "Add to LinkedIn", chepXm: "Copy verification link",
@@ -195,7 +198,7 @@ window.MHAI_CC = (function () {
       xmLoi: "This verification link is broken or incomplete. Ask the person to copy it again from their certificate page.",
       xmMa: "Verification code: ", anh: (l, n) => l + " for " + n, dong: "Close", xem: "Preview", mau: "Sample: ",
       mauChu: "Sample. Unlock it to get your name on it and download it.", goTen: "Type your name above to see it on the certificate.", xemTruoc: "Preview. Press “Download PNG” to save it.",
-      cauHoi: n => n + " questions", lienQuan: "Field quiz"
+      cauHoi: n => n + " questions", lienQuan: "Field quiz", tram: (x, n, k) => "Stations done: " + x + "/" + n + (x >= k ? " ✓" : " · need " + k), moTram: "Open the stations"
     } : {
       tenNhan: "Tên in trên chứng nhận", tenGoi: "Tên của bạn", moKhoa: "Đã mở khóa", chuaMo: "Chưa mở khóa",
       kt: (d, n) => "Bài kiểm tra: cao nhất " + d + "/" + n, ktChua: "Bài kiểm tra: chưa làm", ktCan: (k, n) => "cần " + k + "/" + n,
@@ -203,6 +206,7 @@ window.MHAI_CC = (function () {
       tao: "Tạo giấy chứng nhận", lamBai: "Làm bài kiểm tra", moLt: "Mở lộ trình", mo7: "Mở Lộ trình 7 ngày",
       nhom: [["toan", "Giấy chứng nhận toàn diện", "Giấy chứng nhận lớn nhất: xong Lộ trình 7 ngày và đạt cả 4 bài kiểm tra kiến thức chung."],
         ["nganh", "Giấy chứng nhận chuyên ngành", "Đạt bài kiểm tra ngành và đánh dấu xem hết các video trong lộ trình ngành đó."],
+        ["thuc-hanh", "Giấy chứng nhận thực hành", "Làm từ 90% số trạm của một trang thực hành. Đây là giấy tự đánh giá: ghi nhận việc luyện tập, không phải bài thi."],
         ["chu-de", "Giấy chứng nhận chủ đề", "Đạt từ 80% một bộ câu hỏi bất kỳ. Đúng hết thì có huy hiệu vàng Xuất sắc."],
         ["bay", "Giấy chứng nhận Lộ trình 7 ngày", "Xong cả 7 ngày của lộ trình cho người mới. Giấy này tạo ngay ở trang Lộ trình 7 ngày."]],
       bay: "Hoàn thành Mark học AI cơ bản", taiPng: "Tải ảnh PNG", inPdf: "In hoặc lưu PDF", linkedin: "Thêm vào LinkedIn", chepXm: "Chép link xác minh",
@@ -211,12 +215,14 @@ window.MHAI_CC = (function () {
       xmLoi: "Link xác minh bị hỏng hoặc thiếu. Nhờ người gửi chép lại link từ trang giấy chứng nhận của họ.",
       xmMa: "Mã xác minh: ", anh: (l, n) => l + " của " + n, dong: "Đóng", xem: "Xem trước", mau: "Bản mẫu: ",
       mauChu: "Bản mẫu. Mở khóa giấy này là có tên bạn và tải về được.", goTen: "Gõ tên ở trên để thấy tên bạn trên giấy.", xemTruoc: "Xem trước. Bấm “Tải ảnh PNG” để lưu về máy.",
-      cauHoi: n => n + " câu", lienQuan: "Bài kiểm tra ngành"
+      cauHoi: n => n + " câu", lienQuan: "Bài kiểm tra ngành", tram: (x, n, k) => "Trạm đã làm: " + x + "/" + n + (x >= k ? " ✓" : " · cần " + k), moTram: "Mở trang thực hành"
     };
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + A.goc + "assets/icons.svg#i-" + n + '"/></svg>';
     const ld = n => fetch(A.goc + "data/" + n + ".json").then(r => r.json());
-    const [KT, KTen, LT] = await Promise.all([ld("bo-kiem-tra"), EN ? ld("en/bo-kiem-tra") : null, ld("lo-trinh-nganh")]);
+    const [KT, KTen, LT, TH] = await Promise.all([ld("bo-kiem-tra"), EN ? ld("en/bo-kiem-tra") : null, ld("lo-trinh-nganh"), ld("tram-thuc-hanh").catch(() => ({ trang: [] }))]);
+    // Chứng nhận thực hành: data/tram-thuc-hanh.json (scripts/trang/goc-thuc-hanh.py ghi), trạm đã làm ở mhai-tram (tien-do.js)
+    const thCua = {}; TH.trang.forEach(x => { x.ten = EN ? x.ten.en : x.ten.vi; x.can = Math.ceil(x.tram.length * 0.9 - 1e-9); thCua[x.id] = x; });
     if (KTen) { const e = {}; KTen.bo.forEach(b => { e[b.id] = b; }); KT.bo.forEach(b => { if (e[b.id]) { b.ten = e[b.id].ten; b.mo_ta = e[b.id].mo_ta; } }); }
     const boCuaId = {}; KT.bo.forEach(b => { boCuaId[b.id] = b; });
     const coBan = KT.bo.filter(b => b.nhom === "co-ban"), nganhBo = KT.bo.filter(b => b.nhanh);
@@ -243,9 +249,11 @@ window.MHAI_CC = (function () {
       const okCoBan = coBan.filter(b => A.datBo(kq[b.id])).length;
       ds.push({ key: "toan-dien", loai: "toan-dien", okCoBan, so7, mo: okCoBan === coBan.length && so7 >= 7 });
       ds.push({ key: "bay", loai: "bay", so7, mo: so7 >= 7 });
+      const tram = A.nho.get("mhai-tram") || {};
+      TH.trang.forEach(x => { const lam = x.tram.filter(id => (tram[x.id] || {})[id]).length; ds.push({ key: "thuc-hanh." + x.id, loai: "thuc-hanh", th: x, x: lam, mo: lam >= x.can }); });
       // Ngày cấp chứng nhận ngành / toàn diện: ngày đầu tiên trang này thấy đủ điều kiện, giữ nguyên về sau
       let doi = false;
-      ds.forEach(d => { if (d.mo && (d.loai === "nganh" || d.loai === "toan-dien") && !moCu[d.key]) { moCu[d.key] = A.homNay(); doi = true; } });
+      ds.forEach(d => { if (d.mo && (d.loai === "nganh" || d.loai === "toan-dien" || d.loai === "thuc-hanh") && !moCu[d.key]) { moCu[d.key] = A.homNay(); doi = true; } });
       if (doi) A.nho.set(A.KHOA_MO, moCu);
       ds.forEach(d => { d.ngay = d.loai === "chu-de" ? (d.r && (d.r.dat || d.r.ngay)) : moCu[d.key]; });
       return ds;
@@ -263,6 +271,11 @@ window.MHAI_CC = (function () {
         return { p: { l: "nganh", b: d.bo.nhanh, n: ten, d: d.ngay, s }, loai: "nganh", tieuDe: d.nh.ten, mo: A.T.mo.nganh(d.nh.ten, s, d.vs),
           huy: [d.nh.nhan, A.T.huy.nganh], mau: d.nh.mau, vang: true };
       }
+      if (d.loai === "thuc-hanh") {
+        const s = d.x + "/" + d.th.tram.length;
+        return { p: { l: "thuc-hanh", b: d.th.id, n: ten, d: d.ngay, s }, loai: "thuc-hanh", tieuDe: d.th.ten, mo: A.T.mo["thuc-hanh"](d.th.ten, s),
+          huy: [s, A.T.huy.thuc], mau: d.th.mau, vang: d.x >= d.th.tram.length };
+      }
       return { p: { l: "toan-dien", n: ten, d: d.ngay }, loai: "toan-dien", tieuDe: A.T.toanDien, mo: A.T.mo["toan-dien"](),
         huy: ["★", A.T.huy.toan], mau: ["#1E3A8A", "#7C3AED"], vang: true };
     }
@@ -276,6 +289,7 @@ window.MHAI_CC = (function () {
         return noiDung({ loai: "nganh", nh: LT.nhanh[p.b], bo: { nhanh: p.b }, r: { dung: +p.s.split("/")[0], tong: +p.s.split("/")[1] }, vs: vidLoTrinh(p.b).length, ngay: p.d }, p.n);
       }
       if (p.l === "toan-dien") return noiDung({ loai: "toan-dien", ngay: p.d }, p.n);
+      if (p.l === "thuc-hanh" && thCua[p.b] && /^\d+\/\d+$/.test(p.s || "")) return noiDung({ loai: "thuc-hanh", th: thCua[p.b], x: +p.s.split("/")[0], ngay: p.d }, p.n);
       return null;
     }
     const urlXm = p => "https://markhocai.com/" + (EN ? "en/" : "") + "chung-nhan.html?xm=" + A.maHoa(p);
@@ -303,6 +317,9 @@ window.MHAI_CC = (function () {
         tieuDe = d.nh.ten; dongs = [ktDong(d.bo, d.r), S.lt(d.x, d.vs) + (d.x === d.vs ? " ✓" : "")];
         nut = d.mo ? '<button type="button" class="btn btn-yt" data-tao="' + d.key + '">' + S.tao + "</button>"
           : (A.datBo(d.r) ? "" : '<a class="btn" href="kiem-tra.html?bo=' + d.bo.id + '">' + S.lamBai + "</a>") + (d.x === d.vs ? "" : '<a class="btn" href="lo-trinh-nganh.html?ai=' + d.bo.nhanh + '">' + S.moLt + "</a>");
+      } else if (d.loai === "thuc-hanh") {
+        tieuDe = d.th.ten; dongs = [S.tram(d.x, d.th.tram.length, d.th.can)];
+        nut = d.mo ? '<button type="button" class="btn btn-yt" data-tao="' + d.key + '">' + S.tao + "</button>" : '<a class="btn" href="' + d.th.id + '.html">' + S.moTram + "</a>";
       } else if (d.loai === "toan-dien") {
         tieuDe = A.T.toanDien;
         const kq = A.ketQua();
@@ -334,7 +351,7 @@ window.MHAI_CC = (function () {
     // Chứng nhận chưa mở khóa vẫn xem trước được: bản mẫu điểm tối đa, chữ MẪU mờ, không có nút tải
     function banMau(d) {
       const n = d.bo ? d.bo.cau_hoi.length : 0;
-      return Object.assign({}, d, { r: d.r && A.datBo(d.r) ? d.r : { dung: n, tong: n }, ngay: A.homNay() });
+      return Object.assign({}, d, { r: d.r && A.datBo(d.r) ? d.r : { dung: n, tong: n }, ngay: A.homNay() }, d.th ? { x: d.th.tram.length } : {});
     }
     function veTao() {
       const d = dangTao.mo ? dangTao : banMau(dangTao), ten = tenHien(), lan = ++luot;
@@ -351,7 +368,7 @@ window.MHAI_CC = (function () {
       const d = trangThai().find(x => x.key === key && x.loai !== "bay");
       if (!d) return;
       dangTao = d; luot = 0;
-      document.getElementById("cc-tao-ten").textContent = (d.mo ? "" : S.mau) + A.T.ten[d.loai] + (d.loai === "chu-de" ? ": " + d.bo.ten : d.loai === "nganh" ? ": " + d.nh.ten : "");
+      document.getElementById("cc-tao-ten").textContent = (d.mo ? "" : S.mau) + A.T.ten[d.loai] + (d.loai === "chu-de" ? ": " + d.bo.ten : d.loai === "nganh" ? ": " + d.nh.ten : d.loai === "thuc-hanh" ? ": " + d.th.ten : "");
       loiEl.textContent = ""; baoEl.textContent = "";
       nuts.hidden = !d.mo;
       hop.hidden = false;
