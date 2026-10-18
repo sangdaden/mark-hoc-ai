@@ -1,6 +1,6 @@
 /* Khung chung cho các trang thực hành theo đối tượng (ai-hoc-sinh.html, ai-van-phong.html, en/...).
    Trang do scripts/trang/thuc-hanh.py tạo từ data/thuc-hanh/<trang>.json; mỗi trạm là một <section class="bn-tram" data-loai=...>
-   và dữ liệu của nó nằm trong thẻ <script id="th-du-lieu">. Chín kiểu trạm:
+   và dữ liệu của nó nằm trong thẻ <script id="th-du-lieu">. Chín kiểu trạm cơ bản:
      phan-loai  chạm thẻ rồi chạm rổ (2-3 rổ), Bit nhận xét từng thẻ
      bo-phieu   từng câu một, bỏ phiếu (vd. Thật / Bịa), lật đáp án và lời giải
      ghep       ghép mảnh câu lệnh rồi Gửi cho AI, câu trả lời viết sẵn 3 mức (cùng giao diện Thợ ghép câu lệnh)
@@ -10,12 +10,20 @@
      chon-ban   chọn bản tóm tắt trung thực nhất; bản gốc hiện thành hàng ý chính, chọn xong thấy bản nào thiếu, sai, bịa thêm ý nào
      giong      cùng một nội dung, chuyển giữa các giọng văn (văn bản, nói trực tiếp, tin nhắn) để so
      ke-hoach   lập kế hoạch ôn thi theo số tuần, môn, giờ mỗi ngày; ra lịch ô màu và câu lệnh để nhờ AI chỉnh
+   Tầng Nâng cao thêm bốn kiểu:
+     xep-buoc       xếp các bước của một việc lớn thành chuỗi câu lệnh (có thẻ bẫy), đúng hết thì chép được cả chuỗi
+     cham-tieu-chi  tự chấm vài bản nháp AI theo bảng tiêu chí (? → ✓ → ✗), rồi so với đáp án kèm lý do
+     vi-du          chọn ví dụ mẫu (few-shot) đưa vào câu lệnh; ví dụ dính lỗi thì AI bắt chước cả lỗi
+     bayes          đoán trước, rồi xem 1.000 người: AI báo dương tính bao nhiêu người bệnh thật, kéo tỷ lệ mắc, độ nhạy, độ đặc hiệu
+   Dòng có "mo": true trong tim-loi hiện như chữ mờ gần trùng màu giấy (lệnh ẩn trong tài liệu).
    Tiến độ hiện bằng hàng chấm màu, lời Bit giữ một dòng ngắn: trang ưu tiên hình và biểu tượng hơn chữ.
    Mở thẳng một trạm bằng ?tram=<id> hoặc #<id>. Không gọi AI thật, không gửi gì đi; chỉ đếm sự kiện chọn trạm (theo-doi.js). */
 (function () {
   "use strict";
+  // Trang khác (vd. ai-y-te.html, tầng Nâng cao) có thể chỉ nhúng <script id="th-du-lieu"> để mượn các kiểu trạm, không có #th:
+  // khi đó trang đó tự lo chuyển trạm, file này chỉ dựng nội dung từng trạm.
   var goc = document.getElementById("th"), nguon = document.getElementById("th-du-lieu");
-  if (!goc || !nguon) return;
+  if (!nguon) return;
   var D = JSON.parse(nguon.textContent), N = D.nhan;
   var S = window.__th = {};
   var MUOT = !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -84,7 +92,7 @@
   function diem(d, tong, them) { return thay(N.diem, { d: d, tong: tong }) + (them ? " · " + them : ""); }
 
   // ---------- chọn trạm (cột trái .bn-ngan) ----------
-  var nutTram = [].slice.call(goc.querySelectorAll("[data-tram]"));
+  var nutTram = goc ? [].slice.call(goc.querySelectorAll("[data-tram]")) : [];
   function moTram(id, bam) {
     if (!$("tram-" + id)) id = D.tram[0].id;
     [].slice.call(goc.querySelectorAll(".th-tram")).forEach(function (s) { s.hidden = s.id !== "tram-" + id; });
@@ -286,7 +294,7 @@
     h.appendChild(dap); h.appendChild(lai);
     function chu(c, s) { c.querySelector(".th-cau-chu").textContent = s; }
     var cau = t.doan.map(function (x, k) {
-      var c = nut("th-cau" + (x.anh ? " th-cau-anh" : "")); c.dataset.k = k;
+      var c = nut("th-cau" + (x.anh ? " th-cau-anh" : "") + (x.mo ? " th-cau-mo" : "")); c.dataset.k = k;
       c.appendChild(el("span", "th-cau-chu", x.chu));
       if (x.anh) { var a = el("span", "th-anh-gia"); a.setAttribute("aria-hidden", "true"); a.appendChild(el("b", null, x.anh)); for (var j = 0; j < 6; j++) a.appendChild(el("i")); c.appendChild(a); }
       if (kieu === "don") { var r = el("div", "th-don-hang"); if (x.nhan) r.appendChild(el("span", "th-don-nhan", x.nhan)); r.appendChild(c); than.appendChild(r); }
@@ -443,8 +451,231 @@
     ve();
   }
 
-  var KIEU = { "phan-loai": phanLoai, "bo-phieu": boPhieu, ghep: ghep, chat: chat, "tim-loi": function (c, t) { timLoi(c, t, false); }, "sua-loi": function (c, t) { timLoi(c, t, true); }, "chon-ban": chonBan, giong: giong, "ke-hoach": keHoach };
+  // ================= xep-buoc: chia việc lớn thành chuỗi câu lệnh =================
+  // t.dau (việc lớn), t.buoc theo đúng thứ tự [{bt, chu, lenh, goi_y}], t.bay (tuỳ chọn) là bước không nên làm [{bt, chu, bit}].
+  // Chạm thẻ trong kho để xếp vào ô trống kế tiếp, chạm thẻ đã xếp để lấy ra. Đúng hết thì hiện chuỗi câu lệnh để chép.
+  function xepBuoc(cha, t) {
+    var tong = t.buoc.length, o = [], xongRoi = false;
+    var the = t.buoc.map(function (x, i) { return { x: x, i: i }; }).concat((t.bay || []).map(function (x) { return { x: x, i: -1 }; }));
+    for (var k = the.length - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)), tm = the[k]; the[k] = the[j]; the[j] = tm; }
+    if (the.slice(0, tong).every(function (c, s) { return c.i === s; })) the.reverse();
+    if (t.dau) { var v = el("div", "th-xb-viec"); veChu(v, t.dau); cha.appendChild(v); }
+    var dsO = el("ol", "th-xb-o"); cha.appendChild(dsO);
+    cha.appendChild(el("p", "gh-khay-nhan", N.xb_kho));
+    var kho = el("div", "th-xb-kho"); cha.appendChild(kho);
+    var b = hopBit(cha), h = hang(cha), kiem = nut("btn btn-chinh", N.xb_kiem), dap = nut("btn btn-nhe", N.hien_dap_an), lai = nut("btn btn-nhe", "↺ " + N.lam_lai);
+    h.appendChild(kiem); h.appendChild(dap); h.appendChild(lai);
+    var chuoi = el("div", "th-xb-chuoi"); chuoi.hidden = true; cha.appendChild(chuoi);
+    function theNut(c, cls) { var n = nut(cls); n.appendChild(el("span", "th-xb-bt", c.x.bt || "•")); n.appendChild(el("span", "th-xb-chu", c.x.chu)); return n; }
+    var nutThe = the.map(function (c, k) {
+      var n = theNut(c, "th-xb-the");
+      n.addEventListener("click", function () { if (xongRoi) return; if (o.length >= tong) { bit(b, N.xb_day); return; } o.push(k); ve(); });
+      kho.appendChild(n); return n;
+    });
+    function ve(cham) {
+      dsO.textContent = "";
+      for (var s = 0; s < tong; s++) {
+        var li = el("li", "th-xb-ich"); li.appendChild(el("span", "th-xb-so", String(s + 1)));
+        if (o[s] != null) {
+          var c = the[o[s]], n = theNut(c, "th-xb-dat");
+          if (cham) n.classList.add(c.i === s ? "is-dung" : "is-sai");
+          (function (s) { n.addEventListener("click", function () { if (xongRoi) return; o.splice(s, 1); ve(); }); })(s);
+          li.appendChild(n);
+        } else li.appendChild(el("span", "th-xb-trong", N.xb_trong));
+        dsO.appendChild(li);
+      }
+      nutThe.forEach(function (n, k) { n.hidden = o.indexOf(k) >= 0 && !xongRoi; });
+      kiem.disabled = o.length < tong || xongRoi;
+      if (!cham && !xongRoi) bit(b, o.length < tong ? thay(N.xb_con, { n: tong - o.length }) : N.xb_du);
+    }
+    function xong(tuLam) {
+      xongRoi = true;
+      o = t.buoc.map(function (_, i) { for (var k = 0; k < the.length; k++) if (the[k].i === i) return k; });
+      ve(true);
+      nutThe.forEach(function (n, k) { var c = the[k]; n.hidden = c.i >= 0; if (c.i < 0) { n.disabled = true; n.classList.add("is-bay"); n.appendChild(el("small", "th-xb-ly", "🪤 " + c.x.bit)); } });
+      chuoi.textContent = ""; chuoi.hidden = false;
+      chuoi.appendChild(el("p", "th-van-nhan", N.xb_chuoi));
+      var ds = el("ol", "th-xb-lenh");
+      t.buoc.forEach(function (x) { var li = el("li"); li.appendChild(el("b", null, x.bt + " " + x.chu)); if (x.lenh) li.appendChild(el("code", null, x.lenh)); ds.appendChild(li); });
+      chuoi.appendChild(ds);
+      var cp = nut("btn btn-chinh", N.chep_chuoi);
+      cp.addEventListener("click", function () { chep(t.buoc.map(function (x, i) { return (i + 1) + ". " + (x.lenh || x.chu); }).join("\n\n"), cp); });
+      chuoi.appendChild(cp);
+      bit(b, tuLam ? [N.xb_dung, t.bai_hoc] : t.bai_hoc, tuLam ? "dung" : "");
+      do_(D.trang + "-xep-buoc", { tu_lam: tuLam });
+    }
+    kiem.addEventListener("click", function () {
+      var d = 0, bay = null, sai = null;
+      o.forEach(function (k, s) { var c = the[k]; if (c.i === s) d++; else if (c.i < 0) bay = bay || c.x; else sai = sai || c.x; });
+      if (d === tong) return xong(true);
+      ve(true);
+      bit(b, [thay(N.xb_dem, { d: d, tong: tong }), bay ? "🪤 " + bay.bit : (sai && sai.goi_y) || N.xb_thu_lai], "sai");
+    });
+    dap.addEventListener("click", function () { xong(false); });
+    lai.addEventListener("click", function () { cha.textContent = ""; xepBuoc(cha, t); });
+    ve();
+  }
+
+  // ================= cham-tieu-chi: tự chấm vài bản nháp AI theo tiêu chí =================
+  // t.viec (đề bài), t.tieu_chi [{id, bt, chu}], t.ban [{ten, chu, dat: {id: true|false}, giai: {id: "..."}}].
+  // Bảng chấm: chạm ô để đổi ? → ✓ → ✗. Chấm xong hiện ô nào lệch kèm lý do và bản đạt nhiều tiêu chí nhất.
+  function chamTieuChi(cha, t) {
+    var o = {}, daCham = false, CHU = String.fromCharCode, KY = { "": "?", co: "✓", khong: "✗" };
+    if (t.viec) { var v = el("div", "th-xb-viec"); veChu(v, t.viec); cha.appendChild(v); }
+    var ds = el("div", "th-ct-ban"); cha.appendChild(ds);
+    t.ban.forEach(function (x, i) {
+      var c = el("article", "th-ct-the"), d = el("p", "th-ct-ten");
+      d.appendChild(el("span", "th-ban-so", CHU(65 + i))); d.appendChild(document.createTextNode(x.ten)); c.appendChild(d);
+      var chu = el("div", "th-ct-chu"); veChu(chu, x.chu); c.appendChild(chu); ds.appendChild(c);
+    });
+    cha.appendChild(el("p", "gh-khay-nhan", N.ct_huong_dan));
+    var bao = el("div", "th-ct-bao"), bang = el("table", "th-ct-bang"); bao.appendChild(bang); cha.appendChild(bao);
+    var tr = el("tr"); tr.appendChild(el("th", null, N.ct_tieu_chi)); t.ban.forEach(function (_, i) { tr.appendChild(el("th", null, CHU(65 + i))); }); bang.appendChild(tr);
+    var oNut = [];
+    t.tieu_chi.forEach(function (c) {
+      var r = el("tr"), th = el("th"); th.appendChild(el("span", "th-ct-bt", c.bt)); th.appendChild(document.createTextNode(c.chu)); r.appendChild(th);
+      t.ban.forEach(function (x, i) {
+        var td = el("td"), n = nut("th-ct-o", "?"), k = c.id + "|" + i;
+        n.setAttribute("aria-label", c.chu + " · " + CHU(65 + i));
+        n.addEventListener("click", function () {
+          if (daCham) return;
+          o[k] = o[k] === "co" ? "khong" : o[k] === "khong" ? "" : "co";
+          n.textContent = KY[o[k]]; n.className = "th-ct-o" + (o[k] ? " is-" + o[k] : "");
+          var con = oNut.length - Object.keys(o).filter(function (q) { return o[q]; }).length;
+          bit(b, con ? thay(N.ct_con, { n: con }) : N.ct_du);
+        });
+        td.appendChild(n); r.appendChild(td); oNut.push({ n: n, k: k, c: c, x: x, i: i });
+      });
+      bang.appendChild(r);
+    });
+    var lech = el("ul", "th-ct-lech"); lech.hidden = true; cha.appendChild(lech);
+    var b = hopBit(cha), h = hang(cha), cham = nut("btn btn-chinh", N.ct_cham), lai = nut("btn btn-nhe", "↺ " + N.lam_lai);
+    h.appendChild(cham); h.appendChild(lai);
+    cham.addEventListener("click", function () {
+      var con = oNut.filter(function (q) { return !o[q.k]; }).length;
+      if (con) { bit(b, thay(N.ct_con, { n: con })); return; }
+      daCham = true; cham.disabled = true; lech.textContent = "";
+      var khop = 0;
+      oNut.forEach(function (q) {
+        var dung = !!q.x.dat[q.c.id], ok = (o[q.k] === "co") === dung;
+        if (ok) khop++;
+        q.n.parentNode.className = ok ? "is-khop" : "is-lech";
+        if (!ok) {
+          var li = el("li"); li.appendChild(el("b", null, "✗ " + CHU(65 + q.i) + " · " + q.c.bt + " " + q.c.chu + " → " + (dung ? "✓" : "✗") + ". "));
+          li.appendChild(document.createTextNode((q.x.giai || {})[q.c.id] || "")); lech.appendChild(li);
+        }
+      });
+      lech.hidden = !lech.children.length;
+      var tot = t.ban.map(function (x) { return t.tieu_chi.filter(function (c) { return x.dat[c.id]; }).length; }), max = Math.max.apply(null, tot);
+      var thang = t.ban.filter(function (_, i) { return tot[i] === max; }).map(function (x) { return CHU(65 + t.ban.indexOf(x)) + " (" + x.ten + ")"; }).join(", ");
+      bit(b, [thay(N.ct_khop, { d: khop, tong: oNut.length }), thay(N.ct_thang, { ten: thang, d: max, tong: t.tieu_chi.length }), t.bai_hoc], khop === oNut.length ? "dung" : "");
+      do_(D.trang + "-cham", { khop: khop });
+    });
+    lai.addEventListener("click", function () { cha.textContent = ""; chamTieuChi(cha, t); });
+    bit(b, thay(N.ct_con, { n: oNut.length }));
+  }
+
+  // ================= vi-du: đưa ví dụ mẫu (few-shot) để AI bắt chước =================
+  // t.lenh, t.can (số ví dụ, mặc định 2), t.mau [{chu, loi: null | "<khóa>", bit}], t.tra_loi {khong, tot, <khóa>}, t.bai_hoc.
+  // Không ví dụ: AI tự đoán. Có ví dụ dính lỗi: AI bắt chước cả lỗi (tra_loi[<khóa>]). Ví dụ chuẩn: bản tốt.
+  function viDu(cha, t) {
+    var can = t.can || 2, chon = [];
+    var lenh = el("div", "gh-lenh"); lenh.appendChild(el("p", "gh-lenh-nhan", N.cau_lenh)); var ds = el("div", "gh-lenh-ds"); ds.setAttribute("aria-live", "polite"); lenh.appendChild(ds); cha.appendChild(lenh);
+    cha.appendChild(el("p", "gh-khay-nhan", thay(N.vd_mau, { n: can })));
+    var kho = el("div", "th-vd-kho"); cha.appendChild(kho);
+    var h = hang(cha), gui = nut("btn btn-chinh", N.gui + " ›"), cp = nut("btn btn-chinh", N.chep_lenh), lai = nut("btn btn-nhe", "↺ " + N.lam_lai);
+    h.appendChild(gui); h.appendChild(cp); h.appendChild(lai);
+    var ben = el("div", "gh-ben th-gh-ben"); cha.appendChild(ben);
+    var tl = el("div"); tl.hidden = true; ben.appendChild(tl);
+    var b = hopBit(ben);
+    var nutMau = t.mau.map(function (x, i) {
+      var n = nut("th-vd-mau"); n.setAttribute("aria-pressed", "false");
+      n.appendChild(el("span", "th-vd-so", "#" + (i + 1))); var o = el("div", "th-vd-chu"); veChu(o, x.chu); n.appendChild(o);
+      n.addEventListener("click", function () {
+        var k = chon.indexOf(i);
+        if (k >= 0) chon.splice(k, 1);
+        else if (chon.length >= can) { bit(b, thay(N.vd_du, { n: can })); return; }
+        else chon.push(i);
+        ve();
+      });
+      kho.appendChild(n); return n;
+    });
+    function ve() {
+      ds.textContent = ""; tl.hidden = true;
+      var g = el("p", "gh-dong gh-dong-goc"); g.appendChild(el("span", "gh-dong-chu", t.lenh)); ds.appendChild(g);
+      for (var k = 0; k < can; k++) {
+        var d = el("div", "th-vd-o" + (chon[k] != null ? " is-co" : "")); d.appendChild(el("span", "gh-loai", thay(N.vd_nhan, { n: k + 1 })));
+        if (chon[k] != null) { var c = el("div", "th-vd-chu"); veChu(c, t.mau[chon[k]].chu); d.appendChild(c); } else d.appendChild(el("span", "gh-trong", N.vd_trong));
+        ds.appendChild(d);
+      }
+      nutMau.forEach(function (n, i) { n.setAttribute("aria-pressed", String(chon.indexOf(i) >= 0)); });
+      bit(b, chon.length ? "" : N.vd_bat_dau);
+    }
+    gui.addEventListener("click", function () {
+      var loi = null; chon.forEach(function (i) { if (!loi && t.mau[i].loi) loi = t.mau[i]; });
+      var muc = !chon.length ? "khong" : loi ? loi.loi : "tot";
+      tl.textContent = ""; tl.className = "gh-tl gh-muc-" + (muc === "tot" ? "tot" : muc === "khong" ? "tho" : "kha");
+      var dau = el("div", "gh-tl-dau"); dau.appendChild(el("span", "gh-tl-ai", N.ai_tra_loi)); tl.appendChild(dau);
+      var than = el("div", "gh-tl-than"); veChu(than, t.tra_loi[muc]); tl.appendChild(than); tl.hidden = false;
+      if (muc === "khong") bit(b, N.vd_khong, "sai");
+      else if (loi) bit(b, [N.vd_sai, loi.bit], "sai");
+      else bit(b, [chon.length < can ? N.vd_them : N.vd_tot, t.bai_hoc], "dung");
+      cuon(tl); do_(D.trang + "-vi-du", { muc: muc });
+    });
+    cp.addEventListener("click", function () { chep(t.lenh + chon.map(function (i, k) { return "\n\n" + thay(N.vd_nhan, { n: k + 1 }) + "\n" + t.mau[i].chu.replace(/\*\*/g, ""); }).join(""), cp); });
+    lai.addEventListener("click", function () { chon = []; ve(); });
+    ve();
+  }
+
+  // ================= bayes: AI báo dương tính thì khả năng bệnh thật là bao nhiêu =================
+  // t.cau (câu hỏi), t.doan [{chu, dung}], t.giai, t.mac {ty_le, nhay, dac} (%), t.bai_hoc.
+  // Đoán trước, rồi mở 1.000 người dạng lưới chấm: đúng dương, báo nhầm, bỏ sót, đúng âm; kéo ba thanh để thấy tỷ lệ đổi.
+  function bayes(cha, t) {
+    var q = el("div", "th-phieu"); q.appendChild(el("span", "th-phieu-anh", "🤖"));
+    var bong = el("div", "th-phieu-bong"), p = el("p", "th-phieu-chu"); dam(p, t.cau); bong.appendChild(p); q.appendChild(bong); cha.appendChild(q);
+    var h = el("div", "th-phieu-nut"); cha.appendChild(h);
+    var b = hopBit(cha);
+    var may = el("div", "th-by"); may.hidden = true; cha.appendChild(may);
+    t.doan.forEach(function (x) {
+      var n = nut("th-phieu-chon", x.chu);
+      n.addEventListener("click", function () {
+        [].slice.call(h.children).forEach(function (m, k) { m.disabled = true; if (t.doan[k].dung) m.classList.add("is-dung"); else if (m === n) m.classList.add("is-sai"); });
+        bit(b, [(x.dung ? "✓ " : "✗ ") + t.giai, t.bai_hoc], x.dung ? "dung" : "sai");
+        may.hidden = false; ve(); cuon(may);
+        do_(D.trang + "-bayes", { dung: !!x.dung });
+      });
+      h.appendChild(n);
+    });
+    var khung = el("div", "th-by-khung"); may.appendChild(khung);
+    function thanh(nhan, min, max, gt) {
+      var w = el("label", "th-by-thanh"), tx = el("span", null, nhan + " "), so = el("b"); tx.appendChild(so); w.appendChild(tx);
+      var r = el("input"); r.type = "range"; r.min = min; r.max = max; r.step = 0.5; r.value = gt; w.appendChild(r);
+      r.addEventListener("input", ve); khung.appendChild(w); return { r: r, so: so };
+    }
+    var tl = thanh(N.by_ty_le, 0.5, 50, t.mac.ty_le), nh = thanh(N.by_nhay, 50, 99.5, t.mac.nhay), dh = thanh(N.by_dac, 50, 99.5, t.mac.dac);
+    var luoi = el("div", "th-by-luoi"); luoi.setAttribute("role", "img"); may.appendChild(luoi);
+    var o = []; for (var i = 0; i < 1000; i++) { var s = el("i"); luoi.appendChild(s); o.push(s); }
+    var ct = el("div", "th-by-ct"); may.appendChild(ct);
+    var ket = el("p", "th-by-ket"); may.appendChild(ket);
+    function so(x) { return String(x).replace(".", N.dau_thap_phan); }
+    function ve() {
+      var pr = +tl.r.value / 100, se = +nh.r.value / 100, sp = +dh.r.value / 100;
+      tl.so.textContent = so(tl.r.value) + "%"; nh.so.textContent = so(nh.r.value) + "%"; dh.so.textContent = so(dh.r.value) + "%";
+      var benh = Math.round(1000 * pr), tp = Math.round(benh * se), fn = benh - tp, khong = 1000 - benh, fp = Math.round(khong * (1 - sp)), tn = khong - fp, k = 0;
+      [["tp", tp], ["fn", fn], ["fp", fp], ["tn", tn]].forEach(function (x) { for (var j = 0; j < x[1]; j++) o[k++].className = "is-" + x[0]; });
+      ct.textContent = "";
+      [["tp", tp], ["fp", fp], ["fn", fn], ["tn", tn]].forEach(function (x) { var c = el("span", "is-" + x[0]); c.appendChild(el("i")); c.appendChild(el("b", null, String(x[1]))); c.appendChild(document.createTextNode(" " + N["by_" + x[0]])); ct.appendChild(c); });
+      var duong = tp + fp, ppv = duong ? Math.round(tp / duong * 100) : 0;
+      ket.textContent = ""; ket.appendChild(el("span", "th-by-so", ppv + "%")); ket.appendChild(document.createTextNode(" " + thay(N.by_ppv, { d: duong, tp: tp })));
+      luoi.setAttribute("aria-label", ket.textContent);
+    }
+  }
+
+  var KIEU = { "phan-loai": phanLoai, "bo-phieu": boPhieu, ghep: ghep, chat: chat, "tim-loi": function (c, t) { timLoi(c, t, false); }, "sua-loi": function (c, t) { timLoi(c, t, true); }, "chon-ban": chonBan, giong: giong, "ke-hoach": keHoach,
+    "xep-buoc": xepBuoc, "cham-tieu-chi": chamTieuChi, "vi-du": viDu, bayes: bayes };
   D.tram.forEach(function (t) { var c = $("th-o-" + t.id); if (c && KIEU[t.loai]) KIEU[t.loai](c, t); });
-  var q = (location.search.match(/[?&]tram=([\w-]+)/) || [])[1] || location.hash.slice(1);
-  moTram(q || D.tram[0].id, false);
+  if (goc) {
+    var q = (location.search.match(/[?&]tram=([\w-]+)/) || [])[1] || location.hash.slice(1);
+    moTram(q || D.tram[0].id, false);
+  }
 })();
