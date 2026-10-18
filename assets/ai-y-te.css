@@ -16,6 +16,7 @@
 /* thẻ chọn (giống .pdl-chon) */
 .yt-the { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
 .yt-the-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.yt-the-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 14px; }
 .yt-chon { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--edge); background: var(--bg); color: var(--ink);
   font: 600 14.5px/1.3 var(--f-body); text-align: left; cursor: pointer; transition: border-color .15s, transform .15s; min-height: 52px; }
 .yt-chon span { font-size: 22px; flex: none; }
@@ -127,6 +128,27 @@ mark.yt-tn { background: color-mix(in srgb, var(--yt-cam) 16%, transparent); col
 .yt-tl-co input:checked + span { background: var(--yt-xanh); border-color: var(--yt-xanh); color: #fff; }
 .yt-tl-chua input:checked + span { background: #F59E0B; border-color: #F59E0B; color: #111; }
 .yt-tl-khong input:checked + span { background: var(--yt-do); border-color: var(--yt-do); color: #fff; }
+/* Trạm 7: tờ chào hàng giả, rồi chấm từng câu sau khi trả lời đủ 6 */
+.yt-to { margin: 0 0 14px; padding: 16px 18px; border-radius: 16px; border: 1.5px dashed var(--edge); background: var(--panel); }
+.yt-to header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.yt-to-bt { font-size: 38px; line-height: 1; }
+.yt-to h3 { margin: 0; font: 800 20px/1.2 var(--f-display); }
+.yt-to header p { margin: 2px 0 0; font: 600 12px/1.3 var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.yt-to-cau { margin: 0 0 12px; font: 600 16px/1.45 var(--f-body); }
+.yt-to ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.yt-to li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--edge); }
+.yt-to-dbt { font-size: 22px; line-height: 1.1; flex: none; }
+.yt-to li p { margin: 0; font-size: 14px; line-height: 1.45; }
+.yt-to li small { display: block; margin-top: 3px; font-size: 11.5px; color: var(--muted); font-style: italic; }
+.yt-to-ghi { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.yt-to.is-ban { border-style: solid; }
+.yt-to.is-ban p { margin: 0; font-size: 14.5px; line-height: 1.5; }
+.yt-hoi.is-khop { border-color: var(--yt-xanh); }
+.yt-hoi.is-lech { border-color: var(--yt-do); }
+.yt-tl label.is-dap span { box-shadow: 0 0 0 2px var(--yt-xanh); }
+.yt-hoi-giai { clear: both; margin: 8px 0 0; font-size: 13px; line-height: 1.45; }
+.yt-hoi.is-khop .yt-hoi-giai b { color: var(--yt-xanh); }
+.yt-hoi.is-lech .yt-hoi-giai b { color: var(--yt-do); }
 
 @media (max-width: 980px) {
   .yt-buoc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -135,7 +157,9 @@ mark.yt-tn { background: color-mix(in srgb, var(--yt-cam) 16%, transparent); col
 @media (max-width: 760px) {
   .yt-hai, .yt-giay-2, .yt-phieu, .yt-bd dl { grid-template-columns: minmax(0, 1fr); }
   .yt-buoc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .yt-the, .yt-the-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .yt-the, .yt-the-5, .yt-the-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .yt-to { padding: 14px; }
+  .yt-to ul { grid-template-columns: minmax(0, 1fr); }
   .yt-chon { padding: 10px; gap: 8px; font-size: 13.5px; }
   .yt-chon span { font-size: 20px; }
   .yt-so4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -148,6 +172,7 @@ mark.yt-tn { background: color-mix(in srgb, var(--yt-cam) 16%, transparent); col
   html.yt-dang-in .yt-in-day { position: absolute; left: 0; top: 0; width: 100%; border: 0; box-shadow: none; background: #fff; color: #111; }
   html.yt-dang-in .yt-in-day .btn, html.yt-dang-in .yt-in-day .yt-bit img { display: none !important; }
   html.yt-dang-in .yt-in-day .yt-hoi { break-inside: avoid; }
+  html.yt-dang-in .yt-in-day #dg-chon, html.yt-dang-in .yt-in-day .yt-to.is-ban { display: none !important; }
 }
 
 /* 2. lenh: khung hai cột của Thợ ghép (.gh-o), câu trả lời bên phải */

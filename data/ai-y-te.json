@@ -1402,8 +1402,8 @@
    "id": "du-lieu",
    "chan": true,
    "hoi": {
-    "vi": "Dữ liệu người bệnh có ra khỏi bệnh viện, bị dùng để huấn luyện không?",
-    "en": "Does patient data leave the hospital or get used for training?"
+    "vi": "Dữ liệu người bệnh ở lại bệnh viện, không bị đem đi huấn luyện AI?",
+    "en": "Patient data stays in the hospital and isn't used to train the AI?"
    },
    "goi_y": {
     "vi": "Đối chiếu với quy định bảo vệ dữ liệu cá nhân; xin văn bản cam kết của hãng.",
@@ -1470,8 +1470,8 @@
    "id": "trach-nhiem",
    "chan": true,
    "hoi": {
-    "vi": "Khi AI sai thì ai chịu, báo sự cố ở đâu?",
-    "en": "Who is responsible when it's wrong, and where are incidents reported?"
+    "vi": "Đã rõ ai chịu trách nhiệm khi AI sai, báo sự cố ở đâu?",
+    "en": "Clear who is responsible when it's wrong, and where to report incidents?"
    },
    "goi_y": {
     "vi": "Ghi rõ trong hợp đồng và quy trình báo cáo sự cố của bệnh viện.",
@@ -1636,5 +1636,286 @@
     }
    }
   ]
- }
+ },
+ "chao_hang": [
+  {
+   "id": "x-quang",
+   "bieu_tuong": "🩻",
+   "nut": {
+    "vi": "AI đọc X-quang",
+    "en": "X-ray reader"
+   },
+   "ten": "XQ-Nhanh",
+   "hang": {
+    "vi": "Hãng A",
+    "en": "Vendor A"
+   },
+   "cau": {
+    "vi": "Đọc phim X-quang ngực trong 10 giây, khoanh vùng nghi tổn thương cho bác sĩ.",
+    "en": "Reads chest X-rays in 10 seconds and circles suspicious areas for the doctor."
+   },
+   "dong": [
+    {
+     "bt": "📜",
+     "chu": {
+      "vi": "Được cấp phép lưu hành là trang thiết bị y tế, dùng để gợi ý vùng nghi tổn thương trên phim X-quang ngực.",
+      "en": "Licensed as a medical device to flag suspicious areas on chest X-rays."
+     }
+    },
+    {
+     "bt": "🗄️",
+     "chu": {
+      "vi": "Phim được xử lý trên máy chủ đặt tại bệnh viện, không dùng để huấn luyện.",
+      "en": "Images are processed on a server inside the hospital and never used for training."
+     }
+    },
+    {
+     "bt": "🎯",
+     "chu": {
+      "vi": "Độ nhạy 97%*",
+      "en": "97% sensitivity*"
+     },
+     "nho": {
+      "vi": "*Số liệu nội bộ của hãng, chưa có bài báo nào.",
+      "en": "*Vendor's internal figure; no published paper."
+     }
+    },
+    {
+     "bt": "🌏",
+     "chu": {
+      "vi": "Đang dùng ở hơn 200 bệnh viện tại Hàn Quốc và Ấn Độ.",
+      "en": "Used in over 200 hospitals in Korea and India."
+     }
+    },
+    {
+     "bt": "⚖️",
+     "chu": {
+      "vi": "Hợp đồng ghi rõ: bác sĩ kết luận, lỗi phần mềm do hãng chịu, có đường dây báo sự cố 24/7.",
+      "en": "Contract: the doctor makes the call, the vendor owns software faults, 24/7 incident line."
+     }
+    }
+   ],
+   "dap": {
+    "phep": "co",
+    "du-lieu": "co",
+    "bang-chung": "khong",
+    "tieng-viet": "khong",
+    "ket-noi": "chua",
+    "trach-nhiem": "co"
+   },
+   "giai": {
+    "phep": {
+     "vi": "Tờ ghi rõ đã được cấp phép, đúng việc đọc X-quang ngực.",
+     "en": "It says it's licensed, for exactly this use."
+    },
+    "du-lieu": {
+     "vi": "Máy chủ đặt tại bệnh viện, không dùng để huấn luyện.",
+     "en": "Server in the hospital, no training use."
+    },
+    "bang-chung": {
+     "vi": "97% là số của hãng, chưa có nghiên cứu độc lập.",
+     "en": "97% is the vendor's own number; no independent study."
+    },
+    "tieng-viet": {
+     "vi": "Mới dùng ở Hàn Quốc và Ấn Độ, chưa thử trên người bệnh Việt Nam.",
+     "en": "Only used in Korea and India, not on patients like ours."
+    },
+    "ket-noi": {
+     "vi": "Tờ không nói gì về phần mềm bệnh viện, phải hỏi thêm.",
+     "en": "Nothing about the hospital software; ask."
+    },
+    "trach-nhiem": {
+     "vi": "Hợp đồng ghi rõ ai chịu và báo sự cố ở đâu.",
+     "en": "The contract spells it out."
+    }
+   }
+  },
+  {
+   "id": "ghi-chep",
+   "bieu_tuong": "🎙️",
+   "nut": {
+    "vi": "AI ghi chép buồng khám",
+    "en": "Clinic scribe"
+   },
+   "ten": "GhiChép+",
+   "hang": {
+    "vi": "Hãng B",
+    "en": "Vendor B"
+   },
+   "cau": {
+    "vi": "AI nghe buổi khám rồi tự viết bệnh án. Bác sĩ chỉ việc ký.",
+    "en": "Listens to the visit and writes the notes. The doctor just signs."
+   },
+   "dong": [
+    {
+     "bt": "☁️",
+     "chu": {
+      "vi": "Ghi âm được gửi lên máy chủ ở nước ngoài và dùng để cải thiện mô hình.",
+      "en": "Recordings go to servers abroad and are used to improve the model."
+     }
+    },
+    {
+     "bt": "⏱️",
+     "chu": {
+      "vi": "Tiết kiệm 2 giờ mỗi ngày cho bác sĩ!*",
+      "en": "Saves doctors 2 hours a day!*"
+     },
+     "nho": {
+      "vi": "*Theo khảo sát khách hàng của hãng.",
+      "en": "*From the vendor's customer survey."
+     }
+    },
+    {
+     "bt": "🇻🇳",
+     "chu": {
+      "vi": "Đã chạy thử ở 3 phòng khám tại Hà Nội, Huế và TP.HCM, hiểu giọng ba miền.",
+      "en": "Trialled in 3 clinics in our own region, handles local accents."
+     }
+    },
+    {
+     "bt": "🔌",
+     "chu": {
+      "vi": "Tự điền vào bệnh án điện tử bệnh viện đang dùng.",
+      "en": "Fills in the electronic record system you already use."
+     }
+    },
+    {
+     "bt": "📄",
+     "chu": {
+      "vi": "Điều khoản: hãng không chịu trách nhiệm về nội dung ghi chép.",
+      "en": "Terms: the vendor takes no responsibility for the notes."
+     }
+    }
+   ],
+   "dap": {
+    "phep": "chua",
+    "du-lieu": "khong",
+    "bang-chung": "khong",
+    "tieng-viet": "co",
+    "ket-noi": "co",
+    "trach-nhiem": "khong"
+   },
+   "giai": {
+    "phep": {
+     "vi": "Tờ không nói gì về giấy phép, phải hỏi thêm.",
+     "en": "No word on licensing; ask."
+    },
+    "du-lieu": {
+     "vi": "Ghi âm ra nước ngoài và bị dùng để huấn luyện.",
+     "en": "Recordings leave the country and are used for training."
+    },
+    "bang-chung": {
+     "vi": "Chỉ có khảo sát của hãng, không phải nghiên cứu độc lập.",
+     "en": "Only a vendor survey, not independent research."
+    },
+    "tieng-viet": {
+     "vi": "Đã thử ở phòng khám trong nước.",
+     "en": "Trialled locally."
+    },
+    "ket-noi": {
+     "vi": "Tự điền vào bệnh án điện tử đang dùng.",
+     "en": "Works with your record system."
+    },
+    "trach-nhiem": {
+     "vi": "Hãng từ chối trách nhiệm, chưa rõ ai chịu khi sai.",
+     "en": "The vendor disclaims responsibility."
+    }
+   }
+  },
+  {
+   "id": "dien-tim",
+   "bieu_tuong": "🫀",
+   "nut": {
+    "vi": "AI đọc điện tim",
+    "en": "ECG reader"
+   },
+   "ten": "Nhịp-AI",
+   "hang": {
+    "vi": "Hãng C",
+    "en": "Vendor C"
+   },
+   "cau": {
+    "vi": "Phát hiện rung nhĩ trên điện tâm đồ, báo bác sĩ xem lại ngay.",
+    "en": "Spots atrial fibrillation on ECGs and alerts the doctor to review."
+   },
+   "dong": [
+    {
+     "bt": "📜",
+     "chu": {
+      "vi": "Được cấp phép lưu hành là trang thiết bị y tế, dùng để phát hiện rung nhĩ.",
+      "en": "Licensed as a medical device to detect atrial fibrillation."
+     }
+    },
+    {
+     "bt": "🗄️",
+     "chu": {
+      "vi": "Chạy ngay trên máy điện tim của khoa, dữ liệu không rời bệnh viện.",
+      "en": "Runs on the ward's ECG machine; data never leaves the hospital."
+     }
+    },
+    {
+     "bt": "📊",
+     "chu": {
+      "vi": "Một nghiên cứu độc lập trên 3.000 người bệnh, đăng trên tạp chí y khoa.",
+      "en": "An independent study of 3,000 patients in a medical journal."
+     }
+    },
+    {
+     "bt": "🇻🇳",
+     "chu": {
+      "vi": "Đã chạy thử ở 2 bệnh viện tỉnh trong nước.",
+      "en": "Trialled in 2 local hospitals."
+     }
+    },
+    {
+     "bt": "🔌",
+     "chu": {
+      "vi": "Gửi kết quả thẳng vào bệnh án điện tử.",
+      "en": "Sends results straight to the electronic record."
+     }
+    },
+    {
+     "bt": "⚖️",
+     "chu": {
+      "vi": "Hợp đồng ghi rõ trách nhiệm hai bên và quy trình báo sự cố.",
+      "en": "Contract sets out both sides' duties and incident reporting."
+     }
+    }
+   ],
+   "dap": {
+    "phep": "co",
+    "du-lieu": "co",
+    "bang-chung": "co",
+    "tieng-viet": "co",
+    "ket-noi": "co",
+    "trach-nhiem": "co"
+   },
+   "giai": {
+    "phep": {
+     "vi": "Đã được cấp phép đúng việc.",
+     "en": "Licensed for this use."
+    },
+    "du-lieu": {
+     "vi": "Dữ liệu ở lại bệnh viện.",
+     "en": "Data stays in the hospital."
+    },
+    "bang-chung": {
+     "vi": "Có nghiên cứu độc lập, đã đăng báo.",
+     "en": "Independent, published study."
+    },
+    "tieng-viet": {
+     "vi": "Đã thử ở bệnh viện trong nước.",
+     "en": "Trialled locally."
+    },
+    "ket-noi": {
+     "vi": "Nối được với bệnh án điện tử.",
+     "en": "Connects to the record system."
+    },
+    "trach-nhiem": {
+     "vi": "Hợp đồng ghi rõ.",
+     "en": "Spelled out in the contract."
+    }
+   }
+  }
+ ]
 }
