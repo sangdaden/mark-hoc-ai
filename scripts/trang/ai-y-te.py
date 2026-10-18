@@ -31,12 +31,10 @@ def tao_ai_y_te():
             ("danh-gia", "615", t("6 câu hỏi trước khi dùng", "6 questions first"))]
     # Tầng Nâng cao: trạm theo khuôn của thuc-hanh.js (data/ai-y-te.json "nang_cao"), thuc-hanh.js dựng nội dung, ai-y-te.js lo chuyển trạm
     nc = _th_ngu(D.get("nang_cao", []), L)
-    ds_nc = [{}] * len(tram) + nc
-    ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{t("Một khoa nội, từ ghi chép trong ca tới chọn công cụ AI cho cả khoa", "One hospital ward, from shift notes to choosing an AI tool")}</p><ol>'
-            + "".join(f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{k + 1}</span>'
-                      f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {so}</small></span></button></li>' for k, (i, so, ten) in enumerate(tram))
-            + "".join(_th_nut(len(tram) + k, x, ds_nc) for k, x in enumerate(nc))
-            + '</ol></nav>')
+    ngan = _th_ngan(t("Một khoa nội, từ ghi chép trong ca tới chọn công cụ AI cho cả khoa", "One hospital ward, from shift notes to choosing an AI tool"),
+                    [f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{k + 1}</span>'
+                     f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {so}</small></span></button></li>' for k, (i, so, ten) in enumerate(tram)],
+                    [_th_nut(len(tram) + k, x) for k, x in enumerate(nc)], D.get("nhom_nc"))
 
     def dau(i, k, video, tieu, mo=""):
         return (f'<section class="bn-tram yt-tram" id="tram-{i}" hidden aria-labelledby="h-{i}">\n'
@@ -247,7 +245,7 @@ def tao_ai_y_te():
     main = (f'<main class="bn yt" id="yt">\n<link rel="stylesheet" href="{p}assets/ai-y-te.css?v=dev">\n'
             + (f'<link rel="stylesheet" href="{p}assets/thuc-hanh.css?v=dev">\n' if nc else "")
             + f'{ngan}\n<div class="bn-ban">\n{che}\n{lenh}\n{soat}\n{de_hieu}\n{quy_tac}\n{ban_do}\n{danh_gia}\n'
-            + "".join(_th_tram(len(tram) + k, x, "yt-tram th-tram th") for k, x in enumerate(nc))
+            + "".join(_th_tram(len(tram) + k, x, "yt-tram th-tram th", D.get("nhom_nc")) for k, x in enumerate(nc))
             + f'<p class="yt-ghi">{t("Công cụ học tập, không phải thiết bị y tế: không dùng để chẩn đoán, chỉ định hay kê đơn. Mọi ví dụ là ca giả. Chữ bạn dán vào chỉ nằm trên máy bạn, không gửi đi đâu.", "A learning tool, not a medical device: not for diagnosis, orders or prescribing. All examples are fictional. What you paste stays on your device and is never sent.")}</p>\n'
             f'{khoi_chia_se(BASE + GOC + "ai-y-te.html", tieu, p)}\n</div>\n'
             f'<noscript><p>{t("Công cụ cần JavaScript.", "These tools need JavaScript.")}</p></noscript>\n'

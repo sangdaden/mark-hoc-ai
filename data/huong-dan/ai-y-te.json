@@ -154,13 +154,13 @@
    "buoc": [
     {
      "chon": "#tram-lenh-an .th-van",
-     "vi": "Đây là tài liệu hãng gửi. Có **3 câu lệnh** viết !!chữ trắng!!: người khó thấy nhưng AI đọc hết. **Chạm vào dòng khả nghi.**",
-     "en": "This is the vendor's document. **3 prompts** are written in !!white text!!: hard for people to see, but the AI reads them. **Tap anything suspicious.**"
+     "vi": "Có **3 lệnh** !!chữ trắng!!. **Chạm dòng khả nghi.**",
+     "en": "**3 prompts** in !!white text!!. **Tap anything odd.**"
     },
     {
      "chon": "#tram-lenh-an .th-hang",
-     "vi": "Bí thì bấm [[Hiện đáp án]]. ++Nhớ: tài liệu là dữ liệu, không phải mệnh lệnh.++",
-     "en": "Stuck? Press [[Show answers]]. ++Remember: documents are data, not orders.++"
+     "vi": "Bí thì bấm [[Hiện đáp án]].",
+     "en": "Stuck? Press [[Show answers]]."
     }
    ]
   },
@@ -170,18 +170,13 @@
    "buoc": [
     {
      "chon": "#tram-chia-buoc .th-xb-kho",
-     "vi": "**Chạm thẻ** để xếp vào ô trống theo thứ tự. !!Có thẻ bẫy!!, đừng xếp nó vào.",
-     "en": "**Tap a card** to place it in the next slot. !!Some cards are traps!!; leave them out."
+     "vi": "**Chạm thẻ** để xếp. !!Có thẻ bẫy!!",
+     "en": "**Tap cards** to place them. !!Some are traps!!"
     },
     {
      "chon": "#tram-chia-buoc .th-xb-o",
-     "vi": "Chạm thẻ đã xếp để lấy ra. Đủ ô thì bấm [[Kiểm tra]].",
-     "en": "Tap a placed card to take it back. When all slots are full, press [[Check]]."
-    },
-    {
-     "chon": "#tram-chia-buoc .th-hang",
-     "vi": "Xếp đúng hết thì ++chép cả chuỗi câu lệnh++ về dùng.",
-     "en": "Get it all right and ++copy the whole prompt chain++."
+     "vi": "Đủ ô thì bấm [[Kiểm tra]]. ++Đúng hết thì chép chuỗi lệnh.++",
+     "en": "Full? Press [[Check]]. ++All right → copy the chain.++"
     }
    ]
   },
@@ -191,13 +186,13 @@
    "buoc": [
     {
      "chon": "#tram-vi-du .th-vd-kho",
-     "vi": "Chọn **2 ví dụ mẫu**. !!Có ví dụ dính lỗi!!: AI sẽ chép cả lỗi.",
-     "en": "Pick **2 examples**. !!Some have flaws!!, and the AI will copy them."
+     "vi": "Chọn **2 ví dụ**. !!Có ví dụ dính lỗi!!",
+     "en": "Pick **2 examples**. !!Some are flawed!!"
     },
     {
-     "chon": "#tram-vi-du .gh-lenh",
-     "vi": "Ví dụ bạn chọn được ghép vào câu lệnh. Bấm [[Gửi cho AI]] để xem AI bắt chước ra sao.",
-     "en": "Your examples go into the prompt. Press [[Send to AI]] to see what it copies."
+     "chon": "#tram-vi-du .th-hang",
+     "vi": "Bấm [[Gửi cho AI]] xem AI bắt chước gì.",
+     "en": "Press [[Send to AI]] to see what it copies."
     }
    ]
   },
@@ -207,18 +202,13 @@
    "buoc": [
     {
      "chon": "#tram-cham .th-xb-viec",
-     "vi": "Đọc **hồ sơ gốc** trước: đây là thước đo đúng sai.",
-     "en": "Read the **source record** first: it's your answer key."
-    },
-    {
-     "chon": "#tram-cham .th-ct-ban",
-     "vi": "Đọc *3 bản AI viết*.",
-     "en": "Read *the 3 AI drafts*."
+     "vi": "**Hồ sơ gốc** là đáp án để so.",
+     "en": "The **source** is your answer key."
     },
     {
      "chon": "#tram-cham .th-ct-bang",
-     "vi": "Chạm ô để chấm: **? → ✓ → ✗**. Đủ ô thì bấm [[Chấm]].",
-     "en": "Tap a cell to mark: **? → ✓ → ✗**. When done, press [[Mark it]]."
+     "vi": "Chạm ô: **? → ✓ → ✗**, rồi bấm [[Chấm]]. ++Ô ⚠ chạm để xem lý do.++",
+     "en": "Tap: **? → ✓ → ✗**, then [[Mark it]]. ++Tap ⚠ for why.++"
     }
    ]
   },
@@ -228,13 +218,13 @@
    "buoc": [
     {
      "chon": "#tram-bayes .th-phieu-nut",
-     "vi": "**Đoán trước** khả năng người đó bệnh thật.",
-     "en": "**Guess first** how likely the person is really ill."
+     "vi": "**Đoán trước** khả năng bệnh thật.",
+     "en": "**Guess first** how likely it's real."
     },
     {
      "chon": "#tram-bayes .th-by-khung",
-     "vi": "Kéo **tỷ lệ mắc**, **độ nhạy**, **độ đặc hiệu** và xem lưới 1.000 người đổi màu. ++Thử kéo tỷ lệ mắc lên 20%.++",
-     "en": "Drag **prevalence**, **sensitivity** and **specificity** and watch the 1,000-person grid. ++Try prevalence at 20%.++",
+     "vi": "Kéo thanh, xem lưới 1.000 người. ++Thử tỷ lệ mắc 20%.++",
+     "en": "Drag and watch 1,000 people. ++Try 20% prevalence.++",
      "bo_neu_an": true
     }
    ]
@@ -245,13 +235,13 @@
    "buoc": [
     {
      "chon": "#tram-lieu .th-van",
-     "vi": "Đọc **đề** ở đầu tờ, rồi **chạm vào bước tính sai**.",
-     "en": "Read **the task** at the top, then **tap a wrong step**."
+     "vi": "Đọc **đề**, rồi **chạm bước sai**.",
+     "en": "Read **the task**, then **tap a wrong step**."
     },
     {
      "chon": "#tram-lieu .th-hang",
-     "vi": "Chọn cách sửa đúng. !!Liều thuốc luôn tự tính lại!! Bí thì bấm [[Hiện đáp án]].",
-     "en": "Pick the right fix. !!Always recalculate doses yourself!! Stuck? Press [[Show answers]]."
+     "vi": "!!Liều thuốc luôn tự tính lại.!!",
+     "en": "!!Always recalculate doses yourself.!!"
     }
    ]
   }

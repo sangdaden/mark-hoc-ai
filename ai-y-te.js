@@ -66,6 +66,8 @@
     if (!$("tram-" + id)) id = "che";
     [].slice.call(goc.querySelectorAll(".yt-tram")).forEach(function (s) { s.hidden = s.id !== "tram-" + id; });
     nut.forEach(function (n) { n.setAttribute("aria-current", n.dataset.tram === id ? "true" : "false"); });
+    // cột trạm chia nhóm gập được (Cơ bản / Nâng cao): chỉ mở nhóm có trạm đang mở, người dùng vẫn tự mở thêm được
+    [].slice.call(goc.querySelectorAll(".bn-gap")).forEach(function (d) { d.open = !!d.querySelector('[aria-current="true"]'); });
     if (bam) {
       try { history.replaceState(null, "", location.pathname + location.search.replace(/([?&])tram=[^&]*&?/, "$1").replace(/[?&]$/, "") + "#" + id); } catch (e) {}
       do_("ai-y-te-tram", { tram: id });
