@@ -31,7 +31,7 @@ def tao_bo_hoc_lieu_ai():
                     + (f'<p class="hl-y">{esc(x["y"])}</p>' if x.get("y") else "") + '</li>')
         hd = "".join(f'<tr><td class="hl-phut">{h["phut"]}′</td><td><b>{esc(h["ten"])}</b><br>{esc(h["mo_ta"])}</td></tr>' for h in x["hoat_dong"])
         dg = "".join(f'<tr><th scope="row">{esc(d["tieu_chi"])}</th>' + "".join(f"<td>{esc(m)}</td>" for m in d["muc"]) + "</tr>" for d in x["danh_gia"])
-        phieu = "".join(f'<li>{esc(q)}<span class="hl-dong" aria-hidden="true"></span></li>' for q in x["phieu"]["cau"])
+        phieu = "".join(f'<li>{esc(re.sub(r"^\s*\d+[.)]\s*", "", q))}<span class="hl-dong" aria-hidden="true"></span></li>' for q in x["phieu"]["cau"])
         tram = "".join(f'<li><a href="{esc(r["url"])}">🧩 {esc(r["ten"])}</a></li>' for r in x.get("tram", []))
         idt = f'{c["id"]}-{x["so"]}'
         the_in = "".join(
@@ -52,7 +52,7 @@ def tao_bo_hoc_lieu_ai():
 <section><h3>🎬 {t("Video", "Videos")}</h3><ul class="hl-lien">{"".join(bai(s) for s in x.get("video", []))}</ul></section>
 <section><h3>🕹️ {t("Thực hành trên web", "Practice on the web")}</h3><ul class="hl-lien">{tram}</ul></section>
 </div>
-<section class="hl-phieu"><h3>📝 {t("Phiếu học tập", "Worksheet")}: {esc(x["phieu"]["tieu_de"])}</h3>
+<section class="hl-phieu"><h3>📝 {esc(re.sub(r"^(Phiếu|Worksheet)\s*:\s*", "", x["phieu"]["tieu_de"]))}</h3>
 <p class="hl-ten-hs">{t("Họ tên", "Name")}: <span></span> {t("Lớp", "Class")}: <span></span></p><ol>{phieu}</ol></section>
 {the_in}
 <section><h3>✅ {t("Tiêu chí đánh giá (quá trình, không chấm điểm)", "Assessment criteria (formative, no marks)")}</h3>
