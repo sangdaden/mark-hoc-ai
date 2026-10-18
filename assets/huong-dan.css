@@ -7,6 +7,16 @@
 .hd-mo-hang { display: flex; justify-content: flex-end; max-width: 1080px; margin: 0 auto 6px; }
 .hd-mo-hang .hd-mo { margin-top: 0; border-color: var(--blue); background: var(--panel); color: var(--blue); }
 .hd-mo-hang .hd-mo:hover { background: var(--bg2); }
+.hd-mo-chu { white-space: nowrap; }
+/* Trang nhiều trạm: nút nằm ngang hàng tiêu đề từng trạm */
+.hd-tieu-de { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hd-tieu-de > h2 { flex: 1 1 auto; min-width: 0; }
+.hd-tieu-de .hd-mo { flex: none; margin-top: 0; padding: 6px 14px 6px 6px; font-size: 14px; border-color: var(--blue); background: var(--panel); color: var(--blue); }
+.hd-tieu-de .hd-mo:hover { background: var(--bg2); }
+@media (max-width: 560px) {
+  .hd-tieu-de .hd-mo { padding: 6px; }
+  .hd-tieu-de .hd-mo-chu { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}
 
 .hd { position: fixed; inset: 0; z-index: 100000; }
 .hd.hd-giua { background: rgba(15, 23, 42, .66); }
