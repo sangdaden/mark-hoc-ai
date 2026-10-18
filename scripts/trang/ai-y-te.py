@@ -1,7 +1,7 @@
 # ---------- "AI cho người làm y tế" (ai-y-te.html): bộ công cụ đi kèm series "AI cho người làm y tế" (601-610) và
 # "Công cụ AI chuyên ngành y tế" (611-615). Cùng khung với các phòng thí nghiệm (cột trạm bên trái .bn-ngan, trạm .bn-tram,
 # lời Bit trong khung .yt-bit, popup "Cách chơi" ở data/huong-dan/ai-y-te.json). Bảy trạm, mở thẳng bằng ?tram=<id> hoặc #<id>:
-#   che (603), lenh (604, 606, 608, 609), soat (605), de-hieu (607), quy-tac (610), ban-do (611-614), danh-gia (615).
+#   che (603), lenh (604, 606, 608, 609), soat (605), de-hieu (607), quy-tac (610), ban-do (611-614), danh-gia (615: ba tờ chào hàng giả để chấm thử, và phiếu trống cho công cụ thật).
 # Nội dung ở data/ai-y-te.json, cách chạy ở ai-y-te.js, giao diện ở assets/ai-y-te.css. Chạy hết trên trình duyệt.
 
 # Thẻ "Chơi thử" trong bài video 134, 177, 223: data/tro-choi/ai-y-te.json, hình xem trước là một dòng ghi chép đã che tên.
@@ -144,12 +144,17 @@ def tao_ai_y_te():
         f'<b>{esc(chon(x["ngan"]))}{" ★" if x["chan"] else ""}</b><span>{esc(chon(x["hoi"]))}</span></legend><div class="yt-tl">'
         + "".join(f'<label class="yt-tl-{v}"><input type="radio" name="dg-{x["id"]}" value="{v}"><span>{nhan}</span></label>' for v, nhan in (("co", t("Có", "Yes")), ("chua", t("Chưa rõ", "Unclear")), ("khong", t("Không", "No"))))
         + '</div></fieldset>' for x in D["danh_gia"])
-    danh_gia = (dau("danh-gia", 7, "615", t("6 câu hỏi trước khi dùng một công cụ AI", "6 questions before adopting an AI tool"),
-                    t("Ba câu có dấu ★ bắt buộc phải là Có.", "The three ★ questions must be Yes."))
-                + f'''<input type="text" id="dg-ten" class="bn-o yt-o-ngan" aria-label="{t("Tên công cụ", "Tool name")}" placeholder="{t("Tên công cụ, hãng", "Tool and vendor")}">
+    chao = (f'<div class="yt-the yt-the-4" id="dg-chon" role="group" aria-label="{t("Chọn công cụ để chấm", "Pick a tool to check")}">'
+            + "".join(f'<button type="button" class="yt-chon yt-chon-dung" data-dg="{k}" aria-pressed="false"><span aria-hidden="true">{x["bieu_tuong"]}</span>{esc(chon(x["nut"]))}</button>' for k, x in enumerate(D["chao_hang"]))
+            + f'<button type="button" class="yt-chon yt-chon-dung" data-dg="ban" aria-pressed="false"><span aria-hidden="true">📝</span>{t("Công cụ của khoa bạn", "Your own tool")}</button></div>')
+    danh_gia = (dau("danh-gia", 7, "615", t("Hãng chào bán AI: có nên dùng thử?", "A vendor pitches an AI tool: trial it?"),
+                    t("Đọc tờ giới thiệu, trả lời 6 câu, rồi xem Bit chấm. Ba câu có dấu ★ phải là Có thì mới dùng thử.", "Read the pitch, answer 6 questions, then see how Bit marks it. The three ★ questions must be Yes before any trial."))
+                + chao + f'''
+<article class="yt-to" id="dg-to" aria-live="polite"></article>
+<input type="text" id="dg-ten" class="bn-o yt-o-ngan" aria-label="{t("Tên công cụ", "Tool name")}" placeholder="{t("Tên công cụ, hãng", "Tool and vendor")}" hidden>
 <div id="dg-phieu" class="yt-phieu">{hoi}</div>
 {bit("dg-bit")}
-<div class="yt-hang"><button type="button" class="btn btn-chinh" data-in="tram-danh-gia">🖨️ {t("In phiếu", "Print the form")}</button></div>
+<div class="yt-hang" id="dg-in" hidden><button type="button" class="btn btn-chinh" data-in="tram-danh-gia">🖨️ {t("In phiếu", "Print the form")}</button></div>
 </section>''')
 
     nhan = {
@@ -205,6 +210,10 @@ def tao_ai_y_te():
         "dg_chan": t("Chưa nên dùng: câu {ds} là Không, mà đây là điều kiện bắt buộc.", "Not ready: question {ds} is No, and it's required."),
         "dg_chua_ro": t("Hỏi thêm hãng trước khi quyết:", "Ask the vendor before deciding:"),
         "dg_thu": t("Đủ điều kiện dùng thử có kiểm soát ở một khoa vài tuần, đo thời gian và lỗi thật rồi mới mở rộng.", "Ready for a controlled trial in one department for a few weeks; measure real time saved and errors before scaling up."),
+        "dg_vi_du": t("Ví dụ giả định", "Fictional example"), "dg_hoi_tiep": t("Chỗ nào tờ giới thiệu không nói tới thì chọn Chưa rõ.", "If the pitch doesn't say, pick Unclear."),
+        "dg_khop": t("Bạn chấm khớp {n}/6 câu.", "You matched {n} of 6."), "dg_dap": t("Đáp án", "Answer"), "dg_dung": t("Đúng", "Right"), "dg_ket": t("Kết luận cho {ten}:", "Verdict for {ten}:"),
+        "dg_tl": {"co": t("Có", "Yes"), "chua": t("Chưa rõ", "Unclear"), "khong": t("Không", "No")},
+        "dg_ban": t("Dùng phiếu này khi có hãng đến chào công cụ thật. Ghi tên công cụ, trả lời 6 câu rồi in ra nộp hội đồng khoa.", "Use this form when a vendor pitches a real tool. Add its name, answer the 6 questions, then print it for your committee."),
         "dg_thu_luu_y": t("Lưu ý câu {ds} là Không: ghi rõ cách xử lý trong kế hoạch dùng thử.", "Note that question {ds} is No: plan how to handle it in the trial."),
     }
     du_lieu = json.dumps({"nhan": nhan, "lg": L, "p": p, "mau_lenh": [{k: ({mu: chon(x) for mu, x in v.items()} if k == "tra_loi" else chon(v)) for k, v in m.items()} for m in D["mau_lenh"]],
@@ -214,7 +223,10 @@ def tao_ai_y_te():
                           "bay": [{"id": x["id"], "loai": x["loai"], "chu": chon(x["chu"]), "bit": chon(x["bit"]), "muc": x["muc"]} for x in D["bay"]], "thuat_ngu": D["thuat_ngu"][L], "teach_back": D["teach_back"][L],
                           "duoc": duoc, "cam": cam,
                           "ban_do": [{k: chon(x[k]) for k in ("ten", "video", "lam_gi", "vi_du", "kiem", "nguoi", "bieu_tuong")} for x in D["ban_do"]],
-                          "danh_gia": [{"id": x["id"], "chan": x["chan"], "ngan": chon(x["ngan"]), "goi_y": chon(x["goi_y"])} for x in D["danh_gia"]]},
+                          "danh_gia": [{"id": x["id"], "chan": x["chan"], "ngan": chon(x["ngan"]), "goi_y": chon(x["goi_y"])} for x in D["danh_gia"]],
+                          "chao_hang": [{"ten": x["ten"], "hang": chon(x["hang"]), "cau": chon(x["cau"]), "bieu_tuong": x["bieu_tuong"], "dap": x["dap"],
+                                         "dong": [{"bt": y["bt"], "chu": chon(y["chu"]), "nho": chon(y["nho"]) if "nho" in y else ""} for y in x["dong"]],
+                                         "giai": {k: chon(g) for k, g in x["giai"].items()}} for x in D["chao_hang"]]},
                          ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
     tieu = t("AI cho người làm y tế: 7 công cụ thực hành", "AI for healthcare staff: 7 hands-on tools")

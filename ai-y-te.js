@@ -1,6 +1,6 @@
 /* Bộ công cụ "AI cho người làm y tế" (ai-y-te.html, en/), series 601-610 và 611-615.
    Bảy trạm: che (che thông tin người bệnh), lenh (khung câu lệnh 5 phần), soat (soát 5 bước), de-hieu (tô thuật ngữ, câu dài,
-   gợi ý teach-back), quy-tac (một trang quy tắc cho khoa, in được), ban-do (lọc các loại công cụ), danh-gia (phiếu 6 câu hỏi, in được).
+   gợi ý teach-back), quy-tac (một trang quy tắc cho khoa, in được), ban-do (lọc các loại công cụ), danh-gia (chấm thử 3 tờ chào hàng giả theo 6 câu hỏi, hoặc phiếu trống in được cho công cụ thật).
    Mở thẳng một trạm bằng ?tram=<id> hoặc #<id>. Chữ và dữ liệu ở thẻ <script id="yt-du-lieu"> (lấy từ data/ai-y-te.json).
    Mọi xử lý chạy trên máy: không gửi chữ người dùng dán vào đi đâu, không lưu lại; chỉ đếm sự kiện chọn trạm (theo-doi.js).
    Che thông tin là quy tắc tìm theo mẫu (tên sau từ khóa, số giấy tờ, số điện thoại, ngày, mã hồ sơ, giường, địa chỉ),
@@ -465,24 +465,81 @@
   bdNut.forEach(function (b) { b.addEventListener("click", function () { moBD(+b.dataset.bd); }); });
   moBD(0);
 
-  // ================= 7. Phiếu đánh giá =================
-  function veDG() {
+  // ================= 7. Hãng chào bán AI: chấm thử ba tờ giới thiệu giả, hoặc phiếu trống cho công cụ thật =================
+  var dgNut = [].slice.call(goc.querySelectorAll("[data-dg]")), dgChao = null, dgDem = false;
+  function ketLuan(tl) {   // tl: id câu → co | chua | khong; trả về [lời Bit, loại]. Câu ★ là Không thì báo ngay, chưa cần đủ 6 câu.
     var chua = 0, chan = [], ro = [], khong = [];
     D.danh_gia.forEach(function (x, i) {
-      var o = goc.querySelector('input[name="dg-' + x.id + '"]:checked');
-      if (!o) { chua++; return; }
-      if (o.value === "khong") (x.chan ? chan : khong).push(i + 1);
-      if (o.value === "chua") ro.push(i);
+      var v = tl[x.id];
+      if (!v) { chua++; return; }
+      if (v === "khong") (x.chan ? chan : khong).push(i + 1);
+      if (v === "chua") ro.push(i);
     });
-    if (chan.length) return bit("dg-bit", thay(N.dg_chan, { ds: chan.join(", ") }), "sai");
+    if (chan.length) return [thay(N.dg_chan, { ds: chan.join(", ") }), "sai"];
     if (ro.length) {
       var ul = el("ul");
       ro.forEach(function (i) { var li = el("li"); li.appendChild(el("b", null, D.danh_gia[i].ngan + ": ")); li.appendChild(document.createTextNode(D.danh_gia[i].goi_y)); ul.appendChild(li); });
-      return bit("dg-bit", [N.dg_chua_ro, ul]);
+      return [[N.dg_chua_ro, ul].concat(khong.length ? [thay(N.dg_thu_luu_y, { ds: khong.join(", ") })] : [])];
     }
-    if (chua) return bit("dg-bit", thay(N.dg_chua, { n: chua }));
-    bit("dg-bit", N.dg_thu + (khong.length ? " " + thay(N.dg_thu_luu_y, { ds: khong.join(", ") }) : ""), "dung");
+    if (chua) return [thay(N.dg_chua, { n: chua })];
+    return [N.dg_thu + (khong.length ? " " + thay(N.dg_thu_luu_y, { ds: khong.join(", ") }) : ""), "dung"];
   }
-  $("dg-phieu").addEventListener("change", veDG);
-  veDG();
+  function traLoi() {
+    var tl = {};
+    D.danh_gia.forEach(function (x) { var o = goc.querySelector('input[name="dg-' + x.id + '"]:checked'); if (o) tl[x.id] = o.value; });
+    return tl;
+  }
+  function veTo(x) {
+    var to = $("dg-to");
+    to.textContent = "";
+    if (!x) { to.appendChild(el("p", null, N.dg_ban)); to.className = "yt-to is-ban"; return; }
+    to.className = "yt-to";
+    var dau = el("header");
+    dau.appendChild(el("span", "yt-to-bt", x.bieu_tuong));
+    var h = el("div"); h.appendChild(el("h3", null, x.ten)); h.appendChild(el("p", null, x.hang + " · " + N.dg_vi_du)); dau.appendChild(h);
+    to.appendChild(dau);
+    to.appendChild(el("p", "yt-to-cau", x.cau));
+    var ul = el("ul");
+    x.dong.forEach(function (d) {
+      var li = el("li"); li.appendChild(el("span", "yt-to-dbt", d.bt));
+      var o = el("div"); o.appendChild(el("p", null, d.chu)); if (d.nho) o.appendChild(el("small", null, d.nho));
+      li.appendChild(o); ul.appendChild(li);
+    });
+    to.appendChild(ul);
+    to.appendChild(el("p", "yt-to-ghi", N.dg_hoi_tiep));
+  }
+  function chamDG() {
+    var tl = traLoi(), x = dgChao != null ? D.chao_hang[dgChao] : null, du = Object.keys(tl).length === D.danh_gia.length;
+    [].slice.call(goc.querySelectorAll(".yt-hoi")).forEach(function (f) {
+      var id = f.dataset.hoi, g = f.querySelector(".yt-hoi-giai");
+      f.classList.remove("is-khop", "is-lech");
+      if (g) g.remove();
+      [].slice.call(f.querySelectorAll("label")).forEach(function (l) { l.classList.remove("is-dap"); });
+      if (!x || !du) return;
+      var dung = x.dap[id] === tl[id];
+      f.classList.add(dung ? "is-khop" : "is-lech");
+      f.querySelector(".yt-tl-" + x.dap[id]).classList.add("is-dap");
+      g = el("p", "yt-hoi-giai");
+      g.appendChild(el("b", null, dung ? "✓ " + N.dg_dung + ". " : "✗ " + N.dg_dap + ": " + N.dg_tl[x.dap[id]] + ". "));
+      g.appendChild(document.createTextNode(x.giai[id]));
+      f.appendChild(g);
+    });
+    if (!x) { var k = ketLuan(tl); return bit("dg-bit", k[0], k[1]); }
+    if (!du) return bit("dg-bit", thay(N.dg_chua, { n: D.danh_gia.length - Object.keys(tl).length }));
+    var khop = D.danh_gia.filter(function (q) { return x.dap[q.id] === tl[q.id]; }).length, kl = ketLuan(x.dap);
+    var ket = el("p"); ket.appendChild(el("b", null, thay(N.dg_ket, { ten: x.ten }) + " "));
+    bit("dg-bit", [thay(N.dg_khop, { n: khop }), ket].concat(kl[0]), kl[1]);
+    if (!dgDem) { dgDem = true; do_("ai-y-te-danh-gia", { cong_cu: dgChao, khop: khop }); }
+  }
+  function chonDG(k) {
+    dgChao = k === "ban" ? null : +k; dgDem = false;
+    dgNut.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.dg === String(k))); });
+    [].slice.call(goc.querySelectorAll("#dg-phieu input")).forEach(function (i) { i.checked = false; });
+    veTo(dgChao != null ? D.chao_hang[dgChao] : null);
+    $("dg-ten").hidden = $("dg-in").hidden = dgChao != null;
+    chamDG();
+  }
+  dgNut.forEach(function (b) { b.addEventListener("click", function () { chonDG(b.dataset.dg); }); });
+  $("dg-phieu").addEventListener("change", chamDG);
+  chonDG(0);
 })();
