@@ -204,3 +204,96 @@
   .th-the-bt { grid-row: auto; font-size: 26px; }
 }
 @media (prefers-reduced-motion: reduce) { .th-bong-hang, .th-phieu-bong, .th-giong-ra, .th-co { animation: none; } .th-ro-hang.is-cho .th-ro { animation: none; outline: 2px dashed var(--mau); } }
+
+/* ===== Tầng Nâng cao ===== */
+/* cột trạm: dòng tiêu đề nhóm và số trạm màu cam; cột dài thì cuộn riêng trên máy tính */
+.bn-nhom { margin: 8px 2px 2px; padding-top: 10px; border-top: 1.5px dashed var(--edge); font: 700 12.5px/1.3 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: #EA580C; }
+.bn-nut-nc .bn-so { background: linear-gradient(135deg, #F97316, #DB2777); }
+@media (min-width: 761px) { .th .bn-ngan, .yt .bn-ngan { max-height: calc(100vh - 32px); overflow-y: auto; } }
+@media (max-width: 760px) { .bn-nhom { margin: 0; padding: 0 0 0 8px; border-top: 0; border-left: 1.5px dashed var(--edge); align-self: center; white-space: nowrap; } }
+
+/* lệnh ẩn: chữ gần trùng màu giấy, tìm ra thì hiện rõ */
+.th-cau-mo .th-cau-chu { color: #E2E8F0; font-size: 11.5px; letter-spacing: .01em; }
+.th-cau-mo.is-loi .th-cau-chu, .th-cau-mo.is-ok .th-cau-chu { color: #B91C1C; font-size: inherit; }
+
+/* xep-buoc */
+.th-xb-viec { padding: 12px 16px; border-radius: 14px; background: color-mix(in srgb, #F97316 10%, var(--panel)); border: 1.5px solid color-mix(in srgb, #F97316 40%, var(--edge)); }
+.th-xb-viec p { margin: 0; font-size: 15.5px; line-height: 1.5; }
+.th-xb-o { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.th-xb-ich { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 10px; }
+.th-xb-so { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--th-tim); color: #fff; font: 700 14px var(--f-mono); }
+.th-xb-trong { padding: 12px 14px; border-radius: 12px; border: 2px dashed var(--edge); color: var(--muted); font-size: 14px; }
+.th-xb-kho { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+.th-xb-the, .th-xb-dat { display: flex; align-items: center; gap: 10px; width: 100%; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink);
+  font: 500 15px/1.4 var(--f-body); text-align: left; cursor: pointer; flex-wrap: wrap; }
+.th-xb-the:hover:not(:disabled), .th-xb-dat:hover { border-color: var(--th-tim); }
+.th-xb-dat { border-color: var(--th-tim); background: color-mix(in srgb, var(--th-tim) 8%, var(--panel)); animation: gh-vao .2s ease-out; }
+.th-xb-dat.is-dung { border-color: var(--th-xanh); background: color-mix(in srgb, var(--th-xanh) 10%, var(--panel)); }
+.th-xb-dat.is-sai { border-color: var(--th-do); background: color-mix(in srgb, var(--th-do) 9%, var(--panel)); }
+.th-xb-bt { font-size: 22px; flex: none; }
+.th-xb-chu { flex: 1; min-width: 0; }
+.th-xb-the.is-bay { border-style: dashed; opacity: .85; cursor: default; }
+.th-xb-the.is-bay .th-xb-chu { text-decoration: line-through; }
+.th-xb-ly { flex-basis: 100%; font-size: 13px; color: var(--th-do); }
+.th-xb-chuoi { padding: 14px 16px; border-radius: 14px; background: var(--bg); border: 1.5px solid var(--edge); display: grid; gap: 10px; justify-items: start; }
+.th-xb-nap { width: 100%; }
+.th-xb-lenh { margin: 0; padding-left: 22px; display: grid; gap: 10px; }
+.th-xb-lenh b { display: block; font-size: 15px; }
+.th-xb-lenh code { display: block; margin-top: 4px; padding: 8px 10px; border-radius: 10px; background: var(--panel); border: 1px dashed var(--edge); font: 14px/1.55 var(--f-body); white-space: pre-wrap; }
+.th-xb-the:focus-visible, .th-xb-dat:focus-visible, .th-ct-o:focus-visible, .th-vd-mau:focus-visible { outline: 3px solid var(--th-tim); outline-offset: 2px; }
+
+/* cham-tieu-chi */
+.th-ct-ban { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.th-ct-the { padding: 12px 14px; border-radius: 14px; background: #fff; color: #111; border: 1px solid #CBD5E1; box-shadow: 0 6px 16px rgb(15 23 42 / .07); }
+.th-ct-ten { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font: 700 14px/1.3 var(--f-display); }
+.th-ct-chu p, .th-ct-chu ul { margin: 0 0 6px; font-size: 14px; line-height: 1.55; }
+.th-ct-bao { overflow-x: auto; }
+.th-ct-bang { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+.th-ct-bang th { font: 600 14px/1.35 var(--f-body); text-align: left; padding: 0 8px; }
+.th-ct-bang tr:first-child th { font: 700 13px var(--f-mono); color: var(--muted); text-align: center; }
+.th-ct-bang tr:first-child th:first-child { text-align: left; }
+.th-ct-bang td { text-align: center; padding: 0 4px; }
+.th-ct-bt { margin-right: 6px; }
+.th-ct-o { width: 48px; height: 40px; border-radius: 10px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--muted); font: 800 18px/1 var(--f-display); cursor: pointer; }
+.th-ct-o.is-co { background: var(--th-xanh); border-color: var(--th-xanh); color: #fff; }
+.th-ct-o.is-khong { background: var(--th-do); border-color: var(--th-do); color: #fff; }
+.th-ct-bang td.is-khop .th-ct-o { box-shadow: 0 0 0 3px color-mix(in srgb, var(--th-xanh) 45%, transparent); }
+.th-ct-bang td.is-lech .th-ct-o { box-shadow: 0 0 0 3px #F59E0B; }
+.th-ct-o.is-lech { width: auto; min-width: 48px; padding: 0 6px; font-size: 15px; cursor: help; }
+
+/* vi-du */
+.th-vd-kho { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+.th-vd-mau { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; border: 2px dashed var(--edge); background: var(--panel); color: var(--ink); font: 500 14.5px/1.5 var(--f-body); text-align: left; cursor: pointer; }
+.th-vd-mau:hover { border-color: var(--th-tim); }
+.th-vd-mau[aria-pressed="true"] { border-style: solid; border-color: var(--th-tim); background: color-mix(in srgb, var(--th-tim) 10%, var(--panel)); }
+.th-vd-so { flex: none; font: 700 12px/1.8 var(--f-mono); color: var(--muted); }
+.th-vd-chu p, .th-vd-chu ul { margin: 0 0 4px; }
+.th-vd-chu > :last-child { margin-bottom: 0; }
+.th-vd-o { display: grid; gap: 4px; margin-top: 8px; padding: 8px 10px; border-radius: 10px; border: 1.5px dashed var(--edge); font-size: 14px; }
+.th-vd-o.is-co { border-style: solid; border-color: var(--th-tim); }
+.th-vd-o .gh-loai { --mau: #8B5CF6; justify-self: start; }
+
+/* bayes */
+.th-by-chip { display: flex; flex-wrap: wrap; gap: 8px; }
+.th-by-chip span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--bg); border: 1.5px solid var(--edge); font: 700 15px/1.2 var(--f-body); }
+.th-by-chip b { font-size: 20px; }
+.th-by { display: grid; gap: 14px; padding: 16px; border-radius: 16px; background: var(--bg); border: 1.5px solid var(--edge); }
+.th-by-khung { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.th-by-thanh { display: grid; gap: 6px; font: 600 14px/1.3 var(--f-body); }
+.th-by-thanh b { font-family: var(--f-mono); color: var(--th-tim); }
+.th-by-thanh input { width: 100%; accent-color: #8B5CF6; }
+.th-by-luoi { display: grid; grid-template-columns: repeat(50, minmax(0, 1fr)); gap: 2px; max-width: 640px; }
+.th-by-luoi i { aspect-ratio: 1; border-radius: 2px; background: color-mix(in srgb, var(--muted) 22%, transparent); }
+.th-by-luoi i.is-tp, .th-by-ct .is-tp i { background: #DC2626; }
+.th-by-luoi i.is-fp, .th-by-ct .is-fp i { background: #F59E0B; }
+.th-by-luoi i.is-fn, .th-by-ct .is-fn i { background: transparent; box-shadow: inset 0 0 0 1.5px #DC2626; }
+.th-by-ct { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+.th-by-ct span { display: inline-flex; align-items: center; gap: 6px; }
+.th-by-ct i { width: 12px; height: 12px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 22%, transparent); }
+.th-by-ket { margin: 0; font-size: 16px; line-height: 1.5; }
+.th-by-so { font: 800 34px/1 var(--f-display); color: #DC2626; margin-right: 6px; vertical-align: -4px; }
+@media (max-width: 760px) {
+  .th-by-khung { grid-template-columns: minmax(0, 1fr); }
+  .th-by-luoi { grid-template-columns: repeat(40, minmax(0, 1fr)); gap: 1px; }
+  .th-ct-o { width: 40px; height: 36px; }
+}

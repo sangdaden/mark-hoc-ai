@@ -102,6 +102,127 @@
      "en": "**Pick what to say.** Each choice leads somewhere different; ++start over to try another path++."
     }
    ]
+  },
+  {
+   "id": "lenh-an",
+   "khi": "#tram-lenh-an",
+   "buoc": [
+    {
+     "chon": "#tram-lenh-an .th-van",
+     "vi": "Đây là hồ sơ doanh nghiệp gửi đến. Có **3 dòng chữ gần trùng màu giấy**: !!người không thấy, nhưng AI đọc hết!!.",
+     "en": "This is a file sent in by a company. **3 lines are nearly the colour of the paper**: !!you can't see them, the AI reads them all!!."
+    },
+    {
+     "chon": "#tram-lenh-an .th-van",
+     "vi": "**Soi kỹ** rồi chạm vào chỗ nghi là lệnh ẩn. Chạm nhầm dòng thường thì Bit giải thích dòng đó.",
+     "en": "**Look closely** and tap where you suspect a hidden order. Tap a normal line and Bit explains it."
+    },
+    {
+     "chon": "#tram-lenh-an .th-hang",
+     "vi": "Bí thì bấm [[Hiện đáp án]]. ++Khi dùng thật: luôn tự đối chiếu với hồ sơ gốc.++",
+     "en": "Stuck? Press [[Show answers]]. ++For real: always check against the original file.++"
+    }
+   ]
+  },
+  {
+   "id": "chia-buoc",
+   "khi": "#tram-chia-buoc",
+   "buoc": [
+    {
+     "chon": "#tram-chia-buoc .th-xb-viec",
+     "vi": "Đây là **việc lớn**: báo cáo tổng kết năm. *Giao một câu lệnh là AI viết lan man.*",
+     "en": "Here's **the big job**: an annual report. *One prompt makes the AI ramble.*"
+    },
+    {
+     "chon": "#tram-chia-buoc .th-xb-kho",
+     "vi": "**Chạm thẻ** để xếp vào ô trống theo thứ tự. !!Có 2 thẻ bẫy, đừng xếp vào!!.",
+     "en": "**Tap cards** to fill the slots in order. !!There are 2 trap cards; leave them out!!."
+    },
+    {
+     "chon": "#tram-chia-buoc .th-hang",
+     "vi": "Đủ ô thì bấm [[Kiểm tra]]. ++Xếp đúng sẽ hiện cả chuỗi câu lệnh để chép.++",
+     "en": "When all slots are full, press [[Check]]. ++Get it right and the whole prompt chain appears to copy.++"
+    }
+   ]
+  },
+  {
+   "id": "vi-du-mau",
+   "khi": "#tram-vi-du-mau",
+   "buoc": [
+    {
+     "chon": "#tram-vi-du-mau .gh-lenh",
+     "vi": "Câu lệnh đã có sẵn, chỉ thiếu **2 ví dụ mẫu** để AI bắt chước.",
+     "en": "The prompt is ready; it just needs **2 examples** for the AI to copy."
+    },
+    {
+     "chon": "#tram-vi-du-mau .th-vd-kho",
+     "vi": "Chạm để chọn 2 ví dụ. !!Có ví dụ dính lỗi, AI sẽ chép luôn lỗi!!.",
+     "en": "Tap to pick 2. !!Some examples have flaws, and the AI will copy them!!."
+    },
+    {
+     "chon": "#tram-vi-du-mau .th-hang",
+     "vi": "Bấm [[Gửi cho AI]] để xem kết quả. ++Thử cả khi không chọn ví dụ nào để so.++",
+     "en": "Press [[Send to AI]] to see the result. ++Try with no examples too, to compare.++"
+    }
+   ]
+  },
+  {
+   "id": "cham-du-thao",
+   "khi": "#tram-cham-du-thao",
+   "buoc": [
+    {
+     "chon": "#tram-cham-du-thao .th-ct-ban",
+     "vi": "Đọc **3 bản thông báo** AI viết cho cùng một đề.",
+     "en": "Read **3 notices** the AI wrote for the same brief."
+    },
+    {
+     "chon": "#tram-cham-du-thao .th-ct-bang",
+     "vi": "Chạm từng ô để đổi *? → ✓ → ✗*. Mỗi ô là một bản theo một tiêu chí.",
+     "en": "Tap each cell to cycle *? → ✓ → ✗*. Each cell is one draft on one criterion."
+    },
+    {
+     "chon": "#tram-cham-du-thao .th-hang",
+     "vi": "Chấm đủ thì bấm [[Chấm]]. Ô lệch sẽ viền vàng kèm lý do. !!Để ý chi tiết bịa thêm!!.",
+     "en": "When done, press [[Mark it]]. Mismatches get a yellow ring and a reason. !!Watch for invented details!!."
+    }
+   ]
+  },
+  {
+   "id": "so-lieu",
+   "khi": "#tram-so-lieu",
+   "buoc": [
+    {
+     "chon": "#tram-so-lieu .th-van",
+     "vi": "Bảng AI tổng hợp có **3 số sai**: tổng, tỷ lệ, bình quân. *Ba tháng đầu là số gốc.*",
+     "en": "The AI's table has **3 wrong numbers**: total, rate, average. *The three months are source figures.*"
+    },
+    {
+     "chon": "#tram-so-lieu .th-van",
+     "vi": "Chạm vào số nghi sai rồi **chọn số đúng**. ++Bấm máy tính lại cho chắc.++",
+     "en": "Tap a suspicious number and **pick the right one**. ++Grab a calculator to be sure.++"
+    }
+   ]
+  },
+  {
+   "id": "tro-ly",
+   "khi": "#tram-tro-ly",
+   "buoc": [
+    {
+     "chon": "#tram-tro-ly .gh-lenh",
+     "vi": "Đây là **bản hướng dẫn cố định** cho trợ lý AI của phòng, mọi câu hỏi sau đều theo nó.",
+     "en": "These are the **standing instructions** for your office's AI; every later question follows them."
+    },
+    {
+     "chon": "#tram-tro-ly .gh-khay",
+     "vi": "Chạm để ghép **đủ 5 mảnh**. !!Né 2 mảnh bẫy: mật khẩu và tự gửi thư!!.",
+     "en": "Tap to add **all 5 pieces**. !!Avoid the 2 traps: a password and auto-sending!!."
+    },
+    {
+     "chon": "#tram-tro-ly .th-hang",
+     "vi": "Bấm [[Gửi cho AI]] để xem trợ lý trả lời người dân ra sao.",
+     "en": "Press [[Send to AI]] to see how the assistant answers a citizen."
+    }
+   ]
   }
  ]
 }

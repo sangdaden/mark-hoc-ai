@@ -1,7 +1,8 @@
 # ---------- Trang thực hành theo đối tượng: mỗi file data/thuc-hanh/<trang>.json thành <trang>.html và en/<trang>.html ----------
 # Cùng khung phòng thí nghiệm (cột trạm .bn-ngan, trạm .bn-tram, lời Bit, popup Cách chơi ở data/huong-dan/<trang>.json).
-# Mỗi trạm có "loai" là một trong chín kiểu của thuc-hanh.js (phan-loai, bo-phieu, ghep, chat, tim-loi, sua-loi, chon-ban,
-# giong, ke-hoach) và dữ liệu riêng của kiểu đó. Chữ viết dạng {"vi": ..., "en": ...} ở bất cứ đâu, hàm ngu() chọn đúng ngôn ngữ.
+# Mỗi trạm có "loai" là một trong các kiểu của thuc-hanh.js (phan-loai, bo-phieu, ghep, chat, tim-loi, sua-loi, chon-ban,
+# giong, ke-hoach; tầng Nâng cao thêm xep-buoc, cham-tieu-chi, vi-du, bayes) và dữ liệu riêng của kiểu đó.
+# Trạm có "cap": "nang-cao" nằm trong nhóm 🚀 Nâng cao ở cột trạm. Chữ viết dạng {"vi": ..., "en": ...} ở bất cứ đâu, hàm ngu() chọn đúng ngôn ngữ.
 # Thêm trang cho đối tượng mới = thêm một file JSON (và file popup), không sửa code.
 
 # Hình xem trước trong thẻ "Chơi thử" ở bài video liên quan (data/tro-choi/ai-hoc-sinh.json, ai-van-phong.json)
@@ -29,6 +30,88 @@ def _th_ngu(x, L):
     return x
 
 
+def _th_nhan():
+    """Nhãn chữ của thuc-hanh.js. Dùng chung cho trang thực hành và tầng Nâng cao của ai-y-te.html."""
+    return {
+        "da_chep": t("Đã chép ✓", "Copied ✓"), "khong_chep": t("Không chép được", "Couldn't copy"),
+        "lam_lai": t("Làm lại", "Start over"), "tiep": t("Câu tiếp", "Next"), "the": t("Các thẻ", "Cards"),
+        "dung_la": t("Đúng là", "Should be"), "chon_the": t("Chạm vào một thẻ trước nhé.", "Tap a card first."),
+        "phan_dem": t("Đã xếp {n}/{tong}, đúng {d}", "Sorted {n}/{tong}, {d} right"), "diem": t("⭐ {d}/{tong}", "⭐ {d}/{tong}"),
+        "ai_noi": t("AI nói:", "The AI says:"), "chac": t("💯 Chắc chắn", "💯 Totally sure"), "phieu_dem": t("Câu {n}/{tong}, đúng {d}", "Question {n}/{tong}, {d} right"),
+        "dung_roi": t("Đúng rồi!", "Right!"), "chua_dung": t("Chưa đúng.", "Not quite."),
+        "chon_viec": t("Chọn việc", "Choose a task"), "cau_lenh": t("Câu lệnh của bạn", "Your prompt"), "manh": t("Mảnh để ghép", "Pieces"),
+        "gui": t("Gửi cho AI", "Send to AI"), "chep_lenh": t("Chép câu lệnh", "Copy prompt"), "ghep_lai": t("Ghép lại", "Start over"),
+        "cau_goc": t("Câu gốc", "Starting line"), "lenh_trong": t("Chưa có mảnh nào. AI sẽ đoán bừa.", "No pieces yet. The AI will guess."),
+        "lenh_bat_dau": t("Chạm mảnh bên dưới để ghép 👇", "Tap the pieces below to build 👇"),
+        "lenh_dem": t("Đã ghép {n}/5 mảnh.", "{n}/5 pieces added."),
+        "lenh_du": t("Đủ 5 mảnh! Bấm Gửi cho AI 🚀", "All 5 pieces! Press Send to AI 🚀"),
+        "lenh_khoa": t("Còn mảnh bẫy 🪤 Bỏ ra mới chép được.", "There's a trap piece 🪤 Remove it to copy."),
+        "ai_tra_loi": t("AI trả lời (mẫu)", "AI answer (sample)"), "muc": {"tho": t("Thô", "Weak"), "kha": t("Khá", "OK"), "tot": t("Tốt", "Good")},
+        "gui_tho": t("Câu lệnh mơ hồ, AI trả lời chung chung.", "Vague prompt, generic answer."),
+        "gui_kha": t("Khá hơn! Đủ 5 mảnh sẽ còn tốt hơn.", "Better! All 5 pieces makes it great."),
+        "gui_tot": t("Gọn và đúng việc. Chép về dùng nhé!", "Tight and on-task. Copy it and use it!"),
+        "ten_ai": "AI", "ten_ban": t("Bạn", "You"),
+        "tim_dem": t("Tìm được {n}/{tong}", "Found {n}/{tong}"), "cau_on": t("Chỗ này ổn 👍", "This part is fine 👍"), "da_che": t("🔒 Đã che", "🔒 Hidden"),
+        "hien_dap_an": t("Hiện đáp án", "Show answers"),
+        "sua_hoi": t("Sửa thành:", "Fix it to:"), "sua_sai": t("Chưa đúng, thử cái khác.", "Not that one, try another."),
+        "van_goc": t("Văn bản gốc", "Original"), "xem_goc": t("📄 Xem văn bản gốc", "📄 Read the original"), "chon_ban_hoi": t("Bản nào trung thực nhất?", "Which is most faithful?"),
+        "ban_nhap": t("Bản nháp", "Draft"), "chon_giong": t("Chọn giọng văn", "Choose a tone"), "ai_viet_lai": t("AI viết lại (mẫu)", "AI rewrite (sample)"),
+        "chep_ban": t("Chép bản này", "Copy this version"),
+        "kh_tuan": t("⏳ Số tuần tới kỳ thi:", "⏳ Weeks to the exam:"), "kh_gio": t("⏰ Giờ học mỗi ngày:", "⏰ Study hours a day:"),
+        "kh_mon": t("Môn cần ôn", "Subjects"),
+        "kh_hoc": t("Học lại", "Relearn"), "kh_luyen": t("Luyện đề", "Practice papers"), "kh_thi_thu": t("Thi thử", "Mock exam"),
+        "kh_on_tuan": t("Ôn cả tuần", "Weekly review"), "kh_nghi_truoc": t("Nghỉ trước thi", "Rest before exam"),
+        "kh_on_lai": t("Tự kiểm tra 15 phút", "15-min self-quiz"),
+        "kh_chua_mon": t("Chọn ít nhất một môn nhé.", "Pick at least one subject."),
+        "kh_bit": t("{w} tuần · {n} môn · khoảng {g} giờ. Mỗi môn quay lại nhiều lần: nhớ lâu hơn học dồn.", "{w} weeks · {n} subjects · about {g} hours. Each subject keeps coming back: you remember longer than cramming."),
+        "kh_lenh_h": t("Câu lệnh nhờ AI chỉnh kế hoạch", "Prompt to have AI adjust the plan"),
+        "kh_lenh": t("Mình là học sinh lớp 12, còn {w} tuần tới kỳ thi, mỗi ngày học được {g} giờ. Các môn cần ôn: {mon}.\nHãy chỉnh kế hoạch ôn tập theo tuần cho mình: xen kẽ các môn, mỗi môn quay lại ít nhất hai lần một tuần, có buổi tự kiểm tra ngắn và một ngày nghỉ.\nĐừng làm bài hộ mình. Nếu mình hỏi bài, hãy gợi ý từng bước để mình tự giải.",
+                    "I'm a final-year high school student with {w} weeks until my exams and {g} hours a day to study. Subjects: {mon}.\nAdjust my weekly revision plan: mix subjects, bring each one back at least twice a week, add short self-quizzes and one rest day.\nDon't do my work for me. If I ask about a problem, give step-by-step hints so I can solve it myself."),
+        "xb_kho": t("👇 Chạm thẻ để xếp", "👇 Tap to place"), "xb_trong": t("…", "…"),
+        "xb_kiem": t("Kiểm tra", "Check"), "xb_con": t("Còn {n} ô trống", "{n} slots left"), "xb_du": t("Đủ rồi! Bấm Kiểm tra 👇", "Full! Press Check 👇"),
+        "xb_day": t("Đầy rồi. Chạm thẻ đã xếp để gỡ ra.", "Full. Tap a placed card to remove it."),
+        "xb_dem": t("⭐ Đúng {d}/{tong}", "⭐ {d}/{tong} right"), "xb_thu_lai": t("Đổi chỗ thẻ đỏ rồi thử lại.", "Move the red cards and retry."),
+        "xb_dung": t("Chuẩn! 🎉 Mỗi bước một câu lệnh.", "Spot on! 🎉 One prompt per step."),
+        "xb_chuoi": t("Xem {n} câu lệnh mẫu", "See the {n} sample prompts"), "chep_chuoi": t("Chép cả chuỗi", "Copy the chain"),
+        "ct_tieu_chi": t("Tiêu chí", "Criteria"), "ct_cham": t("Chấm", "Mark it"), "ct_huong_dan": t("Chạm ô: ? → ✓ → ✗", "Tap a cell: ? → ✓ → ✗"),
+        "ct_con": t("Còn {n} ô ❔", "{n} cells left ❔"), "ct_du": t("Đủ rồi! Bấm Chấm 👇", "Done! Press Mark it 👇"),
+        "ct_khop": t("⭐ Khớp {d}/{tong}", "⭐ {d}/{tong} matched"), "ct_thang": t("🏆 Bản {ten}", "🏆 Draft {ten}"), "ct_xem_lech": t("Chạm ô có ⚠ để xem vì sao.", "Tap a ⚠ cell to see why."),
+        "vd_mau": t("👇 Chọn {n} ví dụ", "👇 Pick {n} examples"), "vd_nhan": t("Ví dụ {n}:", "Example {n}:"), "vd_trong": t("…", "…"),
+        "vd_bat_dau": t("Chọn ví dụ để AI bắt chước 👇", "Pick examples for the AI to copy 👇"),
+        "vd_du": t("Đủ {n} rồi. Bỏ bớt để đổi.", "{n} already. Remove one to swap."),
+        "vd_khong": t("Không ví dụ: AI tự đoán, mỗi lần một kiểu 🎲", "No examples: the AI guesses, different every time 🎲"),
+        "vd_sai": t("😬 AI chép luôn lỗi:", "😬 It copied the flaw:"),
+        "vd_them": t("Tốt! Thêm 1 ví dụ càng chắc 👍", "Good! One more makes it stick 👍"),
+        "vd_tot": t("Ví dụ chuẩn → AI làm đúng kiểu 🎉", "Clean examples → clean output 🎉"),
+        "by_ty_le": t("Tỷ lệ mắc trong nhóm:", "Prevalence:"), "by_nhay": t("Độ nhạy:", "Sensitivity:"), "by_dac": t("Độ đặc hiệu:", "Specificity:"),
+        "by_tp": t("bệnh thật, AI báo đúng", "ill, flagged"), "by_fp": t("không bệnh, AI báo nhầm", "healthy, wrongly flagged"),
+        "by_fn": t("bệnh nhưng AI bỏ sót", "ill but missed"), "by_tn": t("không bệnh, AI báo âm", "healthy, cleared"),
+        "by_ppv": t("🔴 {d} người bị báo dương → chỉ {tp} người bệnh thật", "🔴 {d} flagged → only {tp} truly ill"),
+        "dau_thap_phan": t(",", "."),
+    }
+
+
+def _th_nc(x):
+    return x.get("cap") == "nang-cao"
+
+
+def _th_nut(k, x, ds, them=""):
+    """Một nút trong cột trạm. Trạm đầu tiên của tầng Nâng cao có thêm dòng tiêu đề nhóm phía trên."""
+    nhom = (f'<li class="bn-nhom"><span>🚀 {t("Nâng cao", "Advanced")}</span></li>'
+            if _th_nc(x) and (k == 0 or not _th_nc(ds[k - 1])) else "")
+    return (nhom + f'<li><button type="button" class="bn-nut{" bn-nut-nc" if _th_nc(x) else ""}" data-tram="{x["id"]}" aria-controls="tram-{x["id"]}">'
+            f'<span class="bn-so">{k + 1}</span><span class="bn-ten">{esc(x["ten"])}<small>{esc(x["nho"])}</small></span></button></li>')
+
+
+def _th_tram(k, x, lop="th-tram"):
+    """Khung một trạm; nội dung do thuc-hanh.js dựng vào .th-o."""
+    nc = f'🚀 {t("Nâng cao", "Advanced")} · ' if _th_nc(x) else ""
+    return (f'<section class="bn-tram {lop}" id="tram-{x["id"]}" hidden aria-labelledby="h-{x["id"]}" data-loai="{x["loai"]}">\n'
+            f'<p class="bn-nhan">{t("Trạm", "Station")} {k + 1} · {nc}{esc(x["nho"])}</p>\n<h2 id="h-{x["id"]}">{esc(x["h2"])}</h2>\n'
+            + (f'<p class="bn-mo">{esc(x["mo"])}</p>\n' if x.get("mo") else "")
+            + f'<div class="th-o" id="th-o-{x["id"]}"></div>\n</section>\n')
+
+
 def _th_tao(ten_file):
     def tao():
         p = t("", "../")
@@ -37,50 +120,9 @@ def _th_tao(ten_file):
         trang_ten = D["trang"]
         tram = D["tram"]
         ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{esc(D["bn_cau"])}</p><ol>'
-                + "".join(f'<li><button type="button" class="bn-nut" data-tram="{x["id"]}" aria-controls="tram-{x["id"]}"><span class="bn-so">{k + 1}</span>'
-                          f'<span class="bn-ten">{esc(x["ten"])}<small>{esc(x["nho"])}</small></span></button></li>' for k, x in enumerate(tram))
-                + '</ol></nav>')
-        tram_html = "".join(
-            f'<section class="bn-tram th-tram" id="tram-{x["id"]}" hidden aria-labelledby="h-{x["id"]}" data-loai="{x["loai"]}">\n'
-            f'<p class="bn-nhan">{t("Trạm", "Station")} {k + 1} · {esc(x["nho"])}</p>\n<h2 id="h-{x["id"]}">{esc(x["h2"])}</h2>\n'
-            + (f'<p class="bn-mo">{esc(x["mo"])}</p>\n' if x.get("mo") else "")
-            + f'<div class="th-o" id="th-o-{x["id"]}"></div>\n</section>\n' for k, x in enumerate(tram))
-        nhan = {
-            "da_chep": t("Đã chép ✓", "Copied ✓"), "khong_chep": t("Không chép được", "Couldn't copy"),
-            "lam_lai": t("Làm lại", "Start over"), "tiep": t("Câu tiếp", "Next"), "the": t("Các thẻ", "Cards"),
-            "dung_la": t("Đúng là", "Should be"), "chon_the": t("Chạm vào một thẻ trước nhé.", "Tap a card first."),
-            "phan_dem": t("Đã xếp {n}/{tong}, đúng {d}", "Sorted {n}/{tong}, {d} right"), "diem": t("⭐ {d}/{tong}", "⭐ {d}/{tong}"),
-            "ai_noi": t("AI nói:", "The AI says:"), "chac": t("💯 Chắc chắn", "💯 Totally sure"), "phieu_dem": t("Câu {n}/{tong}, đúng {d}", "Question {n}/{tong}, {d} right"),
-            "dung_roi": t("Đúng rồi!", "Right!"), "chua_dung": t("Chưa đúng.", "Not quite."),
-            "chon_viec": t("Chọn việc", "Choose a task"), "cau_lenh": t("Câu lệnh của bạn", "Your prompt"), "manh": t("Mảnh để ghép", "Pieces"),
-            "gui": t("Gửi cho AI", "Send to AI"), "chep_lenh": t("Chép câu lệnh", "Copy prompt"), "ghep_lai": t("Ghép lại", "Start over"),
-            "cau_goc": t("Câu gốc", "Starting line"), "lenh_trong": t("Chưa có mảnh nào. AI sẽ đoán bừa.", "No pieces yet. The AI will guess."),
-            "lenh_bat_dau": t("Chạm mảnh bên dưới để ghép 👇", "Tap the pieces below to build 👇"),
-            "lenh_dem": t("Đã ghép {n}/5 mảnh.", "{n}/5 pieces added."),
-            "lenh_du": t("Đủ 5 mảnh! Bấm Gửi cho AI 🚀", "All 5 pieces! Press Send to AI 🚀"),
-            "lenh_khoa": t("Còn mảnh bẫy 🪤 Bỏ ra mới chép được.", "There's a trap piece 🪤 Remove it to copy."),
-            "ai_tra_loi": t("AI trả lời (mẫu)", "AI answer (sample)"), "muc": {"tho": t("Thô", "Weak"), "kha": t("Khá", "OK"), "tot": t("Tốt", "Good")},
-            "gui_tho": t("Câu lệnh mơ hồ, AI trả lời chung chung.", "Vague prompt, generic answer."),
-            "gui_kha": t("Khá hơn! Đủ 5 mảnh sẽ còn tốt hơn.", "Better! All 5 pieces makes it great."),
-            "gui_tot": t("Gọn và đúng việc. Chép về dùng nhé!", "Tight and on-task. Copy it and use it!"),
-            "ten_ai": "AI", "ten_ban": t("Bạn", "You"),
-            "tim_dem": t("Tìm được {n}/{tong}", "Found {n}/{tong}"), "cau_on": t("Chỗ này ổn 👍", "This part is fine 👍"), "da_che": t("🔒 Đã che", "🔒 Hidden"),
-            "hien_dap_an": t("Hiện đáp án", "Show answers"),
-            "sua_hoi": t("Sửa thành:", "Fix it to:"), "sua_sai": t("Chưa đúng, thử cái khác.", "Not that one, try another."),
-            "van_goc": t("Văn bản gốc", "Original"), "xem_goc": t("📄 Xem văn bản gốc", "📄 Read the original"), "chon_ban_hoi": t("Bản nào trung thực nhất?", "Which is most faithful?"),
-            "ban_nhap": t("Bản nháp", "Draft"), "chon_giong": t("Chọn giọng văn", "Choose a tone"), "ai_viet_lai": t("AI viết lại (mẫu)", "AI rewrite (sample)"),
-            "chep_ban": t("Chép bản này", "Copy this version"),
-            "kh_tuan": t("⏳ Số tuần tới kỳ thi:", "⏳ Weeks to the exam:"), "kh_gio": t("⏰ Giờ học mỗi ngày:", "⏰ Study hours a day:"),
-            "kh_mon": t("Môn cần ôn", "Subjects"),
-            "kh_hoc": t("Học lại", "Relearn"), "kh_luyen": t("Luyện đề", "Practice papers"), "kh_thi_thu": t("Thi thử", "Mock exam"),
-            "kh_on_tuan": t("Ôn cả tuần", "Weekly review"), "kh_nghi_truoc": t("Nghỉ trước thi", "Rest before exam"),
-            "kh_on_lai": t("Tự kiểm tra 15 phút", "15-min self-quiz"),
-            "kh_chua_mon": t("Chọn ít nhất một môn nhé.", "Pick at least one subject."),
-            "kh_bit": t("{w} tuần · {n} môn · khoảng {g} giờ. Mỗi môn quay lại nhiều lần: nhớ lâu hơn học dồn.", "{w} weeks · {n} subjects · about {g} hours. Each subject keeps coming back: you remember longer than cramming."),
-            "kh_lenh_h": t("Câu lệnh nhờ AI chỉnh kế hoạch", "Prompt to have AI adjust the plan"),
-            "kh_lenh": t("Mình là học sinh lớp 12, còn {w} tuần tới kỳ thi, mỗi ngày học được {g} giờ. Các môn cần ôn: {mon}.\nHãy chỉnh kế hoạch ôn tập theo tuần cho mình: xen kẽ các môn, mỗi môn quay lại ít nhất hai lần một tuần, có buổi tự kiểm tra ngắn và một ngày nghỉ.\nĐừng làm bài hộ mình. Nếu mình hỏi bài, hãy gợi ý từng bước để mình tự giải.",
-                        "I'm a final-year high school student with {w} weeks until my exams and {g} hours a day to study. Subjects: {mon}.\nAdjust my weekly revision plan: mix subjects, bring each one back at least twice a week, add short self-quizzes and one rest day.\nDon't do my work for me. If I ask about a problem, give step-by-step hints so I can solve it myself."),
-        }
+                + "".join(_th_nut(k, x, tram) for k, x in enumerate(tram)) + '</ol></nav>')
+        tram_html = "".join(_th_tram(k, x) for k, x in enumerate(tram))
+        nhan = _th_nhan()
         du_lieu = json.dumps({"nhan": nhan, "lg": L, "p": p, "trang": trang_ten, "tram": tram}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         band = (f'<div class="head-row"><div>\n<p class="eyebrow">{esc(D["eyebrow"])}</p>\n<h1>{esc(D["h1"])}</h1>\n<p class="lead">{esc(D["lead"])}</p>\n'
                 f'</div><img class="head-art" src="{p}assets/{D.get("hinh", "bit-giai-thich.svg")}" alt="" width="180" height="170"></div>')

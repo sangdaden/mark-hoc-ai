@@ -2,6 +2,7 @@
 # "Công cụ AI chuyên ngành y tế" (611-615). Cùng khung với các phòng thí nghiệm (cột trạm bên trái .bn-ngan, trạm .bn-tram,
 # lời Bit trong khung .yt-bit, popup "Cách chơi" ở data/huong-dan/ai-y-te.json). Bảy trạm, mở thẳng bằng ?tram=<id> hoặc #<id>:
 #   che (603), lenh (604, 606, 608, 609), soat (605), de-hieu (607), quy-tac (610), ban-do (611-614), danh-gia (615: ba tờ chào hàng giả để chấm thử, và phiếu trống cho công cụ thật).
+# Tầng 🚀 Nâng cao (data/ai-y-te.json "nang_cao") dùng khuôn trạm của thuc-hanh.js / thuc-hanh.css, xem scripts/trang/thuc-hanh.py.
 # Nội dung ở data/ai-y-te.json, cách chạy ở ai-y-te.js, giao diện ở assets/ai-y-te.css. Chạy hết trên trình duyệt.
 
 # Thẻ "Chơi thử" trong bài video 134, 177, 223: data/tro-choi/ai-y-te.json, hình xem trước là một dòng ghi chép đã che tên.
@@ -28,9 +29,13 @@ def tao_ai_y_te():
             ("quy-tac", "610", t("Quy tắc của khoa", "Department rules")),
             ("ban-do", "611–614", t("5 loại công cụ AI", "5 kinds of AI tools")),
             ("danh-gia", "615", t("6 câu hỏi trước khi dùng", "6 questions first"))]
+    # Tầng Nâng cao: trạm theo khuôn của thuc-hanh.js (data/ai-y-te.json "nang_cao"), thuc-hanh.js dựng nội dung, ai-y-te.js lo chuyển trạm
+    nc = _th_ngu(D.get("nang_cao", []), L)
+    ds_nc = [{}] * len(tram) + nc
     ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{t("Một khoa nội, từ ghi chép trong ca tới chọn công cụ AI cho cả khoa", "One hospital ward, from shift notes to choosing an AI tool")}</p><ol>'
             + "".join(f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{k + 1}</span>'
                       f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {so}</small></span></button></li>' for k, (i, so, ten) in enumerate(tram))
+            + "".join(_th_nut(len(tram) + k, x, ds_nc) for k, x in enumerate(nc))
             + '</ol></nav>')
 
     def dau(i, k, video, tieu, mo=""):
@@ -229,18 +234,25 @@ def tao_ai_y_te():
                                          "giai": {k: chon(g) for k, g in x["giai"].items()}} for x in D["chao_hang"]]},
                          ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
+    du_nc = json.dumps({"nhan": _th_nhan(), "lg": L, "p": p, "trang": "ai-y-te", "tram": nc}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     tieu = t("AI cho người làm y tế: 7 công cụ thực hành", "AI for healthcare staff: 7 hands-on tools")
     desc = t("Bảy công cụ miễn phí theo series AI cho người làm y tế: che thông tin người bệnh trước khi dán vào AI, câu lệnh 5 phần (SBAR, tờ hướng dẫn, biên bản, tóm tắt bài báo), soát 5 bước, viết cho người bệnh dễ hiểu, quy tắc dùng AI cho khoa, 5 loại công cụ AI y tế và 6 câu hỏi trước khi dùng. Chạy trên trình duyệt, không gửi dữ liệu đi đâu.",
              "Seven free tools from the AI for healthcare staff series: de-identify patient notes, 5-part prompts (SBAR, leaflets, minutes, paper summaries), 5 checks, plain-language leaflets, a department AI policy, 5 kinds of healthcare AI tools and 6 questions before adopting one. Runs in your browser; nothing is sent anywhere.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Thực hành · 7 trạm · chạy trên trình duyệt", "Hands-on · 7 stations · runs in your browser")}</p>\n'
+    dong_dau = (t(f"Thực hành · 7 trạm cơ bản + {len(nc)} trạm nâng cao · chạy trên trình duyệt", f"Hands-on · 7 core + {len(nc)} advanced stations · runs in your browser") if nc
+                else t("Thực hành · 7 trạm · chạy trên trình duyệt", "Hands-on · 7 stations · runs in your browser"))
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{dong_dau}</p>\n'
             f'<h1>{t("AI cho người làm y tế", "AI for healthcare staff")}</h1>\n'
             f'<p class="lead">{t("AI soạn nháp, người làm y tế quyết định. Thông tin người bệnh không rời máy bạn.", "AI drafts, healthcare staff decide. Patient details never leave your device.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-giai-thich.svg" alt="" width="180" height="170"></div>')
     main = (f'<main class="bn yt" id="yt">\n<link rel="stylesheet" href="{p}assets/ai-y-te.css?v=dev">\n'
-            f'{ngan}\n<div class="bn-ban">\n{che}\n{lenh}\n{soat}\n{de_hieu}\n{quy_tac}\n{ban_do}\n{danh_gia}\n'
-            f'<p class="yt-ghi">{t("Công cụ học tập, không phải thiết bị y tế: không dùng để chẩn đoán, chỉ định hay kê đơn. Mọi ví dụ là ca giả. Chữ bạn dán vào chỉ nằm trên máy bạn, không gửi đi đâu.", "A learning tool, not a medical device: not for diagnosis, orders or prescribing. All examples are fictional. What you paste stays on your device and is never sent.")}</p>\n'
+            + (f'<link rel="stylesheet" href="{p}assets/thuc-hanh.css?v=dev">\n' if nc else "")
+            + f'{ngan}\n<div class="bn-ban">\n{che}\n{lenh}\n{soat}\n{de_hieu}\n{quy_tac}\n{ban_do}\n{danh_gia}\n'
+            + "".join(_th_tram(len(tram) + k, x, "yt-tram th-tram th") for k, x in enumerate(nc))
+            + f'<p class="yt-ghi">{t("Công cụ học tập, không phải thiết bị y tế: không dùng để chẩn đoán, chỉ định hay kê đơn. Mọi ví dụ là ca giả. Chữ bạn dán vào chỉ nằm trên máy bạn, không gửi đi đâu.", "A learning tool, not a medical device: not for diagnosis, orders or prescribing. All examples are fictional. What you paste stays on your device and is never sent.")}</p>\n'
             f'{khoi_chia_se(BASE + GOC + "ai-y-te.html", tieu, p)}\n</div>\n'
             f'<noscript><p>{t("Công cụ cần JavaScript.", "These tools need JavaScript.")}</p></noscript>\n'
-            f'<script type="application/json" id="yt-du-lieu">{du_lieu}</script>\n</main>')
+            f'<script type="application/json" id="yt-du-lieu">{du_lieu}</script>\n'
+            + (f'<script type="application/json" id="th-du-lieu">{du_nc}</script>\n' if nc else "") + '</main>')
     return GOC + "ai-y-te.html", trang("ai-y-te.html", f"{tieu} | {SITE}", desc, band, main, p, og_type="website", q="",
-                                       cuoi=f'<script src="{p}ai-y-te.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                                       cuoi=f'<script src="{p}ai-y-te.js?v=dev" defer></script>\n'
+                                       + (f'<script src="{p}thuc-hanh.js?v=dev" defer></script>\n' if nc else "") + f'<script src="{p}bai-viet.js?v=dev" defer></script>\n')
