@@ -450,6 +450,12 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 }
 .foot-copy a { color: #fff; }
 .foot-copy a:hover { color: #FDE047; }
+/* Hàng Học / Thực hành ở chân trang (footer() trong tao_bai_viet.py) */
+.foot-hoc { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font: 600 14px/1.4 var(--f-body); }
+.foot-hoc b { color: #FDE047; font: 700 12px var(--f-mono); text-transform: uppercase; letter-spacing: .06em; }
+.foot-hoc b + a { margin-left: -6px; }
+.foot-hoc a { color: #fff; padding-block: 6px; }
+.foot-hoc a:hover { color: #FDE047; }
 
 /* Bit đứng cạnh câu hỏi (tiêu đề bài viết, trang Kiểm tra) */
 .h-hoi { display: flex; align-items: center; gap: 10px; }
@@ -677,6 +683,13 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .day-videos a:hover { border-color: var(--blue); }
 .day-videos .num { flex: none; width: 50px; height: 32px; }
 .day-task { margin-top: 14px; padding: 14px 16px; border-radius: 16px; background: #FEF9C3; color: #0F172A; border: 2px solid #0F172A; box-shadow: 4px 4px 0 #0F172A; }
+/* Ô "Thử ngay" mỗi ngày (thu_ngay trong tao_bai_viet.py) và video đã xem (tien-do.js, mhai-da-xem) */
+.day-thu { margin-top: 14px; }
+.day-thu-ds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.day-thu-c { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; border: 2px solid var(--blue); background: color-mix(in srgb, var(--blue) 10%, var(--panel)); color: var(--ink); font: 600 14px/1.25 var(--f-body); text-decoration: none; }
+.day-thu-c:hover { background: color-mix(in srgb, var(--blue) 22%, var(--panel)); }
+.day-thu-c small { font: 500 11.5px var(--f-mono); color: var(--muted); }
+.day-videos li.is-xem a::after { content: "✓"; margin-left: auto; flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #10B981; color: #fff; font: 800 13px var(--f-body); }
 .day-task p { margin: 0; font-size: 15px; }
 .day-task .try-label { margin-bottom: 8px; }
 .day-q { margin: 0 0 12px; font: 800 18px/1.35 var(--f-display); text-wrap: pretty; }
@@ -1719,7 +1732,7 @@ html:has(.bt-hop[open]) { overflow: hidden; }
 .path-th-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 0 0 10px; }
 .path-th-h b { font: 800 17px/1.3 var(--f-display); }
 .path-th-h span { font-size: 14px; color: var(--muted); }
-.path-th-ds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.path-th-ds { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
 .path-th-ds a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 2px 12px; padding: 12px 14px; border-radius: 16px;
   text-decoration: none; color: #0F172A; background: #E0F2FE; border: 2px solid #0F172A; box-shadow: 3px 3px 0 #0F172A; transition: transform .15s; }
 .path-th-ds a:hover { transform: translate(-1px, -1px); }
@@ -2214,6 +2227,13 @@ button.bn-nut:hover { background: var(--panel); border-color: var(--edge); }
 .bn-ten small { font: 500 11.5px var(--f-mono); color: var(--muted); }
 .bn-sap { cursor: default; opacity: .55; }
 .bn-sap .bn-so { background: var(--muted); }
+/* Trạm đã làm (tien-do.js, mhai-tram): số đổi thành dấu ✓ xanh */
+.bn-nut.is-xong .bn-so { position: relative; color: transparent; background: #10B981 !important; }
+.bn-nut.is-xong .bn-so::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font: 800 15px var(--f-body); }
+/* Dòng nối trạm với video và Lộ trình 7 ngày (_th_lien trong scripts/trang/thuc-hanh.py) */
+.th-lien { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 0; }
+.th-lien a { display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--bg); color: var(--ink); font: 600 13px/1.3 var(--f-body); text-decoration: none; }
+.th-lien a:hover { border-color: #8B5CF6; }
 .bn-ban { min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .bn-tram { display: flex; flex-direction: column; gap: 14px; padding: 24px 28px; border-radius: 20px; background: var(--panel); border: 1px solid var(--edge); }
 .bn-tram h2 { margin: 0; font: 800 clamp(22px, 2.6vw, 28px)/1.2 var(--f-display); text-wrap: balance; }

@@ -49,7 +49,7 @@
   const meo = EN ? [
     "Add \"If you're not sure, say you don't know\" so AI makes up less.",
     "Chat getting too long? Ask AI for a 5-point summary, then start a new chat.",
-    "A good prompt has 4 parts: role, context, task, format.",
+    "A good prompt has 5 parts: role, context, task, format, limits.",
     "For hard questions, add \"Explain step by step\".",
     "Paste 2 or 3 examples you like, then tell AI \"write more exactly like these\".",
     "Never paste passwords, card numbers or ID documents into a chatbot.",
@@ -57,7 +57,7 @@
   ] : [
     "Thêm câu \"Nếu không chắc, hãy nói không biết\" để AI bớt bịa.",
     "Chat quá dài? Xin AI tóm tắt 5 ý rồi mở cuộc chat mới.",
-    "Prompt tốt có 4 mảnh: vai trò, bối cảnh, nhiệm vụ, định dạng.",
+    "Prompt tốt có 5 mảnh: vai trò, bối cảnh, nhiệm vụ, định dạng, giới hạn.",
     "Câu hỏi khó thì thêm \"Hãy giải thích từng bước\".",
     "Dán 2, 3 mẫu bạn thích rồi bảo AI \"viết thêm đúng kiểu này\".",
     "Đừng dán mật khẩu, số thẻ hay giấy tờ tùy thân vào chatbot.",

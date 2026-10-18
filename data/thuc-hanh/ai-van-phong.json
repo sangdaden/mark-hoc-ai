@@ -1,8 +1,8 @@
 {
  "trang": "ai-van-phong",
  "eyebrow": {
-  "vi": "Thực hành · 7 trạm · chạy trên trình duyệt",
-  "en": "Hands-on · 7 stations · runs in your browser"
+  "vi": "Thực hành · 7 trạm cơ bản + 4 nghiệp vụ nâng cao · chạy trên trình duyệt",
+  "en": "Hands-on · 7 core stations + 4 advanced casework · runs in your browser"
  },
  "h1": {
   "vi": "AI cho cán bộ, công chức, viên chức",
@@ -167,7 +167,12 @@
    "bai_hoc": {
     "vi": "Che hết định danh, và chỉ dùng công cụ AI cơ quan cho phép.",
     "en": "Hide every identifier, and only use AI tools your organisation allows."
-   }
+   },
+   "video": [
+    "15",
+    "121"
+   ],
+   "lo_trinh": 5
   },
   {
    "id": "duoc-khong",
@@ -318,7 +323,12 @@
    "bai_hoc": {
     "vi": "Không chắc thì hỏi văn thư hoặc bộ phận công nghệ thông tin trước.",
     "en": "Unsure? Ask your records or IT team first."
-   }
+   },
+   "video": [
+    "121",
+    "15"
+   ],
+   "lo_trinh": 5
   },
   {
    "id": "ghep",
@@ -628,7 +638,12 @@
       }
      }
     }
-   ]
+   ],
+   "video": [
+    "3",
+    "102"
+   ],
+   "lo_trinh": 2
   },
   {
    "id": "sua-cong-van",
@@ -809,7 +824,12 @@
    "bai_hoc": {
     "vi": "Căn cứ, con số, thông tin công dân, chữ ký: luôn do người kiểm tra.",
     "en": "Legal basis, figures, citizens' data, signature: always checked by a person."
-   }
+   },
+   "video": [
+    "286",
+    "8"
+   ],
+   "lo_trinh": 3
   },
   {
    "id": "tom-tat",
@@ -911,7 +931,12 @@
    "bai_hoc": {
     "vi": "AI hay bỏ sót ý hoặc thêm ý nghe hợp lý. Đọc lại bản gốc.",
     "en": "AI drops points or adds plausible ones. Reread the original."
-   }
+   },
+   "video": [
+    "171",
+    "153"
+   ],
+   "lo_trinh": 4
   },
   {
    "id": "giong",
@@ -1002,7 +1027,12 @@
       "en": "AI can write it, but it's wrong for a public office."
      }
     }
-   ]
+   ],
+   "video": [
+    "290",
+    "273"
+   ],
+   "lo_trinh": 4
   },
   {
    "id": "dong-nghiep",
@@ -1132,7 +1162,12 @@
      },
      "muc": "dung"
     }
-   ]
+   ],
+   "video": [
+    "15",
+    "121"
+   ],
+   "lo_trinh": 5
   },
   {
    "id": "lenh-an",
@@ -1238,137 +1273,11 @@
    "bai_hoc": {
     "vi": "File lạ giấu lệnh được. Đối chiếu bản gốc.",
     "en": "Files can hide orders. Check the original."
-   }
-  },
-  {
-   "id": "chia-buoc",
-   "loai": "xep-buoc",
-   "cap": "nang-cao",
-   "ten": {
-    "vi": "Chia bước",
-    "en": "Split steps"
    },
-   "nho": {
-    "vi": "Chuỗi lệnh",
-    "en": "Prompt chain"
-   },
-   "h2": {
-    "vi": "Báo cáo năm: xếp 5 bước",
-    "en": "Annual report: order 5 steps"
-   },
-   "mo": {
-    "vi": "🧩 Mỗi bước một lệnh · 🪤 2 bẫy",
-    "en": "🧩 One prompt per step · 🪤 2 traps"
-   },
-   "dau": {
-    "vi": "📋 Báo cáo tổng kết năm (giả)",
-    "en": "📋 Annual report (fictional)"
-   },
-   "buoc": [
-    {
-     "bt": "🔒",
-     "chu": {
-      "vi": "Che tên, SĐT",
-      "en": "Hide names, phones"
-     },
-     "lenh": {
-      "vi": "(Tự làm) Che tên, SĐT.",
-      "en": "(Yourself) Hide names, phones."
-     },
-     "goi_y": {
-      "vi": "Che trước.",
-      "en": "Redact first."
-     }
-    },
-    {
-     "bt": "📊",
-     "chu": {
-      "vi": "AI lập bảng theo quý",
-      "en": "AI tables it by quarter"
-     },
-     "lenh": {
-      "vi": "Lập bảng theo quý, không thêm số.",
-      "en": "Table by quarter, add no numbers."
-     },
-     "goi_y": {
-      "vi": "Bảng trước.",
-      "en": "Table first."
-     }
-    },
-    {
-     "bt": "✅",
-     "chu": {
-      "vi": "Tự cộng lại bằng Excel",
-      "en": "Re-add it in Excel"
-     },
-     "lenh": {
-      "vi": "(Tự làm) Đối chiếu với file gốc.",
-      "en": "(Yourself) Check against the source."
-     },
-     "goi_y": {
-      "vi": "Kiểm trước khi viết.",
-      "en": "Check before writing."
-     }
-    },
-    {
-     "bt": "🗂️",
-     "chu": {
-      "vi": "AI lập dàn ý 3 phần",
-      "en": "AI outlines 3 parts"
-     },
-     "lenh": {
-      "vi": "Dàn ý: kết quả, hạn chế, hướng tới.",
-      "en": "Outline: results, gaps, next steps."
-     },
-     "goi_y": {
-      "vi": "Dàn ý trước.",
-      "en": "Outline first."
-     }
-    },
-    {
-     "bt": "✍️",
-     "chu": {
-      "vi": "Viết từng phần, tự soát",
-      "en": "Draft each part, review"
-     },
-     "lenh": {
-      "vi": "Viết phần 1, chỗ thiếu ghi [BỔ SUNG].",
-      "en": "Write part 1, mark gaps [TO ADD]."
-     },
-     "goi_y": {
-      "vi": "Viết sau cùng.",
-      "en": "Draft last."
-     }
-    }
+   "video": [
+    "239"
    ],
-   "bay": [
-    {
-     "bt": "📥",
-     "chu": {
-      "vi": "Dán hết, AI viết luôn",
-      "en": "Paste all, AI writes it"
-     },
-     "bit": {
-      "vi": "Lộ dữ liệu, khó kiểm.",
-      "en": "Leaks data, can't be checked."
-     }
-    },
-    {
-     "bt": "🖋️",
-     "chu": {
-      "vi": "AI ký, ghi số văn bản",
-      "en": "AI signs and numbers it"
-     },
-     "bit": {
-      "vi": "Việc của văn thư.",
-      "en": "The clerk's job."
-     }
-    }
-   ],
-   "bai_hoc": {
-    "vi": "Việc lớn = nhiều lệnh nhỏ + tự kiểm.",
-    "en": "Big job = small prompts + checks."
-   }
+   "lo_trinh": 5
   },
   {
    "id": "vi-du-mau",
@@ -1454,174 +1363,11 @@
    "bai_hoc": {
     "vi": "2–3 ví dụ chuẩn → AI đúng giọng, đúng khung.",
     "en": "2–3 clean examples → right tone and format."
-   }
-  },
-  {
-   "id": "cham-du-thao",
-   "loai": "cham-tieu-chi",
-   "cap": "nang-cao",
-   "ten": {
-    "vi": "Chấm 3 dự thảo",
-    "en": "Mark 3 drafts"
    },
-   "nho": {
-    "vi": "Tiêu chí",
-    "en": "Rubric"
-   },
-   "h2": {
-    "vi": "Chấm 3 thông báo AI viết",
-    "en": "Mark 3 AI-written notices"
-   },
-   "mo": {
-    "vi": "📏 Chấm từng ô, đừng đoán",
-    "en": "📏 Mark each cell, don't guess"
-   },
-   "viec": {
-    "vi": "📢 **Đề:** tiêm trẻ **15/11** · **trạm y tế phường** · mang **sổ tiêm**",
-    "en": "📢 **Brief:** child jabs **15 Nov** · **ward health station** · bring **vaccination book**"
-   },
-   "tieu_chi": [
-    {
-     "id": "du",
-     "bt": "📌",
-     "chu": {
-      "vi": "Đủ thông tin",
-      "en": "All info"
-     }
-    },
-    {
-     "id": "that",
-     "bt": "🔍",
-     "chu": {
-      "vi": "Không bịa",
-      "en": "Nothing invented"
-     }
-    },
-    {
-     "id": "gon",
-     "bt": "✂️",
-     "chu": {
-      "vi": "Ngắn gọn",
-      "en": "Short"
-     }
-    },
-    {
-     "id": "giong",
-     "bt": "🤝",
-     "chu": {
-      "vi": "Lịch sự",
-      "en": "Polite"
-     }
-    }
+   "video": [
+    "101"
    ],
-   "ban": [
-    {
-     "ten": {
-      "vi": "Trang trọng",
-      "en": "Formal"
-     },
-     "chu": {
-      "vi": "Nhằm chăm sóc sức khỏe trẻ em, phường trân trọng thông báo tiêm ngày 15/11 tại trạm y tế, mang sổ. Miễn phí, tặng quà!",
-      "en": "To care for children's health, the ward respectfully announces vaccinations on 15 Nov at the health station; bring the book. 100% free, gifts for all!"
-     },
-     "dat": {
-      "du": true,
-      "that": false,
-      "gon": false,
-      "giong": true
-     },
-     "giai": {
-      "du": {
-       "vi": "Đủ.",
-       "en": "Complete."
-      },
-      "that": {
-       "vi": "“Tặng quà” là AI bịa.",
-       "en": "“Gifts” is invented."
-      },
-      "gon": {
-       "vi": "Dài dòng.",
-       "en": "Wordy."
-      },
-      "giong": {
-       "vi": "Lịch sự.",
-       "en": "Polite."
-      }
-     }
-    },
-    {
-     "ten": {
-      "vi": "Gạch ý",
-      "en": "Bullets"
-     },
-     "chu": {
-      "vi": "📢 Tiêm trẻ: 🗓️ 15/11 · 📍 trạm y tế phường · 📘 mang sổ tiêm. Cảm ơn phụ huynh!",
-      "en": "📢 Child jabs: 🗓️ 15 Nov · 📍 ward health station · 📘 bring the book. Thank you, parents!"
-     },
-     "dat": {
-      "du": true,
-      "that": true,
-      "gon": true,
-      "giong": true
-     },
-     "giai": {
-      "du": {
-       "vi": "Đủ.",
-       "en": "Complete."
-      },
-      "that": {
-       "vi": "Đúng đề.",
-       "en": "Matches the brief."
-      },
-      "gon": {
-       "vi": "Gọn.",
-       "en": "Short."
-      },
-      "giong": {
-       "vi": "Thân thiện.",
-       "en": "Friendly."
-      }
-     }
-    },
-    {
-     "ten": {
-      "vi": "Ngắn",
-      "en": "Short"
-     },
-     "chu": {
-      "vi": "15/11 tiêm trẻ tại trạm y tế. Không mang sổ không tiêm.",
-      "en": "15 Nov: child jabs at the health station. No book, no jab."
-     },
-     "dat": {
-      "du": true,
-      "that": true,
-      "gon": true,
-      "giong": false
-     },
-     "giai": {
-      "du": {
-       "vi": "Đủ.",
-       "en": "Complete."
-      },
-      "that": {
-       "vi": "Không bịa.",
-       "en": "Nothing invented."
-      },
-      "gon": {
-       "vi": "Rất ngắn.",
-       "en": "Very short."
-      },
-      "giong": {
-       "vi": "Nghe như ra lệnh.",
-       "en": "Sounds like an order."
-      }
-     }
-    }
-   ],
-   "bai_hoc": {
-    "vi": "Bịa thêm là lỗi nặng nhất.",
-    "en": "Invented facts are the worst flaw."
-   }
+   "lo_trinh": 4
   },
   {
    "id": "so-lieu",
@@ -1782,7 +1528,12 @@
    "bai_hoc": {
     "vi": "Số AI tính → tự tính lại, hoặc xin công thức Excel.",
     "en": "Re-check AI maths, or ask for the Excel formula."
-   }
+   },
+   "video": [
+    "226",
+    "368"
+   ],
+   "lo_trinh": 3
   },
   {
    "id": "tro-ly",
@@ -1938,7 +1689,23 @@
    "bai_hoc": {
     "vi": "Không mật khẩu, không tự gửi.",
     "en": "No passwords, no auto-send."
-   }
+   },
+   "video": [
+    "27",
+    "28"
+   ],
+   "lo_trinh": 6
   }
- ]
+ ],
+ "nhom_nc": {
+  "bt": "🏛️",
+  "ten": {
+   "vi": "Nghiệp vụ nâng cao",
+   "en": "Advanced casework"
+  },
+  "mau": [
+   "#0F766E",
+   "#2563EB"
+  ]
+ }
 }

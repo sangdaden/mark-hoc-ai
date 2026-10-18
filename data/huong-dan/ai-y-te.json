@@ -6,8 +6,8 @@
    "buoc": [
     {
      "chon": ".bn-ngan",
-     "vi": "Trang có **7 trạm**, mỗi trạm đi kèm một video trong series. Bấm để đổi trạm.",
-     "en": "There are **7 stations**, each tied to a video in the series. Click to switch.",
+     "vi": "Trang có **7 trạm cơ bản** và **4 trạm nâng cao** ở nhóm dưới. Bấm để đổi trạm.",
+     "en": "There are **7 core stations** and **4 advanced ones** in the group below. Click to switch.",
      "bo_neu_an": true
     },
     {
@@ -149,22 +149,6 @@
    ]
   },
   {
-   "id": "lenh-an",
-   "khi": "#tram-lenh-an",
-   "buoc": [
-    {
-     "chon": "#tram-lenh-an .th-van",
-     "vi": "Có **3 lệnh** !!chữ trắng!!. **Chạm dòng khả nghi.**",
-     "en": "**3 prompts** in !!white text!!. **Tap anything odd.**"
-    },
-    {
-     "chon": "#tram-lenh-an .th-hang",
-     "vi": "Bí thì bấm [[Hiện đáp án]].",
-     "en": "Stuck? Press [[Show answers]]."
-    }
-   ]
-  },
-  {
    "id": "chia-buoc",
    "khi": "#tram-chia-buoc",
    "buoc": [
@@ -177,38 +161,6 @@
      "chon": "#tram-chia-buoc .th-xb-o",
      "vi": "Đủ ô thì bấm [[Kiểm tra]]. ++Đúng hết thì chép chuỗi lệnh.++",
      "en": "Full? Press [[Check]]. ++All right → copy the chain.++"
-    }
-   ]
-  },
-  {
-   "id": "vi-du",
-   "khi": "#tram-vi-du",
-   "buoc": [
-    {
-     "chon": "#tram-vi-du .th-vd-kho",
-     "vi": "Chọn **2 ví dụ**. !!Có ví dụ dính lỗi!!",
-     "en": "Pick **2 examples**. !!Some are flawed!!"
-    },
-    {
-     "chon": "#tram-vi-du .th-hang",
-     "vi": "Bấm [[Gửi cho AI]] xem AI bắt chước gì.",
-     "en": "Press [[Send to AI]] to see what it copies."
-    }
-   ]
-  },
-  {
-   "id": "cham",
-   "khi": "#tram-cham",
-   "buoc": [
-    {
-     "chon": "#tram-cham .th-xb-viec",
-     "vi": "**Hồ sơ gốc** là đáp án để so.",
-     "en": "The **source** is your answer key."
-    },
-    {
-     "chon": "#tram-cham .th-ct-bang",
-     "vi": "Chạm ô: **? → ✓ → ✗**, rồi bấm [[Chấm]]. ++Ô ⚠ chạm để xem lý do.++",
-     "en": "Tap: **? → ✓ → ✗**, then [[Mark it]]. ++Tap ⚠ for why.++"
     }
    ]
   },
@@ -242,6 +194,22 @@
      "chon": "#tram-lieu .th-hang",
      "vi": "!!Liều thuốc luôn tự tính lại.!!",
      "en": "!!Always recalculate doses yourself.!!"
+    }
+   ]
+  },
+  {
+   "id": "kim-tu-thap",
+   "khi": "#tram-kim-tu-thap",
+   "buoc": [
+    {
+     "chon": "#tram-kim-tu-thap .th-phan-the",
+     "vi": "**Chạm một nguồn** để chọn.",
+     "en": "**Tap a source** to pick it."
+    },
+    {
+     "chon": "#tram-kim-tu-thap .th-ro-hang",
+     "vi": "Rồi **chạm bậc bằng chứng**. ++Tổng quan hệ thống ở đỉnh, ý kiến và ca lẻ ở đáy.++",
+     "en": "Then **tap its evidence level**. ++Systematic reviews at the top, opinion and single cases at the bottom.++"
     }
    ]
   }

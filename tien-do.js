@@ -1,0 +1,57 @@
+// Tiến độ học dùng chung cho cả web (nạp ở mọi trang, ngay sau theo-doi.js). Chỉ lưu trên máy người xem (localStorage), không gửi đi đâu.
+//   mhai-da-xem   [số video đã xem]                       (dùng chung với lo-trinh-nganh.js)
+//   mhai-tram     {trang: {id: {lan, d, tong, ngay}}}     (kết quả trạm thực hành; d/tong chỉ có khi trạm chấm điểm)
+//   mhai-hoat-dong ["YYYY-MM-DD", ...]                     (những ngày có học, giữ 120 ngày gần nhất)
+//   mhai-da-mo    ["ten-trang.html", ...]                  (trang trò chơi, công cụ đã mở; Góc thực hành hiện dấu "Đã mở")
+// Bị chặn localStorage (chế độ riêng tư) thì mọi hàm vẫn chạy, chỉ không nhớ.
+(function () {
+  function doc(k, mac) { try { var v = JSON.parse(localStorage.getItem(k) || "null"); return v == null ? mac : v; } catch (e) { return mac; } }
+  function ghi(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function homNay() { var d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function coHoc() {
+    var ds = doc("mhai-hoat-dong", []), h = homNay();
+    if (!Array.isArray(ds)) ds = [];
+    if (ds[ds.length - 1] !== h) { ds.push(h); ghi("mhai-hoat-dong", ds.slice(-120)); }
+  }
+  var TD = {
+    daXem: function () { var a = doc("mhai-da-xem", []); return Array.isArray(a) ? a.map(Number) : []; },
+    xem: function (so) {
+      so = Number(so); if (!so) return;
+      var a = TD.daXem(); if (a.indexOf(so) < 0) { a.push(so); ghi("mhai-da-xem", a); }
+      coHoc();
+    },
+    tram: function (trang, id, d, tong) {
+      if (!trang || !id) return;
+      var all = doc("mhai-tram", {}); if (!all || typeof all !== "object") all = {};
+      var p = all[trang] || (all[trang] = {}), c = p[id] || { lan: 0 };
+      c.lan = (c.lan || 0) + 1; c.ngay = homNay();
+      if (tong) { c.d = d; c.tong = tong; if (!c.tot || d / tong > c.tot) c.tot = d / tong; }
+      p[id] = c; ghi("mhai-tram", all); coHoc();
+      try { document.dispatchEvent(new CustomEvent("mhai-tram", { detail: { trang: trang, id: id } })); } catch (e) {}
+    },
+    tramCua: function (trang) { var all = doc("mhai-tram", {}); return (all && all[trang]) || {}; },
+    daMo: function () { var a = doc("mhai-da-mo", []); return Array.isArray(a) ? a : []; },
+    tatCaTram: function () { var all = doc("mhai-tram", {}); return all && typeof all === "object" ? all : {}; },
+    ngayHoc: function () { var a = doc("mhai-hoat-dong", []); return Array.isArray(a) ? a : []; },
+    coHoc: coHoc,
+    homNay: homNay
+  };
+  window.mhaiTD = TD;
+
+  // Nhớ trang trò chơi, công cụ đã mở (không tính bài video và trang chủ)
+  var tep = location.pathname.split("/").pop();
+  if (tep && /\.html$/.test(tep) && !/\/bai\//.test(location.pathname) && tep !== "index.html") {
+    var mo = TD.daMo(); if (mo.indexOf(tep) < 0) { mo.push(tep); ghi("mhai-da-mo", mo.slice(-200)); }
+  }
+
+  // Trang bài video (bai/NN-...): ở lại 20 giây hoặc đọc tới cuối thì tính là đã xem video đó.
+  var m = location.pathname.match(/\/bai\/(\d+)-[^/]*$/);
+  if (m) {
+    var so = +m[1], xong = false;
+    var tinh = function () { if (!xong) { xong = true; TD.xem(so); } };
+    setTimeout(tinh, 20000);
+    window.addEventListener("scroll", function () {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 300) tinh();
+    }, { passive: true });
+  }
+})();
