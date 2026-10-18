@@ -4,6 +4,20 @@
 # giong, ke-hoach) và dữ liệu riêng của kiểu đó. Chữ viết dạng {"vi": ..., "en": ...} ở bất cứ đâu, hàm ngu() chọn đúng ngôn ngữ.
 # Thêm trang cho đối tượng mới = thêm một file JSON (và file popup), không sửa code.
 
+# Hình xem trước trong thẻ "Chơi thử" ở bài video liên quan (data/tro-choi/ai-hoc-sinh.json, ai-van-phong.json)
+HINH_CHOI["th-hoc-sinh"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="display:grid;align-content:center;gap:8px">'
+    f'<span style="justify-self:center;padding:7px 12px;border-radius:12px;background:var(--panel);border:2px dashed var(--edge);font:600 13px/1.3 var(--f-body)">📸 {t("Chụp đề, chép lời giải", "Snap the quiz, copy answers")}</span>'
+    '<span style="display:grid;grid-template-columns:1fr 1fr;gap:6px;width:min(100%,320px);justify-self:center;font:700 12px/1.2 var(--f-body);text-align:center">'
+    f'<span style="padding:8px 4px;border-radius:12px;border:2px solid #10B981;background:color-mix(in srgb,#10B981 14%,var(--panel))">📚 {t("Học cùng AI", "Learn with AI")}</span>'
+    f'<span style="padding:8px 4px;border-radius:12px;border:2px solid #DC2626;background:color-mix(in srgb,#DC2626 12%,var(--panel))">🚫 {t("Làm hộ", "AI does it")}</span></span></span>')
+HINH_CHOI["th-van-phong"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="display:grid;place-items:center"><span style="display:grid;gap:5px;width:min(100%,300px);padding:10px 14px;border-radius:8px;background:#fff;color:#111;border:1px solid #CBD5E1;box-shadow:0 6px 16px rgb(15 23 42 / .12)">'
+    + "".join(f'<span style="display:flex;justify-content:space-between;gap:10px;padding-bottom:4px;border-bottom:1px dotted #CBD5E1;font:500 12px/1.4 var(--f-body)">'
+              f'<span style="color:#64748B">{n}</span><b style="padding:1px 6px;border-radius:5px;background:#0F172A;color:#fff;font:700 11px/1.3 var(--f-mono)">🔒 {v}</b></span>'
+              for n, v in [(t("Họ tên", "Name"), t("[HỌ TÊN]", "[NAME]")), (t("Số CCCD", "ID no."), t("[SỐ CCCD]", "[ID NO.]")), (t("Địa chỉ", "Address"), t("[ĐỊA CHỈ]", "[ADDRESS]"))])
+    + '</span></span>')
+
 
 def _th_ngu(x, L):
     if isinstance(x, dict):

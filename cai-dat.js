@@ -77,6 +77,18 @@
     d.querySelector(".nav-drop-ds").appendChild(a7);
     d.querySelector(".nav-drop-ds").insertAdjacentHTML("beforeend", '<a href="' + truoc + 'chung-nhan.html">' + (EN ? "Certificates" : "Chứng nhận") + "</a>");
   }
+  // Nhóm "Thực hành theo ngành" cuối menu Lộ trình (Sang 18/10/2026): ba trang thực hành y tế, học sinh, cán bộ công chức.
+  // Thêm bằng JS cho mọi trang, kể cả các trang viết sẵn menu (index, lo-trinh-nganh, chung-nhan, hoi-bit), để chỉ sửa một chỗ.
+  top.querySelectorAll(".nav-drop-ds").forEach(ds => {
+    const cn = ds.querySelector('a[href$="chung-nhan.html"]');
+    if (!cn || ds.querySelector(".nav-drop-nhom")) return;
+    const truoc = cn.getAttribute("href").replace(/chung-nhan\.html$/, "");
+    const tenTrang = location.pathname.split("/").pop();
+    ds.insertAdjacentHTML("beforeend", '<span class="nav-drop-nhom">' + (EN ? "Practice by field" : "Thực hành theo ngành") + "</span>" +
+      [["ai-y-te.html", "🏥", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", "🎒", EN ? "High school" : "Học sinh cấp 3"],
+       ["ai-van-phong.html", "🏛️", EN ? "Public servants" : "Cán bộ, công chức"]]
+        .map(x => '<a href="' + truoc + x[0] + '"' + (tenTrang === x[0] ? ' aria-current="page"' : "") + '><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a>").join(""));
+  });
   // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
   const dsDrop = top.querySelectorAll(".nav-drop");
   if (dsDrop.length) {

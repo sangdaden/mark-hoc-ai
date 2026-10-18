@@ -4,6 +4,15 @@
 #   che (603), lenh (604, 606, 608, 609), soat (605), de-hieu (607), quy-tac (610), ban-do (611-614), danh-gia (615).
 # Nội dung ở data/ai-y-te.json, cách chạy ở ai-y-te.js, giao diện ở assets/ai-y-te.css. Chạy hết trên trình duyệt.
 
+# Thẻ "Chơi thử" trong bài video 134, 177, 223: data/tro-choi/ai-y-te.json, hình xem trước là một dòng ghi chép đã che tên.
+
+HINH_CHOI["th-y-te"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="display:grid;align-content:center;gap:8px">'
+    '<span style="justify-self:center;padding:8px 12px;border-radius:12px;background:var(--panel);border:1.5px solid var(--edge);font:500 13px/1.7 var(--f-body)">'
+    + t("BN", "Pt") + ' <b style="padding:1px 6px;border-radius:5px;background:#0F172A;color:#fff;font:700 11px/1 var(--f-mono)">🔒 ' + t("[TÊN]", "[NAME]") + '</b>, '
+    + t("sốt 3 ngày, SĐT", "fever 3 days, tel") + ' <b style="padding:1px 6px;border-radius:5px;background:#0F172A;color:#fff;font:700 11px/1 var(--f-mono)">🔒 ' + t("[SĐT]", "[PHONE]") + '</b></span>'
+    f'<span style="justify-self:center;font:700 12px/1 var(--f-mono);color:var(--ink)">🏥 {t("7 công cụ", "7 tools")}</span></span>')
+
 
 @trang_rieng("ai-y-te.html", "0.7")
 def tao_ai_y_te():
