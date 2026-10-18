@@ -369,8 +369,9 @@ def footer(p, q=None):
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
             f'    <nav class="foot-hoc" aria-label="{t("Học và thực hành", "Learn and practice")}"><b>{t("Học", "Learn")}</b>'
-            f'<a href="{q}lo-trinh-7-ngay.html">{t("Lộ trình 7 ngày", "7-day path")}</a><a href="{q}lo-trinh-nganh.html">{t("Lộ trình theo nghề", "Path for your job")}</a>'
+            f'<a href="{q}lo-trinh-7-ngay.html">{t("Lộ trình 7 ngày", "7-day path")}</a><a href="{q}lo-trinh-4-tuan.html">{t("Lộ trình 4 tuần", "4-week path")}</a><a href="{q}lo-trinh-nganh.html">{t("Lộ trình theo nghề", "Path for your job")}</a>'
             f'<a href="{q}kiem-tra.html">{t("Kiểm tra", "Quizzes")}</a><a href="{q}chung-nhan.html">{t("Chứng nhận", "Certificates")}</a>'
+            f'<a href="{q}ho-so.html">{t("Hồ sơ học", "My profile")}</a>'
             f'<b>{t("Thực hành", "Practice")}</b><a href="{q}thuc-hanh.html">{t("Góc thực hành", "Practice corner")}</a>'
             f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a></nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
@@ -1111,7 +1112,9 @@ def tao_sach():
 # ---------- lộ trình 7 ngày (lo-trinh-7-ngay.html) ----------
 # Ô "Thử ngay" mỗi ngày: trò chơi gắn với 3 video của ngày (data/tro-choi) + một trạm hợp ngày đó ở mỗi trang thực hành
 # (trường "lo_trinh" của trạm trong data/thuc-hanh/*.json, data/ai-y-te.json "nang_cao" và "tram_lien_ket").
-_TH_NHOM = [("ai-hoc-sinh", "🎒", ("Học sinh", "Students")), ("ai-van-phong", "🏛️", ("Công chức", "Civil servants")), ("ai-y-te", "🏥", ("Y tế", "Healthcare"))]
+_TH_NHOM = [x for x in [("ai-hoc-sinh", "🎒", ("Học sinh", "Students")), ("ai-van-phong", "🏛️", ("Công chức", "Civil servants")), ("ai-y-te", "🏥", ("Y tế", "Healthcare")),
+                        ("ai-giao-vien", "🍎", ("Giáo viên", "Teachers")), ("ai-gia-dinh", "🏡", ("Gia đình", "Families")), ("ai-ban-hang", "🛍️", ("Bán hàng", "Sellers"))]
+            if x[0] == "ai-y-te" or (R / "data" / "thuc-hanh" / f"{x[0]}.json").exists()]
 _TRANG_TH = {f + ".html" for f, _, _ in _TH_NHOM}
 
 def _tram_theo_trang(ten):
@@ -1189,7 +1192,7 @@ def tao_lo_trinh():
     du_lieu = json.dumps({"url": url, "so_video": so_video, "so_ngay": len(ngay), "goc": p}, ensure_ascii=False).replace("</", "<\\/")
     main = f"""<main class="course">
 <section class="course-bar" aria-label="{t("Tiến độ", "Progress")}">
-<div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></div>
+<div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><span><a href="ho-so.html">{t("Hồ sơ học · Ôn hôm nay", "Profile · Today's review")} ›</a> · <a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></span></div>
 <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
 <p class="course-note">{t("Tiến độ lưu ngay trên trình duyệt này, không cần tài khoản. Học theo thứ tự nào cũng được, nhưng đi từ ngày 1 là dễ nhất.", "Your progress is saved in this browser, no account needed. Any order works, but day 1 first is easiest.")}</p>
 <noscript><p class="course-note">{t("Bật JavaScript để chấm câu hỏi, lưu tiến độ và tạo giấy chứng nhận. Các video vẫn xem được bình thường.", "Turn on JavaScript to check answers, save progress and make the certificate. The videos still work without it.")}</p></noscript>
@@ -1217,7 +1220,8 @@ def tao_lo_trinh():
 <canvas id="cn-canvas" width="1600" height="1131" hidden></canvas>
 </section>
 <aside class="next-steps">
-<a class="next-step" href="lo-trinh-nganh.html"><b>{t("Đi tiếp: lộ trình theo nghề", "Next: a path for your job")}</b><span>{t("Chọn nghề của bạn, nhận danh sách video và trạm thực hành theo thứ tự.", "Pick your job and get videos and practice stations in order.")}</span></a>
+<a class="next-step" href="lo-trinh-4-tuan.html"><b>{t("Đi tiếp: lộ trình 4 tuần", "Next: the 4-week path")}</b><span>{t("Tuần 2 thực hành theo nghề, tuần 3 nâng cao, tuần 4 ôn trộn và chứng nhận.", "Week 2 practice for your job, week 3 advanced, week 4 mixed review and a certificate.")}</span></a>
+<a class="next-step" href="lo-trinh-nganh.html"><b>{t("Lộ trình theo nghề", "Path for your job")}</b><span>{t("Chọn nghề của bạn, nhận danh sách video theo thứ tự.", "Pick your job and get its videos in order.")}</span></a>
 <a class="next-step" href="thuc-hanh.html"><b>{t("Góc thực hành", "Practice corner")}</b><span>{t("Mọi trò chơi và trạm thực hành ở một chỗ, có dấu ✓ cho phần đã làm.", "Every game and practice station in one place, with ✓ for what you have done.")}</span></a>
 <a class="next-step" href="sach.html"><b>{t("Sách miễn phí", "Free ebook")}</b><span>{t("Cả kênh gom thành một cuốn PDF, đọc lại lúc nào cũng được.", "The whole channel in one PDF (in Vietnamese).")}</span></a>
 </aside>
@@ -2410,6 +2414,8 @@ def chay():
     # sitemap.xml: tạo từ chính các file .html (scripts/tao_sitemap.py), không lưu trong git
     so_trang = tao_sitemap.ghi()
     tro_choi.ghi_tuong_tac(TUONG_TAC)
+    import tao_link_ngan
+    print("t/:", tao_link_ngan.ghi(), "link ngắn cho video (markhocai.com/t/<số>)")
     print("sitemap.xml:", so_trang, "trang (không lưu trong git, pages.yml tạo lại khi đăng)")
 
 if __name__ == "__main__":

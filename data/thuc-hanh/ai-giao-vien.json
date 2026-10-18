@@ -1,0 +1,1584 @@
+{
+ "trang": "ai-giao-vien",
+ "eyebrow": {
+  "vi": "Thực hành · 7 trạm cơ bản + 4 trạm nghề giáo nâng cao · chạy trên trình duyệt",
+  "en": "Hands-on · 7 core stations + 4 advanced teaching ones · runs in your browser"
+ },
+ "h1": {
+  "vi": "AI cho giáo viên",
+  "en": "AI for teachers"
+ },
+ "lead": {
+  "vi": "Soạn bài nhanh hơn, giữ an toàn cho học sinh. Mỗi trạm một tình huống thật ở trường.",
+  "en": "Plan faster and keep pupils safe. Each station is a real school situation."
+ },
+ "hinh": "mark-a-ra-the.svg",
+ "bn_cau": {
+  "vi": "Một học kỳ đứng lớp, từ giáo án tới tin nhắn phụ huynh",
+  "en": "One term of teaching, from lesson plans to parent messages"
+ },
+ "tieu": {
+  "vi": "AI cho giáo viên: 11 trạm thực hành",
+  "en": "AI for teachers: 11 hands-on stations"
+ },
+ "desc": {
+  "vi": "Mười một trạm miễn phí cho giáo viên phổ thông: ghép câu lệnh soạn giáo án, che thông tin học sinh, soát lỗi bài AI soạn, ra đề ba mức, viết nhận xét tích cực, xử lý bài nghi làm bằng AI, trả lời phụ huynh, soát AI chấm bài, chuỗi lệnh làm bài giảng, ví dụ mẫu cho phiếu bài tập và đặt luật cho gia sư AI của lớp.",
+  "en": "Eleven free stations for school teachers: building lesson-plan prompts, hiding pupil details, checking AI handouts, three-level quizzes, positive feedback, handling suspected AI homework, replying to parents, auditing AI marking, lesson prompt chains, worksheet examples and rules for a class AI tutor."
+ },
+ "ghi": {
+  "vi": "Mọi câu trả lời của AI trong trang đều viết sẵn để minh họa, không gọi AI thật. Tên học sinh, phụ huynh, số điện thoại đều hư cấu. Không có gì được gửi đi.",
+  "en": "All AI answers here are pre-written examples; no real AI is called. Pupil and parent names and phone numbers are fictional. Nothing is sent anywhere."
+ },
+ "nhom_nc": {
+  "bt": "🍎",
+  "ten": {
+   "vi": "Nghề giáo nâng cao",
+   "en": "Advanced teaching"
+  },
+  "mau": [
+   "#DC2626",
+   "#F59E0B"
+  ]
+ },
+ "tram": [
+  {
+   "id": "giao-an",
+   "loai": "ghep",
+   "ten": {
+    "vi": "Soạn giáo án",
+    "en": "Plan a lesson"
+   },
+   "nho": {
+    "vi": "Ghép mảnh",
+    "en": "Build it"
+   },
+   "h2": {
+    "vi": "Ghép câu lệnh soạn giáo án 45 phút",
+    "en": "Build a prompt for a 45-minute lesson plan"
+   },
+   "mo": {
+    "vi": "Chọn môn → chạm mảnh → Gửi cho AI. Né mảnh bẫy 🪤",
+    "en": "Pick a subject → tap pieces → Send to AI. Avoid traps 🪤"
+   },
+   "loai_manh": {
+    "vai_tro": {
+     "ten": {
+      "vi": "Vai trò",
+      "en": "Role"
+     },
+     "mau": "#8B5CF6"
+    },
+    "boi_canh": {
+     "ten": {
+      "vi": "Bối cảnh",
+      "en": "Context"
+     },
+     "mau": "#0EA5E9"
+    },
+    "viec": {
+     "ten": {
+      "vi": "Nhiệm vụ",
+      "en": "Task"
+     },
+     "mau": "#F59E0B"
+    },
+    "dinh_dang": {
+     "ten": {
+      "vi": "Định dạng",
+      "en": "Format"
+     },
+     "mau": "#10B981"
+    },
+    "gioi_han": {
+     "ten": {
+      "vi": "Giới hạn",
+      "en": "Limits"
+     },
+     "mau": "#6366F1"
+    }
+   },
+   "khay": [
+    "viec",
+    "bay:lo",
+    "vai_tro",
+    "dinh_dang",
+    "bay:chep",
+    "boi_canh",
+    "gioi_han",
+    "bay:mo-ho"
+   ],
+   "bay": [
+    {
+     "id": "lo",
+     "loai": "boi_canh",
+     "chu": {
+      "vi": "Lớp 7A có em Minh Anh hay nghỉ học vì nhà khó khăn…",
+      "en": "Class 7A, where Minh Anh often misses school because of money troubles…"
+     },
+     "bit": {
+      "vi": "Bẫy! Lộ tên và hoàn cảnh riêng của học sinh.",
+      "en": "Trap! A student's name and private situation."
+     },
+     "muc": "sai",
+     "canh_truoc": {
+      "vi": "⚠ Bạn vừa đưa hoàn cảnh riêng của một học sinh cho AI.",
+      "en": "⚠ You just gave the AI a student's private situation."
+     }
+    },
+    {
+     "id": "chep",
+     "loai": "viec",
+     "chu": {
+      "vi": "Soạn y hệt giáo án mẫu trên mạng.",
+      "en": "Copy a lesson plan from the internet word for word."
+     },
+     "bit": {
+      "vi": "Bẫy! Giáo án chép thì không hợp lớp của bạn.",
+      "en": "Trap! A copied plan won't fit your class."
+     },
+     "muc": "sai",
+     "canh_sau": {
+      "vi": "⚠ Hoạt động không hợp trình độ lớp.",
+      "en": "⚠ Activities don't fit your class's level."
+     }
+    },
+    {
+     "id": "mo-ho",
+     "loai": "viec",
+     "chu": {
+      "vi": "Làm cho thật sáng tạo nhé.",
+      "en": "Make it really creative."
+     },
+     "bit": {
+      "vi": "Mảnh này không thêm gì. Bỏ cũng được.",
+      "en": "This adds nothing. Drop it."
+     },
+     "muc": ""
+    }
+   ],
+   "viec": [
+    {
+     "ten": {
+      "vi": "Toán 7",
+      "en": "Maths, Year 7"
+     },
+     "bieu_tuong": "📐",
+     "goc": {
+      "vi": "Soạn giáo án Toán.",
+      "en": "Write a maths lesson plan."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là giáo viên Toán THCS nhiều kinh nghiệm.",
+       "en": "You're an experienced lower-secondary maths teacher."
+      },
+      "boi_canh": {
+       "vi": "Lớp 7, 38 em, nửa lớp còn yếu phân số.",
+       "en": "Year 7, 38 pupils, half still weak at fractions."
+      },
+      "viec": {
+       "vi": "Soạn tiết 45 phút: Tỉ lệ thức.",
+       "en": "Plan a 45-minute lesson on proportions."
+      },
+      "dinh_dang": {
+       "vi": "Bảng: thời gian · hoạt động · câu hỏi kiểm tra.",
+       "en": "Table: time · activity · check question."
+      },
+      "gioi_han": {
+       "vi": "Bám chương trình 2018, không dùng máy tính.",
+       "en": "Follow the national curriculum, no calculators."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Tiết học về tỉ lệ thức gồm: khởi động, bài mới, luyện tập, củng cố.",
+       "en": "The lesson on proportions has: warm-up, new content, practice, wrap-up."
+      },
+      "kha": {
+       "vi": "1. Khởi động 5'\n2. Định nghĩa tỉ lệ thức 15'\n3. Bài tập 20'\n4. Dặn dò 5'",
+       "en": "1. Warm-up 5'\n2. Define proportions 15'\n3. Exercises 20'\n4. Homework 5'"
+      },
+      "tot": {
+       "vi": "| Phút | Hoạt động | Câu hỏi kiểm tra |\n| 0–5 | Ôn phân số bằng nhau (cặp đôi) | 2/4 = ?/8 |\n| 5–20 | Tỉ lệ thức từ công thức pha nước chanh | 3:2 = 6:? |\n| 20–40 | Bài tập 2 mức: cơ bản / thử thách | Tự chấm theo đáp án |\n| 40–45 | Phiếu ra lớp 2 câu | Thu phiếu |",
+       "en": "| Min | Activity | Check question |\n| 0–5 | Equal fractions recap (pairs) | 2/4 = ?/8 |\n| 5–20 | Proportions from a lemonade recipe | 3:2 = 6:? |\n| 20–40 | Two-level practice: core / challenge | Self-mark with key |\n| 40–45 | Exit ticket, 2 questions | Collect slips |"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Ngữ văn 9",
+      "en": "Literature, Year 9"
+     },
+     "bieu_tuong": "✍️",
+     "goc": {
+      "vi": "Soạn bài Văn.",
+      "en": "Write a literature lesson."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là giáo viên Ngữ văn THCS.",
+       "en": "You're a lower-secondary literature teacher."
+      },
+      "boi_canh": {
+       "vi": "Lớp 9, ôn thi vào 10, học sinh ngại phát biểu.",
+       "en": "Year 9 exam prep; pupils are shy to speak up."
+      },
+      "viec": {
+       "vi": "Soạn tiết đọc hiểu một bài thơ trong sách giáo khoa.",
+       "en": "Plan a reading lesson on a poem from the textbook."
+      },
+      "dinh_dang": {
+       "vi": "3 hoạt động, mỗi hoạt động có câu hỏi gợi mở.",
+       "en": "3 activities, each with an open question."
+      },
+      "gioi_han": {
+       "vi": "Không bịa tiểu sử tác giả. Chỗ nào chưa chắc thì ghi [CẦN KIỂM].",
+       "en": "Don't invent the author's biography. Mark unsure facts [CHECK]."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Bài thơ thể hiện tình cảm sâu sắc của tác giả. Học sinh cần đọc kỹ và cảm nhận.",
+       "en": "The poem shows the author's deep feelings. Pupils should read closely."
+      },
+      "kha": {
+       "vi": "HĐ1: đọc diễn cảm\nHĐ2: tìm hình ảnh đẹp\nHĐ3: viết cảm nhận",
+       "en": "A1: read aloud\nA2: find striking images\nA3: write a response"
+      },
+      "tot": {
+       "vi": "**HĐ1 (10'):** Đọc theo nhóm 4. Hỏi: *Khổ nào làm em nhớ nhất? Vì sao?*\n**HĐ2 (20'):** Tô màu 3 hình ảnh. Hỏi: *Đổi một từ thì ý đổi ra sao?*\n**HĐ3 (15'):** Viết 3 câu cảm nhận, đọc cho bạn bên cạnh.\n[CẦN KIỂM] năm sáng tác.",
+       "en": "**A1 (10'):** Read in fours. Ask: *Which verse stays with you? Why?*\n**A2 (20'):** Highlight 3 images. Ask: *Change one word: what changes?*\n**A3 (15'):** Write 3 lines of response, read to a partner.\n[CHECK] year written."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Tiếng Anh 6",
+      "en": "English, Year 6"
+     },
+     "bieu_tuong": "🗣️",
+     "goc": {
+      "vi": "Soạn bài tiếng Anh.",
+      "en": "Write an English lesson."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là giáo viên tiếng Anh tiểu học và THCS.",
+       "en": "You're a primary and lower-secondary English teacher."
+      },
+      "boi_canh": {
+       "vi": "Lớp 6, trình độ A1, thích trò chơi.",
+       "en": "Year 6, A1 level, love games."
+      },
+      "viec": {
+       "vi": "Soạn tiết luyện nói chủ đề My house.",
+       "en": "Plan a speaking lesson on 'My house'."
+      },
+      "dinh_dang": {
+       "vi": "Có 1 trò chơi và 10 từ vựng kèm phiên âm.",
+       "en": "Include 1 game and 10 words with pronunciation."
+      },
+      "gioi_han": {
+       "vi": "Câu mẫu dưới 8 từ, không dùng thì quá khứ.",
+       "en": "Model sentences under 8 words, no past tense."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "My house is big. There are many rooms. I love my house.",
+       "en": "My house is big. There are many rooms. I love my house."
+      },
+      "kha": {
+       "vi": "Từ vựng: kitchen, bedroom, bathroom…\nHoạt động: miêu tả nhà mình.",
+       "en": "Words: kitchen, bedroom, bathroom…\nActivity: describe your home."
+      },
+      "tot": {
+       "vi": "**10 từ:** kitchen /ˈkɪtʃɪn/, bedroom /ˈbedruːm/…\n**Trò chơi (10'):** *Where's the cat?* Một em giấu mèo giấy, cả lớp hỏi: *Is it in the kitchen?*\n**Câu mẫu:** There is a sofa in my living room.",
+       "en": "**10 words:** kitchen /ˈkɪtʃɪn/, bedroom /ˈbedruːm/…\n**Game (10'):** *Where's the cat?* One pupil hides a paper cat; the class asks: *Is it in the kitchen?*\n**Model:** There is a sofa in my living room."
+      }
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Đủ 5 mảnh, không tên học sinh. AI soạn nháp, bạn chỉnh cho hợp lớp.",
+    "en": "All 5 pieces, no pupil names. AI drafts; you fit it to your class."
+   },
+   "video": [
+    "148",
+    "3"
+   ],
+   "lo_trinh": 2
+  },
+  {
+   "id": "che-hs",
+   "loai": "tim-loi",
+   "kieu": "giay",
+   "ten": {
+    "vi": "Che tên học sinh",
+    "en": "Hide pupil details"
+   },
+   "nho": {
+    "vi": "Tìm chỗ lộ",
+    "en": "Find the leaks"
+   },
+   "h2": {
+    "vi": "Định dán vào AI để viết báo cáo. Có 5 chỗ phải che 🔒",
+    "en": "About to paste this into AI for a report. 5 things to hide 🔒"
+   },
+   "mo": {
+    "vi": "Chạm vào chỗ lộ thông tin 🔒",
+    "en": "Tap anything identifying 🔒"
+   },
+   "dau": {
+    "vi": "📋 **Ghi chú chủ nhiệm, lớp 8B** (mẫu, tên hư cấu)",
+    "en": "📋 **Form tutor notes, class 8B** (sample, fictional names)"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "Tuần này lớp đi học đều, nề nếp tốt.",
+      "en": "Good attendance and behaviour this week."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Câu chung, không lộ ai 👍",
+      "en": "General, names no one 👍"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Em Trần Gia Bảo",
+      "en": "Trần Gia Bảo"
+     },
+     "loi": "ten",
+     "co": {
+      "vi": "Họ tên",
+      "en": "Full name"
+     },
+     "bit": {
+      "vi": "Che tên → “Học sinh A”.",
+      "en": "Name → “Pupil A”."
+     }
+    },
+    {
+     "chu": {
+      "vi": "bị hen suyễn, hay nghỉ tiết thể dục.",
+      "en": "has asthma and often skips PE."
+     },
+     "loi": "suc-khoe",
+     "co": {
+      "vi": "Sức khỏe",
+      "en": "Health"
+     },
+     "bit": {
+      "vi": "Thông tin sức khỏe là dữ liệu nhạy cảm.",
+      "en": "Health details are sensitive data."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Bố mẹ em đang ly hôn,",
+      "en": "His parents are divorcing,"
+     },
+     "loi": "gia-dinh",
+     "co": {
+      "vi": "Chuyện gia đình",
+      "en": "Family matters"
+     },
+     "bit": {
+      "vi": "Chuyện riêng của gia đình, không đưa vào AI.",
+      "en": "Private family matters stay out of AI."
+     }
+    },
+    {
+     "chu": {
+      "vi": "liên hệ mẹ qua số 0912 345 678.",
+      "en": "contact his mother on 0912 345 678."
+     },
+     "loi": "sdt",
+     "co": {
+      "vi": "Số điện thoại",
+      "en": "Phone number"
+     },
+     "bit": {
+      "vi": "Số điện thoại phụ huynh: xóa hẳn.",
+      "en": "A parent's phone number: delete it."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Điểm Toán giữa kỳ của lớp trung bình 6,8.",
+      "en": "The class's mid-term maths average is 6.8."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Số liệu cả lớp, không lộ ai 👍",
+      "en": "Whole-class figure, names no one 👍"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Em Lê Thu Hà, mã học sinh 0817234,",
+      "en": "Lê Thu Hà, pupil ID 0817234,"
+     },
+     "loi": "ma",
+     "co": {
+      "vi": "Tên + mã học sinh",
+      "en": "Name + pupil ID"
+     },
+     "bit": {
+      "vi": "Mã học sinh cũng định danh được em.",
+      "en": "A pupil ID identifies her too."
+     }
+    },
+    {
+     "chu": {
+      "vi": "tiến bộ rõ ở môn Văn.",
+      "en": "has clearly improved in literature."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Sau khi che tên thì câu này ổn 👍",
+      "en": "Fine once the name is hidden 👍"
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Tên, mã, số điện thoại, sức khỏe, gia đình: **che hết** trước khi dán. Báo cáo vẫn viết được.",
+    "en": "Names, IDs, phones, health, family: **hide them all** first. You can still write the report."
+   },
+   "video": [
+    "15",
+    "121"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "soat-bai",
+   "loai": "sua-loi",
+   "kieu": "giay",
+   "ten": {
+    "vi": "Soát bài AI soạn",
+    "en": "Check AI's handout"
+   },
+   "nho": {
+    "vi": "Sửa lỗi",
+    "en": "Fix it"
+   },
+   "h2": {
+    "vi": "Phiếu học tập AI soạn sai 3 chỗ ✏️",
+    "en": "3 mistakes in AI's handout ✏️"
+   },
+   "mo": {
+    "vi": "📚 Đối chiếu sách giáo khoa",
+    "en": "📚 Check against the textbook"
+   },
+   "dau": {
+    "vi": "📄 **Phiếu ôn tập Khoa học tự nhiên 8** (AI soạn)",
+    "en": "📄 **Science revision sheet, Year 8** (AI-written)"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "① Nước sôi ở 100°C ở áp suất thường.",
+      "en": "① Water boils at 100°C at normal pressure."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Đúng ✓",
+      "en": "Right ✓"
+     }
+    },
+    {
+     "chu": {
+      "vi": "② Ánh sáng truyền nhanh hơn âm thanh khoảng 10 lần.",
+      "en": "② Light travels about 10 times faster than sound."
+     },
+     "loi": "anh-sang",
+     "xuong_dong": true,
+     "bit": {
+      "vi": "Nhanh hơn gần một triệu lần.",
+      "en": "Nearly a million times faster."
+     },
+     "lua_chon": [
+      {
+       "vi": "② Ánh sáng truyền nhanh hơn âm thanh gần một triệu lần.",
+       "en": "② Light travels nearly a million times faster than sound."
+      },
+      {
+       "vi": "② Âm thanh nhanh hơn ánh sáng.",
+       "en": "② Sound is faster than light."
+      },
+      {
+       "vi": "② Hai thứ nhanh như nhau.",
+       "en": "② They travel at the same speed."
+      }
+     ],
+     "dung": 0,
+     "sai": {
+      "vi": "Thử nghĩ: sấm hay chớp đến trước? ⚡",
+      "en": "Think: thunder or lightning first? ⚡"
+     }
+    },
+    {
+     "chu": {
+      "vi": "③ Công thức nước là H₂O₂.",
+      "en": "③ The formula for water is H₂O₂."
+     },
+     "loi": "cong-thuc",
+     "xuong_dong": true,
+     "bit": {
+      "vi": "H₂O₂ là oxy già. Nước là H₂O.",
+      "en": "H₂O₂ is hydrogen peroxide. Water is H₂O."
+     },
+     "lua_chon": [
+      {
+       "vi": "③ Công thức nước là H₂O.",
+       "en": "③ The formula for water is H₂O."
+      },
+      {
+       "vi": "③ Công thức nước là HO₂.",
+       "en": "③ The formula for water is HO₂."
+      },
+      {
+       "vi": "③ Công thức nước là H₃O.",
+       "en": "③ The formula for water is H₃O."
+      }
+     ],
+     "dung": 0
+    },
+    {
+     "chu": {
+      "vi": "④ Lực đo bằng đơn vị Niutơn (N).",
+      "en": "④ Force is measured in newtons (N)."
+     },
+     "loi": null,
+     "xuong_dong": true,
+     "bit": {
+      "vi": "Đúng ✓",
+      "en": "Right ✓"
+     }
+    },
+    {
+     "chu": {
+      "vi": "⑤ Theo Bộ GD&ĐT (2024), học sinh nhớ 90% bài nếu nghe giảng.",
+      "en": "⑤ Per the Ministry (2024), pupils remember 90% of what they hear in lectures."
+     },
+     "loi": "bia",
+     "xuong_dong": true,
+     "bit": {
+      "vi": "Số liệu bịa, gán cho cơ quan có thật.",
+      "en": "Invented figure, pinned on a real body."
+     },
+     "lua_chon": [
+      {
+       "vi": "⑤ (Bỏ câu này: không có nguồn.)",
+       "en": "⑤ (Remove this line: no source.)"
+      },
+      {
+       "vi": "⑤ Theo Bộ GD&ĐT, học sinh nhớ 100%.",
+       "en": "⑤ Per the Ministry, pupils remember 100%."
+      },
+      {
+       "vi": "⑤ Theo Bộ GD&ĐT (2025), nhớ 90%.",
+       "en": "⑤ Per the Ministry (2025), 90%."
+      }
+     ],
+     "dung": 0
+    }
+   ],
+   "bai_hoc": {
+    "vi": "AI viết trôi chảy cả khi sai. **Đọc lại từng dòng** trước khi phát cho học sinh.",
+    "en": "AI writes smoothly even when wrong. **Reread every line** before handing it out."
+   },
+   "video": [
+    "8",
+    "225"
+   ],
+   "lo_trinh": 3
+  },
+  {
+   "id": "de-3-muc",
+   "loai": "chon-ban",
+   "ten": {
+    "vi": "Đề 3 mức",
+    "en": "3-level quiz"
+   },
+   "nho": {
+    "vi": "Chọn bản đúng",
+    "en": "Pick one"
+   },
+   "h2": {
+    "vi": "AI ra 3 bộ đề. Bộ nào đúng yêu cầu?",
+    "en": "AI made 3 quizzes. Which fits the brief?"
+   },
+   "nhan_goc": {
+    "vi": "Yêu cầu bạn gửi AI",
+    "en": "Your brief to the AI"
+   },
+   "goc": {
+    "vi": "Ra **3 câu** về *diện tích hình chữ nhật*, lớp 4, **3 mức**: nhận biết, vận dụng, vận dụng cao. **Kèm đáp án**. Số đo dưới 100.",
+    "en": "Write **3 questions** on *rectangle area*, Year 4, **3 levels**: recall, apply, stretch. **Include answers**. Measurements under 100."
+   },
+   "hoi": {
+    "vi": "Bộ đề nào đúng yêu cầu?",
+    "en": "Which quiz fits the brief?"
+   },
+   "ban": [
+    {
+     "chu": {
+      "vi": "1. Diện tích HCN tính thế nào?\n2. HCN dài 8 cm, rộng 5 cm. Diện tích?\n3. HCN dài 8 cm, rộng 5 cm. Diện tích?",
+      "en": "1. How do you find a rectangle's area?\n2. 8 cm by 5 cm. Area?\n3. 8 cm by 5 cm. Area?"
+     },
+     "dung": false,
+     "giai": {
+      "vi": "Câu 2 và 3 trùng nhau, không có mức cao, không có đáp án.",
+      "en": "Q2 and Q3 are the same, no stretch level, no answers."
+     }
+    },
+    {
+     "chu": {
+      "vi": "1. Diện tích HCN = dài × rộng. Đúng hay sai? (Đúng)\n2. Sân dài 12 m, rộng 7 m. Diện tích? (84 m²)\n3. Ghép 2 HCN 6×4 cm thành một hình. Diện tích lớn nhất có thể? (48 cm²)",
+      "en": "1. Area = length × width. True or false? (True)\n2. A yard 12 m by 7 m. Area? (84 m²)\n3. Join two 6×4 cm rectangles. Largest possible area? (48 cm²)"
+     },
+     "dung": true,
+     "giai": {
+      "vi": "Đủ 3 mức, có đáp án, số đo dưới 100.",
+      "en": "Three levels, answers, numbers under 100."
+     }
+    },
+    {
+     "chu": {
+      "vi": "1. Diện tích HCN = dài × rộng. (Đúng)\n2. Nền nhà 250 m × 180 m. Diện tích? (45.000 m²)\n3. Tính diện tích hình tròn bán kính 7. (153,86)",
+      "en": "1. Area = length × width. (True)\n2. A floor 250 m by 180 m. Area? (45,000 m²)\n3. Find the area of a circle, radius 7. (153.86)"
+     },
+     "dung": false,
+     "giai": {
+      "vi": "Số quá 100, câu 3 lạc sang hình tròn (chưa học ở lớp 4).",
+      "en": "Numbers over 100; Q3 drifts to circles (not taught in Year 4)."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Đối chiếu đề với **từng ý trong yêu cầu**: số câu, mức, đáp án, giới hạn.",
+    "en": "Check the quiz against **every point of the brief**: count, levels, answers, limits."
+   },
+   "video": [
+    "149"
+   ],
+   "lo_trinh": 4
+  },
+  {
+   "id": "nhan-xet",
+   "loai": "giong",
+   "ten": {
+    "vi": "Nhận xét tích cực",
+    "en": "Positive feedback"
+   },
+   "nho": {
+    "vi": "Đổi giọng",
+    "en": "Switch tone"
+   },
+   "h2": {
+    "vi": "Cùng một ý, viết nhận xét thế nào?",
+    "en": "Same point, how should the feedback read?"
+   },
+   "nhan_goc": {
+    "vi": "Bản nháp cộc lốc",
+    "en": "Curt draft"
+   },
+   "goc": {
+    "vi": "Bài làm cẩu thả, sai nhiều, cần cố gắng.",
+    "en": "Sloppy work, lots of mistakes, try harder."
+   },
+   "giong": [
+    {
+     "ten": {
+      "vi": "Phê vào vở",
+      "en": "Written on the work"
+     },
+     "bieu_tuong": "📒",
+     "kieu": "giay",
+     "chu": {
+      "vi": "Em trình bày đủ các bước ở câu 1 và 2, rất tốt! Câu 3 và 4 em nhầm dấu khi chuyển vế. Em xem lại ví dụ trang 34 rồi làm lại câu 3 nhé.",
+      "en": "You showed every step in Q1 and Q2, great! In Q3 and Q4 you flipped a sign when moving terms. Look at the example on page 34 and redo Q3."
+     },
+     "bit": {
+      "vi": "Khen điều cụ thể → chỉ một lỗi → một việc làm tiếp.",
+      "en": "Specific praise → one error → one next step."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Nói với học sinh",
+      "en": "Said to the pupil"
+     },
+     "bieu_tuong": "🤝",
+     "kieu": "noi",
+     "chu": {
+      "vi": "Cô thấy em làm câu 1 chắc tay lắm. Câu 3 mình cùng xem lại chỗ đổi dấu nhé, em thử nói cô nghe bước này em làm sao?",
+      "en": "Your Q1 was really solid. Let's look at the sign change in Q3 together. Can you talk me through this step?"
+     },
+     "bit": {
+      "vi": "Hỏi để em tự nhận ra lỗi.",
+      "en": "Ask so the pupil spots the error."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Tin nhắn phụ huynh",
+      "en": "Message to parents"
+     },
+     "bieu_tuong": "📱",
+     "kieu": "sms",
+     "chu": {
+      "vi": "[Lớp 8B] Chào anh/chị, bài kiểm tra Toán của con làm tốt phần đầu, còn nhầm dấu khi chuyển vế. Anh/chị nhắc con làm lại bài 3 trang 34 giúp cô ạ.",
+      "en": "[Class 8B] Hello, your child did well on the first part of the maths test but mixed up signs when moving terms. Please remind them to redo exercise 3, page 34."
+     },
+     "bit": {
+      "vi": "Ngắn, có điểm tốt, có một việc phụ huynh giúp được.",
+      "en": "Short, one strength, one thing parents can do."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Quá gay gắt",
+      "en": "Too harsh"
+     },
+     "bieu_tuong": "😠",
+     "kieu": "giay",
+     "muc": "sai",
+     "chu": {
+      "vi": "Bài kém, lười, sai cả những câu dễ nhất. Cứ thế này thì không lên lớp được.",
+      "en": "Poor, lazy work, wrong even on the easiest questions. Keep this up and you'll fail the year."
+     },
+     "bit": {
+      "vi": "AI viết được, nhưng làm em mất động lực và không chỉ cách sửa.",
+      "en": "AI can write it, but it crushes motivation and shows no fix."
+     }
+    }
+   ],
+   "video": [
+    "150"
+   ],
+   "lo_trinh": 4
+  },
+  {
+   "id": "nghi-ai",
+   "loai": "chat",
+   "ten": {
+    "vi": "Nghi bài làm bằng AI",
+    "en": "Suspect AI homework"
+   },
+   "nho": {
+    "vi": "Trò chuyện",
+    "en": "Chat"
+   },
+   "h2": {
+    "vi": "Bài văn hay bất ngờ. Bạn xử lý thế nào?",
+    "en": "A suddenly brilliant essay. What do you do?"
+   },
+   "ten_ai": {
+    "vi": "Học sinh Khoa (hư cấu)",
+    "en": "Pupil Khoa (fictional)"
+   },
+   "anh_ai": "🧑‍🎓",
+   "ten_ban": {
+    "vi": "Bạn (giáo viên)",
+    "en": "You (teacher)"
+   },
+   "anh_ban": "🧑‍🏫",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Thầy/cô gọi em ạ?",
+      "en": "You wanted to see me?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Phần mềm báo bài em 98% do AI viết. Em nhận đi.",
+        "en": "The detector says your essay is 98% AI. Admit it."
+       },
+       "toi": "buoc-toi"
+      },
+      {
+       "chu": {
+        "vi": "Bài em có ý hay. Em kể cô nghe em nghĩ ra ý thứ hai thế nào?",
+        "en": "Your essay has great ideas. How did you come up with the second point?"
+       },
+       "toi": "hoi-y"
+      }
+     ]
+    },
+    {
+     "id": "buoc-toi",
+     "ai": {
+      "vi": "Em tự viết mà… Phần mềm đó sai thì sao ạ? 😢",
+      "en": "I wrote it myself… What if the detector's wrong? 😢"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Máy không sai được. Em bị 0 điểm.",
+        "en": "Machines don't lie. You get a zero."
+       },
+       "toi": "ket-oan"
+      },
+      {
+       "chu": {
+        "vi": "Ừ, máy có thể nhầm. Em kể cô nghe ý thứ hai nhé.",
+        "en": "True, it can be wrong. Tell me about your second point."
+       },
+       "toi": "hoi-y"
+      }
+     ]
+    },
+    {
+     "id": "ket-oan",
+     "ket": {
+      "vi": "Công cụ phát hiện AI **hay báo nhầm**, nhất là với bài viết gọn gàng. Phạt chỉ dựa vào nó có thể oan cho em.",
+      "en": "AI detectors **often get it wrong**, especially on tidy writing. Punishing on that alone can wrong an innocent pupil."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "hoi-y",
+     "ai": {
+      "vi": "Dạ… em đọc trên mạng… à không, em nghĩ là… ừm…",
+      "en": "Erm… I read online… no wait, I thought… um…"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Không sao. Em viết lại đoạn đó ngay tại lớp, 10 phút nhé.",
+        "en": "No problem. Rewrite that paragraph here in class, 10 minutes."
+       },
+       "toi": "viet-lai"
+      },
+      {
+       "chu": {
+        "vi": "Rõ là em gian lận rồi.",
+        "en": "Clearly you cheated."
+       },
+       "toi": "ket-voi"
+      }
+     ]
+    },
+    {
+     "id": "ket-voi",
+     "ket": {
+      "vi": "Ấp úng chưa chắc là gian lận. Cho em **cơ hội chứng minh** bằng cách khác.",
+      "en": "Hesitating isn't proof. Give the pupil **another way to show** what they know."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "viet-lai",
+     "ai": {
+      "vi": "Dạ… em thú thật em nhờ AI viết đoạn đó. Em xin lỗi ạ.",
+      "en": "Okay… honestly, I asked AI to write that bit. I'm sorry."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Cảm ơn em nói thật. Lần sau dùng AI để góp ý dàn ý thôi, bài phải là của em.",
+        "en": "Thanks for being honest. Next time use AI to comment on your outline; the writing must be yours."
+       },
+       "toi": "ket-dung"
+      }
+     ]
+    },
+    {
+     "id": "ket-dung",
+     "ai": {
+      "vi": "Dạ, em hiểu rồi ạ. Em sẽ viết lại cả bài.",
+      "en": "I get it. I'll rewrite the whole essay."
+     },
+     "ket": {
+      "vi": "**Hỏi miệng, viết lại tại lớp** đáng tin hơn phần mềm. Em vừa nhận lỗi vừa biết cách dùng AI đúng.",
+      "en": "**Talking it through and rewriting in class** beats any detector. The pupil owns up and learns the right use of AI."
+     },
+     "muc": "dung"
+    }
+   ],
+   "video": [
+    "152",
+    "140"
+   ],
+   "lo_trinh": 7
+  },
+  {
+   "id": "phu-huynh",
+   "loai": "bo-phieu",
+   "ten": {
+    "vi": "Tin nhắn phụ huynh",
+    "en": "Parent messages"
+   },
+   "nho": {
+    "vi": "Bỏ phiếu",
+    "en": "Vote"
+   },
+   "h2": {
+    "vi": "Phụ huynh nhắn. Có nhờ AI soạn trả lời không?",
+    "en": "A parent messages. Use AI to draft the reply?"
+   },
+   "lua_chon": [
+    {
+     "id": "ai",
+     "ten": {
+      "vi": "Nhờ AI nháp",
+      "en": "AI drafts"
+     },
+     "bieu_tuong": "🤖"
+    },
+    {
+     "id": "che",
+     "ten": {
+      "vi": "Che rồi mới nhờ",
+      "en": "Hide, then AI"
+     },
+     "bieu_tuong": "🔒"
+    },
+    {
+     "id": "tu",
+     "ten": {
+      "vi": "Tự trả lời",
+      "en": "Reply myself"
+     },
+     "bieu_tuong": "🙋"
+    }
+   ],
+   "cau": [
+    {
+     "bt": "📅",
+     "chu": {
+      "vi": "“Cô ơi, thứ Bảy này lớp có học bù không ạ?”",
+      "en": "“Is there a make-up class this Saturday?”"
+     },
+     "dap": "ai",
+     "giai": {
+      "vi": "Câu hỏi chung, không có thông tin riêng. AI nháp nhanh được.",
+      "en": "General question, nothing private. AI can draft it fast."
+     }
+    },
+    {
+     "bt": "🏥",
+     "chu": {
+      "vi": "“Cháu Bình bị động kinh, nhờ cô để ý giờ thể dục.”",
+      "en": "“Bình has epilepsy; please watch him in PE.”"
+     },
+     "dap": "tu",
+     "giai": {
+      "vi": "Sức khỏe của trẻ: tự trả lời, không đưa vào AI.",
+      "en": "A child's health: reply yourself, keep it out of AI."
+     }
+    },
+    {
+     "bt": "📊",
+     "chu": {
+      "vi": "“Sao điểm Toán của con em tụt từ 8 xuống 5 vậy cô?”",
+      "en": "“Why did my child's maths mark drop from 8 to 5?”"
+     },
+     "dap": "che",
+     "giai": {
+      "vi": "Bỏ tên con, chỉ giữ điểm số, rồi nhờ AI gợi ý cách giải thích.",
+      "en": "Drop the name, keep the marks, then ask AI how to explain."
+     }
+    },
+    {
+     "bt": "😡",
+     "chu": {
+      "vi": "“Cô phạt con tôi trước lớp là sai, tôi sẽ lên trường!”",
+      "en": "“You punished my child in front of the class. I'm coming to school!”"
+     },
+     "dap": "tu",
+     "giai": {
+      "vi": "Chuyện căng: **tự gọi điện hoặc hẹn gặp**. Tin nhắn AI dễ nghe như văn mẫu.",
+      "en": "Tense: **call or meet in person**. An AI text can sound canned."
+     }
+    },
+    {
+     "bt": "📝",
+     "chu": {
+      "vi": "“Cô gửi giúp danh sách đồ dùng học kỳ 2 ạ.”",
+      "en": "“Could you send the term 2 supplies list?”"
+     },
+     "dap": "ai",
+     "giai": {
+      "vi": "Việc chung cả lớp: AI soạn danh sách gọn, bạn soát lại.",
+      "en": "Whole-class admin: AI tidies the list, you check it."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Việc chung → AI nháp. Có điểm, tên → che trước. Sức khỏe, mâu thuẫn → **tự trả lời**.",
+    "en": "Routine → AI drafts. Marks or names → hide first. Health or conflict → **reply yourself**."
+   },
+   "video": [
+    "15",
+    "150"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "rubric",
+   "loai": "cham-tieu-chi",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Soát AI chấm bài",
+    "en": "Audit AI marking"
+   },
+   "nho": {
+    "vi": "Rubric",
+    "en": "Rubric"
+   },
+   "h2": {
+    "vi": "AI chấm 3 đoạn văn. Bạn chấm lại theo rubric 📋",
+    "en": "AI marked 3 paragraphs. Re-mark them with the rubric 📋"
+   },
+   "mo": {
+    "vi": "Chạm ô: ✓ đạt, ✗ chưa. Lệch với AI thì xem vì sao.",
+    "en": "Tap: ✓ meets, ✗ not yet. See why when you differ."
+   },
+   "viec": {
+    "vi": "📝 **Đề lớp 9:** Viết đoạn văn (5–7 câu) nêu ý kiến về việc dùng điện thoại trong giờ ra chơi.",
+    "en": "📝 **Year 9 task:** Write a paragraph (5–7 sentences) giving your view on phones at break time."
+   },
+   "tieu_chi": [
+    {
+     "id": "y-kien",
+     "bt": "🎯",
+     "chu": {
+      "vi": "Có ý kiến rõ",
+      "en": "Clear opinion"
+     }
+    },
+    {
+     "id": "ly-do",
+     "bt": "🧱",
+     "chu": {
+      "vi": "Có 2 lý do",
+      "en": "Two reasons"
+     }
+    },
+    {
+     "id": "dan-chung",
+     "bt": "🔎",
+     "chu": {
+      "vi": "Dẫn chứng thật",
+      "en": "Real example"
+     }
+    },
+    {
+     "id": "do-dai",
+     "bt": "📏",
+     "chu": {
+      "vi": "Đúng 5–7 câu",
+      "en": "5–7 sentences"
+     }
+    }
+   ],
+   "ban": [
+    {
+     "ten": {
+      "vi": "Bài của An",
+      "en": "An's"
+     },
+     "chu": {
+      "vi": "Em nghĩ nên hạn chế điện thoại giờ ra chơi. Thứ nhất, các bạn ít nói chuyện với nhau. Thứ hai, nhiều bạn chơi game quên cả vào lớp. Lớp em từng có ba bạn vào muộn vì mải chơi. Vì vậy trường nên có giỏ giữ điện thoại.",
+      "en": "I think phones should be limited at break. First, friends stop talking to each other. Second, many play games and are late for class. Three classmates were once late because of a game. So the school should keep phones in a basket."
+     },
+     "dat": {
+      "y-kien": true,
+      "ly-do": true,
+      "dan-chung": true,
+      "do-dai": true
+     },
+     "giai": {
+      "y-kien": {
+       "vi": "Câu đầu nêu rõ.",
+       "en": "First line states it."
+      },
+      "ly-do": {
+       "vi": "Thứ nhất, thứ hai.",
+       "en": "First, second."
+      },
+      "dan-chung": {
+       "vi": "Chuyện thật của lớp.",
+       "en": "A real class story."
+      },
+      "do-dai": {
+       "vi": "5 câu.",
+       "en": "5 sentences."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Bài của Bình",
+      "en": "Bình's"
+     },
+     "chu": {
+      "vi": "Điện thoại rất có hại. Theo Tổ chức Y tế Thế giới, 87% học sinh dùng điện thoại giờ ra chơi bị cận nặng. Vì vậy cấm hẳn.",
+      "en": "Phones are very harmful. The World Health Organization says 87% of pupils who use phones at break become badly short-sighted. So ban them."
+     },
+     "dat": {
+      "y-kien": true,
+      "ly-do": false,
+      "dan-chung": false,
+      "do-dai": false
+     },
+     "giai": {
+      "y-kien": {
+       "vi": "Có: cấm hẳn.",
+       "en": "Yes: ban them."
+      },
+      "ly-do": {
+       "vi": "Chỉ một lý do.",
+       "en": "Only one reason."
+      },
+      "dan-chung": {
+       "vi": "Số 87% là bịa, AI vẫn cho đạt.",
+       "en": "The 87% is made up; AI still passed it."
+      },
+      "do-dai": {
+       "vi": "Chỉ 3 câu.",
+       "en": "Only 3 sentences."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Bài của Chi",
+      "en": "Chi's"
+     },
+     "chu": {
+      "vi": "Điện thoại có mặt tốt và mặt xấu. Có bạn dùng để tra từ, có bạn chơi game. Có bạn nghe nhạc thư giãn. Mỗi người một ý. Nên tùy từng bạn.",
+      "en": "Phones have good and bad sides. Some look up words, some play games. Some listen to music to relax. Everyone has a view. It depends on the person."
+     },
+     "dat": {
+      "y-kien": false,
+      "ly-do": true,
+      "dan-chung": true,
+      "do-dai": true
+     },
+     "giai": {
+      "y-kien": {
+       "vi": "Không chọn phía nào.",
+       "en": "Never takes a side."
+      },
+      "ly-do": {
+       "vi": "Có nêu cái lợi, cái hại.",
+       "en": "Gives pros and cons."
+      },
+      "dan-chung": {
+       "vi": "Ví dụ đời thường.",
+       "en": "Everyday examples."
+      },
+      "do-dai": {
+       "vi": "5 câu.",
+       "en": "5 sentences."
+      }
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "AI chấm nhanh nhưng **không kiểm dẫn chứng**. Giáo viên soát lại ô dẫn chứng.",
+    "en": "AI marks fast but **doesn't check evidence**. Re-check that column yourself."
+   },
+   "video": [
+    "106",
+    "150"
+   ],
+   "lo_trinh": 4
+  },
+  {
+   "id": "chuoi-bai-giang",
+   "loai": "xep-buoc",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Chuỗi lệnh bài giảng",
+    "en": "Lesson prompt chain"
+   },
+   "nho": {
+    "vi": "Xếp bước",
+    "en": "Order it"
+   },
+   "h2": {
+    "vi": "Từ chủ đề tới bài giảng: xếp 5 bước",
+    "en": "From topic to slides: order 5 steps"
+   },
+   "mo": {
+    "vi": "🧩 Mỗi bước một câu lệnh ngắn",
+    "en": "🧩 One short prompt per step"
+   },
+   "dau": {
+    "vi": "🌋 Chủ đề: **Núi lửa** (Địa lý 6) → 📽️ bài giảng 10 trang chiếu",
+    "en": "🌋 Topic: **Volcanoes** (Geography, Year 6) → 📽️ 10-slide lesson"
+   },
+   "buoc": [
+    {
+     "bt": "🎯",
+     "chu": {
+      "vi": "Chốt mục tiêu bài học",
+      "en": "Set learning goals"
+     },
+     "lenh": {
+      "vi": "Viết 3 mục tiêu đo được cho bài Núi lửa, lớp 6.",
+      "en": "Write 3 measurable goals for a Year 6 volcano lesson."
+     },
+     "goi_y": {
+      "vi": "Biết đích trước rồi mới đi.",
+      "en": "Know the goal first."
+     }
+    },
+    {
+     "bt": "🗂️",
+     "chu": {
+      "vi": "Lập dàn ý",
+      "en": "Outline"
+     },
+     "lenh": {
+      "vi": "Dàn ý 10 trang chiếu bám 3 mục tiêu trên.",
+      "en": "A 10-slide outline matching those 3 goals."
+     },
+     "goi_y": {
+      "vi": "Dàn ý theo mục tiêu.",
+      "en": "Outline follows goals."
+     }
+    },
+    {
+     "bt": "🖼️",
+     "chu": {
+      "vi": "Viết nội dung từng trang",
+      "en": "Write each slide"
+     },
+     "lenh": {
+      "vi": "Viết trang 1–3, mỗi trang tối đa 25 chữ.",
+      "en": "Write slides 1–3, max 25 words each."
+     },
+     "goi_y": {
+      "vi": "Viết sau khi có dàn ý.",
+      "en": "After the outline."
+     }
+    },
+    {
+     "bt": "❓",
+     "chu": {
+      "vi": "Câu hỏi kiểm tra cuối bài",
+      "en": "Exit questions"
+     },
+     "lenh": {
+      "vi": "3 câu hỏi kiểm tra, mỗi câu ứng một mục tiêu.",
+      "en": "3 exit questions, one per goal."
+     },
+     "goi_y": {
+      "vi": "Kiểm tra đúng mục tiêu đã đặt.",
+      "en": "Check the goals you set."
+     }
+    },
+    {
+     "bt": "🧑‍🏫",
+     "chu": {
+      "vi": "Giáo viên đọc, sửa, duyệt",
+      "en": "Teacher reviews"
+     },
+     "goi_y": {
+      "vi": "Duyệt luôn ở cuối.",
+      "en": "Review comes last."
+     }
+    }
+   ],
+   "bay": [
+    {
+     "bt": "⚡",
+     "chu": {
+      "vi": "Một lệnh: “làm hết bài giảng núi lửa”",
+      "en": "One prompt: “make the whole volcano lesson”"
+     },
+     "bit": {
+      "vi": "Một lệnh dài → bài chung chung, khó sửa.",
+      "en": "One giant prompt → generic, hard to fix."
+     }
+    },
+    {
+     "bt": "📽️",
+     "chu": {
+      "vi": "Chiếu luôn, không đọc lại",
+      "en": "Present it unread"
+     },
+     "bit": {
+      "vi": "AI có thể sai số liệu núi lửa.",
+      "en": "AI may get volcano facts wrong."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Mục tiêu → dàn ý → nội dung → kiểm tra → **bạn duyệt**.",
+    "en": "Goals → outline → content → check → **you review**."
+   },
+   "video": [
+    "105",
+    "94"
+   ],
+   "lo_trinh": 4
+  },
+  {
+   "id": "phieu-mau",
+   "loai": "vi-du",
+   "cap": "nang-cao",
+   "can": 2,
+   "ten": {
+    "vi": "Mẫu phiếu bài tập",
+    "en": "Worksheet examples"
+   },
+   "nho": {
+    "vi": "Few-shot",
+    "en": "Few-shot"
+   },
+   "h2": {
+    "vi": "Chọn 2 câu mẫu để AI ra thêm 10 câu",
+    "en": "Pick 2 sample items so AI writes 10 more"
+   },
+   "mo": {
+    "vi": "📚 AI bắt chước cả lỗi trong mẫu 🔍",
+    "en": "📚 AI copies flaws in the samples too 🔍"
+   },
+   "lenh": {
+    "vi": "Ra thêm 10 câu giống kiểu ví dụ, Tiếng Việt lớp 3, chủ đề từ chỉ sự vật.",
+    "en": "Write 10 more items like the examples: Year 3 Vietnamese, nouns for things."
+   },
+   "mau": [
+    {
+     "chu": {
+      "vi": "🐱 Gạch chân từ chỉ sự vật: *Con mèo nằm trên ghế.* → mèo, ghế",
+      "en": "🐱 Underline the nouns: *The cat lies on the chair.* → cat, chair"
+     },
+     "loi": null
+    },
+    {
+     "chu": {
+      "vi": "🌳 Gạch chân từ chỉ sự vật: *Cây bàng trước sân trường.* → cây bàng, sân trường",
+      "en": "🌳 Underline the nouns: *The almond tree by the schoolyard.* → almond tree, schoolyard"
+     },
+     "loi": null
+    },
+    {
+     "chu": {
+      "vi": "🏃 Gạch chân từ chỉ sự vật: *Em chạy rất nhanh.* → chạy",
+      "en": "🏃 Underline the nouns: *I run very fast.* → run"
+     },
+     "loi": "sai-dap-an",
+     "bit": {
+      "vi": "Đáp án sai: “chạy” là từ chỉ hoạt động.",
+      "en": "Wrong key: “run” is a verb."
+     }
+    },
+    {
+     "chu": {
+      "vi": "📚 Phân tích cấu trúc ngữ pháp và chức năng của mọi danh từ trong câu ghép đẳng lập.",
+      "en": "📚 Analyse the grammar and role of every noun in a compound sentence."
+     },
+     "loi": "qua-kho",
+     "bit": {
+      "vi": "Quá sức lớp 3 → AI ra cả phiếu quá khó.",
+      "en": "Too hard for Year 3 → the whole sheet gets too hard."
+     }
+    }
+   ],
+   "tra_loi": {
+    "khong": {
+     "vi": "1. Danh từ là gì? 2. Hãy kể tên 5 danh từ. 3. Viết đoạn văn có danh từ…",
+     "en": "1. What is a noun? 2. Name 5 nouns. 3. Write a paragraph with nouns…"
+    },
+    "tot": {
+     "vi": "1. 🐶 *Chú chó nằm dưới gầm bàn.* → chó, gầm bàn\n2. 🌸 *Bông hoa nở trong vườn.* → bông hoa, vườn\n…10 câu cùng kiểu.",
+     "en": "1. 🐶 *The dog lies under the table.* → dog, table\n2. 🌸 *The flower blooms in the garden.* → flower, garden\n…10 items, same style."
+    },
+    "sai-dap-an": {
+     "vi": "1. *Bé hát rất hay.* → hát\n2. *Mẹ nấu cơm.* → nấu\n(AI chép luôn kiểu đáp án sai.)",
+     "en": "1. *The baby sings well.* → sings\n2. *Mum cooks rice.* → cooks\n(AI copied the wrong-key pattern.)"
+    },
+    "qua-kho": {
+     "vi": "1. Phân tích chủ ngữ, vị ngữ và danh từ trung tâm của câu…\n(Phiếu vượt sức lớp 3.)",
+     "en": "1. Identify subject, predicate and head noun of…\n(Far beyond Year 3.)"
+    }
+   },
+   "bai_hoc": {
+    "vi": "2 mẫu **đúng đáp án, đúng trình độ** → AI ra phiếu chuẩn.",
+    "en": "2 samples with **correct keys at the right level** → a sound worksheet."
+   },
+   "video": [
+    "101",
+    "149"
+   ],
+   "lo_trinh": 4
+  },
+  {
+   "id": "luat-gia-su",
+   "loai": "chat",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Luật cho gia sư AI",
+    "en": "Rules for a class AI tutor"
+   },
+   "nho": {
+    "vi": "Đặt luật",
+    "en": "Set rules"
+   },
+   "h2": {
+    "vi": "Cả lớp dùng một gia sư AI. Bạn đặt luật gì?",
+    "en": "The whole class shares one AI tutor. What rules do you set?"
+   },
+   "ten_ai": {
+    "vi": "Gia sư AI của lớp",
+    "en": "Class AI tutor"
+   },
+   "anh_ai": "🤖",
+   "ten_ban": {
+    "vi": "Bạn (giáo viên)",
+    "en": "You (teacher)"
+   },
+   "anh_ban": "🧑‍🏫",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Chào cô! Cô muốn em hướng dẫn học sinh lớp 6 thế nào?",
+      "en": "Hi! How should I help the Year 6 pupils?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Học sinh hỏi gì thì trả lời đầy đủ.",
+        "en": "Answer whatever they ask, in full."
+       },
+       "toi": "day-du"
+      },
+      {
+       "chu": {
+        "vi": "Chỉ gợi ý từng bước, hỏi ngược lại, không đưa đáp án cuối.",
+        "en": "Hint one step at a time, ask back, never give the final answer."
+       },
+       "toi": "goi-y"
+      }
+     ]
+    },
+    {
+     "id": "day-du",
+     "ai": {
+      "vi": "Dạ. Bạn Na vừa hỏi: “Giải giùm bài 5 trang 40”. Em gửi lời giải luôn ạ?",
+      "en": "OK. Na just asked: “Solve exercise 5, page 40.” Shall I send the full solution?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ừ, gửi luôn.",
+        "en": "Yes, send it."
+       },
+       "toi": "ket-chep"
+      },
+      {
+       "chu": {
+        "vi": "Khoan, đổi luật: chỉ gợi ý thôi.",
+        "en": "Wait, new rule: hints only."
+       },
+       "toi": "goi-y"
+      }
+     ]
+    },
+    {
+     "id": "ket-chep",
+     "ket": {
+      "vi": "Cả lớp sẽ chép lời giải. Gia sư AI thành **máy làm bài hộ**.",
+      "en": "The whole class copies answers. The tutor becomes a **homework machine**."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "goi-y",
+     "ai": {
+      "vi": "Rõ ạ. Em có nên trả lời cả chuyện ngoài bài học không, ví dụ chuyện gia đình các bạn?",
+      "en": "Got it. Should I also chat about non-school things, like pupils' family issues?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Cứ trò chuyện thoải mái, các em cần người nghe.",
+        "en": "Chat freely, they need someone to listen."
+       },
+       "toi": "ket-rieng"
+      },
+      {
+       "chu": {
+        "vi": "Chỉ chuyện bài học. Chuyện riêng thì khuyên em nói với giáo viên chủ nhiệm.",
+        "en": "School topics only. For personal matters, tell them to talk to their form teacher."
+       },
+       "toi": "an-toan"
+      }
+     ]
+    },
+    {
+     "id": "ket-rieng",
+     "ket": {
+      "vi": "Học sinh có thể kể chuyện riêng, kể cả điều nguy hiểm, cho một cái máy. **Người lớn phải biết**.",
+      "en": "Pupils may confide private, even dangerous, things to a machine. **An adult must know.**"
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "an-toan",
+     "ai": {
+      "vi": "Dạ. Câu cuối: em có ghi lại câu hỏi của các bạn để cô xem không?",
+      "en": "Last one: should I keep the pupils' questions for you to review?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Có, ghi chủ đề hay hỏi, không ghi tên. Báo phụ huynh trước.",
+        "en": "Yes, log common topics, no names. Tell parents first."
+       },
+       "toi": "ket-dung"
+      },
+      {
+       "chu": {
+        "vi": "Không cần, cứ để các em tự học.",
+        "en": "No need, let them get on with it."
+       },
+       "toi": "ket-mu"
+      }
+     ]
+    },
+    {
+     "id": "ket-mu",
+     "ket": {
+      "vi": "Không xem gì thì không biết em nào đang bí chỗ nào. Ghi chủ đề, **không ghi tên**, là đủ.",
+      "en": "Without any log you can't see who's stuck where. Topics, **no names**, is enough."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "ket-dung",
+     "ai": {
+      "vi": "Đã lưu 3 luật: chỉ gợi ý · chỉ chuyện bài học · ghi chủ đề không ghi tên ✅",
+      "en": "Saved 3 rules: hints only · school topics only · log topics, no names ✅"
+     },
+     "ket": {
+      "vi": "Ba luật tốt: **gợi ý không giải hộ**, **giữ đúng phạm vi**, **giáo viên theo dõi mà vẫn giữ riêng tư**. Báo phụ huynh trước khi dùng.",
+      "en": "Three good rules: **hints, not answers**, **stay on topic**, **teacher oversight with privacy**. Tell parents before you start."
+     },
+     "muc": "dung"
+    }
+   ],
+   "video": [
+    "95",
+    "151"
+   ],
+   "lo_trinh": 6
+  }
+ ]
+}

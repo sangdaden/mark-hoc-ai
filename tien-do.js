@@ -1,6 +1,7 @@
 // Tiến độ học dùng chung cho cả web (nạp ở mọi trang, ngay sau theo-doi.js). Chỉ lưu trên máy người xem (localStorage), không gửi đi đâu.
 //   mhai-da-xem   [số video đã xem]                       (dùng chung với lo-trinh-nganh.js)
-//   mhai-tram     {trang: {id: {lan, d, tong, ngay}}}     (kết quả trạm thực hành; d/tong chỉ có khi trạm chấm điểm)
+//   mhai-tram     {trang: {id: {lan, dau, ngay, d, tong}}} (kết quả trạm; dau/ngay: lần đầu/gần nhất; d/tong khi trạm chấm điểm;
+//                 làm lại vào ngày khác lần đầu thì Hồ sơ học tính là Làm chủ)
 //   mhai-hoat-dong ["YYYY-MM-DD", ...]                     (những ngày có học, giữ 120 ngày gần nhất)
 //   mhai-da-mo    ["ten-trang.html", ...]                  (trang trò chơi, công cụ đã mở; Góc thực hành hiện dấu "Đã mở")
 // Bị chặn localStorage (chế độ riêng tư) thì mọi hàm vẫn chạy, chỉ không nhớ.
@@ -24,7 +25,7 @@
       if (!trang || !id) return;
       var all = doc("mhai-tram", {}); if (!all || typeof all !== "object") all = {};
       var p = all[trang] || (all[trang] = {}), c = p[id] || { lan: 0 };
-      c.lan = (c.lan || 0) + 1; c.ngay = homNay();
+      c.lan = (c.lan || 0) + 1; c.ngay = homNay(); if (!c.dau) c.dau = c.ngay;
       if (tong) { c.d = d; c.tong = tong; if (!c.tot || d / tong > c.tot) c.tot = d / tong; }
       p[id] = c; ghi("mhai-tram", all); coHoc();
       try { document.dispatchEvent(new CustomEvent("mhai-tram", { detail: { trang: trang, id: id } })); } catch (e) {}
@@ -43,6 +44,28 @@
   if (tep && /\.html$/.test(tep) && !/\/bai\//.test(location.pathname) && tep !== "index.html") {
     var mo = TD.daMo(); if (mo.indexOf(tep) < 0) { mo.push(tep); ghi("mhai-da-mo", mo.slice(-200)); }
   }
+
+  // Mỗi trạm (.bn-tram ở trang thực hành, phòng thí nghiệm) có hàng "Trạm này có ích không? 👍 👎"; bấm thì gửi sự kiện đếm
+  // "tram-co-ich" (theo-doi.js, không kèm gì về người dùng) để biết trạm nào cần sửa.
+  function hoiCoIch() {
+    var EN = document.documentElement.lang === "en", trang = (location.pathname.split("/").pop() || "").replace(/\.html$/, "");
+    [].slice.call(document.querySelectorAll("section.bn-tram")).forEach(function (s) {
+      if (s.querySelector(".td-co-ich")) return;
+      var p = document.createElement("p"); p.className = "td-co-ich";
+      p.appendChild(document.createTextNode(EN ? "Was this station useful? " : "Trạm này có ích không? "));
+      [["1", "👍"], ["0", "👎"]].forEach(function (x) {
+        var b = document.createElement("button"); b.type = "button"; b.textContent = x[1];
+        b.setAttribute("aria-label", x[0] === "1" ? (EN ? "Useful" : "Có ích") : (EN ? "Not useful" : "Chưa có ích"));
+        b.addEventListener("click", function () {
+          if (window.mhaiDo) window.mhaiDo("tram-co-ich", { trang: trang, tram: s.id.replace(/^tram-/, ""), co_ich: x[0] === "1" });
+          p.textContent = EN ? "Thanks! 💙" : "Cảm ơn bạn! 💙";
+        });
+        p.appendChild(b);
+      });
+      s.appendChild(p);
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hoiCoIch); else hoiCoIch();
 
   // Trang bài video (bai/NN-...): ở lại 20 giây hoặc đọc tới cuối thì tính là đã xem video đó.
   var m = location.pathname.match(/\/bai\/(\d+)-[^/]*$/);

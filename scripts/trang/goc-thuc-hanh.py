@@ -14,7 +14,19 @@ _GTH_NHOM = [
      ["du-lieu-bieu-do", "du-lieu-nguong", "du-lieu-hoc-vet", "du-lieu-pid", "du-lieu-dinh-vi", "du-lieu-a-sao",
       "phong-thi-nghiem-cam-bien", "du-bao-lu", "tach-giong-nhac"]),
 ]
-_GTH_NGHE = [("ai-hoc-sinh", "🎒"), ("ai-van-phong", "🏛️"), ("ai-y-te", "🏥")]
+
+
+def _ghi_tram_thuc_hanh(tro):
+    """data/tram-thuc-hanh.json cho Giấy chứng nhận thực hành (chung-nhan.js): mỗi trang thực hành, tên, màu, danh sách trạm."""
+    ds = []
+    for f, bt, nhom in _TH_NHOM:
+        if f == "ai-y-te":
+            mau = load("ai-y-te").get("nhom_nc", {}).get("mau")
+        else:
+            mau = json.loads((R / "data" / "thuc-hanh" / f"{f}.json").read_text(encoding="utf-8")).get("nhom_nc", {}).get("mau")
+        ds.append({"id": f, "bt": bt, "ten": tro[f]["ten"], "mau": mau or ["#2563EB", "#06D6A0"], "tram": [x[0] for x in _tram_theo_trang(f)]})
+    (R / "data" / "tram-thuc-hanh.json").write_text(json.dumps({"_ghi_chu": "Tạo tự động bởi scripts/trang/goc-thuc-hanh.py, đừng sửa tay.", "trang": ds},
+                                                               ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 @trang_rieng("thuc-hanh.html", "0.8")
@@ -22,11 +34,12 @@ def tao_goc_thuc_hanh():
     p = t("", "../")
     L = "en" if LG == "en" else "vi"
     tro = {f.stem: json.loads(f.read_text(encoding="utf-8")) for f in sorted((R / "data" / "tro-choi").glob("*.json"))}
-    nghe_ten = {f for f, _ in _GTH_NGHE}
+    _ghi_tram_thuc_hanh(tro)
+    nghe_ten = {f for f, _, _ in _TH_NHOM}
 
     # 3 trang theo nghề: tổng số trạm để JS ghi "đã làm x/y"
     the_nghe = []
-    for f, bt in _GTH_NGHE:
+    for f, bt, _ in _TH_NHOM:
         x = tro[f]
         tong = len(_tram_theo_trang(f))
         the_nghe.append(f'<a class="gth-nghe" href="{f}.html" data-trang="{f}" data-tong="{tong}"><span class="gth-bt" aria-hidden="true">{bt}</span>'
@@ -56,9 +69,9 @@ def tao_goc_thuc_hanh():
         nhom_html.append(f'<section class="gth-nhom" id="{k}" aria-labelledby="gth-{k}"><h2 id="gth-{k}"><span aria-hidden="true">{bt}</span> {t(*ten)}'
                          f'<small>{len(ds)}</small></h2><ul class="gth-luoi">{"".join(the(s, tro[s]) for s in ds)}</ul></section>')
 
-    desc = t(f"Mọi trò chơi và trạm thực hành AI của Mark học AI ở một chỗ: 3 trang theo nghề và {tong_tro} trò chơi ngắn. Miễn phí, không cần tài khoản, tiến độ lưu trên máy bạn.",
-             f"Every Mark học AI game and practice station in one place: 3 job pages and {tong_tro} short games. Free, no account, progress saved on your device.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"3 trang theo nghề · {tong_tro} trò chơi · miễn phí", f"3 job pages · {tong_tro} games · free")}</p>\n'
+    desc = t(f"Mọi trò chơi và trạm thực hành AI của Mark học AI ở một chỗ: {len(_TH_NHOM)} trang theo nghề và {tong_tro} trò chơi ngắn. Miễn phí, không cần tài khoản, tiến độ lưu trên máy bạn.",
+             f"Every Mark học AI game and practice station in one place: {len(_TH_NHOM)} job pages and {tong_tro} short games. Free, no account, progress saved on your device.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"{len(_TH_NHOM)} trang theo nghề · {tong_tro} trò chơi · miễn phí", f"{len(_TH_NHOM)} job pages · {tong_tro} games · free")}</p>\n'
             f'<h1>{t("Góc thực hành", "Practice corner")}</h1>\n'
             f'<p class="lead">{t("Xem xong video thì vào đây thử tay. Mỗi trò chừng 1–5 phút, chạy ngay trên máy bạn.", "Watched a video? Try it here. Each one takes 1–5 minutes and runs right on your device.")}</p>\n'
             f'<div class="cta"><a class="btn btn-yt" href="lo-trinh-7-ngay.html">{t("Học theo Lộ trình 7 ngày", "Follow the 7-day path")} ›</a></div>\n'

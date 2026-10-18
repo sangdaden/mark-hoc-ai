@@ -1,0 +1,1565 @@
+{
+ "trang": "ai-gia-dinh",
+ "eyebrow": {
+  "vi": "Thực hành · 7 trạm cơ bản + 4 gia đình nâng cao · chạy trên trình duyệt",
+  "en": "Hands-on · 7 core stations + 4 advanced family ones · runs in your browser"
+ },
+ "h1": {
+  "vi": "AI cho gia đình",
+  "en": "AI for families"
+ },
+ "lead": {
+  "vi": "Cho bố mẹ, ông bà: chống lừa đảo, hỏi sức khỏe an toàn, cùng con dùng AI. Mỗi trạm vài phút.",
+  "en": "For parents and grandparents: beat scams, ask about health safely, use AI with your kids. A few minutes each."
+ },
+ "hinh": "mark-va-bit.svg",
+ "bn_cau": {
+  "vi": "Một gia đình ba thế hệ, từ cuộc gọi lạ tới bữa cơm tối",
+  "en": "A three-generation family, from a strange call to dinner"
+ },
+ "tieu": {
+  "vi": "AI cho gia đình: 11 trò chơi thực hành",
+  "en": "AI for families: 11 hands-on games"
+ },
+ "desc": {
+  "vi": "Trò chơi miễn phí cho bố mẹ, ông bà: cuộc gọi giả giọng, tin nhắn lừa đảo, thứ không dán vào chatbot, hỏi AI về sức khỏe, con làm bài với AI, thực đơn và chi tiêu, luật dùng AI trong nhà.",
+  "en": "Free games for parents and grandparents: fake-voice calls, scam texts, what not to paste into a chatbot, asking AI about health, kids and homework, menus and budgets, house rules for AI."
+ },
+ "ghi": {
+  "vi": "Mọi câu trả lời của AI trong trang đều viết sẵn để minh họa, không gọi AI thật. Tên người, số tài khoản, trang mạng là hư cấu. Không có gì được gửi đi.",
+  "en": "All AI answers here are pre-written examples; no real AI is called. Names, accounts and pages are fictional. Nothing is sent anywhere."
+ },
+ "nhom_nc": {
+  "bt": "🏡",
+  "ten": {
+   "vi": "Gia đình nâng cao",
+   "en": "Advanced family"
+  },
+  "mau": [
+   "#EA580C",
+   "#16A34A"
+  ]
+ },
+ "tram": [
+  {
+   "id": "goi-gia",
+   "loai": "chat",
+   "ten": {
+    "vi": "Cuộc gọi giả giọng",
+    "en": "The fake-voice call"
+   },
+   "nho": {
+    "vi": "Trò chuyện",
+    "en": "Chat"
+   },
+   "h2": {
+    "vi": "“Cháu” gọi khóc xin tiền gấp",
+    "en": "“Your grandson” calls, crying for money"
+   },
+   "ten_ai": {
+    "vi": "Số lạ (giọng giống cháu)",
+    "en": "Unknown number (sounds like your grandson)"
+   },
+   "anh_ai": "📞",
+   "ten_ban": {
+    "vi": "Bà",
+    "en": "Grandma"
+   },
+   "anh_ban": "👵",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Bà ơi, con Tùng đây 😭 Con bị tai nạn, cần **15 triệu** ngay!",
+      "en": "Grandma, it's Tùng 😭 I had an accident, I need **15 million** now!"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Trời ơi, gửi số tài khoản đi con",
+        "en": "Oh no, send me the account number"
+       },
+       "toi": "chuyen"
+      },
+      {
+       "chu": {
+        "vi": "Con nói mật khẩu nhà mình đi",
+        "en": "Tell me our family password"
+       },
+       "toi": "hoi-mk"
+      },
+      {
+       "chu": {
+        "vi": "Bà cúp máy, gọi lại số con nhé",
+        "en": "I'll hang up and call your usual number"
+       },
+       "toi": "goi-lai"
+      }
+     ]
+    },
+    {
+     "id": "chuyen",
+     "ai": {
+      "vi": "Bà chuyển vào tài khoản **Nguyễn Văn X**, đừng nói với bố mẹ con!",
+      "en": "Send it to **Nguyen Van X**, don't tell Mum and Dad!"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ừ, bà chuyển ngay",
+        "en": "OK, sending now"
+       },
+       "toi": "ket-mat"
+      },
+      {
+       "chu": {
+        "vi": "Khoan, sao tên người khác?",
+        "en": "Wait, why someone else's name?"
+       },
+       "toi": "hoi-mk"
+      }
+     ]
+    },
+    {
+     "id": "ket-mat",
+     "ket": {
+      "vi": "Mất tiền. Giọng nói **giả được bằng AI** chỉ từ vài giây video của cháu.",
+      "en": "Money gone. A voice can be **faked by AI** from a few seconds of video."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "hoi-mk",
+     "ai": {
+      "vi": "Mật khẩu gì ạ? Con đau quá, bà chuyển nhanh đi!",
+      "en": "What password? I'm hurting, just send it fast!"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Không nói được thì bà cúp máy",
+        "en": "No password, I'm hanging up"
+       },
+       "toi": "goi-lai"
+      },
+      {
+       "chu": {
+        "vi": "Thôi, bà thương con, chuyển đây",
+        "en": "Fine, I'll send it"
+       },
+       "toi": "ket-mat"
+      }
+     ]
+    },
+    {
+     "id": "goi-lai",
+     "ai": {
+      "vi": "(Bà gọi số quen của Tùng) Ủa bà, con đang đi học mà?",
+      "en": "(You call Tùng's usual number) Grandma? I'm at school."
+     },
+     "ket": {
+      "vi": "An toàn! **Cúp máy, gọi lại số đã lưu, hỏi mật khẩu gia đình.** ++Hẹn ngay một mật khẩu trong bữa cơm tối nay.++",
+      "en": "Safe! **Hang up, call the saved number, ask the family password.** ++Agree on one at dinner tonight.++"
+     },
+     "muc": "dung"
+    }
+   ],
+   "video": [
+    "108",
+    "112"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "tin-nhan",
+   "loai": "bo-phieu",
+   "ten": {
+    "vi": "Tin nào lừa đảo?",
+    "en": "Which text is a scam?"
+   },
+   "nho": {
+    "vi": "Bỏ phiếu",
+    "en": "Vote"
+   },
+   "h2": {
+    "vi": "Tin thật hay lừa đảo?",
+    "en": "Real or scam?"
+   },
+   "lua_chon": [
+    {
+     "id": "that",
+     "ten": {
+      "vi": "Thật",
+      "en": "Real"
+     },
+     "bieu_tuong": "✅"
+    },
+    {
+     "id": "lua",
+     "ten": {
+      "vi": "Lừa đảo",
+      "en": "Scam"
+     },
+     "bieu_tuong": "🚫"
+    }
+   ],
+   "cau": [
+    {
+     "bt": "📦",
+     "chu": {
+      "vi": "Đơn hàng của bạn bị giữ. Bấm link trả phí 25.000đ trong 2 giờ.",
+      "en": "Your parcel is on hold. Pay 25,000đ via this link within 2 hours."
+     },
+     "dap": "lua",
+     "giai": {
+      "vi": "Link lạ + giục gấp + đòi tiền nhỏ: lừa lấy thẻ.",
+      "en": "Odd link + rush + small fee: a card-stealing trick."
+     }
+    },
+    {
+     "bt": "🏥",
+     "chu": {
+      "vi": "Phòng khám nhắc: lịch tái khám của bác sáng thứ Năm, 8 giờ.",
+      "en": "Clinic reminder: your check-up is Thursday at 8am."
+     },
+     "dap": "that",
+     "giai": {
+      "vi": "Không link, không đòi gì. Vẫn có thể gọi số phòng khám để hỏi.",
+      "en": "No link, no request. You can still call the clinic to check."
+     }
+    },
+    {
+     "bt": "💰",
+     "chu": {
+      "vi": "Chúc mừng! Bác trúng 50 triệu. Gửi ảnh CCCD để nhận thưởng.",
+      "en": "Congratulations! You won 50 million. Send your ID photo to claim."
+     },
+     "dap": "lua",
+     "giai": {
+      "vi": "Không tham gia thì không thể trúng. Không gửi ảnh giấy tờ.",
+      "en": "You can't win what you never entered. Never send ID photos."
+     }
+    },
+    {
+     "bt": "👮",
+     "chu": {
+      "vi": "Công an phường mời bác cài app để xác minh, kẻo bị khóa tài khoản.",
+      "en": "Ward police: install this app to verify or your account gets locked."
+     },
+     "dap": "lua",
+     "giai": {
+      "vi": "Công an không nhắn tin bắt cài app. App lạ đọc được tin nhắn ngân hàng.",
+      "en": "Police don't text you to install apps. Rogue apps read bank texts."
+     }
+    },
+    {
+     "bt": "👨‍👩‍👧",
+     "chu": {
+      "vi": "Con Lan: Tối nay con về muộn, bố mẹ ăn cơm trước nhé.",
+      "en": "Lan: I'll be home late, eat without me."
+     },
+     "dap": "that",
+     "giai": {
+      "vi": "Tin bình thường, không đòi tiền, không link.",
+      "en": "Normal message: no money, no link."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Giục gấp + link lạ + đòi tiền hay giấy tờ = **dừng lại, gọi hỏi người thân**.",
+    "en": "Rush + odd link + money or ID = **stop and call family**."
+   },
+   "video": [
+    "111",
+    "269"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "dan-khong",
+   "loai": "phan-loai",
+   "ten": {
+    "vi": "Dán vào chatbot?",
+    "en": "Paste into a chatbot?"
+   },
+   "nho": {
+    "vi": "Xếp vào rổ",
+    "en": "Sort it"
+   },
+   "h2": {
+    "vi": "Thứ nào dán vào chatbot được?",
+    "en": "What can go into a chatbot?"
+   },
+   "mo": {
+    "vi": "Chạm thẻ → chạm rổ",
+    "en": "Tap a card → tap a basket"
+   },
+   "ro": [
+    {
+     "id": "duoc",
+     "ten": {
+      "vi": "Dán được",
+      "en": "OK to paste"
+     },
+     "bieu_tuong": "👍",
+     "mau": "#10B981"
+    },
+    {
+     "id": "che",
+     "ten": {
+      "vi": "Che rồi mới dán",
+      "en": "Hide details first"
+     },
+     "bieu_tuong": "🖍️",
+     "mau": "#F59E0B"
+    },
+    {
+     "id": "khong",
+     "ten": {
+      "vi": "Không bao giờ",
+      "en": "Never"
+     },
+     "bieu_tuong": "🚫",
+     "mau": "#DC2626"
+    }
+   ],
+   "the": [
+    {
+     "bt": "🍲",
+     "chu": {
+      "vi": "Công thức canh chua",
+      "en": "A sour soup recipe"
+     },
+     "dung": "duoc",
+     "giai": {
+      "vi": "Không có gì riêng tư.",
+      "en": "Nothing private."
+     }
+    },
+    {
+     "bt": "🔢",
+     "chu": {
+      "vi": "Mã OTP ngân hàng",
+      "en": "Bank OTP code"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "OTP là chìa khóa tài khoản. Không đưa ai.",
+      "en": "An OTP unlocks your account. Never share it."
+     }
+    },
+    {
+     "bt": "🧾",
+     "chu": {
+      "vi": "Kết quả xét nghiệm máu",
+      "en": "Blood test results"
+     },
+     "dung": "che",
+     "giai": {
+      "vi": "Bỏ tên, ngày sinh, mã bệnh nhân trước.",
+      "en": "Remove name, birth date, patient ID first."
+     }
+    },
+    {
+     "bt": "🪪",
+     "chu": {
+      "vi": "Ảnh căn cước",
+      "en": "Photo of your ID card"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Giấy tờ tùy thân bị lộ là bị mạo danh.",
+      "en": "Leaked ID means identity theft."
+     }
+    },
+    {
+     "bt": "📄",
+     "chu": {
+      "vi": "Hợp đồng thuê nhà",
+      "en": "A rental contract"
+     },
+     "dung": "che",
+     "giai": {
+      "vi": "Che tên, số tiền, địa chỉ rồi hỏi điều khoản.",
+      "en": "Hide names, amounts, address, then ask about terms."
+     }
+    },
+    {
+     "bt": "🔑",
+     "chu": {
+      "vi": "Mật khẩu email",
+      "en": "Email password"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Chatbot không cần mật khẩu của bạn.",
+      "en": "A chatbot never needs your password."
+     }
+    },
+    {
+     "bt": "🌱",
+     "chu": {
+      "vi": "Ảnh lá cây bị vàng",
+      "en": "Photo of a yellowing leaf"
+     },
+     "dung": "duoc",
+     "giai": {
+      "vi": "Hỏi cách chăm cây, thoải mái.",
+      "en": "Ask about plant care freely."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Ba thứ không bao giờ dán: **OTP, mật khẩu, ảnh giấy tờ**.",
+    "en": "Never paste: **OTPs, passwords, ID photos**."
+   },
+   "video": [
+    "15",
+    "121"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "suc-khoe",
+   "loai": "tim-loi",
+   "kieu": "giay",
+   "ten": {
+    "vi": "Hỏi AI về sức khỏe",
+    "en": "Asking AI about health"
+   },
+   "nho": {
+    "vi": "Tìm chỗ nguy",
+    "en": "Spot the risk"
+   },
+   "h2": {
+    "vi": "AI trả lời về huyết áp. Tìm 3 chỗ nguy hiểm",
+    "en": "AI answers about blood pressure. Find 3 risky lines"
+   },
+   "mo": {
+    "vi": "Chạm vào câu đáng lo 🚩",
+    "en": "Tap the worrying lines 🚩"
+   },
+   "dau": {
+    "vi": "💬 **Câu hỏi:** Huyết áp tôi 160/100, có sao không? (mẫu)",
+    "en": "💬 **Question:** My blood pressure is 160/100. Is that bad? (sample)"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "160/100 là cao hơn mức bình thường.",
+      "en": "160/100 is higher than normal."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Đúng, thông tin chung 👍",
+      "en": "Correct, general info 👍"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Bác cứ tự tăng gấp đôi liều thuốc đang uống.",
+      "en": "Just double the dose of your current pills."
+     },
+     "loi": "lieu",
+     "co": {
+      "vi": "Tự đổi liều",
+      "en": "Changing the dose"
+     },
+     "bit": {
+      "vi": "🚩 Không tự đổi liều. Hỏi bác sĩ.",
+      "en": "🚩 Never change a dose yourself. Ask the doctor."
+     },
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Nên đo lại sau khi ngồi nghỉ 5 phút.",
+      "en": "Measure again after resting 5 minutes."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Lời khuyên hợp lý 👍",
+      "en": "Sensible advice 👍"
+     },
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Uống nước lá ổi thay thuốc sẽ khỏi hẳn.",
+      "en": "Guava-leaf tea instead of pills will cure it."
+     },
+     "loi": "thay",
+     "co": {
+      "vi": "Bỏ thuốc",
+      "en": "Dropping medicine"
+     },
+     "bit": {
+      "vi": "🚩 Không bỏ thuốc theo lời AI hay mạng.",
+      "en": "🚩 Don't drop medicine on AI's or the internet's word."
+     },
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Nếu đau ngực, khó thở: gọi 115 ngay.",
+      "en": "Chest pain or breathless: call 115 now."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Đúng, cấp cứu không chờ 👍",
+      "en": "Right, emergencies can't wait 👍"
+     },
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Không cần đi khám, AI theo dõi giúp bác.",
+      "en": "No need to see a doctor, AI will monitor you."
+     },
+     "loi": "kham",
+     "co": {
+      "vi": "Bỏ đi khám",
+      "en": "Skipping the doctor"
+     },
+     "bit": {
+      "vi": "🚩 AI không thay bác sĩ.",
+      "en": "🚩 AI doesn't replace a doctor."
+     },
+     "xuong_dong": true
+    }
+   ],
+   "bai_hoc": {
+    "vi": "**AI gợi ý, bác sĩ quyết định.** !!Thuốc và liều: chỉ theo bác sĩ.!!",
+    "en": "**AI suggests, the doctor decides.** !!Drugs and doses: doctor only.!!"
+   },
+   "video": [
+    "177",
+    "223"
+   ],
+   "lo_trinh": 3
+  },
+  {
+   "id": "bai-tap",
+   "loai": "chon-ban",
+   "ten": {
+    "vi": "Con làm bài với AI",
+    "en": "Your child, homework and AI"
+   },
+   "nho": {
+    "vi": "Chọn câu hỏi",
+    "en": "Pick one"
+   },
+   "h2": {
+    "vi": "Con nói “AI làm giúp con rồi”. Bố mẹ hỏi gì?",
+    "en": "Your child says “AI helped me”. What do you ask?"
+   },
+   "nhan_goc": {
+    "vi": "Câu hỏi tốt của bố mẹ có 4 ý",
+    "en": "A good parent question covers 4 things"
+   },
+   "y": [
+    {
+     "id": "giai",
+     "bt": "🗣️",
+     "chu": {
+      "vi": "Con giải thích lại",
+      "en": "Child explains it back"
+     }
+    },
+    {
+     "id": "tu",
+     "bt": "✍️",
+     "chu": {
+      "vi": "Phần nào con tự làm",
+      "en": "Which part was theirs"
+     }
+    },
+    {
+     "id": "kiem",
+     "bt": "🔍",
+     "chu": {
+      "vi": "Con kiểm lại chưa",
+      "en": "Did they check it"
+     }
+    },
+    {
+     "id": "nhe",
+     "bt": "💛",
+     "chu": {
+      "vi": "Hỏi nhẹ nhàng",
+      "en": "Asked kindly"
+     }
+    }
+   ],
+   "goc": {
+    "vi": "**Tình huống:** Con lớp 7 nộp bài văn rất hay, nói có nhờ AI. Bố mẹ muốn biết con có học được gì không.",
+    "en": "**Situation:** Your 12-year-old hands in a great essay and says AI helped. You want to know if they learned anything."
+   },
+   "ban": [
+    {
+     "chu": {
+      "vi": "Lại dùng AI à? Cấm từ nay!",
+      "en": "AI again? It's banned from now on!"
+     },
+     "dung": false,
+     "co": {
+      "nhe": "sai"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Hay đấy! Con kể bố nghe ý chính bằng lời của con nhé? Đoạn nào con tự viết, đoạn nào AI gợi ý? Có câu nào con đã kiểm lại?",
+      "en": "Nice! Tell me the main idea in your own words? Which part did you write, which did AI suggest? Did you check anything?"
+     },
+     "dung": true,
+     "co": {
+      "giai": "co",
+      "tu": "co",
+      "kiem": "co",
+      "nhe": "co"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Điểm cao là được, AI viết hay hơn con mà.",
+      "en": "A good mark is what matters, AI writes better anyway."
+     },
+     "dung": false,
+     "co": {
+      "nhe": "co"
+     },
+     "them": {
+      "vi": "Coi điểm hơn việc học",
+      "en": "Marks over learning"
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Đừng cấm, hãy hỏi: **con giải thích lại được không?**",
+    "en": "Don't ban, ask: **can you explain it back?**"
+   },
+   "video": [
+    "140",
+    "141"
+   ],
+   "lo_trinh": 7
+  },
+  {
+   "id": "thuc-don",
+   "loai": "ghep",
+   "ten": {
+    "vi": "Ghép câu lệnh việc nhà",
+    "en": "Build a home prompt"
+   },
+   "nho": {
+    "vi": "Ghép mảnh",
+    "en": "Build it"
+   },
+   "h2": {
+    "vi": "Nhờ AI lên thực đơn, kế hoạch chi tiêu",
+    "en": "Ask AI for a menu or a budget"
+   },
+   "mo": {
+    "vi": "Chọn việc → chạm mảnh → Gửi cho AI. Né mảnh bẫy 🪤",
+    "en": "Pick a task → tap pieces → Send to AI. Avoid traps 🪤"
+   },
+   "loai_manh": {
+    "vai_tro": {
+     "ten": {
+      "vi": "Vai trò",
+      "en": "Role"
+     },
+     "mau": "#8B5CF6"
+    },
+    "boi_canh": {
+     "ten": {
+      "vi": "Bối cảnh",
+      "en": "Context"
+     },
+     "mau": "#0EA5E9"
+    },
+    "viec": {
+     "ten": {
+      "vi": "Nhiệm vụ",
+      "en": "Task"
+     },
+     "mau": "#F59E0B"
+    },
+    "dinh_dang": {
+     "ten": {
+      "vi": "Định dạng",
+      "en": "Format"
+     },
+     "mau": "#10B981"
+    },
+    "gioi_han": {
+     "ten": {
+      "vi": "Giới hạn",
+      "en": "Limits"
+     },
+     "mau": "#6366F1"
+    }
+   },
+   "khay": [
+    "boi_canh",
+    "bay:stk",
+    "viec",
+    "vai_tro",
+    "bay:mo-ho",
+    "dinh_dang",
+    "gioi_han"
+   ],
+   "bay": [
+    {
+     "id": "stk",
+     "loai": "boi_canh",
+     "chu": {
+      "vi": "Tài khoản của tôi số 0123…, mật khẩu…",
+      "en": "My account is 0123…, password…"
+     },
+     "bit": {
+      "vi": "Bẫy! Không bao giờ đưa số tài khoản, mật khẩu.",
+      "en": "Trap! Never give account numbers or passwords."
+     },
+     "muc": "sai",
+     "canh_truoc": {
+      "vi": "⚠ Bạn vừa gửi số tài khoản và mật khẩu cho AI.",
+      "en": "⚠ You just sent your account number and password to the AI."
+     }
+    },
+    {
+     "id": "mo-ho",
+     "loai": "viec",
+     "chu": {
+      "vi": "Làm sao cho hay là được.",
+      "en": "Just make it good."
+     },
+     "bit": {
+      "vi": "Mảnh này không thêm gì. Bỏ cũng được.",
+      "en": "This adds nothing. Drop it."
+     },
+     "muc": ""
+    }
+   ],
+   "viec": [
+    {
+     "ten": {
+      "vi": "Thực đơn tuần",
+      "en": "Weekly menu"
+     },
+     "bieu_tuong": "🍲",
+     "goc": {
+      "vi": "Lên thực đơn cho nhà tôi.",
+      "en": "Make a menu for my family."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là người nội trợ khéo, biết dinh dưỡng.",
+       "en": "You're a thrifty home cook who knows nutrition."
+      },
+      "boi_canh": {
+       "vi": "Nhà 4 người, có ông bị tiểu đường, ngân sách 1,5 triệu/tuần.",
+       "en": "Family of 4, grandpa has diabetes, 1.5 million a week."
+      },
+      "viec": {
+       "vi": "Lên thực đơn bữa tối 7 ngày và danh sách đi chợ.",
+       "en": "Plan 7 dinners and a shopping list."
+      },
+      "dinh_dang": {
+       "vi": "Bảng 7 dòng: món, giá ước tính.",
+       "en": "A 7-row table: dish, rough cost."
+      },
+      "gioi_han": {
+       "vi": "Ít đường, món Việt dễ nấu, không quá 45 phút.",
+       "en": "Low sugar, easy Vietnamese dishes, under 45 minutes."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Thứ 2: gà rán. Thứ 3: pizza. Thứ 4: bánh ngọt…",
+       "en": "Mon: fried chicken. Tue: pizza. Wed: cake…"
+      },
+      "kha": {
+       "vi": "7 món Việt cho 4 người, chưa tính tiền.",
+       "en": "7 Vietnamese dinners for 4, no costs yet."
+      },
+      "tot": {
+       "vi": "**T2:** Cá kho, rau luộc · ~180k\n**T3:** Canh bí, đậu sốt cà · ~150k\n… (ít đường cho ông) + danh sách đi chợ",
+       "en": "**Mon:** braised fish, boiled greens · ~180k\n**Tue:** squash soup, tofu in tomato · ~150k\n… (low sugar for grandpa) + shopping list"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Chi tiêu tháng",
+      "en": "Monthly budget"
+     },
+     "bieu_tuong": "💵",
+     "goc": {
+      "vi": "Giúp tôi tiết kiệm.",
+      "en": "Help me save money."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là người tư vấn chi tiêu gia đình.",
+       "en": "You're a household budget helper."
+      },
+      "boi_canh": {
+       "vi": "Thu nhập 15 triệu, tiền chợ đang 6 triệu, muốn để dành.",
+       "en": "Income 15 million, food costs 6 million, want to save."
+      },
+      "viec": {
+       "vi": "Chia ngân sách tháng và gợi ý 3 chỗ cắt giảm.",
+       "en": "Split the monthly budget and suggest 3 cuts."
+      },
+      "dinh_dang": {
+       "vi": "Bảng mục chi + số tiền, rồi 3 gạch đầu dòng.",
+       "en": "A table of items + amounts, then 3 bullets."
+      },
+      "gioi_han": {
+       "vi": "Không gợi ý vay, không gợi ý đầu tư.",
+       "en": "No loans, no investment tips."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Hãy chi tiêu hợp lý và tiết kiệm nhiều hơn.",
+       "en": "Spend wisely and save more."
+      },
+      "kha": {
+       "vi": "Ăn uống 5tr, điện nước 1tr, để dành 2tr…",
+       "en": "Food 5m, utilities 1m, savings 2m…"
+      },
+      "tot": {
+       "vi": "| Mục | Tiền |\n| Ăn uống | 5 tr |\n| Để dành | 2,5 tr |\n• Đi chợ theo danh sách\n• Giảm ăn ngoài\n• Tắt bớt điện chờ",
+       "en": "| Item | Amount |\n| Food | 5 m |\n| Savings | 2.5 m |\n• Shop with a list\n• Eat out less\n• Cut standby power"
+      }
+     }
+    }
+   ],
+   "video": [
+    "176",
+    "167"
+   ],
+   "lo_trinh": 2
+  },
+  {
+   "id": "luat-nha",
+   "loai": "phan-loai",
+   "ten": {
+    "vi": "Luật dùng AI trong nhà",
+    "en": "House rules for AI"
+   },
+   "nho": {
+    "vi": "Xếp vào rổ",
+    "en": "Sort it"
+   },
+   "h2": {
+    "vi": "Luật nào nên có trong nhà?",
+    "en": "Which rules belong in your home?"
+   },
+   "mo": {
+    "vi": "Chạm thẻ → chạm rổ",
+    "en": "Tap a card → tap a basket"
+   },
+   "ro": [
+    {
+     "id": "nen",
+     "ten": {
+      "vi": "Nên có",
+      "en": "Good rule"
+     },
+     "bieu_tuong": "🏡",
+     "mau": "#10B981"
+    },
+    {
+     "id": "khong",
+     "ten": {
+      "vi": "Không nên",
+      "en": "Bad rule"
+     },
+     "bieu_tuong": "🙅",
+     "mau": "#DC2626"
+    }
+   ],
+   "the": [
+    {
+     "bt": "🔐",
+     "chu": {
+      "vi": "Có một mật khẩu gia đình",
+      "en": "Have a family password"
+     },
+     "dung": "nen",
+     "giai": {
+      "vi": "Chống cuộc gọi giả giọng.",
+      "en": "Stops fake-voice calls."
+     }
+    },
+    {
+     "bt": "🙈",
+     "chu": {
+      "vi": "Cấm hẳn trẻ dùng AI, không giải thích",
+      "en": "Ban kids from AI, no reasons"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Trẻ vẫn dùng lén. Nên dạy cách dùng.",
+      "en": "They'll use it secretly. Teach instead."
+     }
+    },
+    {
+     "bt": "🗣️",
+     "chu": {
+      "vi": "Con giải thích lại được mới nộp bài",
+      "en": "Explain it back before handing in"
+     },
+     "dung": "nen",
+     "giai": {
+      "vi": "Biết con có học thật.",
+      "en": "Shows real learning."
+     }
+    },
+    {
+     "bt": "📸",
+     "chu": {
+      "vi": "Không đăng ảnh, giọng con cái công khai",
+      "en": "Don't post kids' photos or voices publicly"
+     },
+     "dung": "nen",
+     "giai": {
+      "vi": "Ít mẫu giọng, ảnh thì khó bị giả.",
+      "en": "Fewer samples, harder to fake."
+     }
+    },
+    {
+     "bt": "💸",
+     "chu": {
+      "vi": "Ai nhắn xin tiền thì chuyển trước, hỏi sau",
+      "en": "Send money first, ask later"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Ngược lại: hỏi trước, gọi lại số quen.",
+      "en": "The opposite: ask first, call back."
+     }
+    },
+    {
+     "bt": "🛋️",
+     "chu": {
+      "vi": "Dùng AI ở phòng chung với trẻ nhỏ",
+      "en": "Kids use AI in shared rooms"
+     },
+     "dung": "nen",
+     "giai": {
+      "vi": "Bố mẹ thấy, dễ hỏi chuyện.",
+      "en": "You can see and talk about it."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Luật tốt: **ngắn, cả nhà hiểu, dán lên tủ lạnh**. ++Trang Đồ in gia đình có mẫu để in.++",
+    "en": "Good rules are **short, shared, on the fridge**. ++The Family printables page has a template.++"
+   },
+   "video": [
+    "143",
+    "112"
+   ],
+   "lo_trinh": 6
+  },
+  {
+   "id": "anh-gia",
+   "loai": "tim-loi",
+   "kieu": "bai-dang",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Soi ảnh, video giả",
+    "en": "Spot fake photos and videos"
+   },
+   "nho": {
+    "vi": "5 dấu hiệu",
+    "en": "5 signs"
+   },
+   "h2": {
+    "vi": "Video “cụ bà 100 tuổi chữa khỏi tiểu đường”. Tìm 5 dấu hiệu",
+    "en": "Video: “100-year-old cures diabetes”. Find 5 signs"
+   },
+   "mo": {
+    "vi": "Chạm vào chỗ đáng ngờ 🚩",
+    "en": "Tap anything suspicious 🚩"
+   },
+   "dau": {
+    "vi": "**Sức Khỏe Vàng 24h** · 1 giờ · 🌏 trang hư cấu",
+    "en": "**Golden Health 24h** · 1h · 🌏 fictional page"
+   },
+   "cuoi": {
+    "vi": "👍 18K · 💬 2,4K · ↗ 9,1K lượt chia sẻ",
+    "en": "👍 18K · 💬 2.4K · ↗ 9.1K shares"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "Cụ bà 100 tuổi: uống lá này 7 ngày, khỏi tiểu đường!",
+      "en": "100-year-old: drink this leaf for 7 days, diabetes gone!"
+     },
+     "loi": "hua",
+     "co": {
+      "vi": "Hứa chữa khỏi",
+      "en": "Miracle cure"
+     },
+     "bit": {
+      "vi": "Không có lá nào chữa khỏi tiểu đường trong 7 ngày.",
+      "en": "No leaf cures diabetes in 7 days."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Xem video 👇",
+      "en": "Watch 👇"
+     },
+     "anh": {
+      "vi": "🎥 Miệng nói lệch tiếng, tay 6 ngón",
+      "en": "🎥 Lips out of sync, six fingers"
+     },
+     "loi": "anh",
+     "co": {
+      "vi": "Hình lỗi",
+      "en": "Visual glitches"
+     },
+     "bit": {
+      "vi": "Miệng lệch tiếng, tay thừa ngón: dấu hiệu video AI.",
+      "en": "Lips off, extra fingers: signs of AI video."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Bác sĩ nổi tiếng xác nhận trong video.",
+      "en": "A famous doctor confirms it in the video."
+     },
+     "loi": "mao",
+     "co": {
+      "vi": "Mạo danh",
+      "en": "Impersonation"
+     },
+     "bit": {
+      "vi": "Gương mặt, giọng người nổi tiếng giả được.",
+      "en": "Famous faces and voices can be faked."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Nhiều người đã khỏe lên khi ăn uống điều độ.",
+      "en": "Many people feel better with a balanced diet."
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Câu này bình thường 👍",
+      "en": "This line is fine 👍"
+     }
+    },
+    {
+     "chu": {
+      "vi": "Chỉ còn 50 hộp giá 990k, đặt ngay!",
+      "en": "Only 50 boxes left at 990k, order now!"
+     },
+     "loi": "ban",
+     "co": {
+      "vi": "Bán hàng, giục mua",
+      "en": "Hard sell"
+     },
+     "bit": {
+      "vi": "Bán hàng kèm giục gấp.",
+      "en": "Selling plus rushing you."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Bác sĩ không muốn bạn biết điều này.",
+      "en": "Doctors don't want you to know this."
+     },
+     "loi": "am-muu",
+     "co": {
+      "vi": "Gieo nghi ngờ",
+      "en": "Conspiracy hook"
+     },
+     "bit": {
+      "vi": "Câu mồi kinh điển của tin giả.",
+      "en": "A classic fake-news hook."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Hỏi bác sĩ của mình. **Không mua thuốc qua video lan truyền.**",
+    "en": "Ask your own doctor. **Never buy medicine from viral videos.**"
+   },
+   "video": [
+    "109",
+    "223"
+   ],
+   "lo_trinh": 5
+  },
+  {
+   "id": "cai-dat-tre",
+   "loai": "xep-buoc",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Bảo vệ trẻ dùng AI",
+    "en": "Keep kids safe with AI"
+   },
+   "nho": {
+    "vi": "Xếp bước",
+    "en": "Order steps"
+   },
+   "h2": {
+    "vi": "Con 10 tuổi muốn dùng chatbot: xếp 5 bước",
+    "en": "Your 10-year-old wants a chatbot: order 5 steps"
+   },
+   "mo": {
+    "vi": "🧩 Mỗi bước một việc, đúng thứ tự",
+    "en": "🧩 One job per step, in order"
+   },
+   "dau": {
+    "vi": "📱 Máy mới → 🛡️ dùng an toàn",
+    "en": "📱 New device → 🛡️ safe use"
+   },
+   "buoc": [
+    {
+     "bt": "📜",
+     "chu": {
+      "vi": "Đọc độ tuổi của ứng dụng",
+      "en": "Check the app's age limit"
+     },
+     "lenh": {
+      "vi": "Nhiều chatbot yêu cầu từ 13 tuổi.",
+      "en": "Many chatbots require age 13+."
+     },
+     "goi_y": {
+      "vi": "Xem tuổi trước tiên.",
+      "en": "Age first."
+     }
+    },
+    {
+     "bt": "👨‍👧",
+     "chu": {
+      "vi": "Bật quản lý của phụ huynh",
+      "en": "Turn on parental controls"
+     },
+     "lenh": {
+      "vi": "Dùng tài khoản gia đình trên máy.",
+      "en": "Use a family account on the device."
+     },
+     "goi_y": {
+      "vi": "Cài đặt trước khi đưa máy.",
+      "en": "Set up before handing over."
+     }
+    },
+    {
+     "bt": "🕓",
+     "chu": {
+      "vi": "Đặt giờ dùng",
+      "en": "Set screen-time limits"
+     },
+     "lenh": {
+      "vi": "Ví dụ 30 phút sau giờ học.",
+      "en": "e.g. 30 minutes after school."
+     },
+     "goi_y": {
+      "vi": "Sau khi bật quản lý.",
+      "en": "After controls are on."
+     }
+    },
+    {
+     "bt": "🗣️",
+     "chu": {
+      "vi": "Dặn con 3 điều không kể",
+      "en": "Teach 3 things never to share"
+     },
+     "lenh": {
+      "vi": "Tên trường, địa chỉ, ảnh mặt.",
+      "en": "School, address, face photos."
+     },
+     "goi_y": {
+      "vi": "Dặn trước buổi đầu.",
+      "en": "Before the first chat."
+     }
+    },
+    {
+     "bt": "👀",
+     "chu": {
+      "vi": "Cùng xem lịch sử mỗi tuần",
+      "en": "Review history together weekly"
+     },
+     "goi_y": {
+      "vi": "Làm đều đặn ở cuối.",
+      "en": "Ongoing, last."
+     }
+    }
+   ],
+   "bay": [
+    {
+     "bt": "🔓",
+     "chu": {
+      "vi": "Đưa máy, để con tự cài",
+      "en": "Hand it over, let them set it up"
+     },
+     "bit": {
+      "vi": "Bỏ qua mọi lớp bảo vệ.",
+      "en": "Skips every safeguard."
+     }
+    },
+    {
+     "bt": "🕵️",
+     "chu": {
+      "vi": "Lén đọc tin nhắn của con",
+      "en": "Secretly read their chats"
+     },
+     "bit": {
+      "vi": "Mất lòng tin. Xem cùng nhau tốt hơn.",
+      "en": "Breaks trust. Review together instead."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Cài trước, dặn trước, **xem cùng con** chứ không lén.",
+    "en": "Set up first, talk first, **review together**, not in secret."
+   },
+   "video": [
+    "244",
+    "141"
+   ],
+   "lo_trinh": 6
+  },
+  {
+   "id": "doi-chieu",
+   "loai": "cham-tieu-chi",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Đối chiếu lời khuyên",
+    "en": "Check AI's advice"
+   },
+   "nho": {
+    "vi": "Chấm tiêu chí",
+    "en": "Rubric"
+   },
+   "h2": {
+    "vi": "Chấm 3 câu trả lời về tiền và thuốc ✅",
+    "en": "Mark 3 answers about money and medicine ✅"
+   },
+   "mo": {
+    "vi": "Chạm ô: ✓ đạt, ✗ chưa",
+    "en": "Tap: ✓ yes, ✗ no"
+   },
+   "viec": {
+    "vi": "💬 **Câu hỏi:** Tôi 65 tuổi, có 200 triệu tiết kiệm. Nên làm gì?",
+    "en": "💬 **Question:** I'm 65 with 200 million in savings. What should I do?"
+   },
+   "tieu_chi": [
+    {
+     "id": "an-toan",
+     "bt": "🛡️",
+     "chu": {
+      "vi": "Không hứa lời chắc",
+      "en": "No guaranteed returns"
+     }
+    },
+    {
+     "id": "nguoi",
+     "bt": "🧑‍💼",
+     "chu": {
+      "vi": "Bảo hỏi người thật",
+      "en": "Says ask a real expert"
+     }
+    },
+    {
+     "id": "ro",
+     "bt": "📏",
+     "chu": {
+      "vi": "Nói rõ rủi ro",
+      "en": "States the risks"
+     }
+    },
+    {
+     "id": "gap",
+     "bt": "⏳",
+     "chu": {
+      "vi": "Không giục gấp",
+      "en": "No rush"
+     }
+    }
+   ],
+   "ban": [
+    {
+     "ten": {
+      "vi": "Lời 30%",
+      "en": "30% return"
+     },
+     "chu": {
+      "vi": "Gửi vào ứng dụng X, cam kết lời 30%/năm, chỉ nhận đến hết hôm nay!",
+      "en": "Put it in app X, 30% a year guaranteed, today only!"
+     },
+     "dat": {
+      "an-toan": false,
+      "nguoi": false,
+      "ro": false,
+      "gap": false
+     },
+     "giai": {
+      "an-toan": {
+       "vi": "Cam kết lời cao: dấu hiệu lừa đảo.",
+       "en": "Guaranteed high return: scam sign."
+      },
+      "nguoi": {
+       "vi": "Không nhắc hỏi ai.",
+       "en": "No expert mentioned."
+      },
+      "ro": {
+       "vi": "Không nói rủi ro.",
+       "en": "No risks."
+      },
+      "gap": {
+       "vi": "“Chỉ hôm nay”: giục gấp.",
+       "en": "“Today only”: rushing."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Cân nhắc",
+      "en": "Balanced"
+     },
+     "chu": {
+      "vi": "Mỗi lựa chọn có rủi ro riêng. Giữ một khoản dự phòng, hỏi nhân viên ngân hàng hoặc người tư vấn có chứng chỉ trước khi quyết.",
+      "en": "Every option has risks. Keep an emergency fund and ask a bank officer or licensed adviser before deciding."
+     },
+     "dat": {
+      "an-toan": true,
+      "nguoi": true,
+      "ro": true,
+      "gap": true
+     },
+     "giai": {
+      "an-toan": {
+       "vi": "Không hứa gì.",
+       "en": "No promises."
+      },
+      "nguoi": {
+       "vi": "Bảo hỏi người có chứng chỉ.",
+       "en": "Points to a licensed adviser."
+      },
+      "ro": {
+       "vi": "Nói có rủi ro.",
+       "en": "Mentions risk."
+      },
+      "gap": {
+       "vi": "Không giục.",
+       "en": "No rush."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Nửa vời",
+      "en": "Half-right"
+     },
+     "chu": {
+      "vi": "Gửi tiết kiệm là an toàn tuyệt đối, lãi luôn cao hơn lạm phát. Bác tự làm được, không cần hỏi ai.",
+      "en": "Savings accounts are totally safe and always beat inflation. You can do it alone, no need to ask anyone."
+     },
+     "dat": {
+      "an-toan": true,
+      "nguoi": false,
+      "ro": false,
+      "gap": true
+     },
+     "giai": {
+      "an-toan": {
+       "vi": "Không hứa lời cao.",
+       "en": "No big promise."
+      },
+      "nguoi": {
+       "vi": "Bảo không cần hỏi ai.",
+       "en": "Says ask no one."
+      },
+      "ro": {
+       "vi": "“Tuyệt đối”, “luôn” là nói quá.",
+       "en": "“Totally”, “always” overstate it."
+      },
+      "gap": {
+       "vi": "Không giục.",
+       "en": "No rush."
+      }
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Tiền và thuốc: **AI chỉ để hỏi thêm**, quyết định với người thật.",
+    "en": "Money and medicine: **AI is for questions**; decide with a real expert."
+   },
+   "video": [
+    "214",
+    "110"
+   ],
+   "lo_trinh": 7
+  },
+  {
+   "id": "tro-ly-ong-ba",
+   "loai": "chat",
+   "cap": "nang-cao",
+   "ten": {
+    "vi": "Trợ lý AI cho ông bà",
+    "en": "An AI helper for grandparents"
+   },
+   "nho": {
+    "vi": "Trò chuyện",
+    "en": "Chat"
+   },
+   "h2": {
+    "vi": "Ông nhờ AI nhắc uống thuốc và đọc tin",
+    "en": "Grandpa asks AI for pill reminders and the news"
+   },
+   "ten_ai": {
+    "vi": "Trợ lý AI",
+    "en": "AI helper"
+   },
+   "anh_ai": "🤖",
+   "ten_ban": {
+    "vi": "Ông",
+    "en": "Grandpa"
+   },
+   "anh_ban": "👴",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Chào ông 👋 Ông cần cháu giúp gì ạ?",
+      "en": "Hello 👋 How can I help today?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Nhắc ông uống thuốc huyết áp 7 giờ sáng",
+        "en": "Remind me to take my blood pressure pill at 7am"
+       },
+       "toi": "nhac"
+      },
+      {
+       "chu": {
+        "vi": "Đọc to tin tức hôm nay cho ông",
+        "en": "Read today's news aloud"
+       },
+       "toi": "tin"
+      }
+     ]
+    },
+    {
+     "id": "nhac",
+     "ai": {
+      "vi": "Dạ, cháu đặt nhắc 7 giờ sáng hằng ngày. Ông muốn cháu ghi tên thuốc không?",
+      "en": "Done, a reminder at 7am daily. Shall I note the pill's name?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ừ, rồi tiện tăng liều lên cho ông",
+        "en": "Yes, and bump up my dose too"
+       },
+       "toi": "lieu"
+      },
+      {
+       "chu": {
+        "vi": "Ừ, ghi đúng như đơn bác sĩ",
+        "en": "Yes, exactly as the prescription says"
+       },
+       "toi": "don"
+      }
+     ]
+    },
+    {
+     "id": "lieu",
+     "ai": {
+      "vi": "Cháu không đổi liều được ạ. Ông hỏi bác sĩ nhé, cháu ghi câu hỏi để ông mang đi khám.",
+      "en": "I can't change doses. Please ask your doctor; I'll note the question for your visit."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ừ, ghi giúp ông",
+        "en": "OK, note it down"
+       },
+       "toi": "ket-tot"
+      }
+     ]
+    },
+    {
+     "id": "don",
+     "ai": {
+      "vi": "Dạ, đã ghi theo đơn. Ông nhớ mang đơn khi tái khám.",
+      "en": "Noted from the prescription. Bring it to your check-up."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Cảm ơn cháu",
+        "en": "Thank you"
+       },
+       "toi": "ket-tot"
+      }
+     ]
+    },
+    {
+     "id": "tin",
+     "ai": {
+      "vi": "Dạ, tin sáng nay: trời Hà Nội mát, 24 độ… Có tin “ngân hàng tặng quà, bấm link nhận” ạ.",
+      "en": "This morning: cool in Hanoi, 24°C… There's also “bank gift, click to claim”."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Bấm link nhận quà cho ông",
+        "en": "Click the gift link for me"
+       },
+       "toi": "link"
+      },
+      {
+       "chu": {
+        "vi": "Tin đó lạ, bỏ qua",
+        "en": "That's odd, skip it"
+       },
+       "toi": "ket-tot"
+      }
+     ]
+    },
+    {
+     "id": "link",
+     "ai": {
+      "vi": "Cháu không bấm link lạ ạ. Ngân hàng không tặng quà qua tin nhắn. Ông gọi tổng đài in sau thẻ nếu muốn hỏi.",
+      "en": "I won't open odd links. Banks don't give gifts by text. Call the number on your card to check."
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Ừ, ông nhớ rồi",
+        "en": "OK, got it"
+       },
+       "toi": "ket-tot"
+      }
+     ]
+    },
+    {
+     "id": "ket-tot",
+     "ket": {
+      "vi": "Trợ lý tốt: **nhắc việc, đọc tin, ghi câu hỏi cho bác sĩ.** !!Không đổi thuốc, không bấm link lạ.!!",
+      "en": "A good helper: **reminders, news, questions for the doctor.** !!No dose changes, no odd links.!!"
+     },
+     "muc": "dung"
+    }
+   ],
+   "video": [
+    "142",
+    "175"
+   ],
+   "lo_trinh": 6
+  }
+ ]
+}

@@ -84,11 +84,14 @@
     if (!cn || ds.querySelector(".nav-drop-nhom")) return;
     const truoc = cn.getAttribute("href").replace(/chung-nhan\.html$/, "");
     const tenTrang = location.pathname.split("/").pop();
+    if (!ds.querySelector('a[href$="lo-trinh-4-tuan.html"]')) cn.insertAdjacentHTML("beforebegin", '<a href="' + truoc + 'lo-trinh-4-tuan.html"' + (tenTrang === "lo-trinh-4-tuan.html" ? ' aria-current="page"' : "") + ">" + (EN ? "4-week path" : "Lộ trình 4 tuần") + "</a>");
     ds.insertAdjacentHTML("beforeend", '<span class="nav-drop-nhom">' + (EN ? "Practice by field" : "Thực hành theo ngành") + "</span>" +
       [["ai-y-te.html", "🏥", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", "🎒", EN ? "High school" : "Học sinh cấp 3"],
-       ["ai-van-phong.html", "🏛️", EN ? "Public servants" : "Cán bộ, công chức"]]
+       ["ai-van-phong.html", "🏛️", EN ? "Public servants" : "Cán bộ, công chức"], ["ai-giao-vien.html", "🍎", EN ? "Teachers" : "Giáo viên"],
+       ["ai-gia-dinh.html", "🏡", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", "🛍️", EN ? "Small sellers" : "Người bán hàng"]]
         .map(x => '<a href="' + truoc + x[0] + '"' + (tenTrang === x[0] ? ' aria-current="page"' : "") + '><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a>").join("") +
-      '<a href="' + truoc + 'thuc-hanh.html"' + (tenTrang === "thuc-hanh.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🧩</span> ' + (EN ? "All games and practice" : "Góc thực hành: mọi trò chơi") + "</a>");
+      '<a href="' + truoc + 'thuc-hanh.html"' + (tenTrang === "thuc-hanh.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🧩</span> ' + (EN ? "All games and practice" : "Góc thực hành: mọi trò chơi") + "</a>" +
+      '<a href="' + truoc + 'ho-so.html"' + (tenTrang === "ho-so.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🔁</span> ' + (EN ? "My profile · review" : "Hồ sơ học · Ôn hôm nay") + "</a>");
   });
   // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
   const dsDrop = top.querySelectorAll(".nav-drop");

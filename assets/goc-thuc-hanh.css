@@ -2,7 +2,7 @@
 .gth { display: flex; flex-direction: column; gap: 34px; padding-top: 32px; }
 .gth-nhom h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font: 800 22px/1.25 var(--f-display); }
 .gth-nhom h2 small { padding: 2px 9px; border-radius: 999px; background: var(--bg2); border: 1px solid var(--edge); font: 600 13px var(--f-mono); color: var(--muted); }
-.gth-nghe-ds { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gth-nghe-ds { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 .gth-nghe { display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 20px; background: var(--panel); border: 2px solid var(--edge); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
 .gth-nghe:hover, .gth-the:hover { border-color: #8B5CF6; transform: translateY(-2px); }
 .gth-nghe.is-xong { border-color: #10B981; }
