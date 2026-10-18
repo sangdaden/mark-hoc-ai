@@ -1,0 +1,955 @@
+{
+ "_ghi_chu": "Bộ học liệu 12 tiết AI (bo-hoc-lieu-ai.html). Mỗi tiết có mach theo Khung QĐ 2422/QĐ-BGDĐT; san_sang=true là tiết đã soạn đủ (mục tiêu, chuẩn bị, video, trạm, hoạt động 45 phút, phiếu in, đánh giá quá trình, cách dạy không cần mạng). Video là số trong data/videos.json; tram là trang có thật trên web.",
+ "cap_nhat": "2026-10-18",
+ "can_cu": {
+  "vi": "Theo Khung nội dung giáo dục AI (QĐ 2422/QĐ-BGDĐT ngày 18/8/2026) và Công văn 5588/BGDĐT-GDPT: 12 tiết cốt lõi mỗi lớp mỗi năm. Tên mạch là của Khung; cách chia tiết là đề xuất của kênh, giáo viên đối chiếu yêu cầu cần đạt của từng lớp trước khi dạy.",
+  "en": "Based on Vietnam's AI education framework (Decision 2422/QĐ-BGDĐT, 18 Aug 2026) and Official Letter 5588/BGDĐT-GDPT: 12 core lessons per grade per year. Strand names come from the framework; the lesson split is the channel's proposal, so teachers should check each grade's required outcomes before teaching."
+ },
+ "mach": {
+  "A": {
+   "vi": "Con người làm trung tâm",
+   "en": "Human-centred mindset"
+  },
+  "B": {
+   "vi": "Đạo đức AI",
+   "en": "AI ethics"
+  },
+  "C": {
+   "vi": "Kĩ thuật và ứng dụng AI",
+   "en": "AI techniques and applications"
+  },
+  "D": {
+   "vi": "Thiết kế hệ thống AI",
+   "en": "AI system design"
+  }
+ },
+ "cap": [
+  {
+   "id": "thcs",
+   "ten": {
+    "vi": "THCS (lớp 6–9)",
+    "en": "Lower secondary (grades 6–9)"
+   },
+   "tiet": [
+    {
+     "so": 1,
+     "ten": {
+      "vi": "Dữ liệu, thuật toán, mô hình",
+      "en": "Data, algorithms, models"
+     },
+     "mach": [
+      "C"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "AI học từ dữ liệu: cùng một công thức, dữ liệu khác thì kết quả khác.",
+      "en": "AI learns from data: same recipe, different data, different results."
+     }
+    },
+    {
+     "so": 2,
+     "ten": {
+      "vi": "Thu thập và gán nhãn dữ liệu",
+      "en": "Collecting and labelling data"
+     },
+     "mach": [
+      "C",
+      "D1"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Học sinh tự gom và gán nhãn một bộ ảnh nhỏ, thấy nhãn sai làm máy học sai.",
+      "en": "Students collect and label a small image set and see how wrong labels teach the machine wrong."
+     }
+    },
+    {
+     "so": 3,
+     "ten": {
+      "vi": "Huấn luyện mô hình đơn giản",
+      "en": "Training a simple model"
+     },
+     "mach": [
+      "C",
+      "D2"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Dùng công cụ miễn phí, không cần tài khoản, để huấn luyện máy phân loại và thử nó.",
+      "en": "Use a free tool with no account to train a classifier and test it."
+     },
+     "cong_cu_goi_y": {
+      "vi": "Công cụ huấn luyện mô hình nhận dạng ảnh hoặc âm thanh chạy ngay trên trình duyệt, miễn phí, không cần tài khoản (dữ liệu nằm trên máy, không tải lên). Không có mạng thì chơi trò “máy phân loại bằng thẻ”: học sinh đóng vai máy, học từ thẻ ví dụ rồi đoán thẻ mới.",
+      "en": "An image or sound recognition training tool that runs in the browser, free, no account (data stays on the device, nothing uploaded). Offline, play “card classifier”: students act as the machine, learn from example cards, then guess new ones."
+     }
+    },
+    {
+     "so": 4,
+     "ten": {
+      "vi": "AI tạo sinh và sản phẩm số",
+      "en": "Generative AI and digital products"
+     },
+     "mach": [
+      "C"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "AI tạo chữ, ảnh, âm thanh bằng cách đoán tiếp; sản phẩm cần người kiểm và ghi nhãn.",
+      "en": "AI makes text, images and sound by predicting; the output needs a human check and a label."
+     }
+    },
+    {
+     "so": 5,
+     "ten": {
+      "vi": "Câu lệnh 5 mảnh cho việc học",
+      "en": "The 5-part prompt for learning"
+     },
+     "mach": [
+      "C"
+     ],
+     "san_sang": true,
+     "muc_tieu": [
+      {
+       "vi": "Học sinh kể đúng 5 mảnh của một câu lệnh: vai trò, bối cảnh, nhiệm vụ, định dạng, giới hạn.",
+       "en": "Students name the 5 parts of a prompt: role, context, task, format, limits."
+      },
+      {
+       "vi": "Học sinh viết được một câu lệnh đủ 5 mảnh cho một việc học thật.",
+       "en": "Students write a 5-part prompt for a real study task."
+      },
+      {
+       "vi": "Học sinh chỉ ra câu lệnh nào khiến AI làm hộ thay vì giúp mình học.",
+       "en": "Students spot prompts that make AI do the work instead of helping them learn."
+      }
+     ],
+     "chuan_bi": [
+      {
+       "vi": "Phiếu in (mỗi em 1 tờ).",
+       "en": "Printed worksheet (one per student)."
+      },
+      {
+       "vi": "Thẻ giấy 5 màu ghi 5 mảnh, mỗi nhóm 1 bộ.",
+       "en": "Paper cards in 5 colours for the 5 parts, one set per group."
+      },
+      {
+       "vi": "Có máy chiếu: mở video và trạm Thợ ghép câu lệnh.",
+       "en": "With a projector: play the video and the Prompt builder station."
+      }
+     ],
+     "video": [
+      3,
+      102
+     ],
+     "tram": [
+      {
+       "url": "tho-ghep-cau-lenh.html",
+       "ten": {
+        "vi": "Thợ ghép câu lệnh",
+        "en": "Prompt builder"
+       }
+      },
+      {
+       "url": "ai-hoc-sinh.html?tram=ghep",
+       "ten": {
+        "vi": "Ghép câu lệnh học tập",
+        "en": "Build a study prompt"
+       }
+      }
+     ],
+     "hoat_dong": [
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Khởi động",
+        "en": "Warm-up"
+       },
+       "mo_ta": {
+        "vi": "Giáo viên đọc câu: “Giải giúp em bài này”. Cả lớp đoán: AI sẽ trả lời tốt hay chung chung? Vì sao?",
+        "en": "The teacher reads: “Solve this for me.” The class guesses: will AI answer well or vaguely? Why?"
+       }
+      },
+      {
+       "phut": 8,
+       "ten": {
+        "vi": "Xem và rút ra 5 mảnh",
+        "en": "Watch and find the 5 parts"
+       },
+       "mo_ta": {
+        "vi": "Xem video, ghi 5 mảnh lên bảng. Mảnh thứ năm là giới hạn, ví dụ: không đưa đáp án, chỉ gợi ý.",
+        "en": "Watch the video and list the 5 parts on the board. The fifth part is limits, e.g. no answers, hints only."
+       }
+      },
+      {
+       "phut": 17,
+       "ten": {
+        "vi": "Ghép câu lệnh theo nhóm",
+        "en": "Build prompts in groups"
+       },
+       "mo_ta": {
+        "vi": "Mỗi nhóm nhận một việc học (ôn từ vựng, giải toán, dàn ý văn), ghép thẻ 5 màu thành câu lệnh. Có máy chiếu thì thử trên trạm Thợ ghép câu lệnh.",
+        "en": "Each group gets a study task (vocabulary, a maths problem, an essay outline) and builds a prompt from the 5 cards. With a projector, try it in the Prompt builder."
+       }
+      },
+      {
+       "phut": 10,
+       "ten": {
+        "vi": "Chia sẻ và soi",
+        "en": "Share and check"
+       },
+       "mo_ta": {
+        "vi": "Hai nhóm đọc câu lệnh. Cả lớp soi: đủ 5 mảnh chưa? Câu lệnh giúp mình học hay làm hộ?",
+        "en": "Two groups read their prompts. The class checks: all 5 parts? Does it help learning or do the work?"
+       }
+      },
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Chốt",
+        "en": "Wrap-up"
+       },
+       "mo_ta": {
+        "vi": "Mỗi em viết vào phiếu một câu lệnh đủ 5 mảnh cho bài tập về nhà tối nay.",
+        "en": "Each student writes a 5-part prompt for tonight's homework on the worksheet."
+       }
+      }
+     ],
+     "phieu": {
+      "tieu_de": {
+       "vi": "Phiếu: Câu lệnh 5 mảnh",
+       "en": "Worksheet: The 5-part prompt"
+      },
+      "cau": [
+       {
+        "vi": "1. Viết tên 5 mảnh: ______, ______, ______, ______, ______.",
+        "en": "1. Write the 5 parts: ______, ______, ______, ______, ______."
+       },
+       {
+        "vi": "2. Câu “Giải giúp em bài này” thiếu những mảnh nào? ______",
+        "en": "2. Which parts are missing from “Solve this for me”? ______"
+       },
+       {
+        "vi": "3. Viết mảnh giới hạn để AI chỉ gợi ý, không đưa đáp án: ______",
+        "en": "3. Write a limit so AI only gives hints, not answers: ______"
+       },
+       {
+        "vi": "4. Tình huống: Lan nhờ AI “viết bài văn tả mẹ 300 chữ”. Đây là học cùng AI hay nhờ làm hộ? Vì sao? ______",
+        "en": "4. Case: Lan asks AI to “write a 300-word essay about my mum”. Learning with AI or having it done? Why? ______"
+       },
+       {
+        "vi": "5. Viết lại câu lệnh của Lan để AI giúp Lan tự viết: ______",
+        "en": "5. Rewrite Lan's prompt so AI helps her write it herself: ______"
+       },
+       {
+        "vi": "6. Câu lệnh đủ 5 mảnh cho bài tập tối nay của em: ______",
+        "en": "6. A 5-part prompt for your homework tonight: ______"
+       }
+      ]
+     },
+     "danh_gia": [
+      {
+       "tieu_chi": {
+        "vi": "Nhận biết 5 mảnh",
+        "en": "Knows the 5 parts"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Kể được 4–5 mảnh",
+         "en": "Names 4–5 parts"
+        },
+        {
+         "vi": "Kể đủ và nêu ví dụ cho từng mảnh",
+         "en": "Names all 5 with an example each"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Viết câu lệnh",
+        "en": "Writes a prompt"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Câu lệnh có ít nhất 4 mảnh",
+         "en": "Prompt has at least 4 parts"
+        },
+        {
+         "vi": "Đủ 5 mảnh, rõ ràng, dùng được ngay",
+         "en": "All 5 parts, clear, ready to use"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Học cùng hay làm hộ",
+        "en": "Learn with or have it done"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Phân biệt được trong tình huống",
+         "en": "Tells them apart in the case"
+        },
+        {
+         "vi": "Tự sửa câu lệnh làm hộ thành câu lệnh giúp học",
+         "en": "Rewrites a do-it-for-me prompt into a learning one"
+        }
+       ]
+      }
+     ],
+     "khong_mang": {
+      "vi": "Dùng thẻ giấy 5 màu thay cho trạm trên web; giáo viên đọc to hai câu trả lời mẫu (chung chung và đúng ý) để cả lớp so sánh.",
+      "en": "Use the 5 paper cards instead of the web station; the teacher reads aloud two sample answers (vague and on-target) for the class to compare."
+     }
+    },
+    {
+     "so": 6,
+     "ten": {
+      "vi": "Kiểm chứng thông tin, nhận ra deepfake",
+      "en": "Checking facts and spotting deepfakes"
+     },
+     "mach": [
+      "B2"
+     ],
+     "san_sang": true,
+     "muc_tieu": [
+      {
+       "vi": "Học sinh nêu được 3 bước kiểm chứng trước khi tin hay chia sẻ một tin nóng.",
+       "en": "Students state 3 steps to check before believing or sharing hot news."
+      },
+      {
+       "vi": "Học sinh chỉ ra ít nhất 2 dấu hiệu của ảnh, video hoặc giọng nói giả.",
+       "en": "Students point out at least 2 signs of a fake photo, video or voice."
+      },
+      {
+       "vi": "Học sinh biết làm gì khi nhận cuộc gọi giả giọng người thân: dừng, gọi lại số quen, hỏi câu mật khẩu.",
+       "en": "Students know what to do with a cloned-voice call: stop, call back a known number, ask the family password."
+      }
+     ],
+     "chuan_bi": [
+      {
+       "vi": "Phiếu in và 6 thẻ tình huống in sẵn (tin thật, tin giả).",
+       "en": "Worksheet and 6 printed case cards (real and fake news)."
+      },
+      {
+       "vi": "Có máy chiếu: mở video và trạm Tin lộ đề thi, Lừa đảo hay thật?",
+       "en": "With a projector: play the video and the Leaked exam post and Scam or real? stations."
+      }
+     ],
+     "video": [
+      14,
+      227
+     ],
+     "tram": [
+      {
+       "url": "ai-hoc-sinh.html?tram=tin-gia",
+       "ten": {
+        "vi": "Tin lộ đề thi",
+        "en": "Leaked exam post"
+       }
+      },
+      {
+       "url": "lua-dao-hay-that.html",
+       "ten": {
+        "vi": "Lừa đảo hay thật?",
+        "en": "Scam or real?"
+       }
+      },
+      {
+       "url": "ai-gia-dinh.html?tram=anh-gia",
+       "ten": {
+        "vi": "Soi ảnh, video giả",
+        "en": "Spot fake photos and videos"
+       }
+      }
+     ],
+     "hoat_dong": [
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Khởi động",
+        "en": "Warm-up"
+       },
+       "mo_ta": {
+        "vi": "Giáo viên đọc tin: “Lộ đề thi giữa kỳ, chia sẻ gấp!”. Cả lớp giơ tay: tin hay không tin? Đoán xem dấu hiệu nào đáng ngờ.",
+        "en": "The teacher reads: “Midterm exam leaked, share now!” Hands up: believe it or not? Guess which signs look suspicious."
+       }
+      },
+      {
+       "phut": 8,
+       "ten": {
+        "vi": "Xem video",
+        "en": "Watch"
+       },
+       "mo_ta": {
+        "vi": "Xem video về deepfake và thói quen 3 bước: dừng lại, tìm nguồn gốc, đối chiếu nơi khác.",
+        "en": "Watch the video on deepfakes and the 3-step habit: pause, find the source, cross-check elsewhere."
+       }
+      },
+      {
+       "phut": 17,
+       "ten": {
+        "vi": "Thám tử theo nhóm",
+        "en": "Detectives in groups"
+       },
+       "mo_ta": {
+        "vi": "Mỗi nhóm nhận 2 thẻ tình huống, dùng 3 bước để xếp thành Tin được / Chưa đủ căn cứ / Giả, ghi dấu hiệu tìm được. Có máy chiếu thì cả lớp chơi trạm Tin lộ đề thi.",
+        "en": "Each group gets 2 case cards, uses the 3 steps to sort them into Trustworthy / Not enough evidence / Fake, and notes the signs. With a projector, play the Leaked exam post station together."
+       }
+      },
+      {
+       "phut": 10,
+       "ten": {
+        "vi": "Chia sẻ",
+        "en": "Share"
+       },
+       "mo_ta": {
+        "vi": "Các nhóm báo kết quả. Giáo viên nhấn mạnh: giọng và mặt người thân cũng giả được; luôn gọi lại số quen và hỏi câu mật khẩu.",
+        "en": "Groups report. The teacher stresses: a relative's voice and face can be faked; always call back a known number and ask the password."
+       }
+      },
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Chốt",
+        "en": "Wrap-up"
+       },
+       "mo_ta": {
+        "vi": "Mỗi em ghi 3 bước vào phiếu và một câu mật khẩu sẽ hẹn với gia đình (không ghi câu thật lên phiếu).",
+        "en": "Each student writes the 3 steps and plans a family password (without writing the real one on the sheet)."
+       }
+      }
+     ],
+     "phieu": {
+      "tieu_de": {
+       "vi": "Phiếu: Thám tử tin giả",
+       "en": "Worksheet: Fake-news detective"
+      },
+      "cau": [
+       {
+        "vi": "1. Ba bước trước khi tin hay chia sẻ: ______, ______, ______.",
+        "en": "1. Three steps before believing or sharing: ______, ______, ______."
+       },
+       {
+        "vi": "2. Hai dấu hiệu của video hoặc ảnh có thể là giả: ______",
+        "en": "2. Two signs a video or photo may be fake: ______"
+       },
+       {
+        "vi": "3. Tình huống: Minh nhận cuộc gọi giọng giống hệt anh trai, khóc xin chuyển 5 triệu gấp. Minh nên làm gì trước tiên? ______",
+        "en": "3. Case: Minh gets a call that sounds just like his brother, crying for 5 million đồng urgently. What should Minh do first? ______"
+       },
+       {
+        "vi": "4. Vì sao không chuyển tiền dù nghe đúng giọng? ______",
+        "en": "4. Why not send money even if the voice sounds right? ______"
+       },
+       {
+        "vi": "5. Một tin nóng em thấy gần đây, em kiểm chứng ở đâu? ______",
+        "en": "5. A hot story you saw recently: where would you check it? ______"
+       }
+      ]
+     },
+     "danh_gia": [
+      {
+       "tieu_chi": {
+        "vi": "Thói quen kiểm chứng",
+        "en": "Checking habit"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Nêu đủ 3 bước",
+         "en": "States the 3 steps"
+        },
+        {
+         "vi": "Áp dụng 3 bước đúng vào tình huống mới",
+         "en": "Applies them correctly to a new case"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Nhận ra dấu hiệu giả",
+        "en": "Spotting fakes"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Chỉ ra 1–2 dấu hiệu",
+         "en": "Points out 1–2 signs"
+        },
+        {
+         "vi": "Chỉ ra dấu hiệu và giải thích vì sao đáng ngờ",
+         "en": "Points out signs and explains why"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Xử lý cuộc gọi giả giọng",
+        "en": "Handling a cloned-voice call"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Biết dừng lại, không chuyển tiền",
+         "en": "Knows to stop and not pay"
+        },
+        {
+         "vi": "Nêu đủ: gọi lại số quen, hỏi câu mật khẩu, báo người lớn",
+         "en": "Names all: call back, ask the password, tell an adult"
+        }
+       ]
+      }
+     ],
+     "khong_mang": {
+      "vi": "Giáo viên in 6 thẻ tình huống và đọc to; học sinh giơ thẻ màu Tin / Chưa rõ / Giả thay cho trò chơi trên web.",
+      "en": "The teacher prints and reads the 6 case cards; students hold up coloured cards (Trust / Unsure / Fake) instead of the web game."
+     },
+     "the_in": [
+      {
+       "tieu_de": {
+        "vi": "6 thẻ tình huống: Tin được, Chưa đủ căn cứ hay Giả?",
+        "en": "6 case cards: Trustworthy, Not enough evidence or Fake?"
+       },
+       "huong_dan": {
+        "vi": "In và cắt thẻ, mỗi nhóm 2 thẻ. Đáp án: 1 Giả (giục chia sẻ, không nguồn). 2 Tin được (có nguồn chính thức, kiểm được). 3 Giả (giọng có thể giả, đòi chuyển tiền gấp: gọi lại số quen). 4 Chưa đủ căn cứ (ảnh cũ có thể bị gắn tin mới: tìm ảnh gốc). 5 Giả (người nổi tiếng mời đầu tư lãi cao là kiểu lừa quen thuộc). 6 Tin được nhưng vẫn nên mở trang trường để chắc.",
+        "en": "Print and cut; 2 cards per group. Answers: 1 Fake (urges sharing, no source). 2 Trustworthy (official, checkable source). 3 Fake (voice can be cloned, urgent money: call back a known number). 4 Not enough evidence (an old photo can be reused: find the original). 5 Fake (celebrity promising high returns is a classic scam). 6 Trustworthy, but still check the school website."
+       },
+       "the": [
+        {
+         "vi": "1. Tin nhắn nhóm lớp: “LỘ ĐỀ THI GIỮA KỲ TOÁN 7! Chia sẻ ngay trước khi bị xóa!” kèm ảnh chụp mờ.",
+         "en": "1. Class group message: “MATHS 7 MIDTERM LEAKED! Share before it's deleted!” with a blurry photo."
+        },
+        {
+         "vi": "2. Trang thông tin của Sở GD&ĐT đăng lịch nghỉ Tết của học sinh, có số văn bản và ngày ký.",
+         "en": "2. The education department's website posts the students' Tết holiday dates, with a document number and signing date."
+        },
+        {
+         "vi": "3. Bạn Khoa nhận cuộc gọi giọng giống hệt mẹ, khóc nói mất ví, xin chuyển ngay 3 triệu vào một số tài khoản lạ.",
+         "en": "3. Khoa gets a call in his mum's exact voice, crying that she lost her wallet and asking for 3 million đồng to a strange account now."
+        },
+        {
+         "vi": "4. Ảnh một con đường ngập nước được chia sẻ với lời: “Sáng nay ở phường Hòa An”. Không ghi ai chụp, lúc nào.",
+         "en": "4. A photo of a flooded street shared with: “This morning in Hoa An ward.” No photographer, no time."
+        },
+        {
+         "vi": "5. Video một ca sĩ nổi tiếng mời đầu tư “lãi 30% mỗi tháng, cam kết không lỗ”, môi nói hơi lệch tiếng.",
+         "en": "5. A video of a famous singer offering investments “30% a month, no risk”, lips slightly out of sync."
+        },
+        {
+         "vi": "6. Cô chủ nhiệm nhắn trong nhóm lớp: “Thứ Sáu học bù tiết 3, xem thông báo trên trang của trường”.",
+         "en": "6. The form teacher posts in the class group: “Make-up lesson Friday period 3, see the notice on the school website.”"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "so": 7,
+     "ten": {
+      "vi": "Dữ liệu cá nhân và quyền riêng tư",
+      "en": "Personal data and privacy"
+     },
+     "mach": [
+      "B1",
+      "B2"
+     ],
+     "san_sang": true,
+     "muc_tieu": [
+      {
+       "vi": "Học sinh phân loại được thông tin nào không được dán vào chatbot (họ tên kèm địa chỉ, số định danh, mật khẩu, mã OTP, ảnh riêng).",
+       "en": "Students sort which information must never go into a chatbot (name with address, ID numbers, passwords, OTP codes, private photos)."
+      },
+      {
+       "vi": "Học sinh che được thông tin cá nhân trong một đoạn văn trước khi nhờ AI.",
+       "en": "Students hide personal details in a text before asking AI."
+      },
+      {
+       "vi": "Học sinh giải thích được vì sao dữ liệu gửi đi có thể không xóa được.",
+       "en": "Students explain why data sent away may not be deletable."
+      }
+     ],
+     "chuan_bi": [
+      {
+       "vi": "Phiếu in, bộ 12 thẻ thông tin để phân loại (mỗi nhóm 1 bộ).",
+       "en": "Worksheet and a set of 12 information cards to sort (one per group)."
+      },
+      {
+       "vi": "Có máy chiếu: mở video và trạm Dán hay không dán?",
+       "en": "With a projector: play the video and the Paste or not? station."
+      }
+     ],
+     "video": [
+      15,
+      121
+     ],
+     "tram": [
+      {
+       "url": "dan-hay-khong.html",
+       "ten": {
+        "vi": "Dán hay không dán?",
+        "en": "Paste or not?"
+       }
+      },
+      {
+       "url": "ai-hoc-sinh.html?tram=an-toan",
+       "ten": {
+        "vi": "Kể gì với chatbot?",
+        "en": "What to tell a chatbot?"
+       }
+      }
+     ],
+     "hoat_dong": [
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Khởi động",
+        "en": "Warm-up"
+       },
+       "mo_ta": {
+        "vi": "Giáo viên hỏi: nếu dán ảnh bảng điểm cả lớp vào chatbot để tính điểm trung bình, chuyện gì có thể xảy ra? Cả lớp đoán.",
+        "en": "The teacher asks: if you paste a photo of the whole class's grades into a chatbot to get averages, what could happen? The class guesses."
+       }
+      },
+      {
+       "phut": 8,
+       "ten": {
+        "vi": "Xem video",
+        "en": "Watch"
+       },
+       "mo_ta": {
+        "vi": "Xem video về những gì không nên dán vào AI và dữ liệu đi đâu khi chat.",
+        "en": "Watch the videos on what not to paste into AI and where chat data goes."
+       }
+      },
+      {
+       "phut": 17,
+       "ten": {
+        "vi": "Xếp thẻ theo nhóm",
+        "en": "Sort cards in groups"
+       },
+       "mo_ta": {
+        "vi": "Mỗi nhóm xếp 12 thẻ vào 3 rổ: Dán được / Che rồi mới dán / Không dán. Sau đó che thông tin trong một đoạn đơn xin nghỉ học mẫu bằng nhãn [HỌ TÊN], [LỚP].",
+        "en": "Each group sorts 12 cards into 3 baskets: OK to paste / Hide first / Never paste. Then they hide the details in a sample absence note with labels like [NAME], [CLASS]."
+       }
+      },
+      {
+       "phut": 10,
+       "ten": {
+        "vi": "Chia sẻ",
+        "en": "Share"
+       },
+       "mo_ta": {
+        "vi": "Các nhóm so kết quả, tranh luận thẻ khó (ảnh có mặt bạn bè, địa chỉ trường). Có máy chiếu thì cả lớp chơi trạm Dán hay không dán?",
+        "en": "Groups compare and debate the hard cards (photos with friends' faces, the school address). With a projector, play Paste or not? together."
+       }
+      },
+      {
+       "phut": 5,
+       "ten": {
+        "vi": "Chốt",
+        "en": "Wrap-up"
+       },
+       "mo_ta": {
+        "vi": "Mỗi em viết một quy tắc riêng: “Trước khi dán vào AI, mình sẽ…”.",
+        "en": "Each student writes a personal rule: “Before I paste anything into AI, I will…”."
+       }
+      }
+     ],
+     "phieu": {
+      "tieu_de": {
+       "vi": "Phiếu: Dán hay không dán?",
+       "en": "Worksheet: Paste or not?"
+      },
+      "cau": [
+       {
+        "vi": "1. Ba thứ không bao giờ dán vào chatbot: ______, ______, ______.",
+        "en": "1. Three things never to paste into a chatbot: ______, ______, ______."
+       },
+       {
+        "vi": "2. Che thông tin trong câu: “Em là Nguyễn Văn Bình, lớp 7A, nhà ở 12 phố Hoa” → ______",
+        "en": "2. Hide the details: “I'm Nguyen Van Binh, class 7A, living at 12 Hoa Street” → ______"
+       },
+       {
+        "vi": "3. Tình huống: Hà muốn nhờ AI viết lời chúc sinh nhật bạn, định dán ảnh có mặt bạn và số điện thoại. Hà nên làm gì? ______",
+        "en": "3. Case: Ha wants AI to write a birthday message and plans to paste a photo of her friend's face and phone number. What should Ha do? ______"
+       },
+       {
+        "vi": "4. Vì sao thông tin đã gửi đi có thể không xóa được? ______",
+        "en": "4. Why might information you sent be impossible to delete? ______"
+       },
+       {
+        "vi": "5. Quy tắc của em: Trước khi dán vào AI, mình sẽ ______",
+        "en": "5. My rule: Before I paste anything into AI, I will ______"
+       }
+      ]
+     },
+     "danh_gia": [
+      {
+       "tieu_chi": {
+        "vi": "Phân loại thông tin",
+        "en": "Sorting information"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Xếp đúng phần lớn thẻ",
+         "en": "Sorts most cards correctly"
+        },
+        {
+         "vi": "Xếp đúng và giải thích được thẻ khó",
+         "en": "Sorts correctly and explains the hard ones"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Che thông tin",
+        "en": "Hiding details"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Che được tên và địa chỉ",
+         "en": "Hides name and address"
+        },
+        {
+         "vi": "Che đủ mọi chi tiết nhận ra người và giữ được ý đoạn văn",
+         "en": "Hides every identifying detail and keeps the meaning"
+        }
+       ]
+      },
+      {
+       "tieu_chi": {
+        "vi": "Hiểu dữ liệu đi đâu",
+        "en": "Knowing where data goes"
+       },
+       "muc": [
+        {
+         "vi": "Chưa đạt",
+         "en": "Not yet"
+        },
+        {
+         "vi": "Biết dữ liệu được gửi ra ngoài máy",
+         "en": "Knows data leaves the device"
+        },
+        {
+         "vi": "Giải thích được vì sao có thể không xóa được và tự đặt quy tắc",
+         "en": "Explains why it may not be deletable and sets a rule"
+        }
+       ]
+      }
+     ],
+     "khong_mang": {
+      "vi": "Dùng bộ 12 thẻ in và đơn xin nghỉ học mẫu; giáo viên đọc to tình huống thay cho video.",
+      "en": "Use the 12 printed cards and the sample absence note; the teacher reads the cases aloud instead of the video."
+     },
+     "the_in": [
+      {
+       "tieu_de": {
+        "vi": "12 thẻ thông tin: Dán được, Che rồi mới dán hay Không dán?",
+        "en": "12 information cards: OK to paste, Hide first or Never paste?"
+       },
+       "huong_dan": {
+        "vi": "In và cắt thẻ, mỗi nhóm 1 bộ. Gợi ý đáp án: Dán được: 1, 2, 3. Che rồi mới dán: 4, 5, 6, 7, 8. Không dán: 9, 10, 11, 12. Thẻ 7 và 8 dễ tranh luận: che tên và mặt thì mới được dùng.",
+        "en": "Print and cut, one set per group. Suggested answers: OK to paste: 1, 2, 3. Hide first: 4, 5, 6, 7, 8. Never paste: 9, 10, 11, 12. Cards 7 and 8 spark debate: only with names and faces hidden."
+       },
+       "the": [
+        {
+         "vi": "1. Đề bài toán trong sách giáo khoa",
+         "en": "1. A maths problem from the textbook"
+        },
+        {
+         "vi": "2. Dàn ý bài văn em tự viết",
+         "en": "2. An essay outline you wrote yourself"
+        },
+        {
+         "vi": "3. Danh sách từ vựng tiếng Anh cần ôn",
+         "en": "3. A list of English words to revise"
+        },
+        {
+         "vi": "4. Bài văn có tên em và tên trường",
+         "en": "4. An essay with your name and school name"
+        },
+        {
+         "vi": "5. Đơn xin nghỉ học có họ tên, lớp, lý do ốm",
+         "en": "5. An absence note with name, class and illness"
+        },
+        {
+         "vi": "6. Tin nhắn nhóm bạn có tên các bạn",
+         "en": "6. A friends' group chat with their names"
+        },
+        {
+         "vi": "7. Ảnh chụp cả lớp có mặt các bạn",
+         "en": "7. A class photo showing classmates' faces"
+        },
+        {
+         "vi": "8. Bảng điểm của lớp",
+         "en": "8. The class grade sheet"
+        },
+        {
+         "vi": "9. Mật khẩu tài khoản học trực tuyến",
+         "en": "9. Your online learning account password"
+        },
+        {
+         "vi": "10. Mã OTP gửi về điện thoại",
+         "en": "10. An OTP code sent to a phone"
+        },
+        {
+         "vi": "11. Số định danh cá nhân (căn cước) của bố mẹ",
+         "en": "11. A parent's personal ID number"
+        },
+        {
+         "vi": "12. Địa chỉ nhà kèm giờ đi học và về hằng ngày",
+         "en": "12. Home address plus daily school times"
+        }
+       ]
+      },
+      {
+       "tieu_de": {
+        "vi": "Đơn xin nghỉ học mẫu (để tập che thông tin)",
+        "en": "Sample absence note (for practising hiding details)"
+       },
+       "huong_dan": {
+        "vi": "Học sinh gạch các chi tiết nhận ra người và thay bằng nhãn như [HỌ TÊN], [LỚP], [SĐT], [ĐỊA CHỈ], [TRƯỜNG]. Mọi tên và số đều hư cấu. Cần che: tên học sinh, tên phụ huynh, lớp, trường, ngày sinh, địa chỉ, số điện thoại.",
+        "en": "Students strike out identifying details and replace them with labels like [NAME], [CLASS], [PHONE], [ADDRESS], [SCHOOL]. All names and numbers are made up. Hide: student name, parent name, class, school, date of birth, address, phone number."
+       },
+       "the": [
+        {
+         "vi": "ĐƠN XIN NGHỈ HỌC",
+         "en": "ABSENCE NOTE"
+        },
+        {
+         "vi": "Kính gửi: Cô Trần Thu Hà, giáo viên chủ nhiệm lớp 7A2, Trường THCS Hòa Bình.",
+         "en": "To: Ms Tran Thu Ha, form teacher of class 7A2, Hoa Binh Lower Secondary School."
+        },
+        {
+         "vi": "Tôi là Lê Văn Phúc, phụ huynh của em Lê Minh Anh, sinh ngày 14/03/2013.",
+         "en": "I am Le Van Phuc, parent of Le Minh Anh, born 14/03/2013."
+        },
+        {
+         "vi": "Địa chỉ: số 25, ngõ 8, phố Hoa Sữa, phường An Bình. Điện thoại: 0912 345 678.",
+         "en": "Address: No. 25, Lane 8, Hoa Sua Street, An Binh ward. Phone: 0912 345 678."
+        },
+        {
+         "vi": "Xin cho cháu nghỉ học ngày 21/10 vì sốt cao, đã đi khám ở phòng khám gần nhà.",
+         "en": "Please excuse my child on 21/10 due to a high fever; we have seen a local clinic."
+        },
+        {
+         "vi": "Cháu sẽ chép bài và nộp bài tập đầy đủ. Xin cảm ơn cô.",
+         "en": "My child will catch up on notes and homework. Thank you."
+        },
+        {
+         "vi": "Người làm đơn: Lê Văn Phúc",
+         "en": "Signed: Le Van Phuc"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "so": 8,
+     "ten": {
+      "vi": "Định kiến và công bằng",
+      "en": "Bias and fairness"
+     },
+     "mach": [
+      "B1"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Dữ liệu lệch thì AI lệch: thử máy lọc hồ sơ và tìm cách sửa.",
+      "en": "Skewed data makes skewed AI: try the CV filter and find a fix."
+     }
+    },
+    {
+     "so": 9,
+     "ten": {
+      "vi": "Bản quyền và liêm chính học thuật",
+      "en": "Copyright and academic integrity"
+     },
+     "mach": [
+      "B3"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Ghi rõ phần nào nhờ AI, không nộp bài AI làm hộ, tôn trọng tác phẩm của người khác.",
+      "en": "Say what AI helped with, don't hand in AI-written work, respect others' creations."
+     }
+    },
+    {
+     "so": 10,
+     "ten": {
+      "vi": "Con người chịu trách nhiệm quyết định",
+      "en": "Humans are responsible for decisions"
+     },
+     "mach": [
+      "A1",
+      "A2"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "AI gợi ý, người quyết định: nhận ra lúc nào phải tự kiểm và tự chịu trách nhiệm.",
+      "en": "AI suggests, people decide: know when to check and take responsibility."
+     }
+    },
+    {
+     "so": 11,
+     "ten": {
+      "vi": "Dự án nhóm: giải pháp AI cho trường",
+      "en": "Group project: an AI idea for school"
+     },
+     "mach": [
+      "D1",
+      "D2"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Nhóm chọn một vấn đề của trường, phác giải pháp có AI và nêu rủi ro.",
+      "en": "Groups pick a school problem, sketch an AI solution and list its risks."
+     }
+    },
+    {
+     "so": 12,
+     "ten": {
+      "vi": "Trình bày và cải tiến sản phẩm",
+      "en": "Presenting and improving"
+     },
+     "mach": [
+      "D2",
+      "A3"
+     ],
+     "san_sang": false,
+     "y": {
+      "vi": "Các nhóm trình bày, nhận góp ý theo tiêu chí và cải tiến lần hai.",
+      "en": "Groups present, get feedback against criteria and improve once more."
+     }
+    }
+   ]
+  }
+ ]
+}
