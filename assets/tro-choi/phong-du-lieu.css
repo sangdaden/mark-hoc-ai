@@ -130,3 +130,6 @@
   .pdl-svg text, .pdl-svg .pdl-nhan, .pdl-svg .pdl-chu-giai { font-size: 21px; }
   .pdl-hinh { padding: 6px; margin: 0 -6px; }
 }
+
+/* Người bật "giảm chuyển động" thì bỏ hiệu ứng chuyển tiếp */
+@media (prefers-reduced-motion: reduce) { .pdl *, .pdl *::before, .pdl *::after { transition: none !important; animation: none !important; } }
