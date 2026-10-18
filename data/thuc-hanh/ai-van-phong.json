@@ -1,0 +1,1138 @@
+{
+ "trang": "ai-van-phong",
+ "eyebrow": {
+  "vi": "Thực hành · 7 trạm · chạy trên trình duyệt",
+  "en": "Hands-on · 7 stations · runs in your browser"
+ },
+ "h1": {
+  "vi": "AI cho cán bộ, công chức, viên chức",
+  "en": "AI for public servants and office staff"
+ },
+ "lead": {
+  "vi": "Dùng AI soạn thảo, tóm tắt, trả lời nhanh hơn mà vẫn giữ bí mật cơ quan và thông tin công dân.",
+  "en": "Draft, summarise and reply faster with AI while keeping official and personal data safe."
+ },
+ "hinh": "mark-va-bit.svg",
+ "bn_cau": {
+  "vi": "Một ngày ở bộ phận một cửa của phường (hư cấu)",
+  "en": "A day at a (fictional) ward service desk"
+ },
+ "tieu": {
+  "vi": "AI cho cán bộ, công chức, viên chức: 7 bài thực hành",
+  "en": "AI for public servants and office staff: 7 hands-on exercises"
+ },
+ "desc": {
+  "vi": "Bảy bài thực hành miễn phí: che thông tin công dân, văn bản nào được đưa vào AI, ghép câu lệnh soạn công văn và báo cáo, sửa công văn AI soạn, chọn bản tóm tắt trung thực, chọn giọng trả lời công dân, xử lý khi đồng nghiệp nhờ dán bảng lương vào chatbot.",
+  "en": "Seven free exercises: hide citizens' personal data, which documents can go into AI, build prompts for letters and reports, fix an AI-drafted letter, pick a faithful summary, choose the right tone for citizens, and handle a colleague asking to paste payroll into a chatbot."
+ },
+ "ghi": {
+  "vi": "Mọi hồ sơ, tên người, số giấy tờ, câu trả lời của AI trong trang đều là mẫu giả để luyện tập. Không gọi AI thật, không gửi gì đi. Trang không thay quy định của cơ quan bạn.",
+  "en": "All files, names, ID numbers and AI answers here are fictional practice material. No real AI is called and nothing is sent. This page doesn't replace your organisation's rules."
+ },
+ "tram": [
+  {
+   "id": "lo-thong-tin",
+   "loai": "tim-loi",
+   "kieu": "don",
+   "ten": {
+    "vi": "Che hồ sơ công dân",
+    "en": "Redact a citizen's form"
+   },
+   "nho": {
+    "vi": "Che thông tin",
+    "en": "Redact"
+   },
+   "h2": {
+    "vi": "Che 6 thông tin trước khi dán vào AI",
+    "en": "Hide 6 details before pasting into AI"
+   },
+   "mo": {
+    "vi": "Chạm ô cần che 🖍️",
+    "en": "Tap what needs hiding 🖍️"
+   },
+   "dau": {
+    "vi": "**ĐƠN ĐỀ NGHỊ** · mẫu giả",
+    "en": "**APPLICATION FORM** · fictional sample"
+   },
+   "doan": [
+    {
+     "nhan": {
+      "vi": "Kính gửi",
+      "en": "To"
+     },
+     "chu": {
+      "vi": "UBND phường X",
+      "en": "Ward X People's Committee"
+     },
+     "loi": null,
+     "bit": {
+      "vi": "Tên cơ quan, không cần che.",
+      "en": "The office's name, fine to keep."
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Họ tên",
+      "en": "Name"
+     },
+     "chu": {
+      "vi": "Trần Văn Bình",
+      "en": "Binh Tran"
+     },
+     "loi": "ten",
+     "the": {
+      "vi": "[HỌ TÊN]",
+      "en": "[NAME]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Ngày sinh",
+      "en": "Born"
+     },
+     "chu": "04/09/1985",
+     "loi": "ngay",
+     "the": {
+      "vi": "[NGÀY SINH]",
+      "en": "[DATE OF BIRTH]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Số CCCD",
+      "en": "ID no."
+     },
+     "chu": "001085012345",
+     "loi": "cccd",
+     "the": {
+      "vi": "[SỐ CCCD]",
+      "en": "[ID NO.]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Địa chỉ",
+      "en": "Address"
+     },
+     "chu": {
+      "vi": "18 ngõ 42 phố Y, phường X",
+      "en": "18, Lane 42, Y Street, Ward X"
+     },
+     "loi": "dia-chi",
+     "the": {
+      "vi": "[ĐỊA CHỈ]",
+      "en": "[ADDRESS]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Điện thoại",
+      "en": "Phone"
+     },
+     "chu": "0912 345 678",
+     "loi": "sdt",
+     "the": {
+      "vi": "[SĐT]",
+      "en": "[PHONE]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Mã BHXH",
+      "en": "Insurance no."
+     },
+     "chu": "0185012345",
+     "loi": "bhxh",
+     "the": {
+      "vi": "[MÃ BHXH]",
+      "en": "[INSURANCE NO.]"
+     }
+    },
+    {
+     "nhan": {
+      "vi": "Đề nghị",
+      "en": "Request"
+     },
+     "chu": {
+      "vi": "Xác nhận tình trạng hôn nhân để vay vốn",
+      "en": "Confirm marital status for a loan"
+     },
+     "loi": null,
+     "bit": {
+      "vi": "AI cần nội dung này để hiểu việc. Giữ lại.",
+      "en": "The AI needs this to understand the task. Keep it."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Che hết định danh, và chỉ dùng công cụ AI cơ quan cho phép.",
+    "en": "Hide every identifier, and only use AI tools your organisation allows."
+   }
+  },
+  {
+   "id": "duoc-khong",
+   "loai": "phan-loai",
+   "ten": {
+    "vi": "Được đưa vào AI?",
+    "en": "Can it go into AI?"
+   },
+   "nho": {
+    "vi": "Xếp vào rổ",
+    "en": "Sort it"
+   },
+   "h2": {
+    "vi": "Văn bản nào được đưa vào AI?",
+    "en": "Which documents can go into AI?"
+   },
+   "mo": {
+    "vi": "Chạm thẻ → chạm rổ",
+    "en": "Tap a card → tap a basket"
+   },
+   "ro": [
+    {
+     "id": "cong-khai",
+     "ten": {
+      "vi": "AI công cộng",
+      "en": "Public AI"
+     },
+     "bieu_tuong": "🌐",
+     "mau": "#10B981"
+    },
+    {
+     "id": "noi-bo",
+     "ten": {
+      "vi": "Chỉ AI nội bộ được duyệt",
+      "en": "Approved internal AI only"
+     },
+     "bieu_tuong": "🏢",
+     "mau": "#F59E0B"
+    },
+    {
+     "id": "khong",
+     "ten": {
+      "vi": "Không đưa vào AI",
+      "en": "Never into AI"
+     },
+     "bieu_tuong": "⛔",
+     "mau": "#DC2626"
+    }
+   ],
+   "the": [
+    {
+     "bt": "📢",
+     "chu": {
+      "vi": "Lịch nghỉ Tết đã đăng công khai",
+      "en": "Holiday schedule, already public"
+     },
+     "dung": "cong-khai",
+     "giai": {
+      "vi": "Đã công khai.",
+      "en": "Already public."
+     }
+    },
+    {
+     "bt": "🔴",
+     "chu": {
+      "vi": "Văn bản đóng dấu Mật",
+      "en": "A document stamped Confidential"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Bí mật nhà nước: không đưa vào AI.",
+      "en": "Classified: never into AI."
+     }
+    },
+    {
+     "bt": "📝",
+     "chu": {
+      "vi": "Dự thảo kế hoạch chưa ban hành",
+      "en": "Draft plan, not yet issued"
+     },
+     "dung": "noi-bo",
+     "giai": {
+      "vi": "Chưa công bố: chỉ công cụ được duyệt.",
+      "en": "Not public yet: approved tools only."
+     }
+    },
+    {
+     "bt": "💰",
+     "chu": {
+      "vi": "Bảng lương có tên cán bộ",
+      "en": "Payroll with staff names"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Dữ liệu cá nhân của đồng nghiệp.",
+      "en": "Colleagues' personal data."
+     }
+    },
+    {
+     "bt": "🎤",
+     "chu": {
+      "vi": "Bài phát biểu đã đăng báo",
+      "en": "A speech already in the press"
+     },
+     "dung": "cong-khai",
+     "giai": {
+      "vi": "Đã công khai, tóm tắt thoải mái.",
+      "en": "Public, fine to summarise."
+     }
+    },
+    {
+     "bt": "📁",
+     "chu": {
+      "vi": "Hồ sơ công dân chưa che",
+      "en": "A citizen's file, not redacted"
+     },
+     "dung": "khong",
+     "giai": {
+      "vi": "Che hết trước, hoặc dùng hệ thống nghiệp vụ.",
+      "en": "Redact first, or use the case system."
+     }
+    },
+    {
+     "bt": "🗒️",
+     "chu": {
+      "vi": "Biên bản họp nội bộ",
+      "en": "Internal meeting minutes"
+     },
+     "dung": "noi-bo",
+     "giai": {
+      "vi": "Công cụ được duyệt, bỏ chi tiết nhạy cảm.",
+      "en": "Approved tools, sensitive bits removed."
+     }
+    },
+    {
+     "bt": "❓",
+     "chu": {
+      "vi": "Hỏi thể thức giấy mời họp",
+      "en": "How to format an invitation"
+     },
+     "dung": "cong-khai",
+     "giai": {
+      "vi": "Câu hỏi chung, không có gì nội bộ.",
+      "en": "A general question, nothing internal."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Không chắc thì hỏi văn thư hoặc bộ phận công nghệ thông tin trước.",
+    "en": "Unsure? Ask your records or IT team first."
+   }
+  },
+  {
+   "id": "ghep",
+   "loai": "ghep",
+   "ten": {
+    "vi": "Ghép câu lệnh soạn văn bản",
+    "en": "Build a drafting prompt"
+   },
+   "nho": {
+    "vi": "Ghép mảnh",
+    "en": "Build it"
+   },
+   "h2": {
+    "vi": "Ghép câu lệnh để AI soạn đúng việc",
+    "en": "Build a prompt so AI drafts the right thing"
+   },
+   "mo": {
+    "vi": "Chọn việc → chạm mảnh → Gửi cho AI. Né mảnh bẫy 🪤",
+    "en": "Pick a task → tap pieces → Send to AI. Avoid traps 🪤"
+   },
+   "loai_manh": {
+    "vai_tro": {
+     "ten": {
+      "vi": "Vai trò",
+      "en": "Role"
+     },
+     "mau": "#8B5CF6"
+    },
+    "boi_canh": {
+     "ten": {
+      "vi": "Bối cảnh",
+      "en": "Context"
+     },
+     "mau": "#0EA5E9"
+    },
+    "viec": {
+     "ten": {
+      "vi": "Nhiệm vụ",
+      "en": "Task"
+     },
+     "mau": "#F59E0B"
+    },
+    "dinh_dang": {
+     "ten": {
+      "vi": "Định dạng",
+      "en": "Format"
+     },
+     "mau": "#10B981"
+    },
+    "gioi_han": {
+     "ten": {
+      "vi": "Giới hạn",
+      "en": "Limits"
+     },
+     "mau": "#6366F1"
+    }
+   },
+   "khay": [
+    "boi_canh",
+    "bay:ky-thay",
+    "dinh_dang",
+    "vai_tro",
+    "bay:mo-ho",
+    "gioi_han",
+    "viec",
+    "bay:mat"
+   ],
+   "bay": [
+    {
+     "id": "mat",
+     "loai": "boi_canh",
+     "chu": {
+      "vi": "Kèm toàn văn công văn MẬT số 12…",
+      "en": "Attached: full text of CONFIDENTIAL letter 12…"
+     },
+     "bit": {
+      "vi": "Bẫy! Văn bản Mật không đưa vào AI.",
+      "en": "Trap! Confidential documents never go into AI."
+     },
+     "muc": "sai",
+     "canh_truoc": {
+      "vi": "⚠ Bạn vừa đưa văn bản Mật vào AI.",
+      "en": "⚠ You just put a Confidential document into AI."
+     }
+    },
+    {
+     "id": "ky-thay",
+     "loai": "viec",
+     "chu": {
+      "vi": "Ký thay lãnh đạo, ghi “đã đóng dấu”.",
+      "en": "Sign for the director, add “stamped”."
+     },
+     "bit": {
+      "vi": "Bẫy! AI không ký, không đóng dấu.",
+      "en": "Trap! AI doesn't sign or stamp."
+     },
+     "muc": "sai",
+     "them": {
+      "vi": "**TL. CHỦ TỊCH** (đã ký, đóng dấu)",
+      "en": "**FOR THE CHAIR** (signed, stamped)"
+     },
+     "canh_sau": {
+      "vi": "⚠ Chữ ký, dấu do AI thêm: văn bản không có giá trị.",
+      "en": "⚠ AI-added signature and stamp: the document is invalid."
+     }
+    },
+    {
+     "id": "mo-ho",
+     "loai": "viec",
+     "chu": {
+      "vi": "Viết cho chuyên nghiệp vào.",
+      "en": "Make it sound professional."
+     },
+     "bit": {
+      "vi": "Mảnh này không thêm gì. Bỏ cũng được.",
+      "en": "This adds nothing. Drop it."
+     },
+     "muc": ""
+    }
+   ],
+   "viec": [
+    {
+     "ten": {
+      "vi": "Công văn đôn đốc",
+      "en": "Reminder letter"
+     },
+     "bieu_tuong": "📄",
+     "goc": {
+      "vi": "Viết công văn.",
+      "en": "Write a letter."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là chuyên viên văn phòng UBND phường.",
+       "en": "You're an officer at a ward committee."
+      },
+      "boi_canh": {
+       "vi": "Đôn đốc tổ dân phố nộp báo cáo hộ nghèo, hạn 30/11. Mới 3/8 tổ nộp.",
+       "en": "Chase groups for poverty reports, due 30 Nov. 3 of 8 submitted."
+      },
+      "viec": {
+       "vi": "Soạn dự thảo công văn đôn đốc.",
+       "en": "Draft a reminder letter."
+      },
+      "dinh_dang": {
+       "vi": "Đúng thể thức; thiếu gì để [ngoặc vuông].",
+       "en": "Official format; gaps in [brackets]."
+      },
+      "gioi_han": {
+       "vi": "Không tự đặt số, căn cứ; không ký thay.",
+       "en": "No invented number or legal basis; don't sign."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Đề nghị các đơn vị khẩn trương thực hiện nhiệm vụ và báo cáo đúng hạn.",
+       "en": "All units please complete your tasks and report on time."
+      },
+      "kha": {
+       "vi": "V/v đôn đốc nộp báo cáo\nKính gửi: Các tổ dân phố\nĐề nghị nộp báo cáo hộ nghèo trước 30/11.",
+       "en": "Re: report reminder\nTo: Neighbourhood groups\nPlease submit poverty reports by 30 Nov."
+      },
+      "tot": {
+       "vi": "Số: [số]/UBND-VP · V/v đôn đốc nộp báo cáo rà soát hộ nghèo\nKính gửi: [5 tổ chưa nộp]\nMới có 3/8 tổ nộp. Đề nghị các tổ còn lại gửi về Văn phòng **trước 30/11**.\n[Người có thẩm quyền ký]",
+       "en": "No.: [number]/UBND-VP · Re: poverty survey reminder\nTo: [the 5 outstanding groups]\nOnly 3 of 8 have submitted. Remaining groups, please send to the Office **by 30 Nov**.\n[Authorised signatory]"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Báo cáo tháng",
+      "en": "Monthly report"
+     },
+     "bieu_tuong": "📊",
+     "goc": {
+      "vi": "Viết báo cáo tháng.",
+      "en": "Write the monthly report."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là chuyên viên tổng hợp.",
+       "en": "You're the reporting officer."
+      },
+      "boi_canh": {
+       "vi": "Tháng 10: 245 hồ sơ, 231 đúng hạn, 6 trễ, 8 đang xử lý. Tháng 9: 210 hồ sơ, 11 trễ.",
+       "en": "Oct: 245 files, 231 on time, 6 late, 8 open. Sep: 210 files, 11 late."
+      },
+      "viec": {
+       "vi": "Đánh giá tháng 10 so với tháng 9.",
+       "en": "Assess October against September."
+      },
+      "dinh_dang": {
+       "vi": "Dưới 120 chữ, liệt kê số đã dùng.",
+       "en": "Under 120 words, list figures used."
+      },
+      "gioi_han": {
+       "vi": "Chỉ dùng số đã cho, không đoán nguyên nhân.",
+       "en": "Given figures only, no guessed causes."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Phòng hoàn thành tốt nhiệm vụ, chất lượng nâng lên rõ rệt, người dân rất hài lòng.",
+       "en": "The department did well, quality clearly improved, citizens were very satisfied."
+      },
+      "kha": {
+       "vi": "Tháng 10 nhận 245 hồ sơ, 231 đúng hạn. Trễ hạn giảm nhờ cải cách thủ tục.",
+       "en": "October: 245 files, 231 on time. Fewer late cases thanks to reform."
+      },
+      "tot": {
+       "vi": "Tháng 10: 245 hồ sơ (+35, khoảng 16,7%). Đúng hạn 231 (94,3%), trễ 6 (tháng 9: 11), đang xử lý 8.\nSố đã dùng: 245, 231, 6, 8; 210, 11.\nNguyên nhân: cần phòng xác nhận.",
+       "en": "October: 245 files (+35, about 16.7%). 231 on time (94.3%), 6 late (Sep: 11), 8 open.\nFigures used: 245, 231, 6, 8; 210, 11.\nCause: to be confirmed."
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Giấy mời họp",
+      "en": "Meeting invitation"
+     },
+     "bieu_tuong": "📅",
+     "goc": {
+      "vi": "Viết giấy mời họp.",
+      "en": "Write a meeting invitation."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là văn thư cơ quan.",
+       "en": "You're the records clerk."
+      },
+      "boi_canh": {
+       "vi": "Giao ban quý IV, 8h 05/11, phòng họp tầng 2; trưởng các bộ phận; đánh giá 9 tháng, kế hoạch quý IV.",
+       "en": "Q4 briefing, 8:00 5 Nov, room 2F; heads of units; 9-month review, Q4 plan."
+      },
+      "viec": {
+       "vi": "Soạn giấy mời họp.",
+       "en": "Draft the invitation."
+      },
+      "dinh_dang": {
+       "vi": "Gạch đầu dòng: giờ, nơi, ai, nội dung, liên hệ.",
+       "en": "Bullets: time, place, who, agenda, contact."
+      },
+      "gioi_han": {
+       "vi": "Không thêm người, nội dung ngoài thông tin.",
+       "en": "Add no people or items not given."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Kính mời các đồng chí dự cuộc họp quan trọng. Đề nghị tham dự đúng giờ.",
+       "en": "You're invited to an important meeting. Please be on time."
+      },
+      "kha": {
+       "vi": "GIẤY MỜI\nMời trưởng các bộ phận họp giao ban quý IV, 8h ngày 05/11, phòng họp tầng 2.",
+       "en": "INVITATION\nHeads of units: Q4 briefing, 8:00 on 5 Nov, room 2F."
+      },
+      "tot": {
+       "vi": "**GIẤY MỜI** · Giao ban quý IV\n- 🕗 8h00, 05/11\n- 📍 Phòng họp tầng 2\n- 👥 Trưởng các bộ phận\n- 📋 Đánh giá 9 tháng, kế hoạch quý IV\n- ☎️ [họ tên, số điện thoại]",
+       "en": "**INVITATION** · Q4 briefing\n- 🕗 8:00, 5 Nov\n- 📍 Room 2F\n- 👥 Heads of units\n- 📋 9-month review, Q4 plan\n- ☎️ [name, phone]"
+      }
+     }
+    },
+    {
+     "ten": {
+      "vi": "Trả lời công dân",
+      "en": "Reply to a citizen"
+     },
+     "bieu_tuong": "💬",
+     "goc": {
+      "vi": "Trả lời người dân.",
+      "en": "Reply to the citizen."
+     },
+     "manh": {
+      "vai_tro": {
+       "vi": "Bạn là cán bộ một cửa, lịch sự, dễ hiểu.",
+       "en": "You're a polite, clear service-desk officer."
+      },
+      "boi_canh": {
+       "vi": "Công dân hỏi: mất giấy khai sinh thì làm sao? (đã bỏ tên)",
+       "en": "A citizen asks: I lost my birth certificate, what now? (name removed)"
+      },
+      "viec": {
+       "vi": "Soạn trả lời, hướng dẫn bước tiếp.",
+       "en": "Draft a reply with the next step."
+      },
+      "dinh_dang": {
+       "vi": "Dưới 100 chữ, xưng Ông/Bà, có số liên hệ.",
+       "en": "Under 100 words, formal, with a contact."
+      },
+      "gioi_han": {
+       "vi": "Không tự nêu hồ sơ, lệ phí; để [cán bộ điền].",
+       "en": "Don't state documents or fees; leave [officer fills in]."
+      }
+     },
+     "tra_loi": {
+      "tho": {
+       "vi": "Vui lòng liên hệ cơ quan có thẩm quyền để được hướng dẫn.",
+       "en": "Please contact the competent authority."
+      },
+      "kha": {
+       "vi": "Kính gửi Ông/Bà, vui lòng đến bộ phận một cửa UBND phường để được hướng dẫn.",
+       "en": "Dear Sir/Madam, please visit the ward service desk for guidance."
+      },
+      "tot": {
+       "vi": "Kính gửi Ông/Bà,\nÔng/Bà chuẩn bị giấy tờ **[cán bộ điền theo quy định]**, nộp tại một cửa UBND phường hoặc Cổng dịch vụ công.\nCần hỗ trợ: [số điện thoại], giờ hành chính.",
+       "en": "Dear Sir/Madam,\nPlease prepare **[documents per regulations, officer fills in]** and apply at the ward service desk or online portal.\nHelp: [phone], office hours."
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "sua-cong-van",
+   "loai": "sua-loi",
+   "kieu": "giay",
+   "ten": {
+    "vi": "Sửa công văn AI soạn",
+    "en": "Fix an AI-drafted letter"
+   },
+   "nho": {
+    "vi": "Sửa lỗi",
+    "en": "Fix it"
+   },
+   "h2": {
+    "vi": "Công văn AI soạn có 5 lỗi. Chạm câu sai để sửa",
+    "en": "5 mistakes in this AI letter. Tap one to fix it"
+   },
+   "dau": {
+    "vi": "**DỰ THẢO** · AI soạn (mẫu)\n📌 Ghi chú giao việc: 3/8 tổ đã nộp, hạn 30/11",
+    "en": "**DRAFT** · by AI (sample)\n📌 Task note: 3 of 8 groups submitted, due 30 Nov"
+   },
+   "doan": [
+    {
+     "chu": {
+      "vi": "Căn cứ Nghị định 300/2025/NĐ-CP ngày 31/02/2025;",
+      "en": "Pursuant to Decree 300/2025/ND-CP of 31/02/2025;"
+     },
+     "loi": "can-cu",
+     "lua_chon": [
+      {
+       "vi": "Căn cứ [tra trên cơ sở dữ liệu văn bản pháp luật];",
+       "en": "Pursuant to [checked in the legal database];"
+      },
+      {
+       "vi": "Căn cứ Nghị định 300/2025/NĐ-CP ngày 30/02/2025;",
+       "en": "Pursuant to Decree 300/2025/ND-CP of 30/02/2025;"
+      },
+      {
+       "vi": "Bỏ dòng căn cứ.",
+       "en": "Drop the legal basis."
+      }
+     ],
+     "dung": 0,
+     "bit": {
+      "vi": "Ngày 31/02 không có: AI bịa căn cứ.",
+      "en": "There's no 31 February: the AI made it up."
+     },
+     "sai": {
+      "vi": "Vẫn sai. Thử cái khác.",
+      "en": "Still wrong. Try another."
+     }
+    },
+    {
+     "chu": {
+      "vi": "UBND phường đề nghị các tổ dân phố nộp báo cáo rà soát hộ nghèo.",
+      "en": "The Ward asks groups to submit poverty survey reports."
+     },
+     "loi": null,
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Đến nay đã có 5/8 tổ nộp.",
+      "en": "So far 5 of 8 groups have submitted."
+     },
+     "loi": "so",
+     "xuong_dong": true,
+     "lua_chon": [
+      {
+       "vi": "Đến nay mới có 3/8 tổ nộp.",
+       "en": "So far only 3 of 8 have submitted."
+      },
+      {
+       "vi": "Đến nay đã có 5/8 tổ nộp.",
+       "en": "So far 5 of 8 have submitted."
+      },
+      {
+       "vi": "Hầu hết các tổ đã nộp.",
+       "en": "Most groups have submitted."
+      }
+     ],
+     "dung": 0,
+     "bit": {
+      "vi": "Ghi chú nói 3/8, AI ghi 5/8.",
+      "en": "The note says 3 of 8; the AI wrote 5."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Hạn 30/11, trễ vài hôm cũng không sao 😊",
+      "en": "Due 30 Nov, a few days late is fine 😊"
+     },
+     "loi": "giong",
+     "xuong_dong": true,
+     "lua_chon": [
+      {
+       "vi": "Hạn nộp: trước ngày 30/11.",
+       "en": "Deadline: by 30 November."
+      },
+      {
+       "vi": "Hạn 30/11, các tổ cứ thong thả.",
+       "en": "Due 30 Nov, no rush."
+      },
+      {
+       "vi": "Nộp khi nào xong.",
+       "en": "Whenever you're done."
+      }
+     ],
+     "dung": 0,
+     "bit": {
+      "vi": "Giọng trang trọng, không tự nới hạn.",
+      "en": "Formal tone, and no relaxing the deadline."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Kèm theo: ông Trần Văn Bình, CCCD 001085012345.",
+      "en": "Attached: Mr Binh Tran, ID 001085012345."
+     },
+     "loi": "bi-mat",
+     "xuong_dong": true,
+     "lua_chon": [
+      {
+       "vi": "Kèm theo: [phụ lục làm trên hệ thống cơ quan].",
+       "en": "Attached: [annex made in the internal system]."
+      },
+      {
+       "vi": "Kèm theo: ông Trần Văn Bình.",
+       "en": "Attached: Mr Binh Tran."
+      },
+      {
+       "vi": "Kèm theo: ông B., CCCD 001085012345.",
+       "en": "Attached: Mr B., ID 001085012345."
+      }
+     ],
+     "dung": 0,
+     "bit": {
+      "vi": "Thông tin công dân không đưa vào AI.",
+      "en": "Citizens' data doesn't go into AI."
+     }
+    },
+    {
+     "chu": {
+      "vi": "Nơi nhận: Như trên; Lưu: VT.",
+      "en": "Distribution: as above; File: Records."
+     },
+     "loi": null,
+     "xuong_dong": true
+    },
+    {
+     "chu": {
+      "vi": "Ký thay Chủ tịch: Trợ lý AI (đã đóng dấu).",
+      "en": "Signed for the Chair: AI Assistant (stamped)."
+     },
+     "loi": "ky",
+     "xuong_dong": true,
+     "lua_chon": [
+      {
+       "vi": "[Người có thẩm quyền ký]",
+       "en": "[Authorised signatory]"
+      },
+      {
+       "vi": "Ký thay Chủ tịch: Trợ lý AI.",
+       "en": "Signed for the Chair: AI Assistant."
+      },
+      {
+       "vi": "Văn bản điện tử, không cần ký.",
+       "en": "It's electronic, no signature needed."
+      }
+     ],
+     "dung": 0,
+     "bit": {
+      "vi": "AI không ký, không đóng dấu.",
+      "en": "AI doesn't sign or stamp."
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "Căn cứ, con số, thông tin công dân, chữ ký: luôn do người kiểm tra.",
+    "en": "Legal basis, figures, citizens' data, signature: always checked by a person."
+   }
+  },
+  {
+   "id": "tom-tat",
+   "loai": "chon-ban",
+   "ten": {
+    "vi": "Tóm tắt trung thực",
+    "en": "A faithful summary"
+   },
+   "nho": {
+    "vi": "Chọn bản đúng",
+    "en": "Pick one"
+   },
+   "h2": {
+    "vi": "AI tóm tắt 3 bản. Bản nào trung thực?",
+    "en": "AI wrote 3 summaries. Which is faithful?"
+   },
+   "nhan_goc": {
+    "vi": "Thông báo gốc có 4 ý",
+    "en": "The original notice has 4 points"
+   },
+   "y": [
+    {
+     "id": "dung",
+     "bt": "🏢",
+     "chu": {
+      "vi": "10–12/11 dừng nhận trực tiếp",
+      "en": "No in-person 10–12 Nov"
+     }
+    },
+    {
+     "id": "online",
+     "bt": "💻",
+     "chu": {
+      "vi": "Vẫn nộp trực tuyến",
+      "en": "Online still works"
+     }
+    },
+    {
+     "id": "tra",
+     "bt": "📆",
+     "chu": {
+      "vi": "Hẹn trả dời sang 13/11",
+      "en": "Returns move to 13 Nov"
+     }
+    },
+    {
+     "id": "gap",
+     "bt": "☎️",
+     "chu": {
+      "vi": "Gấp: gọi một cửa",
+      "en": "Urgent: call the desk"
+     }
+    }
+   ],
+   "goc": {
+    "vi": "**THÔNG BÁO** về việc tạm dừng tiếp nhận hồ sơ trực tiếp (mẫu)\nDo nâng cấp hệ thống, bộ phận một cửa UBND phường X **tạm dừng tiếp nhận hồ sơ trực tiếp từ ngày 10/11 đến hết ngày 12/11**. Trong thời gian này, người dân vẫn nộp hồ sơ trực tuyến trên Cổng dịch vụ công. Hồ sơ đã hẹn trả trong các ngày trên sẽ được trả vào ngày 13/11. Trường hợp cần gấp, liên hệ số điện thoại của bộ phận một cửa trong giờ hành chính.",
+    "en": "**NOTICE** on pausing in-person applications (sample)\nDue to a system upgrade, the Ward X service desk **will not accept in-person applications from 10 to 12 November inclusive**. During this time, citizens can still apply online via the public services portal. Results due on those days will be returned on 13 November. For urgent matters, call the service desk during office hours."
+   },
+   "ban": [
+    {
+     "chu": {
+      "vi": "Phường X ngừng nhận hồ sơ từ 10 đến 12/11. Người dân quay lại sau.",
+      "en": "Ward X stops taking applications 10–12 Nov. Come back later."
+     },
+     "dung": false,
+     "co": {
+      "dung": "sai"
+     }
+    },
+    {
+     "chu": {
+      "vi": "10–12/11 dừng nhận hồ sơ trực tiếp, vẫn nộp trực tuyến. Hồ sơ hẹn trả dời sang 13/11. Gấp thì gọi bộ phận một cửa.",
+      "en": "10–12 Nov: no in-person applications, online still works. Returns move to 13 Nov. Urgent? Call the desk."
+     },
+     "dung": true,
+     "co": {
+      "dung": "co",
+      "online": "co",
+      "tra": "co",
+      "gap": "co"
+     }
+    },
+    {
+     "chu": {
+      "vi": "10–12/11 dừng nhận trực tiếp, vẫn nộp trực tuyến. Lệ phí trực tuyến giảm 50%.",
+      "en": "10–12 Nov: no in-person, online still works. Online fees cut 50%."
+     },
+     "dung": false,
+     "co": {
+      "dung": "co",
+      "online": "co"
+     },
+     "them": {
+      "vi": "Giảm 50% lệ phí (bịa)",
+      "en": "50% fee cut (made up)"
+     }
+    }
+   ],
+   "bai_hoc": {
+    "vi": "AI hay bỏ sót ý hoặc thêm ý nghe hợp lý. Đọc lại bản gốc.",
+    "en": "AI drops points or adds plausible ones. Reread the original."
+   }
+  },
+  {
+   "id": "giong",
+   "loai": "giong",
+   "ten": {
+    "vi": "Giọng trả lời công dân",
+    "en": "Tone for citizens"
+   },
+   "nho": {
+    "vi": "Đổi giọng",
+    "en": "Switch tone"
+   },
+   "h2": {
+    "vi": "Cùng một ý, chọn giọng nào?",
+    "en": "Same message, which tone?"
+   },
+   "nhan_goc": {
+    "vi": "Bản nháp cộc lốc",
+    "en": "Curt draft"
+   },
+   "goc": {
+    "vi": "Hồ sơ thiếu giấy tờ, không nhận. Bổ sung rồi nộp lại.",
+    "en": "File incomplete, rejected. Add documents and resubmit."
+   },
+   "giong": [
+    {
+     "ten": {
+      "vi": "Văn bản",
+      "en": "Letter"
+     },
+     "bieu_tuong": "🏛️",
+     "kieu": "giay",
+     "chu": {
+      "vi": "Kính gửi Ông,\nHồ sơ của Ông còn thiếu [tên giấy tờ] nên chưa thể tiếp nhận. Ông vui lòng bổ sung và nộp lại tại bộ phận một cửa hoặc Cổng dịch vụ công.\nTrân trọng.",
+      "en": "Dear Sir,\nYour application is missing [document], so we can't accept it yet. Please add it and resubmit at the service desk or online portal.\nRegards."
+     },
+     "bit": {
+      "vi": "Hợp khi trả lời bằng văn bản.",
+      "en": "Right for a written reply."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Nói trực tiếp",
+      "en": "Face to face"
+     },
+     "bieu_tuong": "🤝",
+     "kieu": "noi",
+     "chu": {
+      "vi": "Chào anh ạ, hồ sơ còn thiếu [tên giấy tờ] nên bên em chưa nhận được. Anh bổ sung rồi nộp lại quầy này, hoặc nộp trực tuyến cũng được ạ.",
+      "en": "Hello, your file is missing [document], so we can't take it yet. Add it and bring it back here, or apply online."
+     },
+     "bit": {
+      "vi": "Hợp khi gặp trực tiếp hoặc gọi điện.",
+      "en": "Right in person or on the phone."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Tin nhắn",
+      "en": "Text message"
+     },
+     "bieu_tuong": "📱",
+     "kieu": "sms",
+     "chu": {
+      "vi": "[Phường X] Hồ sơ của Ông/Bà thiếu [giấy tờ]. Vui lòng bổ sung tại một cửa hoặc Cổng DVC. LH: [SĐT]",
+      "en": "[Ward X] Your file is missing [document]. Please add it at the desk or online. Info: [phone]"
+     },
+     "bit": {
+      "vi": "Ngắn, đủ: thiếu gì, nộp đâu, hỏi ai.",
+      "en": "Short: what's missing, where, who to ask."
+     }
+    },
+    {
+     "ten": {
+      "vi": "Quá suồng sã",
+      "en": "Too casual"
+     },
+     "bieu_tuong": "😎",
+     "kieu": "noi",
+     "muc": "sai",
+     "chu": {
+      "vi": "Ê anh, hồ sơ thiếu tùm lum á, về lo đủ rồi quay lại nha 😂",
+      "en": "Hey, your stuff's missing loads lol, sort it and come back 😂"
+     },
+     "bit": {
+      "vi": "AI viết được, nhưng không hợp cơ quan nhà nước.",
+      "en": "AI can write it, but it's wrong for a public office."
+     }
+    }
+   ]
+  },
+  {
+   "id": "dong-nghiep",
+   "loai": "chat",
+   "ten": {
+    "vi": "Đồng nghiệp nhờ việc",
+    "en": "A colleague's request"
+   },
+   "nho": {
+    "vi": "Trò chuyện",
+    "en": "Chat"
+   },
+   "h2": {
+    "vi": "Đồng nghiệp nhờ dán bảng lương vào chatbot",
+    "en": "A colleague wants payroll pasted into a chatbot"
+   },
+   "ten_ai": {
+    "vi": "Chị Hoa · đồng nghiệp",
+    "en": "Hoa · colleague"
+   },
+   "anh_ai": "👩‍💼",
+   "ten_ban": {
+    "vi": "Bạn",
+    "en": "You"
+   },
+   "anh_ban": "🙋",
+   "bat_dau": "n0",
+   "nut": [
+    {
+     "id": "n0",
+     "ai": {
+      "vi": "Em ơi, dán file lương có tên mọi người vào chatbot cho nó cộng giùm nhé, sếp cần gấp!",
+      "en": "Paste the payroll file with everyone's names into the chatbot to add it up, the boss needs it now!"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Dạ, em dán luôn",
+        "en": "Sure, pasting it"
+       },
+       "toi": "dan"
+      },
+      {
+       "chu": {
+        "vi": "Che tên rồi dán được không chị?",
+        "en": "What if I hide the names?"
+       },
+       "toi": "che"
+      },
+      {
+       "chu": {
+        "vi": "File có tên, lương từng người, em không dán được. Em tính bằng Excel nhé?",
+        "en": "It has names and pay, I can't paste it. Excel instead?"
+       },
+       "toi": "excel"
+      }
+     ]
+    },
+    {
+     "id": "dan",
+     "ai": {
+      "vi": "Xong rồi hả? Nhanh ghê!",
+      "en": "Done already? Quick!"
+     },
+     "ket": {
+      "vi": "Lương cả cơ quan đã lên máy chủ bên ngoài, không thu hồi được.",
+      "en": "Everyone's pay is now on an outside server. You can't take it back."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "che",
+     "ai": {
+      "vi": "Che tên thì ổn ha?",
+      "en": "Hiding names is fine, right?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Còn chức vụ, mức lương, vẫn đoán ra người. Excel chắc hơn ạ.",
+        "en": "Titles and pay still identify people. Excel's safer."
+       },
+       "toi": "excel"
+      },
+      {
+       "chu": {
+        "vi": "Vâng, che tên là đủ",
+        "en": "Yes, that's enough"
+       },
+       "toi": "che-sai"
+      }
+     ]
+    },
+    {
+     "id": "che-sai",
+     "ket": {
+      "vi": "Chưa đủ: chức vụ + lương vẫn lộ ra từng người.",
+      "en": "Not enough: title + pay still reveal each person."
+     },
+     "muc": "sai"
+    },
+    {
+     "id": "excel",
+     "ai": {
+      "vi": "Ừ nhỉ, Excel có SUM. Thế AI giúp gì?",
+      "en": "Right, Excel has SUM. So what's AI for?"
+     },
+     "chon": [
+      {
+       "chu": {
+        "vi": "Em nhờ AI chỉ công thức, mẫu bảng, không dán số thật.",
+        "en": "AI shows formulas and layout; no real data pasted."
+       },
+       "toi": "tot"
+      }
+     ]
+    },
+    {
+     "id": "tot",
+     "ai": {
+      "vi": "Hay! Làm thế nhé 👍",
+      "en": "Nice! Let's do that 👍"
+     },
+     "ket": {
+      "vi": "Dữ liệu thật ở trong máy cơ quan, AI chỉ chỉ cách làm.",
+      "en": "Real data stays in-house; AI only shows the method."
+     },
+     "muc": "dung"
+    }
+   ]
+  }
+ ]
+}
