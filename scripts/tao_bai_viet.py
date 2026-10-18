@@ -371,6 +371,7 @@ def footer(p, q=None):
             f'    <nav class="foot-hoc" aria-label="{t("Học và thực hành", "Learn and practice")}"><b>{t("Học", "Learn")}</b>'
             f'<a href="{q}lo-trinh-7-ngay.html">{t("Lộ trình 7 ngày", "7-day path")}</a><a href="{q}lo-trinh-nganh.html">{t("Lộ trình theo nghề", "Path for your job")}</a>'
             f'<a href="{q}kiem-tra.html">{t("Kiểm tra", "Quizzes")}</a><a href="{q}chung-nhan.html">{t("Chứng nhận", "Certificates")}</a>'
+            f'<a href="{q}ho-so.html">{t("Hồ sơ học", "My profile")}</a>'
             f'<b>{t("Thực hành", "Practice")}</b><a href="{q}thuc-hanh.html">{t("Góc thực hành", "Practice corner")}</a>'
             f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a></nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
@@ -1189,7 +1190,7 @@ def tao_lo_trinh():
     du_lieu = json.dumps({"url": url, "so_video": so_video, "so_ngay": len(ngay), "goc": p}, ensure_ascii=False).replace("</", "<\\/")
     main = f"""<main class="course">
 <section class="course-bar" aria-label="{t("Tiến độ", "Progress")}">
-<div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></div>
+<div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><span><a href="ho-so.html">{t("Hồ sơ học · Ôn hôm nay", "Profile · Today's review")} ›</a> · <a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></span></div>
 <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
 <p class="course-note">{t("Tiến độ lưu ngay trên trình duyệt này, không cần tài khoản. Học theo thứ tự nào cũng được, nhưng đi từ ngày 1 là dễ nhất.", "Your progress is saved in this browser, no account needed. Any order works, but day 1 first is easiest.")}</p>
 <noscript><p class="course-note">{t("Bật JavaScript để chấm câu hỏi, lưu tiến độ và tạo giấy chứng nhận. Các video vẫn xem được bình thường.", "Turn on JavaScript to check answers, save progress and make the certificate. The videos still work without it.")}</p></noscript>

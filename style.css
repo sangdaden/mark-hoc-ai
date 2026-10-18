@@ -2230,6 +2230,10 @@ button.bn-nut:hover { background: var(--panel); border-color: var(--edge); }
 /* Trạm đã làm (tien-do.js, mhai-tram): số đổi thành dấu ✓ xanh */
 .bn-nut.is-xong .bn-so { position: relative; color: transparent; background: #10B981 !important; }
 .bn-nut.is-xong .bn-so::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font: 800 15px var(--f-body); }
+/* Hỏi "Trạm này có ích không?" cuối mỗi trạm (tien-do.js) */
+.td-co-ich { margin: 4px 0 0; padding-top: 12px; border-top: 1px dashed var(--edge); display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); }
+.td-co-ich button { padding: 4px 12px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--bg); font-size: 16px; cursor: pointer; }
+.td-co-ich button:hover { border-color: #8B5CF6; }
 /* Dòng nối trạm với video và Lộ trình 7 ngày (_th_lien trong scripts/trang/thuc-hanh.py) */
 .th-lien { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 0; }
 .th-lien a { display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--edge); background: var(--bg); color: var(--ink); font: 600 13px/1.3 var(--f-body); text-decoration: none; }
