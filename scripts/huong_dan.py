@@ -8,6 +8,8 @@ Mỗi file:
       chon: bộ chọn CSS của chỗ cần chỉ (lấy class/id có sẵn trong trò). Khớp nhiều chỗ thì lấy chỗ đầu tiên đang hiện.
             Bỏ trống, hoặc chỗ đó chưa hiện, thì lời Bit nằm giữa màn hình.
       "bo_neu_an": true  bỏ qua bước này khi chỗ của nó không hiện (vd. ngăn trạm bị ẩn khi trò mở trong trang bài)
+      vi/en: lời Bit, có thể thêm dấu nhấn (huong-dan.js dựng thành thẻ, lồng nhau được):
+            **đậm**, *nghiêng*, [[tên nút]], !!lưu ý!! (cam đỏ), ++mẹo, điều tốt++ (xanh lá)
   hoặc "nhom": [ {"id": "cat-manh", "khi": "#tram-cat-manh", "buoc": [...]}, ... ]
       trang nhiều trạm: nhóm đầu tiên có "khi" đang hiện là nhóm dùng; mỗi nhóm tự mở ở lần đầu vào trạm đó.
 """

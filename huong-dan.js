@@ -26,6 +26,20 @@
     if (chu != null) e.textContent = chu;
     return e;
   }
+  // Lời Bit có vài dấu nhấn: **đậm**, *nghiêng*, [[tên nút]], !!lưu ý!! (cam đỏ), ++mẹo, điều tốt++ (xanh lá).
+  // Dấu lồng nhau được (vd. ++Bí thì bấm [[Gợi ý]]++). Dựng thành thẻ bằng DOM, không dùng innerHTML.
+  var NHAN = /\*\*(.+?)\*\*|\[\[(.+?)\]\]|!!(.+?)!!|\+\+(.+?)\+\+|\*(.+?)\*/g;
+  function viet(p, chu) {
+    p.textContent = "";
+    var m, cuoi = 0, the = [["strong", "hd-dam"], ["span", "hd-phim"], ["span", "hd-luu"], ["span", "hd-meo"], ["em", "hd-nghieng"]];
+    var re = new RegExp(NHAN.source, "g");
+    while ((m = re.exec(chu))) {
+      if (m.index > cuoi) p.appendChild(document.createTextNode(chu.slice(cuoi, m.index)));
+      for (var k = 1; k <= 5; k++) if (m[k] != null) { var e = el(the[k - 1][0], the[k - 1][1]); p.appendChild(e); viet(e, m[k]); break; }
+      cuoi = re.lastIndex;
+    }
+    if (cuoi < chu.length) p.appendChild(document.createTextNode(chu.slice(cuoi)));
+  }
   function hien(e) {
     if (!e) return false;
     var r = e.getBoundingClientRect();
@@ -168,7 +182,7 @@
       if (k <= j) thu = tong;
     }
     sB.textContent = N.buoc + " " + thu + "/" + tong;
-    pB.textContent = b.chu;
+    viet(pB, b.chu);
     nutLai.hidden = thu <= 1;
     var cuoi = true;
     for (var m = j + 1; m < ds.length; m++) if (!(ds[m].bo_neu_an && !tim(ds[m].chon))) { cuoi = false; break; }
