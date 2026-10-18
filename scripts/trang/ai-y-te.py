@@ -31,12 +31,10 @@ def tao_ai_y_te():
             ("danh-gia", "615", t("6 câu hỏi trước khi dùng", "6 questions first"))]
     # Tầng Nâng cao: trạm theo khuôn của thuc-hanh.js (data/ai-y-te.json "nang_cao"), thuc-hanh.js dựng nội dung, ai-y-te.js lo chuyển trạm
     nc = _th_ngu(D.get("nang_cao", []), L)
-    ds_nc = [{}] * len(tram) + nc
-    ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{t("Một khoa nội, từ ghi chép trong ca tới chọn công cụ AI cho cả khoa", "One hospital ward, from shift notes to choosing an AI tool")}</p><ol>'
-            + "".join(f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{k + 1}</span>'
-                      f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {so}</small></span></button></li>' for k, (i, so, ten) in enumerate(tram))
-            + "".join(_th_nut(len(tram) + k, x, ds_nc) for k, x in enumerate(nc))
-            + '</ol></nav>')
+    ngan = _th_ngan(t("Một khoa nội, từ ghi chép trong ca tới chọn công cụ AI cho cả khoa", "One hospital ward, from shift notes to choosing an AI tool"),
+                    [f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{k + 1}</span>'
+                     f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {so}</small></span></button></li>' for k, (i, so, ten) in enumerate(tram)],
+                    [_th_nut(len(tram) + k, x) for k, x in enumerate(nc)])
 
     def dau(i, k, video, tieu, mo=""):
         return (f'<section class="bn-tram yt-tram" id="tram-{i}" hidden aria-labelledby="h-{i}">\n'

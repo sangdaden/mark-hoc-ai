@@ -2,7 +2,7 @@
 # Cùng khung phòng thí nghiệm (cột trạm .bn-ngan, trạm .bn-tram, lời Bit, popup Cách chơi ở data/huong-dan/<trang>.json).
 # Mỗi trạm có "loai" là một trong các kiểu của thuc-hanh.js (phan-loai, bo-phieu, ghep, chat, tim-loi, sua-loi, chon-ban,
 # giong, ke-hoach; tầng Nâng cao thêm xep-buoc, cham-tieu-chi, vi-du, bayes) và dữ liệu riêng của kiểu đó.
-# Trạm có "cap": "nang-cao" nằm trong nhóm 🚀 Nâng cao ở cột trạm. Chữ viết dạng {"vi": ..., "en": ...} ở bất cứ đâu, hàm ngu() chọn đúng ngôn ngữ.
+# Trạm có "cap": "nang-cao" nằm trong nhóm 🚀 Nâng cao ở cột trạm (hai nhóm Cơ bản / Nâng cao gập được). Chữ viết dạng {"vi": ..., "en": ...} ở bất cứ đâu, hàm ngu() chọn đúng ngôn ngữ.
 # Thêm trang cho đối tượng mới = thêm một file JSON (và file popup), không sửa code.
 
 # Hình xem trước trong thẻ "Chơi thử" ở bài video liên quan (data/tro-choi/ai-hoc-sinh.json, ai-van-phong.json)
@@ -95,12 +95,22 @@ def _th_nc(x):
     return x.get("cap") == "nang-cao"
 
 
-def _th_nut(k, x, ds, them=""):
-    """Một nút trong cột trạm. Trạm đầu tiên của tầng Nâng cao có thêm dòng tiêu đề nhóm phía trên."""
-    nhom = (f'<li class="bn-nhom"><span>🚀 {t("Nâng cao", "Advanced")}</span></li>'
-            if _th_nc(x) and (k == 0 or not _th_nc(ds[k - 1])) else "")
-    return (nhom + f'<li><button type="button" class="bn-nut{" bn-nut-nc" if _th_nc(x) else ""}" data-tram="{x["id"]}" aria-controls="tram-{x["id"]}">'
+def _th_nut(k, x):
+    """Một nút trong cột trạm."""
+    return (f'<li><button type="button" class="bn-nut{" bn-nut-nc" if _th_nc(x) else ""}" data-tram="{x["id"]}" aria-controls="tram-{x["id"]}">'
             f'<span class="bn-so">{k + 1}</span><span class="bn-ten">{esc(x["ten"])}<small>{esc(x["nho"])}</small></span></button></li>')
+
+
+def _th_ngan(cau, co_ban, nang_cao):
+    """Cột trạm. Có trạm Nâng cao thì chia hai nhóm gập được (📘 Cơ bản, 🚀 Nâng cao); nhóm có trạm đang mở tự mở ra (JS).
+    co_ban, nang_cao: danh sách chuỗi <li> của từng nhóm."""
+    dau = f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{esc(cau)}</p>'
+    if not nang_cao:
+        return dau + '<ol>' + "".join(co_ban) + '</ol></nav>'
+    nhom = lambda lop, mo, ten, ds: (f'<details class="bn-gap{lop}"{" open" if mo else ""}><summary><span>{ten}</span><small>{len(ds)}</small></summary>'
+                                     f'<ol>{"".join(ds)}</ol></details>')
+    return (dau + nhom("", True, "📘 " + t("Cơ bản", "Core"), co_ban)
+            + nhom(" bn-gap-nc", False, "🚀 " + t("Nâng cao", "Advanced"), nang_cao) + '</nav>')
 
 
 def _th_tram(k, x, lop="th-tram"):
@@ -119,8 +129,8 @@ def _th_tao(ten_file):
         D = _th_ngu(json.loads((R / "data" / "thuc-hanh" / ten_file).read_text(encoding="utf-8")), L)
         trang_ten = D["trang"]
         tram = D["tram"]
-        ngan = (f'<nav class="bn-ngan" aria-label="{t("Các trạm", "Stations")}"><p class="bn-cau">{esc(D["bn_cau"])}</p><ol>'
-                + "".join(_th_nut(k, x, tram) for k, x in enumerate(tram)) + '</ol></nav>')
+        ngan = _th_ngan(D["bn_cau"], [_th_nut(k, x) for k, x in enumerate(tram) if not _th_nc(x)],
+                        [_th_nut(k, x) for k, x in enumerate(tram) if _th_nc(x)])
         tram_html = "".join(_th_tram(k, x) for k, x in enumerate(tram))
         nhan = _th_nhan()
         du_lieu = json.dumps({"nhan": nhan, "lg": L, "p": p, "trang": trang_ten, "tram": tram}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
