@@ -1427,7 +1427,11 @@ def tao_hop_tac():
                   t("Ghi rõ \"Có tài trợ\" hoặc \"Hợp tác quảng cáo\" ngay trong video và ở dòng đầu mô tả.", "\"Sponsored\" or \"Paid partnership\" is stated clearly in the video and at the top of the description."),
                   t("Video không tài trợ có nhắc tới sản phẩm thì ghi rõ kênh không liên kết hay được tài trợ bởi hãng đó.", "Unsponsored videos that mention a product say clearly that the channel is not affiliated with or sponsored by that company."),
                   t("Không dùng chữ \"đối tác chính thức\", không đặt logo hãng cạnh logo kênh kiểu đồng thương hiệu, không sửa logo của hãng.", "No \"official partner\" wording, no co-branded logo lockups, and no altering a brand's logo."),
-                  t("Không nhận nội dung hứa hẹn quá sự thật, đầu tư, vay tiền, cờ bạc hay bất cứ thứ gì có thể hại người xem.", "No exaggerated claims, investment, lending, gambling, or anything that could harm viewers.")]
+                  t("Không nhận nội dung hứa hẹn quá sự thật, đầu tư, vay tiền, cờ bạc hay bất cứ thứ gì có thể hại người xem.", "No exaggerated claims, investment, lending, gambling, or anything that could harm viewers."),
+                  # Sang chọn 18/10/2026: giữ review có tài trợ nhưng siết luật để giữ độ tin của kênh dạy dùng AI an toàn
+                  t("Không nhận tiền để xếp hạng, so sánh hay chọn \"công cụ AI tốt nhất\". Bài so sánh của kênh luôn là bài không tài trợ.", "We never take money to rank, compare or pick \"the best AI tool\". Our comparisons are always unsponsored."),
+                  t("Không nhận tài trợ cho video về an toàn, lừa đảo và quyền riêng tư; kênh chỉ nhận tài trợ cho series an toàn số từ đơn vị không bán công cụ AI (ví dụ ngân hàng, nhà mạng).", "No sponsorship on videos about safety, scams or privacy; safety series may be sponsored only by organisations that don't sell AI tools (e.g. banks, telecoms)."),
+                  t("Review có tài trợ luôn nêu ít nhất một điểm yếu và người không nên dùng, và nhãn hàng không được xem trước kết luận.", "Every sponsored review names at least one weakness and who should not use the tool, and the brand never previews the verdict.")]
     the_nt2 = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in nguyen_tac)
     main = f"""<main class="kit">
 <section class="book-sec" aria-labelledby="cho-ai">
