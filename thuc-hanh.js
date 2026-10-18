@@ -494,13 +494,14 @@
       ve(true);
       nutThe.forEach(function (n, k) { var c = the[k]; n.hidden = c.i >= 0; if (c.i < 0) { n.disabled = true; n.classList.add("is-bay"); n.appendChild(el("small", "th-xb-ly", "🪤 " + c.x.bit)); } });
       chuoi.textContent = ""; chuoi.hidden = false;
-      chuoi.appendChild(el("p", "th-van-nhan", N.xb_chuoi));
+      var cp = nut("btn btn-chinh", "📋 " + N.chep_chuoi);
+      chuoi.appendChild(cp);
+      var nap = el("details", "bn-nap th-xb-nap"); nap.appendChild(el("summary", null, "👀 " + thay(N.xb_chuoi, { n: tong })));
       var ds = el("ol", "th-xb-lenh");
       t.buoc.forEach(function (x) { var li = el("li"); li.appendChild(el("b", null, x.bt + " " + x.chu)); if (x.lenh) li.appendChild(el("code", null, x.lenh)); ds.appendChild(li); });
-      chuoi.appendChild(ds);
-      var cp = nut("btn btn-chinh", N.chep_chuoi);
+      nap.appendChild(ds);
       cp.addEventListener("click", function () { chep(t.buoc.map(function (x, i) { return (i + 1) + ". " + (x.lenh || x.chu); }).join("\n\n"), cp); });
-      chuoi.appendChild(cp);
+      chuoi.appendChild(nap);
       bit(b, tuLam ? [N.xb_dung, t.bai_hoc] : t.bai_hoc, tuLam ? "dung" : "");
       do_(D.trang + "-xep-buoc", { tu_lam: tuLam });
     }
@@ -518,7 +519,7 @@
 
   // ================= cham-tieu-chi: tự chấm vài bản nháp AI theo tiêu chí =================
   // t.viec (đề bài), t.tieu_chi [{id, bt, chu}], t.ban [{ten, chu, dat: {id: true|false}, giai: {id: "..."}}].
-  // Bảng chấm: chạm ô để đổi ? → ✓ → ✗. Chấm xong hiện ô nào lệch kèm lý do và bản đạt nhiều tiêu chí nhất.
+  // Bảng chấm: chạm ô để đổi ? → ✓ → ✗. Chấm xong ô lệch có dấu ⚠ (chạm để Bit nói lý do), Bit báo số ô khớp và bản tốt nhất.
   function chamTieuChi(cha, t) {
     var o = {}, daCham = false, CHU = String.fromCharCode, KY = { "": "?", co: "✓", khong: "✗" };
     if (t.viec) { var v = el("div", "th-xb-viec"); veChu(v, t.viec); cha.appendChild(v); }
@@ -538,7 +539,7 @@
         var td = el("td"), n = nut("th-ct-o", "?"), k = c.id + "|" + i;
         n.setAttribute("aria-label", c.chu + " · " + CHU(65 + i));
         n.addEventListener("click", function () {
-          if (daCham) return;
+          if (daCham) { if (n._giai) bit(b, n._giai, "sai"); return; }
           o[k] = o[k] === "co" ? "khong" : o[k] === "khong" ? "" : "co";
           n.textContent = KY[o[k]]; n.className = "th-ct-o" + (o[k] ? " is-" + o[k] : "");
           var con = oNut.length - Object.keys(o).filter(function (q) { return o[q]; }).length;
@@ -548,27 +549,22 @@
       });
       bang.appendChild(r);
     });
-    var lech = el("ul", "th-ct-lech"); lech.hidden = true; cha.appendChild(lech);
     var b = hopBit(cha), h = hang(cha), cham = nut("btn btn-chinh", N.ct_cham), lai = nut("btn btn-nhe", "↺ " + N.lam_lai);
     h.appendChild(cham); h.appendChild(lai);
     cham.addEventListener("click", function () {
       var con = oNut.filter(function (q) { return !o[q.k]; }).length;
       if (con) { bit(b, thay(N.ct_con, { n: con })); return; }
-      daCham = true; cham.disabled = true; lech.textContent = "";
+      daCham = true; cham.disabled = true;
       var khop = 0;
       oNut.forEach(function (q) {
         var dung = !!q.x.dat[q.c.id], ok = (o[q.k] === "co") === dung;
         if (ok) khop++;
         q.n.parentNode.className = ok ? "is-khop" : "is-lech";
-        if (!ok) {
-          var li = el("li"); li.appendChild(el("b", null, "✗ " + CHU(65 + q.i) + " · " + q.c.bt + " " + q.c.chu + " → " + (dung ? "✓" : "✗") + ". "));
-          li.appendChild(document.createTextNode((q.x.giai || {})[q.c.id] || "")); lech.appendChild(li);
-        }
+        if (!ok) { q.n.textContent = (dung ? "✓" : "✗") + "⚠"; q.n.className = "th-ct-o is-" + (dung ? "co" : "khong") + " is-lech"; q.n._giai = CHU(65 + q.i) + " · " + q.c.bt + " " + ((q.x.giai || {})[q.c.id] || ""); }
       });
-      lech.hidden = !lech.children.length;
       var tot = t.ban.map(function (x) { return t.tieu_chi.filter(function (c) { return x.dat[c.id]; }).length; }), max = Math.max.apply(null, tot);
-      var thang = t.ban.filter(function (_, i) { return tot[i] === max; }).map(function (x) { return CHU(65 + t.ban.indexOf(x)) + " (" + x.ten + ")"; }).join(", ");
-      bit(b, [thay(N.ct_khop, { d: khop, tong: oNut.length }), thay(N.ct_thang, { ten: thang, d: max, tong: t.tieu_chi.length }), t.bai_hoc], khop === oNut.length ? "dung" : "");
+      var thang = t.ban.filter(function (_, i) { return tot[i] === max; }).map(function (x) { return CHU(65 + t.ban.indexOf(x)); }).join(", ");
+      bit(b, [thay(N.ct_khop, { d: khop, tong: oNut.length }) + " · " + thay(N.ct_thang, { ten: thang }), khop < oNut.length ? N.ct_xem_lech : t.bai_hoc], khop === oNut.length ? "dung" : "");
       do_(D.trang + "-cham", { khop: khop });
     });
     lai.addEventListener("click", function () { cha.textContent = ""; chamTieuChi(cha, t); });
@@ -628,9 +624,10 @@
   }
 
   // ================= bayes: AI báo dương tính thì khả năng bệnh thật là bao nhiêu =================
-  // t.cau (câu hỏi), t.doan [{chu, dung}], t.giai, t.mac {ty_le, nhay, dac} (%), t.bai_hoc.
+  // t.chip [{bt, chu}] (số liệu dạng thẻ), t.cau (câu hỏi ngắn), t.doan [{chu, dung}], t.giai, t.mac {ty_le, nhay, dac} (%), t.bai_hoc.
   // Đoán trước, rồi mở 1.000 người dạng lưới chấm: đúng dương, báo nhầm, bỏ sót, đúng âm; kéo ba thanh để thấy tỷ lệ đổi.
   function bayes(cha, t) {
+    if (t.chip) { var cd = el("div", "th-by-chip"); t.chip.forEach(function (c) { var x = el("span"); x.appendChild(el("b", null, c.bt)); x.appendChild(document.createTextNode(c.chu)); cd.appendChild(x); }); cha.appendChild(cd); }
     var q = el("div", "th-phieu"); q.appendChild(el("span", "th-phieu-anh", "🤖"));
     var bong = el("div", "th-phieu-bong"), p = el("p", "th-phieu-chu"); dam(p, t.cau); bong.appendChild(p); q.appendChild(bong); cha.appendChild(q);
     var h = el("div", "th-phieu-nut"); cha.appendChild(h);
