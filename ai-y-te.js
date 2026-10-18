@@ -34,7 +34,18 @@
       if (x && x.nodeType) o.appendChild(x); else o.appendChild(el("p", null, x));
     });
     e.hidden = false;
+    ghiTram(e);
   }
+  // Lưu trạm đã làm (tien-do.js, khóa mhai-tram, trang "ai-y-te"): lần đầu Bit nhận xét sau khi người dùng thao tác
+  var sanSang = false, daGhi = {};
+  function ghiTram(e) {
+    var s = e.closest ? e.closest(".yt-tram") : null;
+    if (!sanSang || !s || !window.mhaiTD) return;
+    var id = s.id.replace(/^tram-/, "");
+    if (daGhi[id]) return;
+    daGhi[id] = true; window.mhaiTD.tram("ai-y-te", id); danhDau(id);
+  }
+  function danhDau(id) { [].slice.call(document.querySelectorAll('.bn-nut[data-tram="' + id + '"]')).forEach(function (n) { n.classList.add("is-xong"); }); }
   function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 
   function chep(chu, tb) {
@@ -544,4 +555,6 @@
   dgNut.forEach(function (b) { b.addEventListener("click", function () { chonDG(b.dataset.dg); }); });
   $("dg-phieu").addEventListener("change", chamDG);
   chonDG(0);
+  sanSang = true;
+  if (window.mhaiTD) Object.keys(window.mhaiTD.tramCua("ai-y-te")).forEach(danhDau);
 })();

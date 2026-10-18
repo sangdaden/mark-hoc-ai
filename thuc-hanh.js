@@ -67,6 +67,20 @@
     (Array.isArray(chu) ? chu : [chu]).forEach(function (x) { if (x && x.nodeType) o.appendChild(x); else { var p = el("p"); dam(p, x); o.appendChild(p); } });
     hop.appendChild(o);
     hop.hidden = false;
+    ghiKetQua(hop);
+  }
+  // Lưu kết quả trạm (tien-do.js, khóa mhai-tram): lần đầu Bit nhận xét ở một trạm thì tính là đã làm, có điểm thì ghi điểm
+  // (sanSang: bỏ qua lời Bit hiện sẵn lúc dựng trạm, chỉ tính khi người dùng thao tác)
+  var _diem = null, daGhi = {}, sanSang = false;
+  function ghiKetQua(hop) {
+    var s = hop.closest ? hop.closest(".th-tram") : null;
+    if (!sanSang || !s || !window.mhaiTD) { _diem = null; return; }
+    var id = s.id.replace(/^tram-/, "");
+    if (_diem || !daGhi[id]) { window.mhaiTD.tram(D.trang, id, _diem && _diem[0], _diem && _diem[1]); daGhi[id] = true; danhDau(id); }
+    _diem = null;
+  }
+  function danhDau(id) {
+    [].slice.call(document.querySelectorAll('.bn-nut[data-tram="' + id + '"]')).forEach(function (n) { n.classList.add("is-xong"); });
   }
   function hopBit(cha) { var h = el("div", "th-bit"); h.setAttribute("aria-live", "polite"); h.hidden = true; cha.appendChild(h); return h; }
   function hang(cha) { var h = el("div", "th-hang"); cha.appendChild(h); return h; }
@@ -89,7 +103,7 @@
       nhan: function (s) { w.setAttribute("aria-label", s); }
     };
   }
-  function diem(d, tong, them) { return thay(N.diem, { d: d, tong: tong }) + (them ? " · " + them : ""); }
+  function diem(d, tong, them) { _diem = [d, tong]; return thay(N.diem, { d: d, tong: tong }) + (them ? " · " + them : ""); }
 
   // ---------- chọn trạm (cột trái .bn-ngan) ----------
   var nutTram = goc ? [].slice.call(goc.querySelectorAll("[data-tram]")) : [];
@@ -673,6 +687,8 @@
   var KIEU = { "phan-loai": phanLoai, "bo-phieu": boPhieu, ghep: ghep, chat: chat, "tim-loi": function (c, t) { timLoi(c, t, false); }, "sua-loi": function (c, t) { timLoi(c, t, true); }, "chon-ban": chonBan, giong: giong, "ke-hoach": keHoach,
     "xep-buoc": xepBuoc, "cham-tieu-chi": chamTieuChi, "vi-du": viDu, bayes: bayes };
   D.tram.forEach(function (t) { var c = $("th-o-" + t.id); if (c && KIEU[t.loai]) KIEU[t.loai](c, t); });
+  sanSang = true;
+  if (window.mhaiTD) { var cu = window.mhaiTD.tramCua(D.trang); Object.keys(cu).forEach(danhDau); }
   if (goc) {
     var q = (location.search.match(/[?&]tram=([\w-]+)/) || [])[1] || location.hash.slice(1);
     moTram(q || D.tram[0].id, false);

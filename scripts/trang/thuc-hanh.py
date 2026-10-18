@@ -125,11 +125,27 @@ def _th_ngan(cau, co_ban, nang_cao, g=None):
             + nhom(" bn-gap-nc", False, g["chu"], nang_cao, g["mau"]) + '</nav>')
 
 
+def _th_lien(x):
+    """Dòng nối trạm với học: video gốc (nếu đã có bài) và ngày tương ứng trong Lộ trình 7 ngày. Dữ liệu: "video": ["92"], "lo_trinh": 3."""
+    out = []
+    for s in x.get("video", []):
+        try:
+            n = int(str(s))
+        except ValueError:
+            continue
+        if n in co_bai:
+            out.append(f'<a class="th-lien-v" href="bai/{ten_file(co_bai[n])}.html">▶ {t("Xem video", "Watch video")} #{n:02d}</a>')
+    if x.get("lo_trinh"):
+        out.append(f'<a class="th-lien-n" href="lo-trinh-7-ngay.html#ngay-{x["lo_trinh"]}">📅 {t("Ngày", "Day")} {x["lo_trinh"]} · {t("Lộ trình 7 ngày", "7-day path")}</a>')
+    return f'<p class="th-lien">{"".join(out)}</p>\n' if out else ""
+
+
 def _th_tram(k, x, lop="th-tram", g=None):
     """Khung một trạm; nội dung do thuc-hanh.js dựng vào .th-o."""
     nc = _th_nhom_nc(g)["chu"] + " · " if _th_nc(x) else ""
     return (f'<section class="bn-tram {lop}" id="tram-{x["id"]}" hidden aria-labelledby="h-{x["id"]}" data-loai="{x["loai"]}">\n'
             f'<p class="bn-nhan">{t("Trạm", "Station")} {k + 1} · {nc}{esc(x["nho"])}</p>\n<h2 id="h-{x["id"]}">{esc(x["h2"])}</h2>\n'
+            + _th_lien(x)
             + (f'<p class="bn-mo">{esc(x["mo"])}</p>\n' if x.get("mo") else "")
             + f'<div class="th-o" id="th-o-{x["id"]}"></div>\n</section>\n')
 

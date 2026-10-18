@@ -87,7 +87,8 @@
     ds.insertAdjacentHTML("beforeend", '<span class="nav-drop-nhom">' + (EN ? "Practice by field" : "Thực hành theo ngành") + "</span>" +
       [["ai-y-te.html", "🏥", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", "🎒", EN ? "High school" : "Học sinh cấp 3"],
        ["ai-van-phong.html", "🏛️", EN ? "Public servants" : "Cán bộ, công chức"]]
-        .map(x => '<a href="' + truoc + x[0] + '"' + (tenTrang === x[0] ? ' aria-current="page"' : "") + '><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a>").join(""));
+        .map(x => '<a href="' + truoc + x[0] + '"' + (tenTrang === x[0] ? ' aria-current="page"' : "") + '><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a>").join("") +
+      '<a href="' + truoc + 'thuc-hanh.html"' + (tenTrang === "thuc-hanh.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🧩</span> ' + (EN ? "All games and practice" : "Góc thực hành: mọi trò chơi") + "</a>");
   });
   // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
   const dsDrop = top.querySelectorAll(".nav-drop");

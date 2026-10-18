@@ -6,8 +6,8 @@
    "buoc": [
     {
      "chon": ".bn-ngan",
-     "vi": "Trang có **7 trạm**, mỗi trạm một kiểu chơi khác nhau. Bấm để đổi trạm.",
-     "en": "There are **7 stations**, each a different kind of game. Click to switch.",
+     "vi": "Trang có **7 trạm cơ bản** và **4 trạm nâng cao** ở nhóm dưới. Bấm để đổi trạm.",
+     "en": "There are **7 core stations** and **4 advanced ones** in the group below. Click to switch.",
      "bo_neu_an": true
     },
     {
@@ -114,54 +114,6 @@
    ]
   },
   {
-   "id": "lenh-an",
-   "khi": "#tram-lenh-an",
-   "buoc": [
-    {
-     "chon": "#tram-lenh-an .th-van",
-     "vi": "Có **3 dòng chữ trắng** gần như vô hình. !!AI vẫn đọc được!!",
-     "en": "**3 lines of white text** hide here. !!AI still reads them!!"
-    },
-    {
-     "chon": "#tram-lenh-an .th-van",
-     "vi": "**Chạm vào dòng lạ.** ++Máy thật: bấm *Ctrl+A* để lộ chữ.++",
-     "en": "**Tap the odd lines.** ++Real files: *Ctrl+A* reveals them.++"
-    }
-   ]
-  },
-  {
-   "id": "chia-buoc",
-   "khi": "#tram-chia-buoc",
-   "buoc": [
-    {
-     "chon": "#tram-chia-buoc .th-xb-kho",
-     "vi": "Chạm thẻ để xếp **theo thứ tự**. !!Né thẻ bẫy!!",
-     "en": "Tap cards to place them **in order**. !!Skip the traps!!"
-    },
-    {
-     "chon": "#tram-chia-buoc .th-xb-o",
-     "vi": "Đủ 5 ô thì bấm [[Kiểm tra]]. ++Đúng hết thì chép cả chuỗi.++",
-     "en": "All 5 filled? Press [[Check]]. ++Then copy the chain.++"
-    }
-   ]
-  },
-  {
-   "id": "vi-du",
-   "khi": "#tram-vi-du",
-   "buoc": [
-    {
-     "chon": "#tram-vi-du .th-vd-kho",
-     "vi": "Chọn **2 ví dụ**. !!Có ví dụ sai, có ví dụ quá dài!!",
-     "en": "Pick **2 examples**. !!One is wrong, one too long!!"
-    },
-    {
-     "chon": "#tram-vi-du .gh-lenh",
-     "vi": "Bấm [[Gửi cho AI]]. ++Thử ví dụ lỗi để thấy AI chép lỗi.++",
-     "en": "Press [[Send to AI]]. ++Try a flawed one to see it copied.++"
-    }
-   ]
-  },
-  {
    "id": "cham",
    "khi": "#tram-cham",
    "buoc": [
@@ -190,6 +142,33 @@
      "chon": "#tram-buoc-sai .th-van",
      "vi": "Chọn cách sửa đúng. ++Tự bấm máy tính lại.++",
      "en": "Pick the right fix. ++Redo it on a calculator.++"
+    }
+   ]
+  },
+  {
+   "id": "tham-tu",
+   "khi": "#tram-tham-tu",
+   "buoc": [
+    {
+     "chon": "#tram-tham-tu .th-phieu",
+     "vi": "AI đưa ra một **câu trích dẫn**.",
+     "en": "The AI gives a **quote**."
+    },
+    {
+     "chon": "#tram-tham-tu .th-phieu-nut",
+     "vi": "Thật, bịa, hay **sai người nói**? ++Soi năm sinh, năm mất của người được gán.++",
+     "en": "Real, made up, or **the wrong person**? ++Check when the person lived.++"
+    }
+   ]
+  },
+  {
+   "id": "socrates",
+   "khi": "#tram-socrates",
+   "buoc": [
+    {
+     "chon": "#tram-socrates .th-chat-chon",
+     "vi": "Gia sư **chỉ hỏi**, không giải. Chọn câu trả lời **cho thấy bạn đang nghĩ**. !!Xin đáp án là thua!!",
+     "en": "The tutor **only asks**. Pick replies that **show your thinking**. !!Asking for the answer loses!!"
     }
    ]
   }

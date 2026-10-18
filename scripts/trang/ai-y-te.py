@@ -39,7 +39,8 @@ def tao_ai_y_te():
     def dau(i, k, video, tieu, mo=""):
         return (f'<section class="bn-tram yt-tram" id="tram-{i}" hidden aria-labelledby="h-{i}">\n'
                 f'<p class="bn-nhan">{t("Trạm", "Station")} {k} · {t("Video", "Video")} {video}</p>\n'
-                f'<h2 id="h-{i}">{tieu}</h2>\n' + (f'<p class="bn-mo">{mo}</p>\n' if mo else ""))
+                f'<h2 id="h-{i}">{tieu}</h2>\n' + _th_lien(D.get("tram_lien_ket", {}).get(i, {}))
+                + (f'<p class="bn-mo">{mo}</p>\n' if mo else ""))
 
     bit = lambda i: f'<div class="yt-bit" id="{i}" aria-live="polite" hidden></div>'
     chep = lambda i, nhan: f'<button type="button" class="btn btn-chinh yt-chep" id="{i}">{ic(p, "copy")}{nhan}</button>'

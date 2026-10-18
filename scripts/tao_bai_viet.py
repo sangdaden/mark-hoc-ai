@@ -368,6 +368,11 @@ def footer(p, q=None):
     return (f'<footer class="foot-band">\n  <div class="foot">\n    <a class="brand" href="{q or "./"}"><img src="{p}assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>\n'
             f'    <p class="foot-line">{t("Hiểu AI trong một phút, dùng được ngay sau đó.", "Understand AI in a minute, use it right after.")}</p>\n'
             f'    <nav class="foot-links" aria-label="{t("Kênh ở chân trang", "Channel links")}">{links}\n    </nav>\n'
+            f'    <nav class="foot-hoc" aria-label="{t("Học và thực hành", "Learn and practice")}"><b>{t("Học", "Learn")}</b>'
+            f'<a href="{q}lo-trinh-7-ngay.html">{t("Lộ trình 7 ngày", "7-day path")}</a><a href="{q}lo-trinh-nganh.html">{t("Lộ trình theo nghề", "Path for your job")}</a>'
+            f'<a href="{q}kiem-tra.html">{t("Kiểm tra", "Quizzes")}</a><a href="{q}chung-nhan.html">{t("Chứng nhận", "Certificates")}</a>'
+            f'<b>{t("Thực hành", "Practice")}</b><a href="{q}thuc-hanh.html">{t("Góc thực hành", "Practice corner")}</a>'
+            f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a></nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
             f'<a href="{q}kiem-tra.html">{t("Bạn hiểu AI tới đâu?", "How well do you know AI?")}</a>'
             f' · <a href="{q}sach.html">{t("Sách miễn phí", "Free ebook")}</a> · <a href="{q}hop-tac.html">{t("Hợp tác cùng kênh", "Work with us")}</a>'
@@ -416,6 +421,7 @@ def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonl
 <link rel="stylesheet" href="{p}style.css?v=dev">
 <script>try{{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
 <script src="{p}theo-doi.js?v=dev" defer></script>
+<script src="{p}tien-do.js?v=dev" defer></script>
 {chr(10).join(ld(j) for j in jsonld)}
 </head>
 <body class="sub">
@@ -1103,6 +1109,39 @@ def tao_sach():
                                     desc, band, main, p, hien_tai="sach", og_type="website", jsonld=jsonld, q="")
 
 # ---------- lộ trình 7 ngày (lo-trinh-7-ngay.html) ----------
+# Ô "Thử ngay" mỗi ngày: trò chơi gắn với 3 video của ngày (data/tro-choi) + một trạm hợp ngày đó ở mỗi trang thực hành
+# (trường "lo_trinh" của trạm trong data/thuc-hanh/*.json, data/ai-y-te.json "nang_cao" và "tram_lien_ket").
+_TH_NHOM = [("ai-hoc-sinh", "🎒", ("Học sinh", "Students")), ("ai-van-phong", "🏛️", ("Công chức", "Civil servants")), ("ai-y-te", "🏥", ("Y tế", "Healthcare"))]
+_TRANG_TH = {f + ".html" for f, _, _ in _TH_NHOM}
+
+def _tram_theo_trang(ten):
+    """[(id, ten {vi,en}, ngay, nang_cao)] của một trang thực hành."""
+    if ten == "ai-y-te":
+        y = load("ai-y-te")
+        co_ban = [(k, v["ten"], v.get("lo_trinh"), False) for k, v in y.get("tram_lien_ket", {}).items() if isinstance(v, dict) and "ten" in v]
+        return co_ban + [(x["id"], x["ten"], x.get("lo_trinh"), True) for x in y.get("nang_cao", [])]
+    d = json.loads((R / "data" / "thuc-hanh" / f"{ten}.json").read_text(encoding="utf-8"))
+    return [(x["id"], x["ten"], x.get("lo_trinh"), x.get("cap") == "nang-cao") for x in d["tram"]]
+
+def thu_ngay(d, i):
+    L = 1 if LG == "en" else 0
+    chip, da = [], set()
+    for s in d["video"]:
+        for url, ten, _moi, _hinh in TUONG_TAC.get(str(s), []):
+            if url.split("?")[0] in _TRANG_TH or url in da:
+                continue
+            da.add(url)
+            chip.append(f'<a class="day-thu-c" href="{esc(url)}"><span aria-hidden="true">🧩</span>{esc(ten[L])}</a>')
+    for f, bt, nhom in _TH_NHOM:
+        ds = sorted((x for x in _tram_theo_trang(f) if x[2] == i), key=lambda x: x[3])
+        if ds:
+            id_, ten, _n, _nc = ds[0]
+            chip.append(f'<a class="day-thu-c" href="{f}.html#{id_}"><span aria-hidden="true">{bt}</span>{esc(ten["en"] if L else ten["vi"])}<small>{nhom[L]}</small></a>')
+    if not chip:
+        return ""
+    return (f'<div class="day-thu"><p class="try-label">{t("Thử ngay · 5 phút", "Try it now · 5 minutes")}</p>'
+            f'<div class="day-thu-ds">{"".join(chip)}</div></div>')
+
 def tao_lo_trinh():
     p = t("", "../")
     goc_vi = json.loads((R / "data" / "lo-trinh-7-ngay.json").read_text(encoding="utf-8"))["ngay"]
@@ -1122,7 +1161,7 @@ def tao_lo_trinh():
     the = []
     for i, d in enumerate(ngay, 1):
         vids = "".join(
-            f'<li><a href="bai/{ten_file(co_bai[n])}.html"><span class="num">#{n:02d}</span><span class="dv-t">{esc(tach_tieu_de(co_bai[n])[0])}</span></a></li>'
+            f'<li data-so="{n}"><a href="bai/{ten_file(co_bai[n])}.html"><span class="num">#{n:02d}</span><span class="dv-t">{esc(tach_tieu_de(co_bai[n])[0])}</span></a></li>'
             for n in d["video"])
         q = d["cau_hoi"]
         opts = "".join(f'<button type="button" class="day-opt" data-i="{j}"><span class="opt-k">{"ABCD"[j]}</span><span>{esc(o)}</span></button>'
@@ -1134,6 +1173,7 @@ def tao_lo_trinh():
 <h3 class="day-h">{t("3 video hôm nay", "Today's 3 videos")}</h3>
 <ol class="day-videos">{vids}</ol>
 <div class="day-task"><p class="try-label">{t("Việc 10 phút", "10-minute task")}</p><p>{esc(d["viec"])}</p></div>
+{thu_ngay(d, i)}
 </div>
 <div class="day-quiz" data-dung="{q["dung"]}">
 <h3 class="day-h">{t("Câu hỏi của ngày", "Question of the day")}</h3>
@@ -1177,7 +1217,8 @@ def tao_lo_trinh():
 <canvas id="cn-canvas" width="1600" height="1131" hidden></canvas>
 </section>
 <aside class="next-steps">
-<a class="next-step" href="./#bat-dau"><b>{t("Đi tiếp: lộ trình 4 tuần", "Next: the 4-week path")}</b><span>{t("Bản đồ 7 vùng và lộ trình dài hơn ở trang chủ.", "The 7-area map and a longer path on the home page.")}</span></a>
+<a class="next-step" href="lo-trinh-nganh.html"><b>{t("Đi tiếp: lộ trình theo nghề", "Next: a path for your job")}</b><span>{t("Chọn nghề của bạn, nhận danh sách video và trạm thực hành theo thứ tự.", "Pick your job and get videos and practice stations in order.")}</span></a>
+<a class="next-step" href="thuc-hanh.html"><b>{t("Góc thực hành", "Practice corner")}</b><span>{t("Mọi trò chơi và trạm thực hành ở một chỗ, có dấu ✓ cho phần đã làm.", "Every game and practice station in one place, with ✓ for what you have done.")}</span></a>
 <a class="next-step" href="sach.html"><b>{t("Sách miễn phí", "Free ebook")}</b><span>{t("Cả kênh gom thành một cuốn PDF, đọc lại lúc nào cũng được.", "The whole channel in one PDF (in Vietnamese).")}</span></a>
 </aside>
 </main>"""

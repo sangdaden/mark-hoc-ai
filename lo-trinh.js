@@ -29,6 +29,8 @@
   const luu = () => { try { localStorage.setItem(KHOA, JSON.stringify(nho)); } catch (e) {} };
 
   const days = Array.from(document.querySelectorAll(".day"));
+  // Video đã xem (tien-do.js ghi khi mở bài video): hiện dấu ✓ cạnh video trong từng ngày
+  if (window.mhaiTD) { const xem = window.mhaiTD.daXem(); document.querySelectorAll(".day-videos li[data-so]").forEach(li => li.classList.toggle("is-xem", xem.includes(+li.dataset.so))); }
   const tienDo = document.getElementById("tien-do"), thanh = document.getElementById("thanh");
 
   const do_ = (t, d) => window.mhaiDo && window.mhaiDo(t, d); // đếm tương tác, xem theo-doi.js
