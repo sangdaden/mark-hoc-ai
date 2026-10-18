@@ -228,15 +228,37 @@
     bong.style.top = Math.round(Math.max(k.top + 8, y)) + "px";
   }
 
-  // Nút "Cách chơi": dưới tiêu đề trò chơi; trong trang bài (đầu trang bị ẩn) thì ở đầu khung trò chơi
-  function datNut() {
-    nutMo = el("button", "hd-mo");
-    nutMo.type = "button";
+  // Nút "Cách chơi". Trang nhiều trạm (mỗi trạm có tiêu đề h2): mỗi trạm một nút nằm ngang hàng tiêu đề trạm,
+  // mở đúng hướng dẫn của trạm đó (Sang 18/10, cho gọn đầu trang). Trang một trò: dưới tiêu đề trò chơi;
+  // trong trang bài (đầu trang bị ẩn) thì ở đầu khung trò chơi.
+  function taoNut(g) {
+    var n = el("button", "hd-mo");
+    n.type = "button";
     var q = el("span", "hd-q", "?");
     q.setAttribute("aria-hidden", "true");
-    nutMo.appendChild(q);
-    nutMo.appendChild(document.createTextNode(N.mo));
-    nutMo.addEventListener("click", function () { mo(); });
+    n.appendChild(q);
+    n.appendChild(el("span", "hd-mo-chu", N.mo));
+    n.addEventListener("click", function () { nutMo = n; mo(g); });
+    return n;
+  }
+  function datNutTram() {
+    if (!D.nhom || !D.nhom.length) return false;
+    var dat = D.nhom.map(function (g) { var t = null; try { t = document.querySelector(g.khi); } catch (e) {} return t && t.querySelector("h2"); });
+    if (dat.some(function (h) { return !h; })) return false;
+    D.nhom.forEach(function (g, k) {
+      var h = dat[k], hang = el("div", "hd-tieu-de");
+      h.parentNode.insertBefore(hang, h);
+      hang.appendChild(h);
+      var n = taoNut(g);
+      n.setAttribute("aria-label", N.mo + ": " + h.textContent);
+      hang.appendChild(n);
+      if (!nutMo) nutMo = n;
+    });
+    return true;
+  }
+  function datNut() {
+    if (datNutTram()) return;
+    nutMo = taoNut();
     var dau = document.querySelector(".page-head");
     if (NHUNG || !dau) {
       var main = document.querySelector("main");
