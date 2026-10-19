@@ -44,7 +44,8 @@
   }
 
   // Gợi ý đổi ngôn ngữ (chạy cả khi không đo, nên đặt trước dòng dừng bên dưới): trình duyệt không có
-  // ngôn ngữ của trang, ở ngoài Việt Nam (đoán theo múi giờ), và trang có bản kia (link hreflang). Một dải nhỏ cuối màn hình, bấm × thì không hiện lại.
+  // ngôn ngữ của trang, ở ngoài Việt Nam (đoán theo múi giờ), và trang có bản kia (link hreflang). Một dải nhỏ nằm trong trang, ngay dưới thanh menu
+  // (không nổi đè lên chữ hay nút Bit), bấm × thì không hiện lại. Trang không có thanh menu lẫn <main> thì mới nổi ở cuối màn hình.
   function goiYNgonNgu() {
     try {
       var KHOA_TAT = "mhai-goi-y-ngon-ngu-tat";
@@ -65,7 +66,9 @@
       bar.setAttribute("role", "region");
       bar.setAttribute("aria-label", chu[0]);
       bar.setAttribute("translate", "no");
-      bar.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:460px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#0b2545;color:#fff;font:14px/1.4 Inter,system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25)";
+      var menu = document.querySelector(".band > header.top"), chinh = menu || document.querySelector("main");
+      bar.style.cssText = (chinh ? "position:relative;box-sizing:border-box;width:min(1240px,calc(100% - 32px));margin:" + (menu ? "4px auto 8px;" : "12px auto 0;")
+        : "position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:460px;margin:0 auto;") + "display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#0b2545;color:#fff;font:14px/1.4 Inter,system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.25)";
       var t = document.createElement("span"); t.textContent = chu[0]; t.style.flex = "1";
       var a = document.createElement("a"); a.href = den + location.hash; a.lang = sang; a.textContent = chu[1] + " \u203a";
       a.style.cssText = "color:#0b2545;background:#ffd166;border-radius:8px;padding:6px 10px;font-weight:600;text-decoration:none;white-space:nowrap";
@@ -74,7 +77,7 @@
       x.style.cssText = "background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;min-width:40px;min-height:40px;margin:-8px -6px -8px 0";
       x.addEventListener("click", function () { try { localStorage.setItem(KHOA_TAT, "1"); } catch (e) {} bar.remove(); });
       bar.appendChild(t); bar.appendChild(a); bar.appendChild(x);
-      document.body.appendChild(bar);
+      if (menu) menu.after(bar); else if (chinh) chinh.before(bar); else document.body.appendChild(bar);
       gui("goi-y-ngon-ngu", { sang: sang });
     } catch (e) {}
   }
