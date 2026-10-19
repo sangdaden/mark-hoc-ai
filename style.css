@@ -3066,3 +3066,8 @@ html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { max-w
 /* Trang chủ: khối An toàn số cách dải đầu trang và phần "Bắt đầu" bằng nhau (phần dưới đã có padding-top của .start) */
 html body .an-toan { margin: 48px 0 0; }
 @media (max-width: 760px) { html body .an-toan { margin: 36px 0 0; } }
+
+/* Màn hình kết quả các trò: dùng hết khung 1240px như phần chơi, không còn cột hẹp ở giữa */
+html body :is(.ld-ket, .gh-ket, .tv-ket, .cg-ket, .nv-ket) { max-width: none; }
+/* Thẻ "Gửi cho bố mẹ": dòng báo chỉ chiếm chỗ khi có chữ, để đáy thẻ không dư khoảng trống */
+html body .cs-bao:empty { display: none; }
