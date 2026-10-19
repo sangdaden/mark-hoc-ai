@@ -71,7 +71,7 @@
       a.style.cssText = "color:#0b2545;background:#ffd166;border-radius:8px;padding:6px 10px;font-weight:600;text-decoration:none;white-space:nowrap";
       a.addEventListener("click", function () { gui("doi-ngon-ngu", { sang: sang }); });
       var x = document.createElement("button"); x.type = "button"; x.textContent = "\u00d7"; x.setAttribute("aria-label", chu[2]);
-      x.style.cssText = "background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:0 4px";
+      x.style.cssText = "background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;min-width:40px;min-height:40px;margin:-8px -6px -8px 0";
       x.addEventListener("click", function () { try { localStorage.setItem(KHOA_TAT, "1"); } catch (e) {} bar.remove(); });
       bar.appendChild(t); bar.appendChild(a); bar.appendChild(x);
       document.body.appendChild(bar);

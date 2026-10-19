@@ -34,6 +34,18 @@
   };
   document.documentElement.classList.add("cuon-hien");
   quet();
+  // Nhảy thẳng xuống dưới (phím End, link tới #mục, kéo thanh cuộn) thì các khối đã lướt qua không bao giờ "giao" màn hình
+  // nên trước đây cứ mờ mãi tới khi cuộn ngược lên: khối nào đã lên trên mép dưới màn hình thì hiện luôn (rà soát 19/10/2026)
+  let henCuon = 0;
+  addEventListener("scroll", () => {
+    if (henCuon) return;
+    henCuon = requestAnimationFrame(() => {
+      henCuon = 0;
+      main.querySelectorAll(".cho-hien:not(.da-hien)").forEach(el => {
+        if (el.getBoundingClientRect().bottom < 0) { el.style.transitionDelay = ""; el.classList.add("da-hien"); io.unobserve(el); }
+      });
+    });
+  }, { passive: true });
   let hen = 0;
   new MutationObserver(() => { cancelAnimationFrame(hen); hen = requestAnimationFrame(quet); }).observe(main, { childList: true, subtree: true });
 })();

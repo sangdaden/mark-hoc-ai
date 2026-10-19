@@ -47,7 +47,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 main[tabindex="-1"]:focus, .page-head[tabindex="-1"]:focus { outline: none; }
 .muted { color: var(--muted); }
 
-.top, main, .foot { max-width: 1080px; margin-inline: auto; }
+/* Khung chung 1240px cho đầu trang, phần tiêu đề, nội dung và chân trang (Sang chọn 19/10/2026): logo thẳng hàng với tiêu đề */
+.top, main, .foot { max-width: 1240px; margin-inline: auto; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 800 20px/1 var(--f-display); }
 .brand img { border-radius: 10px; }
@@ -75,7 +76,7 @@ h1 { margin: 0; font: 800 clamp(34px, 5.4vw, 58px)/1.14 var(--f-display); letter
 /* Dải đầu trang phủ màu logo, Mark và Bit đứng bên phải */
 .band { margin-inline: -16px; padding-inline: 16px; color: #fff;
   background: linear-gradient(120deg, #2563EB 0%, #0369A1 55%, #0F766E 100%); }
-.band-in { max-width: 1080px; margin-inline: auto; }
+.band-in { max-width: 1240px; margin-inline: auto; }
 .band .brand, .band .top-links a, .band h1, .band .lead, .band .stats, .band .eyebrow { color: #fff; }
 .band .top-links a:hover { color: #FDE047; }
 .band .brand img { background: #fff; padding: 3px; }
@@ -2173,10 +2174,10 @@ html.nhung main { padding-top: 8px; max-width: none; }
 .doc-bai { padding-bottom: 40px; }
 .doc-cuoi { padding-top: 0; }
 @media (min-width: 1120px) {
-  .doc-bai { max-width: 1320px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 48px; align-items: start; }
+  .doc-bai { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 48px; align-items: start; }
   .doc-ben { display: block; position: sticky; top: 20px; }
-  .doc-cuoi, .xem-choi { max-width: 1320px; }
-  body:has(.doc-bai) .top, body:has(.doc-bai) .band-in, body:has(.doc-bai) .foot { max-width: 1320px; }
+  .doc-cuoi, .xem-choi { max-width: 1240px; }
+  body:has(.doc-bai) .top, body:has(.doc-bai) .band-in, body:has(.doc-bai) .foot { max-width: 1240px; }
   /* Hàng đầu trang bài đã rộng 1320px nên nút Vũ Trụ Khác nằm trong hàng, không đẩy ra lề phải (lề hẹp sẽ bị cắt mất) */
   body:has(.doc-bai) .top-tools a.nut-vtk { position: static; transform: none; margin-right: 6px; }
   .doc-bai .post { padding: 36px 48px; }
@@ -2909,9 +2910,9 @@ button.tv-hs:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px
 .ct-goi .ct-chon { justify-content: center; }
 
 /* ===== Đầu trang và chân trang mẫu B (Sang chọn 19/10/2026; mẫu ở https://claude.ai/artifact/2wfxHsFgfacvWYJUXxxWog) =====
-   Đầu và chân trang mở rộng ra hai bên (tối đa 1400px), menu gom nhóm Học ▾ / Thực hành ▾ (cai-dat.js), bên phải 4 nút tròn
+   Đầu và chân trang dùng khung chung 1240px như nội dung (rà soát 19/10), menu gom nhóm Học ▾ / Thực hành ▾ (cai-dat.js), bên phải 4 nút tròn
    YouTube · Vũ Trụ Khác · EN · Tối. Từ 1100px trở xuống thành nút Menu. Nội dung giữa trang giữ bề ngang cũ */
-html body .top, html body .foot-band .foot { max-width: 1400px; }
+html body .top, html body .foot-band .foot { max-width: 1240px; }
 .top { flex-wrap: nowrap; gap: 20px; }
 .top .brand { flex: none; }
 .band .top-links.da-gom { flex: 1; justify-content: center; align-items: center; flex-wrap: nowrap; gap: 6px 22px; white-space: nowrap; }
@@ -2978,3 +2979,30 @@ html body .top, html body .foot-band .foot { max-width: 1400px; }
   .foot-cot a { padding-block: 8px; }
   .foot-cuoi { flex-direction: column; }
 }
+
+/* ===== Rà soát giao diện 19/10/2026 (https://claude.ai/artifact/VnK33iJTb6mxzHjB1HbrbP) ===== */
+/* Lỗi 1: khoảng thở chung trước chân trang cho mọi trang (trước đây mỗi trang tự đặt, có trang 0px) */
+html body main { padding-bottom: 56px; }
+html body main > :nth-last-child(1 of :not(script, noscript, template, [hidden])) { margin-bottom: 0; }
+@media (max-width: 760px) { html body main { padding-bottom: 40px; } }
+/* Lỗi 2: nút nổi nhấc lên khi chân trang hiện ra (cai-dat.js đặt --nang-noi) */
+.to-top, .bit-tl { translate: 0 calc(-1 * var(--nang-noi, 0px)); transition: translate .12s linear, opacity .2s; }
+.noi-an .to-top, .noi-an .bit-tl { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .to-top, .bit-tl { transition: none; } }
+/* Lỗi 5: chữ nhạt dưới 4,5:1 */
+.chip small { opacity: 1; }
+.bn-nhan { color: #6D28D9; }
+:root[data-theme="dark"] .bn-nhan { color: #C4B5FD; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bn-nhan { color: #C4B5FD; } }
+:root:not([data-theme="dark"]) .bn-gap-nc > summary { color: color-mix(in srgb, var(--nc1) 62%, #0F172A); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bn-gap-nc > summary { color: var(--nc1); } }
+/* Lỗi 6: nút đủ lớn cho ngón tay trên điện thoại (tối thiểu 40px) */
+@media (max-width: 760px) {
+  .az a { min-width: 40px; height: 40px; }
+  .term-more a { padding: 10px 8px; }
+  .bt-chip { min-height: 40px; display: inline-flex; align-items: center; }
+}
+/* Lỗi 7: ngắt dòng cân, khỏi rớt một chữ mồ côi */
+.foot-line { text-wrap: pretty; }
+/* Lỗi 3: trang lưới thẻ dùng hết khung 1240px cho thẳng hàng với tiêu đề; trang đọc (bài báo, lộ trình 7 ngày, bản tin, game) giữ cột hẹp cho dễ đọc */
+html body main.quiz-wrap, html body main.ltn { max-width: 1240px; }
