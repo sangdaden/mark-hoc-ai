@@ -10,7 +10,8 @@ out = []
 for d in sorted(ROOT.iterdir()):
     m = re.match(r"(\d+)-(.+)", d.name)
     # *-ban-hoi-bit-tra-loi: thư mục hỏi đáp phụ của tập đặc biệt (200, 300), không phải video riêng
-    if not m or d.name in SKIP or d.name.endswith("-ban-hoi-bit-tra-loi") or int(m.group(1)) > DEN:
+    # NN-N-slug (05-1, 69-2...; tập chính 3 chữ số như 197-5-meo-prompt không bị bỏ): tập phụ có số thập phân, chưa có trang riêng; bỏ để không trùng số với tập chính
+    if not m or d.name in SKIP or d.name.endswith("-ban-hoi-bit-tra-loi") or int(m.group(1)) > DEN or re.match(r"\d{2}-\d+-", d.name):
         continue
     f = next(iter(sorted(d.rglob("tieu-de-mo-ta.md"))), None)
     if not f:
