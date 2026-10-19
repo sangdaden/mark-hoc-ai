@@ -191,6 +191,22 @@
   dat();
   if (dt.addEventListener) dt.addEventListener("change", dat);
   foot.querySelectorAll(".foot-cot > summary").forEach(s => s.addEventListener("click", e => { if (!dt.matches) e.preventDefault(); }));
+  // Nút nổi ↑ ↓ và Bit tự nhấc lên khi chân trang hiện ra, để khỏi đè lên link chân trang (rà soát 19/10/2026).
+  const htmlEl = document.documentElement, band = foot.closest(".foot-band");
+  let hen = 0;
+  const nhac = () => {
+    hen = 0;
+    const tren = band.getBoundingClientRect().top;
+    const nang = Math.max(0, Math.min(innerHeight - tren, innerHeight - 180));
+    htmlEl.style.setProperty("--nang-noi", Math.round(nang) + "px");
+    // Chân trang phủ gần kín màn hình (điện thoại, cuối trang): không còn chỗ trống nào nên tạm ẩn nút nổi
+    htmlEl.classList.toggle("noi-an", tren < 180);
+  };
+  const xep = () => { if (!hen) hen = requestAnimationFrame(nhac); };
+  addEventListener("scroll", xep, { passive: true });
+  addEventListener("resize", xep);
+  new ResizeObserver(xep).observe(band);
+  nhac();
 })();
 
 // Link "Bỏ qua tới nội dung" cho người dùng bàn phím và trình đọc màn hình: nhảy qua thanh đầu trang tới tiêu đề trang
