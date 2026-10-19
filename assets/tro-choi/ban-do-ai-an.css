@@ -172,3 +172,8 @@
   .bd-diem::before, .bd-quet, .bd-sang { animation: none; }
 }
 html.nhung .bd { padding-top: 8px; }
+/* Máy tính: tranh đi theo khi thẻ bên phải dài hơn, chip xuống dòng thay vì bị cắt ở mép */
+@media (min-width: 901px) {
+  .bd-trai { position: sticky; top: 16px; }
+  .bd-hang { flex-wrap: wrap; overflow: visible; }
+}
