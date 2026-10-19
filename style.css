@@ -3063,3 +3063,6 @@ html body .cc-canvas { max-width: 900px; margin-inline: auto; }
 /* Sang 19/10: trang trò chơi dùng hết khung 1240px, thẳng mép với đầu trang (trang đọc dài: bài báo, bản tin, phiêu lưu, Hỏi Bit giữ cột hẹp) */
 html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { max-width: 1240px; }
 @media (min-width: 1272px) { html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { padding-inline: 0; } }
+/* Trang chủ: khối An toàn số cách dải đầu trang và phần "Bắt đầu" bằng nhau (phần dưới đã có padding-top của .start) */
+html body .an-toan { margin: 48px 0 0; }
+@media (max-width: 760px) { html body .an-toan { margin: 36px 0 0; } }
