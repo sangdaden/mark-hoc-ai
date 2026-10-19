@@ -154,6 +154,14 @@
   hop.querySelector(".bit-meo-khac").addEventListener("click", meoMoi);
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !bang.hidden) { moMenu(false); nut.focus(); } });
   document.addEventListener("click", e => { if (!bang.hidden && !hop.contains(e.target)) moMenu(false); });
+  // Menu là bảng bật lên, không phải để nằm đè lên nội dung: kéo trang đi một đoạn là tự đóng (trừ khi đang gõ câu hỏi)
+  let yMo = 0;
+  nut.addEventListener("click", () => { yMo = scrollY; });
+  addEventListener("scroll", () => {
+    if (bang.hidden || Math.abs(scrollY - yMo) < 80) return;
+    if (document.activeElement && document.activeElement.matches(".bit-hoi input")) return;
+    moMenu(false);
+  }, { passive: true });
   nut.addEventListener("mouseenter", () => { if (!ngu && bang.hidden && noi.hidden) doiMat("nhay-mat"); });
   nut.addEventListener("mouseleave", () => { if (!ngu && bang.hidden && noi.hidden) doiMat("vui"); });
 
