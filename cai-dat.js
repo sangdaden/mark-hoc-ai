@@ -63,42 +63,48 @@
     '<button type="button" class="nut-menu" aria-expanded="false">' + ic("menu") + '<span class="nhan">Menu</span></button>';
   top.appendChild(hop);
 
-  // Menu "Lộ trình ▾" gom Lộ trình theo ngành, Lộ trình 7 ngày và Chứng nhận cho đầu trang khỏi tràn hàng (Sang 11/10/2026).
-  // index.html, lo-trinh-nganh.html và chung-nhan.html (cả bản en/) viết sẵn <details class="nav-drop">; các trang khác (bài viết, từ điển...) của cả hai thứ tiếng được ghép ở đây.
+  // Menu đầu trang gom nhóm (mẫu B, Sang chọn 19/10/2026): Bắt đầu · Học ▾ · Thực hành ▾ · Từ điển AI · Game · Bài báo AI · Sách.
+  // Dựng lại ở đây cho mọi trang của cả hai thứ tiếng, để chỉ sửa một chỗ; HTML viết sẵn giữ danh sách phẳng cho máy tìm kiếm và khi tắt JS.
+  // YouTube thành nút tròn bên phải cạnh Vũ Trụ Khác, EN và Tối (trên điện thoại vẫn nằm trong menu).
   const navTrang = top.querySelector(".top-links");
-  const a7 = navTrang && navTrang.querySelector('a[href$="lo-trinh-7-ngay.html"]');
-  if (a7 && !a7.closest(".nav-drop")) {
-    const truoc = a7.getAttribute("href").replace(/lo-trinh-7-ngay\.html$/, "");
-    const d = document.createElement("details");
-    d.className = "nav-drop";
-    d.innerHTML = "<summary" + (a7.hasAttribute("aria-current") ? ' class="is-cur"' : "") + '>' + (EN ? "Learning paths" : "Lộ trình") + '<svg class="nav-drop-mui" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>' +
-      '<div class="nav-drop-ds"><a href="' + truoc + 'lo-trinh-nganh.html">' + (EN ? "Path by field" : "Lộ trình theo ngành") + "</a></div>";
-    a7.replaceWith(d);
-    d.querySelector(".nav-drop-ds").appendChild(a7);
-    d.querySelector(".nav-drop-ds").insertAdjacentHTML("beforeend", '<a href="' + truoc + 'chung-nhan.html">' + (EN ? "Certificates" : "Chứng nhận") + "</a>");
+  const tenTrang = location.pathname.split("/").pop() || "index.html";
+  const gocNgu = icGoc ? icGoc + (EN ? "en/" : "") : "";
+  if (navTrang && gocNgu) {
+    const batDau = navTrang.querySelector(".nav-start"), yt = navTrang.querySelector(".nav-yt");
+    const lk = (f, chu) => '<a href="' + gocNgu + f + '"' + (tenTrang === f ? ' aria-current="page"' : "") + ">" + chu + "</a>";
+    const mui = '<svg class="nav-drop-mui" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const nhom = (ten, ds) => '<details class="nav-drop"><summary' + (ds.some(x => x[0] === tenTrang) ? ' class="is-cur"' : "") + ">" + ten + mui + '</summary><div class="nav-drop-ds">' +
+      ds.map(x => x[0] ? lk(x[0], x[1]) : '<span class="nav-drop-nhom">' + x[1] + "</span>").join("") + "</div></details>";
+    const hoc = [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
+      ["lo-trinh-nganh.html", EN ? "Path by field" : "Lộ trình theo ngành"], ["kiem-tra.html", EN ? "Quiz: how well do you know AI?" : "Kiểm tra: bạn hiểu AI tới đâu?"],
+      ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile · review" : "Hồ sơ học · Ôn hôm nay"]];
+    const thucHanh = [["thuc-hanh.html", EN ? "Practice corner: every game" : "Góc thực hành: mọi trò chơi"], ["", EN ? "Practice by field" : "Thực hành theo ngành"],
+      ["ai-y-te.html", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", EN ? "High school" : "Học sinh cấp 3"],
+      ["ai-van-phong.html", EN ? "Public servants" : "Cán bộ, công chức"], ["ai-giao-vien.html", EN ? "Teachers" : "Giáo viên"],
+      ["ai-gia-dinh.html", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", EN ? "Small sellers" : "Người bán hàng"],
+      ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"]];
+    navTrang.innerHTML = nhom(EN ? "Learn" : "Học", hoc) + nhom(EN ? "Practice" : "Thực hành", thucHanh) +
+      lk("tu-dien.html", EN ? "AI glossary" : "Từ điển AI") + lk("phieu-luu.html", "Game") + lk("bai-bao.html", EN ? "AI papers" : "Bài báo AI") + lk("sach.html", EN ? "Free book" : "Sách");
+    if (batDau) navTrang.prepend(batDau);
+    if (yt) {
+      navTrang.append(yt);
+      const ytTron = yt.cloneNode(true);
+      ytTron.className = "nut-yt";
+      ytTron.setAttribute("aria-label", "YouTube");
+      ytTron.title = "YouTube";
+      ytTron.innerHTML = '<svg class="ic" aria-hidden="true"><use href="' + icGoc + 'assets/nen-tang.svg#nt-youtube"/></svg>';
+      hop.prepend(ytTron);
+    }
+    navTrang.classList.add("da-gom");
   }
-  // Nhóm "Thực hành theo ngành" cuối menu Lộ trình (Sang 18/10/2026): ba trang thực hành y tế, học sinh, cán bộ công chức.
-  // Thêm bằng JS cho mọi trang, kể cả các trang viết sẵn menu (index, lo-trinh-nganh, chung-nhan, hoi-bit), để chỉ sửa một chỗ.
-  top.querySelectorAll(".nav-drop-ds").forEach(ds => {
-    const cn = ds.querySelector('a[href$="chung-nhan.html"]');
-    if (!cn || ds.querySelector(".nav-drop-nhom")) return;
-    const truoc = cn.getAttribute("href").replace(/chung-nhan\.html$/, "");
-    const tenTrang = location.pathname.split("/").pop();
-    if (!ds.querySelector('a[href$="lo-trinh-4-tuan.html"]')) cn.insertAdjacentHTML("beforebegin", '<a href="' + truoc + 'lo-trinh-4-tuan.html"' + (tenTrang === "lo-trinh-4-tuan.html" ? ' aria-current="page"' : "") + ">" + (EN ? "4-week path" : "Lộ trình 4 tuần") + "</a>");
-    ds.insertAdjacentHTML("beforeend", '<span class="nav-drop-nhom">' + (EN ? "Practice by field" : "Thực hành theo ngành") + "</span>" +
-      [["ai-y-te.html", "🏥", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", "🎒", EN ? "High school" : "Học sinh cấp 3"],
-       ["ai-van-phong.html", "🏛️", EN ? "Public servants" : "Cán bộ, công chức"], ["ai-giao-vien.html", "🍎", EN ? "Teachers" : "Giáo viên"],
-       ["ai-gia-dinh.html", "🏡", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", "🛍️", EN ? "Small sellers" : "Người bán hàng"]]
-        .map(x => '<a href="' + truoc + x[0] + '"' + (tenTrang === x[0] ? ' aria-current="page"' : "") + '><span aria-hidden="true">' + x[1] + "</span> " + x[2] + "</a>").join("") +
-      '<a href="' + truoc + 'thuc-hanh.html"' + (tenTrang === "thuc-hanh.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🧩</span> ' + (EN ? "All games and practice" : "Góc thực hành: mọi trò chơi") + "</a>" +
-      '<a href="' + truoc + 'ho-so.html"' + (tenTrang === "ho-so.html" ? ' aria-current="page"' : "") + '><span aria-hidden="true">🔁</span> ' + (EN ? "My profile · review" : "Hồ sơ học · Ôn hôm nay") + "</a>");
-  });
-  // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống
+  // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống; mở nhóm này thì đóng nhóm kia (máy tính)
   const dsDrop = top.querySelectorAll(".nav-drop");
+  const dt = matchMedia("(max-width: 1100px)");
   if (dsDrop.length) {
-    document.addEventListener("click", e => dsDrop.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }));
+    dsDrop.forEach(d => d.addEventListener("toggle", () => { if (d.open && !dt.matches) dsDrop.forEach(k => { if (k !== d) k.open = false; }); }));
+    document.addEventListener("click", e => { if (!dt.matches) dsDrop.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }); });
     document.addEventListener("keydown", e => {
-      if (e.key !== "Escape") return;
+      if (e.key !== "Escape" || dt.matches) return;
       dsDrop.forEach(d => { if (d.open) { d.open = false; d.querySelector("summary").focus(); } });
     });
   }
@@ -111,7 +117,8 @@
     if (vtk) nav.insertAdjacentHTML("beforeend", '<a class="nav-vtk" href="' + vtk + '"><img src="' + icGoc + 'assets/vu-tru-khac/logo-bieu-tuong-toi.svg" alt="" width="20" height="20">' + (EN ? "Another Universe" : "Vũ Trụ Khác") + "</a>");
     nutMenu.setAttribute("aria-controls", nav.id);
     nutMenu.setAttribute("aria-label", EN ? "Open the menu" : "Mở menu");
-    const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); };
+    // Mở menu thì bày sẵn mọi nhóm (Học, Thực hành) thành thẻ, khỏi phải bấm thêm
+    const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); if (mo) dsDrop.forEach(d => { d.open = true; }); };
     nutMenu.addEventListener("click", () => dongMo(!top.classList.contains("mo-menu")));
     nav.addEventListener("click", e => { if (e.target.closest("a")) dongMo(false); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && top.classList.contains("mo-menu")) { dongMo(false); nutMenu.focus(); } });
@@ -135,6 +142,55 @@
     ve();
   });
   ve();
+})();
+
+// Chân trang mẫu B (Sang chọn 19/10/2026): khối thương hiệu (khẩu hiệu, mạng xã hội, thẻ Vũ Trụ Khác) + 4 cột link có tiêu đề + dòng cuối.
+// Dựng lại từ chân trang viết sẵn của mọi trang (giữ nguyên các nút mạng xã hội, kể cả link riêng của trang chủ và trang Vũ Trụ Khác).
+// Điện thoại: 4 cột gập lại, bấm tiêu đề để mở
+(function () {
+  const foot = document.querySelector(".foot-band .foot");
+  const me = document.currentScript;
+  if (!foot || foot.classList.contains("foot-moi")) return;
+  const EN = document.documentElement.lang === "en";
+  let goc = "";
+  try { goc = new URL(".", me ? me.src : location.href).href + (EN ? "en/" : ""); } catch (e) { return; }
+  const brand = foot.querySelector(".brand"), dong = foot.querySelector(".foot-line"), kenh = foot.querySelector(".foot-links");
+  if (!brand || !kenh) return;
+  const vtk = kenh.querySelector(".vtk-nut");
+  const tenTrang = location.pathname.split("/").pop() || "index.html";
+  const lk = (f, chu) => '<a href="' + goc + f + '"' + (tenTrang === f ? ' aria-current="page"' : "") + ">" + chu + "</a>";
+  const cot = (ten, ds) => '<details class="foot-cot" open><summary>' + ten + "</summary><div>" + ds.map(x => lk(x[0], x[1])).join("") + "</div></details>";
+  const dau = document.createElement("div");
+  dau.className = "foot-dau";
+  dau.append(brand);
+  if (dong) dau.append(dong);
+  dau.append(kenh);
+  if (vtk) {
+    vtk.classList.add("foot-vtk");
+    vtk.innerHTML = vtk.querySelector(".nt-vtk").outerHTML + '<span class="vtk-chu"><b>' + (EN ? "Another Universe" : "Vũ Trụ Khác") + "</b><small>" +
+      (EN ? "Mark's sister page on Facebook" : "Trang anh em trên Facebook") + "</small></span>";
+    dau.append(vtk);
+  }
+  const html = cot(EN ? "Learn" : "Học", [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
+      ["lo-trinh-nganh.html", EN ? "Path for your job" : "Lộ trình theo nghề"], ["kiem-tra.html", EN ? "Quizzes" : "Kiểm tra"], ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile" : "Hồ sơ học"]]) +
+    cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"],
+      ["ai-y-te.html", EN ? "Healthcare" : "Y tế"], ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"]]) +
+    cot(EN ? "Read & play" : "Đọc & chơi", [["tu-dien.html", EN ? "AI glossary" : "Từ điển AI"], ["bai-bao.html", EN ? "AI papers" : "Bài báo AI"], ["sach.html", EN ? "Free ebook" : "Sách miễn phí"],
+      ["phieu-luu.html", "Game"], ["ban-tin.html", EN ? "Weekly digest" : "Bản tin tuần"]]) +
+    cot(EN ? "About" : "Về kênh", [["hop-tac.html", EN ? "Work with us" : "Hợp tác cùng kênh"], ["dich-vu.html", EN ? "Video services" : "Làm video cho bạn"], ["bo-giao-vien.html", EN ? "Lesson kits" : "Bộ bài giảng"],
+      ["workshop.html", "Workshop"], ["ung-ho.html", EN ? "Support us" : "Ủng hộ kênh"]]) +
+    '<div class="foot-cuoi"><span>© 2026 Mark học AI</span><span>' + lk("quyen-rieng-tu.html", EN ? "Privacy" : "Quyền riêng tư") + " · " + lk("dieu-khoan.html", EN ? "Terms" : "Điều khoản") +
+    ' · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span></div>';
+  foot.textContent = "";
+  foot.append(dau);
+  foot.insertAdjacentHTML("beforeend", html);
+  foot.classList.add("foot-moi");
+  // Máy tính luôn mở đủ 4 cột; điện thoại gập lại
+  const dt = matchMedia("(max-width: 760px)");
+  const dat = () => foot.querySelectorAll(".foot-cot").forEach(d => { d.open = !dt.matches; });
+  dat();
+  if (dt.addEventListener) dt.addEventListener("change", dat);
+  foot.querySelectorAll(".foot-cot > summary").forEach(s => s.addEventListener("click", e => { if (!dt.matches) e.preventDefault(); }));
 })();
 
 // Link "Bỏ qua tới nội dung" cho người dùng bàn phím và trình đọc màn hình: nhảy qua thanh đầu trang tới tiêu đề trang
