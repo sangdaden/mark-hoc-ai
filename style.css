@@ -3071,3 +3071,8 @@ html body .an-toan { margin: 48px 0 0; }
 html body :is(.ld-ket, .gh-ket, .tv-ket, .cg-ket, .nv-ket) { max-width: none; }
 /* Thẻ "Gửi cho bố mẹ": dòng báo chỉ chiếm chỗ khi có chữ, để đáy thẻ không dư khoảng trống */
 html body .cs-bao:empty { display: none; }
+/* Kiểm tra: khung câu hỏi rộng bằng khung trang như danh sách bộ đề phía trên */
+html body .quiz-wrap .quiz { max-width: none; }
+/* Tiêu đề phần cuối các trò ("Xem video của bài này", "Ba điều rút ra") giữ khoảng cách với khối phía trên;
+   quy tắc h2 riêng của từng trò (.lu h2, .tg-phan h2) từng kéo về 0 nên tiêu đề dính sát khung "Thử ngay" */
+html body main h2.ld-ket-h:not(:first-child) { margin: 28px 0 12px; }
