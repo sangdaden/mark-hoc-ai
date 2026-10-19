@@ -396,7 +396,57 @@ def lien_ket_ngon_ngu(goc):
 # Popup "Cách chơi" (Bit dẫn đường): trang có data/huong-dan/<tên trang>.json tự có, xem scripts/huong_dan.py
 import huong_dan
 
-def trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None, co_anh=None, ngay=None):
+def video_object(so, ten, mo_ta, anh, ngay):
+    """Dữ liệu VideoObject cho bài có video đã lên YouTube (data/youtube-id.json) và đã ra mắt; không có thì None."""
+    yt = YT_ID.get(str(so))
+    ngay = ngay_da_ra(ngay)
+    if not yt or not ngay:
+        return None
+    return {"@context": "https://schema.org", "@type": "VideoObject", "name": ten[:100], "description": mo_ta, "thumbnailUrl": [anh],
+            "uploadDate": ngay, "contentUrl": yt_url(yt), "embedUrl": f"https://www.youtube-nocookie.com/embed/{yt['id']}", "inLanguage": "vi"}
+
+# Tối ưu chung cho mọi trang (thêm 18/10/2026, theo rà soát SEO và tốc độ):
+#  - tiêu đề dài hơn 60 ký tự thì bỏ đuôi " | Mark học AI" (Google cắt quanh 60 ký tự, tên trang quan trọng hơn tên web);
+#  - mô tả dài hơn 160 ký tự thì cắt ở chữ gần 155 ký tự, thêm "…";
+#  - ảnh trong <main> trừ ảnh đầu tiên được thêm loading="lazy" decoding="async" nếu chưa có.
+# Dùng lại được cho file HTML có sẵn (bài video tiếng Việt khi không có thư mục video): toi_uu_html(s) không đổi gì nếu đã tối ưu.
+DUOI_TEN = " | " + SITE
+def _rut_mo_ta(s):
+    if len(s) <= 160:
+        return s
+    c = s[:155].rsplit(" ", 1)[0].rstrip(" ,.;:–-")
+    return c + "…"
+
+def toi_uu_html(s):
+    m = re.search(r"<title>(.*?)</title>", s, re.S)
+    if m:
+        ten = html.unescape(m.group(1))
+        if len(ten) > 60 and ten.endswith(DUOI_TEN):
+            moi = esc(ten[: -len(DUOI_TEN)])
+            s = s.replace(m.group(0), f"<title>{moi}</title>", 1)
+            s = s.replace(f'<meta property="og:title" content="{m.group(1)}">', f'<meta property="og:title" content="{moi}">', 1)
+    m = re.search(r'<meta name="description" content="([^"]*)">', s)
+    if m:
+        mt = html.unescape(m.group(1))
+        moi = _rut_mo_ta(mt)
+        if moi != mt:
+            s = s.replace(m.group(0), f'<meta name="description" content="{esc(moi)}">', 1)
+            s = s.replace(f'<meta property="og:description" content="{m.group(1)}">', f'<meta property="og:description" content="{esc(moi)}">', 1)
+    i = s.find("<main")
+    if i >= 0:
+        dau = [True]
+        def lazy(mm):
+            if dau[0]:
+                dau[0] = False
+                return mm.group(0)
+            return mm.group(0) if "loading=" in mm.group(0) else mm.group(0).replace("<img ", '<img loading="lazy" decoding="async" ', 1)
+        s = s[:i] + re.sub(r"<img\s[^>]*>", lazy, s[i:])
+    return s
+
+def trang(*a, **k):
+    return toi_uu_html(_trang(*a, **k))
+
+def _trang(goc, title, desc, band, main, p, hien_tai="", og_type="article", jsonld=(), cuoi="", q=None, anh=None, co_anh=None, ngay=None):
     # goc: đường dẫn trang không kèm tiền tố ngôn ngữ (vd. "bai/03-prompt.html"); trang thật nằm ở GOC + goc
     url = BASE + GOC + goc
     return f"""<!doctype html>
@@ -851,6 +901,9 @@ def tao_bai(v):
             {"@type": "ListItem", "position": 2, "name": g["ten"], "item": BASE + GOC + "#" + g["id"]},
             {"@type": "ListItem", "position": 3, "name": h1, "item": url}]},
     ]
+    vo = video_object(so, h1, meta or lead, BASE + og, ngay)
+    if vo:
+        jsonld.append(vo)
     return GOC + goc, trang(goc, f"{h1} | {SITE}", meta or lead, band, main, p, jsonld=jsonld, q=q,
                             cuoi=f'<script src="{p}bai-viet.js?v=dev" defer></script>\n', anh=og, co_anh=(1200, 630), ngay=ngay_da_ra(ngay))
 
@@ -1374,7 +1427,11 @@ def tao_hop_tac():
                   t("Ghi rõ \"Có tài trợ\" hoặc \"Hợp tác quảng cáo\" ngay trong video và ở dòng đầu mô tả.", "\"Sponsored\" or \"Paid partnership\" is stated clearly in the video and at the top of the description."),
                   t("Video không tài trợ có nhắc tới sản phẩm thì ghi rõ kênh không liên kết hay được tài trợ bởi hãng đó.", "Unsponsored videos that mention a product say clearly that the channel is not affiliated with or sponsored by that company."),
                   t("Không dùng chữ \"đối tác chính thức\", không đặt logo hãng cạnh logo kênh kiểu đồng thương hiệu, không sửa logo của hãng.", "No \"official partner\" wording, no co-branded logo lockups, and no altering a brand's logo."),
-                  t("Không nhận nội dung hứa hẹn quá sự thật, đầu tư, vay tiền, cờ bạc hay bất cứ thứ gì có thể hại người xem.", "No exaggerated claims, investment, lending, gambling, or anything that could harm viewers.")]
+                  t("Không nhận nội dung hứa hẹn quá sự thật, đầu tư, vay tiền, cờ bạc hay bất cứ thứ gì có thể hại người xem.", "No exaggerated claims, investment, lending, gambling, or anything that could harm viewers."),
+                  # Sang chọn 18/10/2026: giữ review có tài trợ nhưng siết luật để giữ độ tin của kênh dạy dùng AI an toàn
+                  t("Không nhận tiền để xếp hạng, so sánh hay chọn \"công cụ AI tốt nhất\". Bài so sánh của kênh luôn là bài không tài trợ.", "We never take money to rank, compare or pick \"the best AI tool\". Our comparisons are always unsponsored."),
+                  t("Không nhận tài trợ cho video về an toàn, lừa đảo và quyền riêng tư; kênh chỉ nhận tài trợ cho series an toàn số từ đơn vị không bán công cụ AI (ví dụ ngân hàng, nhà mạng).", "No sponsorship on videos about safety, scams or privacy; safety series may be sponsored only by organisations that don't sell AI tools (e.g. banks, telecoms)."),
+                  t("Review có tài trợ luôn nêu ít nhất một điểm yếu và người không nên dùng, và nhãn hàng không được xem trước kết luận.", "Every sponsored review names at least one weakness and who should not use the tool, and the brand never previews the verdict.")]
     the_nt2 = "".join(f'<li>{ic(p, "shield-check")}<span>{esc(x)}</span></li>' for x in nguyen_tac)
     main = f"""<main class="kit">
 <section class="book-sec" aria-labelledby="cho-ai">

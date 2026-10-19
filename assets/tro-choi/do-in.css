@@ -261,3 +261,6 @@ html.nhung .di-to-wrap { top: 8px; }
   html.di-dang-in .a4-dai { margin: 0; padding: 6mm; border-radius: 3mm; }
   html.di-dang-in .a4-mascot { bottom: 4mm; right: 0; }
 }
+
+/* Người bật "giảm chuyển động" thì bỏ hiệu ứng chuyển tiếp */
+@media (prefers-reduced-motion: reduce) { .di *, .di *::before, .di *::after { transition: none !important; animation: none !important; } }

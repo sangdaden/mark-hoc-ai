@@ -712,7 +712,7 @@
   function gonBang(gon) {
     var b = $("#pl-de"), n = $("#pl-de-gon");
     b.classList.toggle("is-gon", gon);
-    n.textContent = gon ? T.mo : T.gon; n.setAttribute("aria-expanded", gon ? "false" : "true");
+    n.textContent = gon ? T.mo : T.gon; n.setAttribute("aria-expanded", gon ? "false" : "true"); n.removeAttribute("aria-label");
   }
 
   // ---------- Màn chọn ải / kết quả ----------
@@ -880,7 +880,7 @@
     coGian();
     window.addEventListener("resize", coGian);
     batPhim();
-    $("#pl-menu").textContent = T.menu;
+    $("#pl-menu").textContent = T.menu; $("#pl-menu").removeAttribute("aria-label");
     toanMan(false);
     $("#pl-toan").addEventListener("click", function () {
       var bat = !$("#pl").classList.contains("is-toan");

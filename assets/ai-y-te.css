@@ -195,3 +195,6 @@ mark.yt-tn { background: color-mix(in srgb, var(--yt-cam) 16%, transparent); col
 .yt-cau.is-loi { background: color-mix(in srgb, var(--yt-do) 16%, transparent); box-shadow: inset 0 -2px 0 var(--yt-do); }
 .yt-cau.is-ok { background: color-mix(in srgb, var(--yt-xanh) 12%, transparent); }
 
+
+/* Người bật "giảm chuyển động" thì bỏ hiệu ứng chuyển tiếp */
+@media (prefers-reduced-motion: reduce) { .yt *, .yt *::before, .yt *::after { transition: none !important; animation: none !important; } }
