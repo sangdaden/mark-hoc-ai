@@ -529,14 +529,9 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .top-tools a.nut-vtk { background: rgba(15, 23, 42, .55); border-color: #FBBF24; margin-right: 6px; }
 .top-tools a.nut-vtk:hover, .top-tools a.nut-vtk[aria-current] { background: #0F172A; color: #FDE047; }
 .nut-vtk img { width: 20px; height: 20px; display: block; flex: none; }
-/* Hàng đầu trang (.top, rộng tối đa 1080px) đã kín nên trên màn rộng nút nằm ngoài hàng, ở khoảng trống lề phải (chỗ Sang khoanh):
-   từ 1480px có cả chữ, 1240–1479px chỉ còn vòng tròn biểu tượng. Hẹp hơn thì vào trong hàng dạng tròn; 761–1180px hàng không còn chỗ
-   nên ẩn (vẫn có nút ở chân trang); điện thoại thì nằm cuối menu. Chữ đầy đủ luôn có trong title và nhãn đọc màn hình */
+/* Từ 19/10 (mẫu B) nút Vũ Trụ Khác là nút tròn trong nhóm bên phải đầu trang; điện thoại thì nằm cuối menu.
+   Chữ đầy đủ luôn có trong title và nhãn đọc màn hình */
 .top-tools a.nut-vtk .nhan { white-space: nowrap; }
-@media (max-width: 1479px) { .top-tools a.nut-vtk { width: 34px; padding: 0; justify-content: center; } .top-tools a.nut-vtk .nhan { display: none; } }
-@media (min-width: 1240px) { .top { position: relative; }
-  .top-tools a.nut-vtk { position: absolute; left: calc(100% + 20px); top: 50%; transform: translateY(-50%); margin: 0; } }
-@media (min-width: 761px) and (max-width: 1180px) { .top-tools a.nut-vtk { display: none; } }
 .top-links a.nav-vtk { display: none; }
 @media (max-width: 760px) { .top-tools a.nut-vtk { display: none; }
   .band .top-links a.nav-vtk { display: inline-flex; align-items: center; gap: 10px; margin-top: 4px; border: 1.5px solid #FBBF24; background: rgba(15, 23, 42, .45); }
@@ -563,9 +558,9 @@ button.btn { font: inherit; font-weight: 600; cursor: pointer; }
 .top-tools .ic { width: 16px; height: 16px; margin-right: 0; }
 .top-tools button, .top-tools a { gap: 6px; }
 
-/* Nút Menu: chỉ hiện trên điện thoại, gom các link trang để đầu trang gọn một hàng (cai-dat.js) */
+/* Nút Menu: hiện từ 1100px trở xuống (máy tính bảng, điện thoại), gom các link trang để đầu trang gọn một hàng (cai-dat.js) */
 .nut-menu { display: none !important; }
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .top { row-gap: 10px; padding-block: 14px; }
   .top-tools { margin-left: auto; }
   .top-tools .nhan { display: none; }
@@ -1076,7 +1071,7 @@ html:has(.chao-hop[open]) { overflow: hidden; }
 .band .top-links .nav-drop-ds a[aria-current="page"] { color: var(--blue); font-weight: 700; text-decoration: none; }
 .nav-drop-nhom { margin: 6px 0 0; padding: 8px 12px 4px; border-top: 1px solid var(--edge); font: 600 11.5px/1.3 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .nav-drop-mui { transition: none; } }
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .nav-drop > summary { display: flex; padding: 11px 12px; font-size: 16px; border-radius: 10px; }
   .band .nav-drop > summary:hover { background: rgba(255, 255, 255, .12); }
   .nav-drop-ds { position: static; min-width: 0; padding: 0 0 4px 14px; background: transparent; border: 0; box-shadow: none; }
@@ -2912,3 +2907,74 @@ button.tv-hs:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px
 .ct-goi-av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: #475569; font: 800 19px/1 var(--f-display); box-shadow: 0 0 0 6px rgba(96, 165, 250, .25); }
 .ct-goi-noi { font-size: 13px; color: #FCD34D; font-style: italic; }
 .ct-goi .ct-chon { justify-content: center; }
+
+/* ===== Đầu trang và chân trang mẫu B (Sang chọn 19/10/2026; mẫu ở https://claude.ai/artifact/2wfxHsFgfacvWYJUXxxWog) =====
+   Đầu và chân trang mở rộng ra hai bên (tối đa 1400px), menu gom nhóm Học ▾ / Thực hành ▾ (cai-dat.js), bên phải 4 nút tròn
+   YouTube · Vũ Trụ Khác · EN · Tối. Từ 1100px trở xuống thành nút Menu. Nội dung giữa trang giữ bề ngang cũ */
+html body .top, html body .foot-band .foot { max-width: 1400px; }
+.top { flex-wrap: nowrap; gap: 20px; }
+.top .brand { flex: none; }
+.band .top-links.da-gom { flex: 1; justify-content: center; align-items: center; flex-wrap: nowrap; gap: 6px 22px; white-space: nowrap; }
+.band .top-links.da-gom > a.nav-yt { display: none; }
+.top-tools { flex: none; margin-left: auto; }
+@media (min-width: 761px) {
+  .top-tools .nhan { display: none; }
+  .top-tools button, .top-tools a { width: 38px; height: 38px; padding: 0; justify-content: center; }
+  .top-tools a.nut-vtk { margin-right: 0; }
+  .top-tools a.nut-vtk img { width: 22px; height: 22px; }
+  .top-tools a.nut-lang .ic { display: none; }
+  .top-tools a.nut-lang { font: 700 13px/1 var(--f-mono); }
+}
+.top-tools a.nut-yt { background: #fff; border-color: #fff; color: #FF0000; }
+.top-tools a.nut-yt:hover { background: #FEF2F2; }
+.top-tools a.nut-yt .ic { width: 18px; height: 18px; }
+.band .top-links .nav-drop-ds { min-width: 250px; }
+@media (max-width: 1100px) {
+  .top { flex-wrap: wrap; }
+  .band .top-links.da-gom { flex-wrap: wrap; white-space: normal; }
+  .band .top-links.da-gom > a.nav-yt { display: inline-flex; }
+  /* Menu mở: mỗi nhóm là một tiêu đề nhỏ + các thẻ bấm được (mẫu B) */
+  .top .top-links.da-gom { flex-direction: column; align-items: stretch; gap: 6px; padding: 12px; }
+  .top-links.da-gom .nav-drop > summary { pointer-events: none; padding: 6px 4px 2px; font: 700 12px/1.3 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: #FDE047; }
+  .top-links.da-gom .nav-drop-mui { display: none; }
+  .top-links.da-gom .nav-drop-ds { flex-direction: row; flex-wrap: wrap; gap: 6px; padding: 4px 0 8px; }
+  .band .top-links.da-gom .nav-drop-ds a { padding: 7px 12px; border-radius: 999px; font-size: 15px; background: rgba(255, 255, 255, .14); }
+  .top-links.da-gom .nav-drop-nhom { display: none; }
+}
+@media (min-width: 761px) and (max-width: 1100px) { .band .top-links a.nav-vtk { display: none; } }
+@media (max-width: 760px) { .top-tools a.nut-yt { display: none; } }
+
+/* Chân trang: khối thương hiệu + 4 cột + dòng cuối (cai-dat.js thêm .foot-moi) */
+.foot.foot-moi { grid-template-columns: minmax(260px, 1.5fr) repeat(4, minmax(0, 1fr)); align-items: start; gap: 28px 32px; padding-block: 40px 0; }
+.foot-dau { display: grid; gap: 14px; justify-items: start; }
+.foot-moi .foot-links { gap: 8px; }
+.foot-moi .foot-links a.nt { width: 38px; height: 38px; }
+.foot-moi .foot-links a.nt svg { width: 20px; height: 20px; }
+.foot-moi a.foot-vtk { display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px 10px 10px; border-radius: 16px; color: #fff; text-decoration: none;
+  background: rgba(15, 23, 42, .3); border: 1.5px solid #FBBF24; }
+.foot-moi a.foot-vtk:hover { background: rgba(15, 23, 42, .5); }
+.foot-moi a.foot-vtk:focus-visible { outline: 3px solid #FDE047; outline-offset: 3px; }
+.vtk-chu { display: grid; line-height: 1.3; }
+.vtk-chu small { font-size: 13px; opacity: .85; }
+.foot-cot > summary { list-style: none; font: 700 12px/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #FDE047; margin-bottom: 10px; }
+.foot-cot > summary::-webkit-details-marker { display: none; }
+.foot-cot > div { display: grid; gap: 4px; }
+.foot-cot a { color: #fff; text-decoration: none; padding-block: 4px; font-size: 15px; }
+.foot-cot a:hover, .foot-cot a[aria-current="page"] { color: #FDE047; text-decoration: underline; text-underline-offset: 4px; }
+.foot-cuoi { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding-block: 18px 24px;
+  border-top: 1px solid rgba(255, 255, 255, .22); font: 500 13px/1.6 var(--f-mono); color: rgba(255, 255, 255, .85); }
+.foot-cuoi a { color: #fff; }
+.foot-cuoi a:hover { color: #FDE047; }
+@media (max-width: 1100px) { .foot.foot-moi { grid-template-columns: repeat(4, minmax(0, 1fr)); } .foot-dau { grid-column: 1 / -1; } }
+@media (max-width: 760px) {
+  .foot.foot-moi { grid-template-columns: 1fr; gap: 0; padding-block: 32px 0; }
+  .foot-dau { margin-bottom: 18px; }
+  .foot-moi .foot-links a.vtk-nut { flex-basis: auto; }
+  .foot-cot { border-top: 1px solid rgba(255, 255, 255, .22); }
+  .foot-cot > summary { display: flex; justify-content: space-between; align-items: center; margin: 0; padding: 14px 0; font-size: 13px; cursor: pointer; }
+  .foot-cot > summary::after { content: "+"; font-size: 20px; line-height: 1; }
+  .foot-cot[open] > summary::after { content: "−"; }
+  .foot-cot > div { grid-template-columns: 1fr 1fr; padding-bottom: 12px; }
+  .foot-cot a { padding-block: 8px; }
+  .foot-cuoi { flex-direction: column; }
+}
