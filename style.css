@@ -941,7 +941,8 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .sc-hh .hh { margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
 @media (prefers-reduced-motion: no-preference) { .sc-hh .hh-hot { animation: hh-nhay 2.4s ease-in-out infinite; } }
 @keyframes hh-nhay { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-.xem-them { display: flex; margin: 24px auto 0; cursor: pointer; }
+/* Nút "Xem thêm" của lưới video (app.js); khối "Xem thêm" cuối bài dùng chung tên lớp nên phải chỉ rõ button */
+button.xem-them { display: flex; margin: 24px auto 0; cursor: pointer; }
 @media (max-width: 760px) { .sc-hh { top: 6px; right: 6px; gap: 4px; } .sc-hh .hh { font-size: 10px; padding: 4px 7px; } }
 html:has(.series-hop[open]) { overflow: hidden; }
 .series-hop { width: min(880px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 0; border-radius: 22px;
@@ -2890,7 +2891,7 @@ button.tv-hs:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px
 .cg-mk h2 { margin: 4px 0 6px; font: 800 26px/1.25 var(--f-display); }
 .cg-mk-lead { margin: 0 0 20px; color: var(--muted); line-height: 1.55; max-width: 62ch; }
 .cg-mk-o { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; align-items: start; }
-.cg-mk-tao { display: grid; gap: 8px; }
+.cg-mk-tao { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 .cg-mk-nhan { font-weight: 700; font-size: 14.5px; margin-top: 6px; }
 .cg-mk-hang { display: flex; gap: 8px; }
 .cg-mk input[type="text"] { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 14px; border: 2px solid var(--edge); background: var(--bg); color: var(--ink); font: 500 16px/1.3 var(--f-body); }
@@ -3059,3 +3060,6 @@ html body .cc-canvas { max-width: 900px; margin-inline: auto; }
 .cs-nut { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .cs-nut .btn { cursor: pointer; }
 .cs-bao { margin: 0; min-height: 1.4em; font-size: 14px; color: var(--muted); word-break: break-word; }
+/* Sang 19/10: trang trò chơi dùng hết khung 1240px, thẳng mép với đầu trang (trang đọc dài: bài báo, bản tin, phiêu lưu, Hỏi Bit giữ cột hẹp) */
+html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { max-width: 1240px; }
+@media (min-width: 1272px) { html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { padding-inline: 0; } }
