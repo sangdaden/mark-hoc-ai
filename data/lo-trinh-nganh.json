@@ -1,7 +1,7 @@
 {
  "_ghi_chu": "Lộ trình theo ngành (lo-trinh-nganh.html, lo-trinh-nganh.js). 'so' là số video trong data/videos.json (1-300), 301/302 là bài Làm theo, 303-376 lấy tên và ngày từ data/video-nhanh.json (scripts/tao_video_nhanh.py). 'nhanh' trong một bước = cả series nhánh đó. 'ngach' ghép chữ người xem gõ (bỏ dấu) với video sát nghề; 'gan' là lộ trình gần nhất để đi tiếp (để trống thì dùng lộ trình chung cho mọi nghề). Từ khóa viết có dấu: người xem gõ có dấu thì so có dấu (\"thuê\" khác \"thuế\"), gõ không dấu thì so không dấu.",
  "nhom": [
-  {"ten": "Dùng AI cho việc của bạn", "ds": ["moi-bat-dau", "van-phong", "giao-vien", "hoc-sinh", "gia-dinh", "ban-hang", "tim-viec", "noi-dung", "hieu-sau"]},
+  {"ten": "Dùng AI cho việc của bạn", "ds": ["an-toan", "moi-bat-dau", "van-phong", "giao-vien", "hoc-sinh", "gia-dinh", "ban-hang", "tim-viec", "noi-dung", "hieu-sau"]},
   {"ten": "Theo ngành dữ liệu và công nghệ", "ds": ["da", "ds", "de", "devops", "cloud", "ml", "dl", "robotics"]}
  ],
  "nhanh": {
@@ -16,6 +16,19 @@
   "ai-x-nhanh": {"ten": "AI × 8 nhánh", "nhan": "AI", "mau": ["#2563EB", "#06D6A0"], "tu": 367, "den": 376}
  },
  "nganh": {
+  "an-toan": {
+   "ten": "Mình muốn cả nhà tránh lừa đảo bằng AI",
+   "ngan": "Chống lừa đảo AI",
+   "icon": "shield-check",
+   "chao": "Kẻ gian giờ giả được cả giọng lẫn mặt người thân. Mình đi từ cuộc gọi giả tới mật khẩu gia đình, xem xong là gửi được cho bố mẹ.",
+   "tu_khoa": ["lừa đảo", "chống lừa đảo", "deepfake", "giả giọng", "an toàn số", "bố mẹ già", "người cao tuổi"],
+   "buoc": [
+    {"ten": "Nhận ra giọng và mặt giả", "mo_ta": "Cuộc gọi xin tiền lúc nửa đêm, giọng người thân bị giả, video call thấy mặt vẫn có thể là giả.", "so": [14, 108, 109]},
+    {"ten": "Tin nhắn và người nổi tiếng giả", "mo_ta": "Tin nhắn lừa đảo do AI viết, người nổi tiếng giả mời đầu tư, và cách nhận ra ảnh, video do AI tạo.", "so": [111, 110, 122]},
+    {"ten": "Giữ an toàn cho cả nhà", "mo_ta": "Đặt mật khẩu gia đình, những gì không nên dán vào AI, và giúp ông bà tránh cuộc gọi giả giọng.", "so": [112, 15, 142]},
+    {"ten": "Bẫy về tiền và tình cảm", "mo_ta": "App đầu tư cam kết lời, việc nhẹ lương cao, lừa đảo tình cảm và mã QR dán đè.", "so": [214, 266, 267, 268]}
+   ]
+  },
   "moi-bat-dau": {
    "ten": "Mình mới bắt đầu với AI",
    "ngan": "Người mới",
