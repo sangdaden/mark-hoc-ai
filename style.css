@@ -941,7 +941,8 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 .sc-hh .hh { margin: 0; box-shadow: 0 4px 12px -4px rgba(15, 23, 42, .6); }
 @media (prefers-reduced-motion: no-preference) { .sc-hh .hh-hot { animation: hh-nhay 2.4s ease-in-out infinite; } }
 @keyframes hh-nhay { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-.xem-them { display: flex; margin: 24px auto 0; cursor: pointer; }
+/* Nút "Xem thêm" của lưới video (app.js); khối "Xem thêm" cuối bài dùng chung tên lớp nên phải chỉ rõ button */
+button.xem-them { display: flex; margin: 24px auto 0; cursor: pointer; }
 @media (max-width: 760px) { .sc-hh { top: 6px; right: 6px; gap: 4px; } .sc-hh .hh { font-size: 10px; padding: 4px 7px; } }
 html:has(.series-hop[open]) { overflow: hidden; }
 .series-hop { width: min(880px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 48px); padding: 0; border: 0; border-radius: 22px;
