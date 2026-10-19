@@ -3066,3 +3066,13 @@ html body main:is(.ag, .bd, .bl, .tv, .cg, .ld, .dt, .lu, .nv, .cb, .tg) { max-w
 /* Trang chủ: khối An toàn số cách dải đầu trang và phần "Bắt đầu" bằng nhau (phần dưới đã có padding-top của .start) */
 html body .an-toan { margin: 48px 0 0; }
 @media (max-width: 760px) { html body .an-toan { margin: 36px 0 0; } }
+
+/* Màn hình kết quả các trò: dùng hết khung 1240px như phần chơi, không còn cột hẹp ở giữa */
+html body :is(.ld-ket, .gh-ket, .tv-ket, .cg-ket, .nv-ket) { max-width: none; }
+/* Thẻ "Gửi cho bố mẹ": dòng báo chỉ chiếm chỗ khi có chữ, để đáy thẻ không dư khoảng trống */
+html body .cs-bao:empty { display: none; }
+/* Kiểm tra: khung câu hỏi rộng bằng khung trang như danh sách bộ đề phía trên */
+html body .quiz-wrap .quiz { max-width: none; }
+/* Tiêu đề phần cuối các trò ("Xem video của bài này", "Ba điều rút ra") giữ khoảng cách với khối phía trên;
+   quy tắc h2 riêng của từng trò (.lu h2, .tg-phan h2) từng kéo về 0 nên tiêu đề dính sát khung "Thử ngay" */
+html body main h2.ld-ket-h:not(:first-child) { margin: 28px 0 12px; }
