@@ -351,6 +351,7 @@ def header(p, hien_tai="", q=None):
             f'    {a(q + "tu-dien.html", t("Từ điển AI", "AI glossary"), "tu-dien")}\n    {a(q + "kiem-tra.html", t("Kiểm tra", "Quiz"), "kiem-tra")}\n'
             f'    {a(q + "phieu-luu.html", "Game", "game")}\n'
             f'    {a(q + "sach.html", t("Sách miễn phí", "Free ebook"), "sach")}\n'
+            f'    {a(q + "bai-bao.html", t("Bài báo AI", "AI papers"), "bai-bao")}\n'
             f'    <a class="nav-yt" href="{esc(kenh["youtube"])}" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="{p}assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>\n  </nav>\n</header>')
 
 # Biểu tượng nền tảng (assets/nen-tang.svg, Simple Icons CC0): link kênh dạng icon tròn, có nhãn cho trình đọc màn hình
@@ -377,7 +378,7 @@ def footer(p, q=None):
             f'    <nav class="foot-hoc" aria-label="{t("Học và thực hành", "Learn and practice")}"><b>{t("Học", "Learn")}</b>'
             f'<a href="{q}lo-trinh-7-ngay.html">{t("Lộ trình 7 ngày", "7-day path")}</a><a href="{q}lo-trinh-4-tuan.html">{t("Lộ trình 4 tuần", "4-week path")}</a><a href="{q}lo-trinh-nganh.html">{t("Lộ trình theo nghề", "Path for your job")}</a>'
             f'<a href="{q}kiem-tra.html">{t("Kiểm tra", "Quizzes")}</a><a href="{q}chung-nhan.html">{t("Chứng nhận", "Certificates")}</a>'
-            f'<a href="{q}ho-so.html">{t("Hồ sơ học", "My profile")}</a>'
+            f'<a href="{q}ho-so.html">{t("Hồ sơ học", "My profile")}</a><a href="{q}bai-bao.html">{t("Bài báo AI", "AI papers")}</a>'
             f'<b>{t("Thực hành", "Practice")}</b><a href="{q}thuc-hanh.html">{t("Góc thực hành", "Practice corner")}</a>'
             f'<a href="{q}ai-hoc-sinh.html">{t("Học sinh", "Students")}</a><a href="{q}ai-van-phong.html">{t("Công chức", "Civil servants")}</a><a href="{q}ai-y-te.html">{t("Y tế", "Healthcare")}</a><a href="{q}bo-hoc-lieu-ai.html">{t("Học liệu 12 tiết", "12-lesson kit")}</a></nav>\n'
             f'    <span class="foot-copy">© 2026 Mark học AI · <a href="{q}tu-dien.html">{t("Từ điển AI", "AI glossary")}</a> · '
