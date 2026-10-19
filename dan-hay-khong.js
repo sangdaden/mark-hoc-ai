@@ -149,6 +149,8 @@
     S.sai.forEach(function (c) { sai[c.dap_an] = (sai[c.dap_an] || 0) + 1; });
     document.getElementById("dk-ket-phu").textContent = S.sai.length ? N.sai_nhieu + " " + CHON.filter(function (x) { return sai[x[0]]; }).map(function (x) { return x[2] + " (" + sai[x[0]] + ")"; }).join(", ") : N.het_sai;
     ket.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Thẻ "Gửi cho bố mẹ" (chia-se.js)
+    if (window.mhaiChiaSe) window.mhaiChiaSe(ket, { tro: "dan-hay-khong", diem: S.dung + "/" + THE.length });
     do_("dan-xong", { diem: String(S.dung) });
     do_("hoc-xong", { loai: "dan-hay-khong" });
   }

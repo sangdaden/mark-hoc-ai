@@ -109,7 +109,13 @@
       const dau = nh ? '<span class="ltn-tag" style="--a:' + nh.mau[0] + ";--b:" + nh.mau[1] + (nh.chu ? ";--c:" + nh.chu : "") + '">' + esc(nh.nhan) + "</span>" : ic(n.icon);
       return '<li><button type="button" class="ltn-nut' + (dangChon === id ? " is-on" : "") + '" data-ai="' + id + '"' + (dangChon === id ? ' aria-pressed="true"' : "") + ">" + dau + "<span>" + esc(n.ngan) + "</span></button></li>";
     };
-    return D.nhom.map(g => '<p class="ltn-nhom">' + esc(g.ten) + '</p><ul class="ltn-nuts">' + g.ds.map(nut).join("") + "</ul>").join("") +
+    // Nhóm đầu luôn mở. Các nhóm sau (ngành dữ liệu và công nghệ) gập lại thành một dòng, trừ khi người xem đã chọn một ngành trong đó (Sang chọn W1, 19/10)
+    return D.nhom.map((g, i) => {
+      const ds = '<ul class="ltn-nuts">' + g.ds.map(nut).join("") + "</ul>";
+      if (i === 0) return '<p class="ltn-nhom">' + esc(g.ten) + "</p>" + ds;
+      return '<details class="ltn-gap"' + (g.ds.includes(dangChon) ? " open" : "") + '><summary class="ltn-nhom">' + esc(g.ten) +
+        ' <span class="ltn-gap-so">' + g.ds.length + "</span></summary>" + ds + "</details>";
+    }).join("") +
       '<form class="ltn-nghe" autocomplete="off"><label for="ltn-o-nghe">' + S.ngheNhan + '</label>' +
       '<div class="ltn-nghe-row"><input id="ltn-o-nghe" name="nghe" type="text" maxlength="60" placeholder="' + S.nghePH + '" required>' +
       '<button class="btn btn-yt" type="submit">' + S.xem + '</button></div></form>';
@@ -167,7 +173,8 @@
       dai.querySelector("[data-mo-chao-2]").addEventListener("click", () => hop.showModal());
     }
     // Chỉ tự mở ở lần ghé đầu tiên, và không chen ngang khi vào bằng link tới một series (#id) hay đang thử ngày (?hom-nay=)
-    if (!nho.get(KHOA_CHAO) && !chon && !location.hash && !location.search) setTimeout(() => { if (!document.querySelector("dialog[open]")) hop.showModal(); }, 700);
+    // Người tới từ mạng xã hội đã có popup "Vừa xem video?" (app.js, window.mhaiVxMo) thì không mở thêm hộp chào
+    if (!nho.get(KHOA_CHAO) && !chon && !location.hash && !location.search) setTimeout(() => { if (!window.mhaiVxMo && !document.querySelector("dialog[open]")) hop.showModal(); }, 700);
   }
 
   // ===== Trang lộ trình =====

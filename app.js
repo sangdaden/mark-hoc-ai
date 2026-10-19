@@ -15,7 +15,12 @@
     soKq: n => n === 1 ? "1 video matches, listed below ↓" : n + " videos match, listed below ↓", kq0: "No video matches. Try a shorter word or ask Bit above.",
     vxTieuDe: "Just watched a Mark video?", vxDan: "Type the number shown on the video to open its 1-minute lesson.", vxO: "Video number",
     vxMo: "Open lesson", vxKhong: n => "Video #" + n + " has no lesson here yet. Try the quick quiz below.",
-    vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Hide"
+    vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Close",
+    vxNho: "Hi, I'm Mark!", vxTikTok: "Just watched Mark on TikTok?", vxAnToan: "Worried about AI scams? Try one in 2 minutes", vxTrang: "Just look around the site ›",
+    at: { nhan: "Online safety for the whole family", tieuDe: "AI scams: learn to spot them before you meet one", loTrinh: "Anti-scam path ›",
+      dan: "Fake voices, fake video calls, fake texts. Three 2-minute games and short videos to watch with your family.",
+      tro: [["Scam or real?", "13 situations on a phone screen", "Game"], ["The fake-voice call", "Pick up and choose what to say", "Game"],
+        ["Paste or don't paste?", "What never to paste into AI", "Game"], ["Family printables", "A family password card for the fridge", "Print"]] }
   } : {
     hopTac: "Hợp tác, tài trợ hoặc góp ý? Gửi email cho kênh:", mediaKit: "Thông tin hợp tác ›", gopY: "Góp ý hoặc hợp tác: nhắn tin cho trang Facebook của kênh.",
     homNay: "Hôm nay trên kênh", moiToanh: "Mới toanh? Bắt đầu ở đây", vung: "Vùng ", xemPhan1: "Xem phần 1", xemVideo: "Xem video",
@@ -28,7 +33,12 @@
     soKq: n => n + " video khớp, xem ngay bên dưới ↓", kq0: "Chưa có video nào khớp. Thử từ ngắn hơn hoặc hỏi Bit ở trên.",
     vxTieuDe: "Vừa xem video của Mark?", vxDan: "Gõ số in trên video để mở bài học 1 phút của video đó.", vxO: "Số video",
     vxMo: "Mở bài", vxKhong: n => "Video #" + n + " chưa có bài trên trang. Thử bài kiểm tra nhanh bên dưới nhé.",
-    vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Ẩn"
+    vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Đóng",
+    vxNho: "Chào bạn, mình là Mark!", vxTikTok: "Vừa xem Mark trên TikTok?", vxAnToan: "Đang lo lừa đảo bằng AI? Thử nhận ra trong 2 phút", vxTrang: "Mình chỉ muốn xem trang ›",
+    at: { nhan: "An toàn số cho cả nhà", tieuDe: "Lừa đảo bằng AI: tập nhận ra trước khi gặp thật", loTrinh: "Lộ trình chống lừa đảo ›",
+      dan: "Giọng giả, video call giả, tin nhắn giả. Ba trò chơi 2 phút và các video ngắn để cả nhà cùng xem.",
+      tro: [["Lừa đảo hay thật?", "13 tình huống trên màn hình điện thoại", "Trò chơi"], ["Cuộc gọi giả giọng", "Nghe máy và chọn cách trả lời", "Trò chơi"],
+        ["Dán hay không dán?", "Thứ gì không được dán vào AI", "Trò chơi"], ["Đồ in cho gia đình", "Thẻ mật khẩu gia đình dán tủ lạnh", "Đồ in"]] }
   };
   async function load(name) {
     if (window.__DATA && window.__DATA[name]) return window.__DATA[name];
@@ -123,18 +133,57 @@
     location.replace(baiLink(bySo[vSo].v) + location.search.replace(/[?&]v=\d+/, "").replace(/^&/, "?"));
     return;
   }
-  const vx = document.getElementById("vua-xem");
+  // Góc "An toàn số" (Sang chọn W1, 19/10): video lừa đảo kéo người xem nhiều nhất nên trang chủ đưa thẳng tới 3 trò chơi và các video chống lừa đảo.
+  // Chữ trong S.at, ảnh bìa video lấy ảnh chia sẻ của bài (assets/anh/chia-se/<số>-<slug>.jpg).
+  const AT_TRO = [["lua-dao-hay-that.html", "bit-sai-roi.svg", "lua-dao"], ["cuoc-goi-gia-giong.html", "bit-giai-thich.svg", "cuoc-goi"],
+    ["dan-hay-khong.html", "bit-y-tuong.svg", "dan"], ["do-in-gia-dinh.html", "bit-vui.svg", "do-in"]];
+  const AT_VIDEO = [14, 108, 109, 112];
+  const theTro = (t, i, nho) => '<a class="at-the at-tro at-k-' + t[2] + (nho ? " at-nho" : "") + '" href="' + t[0] + '" data-at="' + t[2] + '"><span class="at-anh"><img src="' + goc + "assets/" + t[1] +
+    '" alt="" width="72" height="72" loading="lazy" decoding="async"></span><span class="at-chu"><span class="at-nhan">' + ic("gamepad") + S.at.tro[i][2] + "</span><b>" + S.at.tro[i][0] + "</b>" +
+    (nho ? "" : "<span>" + S.at.tro[i][1] + "</span>") + "</span></a>";
+  const theVideo = so => {
+    const hit = bySo[so];
+    if (!hit) return "";
+    // Bài viết có sẵn trước ngày video ra mắt, nên thẻ vẫn hiện, kèm nhãn ngày ra mắt
+    const v = hit.v, sap = chuaRa(so) ? '<span class="at-sap">' + S.raMat + ngayThang(lich[so]) + "</span>" : "";
+    return '<a class="at-the at-video" href="' + baiLink(v) + '" data-at="video-' + so + '"><span class="at-anh"><img src="' + goc + "assets/anh/chia-se/" + pad(so) + "-" + v.slug +
+      '.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="at-chu"><span class="at-nhan">' + ic("play") + "#" + so + "</span><b>" + esc(v.title) + "</b>" + sap + "</span></a>";
+  };
+  const atDo = (e, noi) => {
+    const l = e.target.closest("[data-at]");
+    if (l && window.mhaiDo) window.mhaiDo("an-toan-so", { the: l.dataset.at, noi: noi });
+  };
+  const at = document.getElementById("an-toan");
+  if (at) {
+    at.innerHTML = '<div class="at-dau"><div><p class="eyebrow">' + ic("shield-check") + S.at.nhan + '</p><h2 id="an-toan-h">' + S.at.tieuDe + '</h2><p class="at-dan">' + S.at.dan +
+      '</p></div><a class="btn btn-yt" href="lo-trinh-nganh.html?ai=an-toan" data-at="lo-trinh">' + S.at.loTrinh + '</a></div><div class="at-hang">' +
+      AT_TRO.map((t, i) => theTro(t, i)).join("") + AT_VIDEO.map(theVideo).join("") + "</div>";
+    at.hidden = false;
+    at.addEventListener("click", e => atDo(e, "trang-chu"));
+  }
+
+  // Popup "Vừa xem video?" (Sang 19/10: ô gõ số tập nên là popup, không chen trên đầu trang chủ).
+  // Mở khi người xem tới từ mạng xã hội hoặc link có utm_source / ?v=số; đóng rồi thì không mở lại trong phiên này.
   let anVx = false;
   try { anVx = sessionStorage.getItem("mhai-an-vua-xem") === "1"; } catch (e) {}
-  if (vx && !anVx && (nguon || vSo)) {
-    vx.innerHTML = '<div class="vx-dau"><img src="' + goc + 'assets/mark-thac-mac.svg" alt="" width="64" height="60"><div><p class="vx-tieu-de">' + S.vxTieuDe +
-      '</p><p class="vx-dan">' + S.vxDan + '</p></div><button class="vx-dong" type="button" aria-label="' + S.vxDong + '">×</button></div>' +
+  if (!anVx && (nguon || vSo) && !document.querySelector("dialog[open]")) {
+    const vx = document.createElement("dialog");
+    vx.className = "chao-hop vx-hop";
+    vx.setAttribute("aria-labelledby", "vx-ten");
+    vx.innerHTML = '<button type="button" class="hop-dong vx-dong" aria-label="' + S.vxDong + '"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></button>' +
+      '<div class="chao-in"><div class="chao-dau"><img src="' + goc + 'assets/mark-thac-mac.svg" alt="" width="96" height="91"><div><p class="eyebrow">' + S.vxNho +
+      '</p><h2 id="vx-ten">' + (/tiktok/i.test(nguon) ? S.vxTikTok : S.vxTieuDe) + '</h2><p>' + S.vxDan + '</p></div></div>' +
       '<form class="vx-tim"><label class="sr" for="vx-so">' + S.vxO + '</label><span class="vx-thang" aria-hidden="true">#</span>' +
       '<input id="vx-so" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="64" autocomplete="off"' + (vSo ? ' value="' + vSo + '"' : "") + '>' +
       '<button class="btn btn-yt" type="submit">' + S.vxMo + '</button></form><p class="vx-bao" role="status"></p>' +
-      '<p class="vx-them"><a class="btn" href="kiem-tra.html" data-vx="kiem-tra">' + S.vxQuiz + '</a><a class="btn" href="phieu-luu.html" data-vx="game">' + S.vxGame + "</a></p>";
-    vx.hidden = false;
+      '<p class="ltn-nhom">' + S.vxAnToan + '</p><div class="vx-at">' + AT_TRO.slice(0, 3).map((t, i) => theTro(t, i, true)).join("") + "</div>" +
+      '<p class="vx-them"><a class="btn" href="kiem-tra.html" data-vx="kiem-tra">' + S.vxQuiz + '</a><a class="btn" href="phieu-luu.html" data-vx="game">' + S.vxGame + '</a></p>' +
+      '<button type="button" class="chao-kham-pha vx-xem-trang">' + S.vxTrang + "</button></div>";
+    document.body.appendChild(vx);
+    window.mhaiVxMo = true;
     const bao = vx.querySelector(".vx-bao");
+    const an = () => { try { sessionStorage.setItem("mhai-an-vua-xem", "1"); } catch (e) {} };
+    const dong = () => { an(); if (vx.open) vx.close(); };
     const moSo = so => {
       if (coBai(so)) {
         if (window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: "go-so", so: String(so), nguon: nguon || "khac" });
@@ -150,11 +199,12 @@
     vx.addEventListener("click", e => {
       const l = e.target.closest("[data-vx]");
       if (l && window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: l.dataset.vx, nguon: nguon || "khac" });
-      if (e.target.closest(".vx-dong")) {
-        vx.hidden = true;
-        try { sessionStorage.setItem("mhai-an-vua-xem", "1"); } catch (e) {}
-      }
+      atDo(e, "popup");
+      if (e.target === vx || e.target.closest(".vx-dong, .vx-xem-trang")) dong();
     });
+    vx.addEventListener("cancel", an);
+    vx.showModal();
+    if (window.mhaiDo) window.mhaiDo("vua-xem-video", { hanh_dong: "mo-popup", nguon: nguon || "khac" });
   }
 
   // Dải "Hôm nay trên kênh": video có ngày ra mắt đúng hôm nay; không có thì ẩn

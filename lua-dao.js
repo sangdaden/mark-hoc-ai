@@ -212,6 +212,8 @@
       box.appendChild(a);
     });
     ket.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Thẻ "Gửi cho bố mẹ" (chia-se.js)
+    if (window.mhaiChiaSe) window.mhaiChiaSe(ket, { tro: "lua-dao", diem: S.dung + "/" + CA.length });
     do_("lua-dao-xong", { diem: String(S.dung) });
     do_("hoc-xong", { loai: "lua-dao" });
   }

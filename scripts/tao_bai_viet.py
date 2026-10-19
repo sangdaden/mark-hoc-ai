@@ -1847,7 +1847,7 @@ def tao_lua_dao():
 </main>"""
     return GOC + "lua-dao-hay-that.html", trang("lua-dao-hay-that.html", t(f"Lừa đảo hay thật? Trò chơi nhận ra lừa đảo bằng AI | {SITE}", f"Scam or real? A game for spotting AI scams | {SITE}"),
                                                 desc, band, main, p, og_type="website", q="",
-                                                cuoi=f'<script src="{p}lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                                                cuoi=f'<script src="{p}chia-se.js?v=dev" defer></script>\n<script src="{p}lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
 # ---------- trò chơi "Thợ ghép câu lệnh" (tho-ghep-cau-lenh.html): ghép mảnh câu lệnh, xem AI trả lời tốt lên ----------
 # Nội dung ở data/ghep-cau-lenh.json (cả hai ngôn ngữ), cách chơi ở ghep-cau-lenh.js. Câu trả lời của AI viết sẵn, không gọi AI thật.
@@ -2263,7 +2263,7 @@ def tao_dan_hay_khong():
 </main>"""
     return GOC + "dan-hay-khong.html", trang("dan-hay-khong.html", t(f"Dán hay không dán? Trò chơi giữ dữ liệu an toàn khi dùng AI | {SITE}", f"Paste or don't paste? A game about keeping your data safe with AI | {SITE}"),
                                              desc, band, main, p, og_type="website", q="",
-                                             cuoi=f'<script src="{p}dan-hay-khong.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                                             cuoi=f'<script src="{p}chia-se.js?v=dev" defer></script>\n<script src="{p}dan-hay-khong.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 # ---------- Máy tính đời thật (may-tinh-doi-that.html): 6 máy tính theo video, mỗi máy hiện công thức và nguồn ----------
 # Hằng số và nguồn ở data/may-tinh.json (cả hai ngôn ngữ), cách tính ở may-tinh.js. Mở thẳng một máy bằng ?may=<id>.
 @trang_rieng("may-tinh-doi-that.html", "0.7")
@@ -2446,7 +2446,7 @@ def tao_cuoc_goi():
 </main>"""
     return GOC + "cuoc-goi-gia-giong.html", trang("cuoc-goi-gia-giong.html", t(f"Cuộc gọi giả giọng: trò chơi chống lừa đảo AI | {SITE}", f"The fake-voice call: a game against AI scams | {SITE}"),
                                                   desc, band, main, p, og_type="website", q="",
-                                                  cuoi=f'<script src="{p}cuoc-goi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                                                  cuoi=f'<script src="{p}chia-se.js?v=dev" defer></script>\n<script src="{p}cuoc-goi.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
 # ---------- chạy ----------
 # ---------- làm theo video (lam-theo.html): file mẫu, notebook, prompt của video hướng dẫn chuyên sâu ----------
