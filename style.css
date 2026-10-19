@@ -3010,3 +3010,6 @@ html body main.quiz-wrap, html body main.ltn { max-width: 1240px; }
 html body .bit-tl:has(> .bit-menu:not([hidden])) { --nang-bit: min(var(--nang-noi, 0px), max(0px, 100dvh - 560px)); translate: 0 calc(-1 * var(--nang-bit)); }
 .bit-menu { max-height: calc(100dvh - 124px - env(safe-area-inset-bottom, 0px) - var(--nang-bit, 0px)); overflow-y: auto; overscroll-behavior: contain; }
 body:has(.bit-menu:not([hidden])) .to-top { opacity: 0; pointer-events: none; }
+/* Sang 19/10: Lộ trình 7 ngày và Giấy chứng nhận cũng dùng khung 1240px như các trang khác */
+html body main.course, html body main.cc { max-width: 1240px; }
+html body .cc-canvas { max-width: 900px; margin-inline: auto; }
