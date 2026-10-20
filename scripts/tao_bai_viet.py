@@ -1793,7 +1793,8 @@ def tao_cam_bien():
                                                         desc, band, main, p, og_type="website", q="",
                                                         cuoi=f'<script type="module" src="{p}cam-bien.js?v=dev"></script>\n')
 
-# ---------- trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html): ca giả lập dựa trên video 14, 15, 108-112 ----------
+# ---------- trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html): ca giả lập dựa trên video 14, 15, 108-112, 122, 214, 223, 266, 269 ----------
+LUOT_LUA_DAO = 10
 # Nội dung ở data/lua-dao.json (cả hai ngôn ngữ), cách chơi ở lua-dao.js. Trang chỉ nhúng chữ của ngôn ngữ đang tạo.
 @trang_rieng("lua-dao-hay-that.html", "0.7")
 def tao_lua_dao():
@@ -1810,6 +1811,7 @@ def tao_lua_dao():
                    "co": {k: chu(x) for k, x in c["co"].items()}, "giai": chu(c["giai"]),
                    **({"nut": {k: chu(x) for k, x in c["nut"].items()}} if c.get("nut") else {}),
                    "video": {"so": v["so"], "ten": seo[str(v["so"])], "url": f"bai/{ten_file(v)}.html"}})
+    luot = min(LUOT_LUA_DAO, len(ca))  # mỗi lượt chơi lấy ngẫu nhiên chừng này ca (lua-dao.js)
     nhan = {
         "ca": t("Ca", "Case"), "diem": t("Điểm", "Score"), "huong": t("Chạm vào những chỗ bạn thấy đáng ngờ, rồi chọn.", "Tap anything that looks suspicious, then decide."),
         "danh_dau": t("Đã đánh dấu", "Marked"), "cho": t("chỗ", "spots"), "lua": t("Lừa đảo", "Scam"), "that": t("Thật", "Real"),
@@ -1818,17 +1820,17 @@ def tao_lua_dao():
         "nham": t("Chỗ này bình thường", "This part is fine"), "xem_video": t("Xem video", "Watch video"), "tiep": t("Ca tiếp theo", "Next case"), "xem_ket": t("Xem kết quả", "See your result"),
         "goi_den": t("Cuộc gọi đến", "Incoming call"), "goi_video": t("Cuộc gọi video", "Video call"), "nguoi_goi": t("Người gọi nói", "The caller says"),
         "tai_tro": t("Quảng cáo", "Ad"), "ban": t("Bạn", "You"),
-        "hang": [[round(len(D["ca"]) * .9), t("Thám tử chống lừa", "Scam detective")], [round(len(D["ca"]) * .7), t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
+        "hang": [[round(luot * .9), t("Thám tử chống lừa", "Scam detective")], [round(luot * .7), t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
         "dau_hieu": t("dấu hiệu", "signs"), "on_lai": t("Ôn lại các video bạn trả lời sai", "Rewatch the videos for the cases you missed"), "het_sai": t("Bạn không sai ca nào. Gửi trò này cho bố mẹ thử xem!", "You got every case right. Send this to your parents to try!"),
         "choi_lai": t("Chơi lại", "Play again"),
     }
-    du_lieu = json.dumps({"ca": ca, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    du_lieu = json.dumps({"ca": ca, "nhan": nhan, "p": p, "luot": luot}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     so_ca, so_lua = len(ca), sum(c["dap_an"] == "lua" for c in ca)
-    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống giả lập trên điện thoại, cuộc gọi giả giọng người thân, gọi video deepfake, tin nhắn ngân hàng giả, quảng cáo đầu tư, ảnh tin nóng do AI tạo. Bạn nhận ra đâu là lừa đảo, đâu là thật?",
-             f"Free game: {so_ca} simulated phone situations, cloned-voice calls, deepfake video calls, fake bank texts, investment ads and AI-made news photos. Can you tell the fakes from the real ones?")
+    desc = t(f"Trò chơi miễn phí: {so_ca} tình huống giả lập trên điện thoại, cuộc gọi giả giọng người thân, gọi video deepfake, tin nhắn ngân hàng giả, quảng cáo đầu tư, ảnh tin nóng do AI tạo, cuộc họp video toàn người giả, quảng cáo thuốc deepfake, việc lương cao ở nước ngoài. Bạn nhận ra đâu là lừa đảo, đâu là thật?",
+             f"Free game: {so_ca} simulated phone situations, cloned-voice calls, deepfake video calls, fake bank texts, investment ads, AI-made news photos, all-fake video meetings, deepfake medicine ads and too-good jobs abroad. Can you tell the fakes from the real ones?")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 3 phút · chơi trên điện thoại", "Game · 3 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Lừa đảo hay thật?", "Scam or real?")}</h1>\n'
-            f'<p class="lead">{t(f"{so_ca} tình huống trên điện thoại. Chạm vào chỗ đáng ngờ, rồi chọn Lừa đảo hay Thật. Mỗi ca có Bit giải thích và video để xem lại.", f"{so_ca} situations on a phone screen. Tap what looks suspicious, then pick Scam or Real. Bit explains each case and links the video.")}</p>\n'
+            f'<p class="lead">{t(f"{so_ca} tình huống trên điện thoại, mỗi lượt {luot} ca ngẫu nhiên. Chạm vào chỗ đáng ngờ, rồi chọn Lừa đảo hay Thật. Mỗi ca có Bit giải thích và video để xem lại.", f"{so_ca} situations on a phone screen, {luot} random ones per round. Tap what looks suspicious, then pick Scam or Real. Bit explains each case and links the video.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
     main = f"""<main class="ld" id="ld">
 <div class="ld-dau"><p class="ld-tien" id="ld-tien" aria-live="polite"></p><p class="ld-diem" id="ld-diem"></p></div>
