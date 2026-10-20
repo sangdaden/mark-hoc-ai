@@ -161,6 +161,14 @@ def _th_tram(k, x, lop="th-tram", g=None):
             + f'<div class="th-o" id="th-o-{x["id"]}"></div>\n</section>\n')
 
 
+def _th_hinh(D, p):
+    """Hình đầu trang: Mark/Bit (180x170) hoặc nhân vật phụ trong assets/nhan-vat/ (khung 200x240), alt trong "hinh_alt"."""
+    hinh = D.get("hinh", "bit-giai-thich.svg")
+    if hinh.startswith("nhan-vat/"):
+        return f'<img class="head-art head-nv" src="{p}assets/{hinh}" alt="{esc(D.get("hinh_alt", ""))}" width="180" height="216">'
+    return f'<img class="head-art" src="{p}assets/{hinh}" alt="" width="180" height="170">'
+
+
 def _th_tao(ten_file):
     def tao():
         p = t("", "../")
@@ -174,7 +182,7 @@ def _th_tao(ten_file):
         nhan = _th_nhan()
         du_lieu = json.dumps({"nhan": nhan, "lg": L, "p": p, "trang": trang_ten, "tram": tram}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         band = (f'<div class="head-row"><div>\n<p class="eyebrow">{esc(D["eyebrow"])}</p>\n<h1>{esc(D["h1"])}</h1>\n<p class="lead">{esc(D["lead"])}</p>\n'
-                f'</div><img class="head-art" src="{p}assets/{D.get("hinh", "bit-giai-thich.svg")}" alt="" width="180" height="170"></div>')
+                f'</div>{_th_hinh(D, p)}</div>')
         main = (f'<main class="bn th" id="th">\n<link rel="stylesheet" href="{p}assets/thuc-hanh.css?v=dev">\n'
                 f'{ngan}\n<div class="bn-ban">\n{tram_html}<p class="th-ghi">{esc(D["ghi"])}</p>\n'
                 f'{khoi_chia_se(BASE + GOC + trang_ten + ".html", D["tieu"], p)}\n</div>\n'

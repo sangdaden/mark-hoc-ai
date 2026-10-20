@@ -2289,7 +2289,7 @@ def tao_bo_loc():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Mô phỏng · 3 phút · chơi trên điện thoại", "Simulation · 3 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Tự dạy máy lọc hồ sơ", "Train a CV filter")}</h1>\n'
             f'<p class="lead">{t("Cho máy học hồ sơ năm ngoái, xem nó chọn ai đi phỏng vấn, rồi tìm cách sửa khi nó thiên vị.", "Teach a machine with last year&#39;s CVs, see who it picks for interviews, then find a way to fix it when it turns out biased.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art head-nv" src="{p}assets/nhan-vat/nhai.svg" alt="{t("Nhai, con quái vật ăn dữ liệu", "Munch, the data-eating monster")}" width="180" height="216"></div>')
     rut = [("1", t("Máy học lại cái lệch cũ", "It copies the old skew"), t("Dữ liệu năm ngoái lệch thì máy lệch theo, dù không ai dặn.", "Skewed history makes a skewed machine, even if nobody asked.")),
            ("2", t("Giấu một ô là chưa đủ", "Hiding one box isn't enough"), t("Máy tìm ra dấu vết khác, như chữ “nữ” trong hồ sơ.", "It finds other clues, like the word “women's”.")),
            ("3", t("Dữ liệu sạch, người thật duyệt", "Clean data, human review"), t("Quyết định về con người: AI gợi ý, người chịu trách nhiệm.", "Decisions about people: AI suggests, a person decides."))]
