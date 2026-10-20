@@ -137,6 +137,29 @@
     nav.addEventListener("click", e => { if (e.target.closest("a")) dongMo(false); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && top.classList.contains("mo-menu")) { dongMo(false); nutMenu.focus(); } });
   } else nutMenu.remove();
+
+  // Ghim đầu trang (Sang 20/10/2026): lướt xuống thì thanh đầu trang bám trên cùng màn hình, gọn lại, vẫn bấm được menu.
+  // Đầu trang nằm trong dải màu .band nên không dùng position: sticky được; thay bằng fixed + một khoảng giữ chỗ cùng chiều cao.
+  // --dau-ghim (chiều cao lúc ghim, 0 khi không ghim) để các thanh sticky khác trong trang lùi xuống dưới (style.css)
+  if (top.parentElement && top.parentElement.classList.contains("band")) {
+    const cho = document.createElement("div");
+    cho.className = "top-cho";
+    cho.hidden = true;
+    top.before(cho);
+    let ghim = false, hen = 0;
+    const dat = g => {
+      if (g === ghim) return;
+      if (g) { cho.style.height = top.offsetHeight + "px"; cho.hidden = false; }
+      ghim = g;
+      top.classList.toggle("ghim", g);
+      if (!g) { cho.hidden = true; }
+      document.documentElement.style.setProperty("--dau-ghim", g ? top.offsetHeight + "px" : "0px");
+    };
+    const xet = () => { hen = 0; dat(ghim ? cho.getBoundingClientRect().top < 0 : top.getBoundingClientRect().top < 0); };
+    addEventListener("scroll", () => { if (!hen) hen = requestAnimationFrame(xet); }, { passive: true });
+    addEventListener("resize", () => { dat(false); xet(); });
+    xet();
+  }
   const lang = hop.querySelector(".nut-lang");
   if (lang) lang.addEventListener("click", () => {
     // Bắt kịp #mục đang xem (có thể đổi sau khi trang tải) và ghi nhớ lựa chọn; không tự chuyển trang
