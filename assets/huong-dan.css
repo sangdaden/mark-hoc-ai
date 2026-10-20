@@ -1,18 +1,23 @@
 /* Popup "Cách chơi" (huong-dan.js), dùng chung cho mọi trò chơi. Màu lấy từ biến của style.css nên tự theo chế độ sáng/tối. */
-.hd-mo { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 8px 16px 8px 8px; border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, .55); background: rgba(255, 255, 255, .14); color: #fff; font: 600 15px/1.2 var(--f-body); cursor: pointer; }
-.hd-mo:hover { background: rgba(255, 255, 255, .24); }
+.hd-mo { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 999px;
+  border: 1.5px solid var(--blue); background: var(--panel); color: var(--blue); font: 600 14px/1.2 var(--f-body); cursor: pointer; }
+.hd-mo:hover { background: var(--bg2); }
 .hd-q { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: #0F172A; font: 800 14px/1 var(--f-display); }
-/* Trong trang bài (?nhung=1) và trang không có đầu trang: nút nằm trên nền sáng ở đầu khung trò chơi */
-.hd-mo-hang { display: flex; justify-content: flex-end; max-width: 1080px; margin: 0 auto 6px; }
-.hd-mo-hang .hd-mo { margin-top: 0; border-color: var(--blue); background: var(--panel); color: var(--blue); }
-.hd-mo-hang .hd-mo:hover { background: var(--bg2); }
+/* Nút ở đầu màn chơi (Sang 20/10): trong thanh trên của game (chỗ data-hd-cho, cạnh "Chơi lại từ đầu"), không thì một hàng riêng đầu <main> */
+.hd-mo-hang { display: flex; justify-content: flex-end; margin: 0 0 6px; }
+.hd-cho { margin-left: auto; display: flex; }
+/* Thanh trên chật trên điện thoại: giữ số sao, nút và "Chơi lại từ đầu" mỗi thứ một dòng, nút gọn lại */
+:has(> .hd-cho) > * { white-space: nowrap; }
+@media (max-width: 560px) {
+  :has(> .hd-cho) { gap: 8px; flex-wrap: wrap; }
+  .hd-cho .hd-mo { gap: 6px; padding: 4px 10px 4px 4px; font-size: 13px; }
+  .hd-cho .hd-q { width: 20px; height: 20px; font-size: 12px; }
+}
 .hd-mo-chu { white-space: nowrap; }
 /* Trang nhiều trạm: nút nằm ngang hàng tiêu đề từng trạm */
 .hd-tieu-de { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .hd-tieu-de > h2 { flex: 1 1 auto; min-width: 0; }
-.hd-tieu-de .hd-mo { flex: none; margin-top: 0; padding: 6px 14px 6px 6px; font-size: 14px; border-color: var(--blue); background: var(--panel); color: var(--blue); }
-.hd-tieu-de .hd-mo:hover { background: var(--bg2); }
+.hd-tieu-de .hd-mo { flex: none; }
 @media (max-width: 560px) {
   .hd-tieu-de .hd-mo { padding: 6px; }
   .hd-tieu-de .hd-mo-chu { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
