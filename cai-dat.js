@@ -78,7 +78,7 @@
     const hoc = [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
       ["lo-trinh-nganh.html", EN ? "Path by field" : "Lộ trình theo ngành"], ["kiem-tra.html", EN ? "Quiz: how well do you know AI?" : "Kiểm tra: bạn hiểu AI tới đâu?"],
       ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile · review" : "Hồ sơ học · Ôn hôm nay"]];
-    const thucHanh = [["thuc-hanh.html", EN ? "Practice corner: every game" : "Góc thực hành: mọi trò chơi"], ["tram-chong-lua-dao.html", EN ? "AI scam help desk" : "Trạm chống lừa đảo AI"], ["", EN ? "Practice by field" : "Thực hành theo ngành"],
+    const thucHanh = [["thuc-hanh.html", EN ? "Practice corner: quick tries" : "Góc thực hành: thử nhanh từng ý"], ["tram-chong-lua-dao.html", EN ? "AI scam help desk" : "Trạm chống lừa đảo AI"], ["", EN ? "Practice by field" : "Thực hành theo ngành"],
       ["ai-y-te.html", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", EN ? "High school" : "Học sinh cấp 3"],
       ["ai-van-phong.html", EN ? "Public servants" : "Cán bộ, công chức"], ["ai-giao-vien.html", EN ? "Teachers" : "Giáo viên"],
       ["ai-gia-dinh.html", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", EN ? "Small sellers" : "Người bán hàng"],
@@ -86,15 +86,18 @@
     // Từ 20/10/2026 (Sang chọn mockup B, kiểu hàng icon của MoMo): mỗi mục có icon nằm trên chữ; Trạm chống lừa đảo AI đứng ngay sau "Bắt đầu",
     // icon đỏ "kẻ gian đeo mặt nạ" (assets/icons.svg#i-chong-lua-dao). Từ điển AI dùng icon sách chữ A cho khỏi trùng nút EN
     const tram = "tram-chong-lua-dao.html", tenTram = EN ? "Scam help" : "Chống lừa đảo";
+    // Nút Game mở Thế giới game (game.html, Sang chọn 20/10/2026) và sáng cả khi đang ở một trang game (danh sách trong data/game.json)
+    const GAME = ["phieu-luu.html", "chan-lua.html", "dem-lai-xe.html", "duong-doan-chu.html"];
+    const sangGame = s => GAME.includes(tenTrang) ? s.replace('href="' + gocNgu + 'game.html"', 'href="' + gocNgu + 'game.html" aria-current="page"') : s;
     navTrang.innerHTML = '<a class="nav-lua" href="' + gocNgu + tram + '"' + (tenTrang === tram ? ' aria-current="page"' : "") + '><span class="nav-lua-tron">' + ic("chong-lua-dao") + "</span><span>" + tenTram + "</span></a>" +
       nhom(EN ? "Learn" : "Học", "graduation-cap", hoc) + nhom(EN ? "Practice" : "Thực hành", "wrench", thucHanh) +
-      lk("tu-dien.html", EN ? "AI glossary" : "Từ điển AI", "book-a") + lk("phieu-luu.html", "Game", "gamepad") + lk("bai-bao.html", EN ? "AI papers" : "Bài báo AI", "file-text") + lk("sach.html", EN ? "Free book" : "Sách", "book-open");
+      lk("tu-dien.html", EN ? "AI glossary" : "Từ điển AI", "book-a") + sangGame(lk("game.html", "Game", "gamepad")) + lk("bai-bao.html", EN ? "AI papers" : "Bài báo AI", "file-text") + lk("sach.html", EN ? "Free book" : "Sách", "book-open");
     if (batDau) navTrang.prepend(batDau);
     // Máy tính bảng, điện thoại: menu chữ gom vào nút Menu, còn hàng icon vuốt ngang ngay dưới logo để vào nhanh (mục chống lừa đảo đứng đầu)
     const o = (f, chu, icon, cls) => '<a' + (cls ? ' class="' + cls + '"' : "") + ' href="' + (/^https?:/.test(f) ? f : gocNgu + f) + '"' + (tenTrang === f ? ' aria-current="page"' : "") + '><span class="nav-dai-o">' + ic(icon) + "</span>" + chu + "</a>";
     top.insertAdjacentHTML("beforeend", '<nav class="nav-dai" aria-label="' + (EN ? "Quick links" : "Vào nhanh") + '">' +
       o(tram, tenTram, "chong-lua-dao", "do") + (batDau ? o(batDau.href, EN ? "Start" : "Bắt đầu", "compass") : "") +
-      o("lo-trinh-7-ngay.html", EN ? "Learn" : "Học", "graduation-cap") + o("thuc-hanh.html", EN ? "Practice" : "Thực hành", "wrench") + o("phieu-luu.html", "Game", "gamepad") +
+      o("lo-trinh-7-ngay.html", EN ? "Learn" : "Học", "graduation-cap") + o("thuc-hanh.html", EN ? "Practice" : "Thực hành", "wrench") + sangGame(o("game.html", "Game", "gamepad")) +
       o("tu-dien.html", EN ? "Glossary" : "Từ điển", "book-a") + o("sach.html", EN ? "Book" : "Sách", "book-open") + "</nav>");
     if (yt) {
       navTrang.append(yt);
@@ -186,7 +189,7 @@
     cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["tram-chong-lua-dao.html", EN ? "Scam help desk" : "Chống lừa đảo AI"], ["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"],
       ["ai-y-te.html", EN ? "Healthcare" : "Y tế"], ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"]]) +
     cot(EN ? "Read & play" : "Đọc & chơi", [["tu-dien.html", EN ? "AI glossary" : "Từ điển AI"], ["bai-bao.html", EN ? "AI papers" : "Bài báo AI"], ["sach.html", EN ? "Free ebook" : "Sách miễn phí"],
-      ["phieu-luu.html", "Game"], ["ban-tin.html", EN ? "Weekly digest" : "Bản tin tuần"]]) +
+      ["game.html", "Game"], ["ban-tin.html", EN ? "Weekly digest" : "Bản tin tuần"]]) +
     cot(EN ? "About" : "Về kênh", [["hop-tac.html", EN ? "Work with us" : "Hợp tác cùng kênh"], ["dich-vu.html", EN ? "Video services" : "Làm video cho bạn"], ["bo-giao-vien.html", EN ? "Lesson kits" : "Bộ bài giảng"],
       ["workshop.html", "Workshop"], ["ung-ho.html", EN ? "Support us" : "Ủng hộ kênh"]]) +
     '<div class="foot-cuoi"><span>© 2026 Mark học AI</span><span>' + lk("quyen-rieng-tu.html", EN ? "Privacy" : "Quyền riêng tư") + " · " + lk("dieu-khoan.html", EN ? "Terms" : "Điều khoản") +

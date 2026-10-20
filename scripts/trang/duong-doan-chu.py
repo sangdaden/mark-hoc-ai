@@ -63,7 +63,7 @@ def tao_duong_doan_chu():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"Game miễn phí · {len(D['man'])} màn", f"Free game · {len(D['man'])} levels")}</p>\n'
             f'<h1>{t("Đường đoán chữ", "The Next-Word Road")}</h1>\n'
             f'<p class="lead">{t("Mark câu từng chữ trong hồ để viết câu, y như chatbot đoán chữ tiếp theo. Chữ hay gặp thì cá đông. Khuấy nhiệt độ để xem câu sáng tạo hơn hay bịa hơn.", "Mark fishes one word at a time to write a sentence, just like a chatbot guessing the next word. Common words come in big schools. Stir the temperature and see whether the sentence gets more creative or more made up.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-chao.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art" src="{p}assets/game/duong-doan-chu.webp" alt="{t("Mark ra dấu OK, Bit bay bên cạnh", "Mark making an OK sign, Bit flying beside him")}" width="200" height="189"></div>')
     main = f"""<main class="pl pl-game ddc" id="ddc">
   <div class="pl-khung ddc-khung" id="ddc-khung">
     <canvas class="pl-canvas" id="ddc-canvas" tabindex="0" aria-label="{t("Màn hình game", "Game screen")}"></canvas>

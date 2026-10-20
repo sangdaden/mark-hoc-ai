@@ -37,7 +37,7 @@ def tao_dem_lai_xe():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Game miễn phí · Ba con mắt của AI", "Free game · The three eyes of AI")}</p>\n'
             f'<h1>{t("Đêm lái xe", "Night drive")}</h1>\n'
             f'<p class="lead">{t("Đưa xe tự lái về nhà qua nắng, đêm, mưa và sương. Trời đổi thì đổi con mắt: bật sai là người, xe, đèn đỏ đều tàng hình.", "Get a self-driving car home through sun, night, rain and fog. When the weather changes, change the eye: pick the wrong one and people, bikes and red lights vanish.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art" src="{p}assets/game/dem-lai-xe.webp" alt="{t("Mark thắc mắc, Bit giải thích", "Mark wondering, Bit explaining")}" width="200" height="189"></div>')
     mat = "".join(f'<button type="button" class="dx-mat dx-mat-{k}" data-cb="{k}" aria-pressed="false">{esc(D["cam_bien"][k]["ten"][L])}</button>' for k in ("lidar", "radar", "camera"))
     lien = [("phong-thi-nghiem-cam-bien.html", t("Phòng thí nghiệm cảm biến 3D", "3D sensor lab"), t("Tách rời từng con mắt, đổi trời xem chúng thấy gì.", "Take each eye apart and switch the weather.")),
             (vids["5"]["url"][len(p):], t("Series Ba con mắt của AI", "The three eyes of AI series"), t("8 video: LiDAR, radar, camera và ghép cảm biến.", "8 videos: LiDAR, radar, camera and sensor fusion."))]
