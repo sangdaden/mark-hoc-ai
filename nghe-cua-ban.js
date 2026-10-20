@@ -82,6 +82,15 @@
     khNgay.style.setProperty("--nc-mau", x.mau[0]);
     var h = el("h2", "nc-h", x.ngay); h.id = "nc-ngay-h";
     khNgay.appendChild(h);
+    if (x.hinh) {
+      // Cô Hạnh mặc đồ theo nghề vừa chọn, kèm một câu dẫn vào ngày làm việc
+      var hanh = el("div", "nc-hanh");
+      var anh = el("img", "nc-hanh-hinh");
+      anh.src = x.hinh; anh.alt = N.hanh_alt.replace("{x}", x.ten); anh.width = 150; anh.height = 180;
+      hanh.appendChild(anh);
+      hanh.appendChild(el("p", "nc-hanh-noi", x.hanh));
+      khNgay.appendChild(hanh);
+    }
     var dem = { nhap: 0, phu: 0, nguoi: 0 };
     x.viec.forEach(function (v) { dem[v.muc]++; });
     var o = el("div", "nc-dem");

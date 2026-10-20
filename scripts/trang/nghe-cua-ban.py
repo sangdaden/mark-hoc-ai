@@ -53,6 +53,9 @@ def tao_nghe_cua_ban():
         y["trang_ten"] = tro.get(x["trang"], {}).get("ten", {}).get(L, "")
         tram = _tram_theo_trang(x["trang"])
         y["so_tram"], y["tram_ten"] = len(tram), {k: ten[L] for k, ten, _, _ in tram}
+        # Cô Hạnh (nhân vật phụ) mặc đồ theo nghề: assets/nhan-vat/co-hanh-<id>.svg
+        if (R / "assets" / "nhan-vat" / f'co-hanh-{x["id"]}.svg').exists():
+            y["hinh"] = f'{p}assets/nhan-vat/co-hanh-{x["id"]}.svg'
         nghe.append(y)
     # nghề người xem tự gõ mà chưa có mô phỏng: dẫn sang lộ trình theo ngành
     LT_EN = load("en/lo-trinh-nganh")["nganh"] if L == "en" else {}
@@ -64,6 +67,7 @@ def tao_nghe_cua_ban():
         "ai": t("AI làm", "AI does"), "ban": t("Bạn vẫn làm", "You still"), "thu_tram": t("Thử ở trạm", "Try it at"),
         "dau_viec": t("Đem việc này ra đấu với AI", "Take on AI at this task"),
         "dau_ngan": t("Đấu với AI", "Take on AI"),
+        "hanh_alt": t("Cô Hạnh trong trang phục nghề: {x}", "Ms. Hanh dressed for the job: {x}"),
         "chua_co": t("Nghề “{x}” chưa có mô phỏng. Mình mở lộ trình video sát nghề này cho bạn nhé.", "“{x}” has no simulation yet. Here's the video path closest to it."),
         "mo_lo_trinh": t("Mở lộ trình video", "Open the video path"),
         "gan_nghe": t("Gần nhất với nghề của bạn:", "Closest to your job:"),
@@ -91,7 +95,11 @@ def tao_nghe_cua_ban():
         "minh_hoa": t("Bản AI ở đây do kênh viết để minh họa, không gọi AI thật.", "AI's drafts here were written by the channel as an illustration; no real AI is called."),
     }
     du_lieu = json.dumps({"nghe": nghe, "khac": khac, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    chip = "".join(f'<button type="button" class="nc-chip" data-nghe="{esc(x["id"])}" aria-pressed="false"><span aria-hidden="true">{x["bt"]}</span>{esc(x["ten"])}</button>' for x in nghe)
+    def chip_hinh(x):
+        if x.get("hinh"):
+            return f'<span class="nc-chip-hinh"><img src="{x["hinh"]}" alt="" width="40" height="48"></span>'
+        return f'<span aria-hidden="true">{x["bt"]}</span>'
+    chip = "".join(f'<button type="button" class="nc-chip" data-nghe="{esc(x["id"])}" aria-pressed="false">{chip_hinh(x)}{esc(x["ten"])}</button>' for x in nghe)
     desc = t("Mô phỏng miễn phí: chọn nghề của bạn, xem việc nào trong ngày AI làm được, việc nào chỉ bạn làm, rồi đấu với AI 3 vòng tốc độ, bắt lỗi và chọn bản đúng.",
              "Free simulation: pick your job, see which daily tasks AI can do and which only you can, then take on AI in 3 rounds: speed, catching mistakes and picking the right version.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Mô phỏng · 3 phút · chơi trên điện thoại", "Simulation · 3 minutes · works on your phone")}</p>\n'

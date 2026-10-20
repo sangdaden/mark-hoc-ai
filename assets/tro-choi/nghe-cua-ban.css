@@ -10,6 +10,9 @@
 .nc-chip-ds { display: flex; gap: 10px; flex-wrap: wrap; }
 .nc-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 10px 18px; border-radius: 999px; border: 2px solid var(--edge); background: var(--panel); color: var(--ink); font: 700 15px/1.2 var(--f-body); cursor: pointer; }
 .nc-chip[aria-pressed="true"] { border-color: var(--blue); background: var(--blue); color: var(--on); }
+.nc-chip:has(.nc-chip-hinh) { padding-left: 6px; }
+.nc-chip-hinh { flex: none; display: block; width: 40px; height: 48px; }
+.nc-chip-hinh img { display: block; width: 40px; height: 48px; }
 .nc-go { display: grid; gap: 6px; max-width: 520px; font-size: 14px; color: var(--muted); }
 .nc-go-hang { display: flex; gap: 8px; }
 .nc-go input { flex: 1; min-width: 0; min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink); font: 400 16px var(--f-body); }
@@ -17,6 +20,12 @@
 .nc-bao-lien { font-weight: 700; }
 
 /* Bước 2: ô đếm và danh sách việc trong ngày */
+.nc-hanh { display: flex; align-items: flex-end; gap: 14px; max-width: 640px; }
+.nc-hanh-hinh { flex: none; width: 150px; height: auto; animation: nc-vao .45s ease-out; }
+@keyframes nc-vao { from { opacity: 0; transform: translateY(10px) scale(.96); } }
+.nc-hanh-noi { position: relative; margin: 0 0 40px; padding: 14px 16px; border-radius: 18px; background: var(--panel); border: 2px solid var(--edge); font: 600 15.5px/1.45 var(--f-body); }
+.nc-hanh-noi::before { content: ""; position: absolute; left: -11px; bottom: 18px; width: 18px; height: 18px; background: var(--panel); border-left: 2px solid var(--edge); border-bottom: 2px solid var(--edge); transform: rotate(45deg); }
+@media (prefers-reduced-motion: reduce) { .nc-hanh-hinh { animation: none; } }
 .nc-m-nhap { --nc-nen: #CCFBF1; --nc-chu: #0F766E; }
 .nc-m-phu { --nc-nen: #FEF3C7; --nc-chu: #92400E; }
 .nc-m-nguoi { --nc-nen: #E2E8F0; --nc-chu: #334155; }
@@ -91,6 +100,8 @@
 .nc-ket .cta { display: flex; gap: 10px; flex-wrap: wrap; }
 
 @media (max-width: 560px) {
+  .nc-hanh-hinh { width: 104px; }
+  .nc-hanh-noi { margin-bottom: 24px; font-size: 14.5px; }
   .nc-ct { padding-left: 14px; }
   .nc-viec-nut { gap: 10px; }
   .nc-hai { gap: 8px; }
