@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Night drive: a self-driving game with LiDAR, radar and camera</title>
+<meta name="description" content="Free game: drive a self-driving car home through sun, night, rain and fog. Only one eye works at a time, LiDAR, radar or camera; pick the wrong one and…">
+<link rel="canonical" href="https://markhocai.com/en/dem-lai-xe.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/dem-lai-xe.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/dem-lai-xe.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/dem-lai-xe.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Night drive: a self-driving game with LiDAR, radar and camera">
+<meta property="og:description" content="Free game: drive a self-driving car home through sun, night, rain and fog. Only one eye works at a time, LiDAR, radar or camera; pick the wrong one and…">
+<meta property="og:url" content="https://markhocai.com/en/dem-lai-xe.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="../assets/logo.svg?v=dev">
+<link rel="manifest" href="dem-lai-xe.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Night drive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="../theo-doi.js?v=dev" defer></script>
+<script src="../tien-do.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Pages">
+    <a class="nav-start" href="./#bat-dau">Start here</a>
+    <a href="lo-trinh-7-ngay.html">7-day path</a>
+    <a href="tu-dien.html">AI glossary</a>
+    <a href="kiem-tra.html">Quiz</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Free ebook</a>
+    <a href="bai-bao.html">AI papers</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="../assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Free game · The three eyes of AI</p>
+<h1>Night drive</h1>
+<p class="lead">Get a self-driving car home through sun, night, rain and fog. When the weather changes, change the eye: pick the wrong one and people, bikes and red lights vanish.</p>
+</div><img class="head-art" src="../assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="pl pl-game dx" id="dx">
+  <div class="pl-dau"><p class="pl-tong" id="dx-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="dx-xoa"></button></div>
+  <div class="pl-khung dx-khung" id="dx-khung">
+    <canvas class="pl-canvas" id="dx-canvas" tabindex="0"></canvas>
+    <div class="pl-nut-tren"><button type="button" class="pl-toan" id="dx-toan" aria-label="Play full screen" aria-pressed="false"></button><button type="button" class="pl-menu" id="dx-menu" hidden></button></div>
+    <div class="dx-bit" id="dx-bit" hidden role="status"><img src="../assets/bit-y-tuong.svg" alt="" width="44" height="44"><p id="dx-bit-chu"></p></div>
+    <div class="pl-man" id="dx-man"></div>
+  </div>
+  <div class="dx-dk" id="dx-dk" role="group" aria-label="Controls">
+    <div class="dx-lan"><button type="button" data-k="trai" aria-label="Left lane">◀</button><button type="button" data-k="phai" aria-label="Right lane">▶</button></div>
+    <div class="dx-mat-ds" role="group" aria-label="Active eye"><button type="button" class="dx-mat dx-mat-lidar" data-cb="lidar" aria-pressed="false">LiDAR</button><button type="button" class="dx-mat dx-mat-radar" data-cb="radar" aria-pressed="false">Radar</button><button type="button" class="dx-mat dx-mat-camera" data-cb="camera" aria-pressed="false">Camera</button></div>
+    <button type="button" class="dx-phanh" data-k="phanh">Brake</button>
+  </div>
+  <p class="pl-huong"><b>How to play:</b> ← → or A D to change lanes, hold Space or ↓ to brake, keys 1 2 3 switch on LiDAR, radar, camera. On a phone the game goes full screen in landscape: hold the phone sideways and use the on-screen buttons. At a red light, hold Brake until it turns green.</p>
+  <p class="pl-bao" id="dx-bao" role="status" hidden></p>
+  <div class="dx-lien-ds"><a class="dx-lien" href="../phong-thi-nghiem-cam-bien.html"><b>3D sensor lab</b><span>Take each eye apart and switch the weather.</span></a><a class="dx-lien" href="../bai/05-lidar.html"><b>The three eyes of AI series</b><span>8 videos: LiDAR, radar, camera and sensor fusion.</span></a></div>
+  <p class="pl-ghi">How clearly each eye sees in each weather follows the table from The three eyes of AI series. The game simplifies: real cars run all three eyes at once. Progress is saved in this browser only.</p>
+  <noscript><p>The game needs JavaScript. You can still try the <a href="../phong-thi-nghiem-cam-bien.html">sensor lab</a>.</p></noscript>
+  <script type="application/json" id="dx-du-lieu">{"muc":{"camera":{"nguoi":{"nang":2,"dem":1,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":2,"dem":2,"mua":2,"suong":1},"bien":{"nang":2,"dem":1,"mua":1,"suong":0}},"lidar":{"nguoi":{"nang":2,"dem":2,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}},"radar":{"nguoi":{"nang":1,"dem":1,"mua":1,"suong":1},"toc_do":{"nang":2,"dem":2,"mua":2,"suong":2},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}}},"ten":{"lidar":"LiDAR","camera":"Camera","radar":"Radar"},"video":{"5":{"ten":"What is LiDAR? How self-driving cars measure distance with light","url":"../bai/05-lidar.html"},"5.1":{"ten":"How radar helps cars see through fog","url":"../bai/05-1-radar-nhin-xuyen-mua.html"},"5.2":{"ten":"How AI reads red lights and road signs with a camera","url":"../bai/05-2-camera-doc-den-do.html"}},"p":"../"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="../assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Understand AI in a minute, use it right after.</p>
+    <nav class="foot-links" aria-label="Channel links">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác on Facebook"><span class="nt nt-vtk" aria-hidden="true"><img loading="lazy" decoding="async" src="../assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Another Universe</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on YouTube" title="YouTube"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on TikTok" title="TikTok"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Facebook" title="Facebook"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI on Instagram" title="Instagram"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI on Threads" title="Threads"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Join the Mark học AI Discord community" title="Discord"><svg aria-hidden="true"><use href="../assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <nav class="foot-hoc" aria-label="Learn and practice"><b>Learn</b><a href="lo-trinh-7-ngay.html">7-day path</a><a href="lo-trinh-4-tuan.html">4-week path</a><a href="lo-trinh-nganh.html">Path for your job</a><a href="kiem-tra.html">Quizzes</a><a href="chung-nhan.html">Certificates</a><a href="ho-so.html">My profile</a><a href="bai-bao.html">AI papers</a><b>Practice</b><a href="thuc-hanh.html">Practice corner</a><a href="ai-hoc-sinh.html">Students</a><a href="ai-van-phong.html">Civil servants</a><a href="ai-y-te.html">Healthcare</a><a href="bo-hoc-lieu-ai.html">12-lesson kit</a></nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">AI glossary</a> · <a href="kiem-tra.html">How well do you know AI?</a> · <a href="sach.html">Free ebook</a> · <a href="hop-tac.html">Work with us</a> · <a href="dich-vu.html">Video services</a> · <a href="bo-giao-vien.html">Lesson kits</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Support us</a> · <a href="quyen-rieng-tu.html">Privacy</a> · <a href="dieu-khoan.html">Terms</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="../len-dau.js?v=dev" defer></script>
+<script src="../cai-dat.js?v=dev" defer></script>
+<script src="../cuon-hien.js?v=dev" defer></script>
+<script src="../bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/tro-choi/dem-lai-xe.css?v=dev">
+<script src="../dem-lai-xe.js?v=dev" defer></script>
+<link rel="stylesheet" href="../assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="../">{"ten":"dem-lai-xe","buoc":[{"chon":"#dx-canvas","chu":"You drive a **self-driving car** home through sun, night, rain and fog. Tap [[◀]] [[▶]] (or swipe) to **change lanes** around people and bikes."},{"chon":".dx-mat-ds","chu":"Only **one eye** works at a time: LiDAR, radar or camera. !!Pick the wrong eye and obstacles blur or vanish.!!"},{"chon":".dx-phanh","chu":"At a **red light**, hold [[Brake]] until it turns green. Only *one* eye can read light colours: can you guess which?"},{"chon":"","chu":"When the weather changes, change the eye. ++Get home seeing most obstacles clearly for 3 stars.++"}]}</script>
+<script src="../huong-dan.js?v=dev" defer></script>
+</body>
+</html>
