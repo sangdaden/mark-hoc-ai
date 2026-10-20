@@ -1,0 +1,47 @@
+/* Game "Đường đoán chữ" (duong-doan-chu.html). Khung game, nút nổi và chế độ toàn màn hình dùng chung class .pl-* trong style.css. */
+.ddc .pl-dk [data-k="nhiet"] { flex: 1.1; background: #FFEDD5; border-color: #F97316; font-size: 19px; }
+.pl.is-toan.ddc .pl-dk [data-k="nhiet"] { margin-left: auto; width: 72px; background: rgba(249, 115, 22, .55); font-size: 16px; }
+.ddc-dau { text-align: left; }
+.ddc-dau h2 { margin: 2px 0 12px; font: 800 24px/1.25 var(--f-display); }
+.ddc-nho { margin: 0; font: 500 12.5px/1.3 var(--f-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--blue); }
+.ddc-ba { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.ddc-o { display: flex; gap: 8px; align-items: flex-start; padding: 10px; border-radius: 14px; background: var(--bg2); border: 1.5px solid var(--edge); }
+.ddc-o-hinh { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: #FACC15; color: #0F172A; font: 800 18px/1 var(--f-display); }
+.ddc-o b { display: block; font: 700 14px/1.25 var(--f-display); }
+.ddc-o p { margin: 2px 0 0; font-size: 13px; line-height: 1.35; color: var(--muted); }
+.ddc-sao-cu { margin: 0 0 10px; color: #CA8A04; font-weight: 600; }
+.ddc-kq { gap: 6px; }
+.ddc-kq h3 { margin: 0; }
+.ddc-sao-ds { list-style: none; margin: 0 0 6px; padding: 0; display: grid; gap: 3px; font-size: 14px; color: var(--muted); text-align: left; }
+.ddc-sao-ds li.is-co { color: var(--ink); font-weight: 600; }
+.ddc-sao-ds li.is-co::first-letter { color: #CA8A04; }
+.ddc-kq .ddc-nho { margin-top: 6px; }
+.ddc-cau { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 6px; font: 600 16px/1.4 var(--f-display); color: var(--ink); }
+.ddc-goc { color: var(--muted); }
+.ddc-chip { display: inline-flex; align-items: baseline; gap: 4px; padding: 2px 8px; border-radius: 8px; }
+.ddc-chip small { font: 500 11.5px/1 var(--f-mono); opacity: .8; }
+.ddc-chip.is-pho { background: #DBEAFE; color: #1D4ED8; }
+.ddc-chip.is-la { background: #FEF08A; color: #854D0E; }
+.ddc-cau-may { display: block; font-weight: 500; color: var(--muted); font-size: 15px; }
+.ddc-bit { margin-top: 8px; text-align: left; grid-template-columns: 48px 1fr; padding: 10px 12px; }
+.ddc-bit img { width: 48px; height: 48px; }
+.ddc-bit p { font-size: 14px; line-height: 1.45; }
+@media (max-width: 700px) { .ddc-ba { grid-template-columns: 1fr; gap: 6px; } .ddc-o { padding: 6px 8px; } .ddc-o p { display: none; } .ddc-dau h2 { font-size: 19px; margin-bottom: 8px; } }
+.pl.is-toan .ddc-ba { grid-template-columns: repeat(3, 1fr); }
+.pl.is-toan .ddc-o p { display: block; }
+.pl.is-toan .ddc-kq { max-height: 100%; }
+.ddc-goc.is-dau { margin-left: -5px; }
+.ddc-kq-trai, .ddc-kq-phai { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.pl-man > .ddc-kq-thang { width: min(860px, 100%); }
+@media (min-width: 640px) { .ddc-kq-thang { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 18px; align-items: start; } .ddc-kq-thang .ddc-kq-trai { align-items: stretch; text-align: center; } }
+.pl.is-toan.ddc .pl-man { place-items: start center; }
+.pl.is-toan.ddc .pl-man > * { margin-block: auto; }
+.pl.is-toan .ddc-kq-thang .pl-kq-sao { font-size: 24px; }
+.pl.is-toan .ddc-kq-thang h3 { font-size: 19px; }
+.pl.is-toan .ddc-kq-thang .pl-kq-nut { margin-top: 4px; gap: 6px; }
+.pl.is-toan .ddc-kq-thang .pl-kq-nut .btn { padding: 8px 14px; font-size: 14px; }
+.pl.is-toan .ddc-cau { font-size: 14.5px; }
+.pl.is-toan .ddc-bit p { font-size: 13px; line-height: 1.4; }
+.pl.is-toan .ddc-sao-ds { font-size: 13px; }
+@media (max-width: 700px) { .ddc:not(.is-toan) .ddc-ba { display: none; } }
+.ddc .pl-nut-tren { z-index: 8; }

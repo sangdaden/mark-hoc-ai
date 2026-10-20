@@ -1,0 +1,21 @@
+{
+ "_ghi_chu": "Game Đường đoán chữ (duong-doan-chu.html, duong-doan-chu.js). Mỗi màn là một câu: mỗi 'buoc' là một vực có các bục chữ, 'p' là tỉ lệ chữ đó đứng sau (bục càng rộng càng dễ đứng), 'bia': chữ vô nghĩa, bục vỡ khi đứng lên (rơi xuống Ảo giác). 'truoc' là chữ tự thêm vào câu trước bước đó. Video 7 (chatbot đoán chữ), 24, 8 (ảo giác).",
+ "man": [
+  {
+   "id": "troi",
+   "ten": {"vi": "Trời hôm nay", "en": "Today's weather"},
+   "dau": {"vi": "Hôm nay trời rất", "en": "Today the weather is very"},
+   "buoc": [
+    {"truoc": {"vi": "", "en": ""},
+     "chu": [{"vi": "đẹp", "en": "nice", "p": 0.58}, {"vi": "nóng", "en": "hot", "p": 0.27}, {"vi": "lạnh", "en": "cold", "p": 0.11}, {"vi": "cá", "en": "banana", "p": 0.01, "bia": true}]},
+    {"truoc": {"vi": ",", "en": ","},
+     "chu": [{"vi": "nên", "en": "so", "p": 0.52}, {"vi": "thế là", "en": "and then", "p": 0.26}, {"vi": "vậy mà", "en": "but still", "p": 0.14}, {"vi": "bàn phím", "en": "keyboard", "p": 0.01, "bia": true}]},
+    {"truoc": {"vi": "Mark rủ Bit đi", "en": "Mark asks Bit to go"},
+     "chu": [{"vi": "dạo", "en": "for a walk", "p": 0.49}, {"vi": "biển", "en": "to the beach", "p": 0.31}, {"vi": "ăn kem", "en": "for ice cream", "p": 0.15}, {"vi": "lên sao Hỏa bằng xe đạp", "en": "to Mars by bike", "p": 0.01, "bia": true}]},
+    {"truoc": {"vi": "cả", "en": "for"},
+     "chu": [{"vi": "buổi chiều", "en": "the afternoon", "p": 0.5}, {"vi": "ngày", "en": "the whole day", "p": 0.3}, {"vi": "tiếng đồng hồ", "en": "an hour", "p": 0.12}, {"vi": "nghìn năm", "en": "a thousand years", "p": 0.01, "bia": true}]}
+   ],
+   "cuoi": {"vi": ".", "en": "."}
+  }
+ ]
+}
