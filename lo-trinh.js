@@ -117,6 +117,23 @@
   });
   capNhat();
 
+  // Trò chơi hôm nay: đã mở trang đó rồi (tien-do.js nhớ) thì hiện "Đã chơi"; bấm thì đếm để biết ngày nào có người chơi
+  const moRoi = window.mhaiTD ? window.mhaiTD.daMo() : [];
+  document.querySelectorAll(".day-game[data-mo]").forEach(a => {
+    const roi = moRoi.includes(a.dataset.mo);
+    a.classList.toggle("is-choi", roi);
+    a.querySelector(".day-game-xong").hidden = !roi;
+    a.addEventListener("click", () => do_("lo-trinh-tro-choi", { ngay: +a.closest(".day").dataset.ngay }));
+  });
+
+  // Nút "Nhắc tôi mỗi ngày" (lo-trinh-tiep.js): file lịch .ics cho những ngày chưa xong, đặt ngay dưới thanh tiến độ (thanh này dính đầu màn hình nên giữ gọn)
+  if (window.mhaiNhacLT) {
+    const bar = document.querySelector(".course-bar");
+    bar.insertAdjacentHTML("afterend", window.mhaiNhacLT.nhacHTML());
+    window.mhaiNhacLT.gan(bar.nextElementSibling, () => days.filter(d => !nho.xong.includes(+d.dataset.ngay))
+      .map(d => ({ n: +d.dataset.ngay, ten: d.querySelector(".day-title h2").textContent })), D.url, "lo-trinh");
+  }
+
   // ---------- Giấy chứng nhận ----------
   const input = document.getElementById("ten-hv"), nutTao = document.getElementById("tao-cn"), loi = document.getElementById("cn-loi");
   const canvas = document.getElementById("cn-canvas"), anh = document.getElementById("cn-anh"), tai = document.getElementById("tai-cn");
