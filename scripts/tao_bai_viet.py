@@ -38,6 +38,7 @@ seo = load("bai-viet")["tieu_de_seo"]
 seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
 TD_CHU_DE = load("tu-dien")["chu_de"]  # chủ đề của Từ điển AI (tên VI + EN)
+TD_NHAN_VAT = load("tu-dien")["nhan_vat"]  # nhân vật phụ vẽ trên vài thẻ (Mây Bịa, Chữ Con)
 kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
 video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 69.1...) nối tiếp một video chính, xem _ghi_chu trong file
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
@@ -1026,10 +1027,18 @@ def tao_tu_dien():
     def xem(x):
         so = x["video"][0]
         return yt_url(YT_ID[str(so)]) if str(so) in YT_ID else f'bai/{ten_file(co_bai[so])}.html'
+    def anh(x, lazy=True):
+        # Thẻ có nhân vật phụ: hình nhân vật trên nền màu, kèm tên; còn lại là bìa series
+        tai = ' loading="lazy" decoding="async"' if lazy else ""
+        if x.get("nhan_vat"):
+            nv = TD_NHAN_VAT[x["nhan_vat"]]
+            return (f'<span class="tdai-nv tdai-nv-{x["nhan_vat"]}"><img src="{p}assets/nhan-vat/{x["nhan_vat"]}.svg" alt="" width="200" height="240"{tai}>'
+                    f'<span class="tdai-nv-ten">{esc(t(nv["ten"], nv["en"]))}</span></span>')
+        return f'<img src="{bia(x)}" alt="" width="480" height="270"{tai}>'
     def the(x):
         chinh = co_bai[x["video"][0]]
         return (f'<li class="tdai-the" id="{x["id"]}" data-xem="{esc(xem(x))}">\n<a href="bai/{ten_file(chinh)}.html">'
-                f'<img src="{bia(x)}" alt="" width="480" height="270" loading="lazy" decoding="async">\n<span class="tdai-chu">'
+                f'{anh(x)}\n<span class="tdai-chu">'
                 f'<b class="tdai-ten">{esc(x["thuat_ngu"])}</b>' + (f'<span class="tdai-vi">{esc(x["tieng_viet"])}</span>' if x.get("tieng_viet") else "") +
                 f'<span class="tdai-nghia">{esc(x["giai_thich"])}</span><span class="tdai-so">{t("Video", "Video")} #{chinh["so"]:02d} ›</span></span></a>\n</li>')
     khoi = []
@@ -1057,7 +1066,7 @@ def tao_tu_dien():
            f'<button class="btn btn-yt" type="submit">{t("Hỏi", "Ask")}</button></form>\n'
            f'<div class="hb-goi-y">' + "".join(f'<button type="button">{esc(g)}</button>' for g in goi_y) + '</div>\n'
            f'<div class="hb-kq" id="hb-kq" aria-live="polite"></div>\n</section>')
-    hom_nay = (f'<section class="tdai-nay" aria-labelledby="tdai-nay-ten">\n<img id="tdai-nay-anh" src="{bia(x0)}" alt="" width="480" height="270">\n<div class="tdai-nay-chu">'
+    hom_nay = (f'<section class="tdai-nay" aria-labelledby="tdai-nay-ten">\n<div class="tdai-nay-anh" id="tdai-nay-anh">{anh(x0, lazy=False)}</div>\n<div class="tdai-nay-chu">'
                f'<p class="tdai-nhan">{t("Từ hôm nay", "Word of the day")}<span id="tdai-nay-ngay"></span></p>'
                f'<h2 id="tdai-nay-ten">{esc(x0["thuat_ngu"])}</h2><p class="tdai-vi" id="tdai-nay-vi">{esc(x0.get("tieng_viet", ""))}</p>'
                f'<p id="tdai-nay-nghia">{esc(x0["giai_thich"])}</p>\n<div class="cta"><a class="btn btn-yt" id="tdai-nay-xem" href="{esc(xem(x0))}">{t("Xem video", "Watch video")} #{x0["video"][0]:02d}</a>'
@@ -1074,7 +1083,7 @@ def tao_tu_dien():
     var ngay = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 864e5);
     var c = the[(ngay * 37) % the.length], $ = function (id) {{ return document.getElementById(id); }};
     var vi = c.querySelector(".tdai-vi"), so = c.querySelector(".tdai-so").textContent.match(/#\\d+/)[0];
-    $("tdai-nay-anh").src = c.querySelector("img").src;
+    $("tdai-nay-anh").innerHTML = c.querySelector("a").firstElementChild.outerHTML.replace(' loading="lazy"', "");
     $("tdai-nay-ten").textContent = c.querySelector(".tdai-ten").textContent;
     $("tdai-nay-vi").textContent = vi ? vi.textContent : "";
     $("tdai-nay-nghia").textContent = c.querySelector(".tdai-nghia").textContent;

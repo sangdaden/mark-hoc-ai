@@ -66,7 +66,7 @@
 <div class="hb-kq" id="hb-kq" aria-live="polite"></div>
 </section>
 <section class="tdai-nay" aria-labelledby="tdai-nay-ten">
-<img loading="lazy" decoding="async" id="tdai-nay-anh" src="assets/anh/series/san-pham-ai.webp" alt="" width="480" height="270">
+<div class="tdai-nay-anh" id="tdai-nay-anh"><img loading="lazy" decoding="async" src="assets/anh/series/san-pham-ai.webp" alt="" width="480" height="270"></div>
 <div class="tdai-nay-chu"><p class="tdai-nhan">Từ hôm nay<span id="tdai-nay-ngay"></span></p><h2 id="tdai-nay-ten">A/B test</h2><p class="tdai-vi" id="tdai-nay-vi">thử A, B</p><p id="tdai-nay-nghia">Một nửa người dùng gặp bản cũ, một nửa gặp bản mới; bản nào cho kết quả tốt hơn thì thắng.</p>
 <div class="cta"><a class="btn btn-yt" id="tdai-nay-xem" href="bai/59-do-san-pham-ai.html">Xem video #59</a><a class="btn" id="tdai-nay-doc" href="bai/59-do-san-pham-ai.html">Đọc bài</a></div>
 </div>
@@ -140,15 +140,15 @@
 <div class="tdai-ke-dau"><h2 id="h-bo-nao-ai">Bên trong bộ não AI <span>12 chữ</span></h2><button type="button" class="tdai-het" aria-expanded="false" aria-controls="ds-bo-nao-ai">Xem hết</button></div>
 <ul class="tdai-hang" id="ds-bo-nao-ai">
 <li class="tdai-the" id="hallucination" data-xem="bai/08-ao-giac.html">
-<a href="bai/08-ao-giac.html"><img src="assets/anh/series/nen-tang.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/08-ao-giac.html"><span class="tdai-nv tdai-nv-may-bia"><img src="assets/nhan-vat/may-bia.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Mây Bịa</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Hallucination</b><span class="tdai-vi">ảo giác AI</span><span class="tdai-nghia">AI trả lời sai nhưng nghe như thật, vì khi không biết nó vẫn đoán ra thứ nghe hợp lý nhất.</span><span class="tdai-so">Video #08 ›</span></span></a>
 </li>
 <li class="tdai-the" id="context-window" data-xem="https://www.youtube.com/shorts/B3Tr2nuKrBo">
-<a href="bai/09-ai-quen.html"><img src="assets/anh/series/nen-tang.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/09-ai-quen.html"><span class="tdai-nv tdai-nv-chu-con"><img src="assets/nhan-vat/chu-con.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Chữ Con</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Context window</b><span class="tdai-vi">ngữ cảnh</span><span class="tdai-nghia">&quot;Cái bàn làm việc&quot; của AI: những gì nằm trên bàn thì nó thấy, bàn đầy thì tờ cũ bị đẩy ra và AI không để ý nữa.</span><span class="tdai-so">Video #09 ›</span></span></a>
 </li>
 <li class="tdai-the" id="token" data-xem="https://www.youtube.com/shorts/exwQxLMU6IQ">
-<a href="bai/19-token.html"><img src="assets/anh/series/bo-nao-ai.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/19-token.html"><span class="tdai-nv tdai-nv-chu-con"><img src="assets/nhan-vat/chu-con.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Chữ Con</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Token</b><span class="tdai-nghia">Mảnh chữ mà AI cắt câu ra trước khi đọc, mỗi mảnh thành một con số; độ dài và giá tiền đều tính bằng token.</span><span class="tdai-so">Video #19 ›</span></span></a>
 </li>
 <li class="tdai-the" id="embedding" data-xem="https://www.youtube.com/shorts/zPxe7VLy3uY">
@@ -590,7 +590,7 @@
     var ngay = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 864e5);
     var c = the[(ngay * 37) % the.length], $ = function (id) { return document.getElementById(id); };
     var vi = c.querySelector(".tdai-vi"), so = c.querySelector(".tdai-so").textContent.match(/#\d+/)[0];
-    $("tdai-nay-anh").src = c.querySelector("img").src;
+    $("tdai-nay-anh").innerHTML = c.querySelector("a").firstElementChild.outerHTML.replace(' loading="lazy"', "");
     $("tdai-nay-ten").textContent = c.querySelector(".tdai-ten").textContent;
     $("tdai-nay-vi").textContent = vi ? vi.textContent : "";
     $("tdai-nay-nghia").textContent = c.querySelector(".tdai-nghia").textContent;
