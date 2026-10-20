@@ -1127,8 +1127,8 @@ def tao_kiem_tra():
 </section>
 <section class="quiz" id="quiz" aria-live="polite" hidden>
   <p class="kt-ten-bo"><b id="kt-ten-bo"></b><button type="button" class="kt-doi" id="kt-doi">{t("Đổi bộ khác", "Pick another quiz")}</button></p>
-  <div class="quiz-top"><span id="tien-do"></span><span class="quiz-score" id="diem-tam"></span></div>
-  <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
+  <div class="kt-dinh"><div class="quiz-top"><b id="tien-do"></b><span class="quiz-score" id="diem-tam"></span></div>
+  <div class="kt-chang" id="kt-chang" aria-hidden="true"></div></div>
   <div id="khung"></div>
 </section>
 </main>"""

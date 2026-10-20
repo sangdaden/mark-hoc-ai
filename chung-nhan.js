@@ -440,6 +440,9 @@ window.MHAI_CC = (function () {
         c2.hidden = false;
         await A.ve(c2, Object.assign({ ten: p.n, ngay: p.d, ma, mauBan: false }, nd));
         c2.setAttribute("aria-label", S.anh(A.T.ten[nd.loai] + ": " + nd.tieuDe, p.n));
+        // Bạn bè mở link xác minh (từ bài chia sẻ Facebook) thì có nút làm thử đúng bài kiểm tra đó
+        const lam = document.getElementById("cc-xm-lam");
+        if (lam) { if (p.l === "chu-de" || p.l === "nganh") lam.href = "kiem-tra.html?bo=" + encodeURIComponent(p.b); document.getElementById("cc-xm-nut").hidden = false; }
       }
     }
 
