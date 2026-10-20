@@ -3093,6 +3093,36 @@ html body .top, html body .foot-band .foot { max-width: 1240px; }
 @media (min-width: 761px) and (max-width: 1100px) { .band .top-links a.nav-vtk { display: none; } }
 @media (max-width: 760px) { .top-tools a.nut-yt { display: none; } }
 
+/* Menu có icon trên chữ, kiểu hàng icon của MoMo (Sang chọn mockup B ngày 20/10/2026: https://claude.ai/artifact/P4okhhRNepkvLxKeBayrvB).
+   Mục "Chống lừa đảo" đứng sau "Bắt đầu" với icon đỏ trong vòng tròn trắng. Từ 1100px trở xuống: hàng icon vuốt ngang .nav-dai dưới logo (cai-dat.js) */
+.nav-lua-tron { display: inline-grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #DC2626; }
+.band .top-links a.nav-lua { color: #fff; font-weight: 700; }
+.band .top-links a.nav-lua:hover { color: #FDE047; }
+.band .top-links a.nav-lua .nav-lua-tron .ic { width: 20px; height: 20px; }
+.nav-dai { display: none; }
+@media (min-width: 1101px) {
+  .band .top-links.da-gom { gap: 6px 20px; }
+  .band .top-links.da-gom > a:not(.nav-start):not(.nav-yt):not(.nav-vtk), .top-links.da-gom .nav-drop > summary {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 3px; font-size: 13px; line-height: 1.2; }
+  .top-links.da-gom > a > .ic, .top-links.da-gom .nav-drop > summary > .ic { width: 22px; height: 22px; }
+  .band .top-links.da-gom > a.nav-lua { gap: 0; margin-block: -4px; }
+  .top-links.da-gom .nav-drop > summary .nav-drop-mui { display: none; }
+  .band .top-links.da-gom a[aria-current="page"], .band .top-links.da-gom .nav-drop > summary.is-cur { text-decoration: none; }
+  .band .top-links.da-gom a[aria-current="page"] > span, .band .top-links.da-gom .nav-drop > summary.is-cur > span { text-decoration: underline; text-underline-offset: 4px; }
+}
+@media (max-width: 1100px) {
+  .top-links.da-gom > a > .ic, .top-links.da-gom .nav-drop > summary > .ic { display: none; }
+  .band .top-links.da-gom > a.nav-lua { display: inline-flex; align-items: center; gap: 10px; }
+  .nav-dai { display: flex; order: 2; width: 100%; gap: 4px; overflow-x: auto; padding: 8px 10px 10px; border-radius: 16px; background: rgba(15, 23, 42, .18); scrollbar-width: none; }
+  .nav-dai::-webkit-scrollbar { display: none; }
+  .nav-dai a { flex: 1 0 auto; min-width: 64px; padding: 0 4px; white-space: nowrap; display: grid; justify-items: center; gap: 4px; color: #fff; font: 600 12px/1.2 var(--f-body); text-decoration: none; text-align: center; }
+  .nav-dai-o { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 14px; background: rgba(255, 255, 255, .16); }
+  .nav-dai-o .ic { width: 22px; height: 22px; }
+  .nav-dai a.do .nav-dai-o { background: #fff; color: #DC2626; }
+  .nav-dai a[aria-current="page"] { color: #FDE047; }
+  .nav-dai a:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; border-radius: 10px; }
+}
+
 /* Chân trang: khối thương hiệu + 4 cột + dòng cuối (cai-dat.js thêm .foot-moi) */
 .foot.foot-moi { grid-template-columns: minmax(260px, 1.5fr) repeat(4, minmax(0, 1fr)); align-items: start; gap: 28px 32px; padding-block: 40px 0; }
 .foot-dau { display: grid; gap: 14px; justify-items: start; }
