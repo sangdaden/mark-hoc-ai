@@ -49,3 +49,10 @@
 .bb-nhan { justify-self: start; font: 600 13px/1 var(--f-body); padding: 7px 12px; border-radius: 999px; background: color-mix(in srgb, var(--sky) 14%, var(--panel)); border: 1.5px solid var(--edge); }
 .bb-mo .bb-nhan { background: var(--mint-dam); color: #fff; border-color: transparent; }
 .bb-sap { opacity: .85; }
+/* Thẻ "Thử ngay": công cụ đi kèm bài (mục "thu" trong bai-bao.json) */
+.bb-thu { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 20px; margin: 28px 0; padding: 20px 22px; border-radius: 18px; background: color-mix(in srgb, var(--mint) 12%, var(--panel)); border: 2px solid color-mix(in srgb, var(--mint-dam) 55%, var(--edge)); }
+.bb-thu > div { flex: 1 1 18rem; min-width: 0; }
+.bb-thu h2 { margin: 0 0 6px; font-size: clamp(19px, 2.4vw, 22px); }
+.bb-thu p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+.bb-thu .bb-thu-eyebrow { margin-bottom: 4px; font: 600 12px/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--mint-dam); }
+.bb-thu-nut { flex: none; background: var(--grad); color: var(--on); border-color: transparent; }

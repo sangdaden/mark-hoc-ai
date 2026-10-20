@@ -2266,7 +2266,7 @@ def tao_dan_hay_khong():
     return GOC + "dan-hay-khong.html", trang("dan-hay-khong.html", t(f"Dán hay không dán? Trò chơi giữ dữ liệu an toàn khi dùng AI | {SITE}", f"Paste or don't paste? A game about keeping your data safe with AI | {SITE}"),
                                              desc, band, main, p, og_type="website", q="",
                                              cuoi=f'<script src="{p}chia-se.js?v=dev" defer></script>\n<script src="{p}dan-hay-khong.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
-# ---------- Máy tính đời thật (may-tinh-doi-that.html): 6 máy tính theo video, mỗi máy hiện công thức và nguồn ----------
+# ---------- Máy tính đời thật (may-tinh-doi-that.html): 7 máy tính theo video, mỗi máy hiện công thức và nguồn ----------
 # Hằng số và nguồn ở data/may-tinh.json (cả hai ngôn ngữ), cách tính ở may-tinh.js. Mở thẳng một máy bằng ?may=<id>.
 @trang_rieng("may-tinh-doi-that.html", "0.7")
 def tao_may_tinh():
@@ -2279,12 +2279,18 @@ def tao_may_tinh():
         return {"so": so, "ten": seo.get(str(so), ""), "url": f"bai/{ten_file(v)}.html" if v else ""}
     may = []
     for m in D["may"]:
-        x = {k: m[k] for k in m if k not in ("ten", "ngan", "mo", "nguon", "prompt", "video", "mau")}
+        x = {k: m[k] for k in m if k not in ("ten", "ngan", "mo", "nguon", "prompt", "video", "mau", "vi_du", "doc", "loai")}
         x.update({"ten": chu(m["ten"]), "ngan": chu(m["ngan"]), "mo": chu(m["mo"]), "prompt": chu(m["prompt"]),
                   "video": [video(so) for so in m["video"]],
                   "nguon": [{"ten": chu(n["ten"]), "so": chu(n["so"]), "url": n["url"]} for n in m["nguon"]]})
         if "mau" in m:
             x["mau"] = {k: dict(v, ten=chu(v["ten"])) for k, v in m["mau"].items()}
+        if "vi_du" in m:  # câu ghi thay cho "Số trong ô là số ví dụ của video"
+            x["vi_du"] = chu(m["vi_du"])
+        if "doc" in m:  # link đọc thêm (vd. Bài báo AI) cạnh số video
+            x["doc"] = {"url": m["doc"]["url"], "ten": chu(m["doc"]["ten"])}
+        if "loai" in m:
+            x["loai"] = {k: chu(v) for k, v in m["loai"].items()}
         may.append(x)
     nhan = {
         "dong": {k: chu(v) for k, v in D["nhan_dong"].items()},
@@ -2337,11 +2343,48 @@ def tao_may_tinh():
         "gv_nham": t("Lỗi hay gặp: chỉ cộng nguyên liệu chính", "Common mistake: adding only the main ingredients"), "gv_tuong": t("tưởng dư", "you think you make"),
         "gv_san": t("Thử bán trên sàn, phí 15% (giả định)", "Try a marketplace at 15% fee (assumed)"),
         "gv_ghi": t("Phí sàn 15% là giả định để minh họa, không phải biểu phí của sàn nào.", "The 15% fee is an assumption for illustration, not any marketplace's real rate."),
+        # tự đo AI (thí nghiệm METR, video 407)
+        "td_demo": t("Thử nhanh 1 phút", "Quick 1-minute demo"), "td_xoa": t("Xóa làm lại", "Clear and restart"),
+        "td_xoa_hoi": t("Bấm lần nữa để xóa hết", "Click again to delete everything"),
+        "td_dang_demo": t("Bạn đang xem dữ liệu mẫu: 10 email, 5 có AI, 5 tự làm.", "You're looking at sample data: 10 emails, 5 with AI, 5 without."),
+        "td_ve_cua_toi": t("Quay lại dữ liệu của tôi", "Back to my data"),
+        "td_b1": t("Đoán trước khi làm", "Guess before you start"), "td_b1_mo": t("AI sẽ giúp bạn nhanh hơn bao nhiêu phần trăm? Số âm là chậm hơn.", "How many percent faster will AI make you? Negative means slower."),
+        "td_chua_doan": t("Chưa ghi", "Not yet"),
+        "td_b2": t("Chọn việc giống nhau, rồi tung đồng xu", "Pick similar tasks, then flip a coin"),
+        "td_b2_mo": t("Chọn loại việc bạn làm hằng tuần. Đổi tên từng việc cho đúng việc thật.", "Pick a kind of task you do every week. Rename each one to match the real task."),
+        "td_loai": t("Loại việc", "Kind of task"), "td_ten_viec": t("Tên việc", "Task name"), "td_them": t("Thêm việc", "Add a task"), "td_bo": t("Bỏ việc này", "Remove this task"),
+        "td_tung": t("Tung đồng xu", "Flip the coin"), "td_tung_lai": t("Tung lại", "Flip again"),
+        "td_tung_khoa": t("Đã bắt đầu bấm giờ nên không tung lại, để chia việc vẫn công bằng.", "Timing has started, so no re-flips: that keeps the split fair."),
+        "td_ai": t("Dùng AI", "With AI"), "td_tu": t("Tự làm", "Without AI"), "td_chua": t("Chưa tung", "Not flipped"),
+        "td_b3": t("Bấm giờ từng việc", "Time each task"),
+        "td_b3_mo": t("Tính cả lúc viết prompt, chờ AI và sửa lại kết quả. Quên bấm thì gõ số phút.", "Include writing the prompt, waiting for AI and fixing its output. Forgot the timer? Type the minutes."),
+        "td_bat_dau": t("Bắt đầu", "Start"), "td_dung": t("Dừng", "Stop"), "td_phut": t("phút", "min"), "td_go_phut": t("Số phút", "Minutes"),
+        "td_cam": t("Làm xong, bạn thấy AI giúp thế nào so với tự làm?", "Done. Compared with doing it yourself, how did AI feel?"),
+        "td_cham": t("chậm hơn", "slower"), "td_nhanh": t("nhanh hơn", "faster"), "td_nhu_nhau": t("như nhau", "same"),
+        "td_can_tung": t("Tung đồng xu ở bước 2 để biết việc nào dùng AI.", "Flip the coin in step 2 to see which tasks use AI."),
+        "td_tien_do": t("Đã đo", "Timed"),
+        "td_doan": t("Đoán", "Guess"), "td_tuong": t("Tưởng", "Felt"), "td_dong_ho": t("Đồng hồ", "Clock"),
+        "td_doan_phu": t("trước khi làm", "before starting"), "td_tuong_phu": t("cảm giác sau khi làm", "how it felt after"), "td_dong_ho_phu": t("trung vị số phút đo được", "median of measured minutes"),
+        "td_metr": "METR", "td_ban": t("Bạn", "You"),
+        "td_ket_h": t("Đồng hồ nói gì", "What the clock says"),
+        "td_so_sanh": t("Bạn và 16 lập trình viên của METR", "You vs METR's 16 developers"),
+        "td_phut_h": t("Số phút từng việc", "Minutes per task"), "td_trung_vi": t("trung vị", "median"),
+        "td_canh": t("Mới có {ai} việc dùng AI và {tu} việc tự làm có số phút. Cần ít nhất {n} việc mỗi nhóm thì kết quả mới đáng tin một chút.", "Only {ai} AI tasks and {tu} non-AI tasks have times so far. You need at least {n} per group before the result means much."),
+        "td_chua_co": t("Chưa có số đo. Làm vài việc rồi quay lại, hoặc bấm Thử nhanh 1 phút để xem mẫu.", "No measurements yet. Do a few tasks and come back, or press Quick 1-minute demo to see an example."),
+        "td_lech": t("Cảm giác lệch đồng hồ {d} điểm phần trăm.", "Your feeling is {d} percentage points off the clock."),
+        "td_ket_nhanh": t("Với loại việc này, AI giúp bạn nhanh hơn thật. Lưu prompt thành mẫu để dùng lại.", "For this kind of task AI really speeds you up. Save the prompt as a template."),
+        "td_ket_cham": t("Với loại việc này, AI đang làm bạn chậm hơn. Thử tự làm, hoặc đổi cách dùng AI rồi đo lại.", "For this kind of task AI is slowing you down. Do it yourself, or change how you use AI and measure again."),
+        "td_ket_hoa": t("Gần như hòa: chênh chưa tới 5%. Đo thêm việc để chắc hơn.", "Roughly a tie: under 5% apart. Measure more tasks to be sure."),
+        "td_ghi": t("Trung vị là việc nằm giữa khi xếp theo số phút, nên một việc lâu bất thường không kéo lệch kết quả. 10 việc vẫn là mẫu nhỏ: xem đây là gợi ý, không phải kết luận.", "The median is the middle task when sorted by minutes, so one unusually long task can't skew the result. Ten tasks is still a small sample: treat this as a hint, not a verdict."),
+        "td_luu": t("Tiến độ chỉ lưu trên trình duyệt này, không gửi đi đâu.", "Progress is saved in this browser only and never sent anywhere."),
+        "td_ct_ai": t("Trung vị có AI", "Median with AI"), "td_ct_tu": t("Trung vị tự làm", "Median without AI"),
+        "td_ct_tuong": t("Tưởng: trung bình cảm giác", "Felt: average feeling"),
+        "td_doc": t("Đọc bài báo", "Read the paper write-up"),
     }
     du_lieu = json.dumps({"may": may, "nhan": nhan, "lg": L, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    desc = t("6 máy tính miễn phí theo video Mark học AI: điện và nước cho mỗi câu hỏi AI, lãi thật của khoản vay, quỹ khẩn cấp, giá thật mỗi mâm cưới, xếp bàn, giá vốn và điểm hòa vốn. Mỗi kết quả hiện công thức và nguồn.",
-             "6 free calculators from Mark học AI videos: power and water per AI question, a loan's real interest, an emergency fund, the real cost per wedding table, seating, unit cost and break-even. Every result shows its formula and source.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Công cụ · 6 máy tính · chơi trên điện thoại", "Tools · 6 calculators · works on your phone")}</p>\n'
+    desc = t("7 máy tính miễn phí theo video Mark học AI: điện và nước cho mỗi câu hỏi AI, lãi thật của khoản vay, quỹ khẩn cấp, giá thật mỗi mâm cưới, xếp bàn, giá vốn, tự đo AI có giúp bạn nhanh hơn. Mỗi kết quả hiện công thức và nguồn.",
+             "7 free calculators from Mark học AI videos: power and water per AI question, a loan's real interest, an emergency fund, the real cost per wedding table, seating, unit cost, and a test of whether AI really speeds you up. Every result shows its formula and source.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Công cụ · 7 máy tính · chơi trên điện thoại", "Tools · 7 calculators · works on your phone")}</p>\n'
             f'<h1>{t("Máy tính đời thật", "Real-life calculators")}</h1>\n'
             f'<p class="lead">{t("Đổi con số của chính bạn, xem kết quả ngay. Công thức và nguồn nằm ngay bên dưới, để bạn kiểm lại từng phép tính.", "Plug in your own numbers and see the result at once. The formula and sources sit right below, so you can check every step.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
