@@ -37,6 +37,7 @@ kenh, series, videos = load("kenh"), load("series"), load("videos")
 seo = load("bai-viet")["tieu_de_seo"]
 seo_vi, CHU_DE_VI = dict(seo), {v["so"]: v["chu_de"] for v in videos}  # bản tiếng Việt, dùng khi dò công cụ trong bài (cả bài tiếng Anh)
 tu_dien = load("tu-dien")["thuat_ngu"]
+TD_CHU_DE = load("tu-dien")["chu_de"]  # chủ đề của Từ điển AI (tên VI + EN)
 kiem_tra = load("bo-kiem-tra")  # {"dat", "nhom", "bo": [bộ câu hỏi]}
 video_phu = load("video-phu")["series"]  # tập phụ số thập phân (5.1, 69.1...) nối tiếp một video chính, xem _ghi_chu trong file
 # Ảnh của video mới (scripts/tao_anh.py): ảnh bìa, ảnh cảnh trong bài. Video không có trong file thì bài giữ như cũ.
@@ -1015,59 +1016,87 @@ def cac_bai_phu():
 
 # ---------- từ điển ----------
 def tao_tu_dien():
+    # Thẻ ảnh theo chủ đề (Sang chọn mockup A 20/10): ô Hỏi Bit ở đầu, thẻ "Từ hôm nay", mỗi chủ đề một hàng thẻ vuốt ngang.
+    # Ảnh thẻ = bìa series của video chính. Hỏi Bit (hoi-bit.js) chạy ngay trên trang này; hoi-bit.html chỉ còn chuyển hướng về đây.
     p = t("", "../")  # về thư mục gốc; trang nằm cạnh index của ngôn ngữ nên link bài viết vẫn là "bai/..."
     ds = sorted(tu_dien, key=lambda x: norm(x["thuat_ngu"]))
-    nhom_chu = {}
-    for x in ds:
-        nhom_chu.setdefault(norm(x["thuat_ngu"])[0].upper(), []).append(x)
-    def muc(x):
-        vs = x["video"]
-        chinh = co_bai[vs[0]]
-        khac = "".join(f'<a href="bai/{ten_file(co_bai[n])}.html">#{n:02d}</a>' for n in vs[1:])
-        key = norm(" ".join([x["thuat_ngu"], x.get("tieng_viet", ""), x["giai_thich"]]))
-        return (f'<li class="term" id="{x["id"]}" data-k="{esc(key)}">\n<h3>{esc(x["thuat_ngu"])}' +
-                (f' <span class="term-vi">{esc(x["tieng_viet"])}</span>' if x.get("tieng_viet") else "") +
-                f'</h3>\n<p>{esc(x["giai_thich"])}</p>\n<p class="term-links"><a class="term-main" href="bai/{ten_file(chinh)}.html">{t("Đọc bài", "Read article")} #{chinh["so"]:02d}: {esc(seo[str(chinh["so"])])}</a>' +
-                (f'<span class="term-more">{t("Xem thêm", "See also")} {khac}</span>' if khac else "") + "</p>\n</li>")
-    chu_cai = "".join(f'<a href="#chu-{c}">{c}</a>' for c in nhom_chu)
-    khoi = "\n".join(f'<section class="letter" id="chu-{c}" aria-labelledby="h-{c}">\n<h2 id="h-{c}">{c}</h2>\n<ul class="terms">\n' + "\n".join(muc(x) for x in ts) + "\n</ul>\n</section>" for c, ts in nhom_chu.items())
+    def bia(x):
+        b = SERIES_BIA.get(nhom_cua[x["video"][0]]["id"], {}).get("bia")
+        return p + b if b else p + "assets/og.png"
+    def xem(x):
+        so = x["video"][0]
+        return yt_url(YT_ID[str(so)]) if str(so) in YT_ID else f'bai/{ten_file(co_bai[so])}.html'
+    def the(x):
+        chinh = co_bai[x["video"][0]]
+        return (f'<li class="tdai-the" id="{x["id"]}" data-xem="{esc(xem(x))}">\n<a href="bai/{ten_file(chinh)}.html">'
+                f'<img src="{bia(x)}" alt="" width="480" height="270" loading="lazy" decoding="async">\n<span class="tdai-chu">'
+                f'<b class="tdai-ten">{esc(x["thuat_ngu"])}</b>' + (f'<span class="tdai-vi">{esc(x["tieng_viet"])}</span>' if x.get("tieng_viet") else "") +
+                f'<span class="tdai-nghia">{esc(x["giai_thich"])}</span><span class="tdai-so">{t("Video", "Video")} #{chinh["so"]:02d} ›</span></span></a>\n</li>')
+    khoi = []
+    for cd in TD_CHU_DE:
+        ts = sorted((x for x in ds if x.get("chu_de") == cd["id"]), key=lambda x: (x["video"][0], norm(x["thuat_ngu"])))
+        if not ts:
+            continue
+        ten = t(cd["ten"], cd["en"])
+        khoi.append(f'<section class="tdai-ke" id="cd-{cd["id"]}" aria-labelledby="h-{cd["id"]}">\n<div class="tdai-ke-dau"><h2 id="h-{cd["id"]}">{esc(ten)} '
+                    f'<span>{len(ts)} {t("chữ", "terms")}</span></h2><button type="button" class="tdai-het" aria-expanded="false" aria-controls="ds-{cd["id"]}">{t("Xem hết", "See all")}</button></div>\n'
+                    f'<ul class="tdai-hang" id="ds-{cd["id"]}">\n' + "\n".join(the(x) for x in ts) + "\n</ul>\n</section>")
     n = len(ds)
-    desc = t(f"Giải thích {n} thuật ngữ AI bằng tiếng Việt dễ hiểu: token, embedding, attention, prompt, context, RAG, fine-tuning, MCP… Mỗi chữ một dòng, kèm bài viết và video.",
-             f"{n} AI terms explained in plain English: token, embedding, attention, prompt, context, RAG, fine-tuning, MCP… One line per term, with an article and a video.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{n} {t("thuật ngữ · cập nhật theo video mới", "terms · updated with each new video")}</p>\n<h1>{t("Từ điển AI", "AI glossary")}</h1>\n'
-            f'<p class="lead">{t("Gặp chữ lạ trên báo hay trong app AI? Mỗi thuật ngữ một dòng giải thích bằng tiếng Việt đời thường, kèm bài viết và video để hiểu kỹ hơn. Thuật ngữ giữ nguyên tiếng Anh để bạn nhận ra khi gặp lại.", "Saw a strange word in the news or in an AI app? Each term gets one line in everyday words, plus an article and a video (in Vietnamese) if you want to go deeper.")}</p>\n'
+    x0 = ds[0]
+    desc = t(f"Giải thích {n} thuật ngữ AI bằng tiếng Việt dễ hiểu, xếp theo {len(khoi)} chủ đề: token, embedding, prompt, RAG, MCP, deepfake… Mỗi chữ một thẻ, kèm video. Hỏi Bit bất cứ chữ nào.",
+             f"{n} AI terms explained in plain English, grouped into {len(khoi)} topics: token, embedding, prompt, RAG, MCP, deepfake… One card per term, with a video. Ask Bit about any word.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{n} {t("thuật ngữ", "terms")} · {len(khoi)} {t("chủ đề", "topics")}</p>\n<h1>{t("Từ điển AI", "AI glossary")}</h1>\n'
+            f'<p class="lead">{t("Gặp chữ lạ trên báo hay trong app AI? Mỗi chữ một thẻ giải thích bằng tiếng Việt đời thường, kèm video để hiểu kỹ hơn.", "Saw a strange word in the news or in an AI app? Each term gets one card in everyday words, plus a video (in Vietnamese) if you want to go deeper.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/mark-chao.svg" alt="{t("Mark vẫy tay chào", "Mark waving hello")}" width="180" height="170"></div>')
-    main = (f'<main class="dict">\n<div class="dict-tools">\n<label class="search" for="loc"><span class="sr">{t("Lọc thuật ngữ", "Filter terms")}</span>'
-            f'<input id="loc" type="search" placeholder="{t("Lọc: token, RAG, nhái giọng…", "Filter: token, RAG, voice clone…")}" autocomplete="off"></label>\n'
-            f'<p class="dict-count" id="dem" aria-live="polite">{n} {t("thuật ngữ", "terms")}</p>\n</div>\n<nav class="az" aria-label="{t("Theo chữ cái", "By letter")}">{chu_cai}</nav>\n'
-            f'{khoi}\n<div class="empty" id="rong" hidden><img src="{p}assets/mark-thac-mac.svg" alt="" width="120" height="113"><p>'
-            f'{t("Chưa có thuật ngữ này. Thử chữ khác, hoặc tìm trong", "No term matches yet. Try another word, or look in the")} <a href="./#video">{t("danh sách video", "video list")}</a>.</p></div>\n'
-            f'<aside class="pdf-card">\n<div><b>{t("Tải 50 prompt mẫu (PDF)", "50 prompt templates (PDF, in Vietnamese)")}</b><span>{t("Prompt viết sẵn cho việc hằng ngày, điền chỗ trống là dùng được.", "Ready-made prompts for everyday tasks: fill in the blanks and use them. The PDF is in Vietnamese.")}</span></div>\n'
+    goi_y = t(["Deepfake là gì?", "Vì sao AI bịa mà vẫn tự tin?", "Token là gì?", "Có nên dán mật khẩu vào chatbot?"],
+              ["What is a deepfake?", "Why does AI make things up?", "What is a token?", "Should I paste passwords into a chatbot?"])
+    hoi = (f'<section class="tdai-hoi" id="hoi-bit" aria-labelledby="h-hoi">\n<div class="tdai-hoi-dau"><img src="{p}assets/bit-giai-thich.svg" alt="" width="56" height="56">'
+           f'<div><h2 id="h-hoi">{t("Hỏi Bit", "Ask Bit")}</h2><p>{t("Gõ chữ lạ hoặc cả câu hỏi, Bit chỉ đúng đoạn video giải thích.", "Type a word or a whole question, and Bit points to the exact part of a video that explains it.")}</p></div></div>\n'
+           f'<form class="hb-form" id="hb-form" role="search"><label class="sr" for="hb-q">{t("Câu hỏi của bạn", "Your question")}</label>'
+           f'<input id="hb-q" type="search" name="q" placeholder="{t("Ví dụ: token là gì?", "e.g. what is a token?")}" autocomplete="off" enterkeyhint="search">'
+           f'<button class="btn btn-yt" type="submit">{t("Hỏi", "Ask")}</button></form>\n'
+           f'<div class="hb-goi-y">' + "".join(f'<button type="button">{esc(g)}</button>' for g in goi_y) + '</div>\n'
+           f'<div class="hb-kq" id="hb-kq" aria-live="polite"></div>\n</section>')
+    hom_nay = (f'<section class="tdai-nay" aria-labelledby="tdai-nay-ten">\n<img id="tdai-nay-anh" src="{bia(x0)}" alt="" width="480" height="270">\n<div class="tdai-nay-chu">'
+               f'<p class="tdai-nhan">{t("Từ hôm nay", "Word of the day")}<span id="tdai-nay-ngay"></span></p>'
+               f'<h2 id="tdai-nay-ten">{esc(x0["thuat_ngu"])}</h2><p class="tdai-vi" id="tdai-nay-vi">{esc(x0.get("tieng_viet", ""))}</p>'
+               f'<p id="tdai-nay-nghia">{esc(x0["giai_thich"])}</p>\n<div class="cta"><a class="btn btn-yt" id="tdai-nay-xem" href="{esc(xem(x0))}">{t("Xem video", "Watch video")} #{x0["video"][0]:02d}</a>'
+               f'<a class="btn" id="tdai-nay-doc" href="bai/{ten_file(co_bai[x0["video"][0]])}.html">{t("Đọc bài", "Read the article")}</a></div>\n</div>\n</section>')
+    main = (f'<main class="dict tdai">\n<link rel="stylesheet" href="{p}assets/tu-dien.css?v=dev">\n{hoi}\n{hom_nay}\n' + "\n".join(khoi) +
+            f'\n<aside class="pdf-card">\n<div><b>{t("Tải 50 prompt mẫu (PDF)", "50 prompt templates (PDF, in Vietnamese)")}</b><span>{t("Prompt viết sẵn cho việc hằng ngày, điền chỗ trống là dùng được.", "Ready-made prompts for everyday tasks: fill in the blanks and use them. The PDF is in Vietnamese.")}</span></div>\n'
             f'<a class="btn btn-yt" href="{p}{PDF}" download>{t("Tải 50 prompt mẫu (PDF)", "Download the PDF")}</a>\n</aside>\n</main>')
-    js = """<script>
-(function () {
-  var norm = function (s) { return (s || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase(); };
-  var input = document.getElementById("loc"), dem = document.getElementById("dem"), rong = document.getElementById("rong");
-  var items = Array.prototype.slice.call(document.querySelectorAll(".term"));
-  var letters = Array.prototype.slice.call(document.querySelectorAll(".letter"));
-  var az = document.querySelector(".az");
-  function loc() {
-    var q = norm(input.value.trim()), words = q ? q.split(/\\s+/) : [], n = 0;
-    items.forEach(function (li) {
-      var ok = words.every(function (w) { return li.getAttribute("data-k").indexOf(w) !== -1; });
-      li.hidden = !ok; if (ok) n++;
-    });
-    letters.forEach(function (s) { s.hidden = !s.querySelector(".term:not([hidden])"); });
-    az.hidden = !!q;
-    dem.textContent = q ? n + " / " + items.length + " thuật ngữ" : items.length + " thuật ngữ";
-    rong.hidden = n > 0;
-  }
-  input.addEventListener("input", loc);
-})();
+    js = f"""<script src="{p}hoi-bit.js?v=dev" defer></script>
+<script>
+(function () {{
+  // Từ hôm nay: mỗi ngày một thẻ, theo ngày giờ máy người xem, ai vào cùng ngày cũng thấy cùng chữ
+  var the = document.querySelectorAll(".tdai-the"), now = new Date();
+  if (the.length) {{
+    var ngay = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 864e5);
+    var c = the[(ngay * 37) % the.length], $ = function (id) {{ return document.getElementById(id); }};
+    var vi = c.querySelector(".tdai-vi"), so = c.querySelector(".tdai-so").textContent.match(/#\\d+/)[0];
+    $("tdai-nay-anh").src = c.querySelector("img").src;
+    $("tdai-nay-ten").textContent = c.querySelector(".tdai-ten").textContent;
+    $("tdai-nay-vi").textContent = vi ? vi.textContent : "";
+    $("tdai-nay-nghia").textContent = c.querySelector(".tdai-nghia").textContent;
+    $("tdai-nay-xem").textContent = {t('"Xem video "', '"Watch video "')} + so;
+    $("tdai-nay-xem").href = c.getAttribute("data-xem");
+    $("tdai-nay-doc").href = c.querySelector("a").getAttribute("href");
+    $("tdai-nay-ngay").textContent = " · " + now.getDate() + "/" + (now.getMonth() + 1);
+  }}
+  // Xem hết: hàng vuốt ngang mở thành lưới
+  document.querySelectorAll(".tdai-het").forEach(function (b) {{
+    var ke = b.closest(".tdai-ke"), mo = {t('"Xem hết"', '"See all"')}, gon = {t('"Thu gọn"', '"Show less"')};
+    b.addEventListener("click", function () {{
+      var m = !ke.classList.contains("mo");
+      ke.classList.toggle("mo", m);
+      b.setAttribute("aria-expanded", m);
+      b.textContent = m ? gon : mo;
+      if (!m) ke.scrollIntoView({{ block: "nearest" }});
+    }});
+  }});
+}})();
 </script>
 """
-    if LG == "en":
-        js = js.replace('" thuật ngữ"', '" terms"')
     url = BASE + GOC + "tu-dien.html"
     jsonld = [{"@context": "https://schema.org", "@type": "DefinedTermSet", "name": t("Từ điển AI", "AI glossary"), "url": url, "inLanguage": LG,
                "description": desc, "publisher": TO_CHUC,

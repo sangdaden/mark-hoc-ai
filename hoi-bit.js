@@ -1,4 +1,4 @@
-// Hỏi Bit (hoi-bit.html, en/hoi-bit.html): gõ câu hỏi tự nhiên, Bit trả lời bằng đúng đoạn nội dung trong video của kênh.
+// Hỏi Bit (ô đầu trang tu-dien.html, en/tu-dien.html; hoi-bit.html cũ chỉ còn chuyển về đó từ 20/10): gõ câu hỏi tự nhiên, Bit trả lời bằng đúng đoạn nội dung trong video của kênh.
 // Không có server: data/hoi-dap.json (scripts/tao_hoi_dap.py) chứa các đoạn của mọi bài video + Từ điển AI, trang chấm điểm ngay trên trình duyệt
 // (BM25 trên từ đã bỏ dấu + cặp từ liền nhau, tiêu đề mục nặng gấp đôi), nên chỉ trả lời bằng nội dung đã có trên kênh. Sang góp ý 11/10/2026.
 (function () {

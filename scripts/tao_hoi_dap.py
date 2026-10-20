@@ -1,4 +1,4 @@
-"""Tạo dữ liệu cho trang Hỏi Bit (hoi-bit.html, en/hoi-bit.html): mỗi video là các đoạn nội dung lấy từ bài viết bai/*.html
+"""Tạo dữ liệu cho Hỏi Bit (ô đầu trang tu-dien.html, en/tu-dien.html): mỗi video là các đoạn nội dung lấy từ bài viết bai/*.html
 (tiêu đề mục + lời đọc + hộp Thử ngay), cộng các mục Từ điển AI. Trang hỏi đáp chấm điểm các đoạn này ngay trên trình duyệt,
 nên chỉ trả lời bằng nội dung của kênh.
 
