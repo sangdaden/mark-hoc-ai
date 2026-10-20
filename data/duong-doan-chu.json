@@ -1,0 +1,584 @@
+{
+ "_ghi_chu": "Game Đường đoán chữ, kiểu Câu cá chữ (duong-doan-chu.html, duong-doan-chu.js). Mỗi màn là một câu: mỗi 'buoc' là một hồ cá, mỗi chữ là một đàn cá, 'p' là tỉ lệ chữ đó đứng sau (số cá theo p^(1/nhiệt độ)). 'bia': chữ vô nghĩa hoặc sai sự thật, câu phải là ảo giác, mất tim. 'truoc' là chữ tự thêm vào câu trước bước đó. Không bắt buộc: 'meo' câu nhắc đầu màn, 'giau': cá rác trông như cá thường, 'toc': hệ số tốc độ cá. Video 7 (chatbot đoán chữ), 24 (nhiệt độ), 8 (ảo giác).",
+ "man": [
+  {
+   "id": "troi",
+   "ten": {
+    "vi": "Trời hôm nay",
+    "en": "Today's weather"
+   },
+   "dau": {
+    "vi": "Hôm nay trời rất",
+    "en": "Today the weather is very"
+   },
+   "buoc": [
+    {
+     "truoc": {
+      "vi": "",
+      "en": ""
+     },
+     "chu": [
+      {
+       "vi": "đẹp",
+       "en": "nice",
+       "p": 0.58
+      },
+      {
+       "vi": "nóng",
+       "en": "hot",
+       "p": 0.27
+      },
+      {
+       "vi": "lạnh",
+       "en": "cold",
+       "p": 0.11
+      },
+      {
+       "vi": "cá",
+       "en": "banana",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ",",
+      "en": ","
+     },
+     "chu": [
+      {
+       "vi": "nên",
+       "en": "so",
+       "p": 0.52
+      },
+      {
+       "vi": "thế là",
+       "en": "and then",
+       "p": 0.26
+      },
+      {
+       "vi": "vậy mà",
+       "en": "but still",
+       "p": 0.14
+      },
+      {
+       "vi": "bàn phím",
+       "en": "keyboard",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "Mark rủ Bit đi",
+      "en": "Mark asks Bit to go"
+     },
+     "chu": [
+      {
+       "vi": "dạo",
+       "en": "for a walk",
+       "p": 0.49
+      },
+      {
+       "vi": "biển",
+       "en": "to the beach",
+       "p": 0.31
+      },
+      {
+       "vi": "ăn kem",
+       "en": "for ice cream",
+       "p": 0.15
+      },
+      {
+       "vi": "lên sao Hỏa bằng xe đạp",
+       "en": "to Mars by bike",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "cả",
+      "en": "for"
+     },
+     "chu": [
+      {
+       "vi": "buổi chiều",
+       "en": "the afternoon",
+       "p": 0.5
+      },
+      {
+       "vi": "ngày",
+       "en": "the whole day",
+       "p": 0.3
+      },
+      {
+       "vi": "tiếng đồng hồ",
+       "en": "an hour",
+       "p": 0.12
+      },
+      {
+       "vi": "nghìn năm",
+       "en": "a thousand years",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    }
+   ],
+   "cuoi": {
+    "vi": ".",
+    "en": "."
+   }
+  },
+  {
+   "id": "ba",
+   "ten": {
+    "vi": "Nhắn cho bà",
+    "en": "A text to Grandma"
+   },
+   "meo": {
+    "vi": "Câu nào nhắn cho bà cũng nên ấm áp. Coi chừng cá rác khi khuấy hồ!",
+    "en": "A text to Grandma should feel warm. Watch for junk fish when you stir the lake!"
+   },
+   "dau": {
+    "vi": "Bà ơi, cuối tuần này con sẽ",
+    "en": "Grandma, this weekend I will"
+   },
+   "buoc": [
+    {
+     "truoc": {
+      "vi": "",
+      "en": ""
+     },
+     "chu": [
+      {
+       "vi": "về thăm bà",
+       "en": "come and visit you",
+       "p": 0.55
+      },
+      {
+       "vi": "gọi điện cho bà",
+       "en": "give you a call",
+       "p": 0.25
+      },
+      {
+       "vi": "gửi quà cho bà",
+       "en": "send you a present",
+       "p": 0.15
+      },
+      {
+       "vi": "bơi qua Thái Bình Dương",
+       "en": "swim across the Pacific",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "nhé. Con sẽ mang theo",
+      "en": ". I'll bring"
+     },
+     "chu": [
+      {
+       "vi": "bánh",
+       "en": "some cake",
+       "p": 0.5
+      },
+      {
+       "vi": "hoa quả",
+       "en": "some fruit",
+       "p": 0.3
+      },
+      {
+       "vi": "ảnh mới",
+       "en": "new photos",
+       "p": 0.14
+      },
+      {
+       "vi": "một con khủng long",
+       "en": "a dinosaur",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "và kể bà nghe chuyện",
+      "en": "and tell you all about"
+     },
+     "chu": [
+      {
+       "vi": "đi học",
+       "en": "school",
+       "p": 0.48
+      },
+      {
+       "vi": "đi làm",
+       "en": "work",
+       "p": 0.3
+      },
+      {
+       "vi": "kênh Mark Học AI",
+       "en": "the Mark Học AI channel",
+       "p": 0.16
+      },
+      {
+       "vi": "con mèo biết lái máy bay",
+       "en": "my cat who flies planes",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ". Bà nhớ",
+      "en": ". Please remember to"
+     },
+     "chu": [
+      {
+       "vi": "giữ sức khỏe",
+       "en": "look after yourself",
+       "p": 0.55
+      },
+      {
+       "vi": "ăn uống đầy đủ",
+       "en": "eat well",
+       "p": 0.27
+      },
+      {
+       "vi": "đi ngủ sớm",
+       "en": "get to bed early",
+       "p": 0.14
+      },
+      {
+       "vi": "tắt mặt trời trước khi ngủ",
+       "en": "switch off the sun before bed",
+       "p": 0.01,
+       "bia": true
+      }
+     ]
+    }
+   ],
+   "cuoi": {
+    "vi": ". Con thương bà!",
+    "en": ". Love you!"
+   }
+  },
+  {
+   "id": "ha-noi",
+   "ten": {
+    "vi": "Hỏi chatbot về Hà Nội",
+    "en": "Ask a chatbot about Hanoi"
+   },
+   "giau": true,
+   "meo": {
+    "vi": "Màn này cá rác trông y như cá thật: AI bịa nghe rất thật. Đọc kỹ chữ rồi mới câu!",
+    "en": "Here junk fish look just like real ones: AI makes things up that sound true. Read each word before you cast!"
+   },
+   "dau": {
+    "vi": "Thủ đô của Việt Nam là",
+    "en": "The capital of Vietnam is"
+   },
+   "buoc": [
+    {
+     "truoc": {
+      "vi": "",
+      "en": ""
+     },
+     "chu": [
+      {
+       "vi": "Hà Nội",
+       "en": "Hanoi",
+       "p": 0.82
+      },
+      {
+       "vi": "thành phố Hà Nội",
+       "en": "the city of Hanoi",
+       "p": 0.12
+      },
+      {
+       "vi": "Huế",
+       "en": "Hue",
+       "p": 0.03,
+       "bia": true
+      },
+      {
+       "vi": "Đà Lạt",
+       "en": "Da Lat",
+       "p": 0.02,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ", nằm bên bờ sông",
+      "en": ", on the banks of the"
+     },
+     "chu": [
+      {
+       "vi": "Hồng",
+       "en": "Red River",
+       "p": 0.78
+      },
+      {
+       "vi": "Hồng nhiều phù sa",
+       "en": "silt-rich Red River",
+       "p": 0.14
+      },
+      {
+       "vi": "Sài Gòn",
+       "en": "Saigon River",
+       "p": 0.04,
+       "bia": true
+      },
+      {
+       "vi": "Mê Kông",
+       "en": "Mekong",
+       "p": 0.03,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ". Hồ nổi tiếng nhất ở đây là hồ",
+      "en": ". Its most famous lake is"
+     },
+     "chu": [
+      {
+       "vi": "Hoàn Kiếm",
+       "en": "Hoan Kiem Lake",
+       "p": 0.7
+      },
+      {
+       "vi": "Gươm",
+       "en": "the Lake of the Sword",
+       "p": 0.2
+      },
+      {
+       "vi": "Xuân Hương",
+       "en": "Xuan Huong Lake",
+       "p": 0.04,
+       "bia": true
+      },
+      {
+       "vi": "Ba Bể",
+       "en": "Ba Be Lake",
+       "p": 0.03,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ", giữa hồ có",
+      "en": ", with"
+     },
+     "chu": [
+      {
+       "vi": "Tháp Rùa",
+       "en": "the Turtle Tower",
+       "p": 0.62
+      },
+      {
+       "vi": "một ngôi tháp cổ",
+       "en": "an old tower",
+       "p": 0.28
+      },
+      {
+       "vi": "tháp Eiffel",
+       "en": "the Eiffel Tower",
+       "p": 0.03,
+       "bia": true
+      },
+      {
+       "vi": "chùa Thiên Mụ",
+       "en": "Thien Mu Pagoda",
+       "p": 0.03,
+       "bia": true
+      }
+     ]
+    }
+   ],
+   "cuoi": {
+    "vi": ".",
+    "en": " in the middle."
+   }
+  },
+  {
+   "id": "truyen",
+   "ten": {
+    "vi": "Truyện trước giờ ngủ",
+    "en": "A bedtime story"
+   },
+   "toc": 1.25,
+   "meo": {
+    "vi": "Câu dài hơn, cá bơi nhanh hơn, và cá rác có cả khi nhiệt độ 1. Truyện thì nên sáng tạo, nhưng đừng vô nghĩa!",
+    "en": "A longer sentence, faster fish, and junk fish even at temperature 1. Stories should be creative, but not nonsense!"
+   },
+   "dau": {
+    "vi": "Ngày xửa ngày xưa, có một chú robot",
+    "en": "Once upon a time, there was a little robot"
+   },
+   "buoc": [
+    {
+     "truoc": {
+      "vi": "",
+      "en": ""
+     },
+     "chu": [
+      {
+       "vi": "tên là Bit",
+       "en": "named Bit",
+       "p": 0.5
+      },
+      {
+       "vi": "rất tò mò",
+       "en": "who was very curious",
+       "p": 0.28
+      },
+      {
+       "vi": "sống trên mặt trăng",
+       "en": "who lived on the moon",
+       "p": 0.14
+      },
+      {
+       "vi": "nặng âm năm ký",
+       "en": "who weighed minus five kilos",
+       "p": 0.04,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ". Một hôm, chú",
+      "en": ". One day, it"
+     },
+     "chu": [
+      {
+       "vi": "đi tìm bạn",
+       "en": "went looking for a friend",
+       "p": 0.46
+      },
+      {
+       "vi": "tập vẽ tranh",
+       "en": "tried painting",
+       "p": 0.28
+      },
+      {
+       "vi": "lạc vào khu rừng",
+       "en": "got lost in a forest",
+       "p": 0.18
+      },
+      {
+       "vi": "ngủ quên vào hôm qua",
+       "en": "overslept into yesterday",
+       "p": 0.04,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "và gặp",
+      "en": "and met"
+     },
+     "chu": [
+      {
+       "vi": "Mark",
+       "en": "Mark",
+       "p": 0.5
+      },
+      {
+       "vi": "một chú mèo",
+       "en": "a cat",
+       "p": 0.28
+      },
+      {
+       "vi": "một ngôi sao rơi",
+       "en": "a fallen star",
+       "p": 0.16
+      },
+      {
+       "vi": "số bảy màu xanh vị mặn",
+       "en": "a salty green number seven",
+       "p": 0.04,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": ". Hai bạn cùng nhau",
+      "en": ". Together they"
+     },
+     "chu": [
+      {
+       "vi": "chơi đến tối",
+       "en": "played until dark",
+       "p": 0.48
+      },
+      {
+       "vi": "làm một con diều",
+       "en": "built a kite",
+       "p": 0.3
+      },
+      {
+       "vi": "đếm sao",
+       "en": "counted the stars",
+       "p": 0.16
+      },
+      {
+       "vi": "uống cầu vồng bằng nĩa",
+       "en": "drank a rainbow with a fork",
+       "p": 0.04,
+       "bia": true
+      }
+     ]
+    },
+    {
+     "truoc": {
+      "vi": "và từ đó",
+      "en": "and from then on they"
+     },
+     "chu": [
+      {
+       "vi": "trở thành bạn thân",
+       "en": "were best friends",
+       "p": 0.6
+      },
+      {
+       "vi": "gặp nhau mỗi ngày",
+       "en": "met every day",
+       "p": 0.25
+      },
+      {
+       "vi": "không còn cô đơn",
+       "en": "were never lonely",
+       "p": 0.12
+      },
+      {
+       "vi": "biến thành thứ Ba",
+       "en": "turned into Tuesday",
+       "p": 0.04,
+       "bia": true
+      }
+     ]
+    }
+   ],
+   "cuoi": {
+    "vi": ".",
+    "en": "."
+   }
+  }
+ ]
+}

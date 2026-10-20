@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đường đoán chữ: game chatbot đoán chữ tiếp theo</title>
+<meta name="description" content="Game miễn phí: thả câu xuống hồ cá chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Chữ càng hay gặp thì đàn cá càng đông, tăng nhiệt độ thì cá chữ…">
+<link rel="canonical" href="https://markhocai.com/duong-doan-chu.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/duong-doan-chu.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/duong-doan-chu.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/duong-doan-chu.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Đường đoán chữ: game chatbot đoán chữ tiếp theo">
+<meta property="og:description" content="Game miễn phí: thả câu xuống hồ cá chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Chữ càng hay gặp thì đàn cá càng đông, tăng nhiệt độ thì cá chữ…">
+<meta property="og:url" content="https://markhocai.com/duong-doan-chu.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="duong-doan-chu.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Đường đoán chữ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+<script src="tien-do.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html" aria-current="page">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a href="bai-bao.html">Bài báo AI</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Game miễn phí · 4 màn</p>
+<h1>Đường đoán chữ</h1>
+<p class="lead">Mark câu từng chữ trong hồ để viết câu, y như chatbot đoán chữ tiếp theo. Chữ hay gặp thì cá đông. Khuấy nhiệt độ để xem câu sáng tạo hơn hay bịa hơn.</p>
+</div><img class="head-art" src="assets/mark-chao.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="pl pl-game ddc" id="ddc">
+  <div class="pl-khung ddc-khung" id="ddc-khung">
+    <canvas class="pl-canvas" id="ddc-canvas" tabindex="0" aria-label="Màn hình game"></canvas>
+    <div class="pl-nut-tren"><button type="button" class="pl-toan" id="ddc-toan" aria-label="Chơi toàn màn hình" aria-pressed="false"></button></div>
+    <div class="pl-man" id="ddc-man"></div>
+  </div>
+  <div class="pl-dk ddc-dk" id="ddc-dk" role="group" aria-label="Nút điều khiển"><button type="button" data-k="nhiet" class="ddc-nhiet" id="ddc-nhiet" aria-label="Đổi nhiệt độ">🌡</button></div>
+  <p class="pl-huong"><b>Cách chơi:</b> chạm hoặc bấm chuột xuống hồ để thả câu ở chỗ đó, Space để thả câu, T để đổi nhiệt độ. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang, bạn cầm ngang máy rồi chạm thẳng xuống hồ.</p>
+  <p class="pl-ghi">Tỉ lệ số cá là ví dụ minh họa cho dễ chơi. Tiến độ lưu trên trình duyệt này, không gửi đi đâu.</p>
+  <noscript><p>Game cần JavaScript. Bạn vẫn có thể <a href="phong-thi-nghiem-bo-nao.html?tram=doan-chu">đoán chữ ở Phòng bộ não</a>.</p></noscript>
+  <script type="application/json" id="ddc-du-lieu">{"man":[{"id":"troi","ten":"Trời hôm nay","dau":"Hôm nay trời rất","cuoi":".","buoc":[{"truoc":"","chu":[{"chu":"đẹp","p":0.58},{"chu":"nóng","p":0.27},{"chu":"lạnh","p":0.11},{"chu":"cá","p":0.01,"bia":true}]},{"truoc":",","chu":[{"chu":"nên","p":0.52},{"chu":"thế là","p":0.26},{"chu":"vậy mà","p":0.14},{"chu":"bàn phím","p":0.01,"bia":true}]},{"truoc":"Mark rủ Bit đi","chu":[{"chu":"dạo","p":0.49},{"chu":"biển","p":0.31},{"chu":"ăn kem","p":0.15},{"chu":"lên sao Hỏa bằng xe đạp","p":0.01,"bia":true}]},{"truoc":"cả","chu":[{"chu":"buổi chiều","p":0.5},{"chu":"ngày","p":0.3},{"chu":"tiếng đồng hồ","p":0.12},{"chu":"nghìn năm","p":0.01,"bia":true}]}]},{"id":"ba","ten":"Nhắn cho bà","dau":"Bà ơi, cuối tuần này con sẽ","cuoi":". Con thương bà!","meo":"Câu nào nhắn cho bà cũng nên ấm áp. Coi chừng cá rác khi khuấy hồ!","buoc":[{"truoc":"","chu":[{"chu":"về thăm bà","p":0.55},{"chu":"gọi điện cho bà","p":0.25},{"chu":"gửi quà cho bà","p":0.15},{"chu":"bơi qua Thái Bình Dương","p":0.01,"bia":true}]},{"truoc":"nhé. Con sẽ mang theo","chu":[{"chu":"bánh","p":0.5},{"chu":"hoa quả","p":0.3},{"chu":"ảnh mới","p":0.14},{"chu":"một con khủng long","p":0.01,"bia":true}]},{"truoc":"và kể bà nghe chuyện","chu":[{"chu":"đi học","p":0.48},{"chu":"đi làm","p":0.3},{"chu":"kênh Mark Học AI","p":0.16},{"chu":"con mèo biết lái máy bay","p":0.01,"bia":true}]},{"truoc":". Bà nhớ","chu":[{"chu":"giữ sức khỏe","p":0.55},{"chu":"ăn uống đầy đủ","p":0.27},{"chu":"đi ngủ sớm","p":0.14},{"chu":"tắt mặt trời trước khi ngủ","p":0.01,"bia":true}]}]},{"id":"ha-noi","ten":"Hỏi chatbot về Hà Nội","dau":"Thủ đô của Việt Nam là","cuoi":".","meo":"Màn này cá rác trông y như cá thật: AI bịa nghe rất thật. Đọc kỹ chữ rồi mới câu!","giau":true,"buoc":[{"truoc":"","chu":[{"chu":"Hà Nội","p":0.82},{"chu":"thành phố Hà Nội","p":0.12},{"chu":"Huế","p":0.03,"bia":true},{"chu":"Đà Lạt","p":0.02,"bia":true}]},{"truoc":", nằm bên bờ sông","chu":[{"chu":"Hồng","p":0.78},{"chu":"Hồng nhiều phù sa","p":0.14},{"chu":"Sài Gòn","p":0.04,"bia":true},{"chu":"Mê Kông","p":0.03,"bia":true}]},{"truoc":". Hồ nổi tiếng nhất ở đây là hồ","chu":[{"chu":"Hoàn Kiếm","p":0.7},{"chu":"Gươm","p":0.2},{"chu":"Xuân Hương","p":0.04,"bia":true},{"chu":"Ba Bể","p":0.03,"bia":true}]},{"truoc":", giữa hồ có","chu":[{"chu":"Tháp Rùa","p":0.62},{"chu":"một ngôi tháp cổ","p":0.28},{"chu":"tháp Eiffel","p":0.03,"bia":true},{"chu":"chùa Thiên Mụ","p":0.03,"bia":true}]}]},{"id":"truyen","ten":"Truyện trước giờ ngủ","dau":"Ngày xửa ngày xưa, có một chú robot","cuoi":".","meo":"Câu dài hơn, cá bơi nhanh hơn, và cá rác có cả khi nhiệt độ 1. Truyện thì nên sáng tạo, nhưng đừng vô nghĩa!","toc":1.25,"buoc":[{"truoc":"","chu":[{"chu":"tên là Bit","p":0.5},{"chu":"rất tò mò","p":0.28},{"chu":"sống trên mặt trăng","p":0.14},{"chu":"nặng âm năm ký","p":0.04,"bia":true}]},{"truoc":". Một hôm, chú","chu":[{"chu":"đi tìm bạn","p":0.46},{"chu":"tập vẽ tranh","p":0.28},{"chu":"lạc vào khu rừng","p":0.18},{"chu":"ngủ quên vào hôm qua","p":0.04,"bia":true}]},{"truoc":"và gặp","chu":[{"chu":"Mark","p":0.5},{"chu":"một chú mèo","p":0.28},{"chu":"một ngôi sao rơi","p":0.16},{"chu":"số bảy màu xanh vị mặn","p":0.04,"bia":true}]},{"truoc":". Hai bạn cùng nhau","chu":[{"chu":"chơi đến tối","p":0.48},{"chu":"làm một con diều","p":0.3},{"chu":"đếm sao","p":0.16},{"chu":"uống cầu vồng bằng nĩa","p":0.04,"bia":true}]},{"truoc":"và từ đó","chu":[{"chu":"trở thành bạn thân","p":0.6},{"chu":"gặp nhau mỗi ngày","p":0.25},{"chu":"không còn cô đơn","p":0.12},{"chu":"biến thành thứ Ba","p":0.04,"bia":true}]}]}],"nhan":{"goiY":"Chạm xuống hồ để thả câu","phoBien":"Chữ hay gặp","sangTao":"Sáng tạo","aoGiac":"Câu phải cá rác: ảo giác!","nhietThap":"Nhiệt độ thấp: đàn cá chữ hay gặp đông hơn, cá chữ hiếm lặn mất","nhietVua":"Nhiệt độ 1: số cá đúng theo tỉ lệ ban đầu","nhietCao":"Nhiệt độ cao: hồ khuấy lên, cá bơi loạn, cá rác nổi lên","toanVao":"Chơi toàn màn hình","toanRa":"Thoát toàn màn hình","dong":"Đóng","meoIos":"Mẹo iPhone: bấm nút Chia sẻ rồi chọn “Thêm vào MH chính”. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.","y1":"Đàn cá đông = chữ hay gặp","y1c":"Câu một con cá để chọn chữ tiếp theo, như chatbot.","y2":"Nút 🌡 khuấy hồ","y2c":"Nóng thì cá chữ lạ đông hơn, nhưng bơi loạn.","y3":"Coi chừng cá rác","y3c":"Chữ vô nghĩa là ảo giác, mất một tim.","batDau":"Bắt đầu","daChoi":"lần trước","qua":"Viết xong câu!","s1":"Viết hết câu","s2":"Không câu phải cá rác","cauBan":"Câu của bạn","cauMay":"Chatbot ở nhiệt độ thấp sẽ viết","bitDau":"Chatbot cũng câu chữ đúng như vậy","bitChu":"Mỗi bước nó bốc một chữ theo tỉ lệ đã học, như thả câu vào hồ: chữ nào đông thì dễ trúng. Nhiệt độ thấp thì gần như luôn ra chữ hay gặp nhất: an toàn nhưng câu nào cũng giống nhau. Nhiệt độ cao thì câu sáng tạo hơn, nhưng dễ bốc trúng chữ vô nghĩa: đó là lúc AI bịa.","thua":"Hết tim rồi","thuaChu":"Bit nhắn: cá rác chỉ đông lên khi hồ nóng. Thử hạ nhiệt độ xuống rồi câu lại nhé!","lai":"Chơi lại","xemVideo":"Xem video Chatbot đoán chữ","phongNao":"Tự đoán chữ ở Phòng bộ não","manSo":"Màn {n}","manTiep":"Màn tiếp","chonMan":"Chọn màn","khoa":"Thắng màn trước để mở","hetMan":"Bạn đã chơi hết {n} màn! Thử lại ở nhiệt độ khác xem câu đổi ra sao.","s3":"Câu sáng tạo: ít nhất 2 chữ không phải chữ hay gặp nhất (bạn có {n})"},"p":"","video":"bai/07-chatbot-doan-chu.html"}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <nav class="foot-hoc" aria-label="Học và thực hành"><b>Học</b><a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a><a href="lo-trinh-4-tuan.html">Lộ trình 4 tuần</a><a href="lo-trinh-nganh.html">Lộ trình theo nghề</a><a href="kiem-tra.html">Kiểm tra</a><a href="chung-nhan.html">Chứng nhận</a><a href="ho-so.html">Hồ sơ học</a><a href="bai-bao.html">Bài báo AI</a><b>Thực hành</b><a href="thuc-hanh.html">Góc thực hành</a><a href="ai-hoc-sinh.html">Học sinh</a><a href="ai-van-phong.html">Công chức</a><a href="ai-y-te.html">Y tế</a><a href="bo-hoc-lieu-ai.html">Học liệu 12 tiết</a></nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/tro-choi/duong-doan-chu.css?v=dev">
+<script src="duong-doan-chu.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"duong-doan-chu","buoc":[{"chon":"#ddc-khung","chu":"Mỗi đàn cá là **một chữ** có thể viết tiếp. Chữ càng *hay gặp* thì đàn càng đông, đúng như chatbot đoán chữ tiếp theo. **Chạm xuống hồ** để thả câu."},{"chon":"#ddc-nhiet","chu":"Nút [[🌡]] **khuấy hồ** (nhiệt độ). Thấp: cá chữ hay gặp đông hơn. Cao: cá chữ lạ đông lên nhưng !!bơi loạn!!."},{"chon":"#ddc-khung","chu":"Coi chừng !!cá rác!!: chữ vô nghĩa là ảo giác, câu phải là mất một tim. Hồ càng nóng, cá rác càng dễ nổi lên."},{"chon":"#ddc-man .btn","chu":"++3 sao++ khi viết hết câu, không câu phải cá rác, và chọn ít nhất 2 chữ *không phải* chữ hay gặp nhất."}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>
