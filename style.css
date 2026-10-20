@@ -3111,7 +3111,8 @@ html body .top, html body .foot-band .foot { max-width: 1240px; }
   .band .top-links.da-gom a[aria-current="page"] > span, .band .top-links.da-gom .nav-drop > summary.is-cur > span { text-decoration: underline; text-underline-offset: 4px; }
 }
 @media (max-width: 1100px) {
-  .top-links.da-gom > a > .ic { display: none; }
+  .band .top-links.da-gom > a:not(.nav-start):not(.nav-yt):not(.nav-vtk) { display: flex; align-items: center; gap: 10px; }
+  .top-links.da-gom > a > .ic { width: 20px; height: 20px; margin: 0; }
   /* Mở menu thì ẩn hàng icon cho khỏi hai chỗ cùng một link (Sang 20/10); trong menu, mục Chống lừa đảo đứng đầu nên bỏ dòng lặp trong Thực hành.
      Học, Thực hành là hàng bấm để xổ ra */
   .top.mo-menu .nav-dai { display: none; }
