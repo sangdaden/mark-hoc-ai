@@ -21,7 +21,7 @@
     caoNhat: (d, n) => "Best " + d + "/" + n, coCc: "Certificate unlocked",
     chiaSeChu: (d, n, t) => "I got " + d + "/" + n + " on the “" + t + "” quiz from Mark học AI. How many can you get?",
     daChep: "Link copied. Paste it into a message to send to your friends.", chepTay: "Copy this link to send to your friends: ",
-    tenNhan: "Name on your certificate", tenGoi: "Type your name", tenMau: "Your name here", fb: "Share on Facebook", guiAnh: "Send the image",
+    mayBia: "Fib Cloud", tenNhan: "Name on your certificate", tenGoi: "Type your name", tenMau: "Your name here", fb: "Share on Facebook", guiAnh: "Send the image",
     taiAnh: "Download PNG", trangCc: "Print PDF or add to LinkedIn", canTen: "Type your name first, then press the button again.",
     anhCc: (t, n) => "Certificate “" + t + "” for " + n, ccMoi: "Your certificate is ready",
     chiaSeCc: (t, s) => "I just got the “" + t + "” certificate from Mark học AI with " + s + " correct answers. How many can you get?"
@@ -41,7 +41,7 @@
     caoNhat: (d, n) => "Cao nhất " + d + "/" + n, coCc: "Đã có chứng nhận",
     chiaSeChu: (d, n, t) => "Mình được " + d + "/" + n + " câu trong bài kiểm tra “" + t + "” của Mark học AI. Bạn được mấy câu?",
     daChep: "Đã chép link, dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để gửi bạn bè: ",
-    tenNhan: "Tên in trên giấy chứng nhận", tenGoi: "Gõ tên của bạn", tenMau: "Tên của bạn", fb: "Chia sẻ lên Facebook", guiAnh: "Gửi ảnh chứng nhận",
+    mayBia: "Mây Bịa", tenNhan: "Tên in trên giấy chứng nhận", tenGoi: "Gõ tên của bạn", tenMau: "Tên của bạn", fb: "Chia sẻ lên Facebook", guiAnh: "Gửi ảnh chứng nhận",
     taiAnh: "Tải ảnh PNG", trangCc: "In PDF hoặc thêm vào LinkedIn", canTen: "Bạn gõ tên trước rồi bấm lại nhé.",
     anhCc: (t, n) => "Giấy chứng nhận “" + t + "” của " + n, ccMoi: "Giấy chứng nhận của bạn đây",
     chiaSeCc: (t, s) => "Mình vừa nhận giấy chứng nhận “" + t + "” của Mark học AI với " + s + " câu đúng. Bạn thử xem được mấy câu?"
@@ -115,10 +115,14 @@
     }
     ketCau[i] = ok;
     if (ok) dung++; else sai.push({ q, chon, dapAn });
-    const cuoi = i === Q.length - 1, m = ok ? "mark-chien-thang" : "mark-dau-dau";
+    const cuoi = i === Q.length - 1;
     const loiPhan = q.loai === "chon" ? (ok ? "" : S.dapAn(esc(dapAn))) : S.cauNay(q.dung);
-    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="' + goc + "assets/mascot/" + m +
-      '-tinh.webp"><img src="' + goc + "assets/mascot/" + m + '.webp" alt="" width="' + (ok ? 114 : 94) + '" height="150"></picture><div><p class="q-verdict">' + (ok ? S.dungRoi : S.chuaDung) + loiPhan +
+    // Câu đúng: Bit khen. Câu sai: Mây Bịa (AI hay bịa) hiện ra, vì hiểu lầm vừa "lừa" được bạn (dàn nhân vật phụ, Sang duyệt 20/10)
+    const hinh = ok
+      ? '<picture class="q-bit q-mascot"><source media="(prefers-reduced-motion: reduce)" srcset="' + goc + 'assets/mascot/bit-dang-noi-tinh.webp"><img src="' + goc + 'assets/mascot/bit-dang-noi.webp" alt="" width="129" height="150"></picture>'
+      : '<img class="q-bit q-may-bia" src="' + goc + 'assets/nhan-vat/may-bia.svg" alt="" width="125" height="150">';
+    document.getElementById("giai").innerHTML = '<div class="q-fb ' + (ok ? "ok" : "no") + '"><figure class="q-nv">' + hinh + "<figcaption>" + (ok ? "Bit" : S.mayBia) + "</figcaption></figure>" +
+      '<div><p class="q-verdict">' + (ok ? S.dungRoi : S.chuaDung) + loiPhan +
       "</p><p>" + esc(q.giai_thich) + '</p><p class="q-more">' + S.xemThem + q.video.map(link).join(", ") + "</p></div></div>" +
       '<button class="btn btn-yt q-next" id="tiep">' + (cuoi ? S.xemKq : S.tiep) + "</button>";
     i++;

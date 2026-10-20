@@ -872,6 +872,10 @@ a.nt:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
 /* Mark và Bit chuyển động (assets/mascot, scripts/tao_mascot.py). Người bật "giảm chuyển động" thấy ảnh đứng yên qua <source media>. */
 .q-fb .q-mascot { width: auto; }
 .q-mascot img, .fb-mascot img { display: block; width: auto; height: 76px; }
+/* Kiểm tra: hình nhân vật bên lời giải, có tên bên dưới (đúng: Bit, sai: Mây Bịa) */
+.q-fb .q-nv { flex: none; margin: 0; display: grid; justify-items: center; gap: 2px; min-width: 64px; }
+.q-fb .q-nv img.q-may-bia { display: block; width: auto; height: 76px; }
+.q-fb .q-nv figcaption { font: 700 12px/1.2 var(--f-body); color: var(--muted); }
 .day-fb.co-hinh { display: flex; align-items: center; gap: 10px; }
 .fb-mascot { flex: none; }
 .fb-mascot img { height: 64px; }
