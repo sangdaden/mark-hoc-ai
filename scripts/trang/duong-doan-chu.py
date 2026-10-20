@@ -1,8 +1,18 @@
 # ---------- trò chơi "Đường đoán chữ" (duong-doan-chu.html): game G3 của "Thế giới game Mark" ----------
 # Câu cá chữ: mỗi đàn cá là một chữ có thể đứng sau, chữ càng hay gặp đàn càng đông, nút nhiệt độ khuấy hồ đổi số cá
 # (video 7 chatbot đoán chữ, 24, 8 ảo giác). Màn chơi ở data/duong-doan-chu.json, cách chơi ở duong-doan-chu.js,
-# CSS riêng ở assets/tro-choi/duong-doan-chu.css; khung toàn màn hình dùng chung class .pl-* của Mark phiêu lưu.
+# CSS riêng ở assets/tro-choi/duong-doan-chu.css, thẻ "Chơi thử" trong bài ở data/tro-choi/duong-doan-chu.json; khung toàn màn hình dùng chung class .pl-* của Mark phiêu lưu.
 # Trang có manifest riêng (duong-doan-chu.webmanifest) để "Thêm vào MH chính" mở thẳng game toàn màn hình.
+
+# Hình xem trước trên thẻ "Chơi thử" trong bài: câu đang viết dở, ba con cá chữ (đàn hay gặp đông hơn), một cá rác.
+HINH_CHOI["duong-doan-chu"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="display:grid;gap:6px;align-content:center;background:linear-gradient(#7DD3FC 0 30%,#0EA5E9 30%,#0C4A6E);border-radius:14px;padding:8px 10px">'
+    f'<span style="justify-self:center;padding:2px 8px;border-radius:8px;background:#fff;color:#0F172A;font:700 12px/1.3 var(--f-display)">{t("Hôm nay trời rất …", "Today the weather is very …")}</span>'
+    '<span style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center">'
+    + "".join(f'<span style="padding:2px 9px;border-radius:999px;background:{m};color:{c};font:700 11.5px/1.4 var(--f-body)">{w}</span>'
+              for w, m, c in [(t("đẹp", "nice"), "#2563EB", "#fff"), (t("đẹp", "nice"), "#2563EB", "#fff"), (t("nóng", "hot"), "#0EA5E9", "#fff"),
+                              (t("lạnh", "cold"), "#64748B", "#fff"), (t("cá?", "banana?"), "#4C1D95", "#FCA5A5")])
+    + '</span></span>')
 
 
 @trang_rieng("duong-doan-chu.html", "0.7")
@@ -11,6 +21,7 @@ def tao_duong_doan_chu():
     D = load("duong-doan-chu")
     L = LG
     man = [{"id": m["id"], "ten": m["ten"][L], "dau": m["dau"][L], "cuoi": m["cuoi"][L],
+            **({"meo": m["meo"][L]} if m.get("meo") else {}), **({"giau": True} if m.get("giau") else {}), **({"toc": m["toc"]} if m.get("toc") else {}),
             "buoc": [{"truoc": b["truoc"][L], "chu": [{"chu": c[L], "p": c["p"], **({"bia": True} if c.get("bia") else {})} for c in b["chu"]]}
                      for b in m["buoc"]]} for m in D["man"]]
     v7 = co_bai[7]
@@ -42,12 +53,14 @@ def tao_duong_doan_chu():
         "lai": t("Chơi lại", "Play again"), "xemVideo": t("Xem video Chatbot đoán chữ", "Watch the next-word video"),
         "phongNao": t("Tự đoán chữ ở Phòng bộ não", "Guess words in the Brain Lab"),
         "manSo": t("Màn {n}", "Level {n}"),  # {n} do duong-doan-chu.js thay
+        "manTiep": t("Màn tiếp", "Next level"), "chonMan": t("Chọn màn", "Pick a level"), "khoa": t("Thắng màn trước để mở", "Win the previous level to unlock"),
+        "hetMan": t("Bạn đã chơi hết {n} màn! Thử lại ở nhiệt độ khác xem câu đổi ra sao.", "You've finished all {n} levels! Replay at another temperature and see how the sentence changes."),
         "s3": t("Câu sáng tạo: ít nhất 2 chữ không phải chữ hay gặp nhất (bạn có {n})", "Creative sentence: at least 2 words that aren't the most common one (you have {n})"),
     }
     du_lieu = json.dumps({"man": man, "nhan": nhan, "p": p, "video": f"{p}bai/{ten_file(v7)}.html"}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     desc = t("Game miễn phí: thả câu xuống hồ cá chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Chữ càng hay gặp thì đàn cá càng đông, tăng nhiệt độ thì cá chữ lạ đông lên và dễ câu phải cá rác ảo giác. Chơi ngay trên điện thoại.",
              "Free game: cast into a lake of word fish to write a sentence the way a chatbot guesses the next word. Common words swim in big schools; turn up the temperature and rare words multiply, and so do the junk fish of hallucination. Plays on your phone.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Game miễn phí · bản thử màn 1", "Free game · level 1 preview")}</p>\n'
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"Game miễn phí · {len(D['man'])} màn", f"Free game · {len(D['man'])} levels")}</p>\n'
             f'<h1>{t("Đường đoán chữ", "The Next-Word Road")}</h1>\n'
             f'<p class="lead">{t("Mark câu từng chữ trong hồ để viết câu, y như chatbot đoán chữ tiếp theo. Chữ hay gặp thì cá đông. Khuấy nhiệt độ để xem câu sáng tạo hơn hay bịa hơn.", "Mark fishes one word at a time to write a sentence, just like a chatbot guessing the next word. Common words come in big schools. Stir the temperature and see whether the sentence gets more creative or more made up.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/mark-chao.svg" alt="" width="180" height="170"></div>')

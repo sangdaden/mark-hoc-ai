@@ -45,3 +45,11 @@
 .pl.is-toan .ddc-sao-ds { font-size: 13px; }
 @media (max-width: 700px) { .ddc:not(.is-toan) .ddc-ba { display: none; } }
 .ddc .pl-nut-tren { z-index: 8; }
+.ddc-meo-man { margin: 0 0 12px; padding: 10px 12px; border-radius: 14px; background: #FEF9C3; border: 1.5px solid #FACC15; color: #713F12; font-size: 14.5px; line-height: 1.45; }
+.ddc-hang { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.ddc-chon-man { display: flex; flex-wrap: wrap; gap: 6px; }
+.ddc-so-man { display: grid; justify-items: center; min-width: 46px; min-height: 44px; padding: 3px 6px; border-radius: 12px; border: 1.5px solid var(--edge); background: var(--bg2); color: var(--ink); font: 800 15px/1.1 var(--f-display); cursor: pointer; }
+.ddc-so-man small { font: 500 10px/1.2 var(--f-body); color: #CA8A04; letter-spacing: -.05em; }
+.ddc-so-man.is-dang { border-color: var(--blue); box-shadow: 0 0 0 2px var(--blue) inset; }
+.ddc-so-man:disabled { opacity: .55; cursor: not-allowed; }
+.ddc-het { margin: 0; font-size: 14px; color: var(--muted); }
