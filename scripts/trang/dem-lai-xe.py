@@ -5,6 +5,16 @@
 # Trang có manifest riêng (dem-lai-xe.webmanifest, display fullscreen) để "Thêm vào MH chính" trên iPhone chơi không có thanh Safari.
 
 
+HINH_CHOI["dem-lai-xe"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="align-content:end;gap:8px;background:linear-gradient(#0B1222,#1E293B);border-radius:12px;padding:10px">'
+    '<span style="display:block;height:56px;background:#334155;clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);position:relative">'
+    '<span style="position:absolute;left:46%;top:38%;width:8%;height:30%;border-radius:4px;background:#38BDF8;opacity:.8"></span></span>'
+    '<span style="display:flex;gap:6px;justify-content:center;font:700 12px/1 var(--f-body)">'
+    '<span style="padding:5px 8px;border-radius:99px;background:#38BDF8;color:#0F172A">LiDAR</span>'
+    '<span style="padding:5px 8px;border-radius:99px;background:#FACC15;color:#0F172A">Radar</span>'
+    '<span style="padding:5px 8px;border-radius:99px;background:#F8FAFC;color:#0F172A">Camera</span></span></span>')
+
+
 @trang_rieng("dem-lai-xe.html", "0.7")
 def tao_dem_lai_xe():
     p = t("", "../")
@@ -19,7 +29,7 @@ def tao_dem_lai_xe():
             return {"ten": ten, "url": f"{p}bai/{int(cha):02d}-{phu_so}-{x['slug']}.html"}
         return {"ten": seo[so], "url": f"{p}bai/{ten_file(co_bai[int(so)])}.html"}
 
-    vids = {so: video(so) for so in ("5", "5.1", "5.2")}
+    vids = {so: video(so) for so in ("5", "5.1", "5.2", "5.4")}
     du_lieu = json.dumps({"muc": D["muc"], "ten": {k: x["ten"][L] for k, x in D["cam_bien"].items()}, "video": vids, "p": p},
                          ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     desc = t("Game miễn phí: lái xe tự hành về nhà qua nắng, đêm, mưa và sương mù. Mỗi lúc chỉ bật được một con mắt LiDAR, radar hay camera; chọn sai là vật cản tàng hình. Chơi ngay trên điện thoại.",
