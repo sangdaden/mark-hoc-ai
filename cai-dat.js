@@ -110,11 +110,11 @@
     }
     navTrang.classList.add("da-gom");
   }
-  // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống; mở nhóm này thì đóng nhóm kia (máy tính)
+  // Bấm ra ngoài hoặc Esc thì đóng menu thả xuống (máy tính); mở nhóm này thì đóng nhóm kia (cả điện thoại)
   const dsDrop = top.querySelectorAll(".nav-drop");
   const dt = matchMedia("(max-width: 1100px)");
   if (dsDrop.length) {
-    dsDrop.forEach(d => d.addEventListener("toggle", () => { if (d.open && !dt.matches) dsDrop.forEach(k => { if (k !== d) k.open = false; }); }));
+    dsDrop.forEach(d => d.addEventListener("toggle", () => { if (d.open) dsDrop.forEach(k => { if (k !== d) k.open = false; }); }));
     document.addEventListener("click", e => { if (!dt.matches) dsDrop.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }); });
     document.addEventListener("keydown", e => {
       if (e.key !== "Escape" || dt.matches) return;
@@ -130,8 +130,8 @@
     if (vtk) nav.insertAdjacentHTML("beforeend", '<a class="nav-vtk" href="' + vtk + '"><img src="' + icGoc + 'assets/vu-tru-khac/logo-bieu-tuong-toi.svg" alt="" width="20" height="20">' + (EN ? "Another Universe" : "Vũ Trụ Khác") + "</a>");
     nutMenu.setAttribute("aria-controls", nav.id);
     nutMenu.setAttribute("aria-label", EN ? "Open the menu" : "Mở menu");
-    // Mở menu thì bày sẵn mọi nhóm (Học, Thực hành) thành thẻ, khỏi phải bấm thêm
-    const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); if (mo) dsDrop.forEach(d => { d.open = true; }); };
+    // Mở menu thì Học, Thực hành là hai hàng bấm để xổ ra (Sang 20/10: bày sẵn hết thì menu điện thoại dài quá); đóng menu thì gập lại
+    const dongMo = mo => { top.classList.toggle("mo-menu", mo); nutMenu.setAttribute("aria-expanded", mo); dsDrop.forEach(d => { d.open = false; }); };
     nutMenu.addEventListener("click", () => dongMo(!top.classList.contains("mo-menu")));
     nav.addEventListener("click", e => { if (e.target.closest("a")) dongMo(false); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && top.classList.contains("mo-menu")) { dongMo(false); nutMenu.focus(); } });
