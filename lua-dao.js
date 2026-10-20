@@ -1,6 +1,7 @@
 /* Trò chơi "Lừa đảo hay thật?" (lua-dao-hay-that.html, en/): mỗi ca là một màn hình điện thoại giả lập.
    Ca loại "bai-anh" (video 122) là bài đăng có ảnh; c.nut đổi chữ hai nút thành Ảnh AI / Ảnh thật.
    Dữ liệu: thẻ <script id="ld-du-lieu"> do scripts/tao_bai_viet.py tạo từ data/lua-dao.json.
+   Mỗi lượt lấy ngẫu nhiên D.luot ca (luôn có vài ca thật), "Chơi lại" ra bộ ca khác.
    Người chơi chạm vào chỗ đáng ngờ (đánh dấu), rồi chọn Lừa đảo / Thật; sau đó hiện mọi dấu hiệu, lời giải và link video.
    Không lưu, không gửi gì ngoài vài sự kiện đếm (theo-doi.js). Chạy thử: ?do=thu, trạng thái ở window.__ld. */
 (function () {
@@ -9,7 +10,7 @@
   var san = document.getElementById("ld-san");
   if (!nguon || !san) return;
   var D = JSON.parse(nguon.textContent);
-  var N = D.nhan, CA = D.ca;
+  var N = D.nhan, TAT_CA = D.ca, CA;
   var tien = document.getElementById("ld-tien"), diemEl = document.getElementById("ld-diem"), ket = document.getElementById("ld-ket");
   var S;
   var BIT = D.p + "assets/";
@@ -22,8 +23,23 @@
   }
   function do_(ten, d) { if (window.mhaiDo) window.mhaiDo(ten, d || {}); }
 
+  function tron(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; }
+    return a;
+  }
+  // Một lượt: D.luot ca ngẫu nhiên, khoảng 3/10 là ca thật để người chơi không bấm "Lừa đảo" cho mọi ca
+  function chonLuot() {
+    var n = Math.min(D.luot || TAT_CA.length, TAT_CA.length);
+    var that = tron(TAT_CA.filter(function (c) { return c.dap_an === "that"; }));
+    var lua = tron(TAT_CA.filter(function (c) { return c.dap_an !== "that"; }));
+    var soThat = Math.min(that.length, Math.max(1, Math.round(n * 0.3)), n);
+    return tron(that.slice(0, soThat).concat(lua.slice(0, n - soThat)));
+  }
+
   function batDau() {
-    S = { i: 0, dung: 0, tim: 0, tong: 0, sai: [], xong: false };
+    CA = chonLuot();
+    S = { i: 0, dung: 0, tim: 0, tong: 0, sai: [], xong: false, ca: CA };
     window.__ld = S;
     ket.hidden = true;
     san.hidden = false;

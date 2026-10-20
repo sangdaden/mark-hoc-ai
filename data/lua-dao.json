@@ -1,5 +1,5 @@
 {
- "_ghi_chu": "Trò chơi 'Lừa đảo hay thật?' (lua-dao-hay-that.html, en/, lua-dao.js). Mỗi ca là một màn hình điện thoại giả lập. loai: goi | video | chat | sms | quang-cao | app | bai-anh (bài đăng có ảnh, khung.hinh là file ảnh). nut (không bắt buộc): đổi chữ hai nút và câu kết luận cho ca đó. dap_an: lua | that. Mỗi dòng gồm các 'doan' (đoạn chữ); đoạn có 'co' là dấu hiệu, người chơi chạm vào để đánh dấu; giải thích nằm trong 'co' của ca. Mọi tên người, ngân hàng, trang, số điện thoại, đường link đều HƯ CẤU, không giả mạo tổ chức thật; link chỉ là chữ, không bấm được. Ca dựa trên video 14, 15, 108-112.",
+ "_ghi_chu": "Trò chơi 'Lừa đảo hay thật?' (lua-dao-hay-that.html, en/, lua-dao.js). Mỗi ca là một màn hình điện thoại giả lập. loai: goi | video | chat | sms | quang-cao | app | bai-anh (bài đăng có ảnh, khung.hinh là file ảnh). nut (không bắt buộc): đổi chữ hai nút và câu kết luận cho ca đó. dap_an: lua | that. Mỗi dòng gồm các 'doan' (đoạn chữ); đoạn có 'co' là dấu hiệu, người chơi chạm vào để đánh dấu; giải thích nằm trong 'co' của ca. Mọi tên người, ngân hàng, trang, số điện thoại, đường link đều HƯ CẤU, không giả mạo tổ chức thật; link chỉ là chữ, không bấm được. Ca dựa trên video 14, 15, 108-112, 122, 214, 223, 266, 269, thêm các chiêu trong video gốc A1 (lừa đảo bằng AI), S1 (lò lừa đảo) và S3 (quảng cáo thuốc deepfake). Mỗi lượt chơi lấy ngẫu nhiên 10 ca, luôn có ca thật (lua-dao.js).",
  "ca": [
   {
    "id": "goi-nua-dem", "video": 108, "dap_an": "lua", "loai": "goi",
@@ -244,6 +244,185 @@
    },
    "co_khung": "dang-lai",
    "giai": {"vi": "Dấu chìm và thông tin nguồn gốc có thể mất khi cắt ảnh, chụp lại màn hình hay đăng lại. Với tin thời tiết, xem trang chính thức của cơ quan khí tượng thay vì ảnh lan truyền.", "en": "Watermarks and provenance info can be lost when an image is cropped, screenshotted or reposted. For weather news, check the official weather service instead of viral images."}
+  },
+  {
+   "id": "hop-video-sep", "video": 109, "dap_an": "lua", "loai": "video",
+   "khung": {"ten": {"vi": "Họp gấp: Ban giám đốc", "en": "Urgent: Leadership call"}, "phu": {"vi": "Link họp gửi qua email lạ · 5 người", "en": "Meeting link from an unknown email · 5 people"}, "gio": "16:48"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Giám đốc tài chính: Chào em, cả ban đang họp, ai cũng thấy mặt rồi đấy. ", "en": "CFO: Hi, the whole board is here, you can see everyone. "},
+     {"vi": "Công ty đang mua lại một đối tác, việc này tuyệt mật, ", "en": "We're acquiring a partner and it's strictly confidential, ", "co": "bi-mat"},
+     {"vi": "em đừng báo cho ai trong phòng kế toán. ", "en": "don't tell anyone in accounting. ", "co": "bi-mat-2"}
+    ]},
+    {"tu": "ho", "doan": [
+     {"vi": "Em chuyển ngay 15 lần, mỗi lần 40 tỷ, vào các tài khoản anh gửi trong khung chat, ", "en": "Make 15 transfers of 40 billion VND each right now to the accounts in the chat, ", "co": "chia-nho"},
+     {"vi": "trước 17 giờ hôm nay.", "en": "before 5 p.m. today.", "co": "gap"}
+    ]},
+    {"tu": "minh", "doan": [
+     {"vi": "Em gọi lại số của anh để xác nhận nhé?", "en": "Can I call your number to confirm?"}
+    ]},
+    {"tu": "ho", "doan": [
+     {"vi": "Không cần, mạng đang yếu, cứ làm theo chỉ đạo trong cuộc họp.", "en": "No need, the connection is bad, just follow the instructions from this meeting.", "co": "ne-goi-lai"}
+    ]}
+   ],
+   "co": {
+    "link-la": {"vi": "Link họp đến từ email lạ, không qua lịch họp của công ty.", "en": "The meeting link came from an unknown email, not the company calendar."},
+    "bi-mat": {"vi": "Viện cớ tuyệt mật để bạn không hỏi ai.", "en": "Uses 'confidential' so you won't ask anyone."},
+    "bi-mat-2": {"vi": "Cấm báo cho đồng nghiệp: cắt đường kiểm tra chéo.", "en": "Forbids telling colleagues: cuts off cross-checking."},
+    "chia-nho": {"vi": "Chia nhỏ nhiều lần chuyển, vào nhiều tài khoản lạ.", "en": "Splits into many transfers to many unknown accounts."},
+    "gap": {"vi": "Đặt hạn chót ngay trong ngày.", "en": "Sets a same-day deadline."},
+    "ne-goi-lai": {"vi": "Né việc bạn gọi lại để xác nhận.", "en": "Dodges your call-back check."}
+   },
+   "co_khung": "link-la",
+   "giai": {"vi": "Năm 2024, một công ty ở Hồng Kông mất khoảng 25 triệu USD vì một cuộc họp video mà mọi gương mặt, giọng nói trừ nạn nhân đều do AI làm giả. Thấy đủ mặt sếp chưa phải bằng chứng. Khoản lớn luôn cần hai người duyệt và một cuộc gọi lại vào số đã lưu.", "en": "In 2024 a Hong Kong company lost about 25 million USD after a video meeting where every face and voice except the victim's was AI-made. Seeing your bosses' faces is not proof. Large payments always need two approvers and a call back to a saved number."}
+  },
+  {
+   "id": "goi-video-quay-mat", "video": 269, "dap_an": "lua", "loai": "video",
+   "khung": {"ten": {"vi": "Cán bộ hỗ trợ định danh", "en": "ID verification officer"}, "phu": {"vi": "Số lạ · gọi video qua mạng xã hội", "en": "Unknown number · social media video call"}, "gio": "09:20"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Tài khoản của anh chưa xác thực khuôn mặt nên sẽ bị khóa chiều nay. ", "en": "Your account hasn't been face-verified and will be locked this afternoon. ", "co": "doa"},
+     {"vi": "Anh cài ứng dụng hỗ trợ theo link em gửi, ", "en": "Install the support app from the link I sent, ", "co": "app-la"},
+     {"vi": "rồi nhìn thẳng camera, quay trái, quay phải, chớp mắt giúp em.", "en": "then look into the camera, turn left, turn right and blink for me.", "co": "quay-mat"}
+    ]},
+    {"tu": "minh", "doan": [
+     {"vi": "Sao không làm trong ứng dụng ngân hàng?", "en": "Why not do it in my banking app?"}
+    ]},
+    {"tu": "ho", "doan": [
+     {"vi": "Ứng dụng đó đang lỗi, anh làm qua bên em cho nhanh.", "en": "That app is broken right now, it's faster through us.", "co": "ne-app"}
+    ]}
+   ],
+   "co": {
+    "so-la": {"vi": "Người lạ gọi video qua mạng xã hội, tự xưng cán bộ.", "en": "A stranger video-calls on social media and claims to be an officer."},
+    "doa": {"vi": "Dọa khóa tài khoản trong ngày.", "en": "Threatens to lock your account today."},
+    "app-la": {"vi": "Bảo cài ứng dụng từ link lạ.", "en": "Tells you to install an app from a strange link."},
+    "quay-mat": {"vi": "Bảo quay mặt nhiều hướng: đây là cách thu khuôn mặt để qua mặt bước xác thực của ngân hàng.", "en": "Asks you to turn your face: that's how they capture your face to fool the bank's check."},
+    "ne-app": {"vi": "Kéo bạn ra khỏi ứng dụng chính thức.", "en": "Pulls you away from the official app."}
+   },
+   "co_khung": "so-la",
+   "giai": {"vi": "Ngân hàng không gọi video bắt bạn quay mặt, cũng không gửi link cài ứng dụng. Cập nhật khuôn mặt chỉ làm trong ứng dụng chính thức bạn tự mở, hoặc tại quầy. Cũng đừng bán hay cho thuê tài khoản: kẻ gian cần đúng khuôn mặt chủ tài khoản để rút tiền.", "en": "Banks never video-call you to turn your face, and never send app links. Update your face only in the official app you open yourself, or at a branch. And never sell or rent out an account: scammers need the owner's face to move the money."}
+  },
+  {
+   "id": "sep-nhan-chuyen-tien", "video": 111, "dap_an": "lua", "loai": "chat",
+   "khung": {"ten": {"vi": "Anh Tuấn (Giám đốc)", "en": "Mr Tuan (Director)"}, "phu": {"vi": "Tài khoản mới · chưa kết bạn", "en": "New account · not a contact"}, "gio": "11:47"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Chào Hà, anh đây. Dự án kho Bình Dương cần đặt cọc gấp cho bên vận chuyển. ", "en": "Hi Ha, it's me. The Binh Duong warehouse project needs an urgent deposit for the shipper. "},
+     {"vi": "Em chuyển trước 180 triệu vào tài khoản này giúp anh, ", "en": "Please transfer 180 million to this account first, ", "co": "tai-khoan-la"},
+     {"vi": "anh đang họp không nghe máy được, ", "en": "I'm in a meeting and can't take calls, ", "co": "khong-nghe"},
+     {"vi": "chiều anh ký bù chứng từ.", "en": "I'll sign the paperwork this afternoon.", "co": "ky-bu"}
+    ]},
+    {"tu": "minh", "doan": [
+     {"vi": "Dạ, tài khoản này của công ty nào ạ?", "en": "Which company's account is this?"}
+    ]},
+    {"tu": "ho", "doan": [
+     {"vi": "Đối tác mới, em làm nhanh giúp anh trước 12 giờ.", "en": "A new partner, just do it quickly before noon.", "co": "gap"}
+    ]}
+   ],
+   "co": {
+    "tk-moi": {"vi": "Tài khoản mới lập, không phải tài khoản quen của sếp.", "en": "A brand-new account, not your boss's usual one."},
+    "tai-khoan-la": {"vi": "Chuyển vào tài khoản lạ, không qua quy trình.", "en": "Money goes to an unknown account, outside the usual process."},
+    "khong-nghe": {"vi": "Viện cớ không nghe máy được.", "en": "Claims they can't take a call."},
+    "ky-bu": {"vi": "Hứa ký bù giấy tờ sau, tức là bỏ qua bước duyệt.", "en": "Promises paperwork later, i.e. skips approval."},
+    "gap": {"vi": "Hạn chót gấp.", "en": "A rushed deadline."}
+   },
+   "co_khung": "tk-moi",
+   "giai": {"vi": "AI giúp kẻ gian viết đúng tên sếp, đúng tên dự án, không sai chính tả, nên tin nhắn trông rất thật. Ba câu soát trước khi chuyển: có đòi tiền hay mã không, có thúc gấp không, có kéo bạn sang kênh khác không. Có một câu trả lời là có thì gọi lại số đã lưu của sếp.", "en": "AI lets scammers get your boss's name and the project right, with perfect spelling, so the message looks real. Three checks before paying: does it ask for money or codes, is it rushed, does it move you to another channel? Any yes means call your boss's saved number."}
+  },
+  {
+   "id": "dich-vu-lay-lai-tien", "video": 214, "dap_an": "lua", "loai": "chat",
+   "khung": {"ten": {"vi": "Hỗ trợ thu hồi tiền bị lừa", "en": "Scam money recovery help"}, "phu": {"vi": "Nhắn từ bình luận dưới bài cảnh báo lừa đảo", "en": "Messaged you from a comment under a scam warning post"}, "gio": "21:15"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Bên em là nhóm chuyên gia công nghệ phối hợp với cơ quan chức năng. ", "en": "We're a team of tech experts working with the authorities. ", "co": "mao-danh"},
+     {"vi": "Cam kết lấy lại 100% số tiền chị bị lừa trong 48 giờ. ", "en": "We guarantee you'll get 100% of your lost money back within 48 hours. ", "co": "cam-ket"},
+     {"vi": "Chị chỉ cần đóng trước phí hồ sơ 3 triệu ", "en": "Just pay a 3 million file fee first ", "co": "phi-truoc"},
+     {"vi": "và gửi ảnh căn cước hai mặt.", "en": "and send photos of both sides of your ID card.", "co": "can-cuoc"}
+    ]}
+   ],
+   "co": {
+    "tu-tim-den": {"vi": "Tự tìm đến bạn ngay sau khi bạn kể mình bị lừa.", "en": "They found you right after you said you'd been scammed."},
+    "mao-danh": {"vi": "Tự nhận phối hợp với cơ quan chức năng.", "en": "Claims to work with the authorities."},
+    "cam-ket": {"vi": "Cam kết lấy lại 100%: không ai hứa được điều này.", "en": "Guarantees 100% recovery: nobody can promise that."},
+    "phi-truoc": {"vi": "Đòi phí trước.", "en": "Asks for a fee upfront."},
+    "can-cuoc": {"vi": "Xin ảnh căn cước, có thể dùng để lừa tiếp.", "en": "Asks for your ID, which can be used for the next scam."}
+   },
+   "co_khung": "tu-tim-den",
+   "giai": {"vi": "Người vừa bị lừa hay bị lừa lần hai bởi chính 'dịch vụ lấy lại tiền'. Công an và ngân hàng không thu phí để lấy lại tiền. Việc cần làm: gọi ngay tổng đài ngân hàng để chặn giao dịch, rồi trình báo công an nơi gần nhất.", "en": "People who were just scammed often get scammed again by a 'recovery service'. Police and banks don't charge fees to recover money. What to do: call your bank's hotline right away to stop the transfer, then report to the nearest police station."}
+  },
+  {
+   "id": "quang-cao-bac-si", "video": 223, "dap_an": "lua", "loai": "quang-cao",
+   "khung": {"ten": {"vi": "Sức Khỏe Vàng Việt", "en": "Golden Health VN"}, "phu": {"vi": "Được tài trợ · trang lập 5 ngày trước", "en": "Sponsored · page created 5 days ago"}, "gio": "", "anh": {"vi": "GS.BS TRẦN MINH KHANG", "en": "PROF. DR TRAN MINH KHANG"}},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Giáo sư Khang trên truyền hình: ", "en": "Prof. Khang on TV: "},
+     {"vi": "\"Chỉ 2 tuần là hết tiểu đường, ", "en": "\"Diabetes gone in just 2 weeks, ", "co": "chua-khoi"},
+     {"vi": "bà con ngưng thuốc tây được rồi.\" ", "en": "you can stop your prescribed medicine.\" ", "co": "bo-thuoc"},
+     {"vi": "Giảm 50% cho 30 người đặt sớm nhất hôm nay, ", "en": "50% off for the first 30 orders today, ", "co": "gap"},
+     {"vi": "gọi hotline để được giao tận nhà, thanh toán khi nhận.", "en": "call the hotline for home delivery, pay on arrival."}
+    ]}
+   ],
+   "co": {
+    "trang-moi": {"vi": "Trang mới lập, không phải trang của bệnh viện hay của bác sĩ.", "en": "A brand-new page, not a hospital's or the doctor's own."},
+    "chua-khoi": {"vi": "Hứa chữa khỏi dứt điểm bệnh mạn tính trong thời gian ngắn.", "en": "Promises to cure a chronic disease fast."},
+    "bo-thuoc": {"vi": "Khuyên bỏ thuốc bác sĩ kê: rất nguy hiểm.", "en": "Tells you to stop prescribed medicine: very dangerous."},
+    "gap": {"vi": "Giảm giá gấp, giới hạn số người.", "en": "Rushed discount with limited spots."}
+   },
+   "co_khung": "trang-moi",
+   "giai": {"vi": "Kẻ gian lấy video thật của bác sĩ hay MC nổi tiếng, dùng AI đổi khẩu hình và lồng giọng để bán thuốc. Ba việc trước khi mua: tìm tên bác sĩ trên trang chính thức của bệnh viện, hỏi bác sĩ đang khám cho mình, và không bao giờ tự bỏ thuốc đang uống.", "en": "Scammers take real videos of famous doctors or TV hosts and use AI to change the lip movements and voice to sell pills. Three checks before buying: look the doctor up on the hospital's official site, ask your own doctor, and never stop medicine on your own."}
+  },
+  {
+   "id": "viec-nuoc-ngoai", "video": 266, "dap_an": "lua", "loai": "chat",
+   "khung": {"ten": {"vi": "Tuyển dụng Quốc tế Ánh Dương", "en": "Sunrise International Jobs"}, "phu": {"vi": "Người lạ · nhắn từ nhóm tìm việc", "en": "Stranger · from a job-seeking group"}, "gio": "19:30"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Tuyển nhân viên chăm sóc khách hàng làm ở nước ngoài, ", "en": "Hiring customer service staff to work abroad, "},
+     {"vi": "lương 2.000 USD, không cần kinh nghiệm, không cần ngoại ngữ. ", "en": "2,000 USD a month, no experience, no foreign language needed. ", "co": "luong-cao"},
+     {"vi": "Bao vé máy bay, đi ngay tuần này. ", "en": "Free flight, leave this week. ", "co": "gap"},
+     {"vi": "Em gửi trước hộ chiếu để bên anh giữ làm thủ tục nhé.", "en": "Send us your passport so we can hold it for the paperwork.", "co": "ho-chieu"}
+    ]},
+    {"tu": "minh", "doan": [
+     {"vi": "Công ty mình tên gì, có hợp đồng không anh?", "en": "What's the company's name, is there a contract?"}
+    ]},
+    {"tu": "ho", "doan": [
+     {"vi": "Sang bên đó ký hợp đồng sau, giờ cứ đặt vé đã.", "en": "You'll sign the contract once you're there, let's book the ticket first.", "co": "hop-dong-sau"}
+    ]}
+   ],
+   "co": {
+    "nguoi-la": {"vi": "Người lạ tự nhắn mời việc trong nhóm mạng xã hội.", "en": "A stranger offers a job in a social media group."},
+    "luong-cao": {"vi": "Lương rất cao mà không đòi kỹ năng gì.", "en": "Very high pay with no skills required."},
+    "gap": {"vi": "Đi gấp, không kịp tìm hiểu.", "en": "Leave right away, no time to check."},
+    "ho-chieu": {"vi": "Đòi giữ hộ chiếu: dấu hiệu của đường dây ép người làm việc.", "en": "Wants to hold your passport: a sign of forced-labour rings."},
+    "hop-dong-sau": {"vi": "Không có hợp đồng trước khi đi.", "en": "No contract before departure."}
+   },
+   "co_khung": "nguoi-la",
+   "giai": {"vi": "Nhiều người tin những lời mời kiểu này rồi bị đưa vào các 'lò lừa đảo' ở nước ngoài, bị giữ giấy tờ và ép dùng AI chat đi lừa người khác. Đi làm ở nước ngoài thì phải có hợp đồng ký trước khi đi, qua công ty có giấy phép, và không ai được giữ hộ chiếu của bạn.", "en": "Many people who accept offers like this end up in overseas 'scam compounds', with their papers taken and forced to scam others using AI chat. A real job abroad comes with a contract signed before you go, through a licensed agency, and nobody keeps your passport."}
+  },
+  {
+   "id": "ngan-hang-nhac-sinh-trac", "video": 269, "dap_an": "that", "loai": "app",
+   "khung": {"ten": {"vi": "Ứng dụng ngân hàng của bạn", "en": "Your banking app"}, "phu": {"vi": "Bạn tự mở ứng dụng · Thông báo", "en": "You opened the app yourself · Notifications"}, "gio": "08:05"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Giao dịch lớn cần xác thực khuôn mặt. ", "en": "Large transfers need face verification. "},
+     {"vi": "Quý khách cập nhật ngay trong mục Cài đặt của ứng dụng này hoặc tại quầy. ", "en": "Update it in this app's Settings or at a branch. "},
+     {"vi": "Ngân hàng không gửi đường link, không gọi video yêu cầu quay mặt.", "en": "We never send links or video-call you to turn your face."}
+    ]}
+   ],
+   "co": {},
+   "giai": {"vi": "Thông báo nằm trong ứng dụng bạn tự mở, chỉ bạn làm tiếp ngay trong ứng dụng, không link, không gọi, không hạn chót. Đây là cách cập nhật khuôn mặt an toàn.", "en": "The notice is inside the app you opened yourself and keeps you in that app: no link, no call, no deadline. That's the safe way to update your face."}
+  },
+  {
+   "id": "tuyen-dung-that", "video": 266, "dap_an": "that", "loai": "chat",
+   "khung": {"ten": {"vi": "Tiệm bánh Mây Hồng", "en": "Pink Cloud Bakery"}, "phu": {"vi": "Trang chính thức · bạn đã nộp đơn", "en": "Official page · you applied"}, "gio": "14:10"},
+   "dong": [
+    {"tu": "ho", "doan": [
+     {"vi": "Chào bạn, tiệm đã nhận đơn ứng tuyển nhân viên bán hàng. ", "en": "Hi, we got your application for the sales assistant job. "},
+     {"vi": "Mời bạn phỏng vấn sáng thứ Bảy tại cửa hàng số 12 đường Hoa Sữa. ", "en": "Please come for an interview on Saturday morning at our shop, 12 Hoa Sua Street. "},
+     {"vi": "Lương 7 đến 9 triệu, ký hợp đồng thử việc 2 tháng. Tiệm không thu bất kỳ khoản phí nào.", "en": "Pay is 7 to 9 million, with a 2-month probation contract. We never charge any fees."}
+    ]}
+   ],
+   "co": {},
+   "giai": {"vi": "Bạn tự nộp đơn, tiệm hẹn gặp trực tiếp ở địa chỉ có thật, lương hợp lý, có hợp đồng và không thu phí. Đây là lời mời bình thường. Cẩn thận vẫn tốt: tra địa chỉ trên bản đồ trước khi đi.", "en": "You applied yourself, they invite you to a real address, the pay is normal, there's a contract and no fees. This is a normal offer. Still worth checking the address on a map before you go."}
   }
  ]
 }
