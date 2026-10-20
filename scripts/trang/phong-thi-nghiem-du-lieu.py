@@ -1,6 +1,6 @@
 # ---------- Phòng thí nghiệm dữ liệu và robot (phong-thi-nghiem-du-lieu.html): cùng bàn ngăn kéo với Phòng thí nghiệm bộ não AI ----------
 # Một chuỗi trà sữa 3 chi nhánh đi suốt 6 trạm: chọn biểu đồ (309), ngưỡng gửi voucher (346), học vẹt (348, cả 42 và 241),
-# chỉnh PID (362), định vị bằng mốc trần (363), bản đồ và A* (364). Cách chạy ở phong-du-lieu.js, CSS ở assets/tro-choi/phong-du-lieu.css.
+# chỉnh PID (362), định vị bằng mốc trần (363), bản đồ và A* (364), rồi trạm 7 xuống núi trong sương mù (series AI học như thế nào, 38-41). Cách chạy ở phong-du-lieu.js, CSS ở assets/tro-choi/phong-du-lieu.css.
 # Số liệu: data/phong-du-lieu/so-lieu.json (scripts/tao_phong_du_lieu.py, chạy lại notebook và code thực hành của các video).
 # Mỗi trạm mở riêng bằng ?tram=<id> (data/tro-choi/du-lieu-*.json nhúng từng trạm vào bài của video).
 
@@ -31,6 +31,13 @@ HINH_CHOI["du-lieu-dinh-vi"] = lambda: (
     '<path d="M20 50 L98 54 L106 26 L50 14 Z" fill="none" stroke="#F97316" stroke-width="2" stroke-dasharray="4 3"/>'
     + "".join(f'<path d="M{x - 4} {y}h8M{x} {y - 4}v8" stroke="#8B5CF6" stroke-width="2"/>' for x, y in ((30, 36), (70, 36), (96, 12), (60, 58)))
     + '</svg></span>')
+HINH_CHOI["du-lieu-xuong-nui"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="place-items:center"><svg viewBox="0 0 120 70" width="150" height="88">'
+    '<path d="M6 8 Q60 118 114 14 L114 66 L6 66 Z" fill="#10B981" fill-opacity=".25"/>'
+    '<path d="M6 8 Q60 118 114 14" fill="none" stroke="#059669" stroke-width="3"/>'
+    '<path d="M4 2H116V66H4Z M12 38a18 18 0 1 0 36 0a18 18 0 1 0 -36 0Z" fill="#CBD5E1" fill-opacity=".8" fill-rule="evenodd"/>'
+    '<polyline points="18,24 30,38 44,48" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 3"/>'
+    '<path d="M30 38 L42 49" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="38" r="5" fill="#2563EB"/></svg></span>')
 HINH_CHOI["du-lieu-a-sao"] = lambda: (
     '<span class="ct-hinh" aria-hidden="true" style="place-items:center"><svg viewBox="0 0 120 70" width="150" height="88">'
     '<rect x="40" y="26" width="14" height="14" fill="currentColor" fill-opacity=".45"/><rect x="74" y="8" width="18" height="18" fill="currentColor" fill-opacity=".45"/>'
@@ -49,6 +56,7 @@ def tao_phong_du_lieu():
         ("pid", "4", t("Chỉnh PID bánh xe", "Tune the wheel PID"), "362"),
         ("dinh-vi", "5", t("Định vị bằng mốc trần", "Ceiling landmarks"), "363"),
         ("a-sao", "6", t("Bản đồ và A*", "Map and A*"), "364"),
+        ("xuong-nui", "7", t("Xuống núi trong sương mù", "Downhill in the fog"), "38-41"),
     ]
     li = "".join(f'<li><button type="button" class="bn-nut" data-tram="{i}" aria-controls="tram-{i}"><span class="bn-so">{so}</span>'
                  f'<span class="bn-ten">{ten}<small>{t("Video", "Video")} {ep}</small></span></button></li>' for i, so, ten, ep in tram)
@@ -184,6 +192,39 @@ def tao_phong_du_lieu():
         f'<p>{t("Mỗi ô có điểm f = g + h: g là quãng đã đi từ chỗ robot, h là quãng ước lượng còn lại tới bàn (đi 8 hướng, không cắt góc). A* luôn mở ô có f nhỏ nhất nên lao về phía đích. Dijkstra bỏ h nên loang đều ra mọi phía, cùng đường ngắn nhất nhưng mở nhiều ô hơn.", "Each cell scores f = g + h: g is the distance already travelled, h is the estimated distance left to the table (8 directions, no corner cutting). A* always opens the lowest f, so it heads for the goal. Dijkstra drops h and spreads evenly in every direction: same shortest path, many more cells opened.")}</p>'
         f'<p>{t("Bản đồ là lưới ô 5 cm, 160 x 100 ô, lấy đúng từ lần khảo sát 43 giây trong video. Thử ngay như cuối video: dời cây cột rồi so đường mới với đường cũ.", "The map is a 5 cm grid, 160 x 100 cells, taken from the video's 43-second survey run. The video's challenge: move the pillar and compare the new route with the old one.")}</p></details>\n</section>')
 
+    # Trạm 7: xuống núi trong sương mù (series "AI học như thế nào": 38 núm vặn, 39 sai số, 40 xuống dốc, 41 truy ngược lỗi)
+    xn = mo_dau("xuong-nui", t("Trạm 7 · Video 38, 39, 40, 41", "Station 7 · Videos 38, 39, 40, 41"),
+                t("Xuống núi trong sương mù: tự vặn núm, rồi để máy bước xuống dốc", "Downhill in the fog: turn the knob yourself, then let the machine step down"),
+                t("Tiệm muốn đoán mỗi giờ bán bao nhiêu ly từ số khách vào quán. Model chỉ có một núm vặn w: số ly = w × số khách. Ngọn núi sai số cho biết mỗi vị trí núm sai bao nhiêu, nhưng phủ đầy sương: bạn chỉ thấy quanh chỗ mình đứng.",
+                  "The shop wants to guess how many cups it sells each hour from how many customers walk in. The model has one knob, w: cups = w × customers. The loss mountain shows how wrong every knob position is, but it's covered in fog: you only see around where you stand.")) + (
+        '<div class="pdl-xn"><figure class="pdl-hinh"><svg id="xn-cua" class="pdl-svg" viewBox="0 0 400 260" role="img" aria-label=""></svg>'
+        f'<figcaption class="pdl-chu">{t("Mỗi chấm là một giờ bán hàng. Đường cam là model đoán, vạch đỏ là chỗ đoán lệch.", "Each dot is one hour of sales. The orange line is the model’s guess; red dashes show how far off it is.")}</figcaption></figure>'
+        '<figure class="pdl-hinh"><svg id="xn-nui" class="pdl-svg" viewBox="0 0 400 260" role="img" aria-label=""></svg>'
+        f'<figcaption class="pdl-chu">{t("Độ cao là sai số. Chấm xanh là bạn, mũi tên vàng là hướng xuống dốc dò được dưới chân.", "Height is the loss. The blue dot is you; the yellow arrow is the downhill direction your feet can feel.")}</figcaption></figure></div>\n'
+        '<div class="pdl-o4" id="xn-o" aria-live="polite"></div>\n'
+        '<div class="pdl-xn-dk"><div>'
+        f'<h3>{t("1. Tự vặn núm bằng tay", "1. Turn the knob by hand")}</h3>'
+        f'<label class="bn-lbl" for="xn-w">{t("Núm w: mỗi khách mua bao nhiêu ly. Nhìn con số sai số (video 39)", "Knob w: cups per customer. Watch the loss number (video 39)")}</label>'
+        '<input type="range" id="xn-w" min="0" max="3" step="0.01" value="0.2">'
+        f'<p class="pdl-diem" id="xn-tot" aria-live="polite">{t("Kéo núm, xem ô Sai số tăng hay giảm.", "Drag the knob and watch the Loss tile go up or down.")}</p>'
+        '</div><div>'
+        f'<h3>{t("2. Để máy tự bước xuống dốc", "2. Let the machine step downhill")}</h3>'
+        f'<label class="bn-lbl" for="xn-lr">{t("Độ dài bước (learning rate)", "Step size (learning rate)")} <b id="xn-lr-so"></b></label>'
+        '<input type="range" id="xn-lr" min="0" max="9" step="1" value="1">'
+        f'<div class="bn-hang"><button type="button" class="btn" id="xn-buoc">{t("Bước xuống", "Step down")}</button>'
+        f'<button type="button" class="btn btn-nhe" id="xn-5">{t("Đi 5 bước", "Take 5 steps")}</button>'
+        f'<button type="button" class="chip" id="xn-dinh">{t("Về đỉnh", "Back to the top")}</button></div>'
+        f'<div class="bn-hang"><button type="button" class="chip" data-xn-lr="1">{t("Bước ngắn", "Short steps")}</button>'
+        f'<button type="button" class="chip" data-xn-lr="4">{t("Bước vừa", "Just right")}</button>'
+        f'<button type="button" class="chip" data-xn-lr="8">{t("Bước dài", "Long steps")}</button></div>'
+        '</div></div>\n'
+        f'<div class="pdl-thu" id="xn-thu" aria-live="polite"><span aria-hidden="true">🏁</span><p></p></div>\n'
+        '<div class="pdl-bit" id="xn-bit" aria-live="polite" hidden></div>\n'
+        f'<label class="bn-chk"><input type="checkbox" id="xn-vem"> {t("Vén sương xem cả ngọn núi (máy thật không bao giờ được thấy thế này)", "Lift the fog to see the whole mountain (a real machine never gets this view)")}</label>\n'
+        f'<details class="bn-nap"><summary>{t("Mở nắp: máy tính độ dốc thế nào", "Under the hood: how the machine finds the slope")}</summary>'
+        f'<p>{t("Sai số là trung bình bình phương độ lệch giữa số ly đoán và số ly thật của 10 giờ bán hàng. Độ dốc dưới chân là đạo hàm của sai số theo w. Mỗi bước: w mới = w − độ dài bước × độ dốc. Dốc càng đứng thì bước càng xa, tới đáy thì dốc gần 0 nên tự dừng.", "The loss is the average squared gap between the guessed and the real cups over 10 hours of sales. The slope under your feet is the derivative of the loss with respect to w. Each step: new w = w − step size × slope. The steeper the slope, the bigger the move; at the bottom the slope is almost 0, so it stops by itself.")}</p>'
+        f'<p>{t("Ở đây chỉ có một núm nên núi là một đường cong. Chatbot lớn có hàng trăm tỷ núm, núi có hàng trăm tỷ chiều, và mỗi bước vặn mọi núm cùng lúc. Độ dốc của từng núm được tính bằng lan truyền ngược (video 41): lỗi ở đầu ra chảy ngược về từng lớp.", "Here there is one knob, so the mountain is a single curve. A large chatbot has hundreds of billions of knobs, a mountain with hundreds of billions of dimensions, and each step turns every knob at once. The slope for each knob comes from backpropagation (video 41): the error at the output flows back through every layer.")}</p></details>\n</section>')
+
     ky_hieu = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
                '<symbol id="pdl-cot" viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="11" rx="1" fill="currentColor"/><rect x="10" y="5" width="4" height="16" rx="1" fill="currentColor"/><rect x="17" y="13" width="4" height="8" rx="1" fill="currentColor"/></symbol>'
                '<symbol id="pdl-duong" viewBox="0 0 24 24"><polyline points="2,18 8,11 13,14 22,4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>'
@@ -191,16 +232,16 @@ def tao_phong_du_lieu():
                '<symbol id="pdl-chong" viewBox="0 0 24 24"><rect x="4" y="12" width="6" height="9" fill="currentColor"/><rect x="4" y="5" width="6" height="7" fill="currentColor" opacity=".45"/><rect x="14" y="9" width="6" height="12" fill="currentColor"/><rect x="14" y="3" width="6" height="6" fill="currentColor" opacity=".45"/></symbol>'
                '</svg>')
     du_lieu = json.dumps(D, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    tieu = t("Phòng thí nghiệm dữ liệu và robot: biểu đồ, precision, overfitting, PID, EKF, A*",
-             "Data and robot lab: charts, precision, overfitting, PID, EKF, A*")
-    desc = t("Phòng thí nghiệm miễn phí với số thật của một tiệm trà sữa: chọn biểu đồ đúng, kéo ngưỡng xem precision và recall, xem cây quyết định học vẹt, chỉnh PID bánh xe, tắt mốc định vị EKF, tìm đường A* cho robot giao hàng.",
-             "Free hands-on lab with a milk tea shop's real numbers: pick the right chart, drag a threshold to trade precision for recall, watch a decision tree overfit, tune a wheel PID, switch off EKF landmarks, and plan a delivery robot's route with A*.")
+    tieu = t("Phòng thí nghiệm dữ liệu và robot: biểu đồ, precision, overfitting, PID, EKF, A*, xuống dốc",
+             "Data and robot lab: charts, precision, overfitting, PID, EKF, A*, gradient descent")
+    desc = t("Phòng thí nghiệm miễn phí với số thật của một tiệm trà sữa: chọn biểu đồ đúng, kéo ngưỡng xem precision và recall, xem cây quyết định học vẹt, chỉnh PID bánh xe, tắt mốc định vị EKF, tìm đường A* cho robot giao hàng, dẫn model xuống núi sai số trong sương mù.",
+             "Free hands-on lab with a milk tea shop's real numbers: pick the right chart, drag a threshold to trade precision for recall, watch a decision tree overfit, tune a wheel PID, switch off EKF landmarks, plan a delivery robot's route with A*, and walk a model down the foggy loss mountain.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Phòng thí nghiệm · chạy ngay trên trình duyệt · số thật từ video", "Lab · runs in your browser · real numbers from the videos")}</p>\n'
             f'<h1>{t("Phòng thí nghiệm dữ liệu và robot", "Data and robot lab")}</h1>\n'
             f'<p class="lead">{t("Tự tay làm những gì các series Data Analysis, Machine Learning và Robotics giải thích, trên cùng một tiệm trà sữa. Chọn một trạm bên trái, mỗi trạm chừng một phút.", "Do by hand what the Data Analysis, Machine Learning and Robotics series explain, all on the same milk tea shop. Pick a station on the left; each takes about a minute.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
     main = (f'<main class="bn pdl" id="pdl">\n<link rel="stylesheet" href="{p}assets/tro-choi/phong-du-lieu.css?v=dev">\n{ky_hieu}\n{ngan}\n<div class="bn-ban">\n'
-            f'{bd}\n{ng}\n{hv}\n{pid}\n{dv}\n{asao}\n'
+            f'{bd}\n{ng}\n{hv}\n{pid}\n{dv}\n{asao}\n{xn}\n'
             f'{khoi_chia_se(BASE + GOC + "phong-thi-nghiem-du-lieu.html", tieu, p)}\n'
             f'<p class="gh-ghi">{t("Mọi thứ chạy trên máy bạn, không gửi gì đi đâu. Tiệm trà sữa, khách và robot là dữ liệu giả lập để học, số liệu lấy từ notebook và code thực hành của từng video.", "Everything runs on your device; nothing is sent anywhere. The shop, its customers and the robot are simulated for learning; the numbers come from each video's notebook and practice code.")}</p>\n'
             f'<noscript><p>{t("Phòng thí nghiệm cần JavaScript.", "The lab needs JavaScript.")}</p></noscript>\n</div>\n'

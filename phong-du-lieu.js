@@ -3,6 +3,7 @@
    Trạm 1 Chọn biểu đồ (309), 2 Ngưỡng voucher (346), 3 Học vẹt (348): số thật từ notebook của video.
    Trạm 4 PID (362) và 5 EKF (363): chép đúng công thức robot/pid.py, robot/dinh_vi.py, robot/mo_phong.py, chạy ngay trên máy.
    Trạm 6 A* (364): bản đồ robot tự vẽ trong video, A* / Dijkstra chép từ robot/lap_ke_hoach.py.
+   Trạm 7 Xuống núi trong sương mù (38-41): một núm vặn w, sai số trung bình bình phương, xuống dốc với độ dài bước tự chọn.
    Không gửi gì đi đâu. */
 (function () {
   "use strict";
@@ -255,6 +256,27 @@
       }
     });
     return out;
+  };
+
+  // 38-41: xuống núi trong sương mù. Tiệm đoán số ly bán mỗi giờ từ số khách: ly = w × khách, một núm vặn w.
+  // Sai số (hàm mất mát) là trung bình bình phương độ lệch; xuống dốc: w ← w − bước × độ dốc.
+  TINH.XN = { khach: [4, 6, 7, 9, 10, 11, 13, 14, 16, 18], ly: [6, 8, 11, 12, 15, 15, 19, 19, 23, 25],
+    dinh: 0.2, buoc: [0.0002, 0.0005, 0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008], dich: 1, toiDa: 5 };
+  TINH.saiSo = function (w) {
+    var X = TINH.XN.khach, Y = TINH.XN.ly, s = 0;
+    for (var i = 0; i < X.length; i++) s += (w * X[i] - Y[i]) * (w * X[i] - Y[i]);
+    return s / X.length;
+  };
+  TINH.doDoc = function (w) {
+    var X = TINH.XN.khach, Y = TINH.XN.ly, s = 0;
+    for (var i = 0; i < X.length; i++) s += 2 * X[i] * (w * X[i] - Y[i]);
+    return s / X.length;
+  };
+  // Đi n bước từ w0 với độ dài bước lr, trả về các vị trí núm (kể cả w0)
+  TINH.xuongDoc = function (w0, lr, n) {
+    var ds = [w0];
+    for (var k = 0; k < n; k++) { w0 = w0 - lr * TINH.doDoc(w0); ds.push(w0); }
+    return ds;
   };
 
   if (typeof module !== "undefined" && module.exports) { module.exports = TINH; return; }
@@ -925,7 +947,213 @@
     tim(true);
   }
 
-  var KHOI = { "bieu-do": khoiBieuDo, "nguong": khoiNguong, "hoc-vet": khoiHocVet, "pid": khoiPid, "dinh-vi": khoiDinhVi, "a-sao": khoiASao };
+  /* ---------- Trạm 7: xuống núi trong sương mù (38, 39, 40, 41) ---------- */
+  function khoiXuongNui() {
+    var XN = TINH.XN, cua = $("xn-cua"), nui = $("xn-nui"), trW = $("xn-w"), trB = $("xn-lr"), o = $("xn-o"), hop = $("xn-bit"), thu = $("xn-thu"), vem = $("xn-vem");
+    var thuChu = thu.querySelector("p");
+    var W = 400, H = 260, m = { l: 40, r: 12, t: 22, b: 30 };
+    var W0 = -0.5, W1 = 3.5, L1 = 400, DAY = 1.4117;
+    var giam = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var L = EN ? {
+      w: "Knob w", wDv: "cups per customer", sai: "Loss", buoc: "Steps", doc: "Slope", khach: "customers this hour →", ly: "cups sold",
+      nuiTruc: "loss", nuiW: "knob w →", ngoai: "off the map ↑",
+      dai: ["very short", "short", "short", "medium", "just right", "just right", "long", "long", "too long", "far too long"],
+      tay: function (s) { return "You're feeling around by hand: loss " + s + ". Turn a little more: does the number go down or up?"; },
+      tayDay: function (s) { return "You found the valley floor by hand: loss " + s + ". But a real model has billions of knobs, and nobody turns them by hand. Try part 2."; },
+      buocM: function (g, d, s) { return "Feel the slope (" + g + "), then step the opposite way: the knob moved " + d + ". Loss is now " + s + "."; },
+      ngan: function (n, a, b) { return "Steps too short: " + n + " steps and the loss only went from " + a + " to " + b + ". You'd walk forever before getting there."; },
+      nhay: function (s) { return "Steps too long: you jump over the valley to the other slope and back again, see the zigzag. Loss " + s + "."; },
+      vang: "Steps far too long: every jump lands further from the valley than the last, until you fly off the mountain. Shorten the step, then press Back to the top.",
+      day: function (n, s) { return "Valley floor: loss " + s + " after " + n + " steps. The model learned that each customer buys about 1.4 cups."; },
+      thuChu: function (n, s) { return "From the top (w = 0.2), get the loss under 1 in at most 5 steps. Now: step " + n + " of 5, loss " + s + "."; },
+      thuTay: "From the top (w = 0.2), get the loss under 1 in at most 5 steps. You turned the knob by hand, so press Back to the top first.",
+      thuHet: function (s) { return "Out of steps: the loss is still " + s + ". Change the step size, press Back to the top and try again."; },
+      tot: function (s, w) { return "Lowest loss you found by hand: " + s + " (w = " + w + ")."; },
+      thuDat: function (n, lr) { return "Done in " + n + " steps with step size " + lr + ". That is gradient descent: feel the slope, step downhill, repeat."; }
+    } : {
+      w: "Núm w", wDv: "ly mỗi khách", sai: "Sai số", buoc: "Số bước", doc: "Độ dốc", khach: "khách trong giờ →", ly: "ly bán",
+      nuiTruc: "sai số", nuiW: "núm w →", ngoai: "văng ra ngoài ↑",
+      dai: ["rất ngắn", "ngắn", "ngắn", "vừa", "vừa đẹp", "vừa đẹp", "dài", "dài", "quá dài", "quá dài"],
+      tay: function (s) { return "Bạn đang dò bằng tay: sai số " + s + ". Vặn thêm chút nữa, xem con số giảm hay tăng."; },
+      tayDay: function (s) { return "Bạn tự tìm ra đáy thung lũng: sai số " + s + ". Nhưng model thật có hàng tỷ núm, không ai vặn tay nổi. Thử phần 2."; },
+      buocM: function (g, d, s) { return "Dò dốc (" + g + "), rồi bước ngược chiều dốc: núm dời " + d + ". Sai số còn " + s + "."; },
+      ngan: function (n, a, b) { return "Bước ngắn quá: đi " + n + " bước mà sai số mới từ " + a + " xuống " + b + ". Đi mãi vẫn chưa tới nơi."; },
+      nhay: function (s) { return "Bước dài quá: nhảy vọt qua thung lũng sang sườn bên kia rồi nhảy lại, xem đường chữ chi. Sai số " + s + "."; },
+      vang: "Bước quá dài: mỗi lần nhảy lại rơi xa thung lũng hơn lần trước, tới lúc văng khỏi núi. Giảm độ dài bước rồi bấm Về đỉnh.",
+      day: function (n, s) { return "Tới đáy thung lũng: sai số " + s + " sau " + n + " bước. Model học được mỗi khách mua khoảng 1,4 ly."; },
+      thuChu: function (n, s) { return "Từ đỉnh (w = 0,2), kéo sai số xuống dưới 1 trong tối đa 5 bước. Đang ở bước " + n + "/5, sai số " + s + "."; },
+      thuTay: "Từ đỉnh (w = 0,2), kéo sai số xuống dưới 1 trong tối đa 5 bước. Bạn vừa vặn tay, bấm Về đỉnh để bắt đầu tính.",
+      thuHet: function (s) { return "Hết 5 bước mà sai số còn " + s + ". Đổi độ dài bước, bấm Về đỉnh rồi thử lại."; },
+      tot: function (s, w) { return "Sai số thấp nhất bạn tìm được bằng tay: " + s + " (w = " + w + ")."; },
+      thuDat: function (n, lr) { return "Xong trong " + n + " bước với độ dài bước " + lr + ". Đó chính là thuật toán xuống dốc: dò dốc, bước xuống, lặp lại."; }
+    };
+    var S = { w: XN.dinh, n: 0, tuDinh: true, vet: [XN.dinh], lo: [XN.dinh], vang: false, dat: false, ban: false, tot: null };
+    var hen, henTay;
+
+    function lr() { return XN.buoc[+trB.value]; }
+    function Xc(k) { return m.l + (W - m.l - m.r) * k / 20; }
+    function Yc(v) { return H - m.b - (H - m.t - m.b) * v / 30; }
+    function Xn(w) { return m.l + (W - m.l - m.r) * (w - W0) / (W1 - W0); }
+    function Yn(s) { return H - m.b - (H - m.t - m.b) * s / L1; }
+    function kep(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function diem(w) { var wk = kep(w, W0, W1); return [Xn(wk), Math.max(m.t - 6, Yn(TINH.saiSo(wk)))]; }
+    function nut(tat) { $("xn-buoc").disabled = $("xn-5").disabled = !!tat; }
+
+    // Bên trái: tiệm trà sữa, mỗi chấm là một giờ bán hàng, đường là model đoán
+    function veCua(w) {
+      xoa(cua);
+      var g = ve("g", { "class": "pdl-truc" }, cua);
+      [0, 10, 20, 30].forEach(function (v) { ve("line", { x1: m.l, x2: W - m.r, y1: Yc(v), y2: Yc(v) }, g); ve("text", { x: m.l - 6, y: Yc(v) + 4, "text-anchor": "end" }, g, v); });
+      [0, 5, 10, 15, 20].forEach(function (v) { ve("text", { x: Xc(v), y: H - 10, "text-anchor": "middle" }, g, v); });
+      ve("text", { x: m.l + 4, y: m.t - 8, "class": "pdl-nhan" }, cua, "↑ " + L.ly);
+      ve("text", { x: W - m.r, y: m.t - 8, "text-anchor": "end", "class": "pdl-nhan" }, cua, L.khach);
+      var cl = ve("clipPath", { id: "xn-cat" }, cua);
+      ve("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b }, cl);
+      var gl = ve("g", { "clip-path": "url(#xn-cat)" }, cua);
+      XN.khach.forEach(function (k, i) { ve("line", { x1: Xc(k), x2: Xc(k), y1: Yc(XN.ly[i]), y2: Yc(w * k), "class": "xn-lech" }, gl); });
+      ve("line", { x1: Xc(0), y1: Yc(0), x2: Xc(20), y2: Yc(20 * w), "class": "xn-duong" }, gl);
+      XN.khach.forEach(function (k, i) { ve("circle", { cx: Xc(k), cy: Yc(XN.ly[i]), r: 5.5, "class": "xn-cham" }, cua); });
+      cua.setAttribute("aria-label", L.w + " " + so(w, 2) + ", " + L.sai + " " + so(TINH.saiSo(w), 1));
+    }
+
+    // Bên phải: ngọn núi sai số, phủ sương trừ những chỗ đã đứng
+    function veNui(p) {
+      xoa(nui);
+      var w = S.w, defs = ve("defs", {}, nui);
+      var mo = ve("filter", { id: "xn-mo", x: "-50%", y: "-50%", width: "200%", height: "200%" }, defs);
+      ve("feGaussianBlur", { stdDeviation: 9 }, mo);
+      var mask = ve("mask", { id: "xn-mat", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: W, height: H }, defs);
+      ve("rect", { x: 0, y: 0, width: W, height: H, fill: "#fff" }, mask);
+      var gm = ve("g", { filter: "url(#xn-mo)", fill: "#000" }, mask);
+      S.lo.forEach(function (v) { var d = diem(v); ve("circle", { cx: d[0], cy: d[1], r: 30 }, gm); });
+      var dc = p || diem(w);
+      ve("circle", { cx: dc[0], cy: dc[1], r: 44 }, gm);
+      var cl = ve("clipPath", { id: "xn-cat2" }, defs);
+      ve("rect", { x: m.l, y: m.t - 10, width: W - m.l - m.r, height: H - m.t - m.b + 10 }, cl);
+
+      var g = ve("g", { "class": "pdl-truc" }, nui);
+      [0, 100, 200, 300, 400].forEach(function (v) { ve("line", { x1: m.l, x2: W - m.r, y1: Yn(v), y2: Yn(v) }, g); ve("text", { x: m.l - 6, y: Yn(v) + 4, "text-anchor": "end" }, g, v); });
+      [0, 1, 2, 3].forEach(function (v) { ve("text", { x: Xn(v), y: H - 10, "text-anchor": "middle" }, g, so(v)); });
+      var duong = [], k;
+      for (k = 0; k <= 160; k++) { var wk = W0 + (W1 - W0) * k / 160; duong.push(Xn(wk).toFixed(1) + "," + Yn(TINH.saiSo(wk)).toFixed(1)); }
+      var gc = ve("g", { "clip-path": "url(#xn-cat2)" }, nui);
+      ve("polygon", { points: Xn(W0) + "," + (H - m.b) + " " + duong.join(" ") + " " + Xn(W1) + "," + (H - m.b), "class": "xn-dat" }, gc);
+      ve("polyline", { points: duong.join(" "), "class": "xn-nui" }, gc);
+      // Sương mù phủ cả sườn núi, chỉ hở những chỗ đã đứng
+      ve("rect", { x: m.l - 2, y: m.t - 12, width: W - m.l - m.r + 4, height: H - m.t - m.b + 14, mask: "url(#xn-mat)", "class": "xn-suong" + (vem.checked ? " is-ven" : "") }, nui);
+      ve("text", { x: m.l + 4, y: m.t - 8, "class": "pdl-nhan" }, nui, "↑ " + L.nuiTruc);
+      ve("text", { x: W - m.r, y: m.t - 8, "text-anchor": "end", "class": "pdl-nhan" }, nui, L.nuiW);
+      // Vết các bước đã đi
+      if (S.vet.length > 1) {
+        ve("polyline", { points: S.vet.map(function (v) { return diem(v).join(","); }).join(" "), "class": "xn-vet" }, nui);
+        S.vet.forEach(function (v) { var d = diem(v); ve("circle", { cx: d[0], cy: d[1], r: 3.5, "class": "xn-vet-cham" }, nui); });
+      }
+      // Dò dốc: mũi tên chỉ hướng xuống dốc ở chỗ đang đứng
+      var gd = TINH.doDoc(kep(w, W0, W1));
+      if (!p && Math.abs(gd) > 0.5 && !S.vang) {
+        var dx = Xn(1) - Xn(0), dy = Yn(gd) - Yn(0), dai = Math.hypot(dx, dy);
+        var huong = gd > 0 ? -1 : 1, ux = huong * dx / dai, uy = huong * dy / dai;
+        var x2 = dc[0] + ux * 34, y2 = dc[1] + uy * 34, ax = -uy, ay = ux;
+        ve("line", { x1: dc[0], y1: dc[1], x2: x2, y2: y2, "class": "xn-doc" }, nui);
+        ve("polygon", { points: (x2 + ux * 9) + "," + (y2 + uy * 9) + " " + (x2 + ax * 6) + "," + (y2 + ay * 6) + " " + (x2 - ax * 6) + "," + (y2 - ay * 6), "class": "xn-doc-dau" }, nui);
+      }
+      ve("circle", { cx: dc[0], cy: dc[1], r: 9, "class": "xn-nguoi" }, nui);
+      if (!p && (S.vang || Yn(TINH.saiSo(kep(w, W0, W1))) < m.t - 6)) chuGiua(nui, kep(dc[0], m.l + 70, W - m.r - 70), m.t + 22, L.ngoai, "pdl-nhan xn-ngoai");
+      nui.setAttribute("aria-label", L.sai + " " + so(TINH.saiSo(w), 1) + ", " + L.w + " " + so(w, 2));
+    }
+
+    function oSo() {
+      var s = TINH.saiSo(S.w), g = TINH.doDoc(S.w);
+      o4(o, [[L.w + " · " + L.wDv, so(S.w, 2), "is-xanh-duong"], [L.sai, so(s, s < 10 ? 2 : 1), s < XN.dich ? "is-xanh" : s > 50 ? "is-do" : "is-cam"],
+        [L.buoc, so(S.n), "is-tim"], [L.doc, so(g, 1), ""]]);
+    }
+    function the_() {
+      var s = TINH.saiSo(S.w);
+      thu.classList.toggle("is-dat", S.dat);
+      if (S.dat) return;
+      if (!S.tuDinh) thuChu.textContent = L.thuTay;
+      else if (S.n > XN.toiDa || (S.n === XN.toiDa && s >= XN.dich)) thuChu.textContent = L.thuHet(so(TINH.saiSo(S.vet[XN.toiDa]), 2));
+      else thuChu.textContent = L.thuChu(S.n, so(s, 2));
+    }
+    function nhanBuoc() { $("xn-lr-so").textContent = so(lr(), 4) + " · " + L.dai[+trB.value]; }
+    function veHet() { veCua(S.w); veNui(); oSo(); the_(); }
+
+    function vanTay() {
+      if (S.ban) { trW.value = kep(S.w, 0, 3); return; }
+      S.w = +trW.value; S.n = 0; S.tuDinh = false; S.vet = [S.w]; S.vang = false;
+      nut(false);
+      if (Math.abs(S.lo[S.lo.length - 1] - S.w) > 0.06) { S.lo.push(S.w); if (S.lo.length > 80) S.lo.shift(); }
+      if (S.tot === null || TINH.saiSo(S.w) < TINH.saiSo(S.tot)) S.tot = S.w;
+      $("xn-tot").textContent = L.tot(so(TINH.saiSo(S.tot), 2), so(S.tot, 2));
+      veHet();
+      var s = TINH.saiSo(S.w);
+      bit(hop, s < XN.dich ? L.tayDay(so(s, 2)) : L.tay(so(s, 1)), s < XN.dich ? "dung" : "");
+      clearTimeout(henTay); henTay = setTimeout(function () { do_("du-lieu-xuong-nui-tay", { w: S.w }); }, 800);
+    }
+
+    function motBuoc(xong) {
+      var a = S.w, b = a - lr() * TINH.doDoc(a);
+      S.n++;
+      if (b < W0 || b > W1 || !isFinite(b)) S.vang = true;
+      var den = S.vang ? kep(b, W0, W1) : b;
+      function chot() {
+        S.ban = false;
+        S.w = den;
+        S.vet.push(S.w); S.lo.push(S.w); if (S.lo.length > 80) S.lo.shift();
+        trW.value = kep(S.w, 0, 3);
+        veHet();
+        var s = TINH.saiSo(S.w);
+        if (S.vang) { bit(hop, L.vang, "sai"); nut(true); }
+        else if (s < XN.dich) bit(hop, L.day(S.n, so(s, 2)), "dung");
+        else if ((a - DAY) * (b - DAY) < 0 && S.n > 1) bit(hop, L.nhay(so(s, 1)), "sai");
+        else if (lr() <= XN.buoc[2] && S.n >= 3) bit(hop, L.ngan(S.n, so(TINH.saiSo(S.vet[0]), 0), so(s, 1)), "sai");
+        else bit(hop, L.buocM(so(TINH.doDoc(a), 1), so(Math.abs(b - a), 3), so(s, 1)), "");
+        if (S.tuDinh && !S.dat && S.n <= XN.toiDa && s < XN.dich) {
+          S.dat = true; the_();
+          thuChu.textContent = L.thuDat(S.n, so(lr(), 4));
+          do_("du-lieu-xuong-nui-dat", { buoc: S.n, lr: lr() });
+          do_("hoc-xong", { loai: "du-lieu-xuong-nui" });
+        } else the_();
+        if (xong) xong();
+      }
+      S.ban = true;
+      if (giam) { chot(); return; }
+      var p0 = diem(a), p1 = diem(den), t0 = null, cao = 16 + Math.abs(p1[0] - p0[0]) * 0.12;
+      (function hinh(t) {
+        if (t0 === null) t0 = t;
+        var u = Math.min(1, (t - t0) / 320);
+        veNui([p0[0] + (p1[0] - p0[0]) * u, p0[1] + (p1[1] - p0[1]) * u - cao * 4 * u * (1 - u)]);
+        if (u < 1) requestAnimationFrame(hinh); else chot();
+      })(performance.now());
+    }
+    function diBuoc(n) {
+      if (S.ban || S.vang) return;
+      var k = 0;
+      (function tiep() { if (k++ < n && !S.vang) motBuoc(tiep); else do_("du-lieu-xuong-nui", { lr: lr(), buoc: S.n }); })();
+    }
+    function veDinh() {
+      if (S.ban) return;
+      S.w = XN.dinh; S.n = 0; S.tuDinh = true; S.vet = [S.w]; S.vang = false; S.dat = false;
+      trW.value = S.w;
+      nut(false);
+      hop.hidden = true;
+      veHet();
+    }
+
+    trW.addEventListener("input", vanTay);
+    trB.addEventListener("input", function () { nhanBuoc(); clearTimeout(hen); hen = setTimeout(function () { do_("du-lieu-xuong-nui-buoc", { lr: lr() }); }, 800); });
+    $("xn-buoc").addEventListener("click", function () { diBuoc(1); });
+    $("xn-5").addEventListener("click", function () { diBuoc(XN.toiDa); });
+    $("xn-dinh").addEventListener("click", veDinh);
+    goc.querySelectorAll("[data-xn-lr]").forEach(function (b) {
+      b.addEventListener("click", function () { trB.value = b.dataset.xnLr; nhanBuoc(); veDinh(); });
+    });
+    vem.addEventListener("change", function () { veNui(); if (vem.checked) do_("du-lieu-xuong-nui-ven"); });
+    nhanBuoc();
+    veHet();
+  }
+
+  var KHOI = { "bieu-do": khoiBieuDo, "nguong": khoiNguong, "hoc-vet": khoiHocVet, "pid": khoiPid, "dinh-vi": khoiDinhVi, "a-sao": khoiASao, "xuong-nui": khoiXuongNui };
   var m = /[?&]tram=([\w-]+)/.exec(location.search), h = location.hash.replace("#", "");
   var dau = (m && m[1]) || ($("tram-" + h) ? h : "") || "bieu-do";
   moTram(dau, false);
