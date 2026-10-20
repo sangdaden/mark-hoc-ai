@@ -143,26 +143,17 @@
   document.addEventListener("submit", function (e) {
     var f = e.target;
     if (f && f.closest && f.closest(".bit-tl")) gui("hoi-bit", { cho: "bit-noi" });
-    else if (/\/hoi-bit(\.html)?$/.test(duong)) gui("hoi-bit", { cho: "trang-hoi-bit" });
+    else if (/\/tu-dien(\.html)?$/.test(duong)) gui("hoi-bit", { cho: "tu-dien" });
   }, true);
   document.addEventListener("click", function (e) {
-    if (/\/hoi-bit(\.html)?$/.test(duong) && e.target.closest && e.target.closest(".hb-goi-y button")) gui("hoi-bit", { cho: "goi-y" });
+    if (/\/tu-dien(\.html)?$/.test(duong) && e.target.closest && e.target.closest(".hb-goi-y button")) gui("hoi-bit", { cho: "goi-y" });
   }, true);
 
-  // Từ điển: đếm lượt tra và tra có ra kết quả không, không gửi chữ đã gõ
-  if (/\/tu-dien(\.html)?$/.test(duong)) {
-    document.addEventListener("DOMContentLoaded", function () {
-      var o = document.getElementById("loc"), rong = document.getElementById("rong"), hen, so_lan = 0;
-      if (!o) return;
-      o.addEventListener("input", function () {
-        clearTimeout(hen);
-        hen = setTimeout(function () {
-          if (o.value.trim().length < 2 || so_lan++ >= 10) return;
-          gui("tra-tu-dien", { tim_thay: rong && !rong.hidden ? "khong" : "co" });
-        }, 1500);
-      });
-    });
-  }
+  // Từ điển: đếm lượt bấm "Xem hết" của từng chủ đề
+  document.addEventListener("click", function (e) {
+    var b = e.target && e.target.closest ? e.target.closest(".tdai-het") : null;
+    if (b && b.getAttribute("aria-expanded") === "false") gui("tu-dien-xem-het", { chu_de: b.getAttribute("aria-controls").replace("ds-", "") });
+  }, true);
 
   // Đọc bài đến cuối: cuộn qua 75% trang bài viết hoặc bài sách
   var ten_bai = (duong.match(/\/(bai|vu-tru-khac)\/([^\/.]+)(\.html)?$/) || [])[2];

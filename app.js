@@ -371,7 +371,7 @@
     const moi = box.querySelector('.lt-nut[data-the="' + locThe + '"]');
     if (moi) moi.focus({ preventScroll: true });
   }));
-  // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
+  // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (đầu trang tu-dien.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
   // Đang tìm thì báo ngay dưới ô tìm có bao nhiêu video khớp và ẩn dải "Hôm nay": trên điện thoại kết quả nằm dưới hàng nhóm, người xem tưởng ô tìm không chạy
   const soKq = document.createElement("p");
@@ -389,7 +389,7 @@
     if (!q) soKq.hidden = true;
     if (hoiBit) {
       hoiBit.hidden = !q;
-      if (q) { hoiBit.href = "hoi-bit.html?q=" + encodeURIComponent(input.value.trim()); hoiBit.textContent = S.hoiBit(input.value.trim()); }
+      if (q) { hoiBit.href = "tu-dien.html?q=" + encodeURIComponent(input.value.trim()) + "#hoi-bit"; hoiBit.textContent = S.hoiBit(input.value.trim()); }
     }
     if (!q && current === "tat-ca") {
       // Lưới hiện trước 3 hàng thẻ, nút "Xem thêm" mở tiếp từng 3 hàng (3 cột trên máy tính, 2 cột trên điện thoại)

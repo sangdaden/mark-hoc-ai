@@ -19,7 +19,7 @@ import tro_choi
 R = pathlib.Path(__file__).resolve().parent.parent
 BASE = "https://markhocai.com/"
 UU_TIEN = {"": "1.0", "tu-dien.html": "0.8", "kiem-tra.html": "0.8", "lo-trinh-7-ngay.html": "0.8", "sach.html": "0.8",
-           "hoi-bit.html": "0.8", "lo-trinh-nganh.html": "0.8", "phieu-luu.html": "0.7", "hop-tac.html": "0.5",
+           "lo-trinh-nganh.html": "0.8", "phieu-luu.html": "0.7", "hop-tac.html": "0.5",
            "ung-ho.html": "0.4", "quyen-rieng-tu.html": "0.3", "dieu-khoan.html": "0.3"}
 NOINDEX = re.compile(r'<meta\s+name="robots"\s+content="[^"]*noindex', re.I)
 
