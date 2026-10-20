@@ -3,6 +3,7 @@
    Trạm 1 Cắt mảnh: bộ tách token thật o200k_base (assets/vendor/gpt-tokenizer, nạp khi mở trạm).
    Trạm 6 Đoán chữ tiếp: mô hình n-gram nhỏ học từ bài viết và kịch bản của kênh (data/bo-nao/doan-chu*.json, scripts/tao_doan_chu.py).
    Trạm 7 Vòng quay: công thức nhiệt độ p^(1/T) và top-p, số mặc định là ví dụ trong video 24.
+   Trạm 8 Nghĩ trước khi nói: câu hỏi, câu trả lời ngay và giấy nháp viết sẵn (data/bo-nao/nghi-truoc.json), giây và mảnh là số ước lượng.
    Không gọi AI thật, không gửi gì đi đâu. */
 (function () {
   var goc = document.getElementById("bn");
@@ -279,7 +280,125 @@
     ve();
   }
 
-  var KHOI = { "cat-manh": khoiCatManh, "doan-chu": khoiDoanChu, "vong-quay": khoiVongQuay };
+  /* ---------- Trạm 8: Nghĩ trước khi nói ---------- */
+  // Câu hỏi, câu trả lời và giấy nháp viết sẵn (data/bo-nao/nghi-truoc.json, nhúng ở #nt-du-lieu). "Nghĩ trước" hiện từng bước nháp,
+  // đồng hồ giây và số mảnh chạy lên trong lúc nháp; số cuối cùng là số ước lượng trong dữ liệu, không đo thật.
+  function khoiNghiTruoc() {
+    var D;
+    try { D = JSON.parse($("nt-du-lieu").textContent); } catch (e) { return; }
+    var T = EN ? {
+      sai: "Wrong", dung: "Right", giay: function (n) { return n + (n === 1 ? " second" : " seconds"); }, manh: function (n) { return n + " tokens"; },
+      dang: function (s) { return "thinking… " + s + "s"; }, xong: "done",
+      saiNgay: "Fast, but wrong. Now press “Think first” and watch the scratch paper.",
+      dungNgay: "Right, and instantly. Try “Think first” too: does it do any better?",
+      soSanh: function (a, b) { return "Think first took " + a + "× the time and " + b + "× the tokens."; },
+      tong: function (k, n) { return "Tried both ways on " + k + " of " + n + " questions."; },
+      chuaNghi: "Now press “Answer right away” to compare."
+    } : {
+      sai: "Sai", dung: "Đúng", giay: function (n) { return n + " giây"; }, manh: function (n) { return n + " mảnh"; },
+      dang: function (s) { return "đang nghĩ… " + s + " giây"; }, xong: "xong",
+      saiNgay: "Nhanh nhưng sai. Giờ bấm “Nghĩ trước” và xem giấy nháp.",
+      dungNgay: "Đúng, lại còn tức thì. Thử “Nghĩ trước” xem có hơn không?",
+      soSanh: function (a, b) { return "Nghĩ trước tốn gấp " + a + " lần thời gian và gấp " + b + " lần số mảnh."; },
+      tong: function (k, n) { return "Đã thử cả hai cách " + k + "/" + n + " câu."; },
+      chuaNghi: "Giờ bấm “Trả lời ngay” để so."
+    };
+    var tat = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var o = {}; D.cau.forEach(function (c) { o[c.id] = c; });
+    var cur = D.cau[0], luot = 0, chay = {}, daThu = {};
+    var anh = $("nt-bit-anh"), bit = $("nt-bit");
+    function noiBit(chu, hinh) { bit.textContent = chu; anh.src = D.p + "assets/" + hinh + ".svg"; }
+    function so(n) { return String(n).replace(".", EN ? "." : ","); }
+    function do_dat(che, giay, manh) {
+      var g = $("nt-do-" + che), max = cur.nghi;
+      g.querySelector(".nt-giay").style.width = (giay / max.giay * 100) + "%";
+      g.querySelector(".nt-manh").style.width = (manh / max.manh * 100) + "%";
+      g.querySelector(".nt-giay-so").textContent = giay === null ? "–" : T.giay(so(giay));
+      g.querySelector(".nt-manh-so").textContent = manh === null ? "–" : T.manh(manh);
+    }
+    function do_xoa(che) {
+      var g = $("nt-do-" + che);
+      g.querySelector(".nt-giay").style.width = g.querySelector(".nt-manh").style.width = "0";
+      g.querySelector(".nt-giay-so").textContent = g.querySelector(".nt-manh-so").textContent = "–";
+    }
+    function traLoi(el, chu, dung) {
+      el.innerHTML = '<b aria-hidden="true">' + (dung ? "✓" : "✕") + "</b><span>" + esc(chu) + ' <span class="sr">(' + (dung ? T.dung : T.sai) + ")</span></span>";
+      el.className = "nt-tl " + (dung ? "is-dung" : "is-sai"); el.hidden = false;
+    }
+    function ketLuan() {
+      var c = chay[cur.id] || {};
+      if (c.ngay && c.nghi) {
+        noiBit(cur.bai_hoc + " " + T.soSanh(Math.round(cur.nghi.giay / cur.ngay.giay), Math.round(cur.nghi.manh / cur.ngay.manh)), cur.don_gian ? "bit-giai-thich" : "bit-y-tuong");
+        if (!daThu[cur.id]) {
+          daThu[cur.id] = 1;
+          var b = document.querySelector('.nt-o-cau[data-nt="' + cur.id + '"]'); if (b) b.classList.add("is-xong");
+        }
+        var k = Object.keys(daThu).length;
+        $("nt-tong").textContent = T.tong(k, D.cau.length);
+      } else if (c.ngay) noiBit(cur.ngay.dung ? T.dungNgay : T.saiNgay, cur.ngay.dung ? "bit-vui" : "bit-sai-roi");
+      else if (c.nghi) noiBit(cur.bai_hoc + " " + T.chuaNghi, "bit-y-tuong");
+    }
+    function datLai() {
+      luot++;
+      $("nt-de").textContent = cur.hoi;
+      ["ngay", "nghi"].forEach(function (che) { $("nt-" + che + "-tl").hidden = true; $("nt-" + che + "-cho").hidden = false; $("nt-" + che).disabled = false; do_xoa(che); });
+      $("nt-nhap").innerHTML = ""; $("nt-dang").textContent = "";
+      chay[cur.id] = {};
+      noiBit(EN ? "Press either button. Try both to compare." : "Bấm một trong hai nút. Thử cả hai để so.", "bit-giai-thich");
+    }
+    [].slice.call(goc.querySelectorAll(".nt-o-cau")).forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = o[b.dataset.nt];
+        [].slice.call(goc.querySelectorAll(".nt-o-cau")).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        datLai();
+      });
+    });
+    $("nt-ngay").addEventListener("click", function () {
+      var nut = this, l = luot, c = cur;
+      nut.disabled = true; $("nt-ngay-cho").hidden = true; $("nt-ngay-tl").hidden = true;
+      setTimeout(function () {
+        if (l !== luot) return;
+        traLoi($("nt-ngay-tl"), c.ngay.tl, c.ngay.dung); do_dat("ngay", c.ngay.giay, c.ngay.manh);
+        chay[c.id].ngay = 1; nut.disabled = false; ketLuan();
+      }, tat ? 0 : 350);
+      do_("bo-nao-nghi", { cau: c.id, che_do: "ngay" });
+    });
+    $("nt-nghi").addEventListener("click", function () {
+      var nut = this, l = luot, c = cur, ds = $("nt-nhap"), dang = $("nt-dang"), n = c.nghi.buoc.length;
+      nut.disabled = true; $("nt-nghi-cho").hidden = true; $("nt-nghi-tl").hidden = true; ds.innerHTML = "";
+      var moi = tat ? 0 : 1100, tong = tat ? 0 : moi * n + 200, t0 = null;
+      function dem(t) {
+        if (l !== luot) return;
+        if (t0 === null) t0 = t;
+        var k = tong ? Math.min(1, (t - t0) / tong) : 1;
+        do_dat("nghi", Math.round(c.nghi.giay * k * 10) / 10, Math.round(c.nghi.manh * k));
+        dang.textContent = k < 1 ? T.dang(so((c.nghi.giay * k).toFixed(1))) : "· " + T.xong;
+        if (k < 1) requestAnimationFrame(dem);
+      }
+      requestAnimationFrame(dem);
+      var i = 0;
+      (function buoc() {
+        if (l !== luot) return;
+        if (i < n) {
+          var b = c.nghi.buoc[i++], li = document.createElement("li");
+          li.innerHTML = '<span class="nt-l-' + esc(b.loai) + '">' + esc(D.nhan[b.loai] || b.loai) + "</span><p>" + esc(b.chu) + "</p>";
+          ds.appendChild(li);
+          setTimeout(buoc, moi);
+        } else {
+          setTimeout(function () {
+            if (l !== luot) return;
+            do_dat("nghi", c.nghi.giay, c.nghi.manh); dang.textContent = "· " + T.xong;
+            traLoi($("nt-nghi-tl"), c.nghi.tl, true);
+            chay[c.id].nghi = 1; nut.disabled = false; ketLuan();
+          }, tat ? 0 : 200);
+        }
+      })();
+      do_("bo-nao-nghi", { cau: c.id, che_do: "nghi" });
+    });
+    datLai();
+  }
+
+  var KHOI = { "cat-manh": khoiCatManh, "doan-chu": khoiDoanChu, "vong-quay": khoiVongQuay, "nghi-truoc": khoiNghiTruoc };
   var m = /[?&]tram=([\w-]+)/.exec(location.search), h = location.hash.replace("#", "");
   var dau = (m && m[1]) || (document.getElementById("tram-" + h) ? h : "") || "cat-manh";
   moTram(dau, false);
