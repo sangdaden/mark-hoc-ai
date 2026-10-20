@@ -1,0 +1,49 @@
+{
+ "_ghi_chu": "Game G1 'Mark chặn lừa' (chan-lua.html, chan-lua.js). Tin bay về điện thoại của bà: chạm tin lừa để bắn hạ, để tin thật bay qua. 'dau' = dấu hiệu lừa (khóa trong 'dau_hieu'), mỗi tin lừa có đúng một dấu hiệu chính để hiện khi bắn trúng. Tin thật có 'vi_sao' giải thích vì sao an toàn. 'tu.luu' = số đã lưu trong danh bạ (hiện tên), không có = số lạ (hiện số). Trùm mỗi màn lấy một ca trong data/lua-dao.json ('trum.ca'): chạm đúng các câu có dấu hiệu ('co') để hạ trùm. Nội dung theo video 14, 15, 108-112 và A1 (3 câu soát: đòi tiền hay mã? thúc gấp? đổi kênh, số lạ, link lạ?).",
+ "dau_hieu": {
+  "tien": {"vi": "Đòi chuyển tiền", "en": "Asks for money", "giai": {"vi": "Người lạ hay người tự xưng là người quen mà đòi chuyển tiền: dừng lại, tự gọi lại số đã lưu.", "en": "Anyone asking for money over text, even someone claiming to be family: stop and call back a number you saved."}},
+  "otp": {"vi": "Đòi mã OTP", "en": "Asks for your code", "giai": {"vi": "Mã OTP chỉ để bạn tự gõ. Ngân hàng, công an, người thân đều không bao giờ cần bạn đọc mã.", "en": "One-time codes are only for you to type. Banks, police and family never need you to read one out."}},
+  "link": {"vi": "Link lạ", "en": "Strange link", "giai": {"vi": "Link lạ dẫn tới trang giả hoặc app giả để lấy tài khoản. Muốn kiểm tra thì tự mở app chính thức.", "en": "Strange links lead to fake sites or apps that steal your account. To check, open the official app yourself."}},
+  "gap": {"vi": "Thúc gấp", "en": "Rushes you", "giai": {"vi": "Kẻ lừa luôn ép làm ngay để bạn không kịp hỏi ai. Chậm lại 10 phút không mất gì.", "en": "Scammers always push you to act now so you can't ask anyone. Waiting ten minutes costs nothing."}},
+  "so-la": {"vi": "Số lạ, đổi số", "en": "Unknown number", "giai": {"vi": "Tự xưng người quen mà nhắn từ số lạ hay báo đổi số: gọi lại số cũ đã lưu để hỏi.", "en": "Claims to be someone you know but texts from a new number: call their old saved number to check."}},
+  "qua-tot": {"vi": "Hời quá mức", "en": "Too good to be true", "giai": {"vi": "Trúng thưởng, lãi cao, việc nhẹ lương cao: quà thật không bắt bạn nộp phí trước.", "en": "Prizes, huge returns, easy money: real rewards never ask you to pay a fee first."}},
+  "giau": {"vi": "Dặn giữ bí mật", "en": "Keep it secret", "giai": {"vi": "Dặn đừng nói với ai là để không ai kịp cản bạn. Hãy kể ngay cho người nhà.", "en": "Being told to keep it secret means no one can stop you. Tell your family right away."}}
+ },
+ "man": [
+  {
+   "id": "hop-tin",
+   "ten": {"vi": "Hộp tin của bà", "en": "Grandma's inbox"},
+   "phu": {"vi": "Tin nhắn SMS, Zalo", "en": "Texts and chat"},
+   "tim": 4,
+   "toc": [70, 115],
+   "cach": [2.6, 1.7],
+   "video": [14, 108, 111],
+   "trum": {"ca": "goi-nua-dem", "toc": 22, "ten": {"vi": "Trùm: cuộc gọi giả giọng con", "en": "Boss: the fake-voice call"}},
+   "tin": [
+    {"loai": "sms", "tu": {"vi": "Con gái Lan", "en": "Daughter Lan", "luu": true}, "chu": {"vi": "Mẹ ơi tối nay con về ăn cơm nhé", "en": "Mom, I'll be home for dinner tonight"}, "vi_sao": {"vi": "Số con đã lưu, chuyện thường ngày, không đòi gì.", "en": "Her saved number, everyday chat, asks for nothing."}},
+    {"loai": "sms", "tu": {"vi": "+84 98•• ••• 102"}, "chu": {"vi": "Mã OTP vừa gửi tới bà là của cháu, bà đọc giúp cháu với", "en": "The code you just got is mine, please read it to me"}, "dau": "otp"},
+    {"loai": "chat", "tu": {"vi": "Cháu Bin", "en": "Grandson Bin", "luu": true}, "chu": {"vi": "Bà ơi cuối tuần cháu qua chơi với bà", "en": "Grandma, I'll come visit this weekend"}, "vi_sao": {"vi": "Cháu đã lưu trong danh bạ, chỉ hẹn sang chơi.", "en": "A saved contact, just planning a visit."}},
+    {"loai": "sms", "tu": {"vi": "+84 33•• ••• 518"}, "chu": {"vi": "Con đây, con đổi số rồi. Chuyển con 5 triệu nhé", "en": "It's me, new number. Send me 5 million please"}, "dau": "so-la"},
+    {"loai": "sms", "tu": {"vi": "NGAN HANG"}, "chu": {"vi": "TK của quý khách bị khóa. Mở lại tại vcb-xacthuc.cc", "en": "Your account is locked. Unlock at bank-verify.cc"}, "dau": "link"},
+    {"loai": "sms", "tu": {"vi": "Điện lực", "en": "Power company", "luu": true}, "chu": {"vi": "Tiền điện tháng 10: 312.000đ, hạn nộp 25/10", "en": "October power bill: 312,000 VND, due Oct 25"}, "vi_sao": {"vi": "Chỉ báo số tiền và hạn nộp, không link, không thúc. Bà nộp như mọi tháng.", "en": "Just the amount and due date, no link, no rush. Pay it the usual way."}},
+    {"loai": "sms", "tu": {"vi": "+84 85•• ••• 774"}, "chu": {"vi": "Chúc mừng bà trúng xe máy! Nộp phí 500k để nhận quà", "en": "Congrats, you won a motorbike! Pay a 500k fee to claim"}, "dau": "qua-tot"},
+    {"loai": "sms", "tu": {"vi": "+84 90•• ••• 061"}, "chu": {"vi": "Điện lực: cắt điện sau 2 giờ nữa nếu không chuyển khoản ngay", "en": "Power co: cut off in 2 hours unless you transfer now"}, "dau": "gap"},
+    {"loai": "chat", "tu": {"vi": "Nhóm tổ dân phố", "en": "Neighborhood group", "luu": true}, "chu": {"vi": "Chủ nhật 8h họp tổ ở nhà văn hóa", "en": "Sunday 8am meeting at the community hall"}, "vi_sao": {"vi": "Thông báo chung trong nhóm quen, không đòi tiền hay mã.", "en": "A group notice from neighbors, asks for no money or codes."}},
+    {"loai": "chat", "tu": {"vi": "+84 77•• ••• 330"}, "chu": {"vi": "Cháu là bạn con bác, con bác nhập viện. Bác đừng nói ai nhé", "en": "I'm your son's friend, he's in hospital. Don't tell anyone"}, "dau": "giau"},
+    {"loai": "sms", "tu": {"vi": "+84 39•• ••• 245"}, "chu": {"vi": "Cập nhật sinh trắc học kẻo khóa tài khoản: tải app tại link", "en": "Update your face ID or lose your account: get the app here"}, "dau": "link"},
+    {"loai": "sms", "tu": {"vi": "Phòng khám", "en": "Clinic", "luu": true}, "chu": {"vi": "Nhắc lịch tái khám thứ Năm 9h", "en": "Reminder: follow-up visit Thursday 9am"}, "vi_sao": {"vi": "Nơi bà đã lưu số, chỉ nhắc lịch.", "en": "A saved number, just a reminder."}},
+    {"loai": "chat", "tu": {"vi": "+84 86•• ••• 913"}, "chu": {"vi": "Công an đây. Bà liên quan vụ án, chuyển tiền vào TK tạm giữ", "en": "Police here. You're in a case, move money to a holding account"}, "dau": "tien"},
+    {"loai": "chat", "tu": {"vi": "+84 70•• ••• 482"}, "chu": {"vi": "Đầu tư cùng chuyên gia, lãi 30% mỗi tháng, vào nhóm ngay", "en": "Invest with experts, 30% a month, join the group now"}, "dau": "qua-tot"},
+    {"loai": "sms", "tu": {"vi": "NGAN HANG"}, "chu": {"vi": "Mã OTP 482910. KHÔNG cung cấp mã cho bất kỳ ai", "en": "Code 482910. NEVER share this code with anyone"}, "vi_sao": {"vi": "Tin của ngân hàng chỉ báo mã khi bà tự đăng nhập, và dặn không đưa ai. Tin xin mã mới là lừa.", "en": "The bank only sends the code when you log in, and says never share it. A message asking for it is the scam."}},
+    {"loai": "chat", "tu": {"vi": "Bạn Hoa", "en": "Friend Hoa", "luu": true}, "chu": {"vi": "Mai đi chợ sớm không bà ơi?", "en": "Going to the market early tomorrow?"}, "vi_sao": {"vi": "Bạn quen đã lưu, rủ đi chợ.", "en": "A saved friend asking about the market."}},
+    {"loai": "sms", "tu": {"vi": "+84 94•• ••• 157"}, "chu": {"vi": "Shipper: đơn của bà giao lỗi, bấm link để nhận hoàn tiền", "en": "Courier: your delivery failed, tap the link for a refund"}, "dau": "link"},
+    {"loai": "chat", "tu": {"vi": "+84 32•• ••• 609"}, "chu": {"vi": "Ông bị ngã, đang cấp cứu. Chuyển gấp 20 triệu, nhanh lên!", "en": "Grandpa fell, he's in the ER. Send 20 million, hurry!"}, "dau": "gap"}
+   ]
+  }
+ ],
+ "sap_toi": [
+  {"ten": {"vi": "Cuộc gọi lạ", "en": "Strange calls"}, "phu": {"vi": "Giọng nhái bằng AI", "en": "AI voice clones"}},
+  {"ten": {"vi": "Video và quảng cáo", "en": "Videos and ads"}, "phu": {"vi": "Mặt giả, bác sĩ giả", "en": "Fake faces, fake doctors"}},
+  {"ten": {"vi": "Trùm: cuộc họp deepfake", "en": "Boss: the deepfake meeting"}, "phu": {"vi": "Cả phòng họp toàn người giả", "en": "A whole meeting of fakes"}}
+ ]
+}
