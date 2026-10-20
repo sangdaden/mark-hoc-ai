@@ -12,10 +12,24 @@
   var thu = /[?&]do=thu(&|$)/.test(location.search);
   var bat = !!MA_WEB && location.hostname === TEN_MIEN && navigator.doNotTrack !== "1";
   var hang = [];
+  // 3 game mới (Sang chốt đo 20/10): mỗi game tự đặt tên sự kiện riêng, nên ở đây gửi thêm một cặp chung
+  // "tro-bat-dau" / "tro-xong" có nhãn tro = tên game, để bảng số liệu so được ba game với nhau.
+  var TRO_MOI = (duong.match(/\/(chan-lua|dem-lai-xe|duong-doan-chu)(\.html)?$/) || [])[1];
 
   function gui(ten, du_lieu) {
     var d = { goc: goc, ngon_ngu: ngon_ngu };
     for (var k in du_lieu || {}) d[k] = du_lieu[k];
+    if (TRO_MOI && ten.indexOf("tro-") !== 0) {
+      var buoc = /-bat-dau$/.test(ten) && ten !== "kiem-tra-bat-dau" ? "bat-dau" : /^(game-xong|game-qua-man|duong-doan-chu-xong)$/.test(ten) ? "xong" : "";
+      if (buoc) gui("tro-" + buoc, { tro: TRO_MOI, man: String(d.man || "") });
+    }
+    // Thẻ chiêu lừa ở Trạm chống lừa đảo: tram-lua-dao.js gửi "tram-lua-dao" (hanh_dong mo-the); tách riêng để đếm theo từng thẻ.
+    // tu = "link" khi thẻ mở từ link ?chieu= (bình luận đầu video), "bam" khi người xem tự bấm.
+    if (ten === "tram-lua-dao" && d.hanh_dong === "mo-the") {
+      var tu_link = !gui.da_link && (new URLSearchParams(location.search).get("chieu") === d.chieu || location.hash === "#chieu-" + d.chieu);
+      if (tu_link) gui.da_link = true;
+      gui("the-chieu-lua", { chieu: d.chieu, tu: tu_link ? "link" : "bam" });
+    }
     if (thu) {
       (window.__do = window.__do || []).push([ten, d]);
       console.log("[đo]", ten, d);
@@ -112,6 +126,8 @@
     if (/facebook\.com\/sharer/i.test(href)) return gui("chia-se", { cach: "facebook" });
     // Nút "Đăng ký" cạnh link YouTube (cai-dat.js): đếm riêng, không gộp vào bam-kenh
     if (/youtube\.com\/[^?#]*\?(.*&)?sub_confirmation=1/i.test(href)) return gui("dang-ky-youtube", { cho: cho });
+    // Tải sách PDF miễn phí (nút ở sach.html và trang chủ, VI + EN); trang = trang có nút
+    if (/(^|\/)assets\/sach\/[^\/?#]+\.pdf([?#]|$)/i.test(href)) return gui("tai-sach", { trang: duong.replace(/^\/en(\/|$)/, "/").replace(/\.html$/, "").replace(/^\/$/, "/index").slice(1) || "index", cho: cho });
     if (/^https?:/i.test(href)) {
       for (var i = 0; i < KENH.length; i++) {
         if (KENH[i][1].test(href)) return gui("bam-kenh", { kenh: KENH[i][0], cho: cho });
@@ -129,26 +145,17 @@
   document.addEventListener("submit", function (e) {
     var f = e.target;
     if (f && f.closest && f.closest(".bit-tl")) gui("hoi-bit", { cho: "bit-noi" });
-    else if (/\/hoi-bit(\.html)?$/.test(duong)) gui("hoi-bit", { cho: "trang-hoi-bit" });
+    else if (/\/tu-dien(\.html)?$/.test(duong)) gui("hoi-bit", { cho: "tu-dien" });
   }, true);
   document.addEventListener("click", function (e) {
-    if (/\/hoi-bit(\.html)?$/.test(duong) && e.target.closest && e.target.closest(".hb-goi-y button")) gui("hoi-bit", { cho: "goi-y" });
+    if (/\/tu-dien(\.html)?$/.test(duong) && e.target.closest && e.target.closest(".hb-goi-y button")) gui("hoi-bit", { cho: "goi-y" });
   }, true);
 
-  // Từ điển: đếm lượt tra và tra có ra kết quả không, không gửi chữ đã gõ
-  if (/\/tu-dien(\.html)?$/.test(duong)) {
-    document.addEventListener("DOMContentLoaded", function () {
-      var o = document.getElementById("loc"), rong = document.getElementById("rong"), hen, so_lan = 0;
-      if (!o) return;
-      o.addEventListener("input", function () {
-        clearTimeout(hen);
-        hen = setTimeout(function () {
-          if (o.value.trim().length < 2 || so_lan++ >= 10) return;
-          gui("tra-tu-dien", { tim_thay: rong && !rong.hidden ? "khong" : "co" });
-        }, 1500);
-      });
-    });
-  }
+  // Từ điển: đếm lượt bấm "Xem hết" của từng chủ đề
+  document.addEventListener("click", function (e) {
+    var b = e.target && e.target.closest ? e.target.closest(".tdai-het") : null;
+    if (b && b.getAttribute("aria-expanded") === "false") gui("tu-dien-xem-het", { chu_de: b.getAttribute("aria-controls").replace("ds-", "") });
+  }, true);
 
   // Đọc bài đến cuối: cuộn qua 75% trang bài viết hoặc bài sách
   var ten_bai = (duong.match(/\/(bai|vu-tru-khac)\/([^\/.]+)(\.html)?$/) || [])[2];

@@ -20,7 +20,11 @@
     nganhThem: "For the field certificate, also tick off every video in this field's learning path.", loTrinh: "Open the learning path",
     caoNhat: (d, n) => "Best " + d + "/" + n, coCc: "Certificate unlocked",
     chiaSeChu: (d, n, t) => "I got " + d + "/" + n + " on the “" + t + "” quiz from Mark học AI. How many can you get?",
-    daChep: "Link copied. Paste it into a message to send to your friends.", chepTay: "Copy this link to send to your friends: "
+    daChep: "Link copied. Paste it into a message to send to your friends.", chepTay: "Copy this link to send to your friends: ",
+    tenNhan: "Name on your certificate", tenGoi: "Type your name", tenMau: "Your name here", fb: "Share on Facebook", guiAnh: "Send the image",
+    taiAnh: "Download PNG", trangCc: "Print PDF or add to LinkedIn", canTen: "Type your name first, then press the button again.",
+    anhCc: (t, n) => "Certificate “" + t + "” for " + n, ccMoi: "Your certificate is ready",
+    chiaSeCc: (t, s) => "I just got the “" + t + "” certificate from Mark học AI with " + s + " correct answers. How many can you get?"
   } : {
     cau: (i, n) => "Câu " + i + "/" + n, ketQua: "Kết quả", dung: n => "Đúng " + n, so: i => "Câu " + i,
     d: "Đúng", s: "Sai", dungRoi: "Chính xác!", chuaDung: "Chưa đúng.", cauNay: d => " Câu này " + (d ? "đúng" : "là hiểu lầm") + ".",
@@ -36,16 +40,22 @@
     nganhThem: "Muốn có giấy chứng nhận chuyên ngành, bạn đánh dấu xem xong các video trong lộ trình ngành này nữa nhé.", loTrinh: "Mở lộ trình ngành",
     caoNhat: (d, n) => "Cao nhất " + d + "/" + n, coCc: "Đã có chứng nhận",
     chiaSeChu: (d, n, t) => "Mình được " + d + "/" + n + " câu trong bài kiểm tra “" + t + "” của Mark học AI. Bạn được mấy câu?",
-    daChep: "Đã chép link, dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để gửi bạn bè: "
+    daChep: "Đã chép link, dán vào tin nhắn để gửi bạn bè.", chepTay: "Chép link này để gửi bạn bè: ",
+    tenNhan: "Tên in trên giấy chứng nhận", tenGoi: "Gõ tên của bạn", tenMau: "Tên của bạn", fb: "Chia sẻ lên Facebook", guiAnh: "Gửi ảnh chứng nhận",
+    taiAnh: "Tải ảnh PNG", trangCc: "In PDF hoặc thêm vào LinkedIn", canTen: "Bạn gõ tên trước rồi bấm lại nhé.",
+    anhCc: (t, n) => "Giấy chứng nhận “" + t + "” của " + n, ccMoi: "Giấy chứng nhận của bạn đây",
+    chiaSeCc: (t, s) => "Mình vừa nhận giấy chứng nhận “" + t + "” của Mark học AI với " + s + " câu đúng. Bạn thử xem được mấy câu?"
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const ic = n => '<svg class="ic" aria-hidden="true"><use href="' + goc + "assets/icons.svg#i-" + n + '"/></svg>';
+  const nt = n => '<span class="nt nt-sm nt-' + n + '" aria-hidden="true"><svg><use href="' + goc + "assets/nen-tang.svg#nt-" + n + '"/></svg></span>';
   const link = v => '<a href="' + v.url + '">#' + String(v.so).padStart(2, "0") + " · " + esc(v.ten) + "</a>";
   const xao = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const canDat = n => Math.ceil(n * D.dat - 1e-9);
   const mo = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
 
   const chonEl = document.getElementById("kt-bo"), quiz = document.getElementById("quiz"), khung = document.getElementById("khung");
-  const tienDo = document.getElementById("tien-do"), diemTam = document.getElementById("diem-tam"), thanh = document.getElementById("thanh");
+  const tienDo = document.getElementById("tien-do"), diemTam = document.getElementById("diem-tam"), chang = document.getElementById("kt-chang");
   const byId = {};
   D.bo.forEach(b => { byId[b.id] = b; });
 
@@ -60,13 +70,14 @@
     });
   }
 
-  let B, Q, i, dung, sai;
+  let B, Q, i, dung, sai, ketCau;
   const do_ = (t, d) => window.mhaiDo && window.mhaiDo(t, d); // đếm tương tác, xem theo-doi.js
   function batDau(id, cuon) {
     B = byId[id] || D.bo[0];
     // Xáo câu và xáo lựa chọn; mỗi lựa chọn nhớ mình có phải đáp án không
     Q = xao(B.cau_hoi).map(c => c.loai === "chon" ? Object.assign({}, c, { opts: xao(c.lua_chon.map((x, k) => ({ x, ok: k === c.dap_an }))) }) : c);
-    i = 0; dung = 0; sai = [];
+    i = 0; dung = 0; sai = []; ketCau = [];
+    chang.innerHTML = Q.map(() => "<i></i>").join("");
     document.getElementById("kt-ten-bo").textContent = B.ten;
     chonEl.hidden = true; quiz.hidden = false;
     cauHoi();
@@ -75,8 +86,10 @@
   }
   function capNhat(soHien) {
     tienDo.textContent = soHien ? S.cau(soHien, Q.length) : S.ketQua;
+    tienDo.parentNode.parentNode.classList.toggle("is-xong", !soHien); // màn kết quả: dải tiến độ thôi dính đầu màn hình
     diemTam.textContent = S.dung(dung);
-    thanh.style.width = (Math.min(i, Q.length) / Q.length * 100) + "%";
+    // Mỗi câu một chặng: xanh là đúng, đỏ là sai, viền đậm là câu đang làm
+    [...chang.children].forEach((el, k) => { el.className = k in ketCau ? (ketCau[k] ? "is-dung" : "is-sai") : (soHien && k === soHien - 1 ? "is-hien" : ""); });
   }
   function cauHoi() {
     const q = Q[i];
@@ -100,6 +113,7 @@
       ok = v === q.dung; chon = v ? S.d : S.s; dapAn = q.dung ? S.d : S.s;
       khung.querySelectorAll(".q-btn").forEach(x => { x.disabled = true; if ((x.dataset.v === "1") === q.dung) x.classList.add("is-right"); else if (x === b) x.classList.add("is-wrong"); });
     }
+    ketCau[i] = ok;
     if (ok) dung++; else sai.push({ q, chon, dapAn });
     const cuoi = i === Q.length - 1, m = ok ? "mark-chien-thang" : "mark-dau-dau";
     const loiPhan = q.loai === "chon" ? (ok ? "" : S.dapAn(esc(dapAn))) : S.cauNay(q.dung);
@@ -127,11 +141,18 @@
     do_("hoc-xong", { loai: "kiem-tra" });
     let cc;
     if (dat) {
-      cc = '<div class="kt-cc is-mo"><svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-award"/></svg><div><p><b>' + esc(S.moKhoa(CC.tenChungChi("chu-de", B))) + "</b>" +
-        (B.nhanh ? " " + S.nganhThem : "") + '</p><p class="kt-cc-nut"><a class="btn btn-yt" href="chung-nhan.html?tao=chu-de.' + B.id + '">' + S.nhan + "</a>" +
-        (B.nhanh ? '<a class="btn" href="lo-trinh-nganh.html?ai=' + B.nhanh + '">' + S.loTrinh + "</a>" : "") + "</p></div></div>";
+      // Giấy chứng nhận vẽ ngay trên màn kết quả, cùng nội dung và mã xác minh với trang chung-nhan.html (điểm cao nhất, ngày đạt đầu tiên)
+      cc = '<div class="kt-cc is-mo kt-cc-anh"><div class="kt-cc-giay"><canvas id="kt-canvas" width="1600" height="1131" role="img"></canvas></div><div class="kt-cc-ben">' +
+        '<p class="kt-cc-tieu">' + ic("award") + "<b>" + esc(S.moKhoa(CC.tenChungChi("chu-de", B))) + "</b></p>" +
+        '<label class="kt-cc-nhan" for="kt-ten">' + S.tenNhan + '</label><input id="kt-ten" type="text" maxlength="60" autocomplete="name" placeholder="' + S.tenGoi + '">' +
+        '<p class="kt-cc-nut"><a class="btn btn-fb" id="kt-fb" href="#" target="_blank" rel="noopener">' + nt("facebook") + S.fb + "</a>" +
+        '<button type="button" class="btn" id="kt-gui" data-chia-se hidden>' + ic("share-2") + S.guiAnh + "</button>" +
+        '<button type="button" class="btn" id="kt-tai">' + ic("download") + S.taiAnh + "</button>" +
+        '<a class="btn" href="chung-nhan.html?tao=chu-de.' + B.id + '">' + ic("file-text") + S.trangCc + "</a>" +
+        (B.nhanh ? '<a class="btn" href="lo-trinh-nganh.html?ai=' + B.nhanh + '">' + S.loTrinh + "</a>" : "") + "</p>" +
+        '<p class="kt-cc-loi" id="kt-cc-loi" role="alert"></p>' + (B.nhanh ? '<p class="kt-cc-phu">' + S.nganhThem + "</p>" : "") + "</div></div>";
     } else {
-      cc = '<div class="kt-cc"><svg class="ic" aria-hidden="true"><use href="' + goc + 'assets/icons.svg#i-award"/></svg><p>' + S.canDat(canDat(n), n) + "</p></div>";
+      cc = '<div class="kt-cc">' + ic("award") + "<p>" + S.canDat(canDat(n), n) + "</p></div>";
     }
     const xemLai = sai.length ? '<details class="kt-xem-lai"><summary>' + S.xemLai(sai.length) + "</summary><ol>" +
       sai.map(s => "<li><p><b>" + esc(s.q.cau) + '</b></p><p class="kt-sai">' + S.banChon + esc(s.chon) + '</p><p class="kt-dung">' + S.dapAnDung + esc(s.dapAn) + "</p><p>" + esc(s.q.giai_thich) + "</p></li>").join("") +
@@ -139,12 +160,56 @@
     khung.innerHTML = '<div class="result"><img src="' + goc + 'assets/mark-a-ra-the.svg" alt="" width="140" height="132"><div><p class="q-num">' + S.ketQua + '</p><h2 class="score" tabindex="-1">' +
       S.diem(dung, n) + "</h2><p>" + loi + "</p></div></div>" + cc + xemLai +
       '<h3 class="rec-h">' + (sai.length ? S.nenXem : S.diTiep) + '</h3><ul class="rec">' + ds.map(v => "<li>" + link(v) + "</li>").join("") + "</ul>" +
-      '<div class="q-actions"><button class="btn btn-yt" id="chia-se">' + S.chiaSe + '</button><button class="btn" id="lam-lai">' + S.lamLai + '</button><button class="btn" id="bo-khac">' + S.boKhac +
+      '<div class="q-actions"><button class="btn btn-yt" id="chia-se" data-chia-se>' + S.chiaSe + '</button><button class="btn" id="lam-lai">' + S.lamLai + '</button><button class="btn" id="bo-khac">' + S.boKhac +
       '</button></div><p class="share-msg" id="bao" role="status"></p>';
     khung.querySelector(".score").focus({ preventScroll: true });
     document.getElementById("lam-lai").addEventListener("click", () => batDau(B.id, true));
     document.getElementById("bo-khac").addEventListener("click", doiBo);
     document.getElementById("chia-se").addEventListener("click", () => chiaSe(dung, n));
+    if (dat) giayChungNhan();
+  }
+  function giayChungNhan() {
+    const r = CC.ketQua()[B.id], s = r.dung + "/" + r.tong, gioi = r.dung === r.tong, ngay = r.dat || r.ngay;
+    const cv = document.getElementById("kt-canvas"), inTen = document.getElementById("kt-ten"), loi = document.getElementById("kt-cc-loi");
+    const fb = document.getElementById("kt-fb"), gui = document.getElementById("kt-gui");
+    const ten = () => inTen.value.replace(/\s+/g, " ").trim();
+    inTen.value = CC.nho.get(CC.KHOA_TEN) || (CC.nho.get(CC.KHOA_7) || {}).ten || "";
+    const giay = n => { const p = { l: "chu-de", b: B.id, n, d: ngay, s }; return { p, o: { loai: "chu-de", tieuDe: B.ten, mo: CC.T.mo["chu-de"](B.ten, s), huy: [s, gioi ? CC.T.huy.gioi : CC.T.huy.dat],
+      mau: B.mau || ["#2563EB", "#06D6A0"], vang: gioi, ten: n, ngay, ma: CC.maCua(p), mauBan: false } }; };
+    const urlXm = p => "https://markhocai.com/" + (EN ? "en/" : "") + "chung-nhan.html?xm=" + CC.maHoa(p);
+    let luot = 0, anh = null;
+    async function ve() {
+      const n = ten(), lan = ++luot, g = giay(n || S.tenMau);
+      fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(urlXm(g.p));
+      const blob = await CC.ve(cv, g.o);
+      if (lan !== luot) return;
+      anh = n && blob ? blob : null;
+      cv.setAttribute("aria-label", S.anhCc(B.ten, n || S.tenMau));
+    }
+    // Bấm nút mà chưa có tên: nhắc gõ tên, không tải giấy "Tên của bạn"
+    const canTen = e => { if (ten()) { loi.textContent = ""; return false; } if (e) e.preventDefault(); loi.textContent = S.canTen; inTen.focus(); return true; };
+    const tenFile = () => (EN ? "mark-hoc-ai-certificate-" : "chung-nhan-mark-hoc-ai-") + B.id + ".png";
+    const choAnh = async () => { await ve(); return anh; };
+    let hen;
+    inTen.addEventListener("input", () => { CC.nho.set(CC.KHOA_TEN, ten()); loi.textContent = ""; clearTimeout(hen); hen = setTimeout(ve, 150); });
+    fb.addEventListener("click", e => { if (canTen(e)) return; fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(urlXm(giay(ten()).p)); });
+    document.getElementById("kt-tai").addEventListener("click", async () => {
+      if (canTen()) return;
+      const b = await choAnh(); if (!b) return;
+      do_("tai-chung-nhan", { kieu: "png", loai: "chu-de", noi: "kiem-tra" });
+      const u = URL.createObjectURL(b), a = document.createElement("a");
+      a.href = u; a.download = tenFile(); document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(u), 4000);
+    });
+    // Điện thoại: gửi thẳng ảnh giấy chứng nhận qua Facebook, Zalo, Messenger... bằng khung chia sẻ của máy
+    try { gui.hidden = !(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] })); } catch (e) { gui.hidden = true; }
+    gui.addEventListener("click", async () => {
+      if (canTen()) return;
+      const b = await choAnh(); if (!b) return;
+      navigator.share({ files: [new File([b], tenFile(), { type: "image/png" })], text: S.chiaSeCc(B.ten, s) + " " + D.url + "?bo=" + B.id }).catch(() => {});
+      do_("tai-chung-nhan", { kieu: "chia-se-anh", loai: "chu-de", noi: "kiem-tra" });
+    });
+    ve();
   }
   function doiBo() {
     quiz.hidden = true; chonEl.hidden = false;
