@@ -1,0 +1,74 @@
+{
+ "_ghi_chu": "Mô phỏng Nghề của bạn với AI (nghe-cua-ban.html, nghe-cua-ban.js, scripts/trang/nghe-cua-ban.py). Mỗi nghề: 6 việc trong ngày, mỗi việc 'muc' là nhap (AI làm nháp), phu (AI phụ một tay) hoặc nguoi (chỉ người làm), 'tram' là trạm cùng chủ đề ở trang thực hành 'trang' (mở bằng ?tram=<id>). 'dau' là việc đem ra đấu 3 vòng: toc_do (tự viết một phần, AI viết cả bản), bat_loi (bản AI có đúng một dòng sai), chon (chọn bản sẽ dùng, đúng một bản 'dung'). Bản AI do kênh viết để minh họa, không gọi AI thật. 'lo_trinh' là id trong data/lo-trinh-nganh.json, 'tu_khoa' để ghép nghề người xem tự gõ.",
+ "nghe": [
+  {
+   "id": "giao-vien",
+   "bt": "🍎",
+   "ten": {"vi": "Giáo viên", "en": "Teacher"},
+   "mau": ["#2563EB", "#0EA5E9"],
+   "trang": "ai-giao-vien",
+   "lo_trinh": "giao-vien",
+   "tu_khoa": ["giáo viên", "cô giáo", "thầy giáo", "giảng viên", "gia sư", "dạy học", "teacher", "tutor", "lecturer"],
+   "ngay": {"vi": "Một ngày của giáo viên", "en": "A teacher's day"},
+   "viec": [
+    {"id": "giao-an", "gio": "6:45", "muc": "nhap", "tram": "giao-an",
+     "ten": {"vi": "Soạn giáo án", "en": "Plan a lesson"},
+     "ai": {"vi": "Dựng dàn ý tiết học, hoạt động nhóm và câu hỏi gợi mở trong một phút.", "en": "Drafts the lesson outline, group activities and warm-up questions in a minute."},
+     "ban": {"vi": "Chỉnh theo sách giáo khoa và trình độ lớp mình, kiểm lại từng kiến thức.", "en": "Fit it to your textbook and your class, and check every fact."}},
+    {"id": "dung-lop", "gio": "7:30", "muc": "nguoi",
+     "ten": {"vi": "Đứng lớp giảng bài", "en": "Teach the class"},
+     "ai": {"vi": "Chỉ gợi thêm ví dụ trước giờ lên lớp.", "en": "Can only suggest extra examples before class."},
+     "ban": {"vi": "Đọc nét mặt học trò, giữ nhịp lớp, khen đúng lúc. Phần này không máy nào làm thay.", "en": "Read the room, keep the pace, praise at the right moment. No machine does this for you."}},
+    {"id": "ra-de", "gio": "10:00", "muc": "nhap", "tram": "de-3-muc",
+     "ten": {"vi": "Ra đề kiểm tra 15 phút", "en": "Write a 15-minute quiz"},
+     "ai": {"vi": "Soạn cả đề và đáp án trong vài giây.", "en": "Writes the whole quiz and answer key in seconds."},
+     "ban": {"vi": "Dò từng đáp án, vì AI vẫn có thể ghi sai, rồi chỉnh cho vừa sức lớp.", "en": "Check every answer, because AI can still get one wrong, then pitch it to your class."}},
+    {"id": "cham-bai", "gio": "14:00", "muc": "phu", "tram": "nhan-xet",
+     "ten": {"vi": "Chấm bài tự luận", "en": "Mark written work"},
+     "ai": {"vi": "Gợi ý lời nhận xét theo tiêu chí bạn đưa.", "en": "Suggests feedback against the criteria you give it."},
+     "ban": {"vi": "Cho điểm là việc của bạn: AI chấm lệch và không biết em nào đã cố gắng hơn tuần trước.", "en": "The grade is yours: AI marks unevenly and doesn't know who tried harder than last week."}},
+    {"id": "phu-huynh", "gio": "16:30", "muc": "phu", "tram": "phu-huynh",
+     "ten": {"vi": "Nhắn tin phụ huynh", "en": "Message parents"},
+     "ai": {"vi": "Viết nháp lời lẽ nhẹ nhàng, rõ ý.", "en": "Drafts a polite, clear message."},
+     "ban": {"vi": "Kiểm đúng thông tin, và không dán tên hay điểm của học sinh khác vào chatbot.", "en": "Check the facts, and never paste other pupils' names or grades into a chatbot."}},
+    {"id": "tam-su", "gio": "20:00", "muc": "nguoi", "tram": "che-hs",
+     "ten": {"vi": "Nghe học trò tâm sự", "en": "Listen to a pupil in trouble"},
+     "ai": {"vi": "Không nên dùng: chuyện riêng của học trò không đưa vào chatbot.", "en": "Don't use it: a pupil's private story does not go into a chatbot."},
+     "ban": {"vi": "Lắng nghe, giữ bí mật, và báo nhà trường khi em gặp nguy.", "en": "Listen, keep it private, and tell the school if the child is at risk."}}
+   ],
+   "dau": {
+    "viec": "ra-de",
+    "ten": {"vi": "Ra đề 15 phút: phân số, Toán lớp 4", "en": "15-minute quiz: fractions, Year 4 maths"},
+    "toc_do": {
+     "de": {"vi": "Tự viết câu 1 của đề: một câu trắc nghiệm hỏi phân số nào bằng 1/2.", "en": "Write question 1 yourself: a multiple-choice question asking which fraction equals 1/2."},
+     "goi_y": {"vi": "Câu 1. Phân số nào bằng 1/2?  A. ...  B. ...  C. ...", "en": "Q1. Which fraction equals 1/2?  A. ...  B. ...  C. ..."},
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {"vi": "AI soạn xong 5 câu kèm đáp án. Có đúng một đáp án sai. Chạm vào câu đó.", "en": "AI wrote 5 questions with answers. Exactly one answer is wrong. Tap that question."},
+     "dong": [
+      {"cau": {"vi": "Phân số nào bằng 1/2?  A. 2/4  B. 2/3  C. 3/4", "en": "Which fraction equals 1/2?  A. 2/4  B. 2/3  C. 3/4"}, "dap": "A. 2/4"},
+      {"cau": {"vi": "Rút gọn 6/8 ta được?", "en": "Simplify 6/8."}, "dap": "3/4"},
+      {"cau": {"vi": "Điền dấu: 2/5 ... 3/5", "en": "Fill in the sign: 2/5 ... 3/5"}, "dap": "2/5 > 3/5", "sai": true,
+       "giai": {"vi": "Cùng mẫu số thì tử lớn hơn sẽ lớn hơn: 2/5 < 3/5. AI viết câu trơn tru nhưng vẫn có thể ghi ngược dấu.", "en": "Same denominator, so the bigger numerator wins: 2/5 < 3/5. AI writes fluently but can still flip a sign."}},
+      {"cau": {"vi": "1/3 + 1/3 = ?", "en": "1/3 + 1/3 = ?"}, "dap": "2/3"},
+      {"cau": {"vi": "Quy đồng mẫu số 1/2 và 1/3.", "en": "Give 1/2 and 1/3 a common denominator."}, "dap": {"vi": "3/6 và 2/6", "en": "3/6 and 2/6"}}
+     ]
+    },
+    "chon": {
+     "hoi": {"vi": "Lớp 4A của bạn còn nhiều em chưa vững phân số. Bạn sẽ phát bản nào?", "en": "Many children in your class are still shaky on fractions. Which version do you hand out?"},
+     "ban": [
+      {"chu": {"vi": "Giữ nguyên 5 câu AI soạn, phát luôn cho kịp giờ.", "en": "Keep AI's 5 questions as they are and hand them out now."},
+       "giai": {"vi": "Câu 3 vẫn sai đáp án, lớp chưa vững sẽ học nhầm.", "en": "Question 3 still has the wrong answer, and a shaky class will learn the mistake."}},
+      {"chu": {"vi": "Sửa câu 3, vẽ thêm hình chiếc bánh chia phần cho 2 câu đầu, để câu 5 làm bài thêm cho em khá.", "en": "Fix question 3, add a cut-up cake picture to the first 2 questions, and make question 5 a bonus for stronger pupils."},
+       "dung": true,
+       "giai": {"vi": "AI làm nháp, còn bạn biết lớp mình cần gì. Đây là cách dùng AI của giáo viên giỏi.", "en": "AI drafts, you know what your class needs. That's how good teachers use AI."}},
+      {"chu": {"vi": "Bỏ bản AI, tự viết lại từ đầu tối nay.", "en": "Throw out AI's version and rewrite it all tonight."},
+       "giai": {"vi": "Phí công: bản AI đã đúng 4/5 câu, chỉ cần sửa một chỗ.", "en": "Wasted effort: AI already got 4 of 5 right, only one fix was needed."}}
+     ]
+    }
+   }
+  }
+ ]
+}
