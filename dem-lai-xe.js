@@ -438,9 +438,10 @@
     ctx.fillStyle = "#fff"; ctx.fillText(Math.round(L.v * 3.6) + " " + T.kmh, 20, 77);
     ctx.font = "700 13px " + CHU; ctx.fillStyle = "#BAE6FD"; ctx.fillText(T.ro(ro, tong), 20, 97);
     if (L.bao) {
-      ctx.font = (L.bao.nho ? "700 22px " : "800 32px ") + CHU; ctx.textAlign = "center";
-      ctx.lineWidth = 6; ctx.strokeStyle = "rgba(15,23,42,.75)"; ctx.strokeText(L.bao.chu, rongNhin / 2, 120);
-      ctx.fillStyle = "#FDE68A"; ctx.fillText(L.bao.chu, rongNhin / 2, 120);
+      ctx.font = (L.bao.nho ? "700 20px " : "800 28px ") + CHU; ctx.textAlign = "center";
+      var bw = Math.min(rongNhin - 20, ctx.measureText(L.bao.chu).width + 36), bh = L.bao.nho ? 40 : 50;
+      ctx.fillStyle = "rgba(15,23,42,.72)"; hinhTron((rongNhin - bw) / 2, 120 - bh * 0.7, bw, bh, bh / 2); ctx.fill();
+      ctx.fillStyle = "#FDE68A"; ctx.fillText(L.bao.chu, rongNhin / 2, 120, rongNhin - 40);
     }
   }
 
