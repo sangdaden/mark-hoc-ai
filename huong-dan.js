@@ -15,7 +15,6 @@
     ? { mo: "How to play", buoc: "Step", tiep: "Next", lai: "Back", bo: "Skip", choi: "Play now", dong: "Close the guide" }
     : { mo: "Cách chơi", buoc: "Bước", tiep: "Tiếp", lai: "Quay lại", bo: "Bỏ qua", choi: "Chơi ngay", dong: "Đóng hướng dẫn" };
   var P = du.getAttribute("data-p") || "";
-  var NHUNG = document.documentElement.classList.contains("nhung");
   var muot = window.matchMedia && matchMedia("(prefers-reduced-motion: no-preference)").matches;
 
   function doc(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -243,8 +242,9 @@
   }
 
   // Nút "Cách chơi". Trang nhiều trạm (mỗi trạm có tiêu đề h2): mỗi trạm một nút nằm ngang hàng tiêu đề trạm,
-  // mở đúng hướng dẫn của trạm đó (Sang 18/10, cho gọn đầu trang). Trang một trò: dưới tiêu đề trò chơi;
-  // trong trang bài (đầu trang bị ẩn) thì ở đầu khung trò chơi.
+  // mở đúng hướng dẫn của trạm đó (Sang 18/10, cho gọn đầu trang). Trang một trò: ở đầu màn chơi, không ở đầu trang
+  // (Sang 20/10: khỏi phải cuộn lên tìm). Trò có thanh trên (số sao, "Chơi lại từ đầu") thì đặt chỗ <span data-hd-cho>
+  // trong thanh đó; không có thì nút nằm một hàng riêng ở đầu <main>.
   function taoNut(g) {
     var n = el("button", "hd-mo");
     n.type = "button";
@@ -273,16 +273,13 @@
   function datNut() {
     if (datNutTram()) return;
     nutMo = taoNut();
-    var dau = document.querySelector(".page-head");
-    if (NHUNG || !dau) {
-      var main = document.querySelector("main");
-      if (!main) return;
-      var hang = el("div", "hd-mo-hang");
-      hang.appendChild(nutMo);
-      main.insertBefore(hang, main.firstChild);
-    } else {
-      dau.appendChild(nutMo);
-    }
+    var cho = document.querySelector("[data-hd-cho]");
+    if (cho) { cho.appendChild(nutMo); return; }
+    var main = document.querySelector("main");
+    if (!main) return;
+    var hang = el("div", "hd-mo-hang");
+    hang.appendChild(nutMo);
+    main.insertBefore(hang, main.firstChild);
   }
 
   function tuMo() {

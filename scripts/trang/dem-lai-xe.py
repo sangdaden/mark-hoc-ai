@@ -43,7 +43,7 @@ def tao_dem_lai_xe():
             (vids["5"]["url"][len(p):], t("Series Ba con mắt của AI", "The three eyes of AI series"), t("8 video: LiDAR, radar, camera và ghép cảm biến.", "8 videos: LiDAR, radar, camera and sensor fusion."))]
     the_lien = "".join(f'<a class="dx-lien" href="{p}{u}"><b>{a}</b><span>{b}</span></a>' for u, a, b in lien)
     main = f"""<main class="pl pl-game dx" id="dx">
-  <div class="pl-dau"><p class="pl-tong" id="dx-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="dx-xoa"></button></div>
+  <div class="pl-dau"><p class="pl-tong" id="dx-tong" aria-live="polite"></p><span class="hd-cho" data-hd-cho></span><button type="button" class="pl-xoa" id="dx-xoa"></button></div>
   <div class="pl-khung dx-khung" id="dx-khung">
     <canvas class="pl-canvas" id="dx-canvas" tabindex="0"></canvas>
     <div class="pl-nut-tren"><button type="button" class="pl-toan" id="dx-toan" aria-label="{t("Chơi toàn màn hình", "Play full screen")}" aria-pressed="false"></button><button type="button" class="pl-menu" id="dx-menu" hidden></button></div>
