@@ -110,6 +110,8 @@
     if (/^mailto:/i.test(href)) return gui("bam-email", { cho: cho });
     if (/(^|\/)ung-ho\.html/.test(href)) return gui("bam-ung-ho", { cho: cho });
     if (/facebook\.com\/sharer/i.test(href)) return gui("chia-se", { cach: "facebook" });
+    // Nút "Đăng ký" cạnh link YouTube (cai-dat.js): đếm riêng, không gộp vào bam-kenh
+    if (/youtube\.com\/[^?#]*\?(.*&)?sub_confirmation=1/i.test(href)) return gui("dang-ky-youtube", { cho: cho });
     if (/^https?:/i.test(href)) {
       for (var i = 0; i < KENH.length; i++) {
         if (KENH[i][1].test(href)) return gui("bam-kenh", { kenh: KENH[i][0], cho: cho });

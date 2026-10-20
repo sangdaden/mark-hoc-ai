@@ -3226,3 +3226,24 @@ html body .quiz-wrap .quiz { max-width: none; }
 /* Tiêu đề phần cuối các trò ("Xem video của bài này", "Ba điều rút ra") giữ khoảng cách với khối phía trên;
    quy tắc h2 riêng của từng trò (.lu h2, .tg-phan h2) từng kéo về 0 nên tiêu đề dính sát khung "Thử ngay" */
 html body main h2.ld-ket-h:not(:first-child) { margin: 28px 0 12px; }
+
+/* Nút "Đăng ký" YouTube cạnh mọi link YouTube (cai-dat.js, Sang chọn 20/10/2026). Đỏ YouTube đậm #CC0000 để chữ trắng đủ tương phản */
+a.nut-dk { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #CC0000; border: 1.5px solid #CC0000;
+  color: #fff; font: 700 14px/1.2 var(--f-body); text-decoration: none; white-space: nowrap; vertical-align: middle; }
+a.nut-dk:hover { background: #A30000; border-color: #A30000; color: #fff; }
+a.nut-dk:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
+a.nut-dk .ic { width: 16px; height: 16px; margin: 0; fill: currentColor; color: #fff; }
+a.nut-dk.btn { gap: 8px; }
+.band a.nut-dk.btn, .ben-xem a.nut-dk.btn { background: #CC0000; color: #fff; border-color: #CC0000; }
+a.nut-dk.nut-dk-nho { padding: 5px 10px; font-size: 13px; }
+.nut-dk-hang { margin: 14px 0 0; }
+/* Đầu trang: nút chữ đỏ ngay sau nút tròn YouTube (máy tính, máy tính bảng); điện thoại nằm trong menu sau mục YouTube */
+.top-tools a.nut-dk.nut-dk-dau { width: auto; padding: 0 14px; background: #CC0000; border-color: #CC0000; color: #fff; }
+.top-tools a.nut-dk.nut-dk-dau:hover { background: #A30000; }
+@media (min-width: 1241px) { .top-tools a.nut-dk.nut-dk-dau .ic { display: none; } }
+/* 761-1240px đầu trang chật: nút tròn YouTube nhường chỗ, nút Đăng ký mang luôn icon YouTube (link kênh vẫn ở menu và chân trang) */
+@media (min-width: 761px) and (max-width: 1240px) { .top-tools a.nut-yt:has(+ .nut-dk-dau) { display: none; } }
+@media (min-width: 1101px) and (max-width: 1240px) { .band .top-links.da-gom:has(~ .top-tools .nut-dk-dau) { gap: 6px 14px; } }
+@media (max-width: 760px) { .top-tools a.nut-dk.nut-dk-dau { display: none; } }
+.band .top-links.da-gom > a.nav-dk:not(.nav-yt):not(.nav-start):not(.nav-vtk) { display: none; }
+@media (max-width: 1100px) { .band .top-links.da-gom > a.nav-dk:not(.nav-yt):not(.nav-start):not(.nav-vtk) { display: inline-flex; align-self: flex-start; gap: 6px; padding: 8px 14px; margin: 0 0 4px; } }
