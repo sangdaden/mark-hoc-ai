@@ -54,7 +54,8 @@ def tao_goc_thuc_hanh():
                 f'<b>{esc(x["ten"][L])}</b><span class="gth-moi">{esc(x["moi"][L])}</span>{video}'
                 f'<span class="gth-da" hidden>✓ {t("Đã mở", "Opened")}</span></a></li>')
 
-    da_xep = set(nghe_ten)
+    # Game nhiều màn ("loai": "game") ở trang Thế giới game (game.html), không lẫn vào đây; chỉ để một thẻ dẫn sang
+    da_xep = set(nghe_ten) | {k for k, x in tro.items() if x.get("loai") == "game"}
     nhom_html = []
     nhom = [(k, bt, ten, [s for s in ds if s in tro]) for k, bt, ten, ds in _GTH_NHOM]
     for _, _, _, ds in nhom:
@@ -80,6 +81,9 @@ def tao_goc_thuc_hanh():
             f'<section class="gth-nhom" aria-labelledby="gth-nghe"><h2 id="gth-nghe"><span aria-hidden="true">🧑‍💼</span> {t("Thực hành theo nghề", "Practice for your job")}</h2>'
             f'<div class="gth-nghe-ds">{"".join(the_nghe)}</div></section>\n'
             + "\n".join(nhom_html)
+            + f'\n<a class="gth-game" href="game.html"><img src="{p}assets/game/game.webp" alt="" width="200" height="189" loading="lazy">'
+              f'<span><b>{t("Tìm game nhiều màn, có tim, có sao?", "Looking for games with levels, hearts and stars?")}</b>'
+              f'{t("Mark chặn lừa, Đường đoán chữ, Đêm lái xe, Mark phiêu lưu ở Thế giới game", "Mark blocks the scams, the Next-Word Road, Night drive and Mark’s Adventure live in the game world")} ›</span></a>'
             + f'\n<p class="gth-ghi">{t("Dấu ✓ chỉ lưu trên trình duyệt này, không gửi đi đâu.", "The ✓ marks are saved in this browser only and never sent anywhere.")}</p>\n</main>')
     return GOC + "thuc-hanh.html", trang("thuc-hanh.html", t(f"Góc thực hành AI: trò chơi và bài tập miễn phí | {SITE}", f"AI practice corner: free games and exercises | {SITE}"),
                                          desc, band, main, p, og_type="website", q="",

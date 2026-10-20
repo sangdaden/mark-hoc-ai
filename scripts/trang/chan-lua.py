@@ -35,7 +35,7 @@ def tao_chan_lua():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Game miễn phí · chơi ngang trên điện thoại", "Free game · play sideways on your phone")}</p>\n'
             f'<h1>{t("Mark chặn lừa", "Mark blocks the scams")}</h1>\n'
             f'<p class="lead">{t("Tin nhắn bay về điện thoại của bà. Chạm tin lừa để bắn hạ, để tin thật đi qua. Bắn nhầm tin của con cháu là mất tim.", "Messages fly toward Grandma’s phone. Tap the scams to shoot them down and let the real ones through. Shoot a message from family and you lose a heart.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-chao.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art" src="{p}assets/game/chan-lua.webp" alt="{t("Mark cầm điện thoại, Bit báo động", "Mark holding a phone, Bit raising the alarm")}" width="200" height="189"></div>')
     main = f"""<main class="cl cl-game" id="cl">
 <div class="cl-dau"><p class="cl-tong" id="cl-tong" aria-live="polite"></p><button type="button" class="cl-xoa" id="cl-xoa">{t("Chơi lại từ đầu", "Reset progress")}</button></div>
 <div class="cl-khung" id="cl-khung">
