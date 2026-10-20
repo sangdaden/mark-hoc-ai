@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đêm lái xe: game xe tự lái chọn đúng LiDAR, radar, camera</title>
+<meta name="description" content="Game miễn phí: lái xe tự hành về nhà qua nắng, đêm, mưa và sương mù. Mỗi lúc chỉ bật được một con mắt LiDAR, radar hay camera; chọn sai là vật cản tàng…">
+<link rel="canonical" href="https://markhocai.com/dem-lai-xe.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/dem-lai-xe.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/dem-lai-xe.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/dem-lai-xe.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Đêm lái xe: game xe tự lái chọn đúng LiDAR, radar, camera">
+<meta property="og:description" content="Game miễn phí: lái xe tự hành về nhà qua nắng, đêm, mưa và sương mù. Mỗi lúc chỉ bật được một con mắt LiDAR, radar hay camera; chọn sai là vật cản tàng…">
+<meta property="og:url" content="https://markhocai.com/dem-lai-xe.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="dem-lai-xe.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Đêm lái xe">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+<script src="tien-do.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a href="bai-bao.html">Bài báo AI</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Game miễn phí · Ba con mắt của AI</p>
+<h1>Đêm lái xe</h1>
+<p class="lead">Đưa xe tự lái về nhà qua nắng, đêm, mưa và sương. Trời đổi thì đổi con mắt: bật sai là người, xe, đèn đỏ đều tàng hình.</p>
+</div><img class="head-art" src="assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="pl pl-game dx" id="dx">
+  <div class="pl-dau"><p class="pl-tong" id="dx-tong" aria-live="polite"></p><button type="button" class="pl-xoa" id="dx-xoa"></button></div>
+  <div class="pl-khung dx-khung" id="dx-khung">
+    <canvas class="pl-canvas" id="dx-canvas" tabindex="0"></canvas>
+    <div class="pl-nut-tren"><button type="button" class="pl-toan" id="dx-toan" aria-label="Chơi toàn màn hình" aria-pressed="false"></button><button type="button" class="pl-menu" id="dx-menu" hidden></button></div>
+    <div class="dx-bit" id="dx-bit" hidden role="status"><img src="assets/bit-y-tuong.svg" alt="" width="44" height="44"><p id="dx-bit-chu"></p></div>
+    <div class="pl-man" id="dx-man"></div>
+  </div>
+  <div class="dx-dk" id="dx-dk" role="group" aria-label="Nút điều khiển">
+    <div class="dx-lan"><button type="button" data-k="trai" aria-label="Sang làn trái">◀</button><button type="button" data-k="phai" aria-label="Sang làn phải">▶</button></div>
+    <div class="dx-mat-ds" role="group" aria-label="Con mắt đang bật"><button type="button" class="dx-mat dx-mat-lidar" data-cb="lidar" aria-pressed="false">LiDAR</button><button type="button" class="dx-mat dx-mat-radar" data-cb="radar" aria-pressed="false">Radar</button><button type="button" class="dx-mat dx-mat-camera" data-cb="camera" aria-pressed="false">Camera</button></div>
+    <button type="button" class="dx-phanh" data-k="phanh">Phanh</button>
+  </div>
+  <p class="pl-huong"><b>Cách chơi:</b> phím ← → hoặc A D để đổi làn, giữ Space hoặc ↓ để phanh, phím 1 2 3 để bật LiDAR, radar, camera. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang; bạn cầm ngang máy và dùng các nút trên màn hình. Gặp đèn đỏ thì giữ Phanh tới khi đèn xanh.</p>
+  <p class="pl-bao" id="dx-bao" role="status" hidden></p>
+  <div class="dx-lien-ds"><a class="dx-lien" href="phong-thi-nghiem-cam-bien.html"><b>Phòng thí nghiệm cảm biến 3D</b><span>Tách rời từng con mắt, đổi trời xem chúng thấy gì.</span></a><a class="dx-lien" href="bai/05-lidar.html"><b>Series Ba con mắt của AI</b><span>8 video: LiDAR, radar, camera và ghép cảm biến.</span></a></div>
+  <p class="pl-ghi">Mức nhìn rõ, mờ hay không thấy của từng con mắt theo từng kiểu trời lấy đúng bảng của series Ba con mắt của AI. Game đơn giản hóa: xe thật bật cả ba con mắt cùng lúc. Tiến độ lưu trên trình duyệt này, không gửi đi đâu.</p>
+  <noscript><p>Game cần JavaScript. Bạn vẫn có thể vào <a href="phong-thi-nghiem-cam-bien.html">Phòng thí nghiệm cảm biến</a>.</p></noscript>
+  <script type="application/json" id="dx-du-lieu">{"muc":{"camera":{"nguoi":{"nang":2,"dem":1,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":2,"dem":2,"mua":2,"suong":1},"bien":{"nang":2,"dem":1,"mua":1,"suong":0}},"lidar":{"nguoi":{"nang":2,"dem":2,"mua":1,"suong":0},"toc_do":{"nang":1,"dem":1,"mua":1,"suong":0},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}},"radar":{"nguoi":{"nang":1,"dem":1,"mua":1,"suong":1},"toc_do":{"nang":2,"dem":2,"mua":2,"suong":2},"den":{"nang":0,"dem":0,"mua":0,"suong":0},"bien":{"nang":0,"dem":0,"mua":0,"suong":0}}},"ten":{"lidar":"LiDAR","camera":"Camera","radar":"Radar"},"video":{"5":{"ten":"LiDAR là gì? Xe tự lái đo khoảng cách bằng ánh sáng thế nào","url":"bai/05-lidar.html"},"5.1":{"ten":"Radar giúp xe nhìn xuyên sương mù thế nào","url":"bai/05-1-radar-nhin-xuyen-mua.html"},"5.2":{"ten":"AI đọc đèn đỏ, biển báo bằng camera thế nào","url":"bai/05-2-camera-doc-den-do.html"},"5.4":{"ten":"Sensor fusion: AI ghép LiDAR, radar, camera thế nào","url":"bai/05-4-sensor-fusion.html"}},"p":""}</script>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <nav class="foot-hoc" aria-label="Học và thực hành"><b>Học</b><a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a><a href="lo-trinh-4-tuan.html">Lộ trình 4 tuần</a><a href="lo-trinh-nganh.html">Lộ trình theo nghề</a><a href="kiem-tra.html">Kiểm tra</a><a href="chung-nhan.html">Chứng nhận</a><a href="ho-so.html">Hồ sơ học</a><a href="bai-bao.html">Bài báo AI</a><b>Thực hành</b><a href="thuc-hanh.html">Góc thực hành</a><a href="ai-hoc-sinh.html">Học sinh</a><a href="ai-van-phong.html">Công chức</a><a href="ai-y-te.html">Y tế</a><a href="bo-hoc-lieu-ai.html">Học liệu 12 tiết</a></nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/tro-choi/dem-lai-xe.css?v=dev">
+<script src="dem-lai-xe.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"dem-lai-xe","buoc":[{"chon":"#dx-canvas","chu":"Bạn lái **xe tự lái** về nhà qua nắng, đêm, mưa và sương. Bấm [[◀]] [[▶]] (hoặc vuốt) để **đổi làn** né người và xe máy."},{"chon":".dx-mat-ds","chu":"Mỗi lúc chỉ bật được **một con mắt**: LiDAR, radar hoặc camera. !!Bật sai mắt thì vật cản mờ đi hoặc tàng hình.!!"},{"chon":".dx-phanh","chu":"Gặp **đèn đỏ** thì giữ [[Phanh]] tới khi đèn xanh. Chỉ có *một* con mắt đọc được màu đèn, bạn đoán xem là mắt nào."},{"chon":"","chu":"Trời đổi thì đổi mắt. ++Bật đúng con mắt tốt nhất cho 3/4 số vật cản là được 3 sao.++ Chuyến cuối cho bật **hai mắt cùng lúc**: ghép đúng cặp mới qua được trùm."}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>
