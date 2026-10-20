@@ -1,4 +1,4 @@
-/* "Máy tính đời thật" (may-tinh-doi-that.html, en/): 6 máy tính theo video, mỗi máy một thẻ.
+/* "Máy tính đời thật" (may-tinh-doi-that.html, en/): 7 máy tính theo video, mỗi máy một thẻ.
    Đổi số bên trái, kết quả (ô số, thanh, sơ đồ) bên phải tính lại ngay; bên dưới là công thức với chính con số đang nhập, và nguồn có link.
    Dữ liệu: thẻ <script id="mt-du-lieu"> do scripts/tao_bai_viet.py tạo từ data/may-tinh.json. Mở thẳng một máy: ?may=<id>.
    Không gửi con số nào đi đâu, chỉ đếm vài sự kiện (theo-doi.js). Chạy thử: trạng thái ở window.__mt. */
@@ -441,6 +441,416 @@
     return { nhap: nhap, tinh: tinh };
   };
 
+  // ---------- Tự đo: AI có giúp bạn nhanh hơn không? (thí nghiệm METR làm lại trên việc của mình, video 407) ----------
+  // Đoán trước → chia việc bằng đồng xu (cân 5/5) → bấm giờ từng việc (hoặc gõ phút) + cảm giác sau mỗi việc có AI.
+  // Kết quả: % nhanh hơn = (trung vị tự làm − trung vị có AI) ÷ trung vị tự làm, cùng cách METR báo "chậm hơn 19%".
+  // Tiến độ lưu ở localStorage (mhai-tu-do-ai) để làm dần trong tuần; "Thử nhanh 1 phút" dùng dữ liệu mẫu, không đè dữ liệu thật.
+  var TD_KHOA = "mhai-tu-do-ai";
+  function tdDoc() {
+    try { var x = JSON.parse(localStorage.getItem(TD_KHOA) || "null"); return x && Array.isArray(x.viec) ? x : null; } catch (e) { return null; }
+  }
+  function tdGhi(st) {
+    if (st.demo) return;
+    try { localStorage.setItem(TD_KHOA, JSON.stringify({ doan: st.doan, loai: st.loai, viec: st.viec })); } catch (e) {}
+  }
+  function tdXoaLuu() { try { localStorage.removeItem(TD_KHOA); } catch (e) {} }
+  function tdViec() { return { ten: "", nhom: null, ms: 0, chay: null, phut: null, cam: null }; }
+  function tdPhut(v) { return v.phut != null && v.phut > 0 ? v.phut : null; }
+  function trungVi(ds) {
+    if (!ds.length) return null;
+    var x = ds.slice().sort(function (a, b) { return a - b; }), g = Math.floor(x.length / 2);
+    return x.length % 2 ? x[g] : (x[g - 1] + x[g]) / 2;
+  }
+  function coDau(n, le) {
+    if (n == null || isNaN(n)) return "—";
+    var mu = Math.pow(10, le || 0), r = Math.round(n * mu) / mu;
+    return (r > 0 ? "+" : r < 0 ? "−" : "") + soFmt(Math.abs(r), le || 0) + "%";
+  }
+  function dongHo(ms) {
+    var g = Math.floor(ms / 1000), h = Math.floor(g / 3600), p = Math.floor(g / 60) % 60, s = g % 60;
+    var hai = function (n) { return (n < 10 ? "0" : "") + n; };
+    return (h ? h + ":" + hai(p) : hai(p)) + ":" + hai(s);
+  }
+  function tdMsChay(v) { return v.ms + (v.chay ? Math.max(0, Date.now() - v.chay) : 0); }
+  // Một nhịp mỗi giây cho mọi đồng hồ đang chạy (chỉ đổi chữ, không vẽ lại thẻ)
+  var tdNhip = null;
+  function tdHenNhip() {
+    if (tdNhip) return;
+    tdNhip = setInterval(function () {
+      var st = S.so["tu-do-ai"];
+      if (!st || S.tab !== "tu-do-ai") return;
+      document.querySelectorAll("[data-td-gio]").forEach(function (e) {
+        var v = st.viec[+e.getAttribute("data-td-gio")];
+        if (v && v.chay) e.textContent = dongHo(tdMsChay(v));
+      });
+    }, 500);
+  }
+  function tdDemo(m) {
+    var d = m.demo;
+    return { demo: true, _nap: true, doan: d.doan, loai: d.loai, viec: d.viec.map(function (x) {
+      return { ten: "", nhom: x[0], ms: x[1] * 60000, chay: null, phut: x[1], cam: x[2] };
+    }) };
+  }
+  function tdTenMacDinh(m, st, k) { return (m.loai[st.loai] || m.loai[Object.keys(m.loai)[0]]) + " " + (k + 1); }
+
+  MAY_TINH["tu-do-ai"] = function (m, st, ve, veLai) {
+    if (!st._nap) {
+      st._nap = true;
+      var luu = tdDoc();
+      if (luu) { st.doan = luu.doan; st.loai = luu.loai || st.loai; st.viec = luu.viec; }
+      if (!st.viec.length) for (var k = 0; k < m.so_viec; k++) st.viec.push(tdViec());
+    }
+    tdHenNhip();
+    function luu_() { tdGhi(st); }
+    function doi() { luu_(); ve(); }
+    function daBatDau() { return st.viec.some(function (v) { return v.ms || v.chay || tdPhut(v); }); }
+
+    var goc = el("div", "td");
+    // thanh trên: thử nhanh, xóa làm lại; hoặc báo đang xem mẫu
+    var thanhTren = el("div", "td-tren");
+    if (st.demo) {
+      thanhTren.classList.add("demo");
+      thanhTren.appendChild(el("p", "td-demo-bao", N.td_dang_demo));
+      var ve2 = el("button", "btn", N.td_ve_cua_toi);
+      ve2.type = "button";
+      ve2.addEventListener("click", function () {
+        if (S.tdThat) S.so["tu-do-ai"] = S.tdThat; else delete S.so["tu-do-ai"];
+        S.tdThat = null; veLai();
+      });
+      thanhTren.appendChild(ve2);
+    } else {
+      var nutDemo = el("button", "btn td-nut-demo", N.td_demo);
+      nutDemo.type = "button";
+      nutDemo.addEventListener("click", function () {
+        S.tdThat = st; S.so["tu-do-ai"] = tdDemo(m);
+        do_("may-tinh-tu-do", { buoc: "demo" }); veLai();
+        var k = document.querySelector(".mt-ket");
+        if (k && window.innerWidth < 900 && k.scrollIntoView) k.scrollIntoView({ block: "start" });
+      });
+      var nutXoa = el("button", "btn td-nut-xoa", N.td_xoa);
+      nutXoa.type = "button";
+      var hen = null;
+      nutXoa.addEventListener("click", function () {
+        if (!nutXoa.classList.contains("hoi")) {
+          nutXoa.classList.add("hoi"); nutXoa.textContent = N.td_xoa_hoi;
+          hen = setTimeout(function () { nutXoa.classList.remove("hoi"); nutXoa.textContent = N.td_xoa; }, 3500);
+          return;
+        }
+        clearTimeout(hen);
+        tdXoaLuu();
+        delete S.so["tu-do-ai"];
+        do_("may-tinh-tu-do", { buoc: "xoa" }); veLai();
+      });
+      thanhTren.appendChild(nutDemo);
+      thanhTren.appendChild(nutXoa);
+    }
+    goc.appendChild(thanhTren);
+
+    function buoc(so, tieu, mo) {
+      var b = el("section", "td-buoc");
+      var h = el("h3", "td-buoc-h");
+      h.appendChild(el("span", "td-so", String(so)));
+      h.appendChild(document.createTextNode(tieu));
+      b.appendChild(h);
+      if (mo) b.appendChild(el("p", "td-buoc-mo", mo));
+      return b;
+    }
+
+    // Bước 1: đoán trước
+    var b1 = buoc(1, N.td_b1, N.td_b1_mo);
+    var hang1 = el("div", "td-doan");
+    var oDoan = el("input", "mt-o-so td-o-doan");
+    oDoan.type = "number"; oDoan.inputMode = "numeric"; oDoan.min = -90; oDoan.max = 300; oDoan.step = 1; oDoan.placeholder = "30";
+    oDoan.setAttribute("aria-label", N.td_b1);
+    if (st.doan != null) oDoan.value = st.doan;
+    if (st.demo) oDoan.readOnly = true;
+    var keo = el("input", "mt-keo");
+    keo.type = "range"; keo.min = -50; keo.max = 100; keo.step = 5; keo.value = st.doan != null ? st.doan : 0;
+    keo.setAttribute("aria-label", N.td_b1);
+    if (st.demo) keo.disabled = true;
+    var nhanDoan = el("b", "td-doan-chu");
+    function chuDoan() {
+      nhanDoan.textContent = st.doan == null ? N.td_chua_doan : (st.doan >= 0 ? N.td_nhanh + " " + soFmt(st.doan) + "%" : N.td_cham + " " + soFmt(-st.doan) + "%");
+      nhanDoan.className = "td-doan-chu" + (st.doan == null ? " chua" : st.doan >= 0 ? " tot" : " xau");
+    }
+    function datDoan(v, tu) {
+      v = parseFloat(v);
+      st.doan = isNaN(v) ? null : Math.max(-90, Math.min(300, v));
+      if (tu !== oDoan) oDoan.value = st.doan == null ? "" : st.doan;
+      if (tu !== keo && st.doan != null) keo.value = st.doan;
+      chuDoan(); doi();
+    }
+    oDoan.addEventListener("input", function () { datDoan(oDoan.value, oDoan); });
+    keo.addEventListener("input", function () { datDoan(keo.value, keo); });
+    chuDoan();
+    var dau1 = el("div", "td-doan-dau");
+    dau1.appendChild(nhanDoan);
+    var oBoc = el("span", "td-o-phan"); oBoc.appendChild(oDoan); oBoc.appendChild(el("span", null, "%"));
+    dau1.appendChild(oBoc);
+    hang1.appendChild(dau1);
+    hang1.appendChild(keo);
+    b1.appendChild(hang1);
+    goc.appendChild(b1);
+
+    // Bước 2: loại việc, tung đồng xu chia đều hai nhóm
+    var b2 = buoc(2, N.td_b2, N.td_b2_mo);
+    var chonLoai = chon(N.td_loai, Object.keys(m.loai).map(function (k) { return [k, m.loai[k]]; }), st.loai, function (k) {
+      st.loai = k; luu_();
+      document.querySelectorAll(".td-ten").forEach(function (o, i) { o.placeholder = tdTenMacDinh(m, st, i); });
+      ve();
+    });
+    if (st.demo) chonLoai.querySelectorAll("button").forEach(function (b) { b.disabled = true; });
+    b2.appendChild(chonLoai);
+    var batDau = daBatDau(), chuaChia = st.viec.filter(function (v) { return !v.nhom; }).length;
+    var hangTung = el("div", "td-tung-hang");
+    var nutTung = el("button", "btn td-nut-tung");
+    nutTung.type = "button";
+    nutTung.appendChild(el("span", "td-xu", "½"));
+    nutTung.appendChild(document.createTextNode(!batDau && !chuaChia ? N.td_tung_lai : N.td_tung));
+    var khoaTung = batDau && !chuaChia;
+    if (khoaTung || st.demo) nutTung.disabled = true;
+    nutTung.addEventListener("click", function () {
+      var dang = daBatDau();
+      var ds = dang ? st.viec.filter(function (v) { return !v.nhom; }) : st.viec.slice();
+      if (!dang) st.viec.forEach(function (v) { v.nhom = null; });
+      for (var i = ds.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = ds[i]; ds[i] = ds[j]; ds[j] = t; }
+      ds.forEach(function (v) {
+        var ai = st.viec.filter(function (x) { return x.nhom === "ai"; }).length, tu = st.viec.filter(function (x) { return x.nhom === "tu"; }).length;
+        v.nhom = ai < tu ? "ai" : tu < ai ? "tu" : (Math.random() < 0.5 ? "ai" : "tu");
+      });
+      S.tdLat = true;
+      luu_(); daDoi(m.id); do_("may-tinh-tu-do", { buoc: "tung" }); veLai();
+    });
+    hangTung.appendChild(nutTung);
+    var nAi = st.viec.filter(function (v) { return v.nhom === "ai"; }).length, nTu = st.viec.filter(function (v) { return v.nhom === "tu"; }).length;
+    if (nAi + nTu) {
+      var dem = el("span", "td-dem");
+      dem.appendChild(el("span", "td-nhan ai", nAi + " · " + N.td_ai));
+      dem.appendChild(el("span", "td-nhan tu", nTu + " · " + N.td_tu));
+      hangTung.appendChild(dem);
+    }
+    b2.appendChild(hangTung);
+    if (khoaTung && !st.demo) b2.appendChild(el("p", "mt-ghi-nho", N.td_tung_khoa));
+    goc.appendChild(b2);
+
+    // Bước 3: danh sách việc, bấm giờ, cảm giác sau việc có AI
+    var b3 = buoc(3, N.td_b3, N.td_b3_mo);
+    if (!nAi && !nTu) b3.appendChild(el("p", "td-goi-y", N.td_can_tung));
+    var ds = el("ol", "td-ds");
+    var lat = S.tdLat; S.tdLat = false;
+    st.viec.forEach(function (v, i) {
+      var li = el("li", "td-viec" + (v.nhom ? " nhom-" + v.nhom : "") + (tdPhut(v) ? " xong" : ""));
+      var h1 = el("div", "td-viec-dau");
+      h1.appendChild(el("span", "td-viec-so", String(i + 1)));
+      var ten = el("input", "td-ten");
+      ten.type = "text"; ten.maxLength = 60; ten.value = v.ten || ""; ten.placeholder = tdTenMacDinh(m, st, i);
+      ten.setAttribute("aria-label", N.td_ten_viec + " " + (i + 1));
+      ten.addEventListener("input", function () { v.ten = ten.value; luu_(); });
+      if (st.demo) ten.readOnly = true;
+      h1.appendChild(ten);
+      var nhan = el("span", "td-nhan " + (v.nhom || "chua") + (lat && v.nhom ? " lat" : ""), v.nhom === "ai" ? N.td_ai : v.nhom === "tu" ? N.td_tu : N.td_chua);
+      if (lat && v.nhom) nhan.style.animationDelay = (i * 60) + "ms";
+      h1.appendChild(nhan);
+      var bo = null;
+      if (!st.demo && !v.ms && !v.chay && !tdPhut(v) && st.viec.length > 2) {
+        bo = el("button", "td-bo", "×");
+        bo.type = "button"; bo.title = N.td_bo; bo.setAttribute("aria-label", N.td_bo + " " + (i + 1));
+        bo.addEventListener("click", function () { st.viec.splice(i, 1); luu_(); veLai(); });
+        h1.appendChild(bo);
+      }
+      li.appendChild(h1);
+      if (v.nhom) {
+        var h2 = el("div", "td-gio-hang");
+        var gio = el("span", "td-gio" + (v.chay ? " chay" : ""), dongHo(tdMsChay(v)));
+        gio.setAttribute("data-td-gio", String(i));
+        h2.appendChild(gio);
+        var nut = el("button", "btn td-nut-gio" + (v.chay ? " dung" : ""), v.chay ? N.td_dung : N.td_bat_dau);
+        nut.type = "button";
+        if (st.demo) nut.disabled = true;
+        nut.addEventListener("click", function () {
+          if (v.chay) {
+            v.ms += Math.max(0, Date.now() - v.chay); v.chay = null;
+            v.phut = Math.max(0.1, Math.round(v.ms / 6000) / 10);
+            do_("may-tinh-tu-do", { buoc: "bam-gio", nhom: v.nhom });
+          } else {
+            v.chay = Date.now();
+          }
+          luu_(); daDoi(m.id); veLai();
+        });
+        h2.appendChild(nut);
+        var oP = el("label", "td-o-phut");
+        var p = el("input", "mt-o-so");
+        p.type = "number"; p.inputMode = "decimal"; p.min = 0; p.step = 0.5; p.placeholder = "0";
+        if (tdPhut(v)) p.value = v.phut;
+        if (st.demo || v.chay) p.disabled = true;
+        p.setAttribute("aria-label", N.td_go_phut + " " + (i + 1));
+        p.addEventListener("input", function () {
+          var x = parseFloat(p.value);
+          v.phut = isNaN(x) || x <= 0 ? null : x;
+          v.ms = v.phut ? Math.round(v.phut * 60000) : 0;
+          gio.textContent = dongHo(v.ms);
+          li.classList.toggle("xong", !!v.phut);
+          if (bo) bo.hidden = !!v.phut; // việc đã có số phút thì không bỏ được
+          doi();
+        });
+        oP.appendChild(p);
+        oP.appendChild(el("span", null, N.td_phut));
+        h2.appendChild(oP);
+        li.appendChild(h2);
+        if (v.nhom === "ai") {
+          var cam = el("div", "td-cam");
+          cam.appendChild(el("span", "td-cam-h", N.td_cam));
+          var hc = el("span", "td-cam-hang");
+          hc.setAttribute("role", "radiogroup");
+          hc.setAttribute("aria-label", N.td_cam);
+          m.cam.forEach(function (x) {
+            var c = el("button", "mt-chip td-cam-chip " + (x > 0 ? "tot" : x < 0 ? "xau" : "bang"), coDau(x));
+            c.type = "button";
+            c.setAttribute("role", "radio");
+            c.setAttribute("aria-checked", v.cam === x ? "true" : "false");
+            c.title = x === 0 ? N.td_nhu_nhau : (x > 0 ? N.td_nhanh : N.td_cham) + " " + Math.abs(x) + "%";
+            if (st.demo) c.disabled = true;
+            c.addEventListener("click", function () {
+              v.cam = v.cam === x ? null : x;
+              hc.querySelectorAll(".mt-chip").forEach(function (b) { b.setAttribute("aria-checked", b === c && v.cam === x ? "true" : "false"); });
+              doi();
+            });
+            hc.appendChild(c);
+          });
+          cam.appendChild(hc);
+          var chu = el("span", "td-cam-chu");
+          chu.appendChild(el("span", null, "← " + N.td_cham));
+          chu.appendChild(el("span", null, N.td_nhanh + " →"));
+          cam.appendChild(chu);
+          li.appendChild(cam);
+        }
+      }
+      ds.appendChild(li);
+    });
+    b3.appendChild(ds);
+    if (!st.demo && st.viec.length < m.toi_da) {
+      var them = el("button", "btn td-nut-them", "+ " + N.td_them);
+      them.type = "button";
+      them.addEventListener("click", function () { st.viec.push(tdViec()); luu_(); veLai(); });
+      b3.appendChild(them);
+    }
+    b3.appendChild(el("p", "mt-ghi-nho", N.td_luu));
+    goc.appendChild(b3);
+
+    function tinh() {
+      var ai = [], tu = [], cams = [];
+      st.viec.forEach(function (v) {
+        var p = tdPhut(v);
+        if (p && v.nhom === "ai") ai.push(p);
+        if (p && v.nhom === "tu") tu.push(p);
+        if (v.nhom === "ai" && v.cam != null) cams.push(v.cam);
+      });
+      var mAi = trungVi(ai), mTu = trungVi(tu);
+      var doDuoc = ai.length && tu.length ? (mTu - mAi) / mTu * 100 : null;
+      var tuong = cams.length ? cams.reduce(function (a, b) { return a + b; }, 0) / cams.length : null;
+      var it = m.it_nhat, du = ai.length >= it && tu.length >= it;
+      if (du && !S.tdDu && !st.demo) { S.tdDu = true; do_("may-tinh-tu-do", { buoc: "du-mau" }); }
+      var mr = m.metr;
+      var lop = function (x) { return x == null ? "trong" : x >= 0 ? "xanh" : "do"; };
+
+      var ket = el("div", "td-ket");
+      var chinh = el("div", "mt-ket-o td-chinh" + (doDuoc == null ? "" : doDuoc >= 0 ? " mt-xanh" : " mt-do"));
+      chinh.appendChild(el("span", "mt-ket-nhan", N.td_ket_h));
+      chinh.appendChild(el("b", "mt-ket-so", doDuoc == null ? "—" :
+        (Math.abs(doDuoc) < 0.05 ? N.td_nhu_nhau : (doDuoc > 0 ? N.td_nhanh : N.td_cham) + " " + soFmt(Math.abs(doDuoc), 1) + "%")));
+      if (doDuoc != null) chinh.appendChild(el("span", "mt-ket-phu", N.td_ai + " " + soFmt(mAi, 1) + " " + N.td_phut + " · " + N.td_tu + " " + soFmt(mTu, 1) + " " + N.td_phut + " (" + N.td_trung_vi + ")"));
+      ket.appendChild(chinh);
+      var ba = el("div", "td-ba");
+      [[N.td_doan, N.td_doan_phu, st.doan, mr.doan], [N.td_tuong, N.td_tuong_phu, tuong, mr.tuong], [N.td_dong_ho, N.td_dong_ho_phu, doDuoc, mr.do]].forEach(function (x) {
+        var t = el("div", "td-o td-" + lop(x[2]));
+        t.appendChild(el("span", "td-o-nhan", x[0]));
+        t.appendChild(el("b", "td-o-so", coDau(x[2])));
+        t.appendChild(el("span", "td-o-phu", x[1]));
+        t.appendChild(el("span", "td-o-metr", N.td_metr + " " + coDau(x[3])));
+        ba.appendChild(t);
+      });
+      ket.appendChild(ba);
+
+      var vis = el("div", "mt-vis");
+      // Thanh hai phía: phải là nhanh hơn, trái là chậm hơn; mỗi hàng có thanh của bạn và thanh mảnh của METR
+      vis.appendChild(el("p", "mt-vis-h", N.td_so_sanh));
+      var cot = el("div", "td-hai-phia");
+      var tran = Math.max(40, Math.abs(st.doan || 0), Math.abs(tuong || 0), Math.abs(doDuoc || 0));
+      [[N.td_doan, st.doan, mr.doan], [N.td_tuong, tuong, mr.tuong], [N.td_dong_ho, doDuoc, mr.do]].forEach(function (x) {
+        var h = el("div", "td-hp-hang");
+        h.appendChild(el("span", "td-hp-ten", x[0]));
+        var ray = el("span", "td-hp-ray");
+        [[x[1], "ban"], [x[2], "metr"]].forEach(function (y) {
+          if (y[0] == null) return;
+          var b = el("i", "td-hp-thanh " + y[1] + (y[0] >= 0 ? " tot" : " xau"));
+          var w = Math.min(50, Math.abs(y[0]) / tran * 50);
+          b.style.width = w + "%";
+          b.style.left = y[0] >= 0 ? "50%" : (50 - w) + "%";
+          ray.appendChild(b);
+        });
+        h.appendChild(ray);
+        h.appendChild(el("b", "td-hp-so", coDau(x[1])));
+        cot.appendChild(h);
+      });
+      vis.appendChild(cot);
+      var ghi = el("div", "mt-chu-giai");
+      [[N.td_ban, "td-cham-ban"], [N.td_metr + " (" + mr.nguoi + ")", "td-cham-metr"]].forEach(function (x) {
+        var g = el("span", "mt-chu-giai-o"); g.appendChild(el("i", "mt-cham " + x[1])); g.appendChild(document.createTextNode(x[0])); ghi.appendChild(g);
+      });
+      ghi.appendChild(el("span", "mt-chu-giai-o td-hp-chu", "← " + N.td_cham + " · " + N.td_nhanh + " →"));
+      vis.appendChild(ghi);
+
+      // Chấm số phút từng việc trên cùng một trục, vạch là trung vị
+      if (ai.length || tu.length) {
+        var vp = el("div", "td-phut-vis");
+        vp.appendChild(el("p", "mt-vis-h", N.td_phut_h));
+        var lon = Math.max.apply(null, ai.concat(tu)) * 1.08;
+        [[N.td_ai, ai, mAi, "ai"], [N.td_tu, tu, mTu, "tu"]].forEach(function (x) {
+          var h = el("div", "td-ph-hang");
+          h.appendChild(el("span", "td-ph-ten", x[0]));
+          var ray = el("span", "td-ph-ray");
+          x[1].forEach(function (p) {
+            var c = el("i", "td-ph-cham " + x[3]); c.style.left = (p / lon * 100) + "%"; c.title = soFmt(p, 1) + " " + N.td_phut; ray.appendChild(c);
+          });
+          if (x[2] != null) { var v = el("span", "td-ph-vach"); v.style.left = (x[2] / lon * 100) + "%"; ray.appendChild(v); }
+          h.appendChild(ray);
+          h.appendChild(el("b", "td-ph-so", x[2] == null ? "—" : soFmt(x[2], 1) + " " + N.td_phut));
+          vp.appendChild(h);
+        });
+        var truc = el("div", "td-ph-truc");
+        truc.appendChild(el("span", null, "0"));
+        truc.appendChild(el("span", null, soFmt(lon, 0) + " " + N.td_phut));
+        vp.appendChild(truc);
+        vis.appendChild(vp);
+      }
+
+      if (!ai.length && !tu.length) vis.appendChild(el("p", "mt-noi-bat", N.td_chua_co));
+      else if (!du) vis.appendChild(el("p", "mt-canh", N.td_canh.replace("{ai}", ai.length).replace("{tu}", tu.length).replace("{n}", it)));
+      if (doDuoc != null) {
+        var kl = el("p", "mt-noi-bat");
+        kl.appendChild(document.createTextNode(Math.abs(doDuoc) < 5 ? N.td_ket_hoa : doDuoc > 0 ? N.td_ket_nhanh : N.td_ket_cham));
+        if (tuong != null) {
+          kl.appendChild(document.createTextNode(" "));
+          kl.appendChild(el("b", null, N.td_lech.replace("{d}", soFmt(Math.abs(tuong - doDuoc), 0))));
+        }
+        vis.appendChild(kl);
+      }
+      vis.appendChild(el("p", "mt-ghi-nho", N.td_ghi));
+
+      var day = function (x) { return "(" + x.slice().sort(function (a, b) { return a - b; }).map(function (n) { return soFmt(n, 1); }).join("; ") + ")"; };
+      var ct = [
+        [N.td_ct_ai, N.td_trung_vi + " " + day(ai) + " = " + (mAi == null ? "—" : soFmt(mAi, 1) + " " + N.td_phut)],
+        [N.td_ct_tu, N.td_trung_vi + " " + day(tu) + " = " + (mTu == null ? "—" : soFmt(mTu, 1) + " " + N.td_phut)],
+        [N.td_dong_ho, doDuoc == null ? "(" + N.td_ct_tu + " − " + N.td_ct_ai + ") ÷ " + N.td_ct_tu + " × 100"
+          : "(" + soFmt(mTu, 1) + " − " + soFmt(mAi, 1) + ") ÷ " + soFmt(mTu, 1) + " × 100 = " + coDau(doDuoc, 1)],
+        [N.td_ct_tuong, cams.length ? "(" + cams.map(function (c) { return soFmt(c); }).join(" + ") + ") ÷ " + cams.length + " = " + coDau(tuong, 1) : "—"]
+      ];
+      if (tuong != null && doDuoc != null) ct.push([N.td_tuong + " − " + N.td_dong_ho, soFmt(tuong, 1) + " − (" + soFmt(doDuoc, 1) + ") = " + soFmt(tuong - doDuoc, 1)]);
+      return { ket: ket, vis: vis, ct: ct };
+    }
+    return { nhap: [goc], tinh: tinh };
+  };
+
   function moiGiaVon(m, k) {
     var x = m.mau[k];
     return { mau: k, dong: x.dong.map(function (d) { return d.slice(); }), hong: x.hong, gia_ban: x.gia_ban, phi_san: x.phi_san, von: x.von };
@@ -468,12 +878,18 @@
       else a.title = N.sap_ra;
       vids.appendChild(a);
     });
+    if (m.doc) {
+      var doc = el("a", "mt-vid mt-doc", m.doc.ten);
+      doc.href = m.doc.url; doc.title = N.td_doc || m.doc.ten;
+      if (NHUNG) doc.target = "_top";
+      vids.appendChild(doc);
+    }
     dau.appendChild(vids);
     khu.appendChild(dau);
 
-    var luoi = el("div", "mt-luoi");
+    var luoi = el("div", "mt-luoi mt-luoi-" + id);
     var trai = el("div", "mt-nhap");
-    trai.appendChild(el("p", "mt-vi-du", N.vi_du));
+    trai.appendChild(el("p", "mt-vi-du", m.vi_du || N.vi_du));
     var phai = el("div", "mt-ket");
     var duoi = el("div", "mt-duoi");
     var may;
