@@ -1,0 +1,76 @@
+/* ===== Hỏi đáp chống lừa đảo (hoi-dap-*.html) và khối Hỏi đáp trên Trạm chống lừa đảo AI =====
+   Dùng chung biến, khối .tl-khoi, ô .tl-do của assets/tro-choi/tram-lua-dao.css; màu từng chiêu lừa theo .tl-m-* (--mc). */
+.hl-an { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Đầu trang */
+.hl-duong-dan { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 10px; font: 600 13.5px/1.3 var(--f-body); }
+.hl-duong-dan a { color: inherit; opacity: .85; text-decoration: none; border-bottom: 1px solid currentColor; }
+.hl-duong-dan a:hover { opacity: 1; }
+.hl-duong-dan span { opacity: .6; }
+.hl-dau { display: grid; place-items: center; width: 132px; height: 132px; border-radius: 34px; color: #fff;
+  background: linear-gradient(145deg, var(--mc), color-mix(in srgb, var(--mc) 60%, #0F172A)); box-shadow: 0 16px 30px -14px rgba(15, 23, 42, .5); }
+.hl-dau-ic { width: 64px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Trả lời ngắn */
+.hl-tra-loi { border-color: color-mix(in srgb, var(--mc) 45%, var(--edge)); background: color-mix(in srgb, var(--mc) 6%, var(--panel)); }
+.hl-ket { display: flex; align-items: center; gap: 14px; }
+.hl-ket-ic { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; color: #fff; background: var(--mc); }
+.hl-ket-ic .tl-ic { width: 26px; height: 26px; }
+.hl-ket h2 { margin-top: 2px; }
+.hl-doan { margin: 0; max-width: 72ch; font: 500 17px/1.6 var(--f-body); }
+.hl-so-hang { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.hl-so { display: grid; gap: 4px; align-content: start; padding: 14px; border-radius: 16px; background: var(--panel); border: 1.5px solid var(--edge); min-width: 0; }
+.hl-so b { font: 800 clamp(22px, 2.8vw, 30px)/1.1 var(--f-display); color: var(--mc); overflow-wrap: anywhere; }
+.hl-so span { font: 600 14px/1.4 var(--f-body); }
+.hl-so small { font: 500 12px/1.35 var(--f-body); color: var(--muted); }
+
+/* Cái bẫy đi thế nào: chuỗi bước có mũi tên */
+.hl-duong { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0; padding: 0; list-style: none; }
+.hl-duong li { position: relative; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--edge); background: var(--bg); font: 700 15px/1.3 var(--f-body); }
+.hl-duong li:not(:last-child)::after { content: ""; position: absolute; right: -21px; top: 50%; width: 12px; height: 12px; border-top: 2.5px solid var(--muted); border-right: 2.5px solid var(--muted); transform: translateY(-50%) rotate(45deg); }
+.hl-duong li:last-child { border-color: color-mix(in srgb, var(--tl-do) 50%, var(--edge)); background: color-mix(in srgb, var(--tl-do) 8%, var(--panel)); }
+.hl-buoc-so { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; font: 800 13px/1 var(--f-body); }
+.hl-duong li:last-child .hl-buoc-so { background: var(--tl-do); }
+
+/* Dấu hiệu | Làm ngay */
+.hl-hai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.hl-cot { align-content: start; }
+.hl-ds { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; counter-reset: hl; }
+.hl-y { display: grid; gap: 3px; padding: 11px 14px; border-radius: 12px; }
+.hl-y b { font: 700 15.5px/1.35 var(--f-body); }
+.hl-y span { font: 500 14px/1.45 var(--f-body); color: var(--muted); }
+.hl-ds-do .hl-y { background: color-mix(in srgb, var(--tl-do) 8%, var(--panel)); border-left: 4px solid var(--tl-do); }
+.hl-ds-xanh .hl-y { position: relative; padding-left: 50px; background: color-mix(in srgb, var(--tl-xanh) 9%, var(--panel)); border-left: 4px solid var(--tl-xanh); counter-increment: hl; }
+.hl-ds-xanh .hl-y::before { content: counter(hl); position: absolute; left: 12px; top: 11px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--tl-xanh); color: #fff; font: 800 13px/1 var(--f-body); }
+
+/* Hỏi thêm */
+.hl-hoi-ds { display: grid; gap: 8px; }
+.hl-hoi { border-radius: 14px; border: 1.5px solid var(--edge); background: var(--bg); }
+.hl-hoi summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; padding: 13px 16px; font: 700 15.5px/1.4 var(--f-body); }
+.hl-hoi summary::-webkit-details-marker { display: none; }
+.hl-hoi summary::after { content: "+"; flex: none; font: 800 20px/1 var(--f-body); color: var(--blue); }
+.hl-hoi[open] summary::after { content: "−"; }
+.hl-hoi p { margin: 0; padding: 0 16px 14px; font: 500 15px/1.6 var(--f-body); color: var(--ink); max-width: 76ch; }
+
+/* Thẻ câu hỏi (dùng cả trên Trạm) */
+.hl-luoi { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.hl-the { display: flex; align-items: flex-start; gap: 12px; padding: 13px; border-radius: 16px; border: 1.5px solid var(--edge); background: var(--bg); color: var(--ink); text-decoration: none; min-width: 0; }
+.hl-the:hover { border-color: var(--mc); transform: translateY(-2px); }
+.hl-the-ic { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: #fff; background: var(--mc); }
+.hl-the-chu { display: grid; gap: 4px; min-width: 0; }
+.hl-the-chu b { font: 700 14.5px/1.35 var(--f-body); }
+.hl-the-chu small { justify-self: start; padding: 2px 8px; border-radius: 999px; font: 700 11.5px/1.4 var(--f-body); color: color-mix(in srgb, var(--mc) 65%, var(--ink)); background: color-mix(in srgb, var(--mc) 12%, var(--panel)); }
+@media (prefers-reduced-motion: reduce) { .hl-the:hover { transform: none; } }
+
+@media (max-width: 860px) {
+  .hl-hai { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+}
+@media (max-width: 720px) {
+  .hl-dau { width: 84px; height: 84px; border-radius: 24px; margin-top: 28px; }
+  .hl-dau-ic { width: 42px; height: 42px; }
+  .hl-doan { font-size: 16px; }
+  .hl-duong { flex-direction: column; gap: 22px; }
+  .hl-duong li:not(:last-child)::after { right: auto; left: 26px; top: auto; bottom: -17px; transform: rotate(135deg); }
+  .hl-luoi { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+}
+.hl-gui { margin-top: 0; padding-top: 0; border-top: 0; }

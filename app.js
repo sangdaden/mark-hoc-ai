@@ -371,7 +371,7 @@
     const moi = box.querySelector('.lt-nut[data-the="' + locThe + '"]');
     if (moi) moi.focus({ preventScroll: true });
   }));
-  // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (hoi-bit.html): hỏi cả câu, khỏi đoán từ khóa
+  // Có chữ trong ô tìm thì hiện lối tắt sang Hỏi Bit (đầu trang tu-dien.html): hỏi cả câu, khỏi đoán từ khóa
   const hoiBit = document.getElementById("hb-goi");
   // Đang tìm thì báo ngay dưới ô tìm có bao nhiêu video khớp và ẩn dải "Hôm nay": trên điện thoại kết quả nằm dưới hàng nhóm, người xem tưởng ô tìm không chạy
   const soKq = document.createElement("p");
@@ -389,7 +389,7 @@
     if (!q) soKq.hidden = true;
     if (hoiBit) {
       hoiBit.hidden = !q;
-      if (q) { hoiBit.href = "hoi-bit.html?q=" + encodeURIComponent(input.value.trim()); hoiBit.textContent = S.hoiBit(input.value.trim()); }
+      if (q) { hoiBit.href = "tu-dien.html?q=" + encodeURIComponent(input.value.trim()) + "#hoi-bit"; hoiBit.textContent = S.hoiBit(input.value.trim()); }
     }
     if (!q && current === "tat-ca") {
       // Lưới hiện trước 3 hàng thẻ, nút "Xem thêm" mở tiếp từng 3 hàng (3 cột trên máy tính, 2 cột trên điện thoại)
@@ -490,5 +490,32 @@
     const giam = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: 0, behavior: giam ? "instant" : "smooth" });
     document.querySelector(".brand").focus({ preventScroll: true });
+  });
+})();
+
+// Chạm vào Mark và Bit ở đầu trang chủ trên điện thoại: Mark vẫy, Bit nhún như khi rê chuột trên máy tính (style.css .hx-dong)
+(function () {
+  const xoe = document.querySelector(".hero-xoe");
+  if (!xoe) return;
+  // Lần đầu vào kênh, hộp "Bạn là ai?" (lo-trinh-nganh.js) che mất màn chào: đóng hộp thì cho màn chào chạy lại một lần
+  // Màn chào xong thì bỏ lớp .mo-man: nếu không, rê chuột xong Bit chạy lại hiệu ứng bay xuống (có độ trễ) nên biến mất một lúc
+  const goc = document.documentElement;
+  let henChao = 0;
+  const choChaoXong = () => { clearTimeout(henChao); henChao = setTimeout(() => goc.classList.remove("mo-man"), 2000); };
+  if (goc.classList.contains("mo-man")) {
+    choChaoXong();
+    let xong = false;
+    document.addEventListener("close", e => {
+      if (xong || !e.target.matches(".chao-hop")) return;
+      xong = true;
+      goc.classList.remove("mo-man"); void goc.offsetWidth; goc.classList.add("mo-man");
+      choChaoXong();
+    }, true);
+  }
+  let hen = 0;
+  xoe.addEventListener("pointerdown", e => {
+    if (e.pointerType === "mouse" || e.target.closest("a")) return;
+    xoe.classList.remove("hx-dong"); void xoe.offsetWidth; xoe.classList.add("hx-dong");
+    clearTimeout(hen); hen = setTimeout(() => xoe.classList.remove("hx-dong"), 1800);
   });
 })();

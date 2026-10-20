@@ -246,3 +246,53 @@
   a.textContent = document.documentElement.lang === "en" ? "Skip to content" : "Bỏ qua tới nội dung";
   document.body.insertBefore(a, document.body.firstChild);
 })();
+
+// Nút "Đăng ký" YouTube cạnh mọi link YouTube của trang (vòng 4, Sang chọn 20/10/2026: 172 lượt bấm sang YouTube trong 6 ngày mà chỉ thêm 22 người đăng ký).
+// Link ?sub_confirmation=1 mở thẳng hộp hỏi đăng ký của YouTube; theo-doi.js đếm riêng thành sự kiện "dang-ky-youtube".
+// Cách gắn: nút tròn đầu trang và link chữ/nút thì đặt ngay sau link; hàng icon mạng xã hội (.nt) thì thêm một nút nhỏ cuối hàng;
+// thẻ trong lưới (.ld-vid, .ntk) thì một nút dưới lưới. Bỏ qua danh sách dài từng video (.row-link, lộ trình theo ngành) và ảnh bìa trình phát.
+// Link do JS khác dựng sau (trang chủ, Bit, kết quả game) được bắt bằng MutationObserver
+(function () {
+  const EN = document.documentElement.lang === "en";
+  const me = document.currentScript;
+  let icGoc = "";
+  try { icGoc = new URL(".", me ? me.src : location.href).href; } catch (e) {}
+  const SUB = "https://www.youtube.com/@markhocai?sub_confirmation=1";
+  const LA_YT = /^https?:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i;
+  const BO_QUA = ".nut-dk, .yt-play, .row-link, .ltn-v a";
+  const nut = (lop, chu) => {
+    const a = document.createElement("a");
+    a.className = "nut-dk" + (lop ? " " + lop : "");
+    a.href = SUB;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.setAttribute("aria-label", EN ? "Subscribe to Mark học AI on YouTube" : "Đăng ký kênh YouTube Mark học AI");
+    a.innerHTML = '<svg class="ic" aria-hidden="true"><use href="' + icGoc + 'assets/nen-tang.svg#nt-youtube"/></svg><span>' + chu + "</span>";
+    return a;
+  };
+  const DK = EN ? "Subscribe" : "Đăng ký";
+  const gan = a => {
+    if (a.dataset.dk || a.matches(BO_QUA) || !LA_YT.test(a.href || "") || /sub_confirmation/.test(a.href)) return;
+    a.dataset.dk = "1";
+    const luoi = a.matches(".ld-vid, .ntk") && a.closest(".ld-ket-video, ul");
+    if (luoi) {
+      if (!(luoi.nextElementSibling && luoi.nextElementSibling.matches(".nut-dk-hang"))) {
+        const h = document.createElement("p");
+        h.className = "nut-dk-hang";
+        h.append(nut("btn btn-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube"));
+        luoi.after(h);
+      }
+    } else if (a.classList.contains("nt")) {
+      const hang = a.parentElement;
+      if (!hang.querySelector(":scope > .nut-dk")) hang.append(nut("nut-dk-nho", DK));
+    } else if (!(a.nextElementSibling && a.nextElementSibling.matches(".nut-dk"))) {
+      a.after(a.classList.contains("btn") ? nut("btn btn-dk", EN ? "Subscribe" : "Đăng ký kênh") :
+        nut(a.classList.contains("nut-yt") ? "nut-dk-dau" : a.classList.contains("nav-yt") ? "nav-dk" : "nut-dk-nho", DK));
+    }
+  };
+  const quet = () => document.querySelectorAll("a[href]").forEach(gan);
+  quet();
+  let cho = 0;
+  new MutationObserver(() => { if (!cho) cho = requestAnimationFrame(() => { cho = 0; quet(); }); })
+    .observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["href"] });
+})();

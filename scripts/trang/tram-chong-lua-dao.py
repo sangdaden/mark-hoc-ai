@@ -159,11 +159,12 @@ def tao_tram_chong_lua_dao():
             f'<h1>{t("Trạm chống lừa đảo AI", "AI scam help desk")}</h1>\n'
             f'<p class="lead">{t("Giọng giả, mặt giả, tin nhắn giả. Kiểm tra điều bạn vừa gặp, xem kẻ gian hay dùng chiêu gì, tập nhận ra, rồi gửi cho bố mẹ.", "Fake voices, fake faces, fake messages. Check what just happened, learn the tricks scammers use, practise spotting them, then send this to your parents.")}</p>\n'
             f'<nav class="tl-nhay" aria-label="{t("Trong trang", "On this page")}"><a href="#kiem-tra-nhanh">{t("Kiểm tra nhanh", "Quick check")}</a><a href="#chieu-lua">{t("Chiêu lừa", "Scams")}</a>'
-            f'<a href="#tap-nhan-ra">{t("Tập nhận ra", "Practise")}</a><a href="#cho-ca-nha">{t("Cho cả nhà", "Family")}</a><a href="#lo-bi-lua" class="tl-nhay-sos">{t("Lỡ bị lừa", "Scammed?")}</a></nav>\n'
+            f'<a href="#hoi-dap">{t("Hỏi đáp", "Q&amp;A")}</a><a href="#tap-nhan-ra">{t("Tập nhận ra", "Practise")}</a><a href="#cho-ca-nha">{t("Cho cả nhà", "Family")}</a><a href="#lo-bi-lua" class="tl-nhay-sos">{t("Lỡ bị lừa", "Scammed?")}</a></nav>\n'
             f'</div><img class="head-art" src="{p}assets/bit-sai-roi.svg" alt="" width="180" height="170"></div>')
     main = f"""<main class="tl" id="tl">
 {kt}
 {chieu}
+{hoi_dap_khoi(p)}
 {tap}
 {nha}
 {sos}
@@ -172,4 +173,4 @@ def tao_tram_chong_lua_dao():
 </main>"""
     return GOC + "tram-chong-lua-dao.html", trang("tram-chong-lua-dao.html", t(f"Trạm chống lừa đảo AI: kiểm tra cuộc gọi, tin nhắn lạ trong 30 giây | {SITE}", f"AI scam help desk: check a strange call or message in 30 seconds | {SITE}"),
                                                   desc, band, main, p, og_type="website", q="",
-                                                  cuoi=f'<link rel="stylesheet" href="{p}assets/tro-choi/tram-lua-dao.css?v=dev">\n<script src="{p}tram-lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
+                                                  cuoi=f'<link rel="stylesheet" href="{p}assets/tro-choi/tram-lua-dao.css?v=dev">\n<link rel="stylesheet" href="{p}assets/tro-choi/hoi-dap-lua-dao.css?v=dev">\n<script src="{p}tram-lua-dao.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')

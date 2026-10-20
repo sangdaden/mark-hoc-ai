@@ -80,8 +80,8 @@
     ["download", "Sách Mark học AI miễn phí", goc + "sach.html"],
     ["clapperboard", "Xem danh sách video", goc + "#video"]
   ];
-  // Ô hỏi nhanh đầu menu: gõ câu hỏi, Enter là mở trang Hỏi Bit (hoi-bit.html) với câu đó
-  const hoiUrl = (EN ? nha : goc) + "hoi-bit.html";
+  // Ô hỏi nhanh đầu menu: gõ câu hỏi, Enter là mở ô Hỏi Bit đầu trang Từ điển AI (tu-dien.html) với câu đó
+  const hoiUrl = (EN ? nha : goc) + "tu-dien.html";
   const T = EN ? { hoiBit: "Ask Bit about any video…", hoiNut: "Ask", tat: "Turn off tips", hoi: "How can Bit help?", chao: "How can Bit help you?", meo: "Bit's tip", khac: "Another tip ›", mo: "Open Bit the assistant", kenh: "Follow Mark & Bit", tren: "Mark học AI on ", dc: "Join the Mark học AI Discord community" }
     : { hoiBit: "Hỏi Bit về nội dung video…", hoiNut: "Hỏi", tat: "Tắt gợi ý", hoi: "Bit có thể giúp gì?", chao: "Bit giúp gì được bạn?", meo: "Mẹo của Bit", khac: "Mẹo khác ›", mo: "Mở trợ lý Bit", kenh: "Theo dõi Mark và Bit", tren: "Mark học AI trên ", dc: "Vào cộng đồng Discord của Mark học AI" };
 
