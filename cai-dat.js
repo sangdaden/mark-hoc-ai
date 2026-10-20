@@ -78,7 +78,7 @@
     const hoc = [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
       ["lo-trinh-nganh.html", EN ? "Path by field" : "Lộ trình theo ngành"], ["kiem-tra.html", EN ? "Quiz: how well do you know AI?" : "Kiểm tra: bạn hiểu AI tới đâu?"],
       ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile · review" : "Hồ sơ học · Ôn hôm nay"]];
-    const thucHanh = [["thuc-hanh.html", EN ? "Practice corner: every game" : "Góc thực hành: mọi trò chơi"], ["", EN ? "Practice by field" : "Thực hành theo ngành"],
+    const thucHanh = [["thuc-hanh.html", EN ? "Practice corner: every game" : "Góc thực hành: mọi trò chơi"], ["tram-chong-lua-dao.html", EN ? "AI scam help desk" : "Trạm chống lừa đảo AI"], ["", EN ? "Practice by field" : "Thực hành theo ngành"],
       ["ai-y-te.html", EN ? "Healthcare" : "Người làm y tế"], ["ai-hoc-sinh.html", EN ? "High school" : "Học sinh cấp 3"],
       ["ai-van-phong.html", EN ? "Public servants" : "Cán bộ, công chức"], ["ai-giao-vien.html", EN ? "Teachers" : "Giáo viên"],
       ["ai-gia-dinh.html", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", EN ? "Small sellers" : "Người bán hàng"],
@@ -173,7 +173,7 @@
   }
   const html = cot(EN ? "Learn" : "Học", [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
       ["lo-trinh-nganh.html", EN ? "Path for your job" : "Lộ trình theo nghề"], ["kiem-tra.html", EN ? "Quizzes" : "Kiểm tra"], ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile" : "Hồ sơ học"]]) +
-    cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"],
+    cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["tram-chong-lua-dao.html", EN ? "Scam help desk" : "Chống lừa đảo AI"], ["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"],
       ["ai-y-te.html", EN ? "Healthcare" : "Y tế"], ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"]]) +
     cot(EN ? "Read & play" : "Đọc & chơi", [["tu-dien.html", EN ? "AI glossary" : "Từ điển AI"], ["bai-bao.html", EN ? "AI papers" : "Bài báo AI"], ["sach.html", EN ? "Free ebook" : "Sách miễn phí"],
       ["phieu-luu.html", "Game"], ["ban-tin.html", EN ? "Weekly digest" : "Bản tin tuần"]]) +

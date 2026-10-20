@@ -1,0 +1,211 @@
+{
+ "_ghi_chu": "Trạm chống lừa đảo AI (tram-chong-lua-dao.html, Sang chọn mockup A + B, C ngày 20/10/2026). Trang do scripts/trang/tram-chong-lua-dao.py tạo, chạy bằng tram-lua-dao.js. tinh_huong: Kiểm tra nhanh 30 giây, mỗi tình huống 3 câu có/không, 'chieu' trỏ tới thẻ chiêu lừa. chieu: Danh bạ chiêu lừa, 'ai' là nhóm người hay bị nhắm (bo-me, con, di-lam, tim-viec), 'muc' 1-5, 'video' là số tập có bài trên web, 'tro' là trò chơi để tập. Mở thẳng một thẻ: ?chieu=<id> (dán vào bình luận đầu video). sos: số và trang báo cáo đã kiểm 20/10/2026.",
+ "nhom_ai": [
+  {"id": "tat-ca", "vi": "Tất cả", "en": "Everyone"},
+  {"id": "bo-me", "vi": "Bố mẹ, ông bà", "en": "Parents, grandparents"},
+  {"id": "con", "vi": "Con cái, học sinh", "en": "Kids, students"},
+  {"id": "di-lam", "vi": "Người đi làm", "en": "Working adults"},
+  {"id": "tim-viec", "vi": "Người tìm việc", "en": "Job seekers"}
+ ],
+ "muc": [
+  {"vi": "Chưa thấy dấu hiệu rõ", "en": "No clear warning signs yet",
+   "giai": {"vi": "Vẫn nên kiểm lại theo 3 bước dưới đây trước khi chuyển tiền hay bấm link.", "en": "Still check with the 3 steps below before you send money or tap a link."}},
+  {"vi": "Đáng ngờ", "en": "Suspicious",
+   "giai": {"vi": "Có một dấu hiệu kẻ gian hay dùng. Dừng lại và làm 3 bước dưới đây.", "en": "One sign scammers often use. Stop and do the 3 steps below."}},
+  {"vi": "Nguy cơ lừa đảo cao", "en": "High scam risk",
+   "giai": {"vi": "Nhiều dấu hiệu cùng lúc. Đừng chuyển tiền, làm ngay 3 bước dưới đây.", "en": "Several signs at once. Don't send money; do the 3 steps below now."}}
+ ],
+ "tinh_huong": [
+  {"id": "goi-giong", "icon": "phone", "chieu": "giong-nguoi-than",
+   "ten": {"vi": "Giọng người thân gọi xin tiền gấp", "en": "A relative's voice calls asking for money"},
+   "hoi": [
+    {"vi": "Người gọi hối chuyển tiền ngay và dặn đừng nói với ai?", "en": "Are they rushing you to pay now and telling you not to tell anyone?"},
+    {"vi": "Số gọi đến là số lạ, hoặc họ nói vừa đổi số, vừa mất máy?", "en": "Is it an unknown number, or do they say they just changed or lost their phone?"},
+    {"vi": "Hỏi chuyện riêng trong nhà thì họ lảng, viện cớ mạng yếu hay đang khóc?", "en": "When you ask about family things, do they dodge, blame a bad line or keep crying?"}
+   ],
+   "lam": [
+    {"vi": "Cúp máy. Tự gọi lại số quen của người đó, hoặc gọi người đang ở cạnh họ.", "en": "Hang up. Call back the number you already have for them, or someone who is with them."},
+    {"vi": "Hỏi mật khẩu gia đình. Nhà chưa có thì hỏi một chuyện chỉ người nhà mới biết.", "en": "Ask for your family safe word. No safe word yet? Ask something only family would know."},
+    {"vi": "Chưa chuyển đồng nào cho tới khi gọi lại được đúng người.", "en": "Don't send a cent until you have reached the real person."}
+   ]},
+  {"id": "video-call", "icon": "video", "chieu": "video-call",
+   "ten": {"vi": "Video call thấy mặt người quen hỏi mượn tiền", "en": "A video call from a familiar face asking to borrow money"},
+   "hoi": [
+    {"vi": "Cuộc gọi rất ngắn, hình mờ hoặc giật, rồi mất sóng?", "en": "Was the call very short, blurry or choppy, then it dropped?"},
+    {"vi": "Sau cuộc gọi họ nhắn xin chuyển tiền vào một tài khoản không đúng tên họ?", "en": "Afterwards, did they ask you to pay into an account in someone else's name?"},
+    {"vi": "Bạn nhờ quay nghiêng mặt, đưa tay qua mặt hay gọi tên bạn thì họ né?", "en": "When you asked them to turn their head, wave a hand over their face or say your name, did they avoid it?"}
+   ],
+   "lam": [
+    {"vi": "Đừng tin chỉ vì đã thấy mặt: giờ mặt và giọng đều giả được.", "en": "Don't trust it just because you saw a face: faces and voices can both be faked now."},
+    {"vi": "Gọi lại bằng số điện thoại cũ của họ, không gọi qua tài khoản vừa nhắn cho bạn.", "en": "Call their old phone number, not the account that just messaged you."},
+    {"vi": "Tài khoản nhận tiền không đúng tên người đó thì dừng hẳn.", "en": "If the receiving account isn't in their name, stop completely."}
+   ]},
+  {"id": "tin-nhan", "icon": "link", "chieu": "tin-nhan-ai",
+   "ten": {"vi": "Tin nhắn có link: ngân hàng, giao hàng, hoàn tiền", "en": "A message with a link: bank, delivery, refund"},
+   "hoi": [
+    {"vi": "Tin nhắn dọa khóa tài khoản, phạt tiền, hay giục làm ngay trong hôm nay?", "en": "Does it threaten to lock your account, fine you, or demand action today?"},
+    {"vi": "Có đường link để bấm, hoặc file để tải và cài?", "en": "Is there a link to tap, or a file to download and install?"},
+    {"vi": "Họ xin mã OTP, mật khẩu, hay bảo bạn quét mặt?", "en": "Are they asking for an OTP code, a password, or a face scan?"}
+   ],
+   "lam": [
+    {"vi": "Không bấm link, không cài file trong tin nhắn.", "en": "Don't tap the link or install anything from the message."},
+    {"vi": "Tự mở app ngân hàng, hoặc gọi số tổng đài in sau thẻ để hỏi.", "en": "Open your bank's app yourself, or call the number on the back of your card."},
+    {"vi": "Không đọc mã OTP cho ai, kể cả người xưng là nhân viên ngân hàng hay công an.", "en": "Never read out an OTP code, even to someone claiming to be the bank or the police."}
+   ]},
+  {"id": "quang-cao", "icon": "pill", "chieu": "bac-si-gia",
+   "ten": {"vi": "Bác sĩ, người nổi tiếng bán thuốc hay mời đầu tư", "en": "A doctor or celebrity selling medicine or investments"},
+   "hoi": [
+    {"vi": "Hứa khỏi bệnh dứt điểm, hoặc lời đều mỗi ngày, mỗi tháng?", "en": "Does it promise a total cure, or steady daily or monthly profit?"},
+    {"vi": "Chỉ bán hay nhận tiền qua tin nhắn, không có nơi bán chính thức?", "en": "Do they only sell or take money through chat, with no official store?"},
+    {"vi": "Ép quyết nhanh: chỉ còn vài suất, giảm giá trong hôm nay?", "en": "Are they pushing you to decide fast: few spots left, today-only discount?"}
+   ],
+   "lam": [
+    {"vi": "Tìm tên người trong quảng cáo kèm chữ “giả mạo”: người thật thường đã lên tiếng.", "en": "Search the person's name with the word “fake”: real people have often spoken out already."},
+    {"vi": "Hỏi bác sĩ của mình trước khi mua thuốc, hỏi người rành tài chính trước khi nộp tiền.", "en": "Ask your own doctor before buying medicine, and someone who knows money before you invest."},
+    {"vi": "Thấy cam kết lời đều hay khỏi hẳn là dừng: thứ thật không ai hứa như vậy.", "en": "Guaranteed profit or a sure cure means stop: real products never promise that."}
+   ]},
+  {"id": "viec-lam", "icon": "job", "chieu": "viec-nhe-luong-cao",
+   "ten": {"vi": "Việc nhẹ lương cao, việc ở nước ngoài", "en": "Easy job, high pay, or a job abroad"},
+   "hoi": [
+    {"vi": "Lương cao bất thường cho việc rất dễ: bấm thích, chốt đơn, làm nhiệm vụ?", "en": "Unusually high pay for very easy work: liking posts, confirming orders, doing tasks?"},
+    {"vi": "Phải nộp tiền trước: phí hồ sơ, tiền cọc, nạp tiền để làm nhiệm vụ?", "en": "Do you have to pay first: a fee, a deposit, a top-up to unlock tasks?"},
+    {"vi": "Chỉ nói chuyện qua Telegram, Zalo, hứa lo vé đi nước ngoài mà không có hợp đồng rõ ràng?", "en": "Do they only talk on Telegram or chat apps, and offer a ticket abroad with no clear contract?"}
+   ],
+   "lam": [
+    {"vi": "Không nộp đồng nào để được nhận việc.", "en": "Never pay money to get a job."},
+    {"vi": "Không theo người quen trên mạng ra nước ngoài làm việc; kể với người nhà trước.", "en": "Don't travel abroad for work with someone you met online; tell your family first."},
+    {"vi": "Tra tên công ty, số điện thoại trên mạng kèm chữ “lừa đảo”.", "en": "Search the company name and phone number with the word “scam”."}
+   ]},
+  {"id": "app-ai", "icon": "app", "chieu": "app-gia",
+   "ten": {"vi": "App, tiện ích “AI” lạ đòi cài hay cấp quyền", "en": "An unfamiliar “AI” app asking to install or get permissions"},
+   "hoi": [
+    {"vi": "App không có trên CH Play hay App Store, phải tải file qua link?", "en": "Is the app missing from Google Play and the App Store, so you install a file from a link?"},
+    {"vi": "App xin quyền đọc tin nhắn, quyền trợ năng, hay điều khiển màn hình?", "en": "Does it ask to read your messages, use accessibility, or control your screen?"},
+    {"vi": "Có người gọi điện hướng dẫn bạn cài từng bước?", "en": "Is someone on the phone walking you through the install?"}
+   ],
+   "lam": [
+    {"vi": "Dừng cài. Đã cài rồi thì gỡ ngay.", "en": "Stop installing. If it's already installed, remove it now."},
+    {"vi": "Đã cấp quyền đọc tin nhắn: gọi ngân hàng nhờ khóa tạm tài khoản, rồi đổi mật khẩu.", "en": "Already gave it access to messages? Call your bank to freeze the account, then change passwords."},
+    {"vi": "Chỉ cài app từ CH Play, App Store; không cài theo người lạ hướng dẫn qua điện thoại.", "en": "Install apps only from Google Play or the App Store, never because a stranger on the phone says so."}
+   ]}
+ ],
+ "chieu": [
+  {"id": "giong-nguoi-than", "mau": "do", "icon": "phone", "muc": 5, "ai": ["bo-me", "di-lam"], "video": [108, 14], "tro": "cuoc-goi-gia-giong.html",
+   "ten": {"vi": "Giả giọng con cháu xin tiền", "en": "Fake voice of a child asking for money"},
+   "ngan": {"vi": "AI nhái giọng chỉ từ một đoạn video ngắn trên mạng.", "en": "AI copies a voice from a short clip online."},
+   "dau_hieu": [
+    {"vi": "Gọi lúc nửa đêm, giọng hoảng, kể chuyện tai nạn hay bị bắt", "en": "Late-night call, panicked voice, an accident or arrest story"},
+    {"vi": "Số lạ, hoặc nói vừa mất máy, đổi số", "en": "Unknown number, or “I lost my phone”"},
+    {"vi": "Hối chuyển ngay, dặn giữ kín", "en": "Pay now, and keep it secret"}
+   ],
+   "lam": [
+    {"vi": "Cúp máy, gọi lại số quen", "en": "Hang up, call the number you know"},
+    {"vi": "Hỏi mật khẩu gia đình", "en": "Ask for the family safe word"}
+   ]},
+  {"id": "video-call", "mau": "tim", "icon": "video", "muc": 5, "ai": ["bo-me", "di-lam", "con"], "video": [109, 14], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Video call mặt người quen", "en": "Video call with a familiar face"},
+   "ngan": {"vi": "Tài khoản bạn bè bị chiếm, mặt trong cuộc gọi là deepfake.", "en": "A friend's account is hijacked; the face on the call is a deepfake."},
+   "dau_hieu": [
+    {"vi": "Gọi vài giây, hình mờ, rồi mất sóng", "en": "A few seconds, blurry, then the call drops"},
+    {"vi": "Nhắn chuyển tiền vào tài khoản tên người khác", "en": "Asks you to pay an account in another name"},
+    {"vi": "Né khi bị nhờ quay nghiêng mặt", "en": "Avoids turning their head when asked"}
+   ],
+   "lam": [
+    {"vi": "Gọi lại bằng số điện thoại cũ", "en": "Call back on their old phone number"},
+    {"vi": "Sai tên tài khoản là dừng", "en": "Wrong account name means stop"}
+   ]},
+  {"id": "nguoi-noi-tieng-dau-tu", "mau": "cam", "icon": "chart", "muc": 4, "ai": ["di-lam", "bo-me"], "video": [110, 214], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Người nổi tiếng giả mời đầu tư", "en": "Fake celebrity investment ads"},
+   "ngan": {"vi": "Video thật bị AI đổi khẩu hình, lồng giọng, rồi dẫn vào app “AI đầu tư”.", "en": "Real footage is lip-synced and re-voiced by AI, then leads to an “AI trading” app."},
+   "dau_hieu": [
+    {"vi": "Cam kết lời đều mỗi ngày, mỗi tháng", "en": "Steady daily or monthly profit, guaranteed"},
+    {"vi": "Rút thử được ít tiền đầu, sau đó bị khóa", "en": "A small first withdrawal works, then you're locked out"},
+    {"vi": "Đòi nạp thêm “phí, thuế” mới cho rút", "en": "Demands more “fees” or “taxes” before you can withdraw"}
+   ],
+   "lam": [
+    {"vi": "Không nạp thêm để rút tiền", "en": "Never pay more to withdraw"},
+    {"vi": "Tìm tên người nổi tiếng kèm chữ “giả mạo”", "en": "Search the celebrity's name with “fake”"}
+   ]},
+  {"id": "tin-nhan-ai", "mau": "xanh", "icon": "message", "muc": 4, "ai": ["bo-me", "di-lam", "con"], "video": [111], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Tin nhắn trơn tru do AI viết", "en": "Polished scam texts written by AI"},
+   "ngan": {"vi": "Không còn sai chính tả, gọi đúng tên bạn, đúng nơi bạn làm.", "en": "No more typos; they use your name and your workplace."},
+   "dau_hieu": [
+    {"vi": "Dọa khóa tài khoản, phạt tiền", "en": "Threatens to lock your account or fine you"},
+    {"vi": "Có link để bấm hoặc file để cài", "en": "Includes a link to tap or a file to install"},
+    {"vi": "Xin mã OTP hay mật khẩu", "en": "Asks for an OTP code or password"}
+   ],
+   "lam": [
+    {"vi": "Soi điều tin nhắn bắt bạn làm, đừng soi chính tả", "en": "Judge what it asks you to do, not the spelling"},
+    {"vi": "Tự mở app ngân hàng để kiểm tra", "en": "Open your bank app yourself to check"}
+   ]},
+  {"id": "bac-si-gia", "mau": "la", "icon": "pill", "muc": 3, "ai": ["bo-me"], "video": [223], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Bác sĩ giả bán thuốc", "en": "Fake doctors selling medicine"},
+   "ngan": {"vi": "Mặt và giọng bác sĩ, nghệ sĩ thật bị ghép vào quảng cáo thuốc.", "en": "Real doctors' and stars' faces and voices are pasted into medicine ads."},
+   "dau_hieu": [
+    {"vi": "Hứa khỏi hẳn bệnh mãn tính", "en": "Promises to cure a chronic illness"},
+    {"vi": "Chỉ bán qua tin nhắn, giao tận nhà", "en": "Sold only through chat, cash on delivery"},
+    {"vi": "Giảm giá chỉ trong hôm nay", "en": "Discount for today only"}
+   ],
+   "lam": [
+    {"vi": "Hỏi bác sĩ của nhà mình trước", "en": "Ask your own doctor first"},
+    {"vi": "Gửi trang này cho bố mẹ", "en": "Send this page to your parents"}
+   ]},
+  {"id": "viec-nhe-luong-cao", "mau": "vang", "icon": "job", "muc": 5, "ai": ["tim-viec", "con"], "video": [266], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Việc nhẹ lương cao, việc ở nước ngoài", "en": "Easy jobs, high pay, jobs abroad"},
+   "ngan": {"vi": "Từ “làm nhiệm vụ nạp tiền” tới bị đưa sang lò lừa đảo ở nước ngoài.", "en": "From “top-up tasks” to being trafficked into scam compounds abroad."},
+   "dau_hieu": [
+    {"vi": "Lương cao cho việc bấm thích, chốt đơn", "en": "High pay for liking posts or confirming orders"},
+    {"vi": "Phải nộp tiền trước mới được làm", "en": "You must pay before you can start"},
+    {"vi": "Lo vé đi nước ngoài, không hợp đồng", "en": "A free ticket abroad, no contract"}
+   ],
+   "lam": [
+    {"vi": "Không nộp tiền để nhận việc", "en": "Never pay to get a job"},
+    {"vi": "Kể với người nhà trước khi đi", "en": "Tell your family before you go"}
+   ]},
+  {"id": "app-gia", "mau": "hong", "icon": "app", "muc": 5, "ai": ["bo-me", "di-lam"], "video": [269], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "App giả đọc trộm tin nhắn", "en": "Fake apps that read your texts"},
+   "ngan": {"vi": "App giả xin quyền đọc tin nhắn để lấy luôn mã OTP ngân hàng.", "en": "Fake apps ask to read your texts so they can grab bank OTP codes."},
+   "dau_hieu": [
+    {"vi": "Tải file cài qua link, không qua kho app", "en": "Installed from a link, not an app store"},
+    {"vi": "Xin quyền đọc tin nhắn, trợ năng", "en": "Asks for SMS or accessibility access"},
+    {"vi": "Có người gọi hướng dẫn cài", "en": "Someone on the phone guides the install"}
+   ],
+   "lam": [
+    {"vi": "Gỡ app, gọi ngân hàng khóa tạm", "en": "Remove it, call your bank to freeze the account"},
+    {"vi": "Chỉ cài từ CH Play, App Store", "en": "Install only from Google Play or the App Store"}
+   ]},
+  {"id": "lay-lai-tien", "mau": "xam", "icon": "shield", "muc": 4, "ai": ["bo-me", "di-lam", "tim-viec"], "video": [214], "tro": "lua-dao-hay-that.html",
+   "ten": {"vi": "Dịch vụ “lấy lại tiền đã bị lừa”", "en": "“Get your money back” services"},
+   "ngan": {"vi": "Người vừa bị lừa bị lừa thêm lần hai bởi người xưng luật sư, công an.", "en": "Victims get scammed twice by people posing as lawyers or police."},
+   "dau_hieu": [
+    {"vi": "Tự tìm tới bạn sau khi bạn bị lừa", "en": "They find you right after you were scammed"},
+    {"vi": "Hứa lấy lại hết tiền, nhanh", "en": "Promise to recover everything, fast"},
+    {"vi": "Đòi phí trước", "en": "Ask for a fee up front"}
+   ],
+   "lam": [
+    {"vi": "Chỉ làm việc với ngân hàng và công an thật", "en": "Deal only with your real bank and the police"},
+    {"vi": "Không trả phí để lấy lại tiền", "en": "Never pay a fee to recover money"}
+   ]}
+ ],
+ "tap": [
+  {"id": "lua-dao", "url": "lua-dao-hay-that.html", "anh": "bit-sai-roi.svg",
+   "ten": {"vi": "Nhìn ra tin nhắn, quảng cáo giả", "en": "Spot fake messages and ads"},
+   "phu": {"vi": "Lừa đảo hay thật? · 10 ca · 2 phút", "en": "Scam or real? · 10 cases · 2 min"}},
+  {"id": "cuoc-goi", "url": "cuoc-goi-gia-giong.html", "anh": "bit-giai-thich.svg",
+   "ten": {"vi": "Nghe máy mà không run tay", "en": "Pick up without panicking"},
+   "phu": {"vi": "Cuộc gọi giả giọng · 3 cuộc gọi", "en": "The fake-voice call · 3 calls"}},
+  {"id": "dan", "url": "dan-hay-khong.html", "anh": "bit-y-tuong.svg",
+   "ten": {"vi": "Giữ kín thứ cần giữ", "en": "Keep private things private"},
+   "phu": {"vi": "Dán hay không dán? · 12 thẻ", "en": "Paste or don't paste? · 12 cards"}},
+  {"id": "chan-lua", "url": "", "anh": "bit-vui.svg",
+   "ten": {"vi": "Chặn lừa liên tục", "en": "Block scams on the run"},
+   "phu": {"vi": "Game vượt màn Chặn lừa", "en": "Platform game: Scam Blocker"}}
+ ],
+ "sos": [
+  {"vi": "Dừng mọi giao dịch. Không chuyển thêm, kể cả khi họ nói phải nộp phí mới lấy lại được tiền.", "en": "Stop every transaction. Don't send more, even if they say a fee will get your money back."},
+  {"vi": "Gọi ngay tổng đài ngân hàng (số in sau thẻ hoặc trong app). Báo giờ chuyển, số tiền, số tài khoản nhận, xin phong tỏa.", "en": "Call your bank right away (number on your card or in the app). Give the time, amount and receiving account, and ask them to freeze it."},
+  {"vi": "Giữ bằng chứng: chụp màn hình tin nhắn, lịch sử cuộc gọi, biên lai. Đừng xóa gì.", "en": "Keep evidence: screenshots of messages, call history, receipts. Don't delete anything."},
+  {"vi": "Trình báo công an: gọi 113 hoặc đến công an xã, phường nơi bạn ở.", "en": "Report it to the police. In Vietnam, call 113 or go to your local police station."},
+  {"vi": "Đổi mật khẩu, báo người nhà và bạn bè (kẻ gian có thể mượn tên bạn lừa tiếp), phản ánh tại canhbao.khonggianmang.vn.", "en": "Change your passwords, warn family and friends (scammers may use your name next), and in Vietnam report it at canhbao.khonggianmang.vn."}
+ ]
+}
