@@ -1230,7 +1230,15 @@ def _tram_theo_trang(ten):
 
 def thu_ngay(d, i):
     L = 1 if LG == "en" else 0
-    chip, da = [], set()
+    chip, da, chinh = [], set(), ""
+    if d.get("tro_choi"):
+        # Trò chơi chính của ngày: thẻ lớn có hình xem trước; lo-trinh.js đánh dấu "Đã chơi" khi trang đó đã mở (tien-do.js)
+        g = json.loads((R / "data" / "tro-choi" / f'{d["tro_choi"]}.json').read_text(encoding="utf-8"))
+        url = d.get("tro_choi_url") or (g["url"].split("?")[0] if "{so}" in g["url"] else g["url"])
+        da.add(url)
+        chinh = (f'<a class="day-game" href="{esc(url)}" data-mo="{esc(url.split("?")[0])}">{hinh_choi(g.get("hinh", ""))}'
+                 f'<span class="day-game-t"><b>{esc(g["ten"]["en" if L else "vi"])}</b><span>{esc(g["moi"]["en" if L else "vi"])}</span></span>'
+                 f'<span class="day-game-nut">{t("Chơi ngay", "Play now")} ›</span><span class="day-game-xong" hidden>✓ {t("Đã chơi", "Played")}</span></a>')
     for s in d["video"]:
         for url, ten, _moi, _hinh in TUONG_TAC.get(str(s), []):
             if url.split("?")[0] in _TRANG_TH or url in da:
@@ -1242,10 +1250,14 @@ def thu_ngay(d, i):
         if ds:
             id_, ten, _n, _nc = ds[0]
             chip.append(f'<a class="day-thu-c" href="{f}.html#{id_}"><span aria-hidden="true">{bt}</span>{esc(ten["en"] if L else ten["vi"])}<small>{nhom[L]}</small></a>')
-    if not chip:
+    if not chip and not chinh:
         return ""
-    return (f'<div class="day-thu"><p class="try-label">{t("Thử ngay · 5 phút", "Try it now · 5 minutes")}</p>'
-            f'<div class="day-thu-ds">{"".join(chip)}</div></div>')
+    if not chinh:
+        return (f'<div class="day-thu"><p class="try-label">{t("Thử ngay · 5 phút", "Try it now · 5 minutes")}</p>'
+                f'<div class="day-thu-ds">{"".join(chip)}</div></div>')
+    them = (f'<details class="day-thu-them"><summary>{t(f"Thêm {len(chip)} trò để thử, có bài theo nghề", f"{len(chip)} more to try, including job practice") if len(chip) > 2 else t(f"Thêm {len(chip)} trò để thử", f"{len(chip)} more to try")}</summary>'
+            f'<div class="day-thu-ds">{"".join(chip)}</div></details>') if chip else ""
+    return (f'<div class="day-thu"><p class="try-label">{t("Trò chơi hôm nay · 5 phút", "Today’s game · 5 minutes")}</p>{chinh}{them}</div>')
 
 def tao_lo_trinh():
     p = t("", "../")
@@ -1277,8 +1289,8 @@ def tao_lo_trinh():
 <div class="day-col">
 <h3 class="day-h">{t("3 video hôm nay", "Today's 3 videos")}</h3>
 <ol class="day-videos">{vids}</ol>
-<div class="day-task"><p class="try-label">{t("Việc 10 phút", "10-minute task")}</p><p>{esc(d["viec"])}</p></div>
 {thu_ngay(d, i)}
+<div class="day-task"><p class="try-label">{t("Việc 10 phút", "10-minute task")}</p><p>{esc(d["viec"])}</p></div>
 </div>
 <div class="day-quiz" data-dung="{q["dung"]}">
 <h3 class="day-h">{t("Câu hỏi của ngày", "Question of the day")}</h3>
@@ -1293,6 +1305,7 @@ def tao_lo_trinh():
     url = BASE + GOC + "lo-trinh-7-ngay.html"
     du_lieu = json.dumps({"url": url, "so_video": so_video, "so_ngay": len(ngay), "goc": p}, ensure_ascii=False).replace("</", "<\\/")
     main = f"""<main class="course">
+<link rel="stylesheet" href="{p}assets/lo-trinh-tiep.css?v=dev">
 <section class="course-bar" aria-label="{t("Tiến độ", "Progress")}">
 <div class="course-bar-top"><b id="tien-do">{t(f"Đã xong 0/{len(ngay)} ngày", f"0/{len(ngay)} days done")}</b><span><a href="ho-so.html">{t("Hồ sơ học · Ôn hôm nay", "Profile · Today's review")} ›</a> · <a href="#chung-nhan">{t("Giấy chứng nhận", "Certificate")} ›</a></span></div>
 <div class="bar" aria-hidden="true"><i id="thanh"></i></div>
@@ -1328,7 +1341,7 @@ def tao_lo_trinh():
 <a class="next-step" href="sach.html"><b>{t("Sách miễn phí", "Free ebook")}</b><span>{t("Cả kênh gom thành một cuốn PDF, đọc lại lúc nào cũng được.", "The whole channel in one PDF (in Vietnamese).")}</span></a>
 </aside>
 </main>"""
-    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}lo-trinh.js?v=dev" defer></script>\n'
+    js = f'<script type="application/json" id="du-lieu">{du_lieu}</script>\n<script src="{p}lo-trinh-tiep.js?v=dev" defer></script>\n<script src="{p}lo-trinh.js?v=dev" defer></script>\n'
     jsonld = [{"@context": "https://schema.org", "@type": "Course", "name": t("Lộ trình 7 ngày: Mark học AI cơ bản", "The 7-day path: Mark học AI basics"), "url": url, "inLanguage": LG,
                "description": desc, "provider": TO_CHUC, "isAccessibleForFree": True, "educationalLevel": "beginner",
                "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT15M"},
