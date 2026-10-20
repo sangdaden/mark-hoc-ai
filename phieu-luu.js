@@ -50,12 +50,14 @@
   // 4 ải. ho: hố [x, rộng]; ben: bệ gạch [x, hàng, dài]; hop: hộp thưởng [x, hàng]; xu: [x, hàng, số xu];
   // quaiX: quái đi bộ (cột x); bayX: quái bay [x, hàng]; gai: [x, dài]; bac: bậc [x, cao]; cp: cột hồi sinh;
   // tram: cột bắt đầu của trạm câu hỏi (dọn phẳng 11 cột từ tram-1). Khu trùm luôn là 24 ô cuối: cổng ở W-8, cờ đích ở W-4.
+  // Tùy chọn cho ải dễ: tim (số tim, mặc định 3), tocTrum (tốc độ trùm, mặc định 75), nemTrum (giây giữa hai lần ném, mặc định 3.2).
+  // Ải 1 dễ hơn vì nhiều người bỏ ngay ải đầu: 4 tim, trùm 2 đòn, đi chậm, ném thưa; hố thứ hai hẹp lại, quái bay không lượn trên hố.
   var AI = [
     {id: "hieu-lam", ten: EN ? "Myth Village" : "Làng Hiểu Lầm", quai: EN ? "Rumor" : "Tin đồn", bay: EN ? "Hype" : "Thổi phồng",
-      trum: EN ? "King of Myths" : "Vua Hiểu Lầm", mau: "#22C55E", mauTrum: "#16A34A", troi: ["#7DD3FC", "#E0F2FE"], doi: "#86EFAC", W: 100, hp: 3,
-      ho: [[18, 2], [46, 3]], ben: [[9, 7, 4], [24, 7, 3], [29, 5, 3], [52, 7, 3], [57, 5, 3], [63, 7, 4]],
+      trum: EN ? "King of Myths" : "Vua Hiểu Lầm", mau: "#22C55E", mauTrum: "#16A34A", troi: ["#7DD3FC", "#E0F2FE"], doi: "#86EFAC", W: 100, hp: 2, tim: 4, tocTrum: 55, nemTrum: 4.6,
+      ho: [[18, 2], [46, 2]], ben: [[9, 7, 4], [24, 7, 3], [29, 5, 3], [52, 7, 3], [57, 5, 3], [63, 7, 4]],
       hop: [[14, 6], [39, 6], [68, 4]], xu: [[24, 6, 3], [29, 4, 3], [57, 4, 3], [33, 8, 3]],
-      quaiX: [12, 27, 37, 54, 66], bayX: [[47, 6]], gai: [[34, 1]], bac: [[72, 1], [73, 2]], cp: [2, 50], tram: [34, 58]},
+      quaiX: [12, 27, 37, 54, 66], bayX: [[55, 5]], gai: [[34, 1]], bac: [[72, 1], [73, 2]], cp: [2, 50], tram: [34, 58]},
     {id: "prompt", ten: EN ? "Prompt Workshop" : "Xưởng Prompt", quai: EN ? "Lazy Prompt" : "Prompt cụt", bay: EN ? "Vague Ask" : "Hỏi mơ hồ",
       trum: EN ? "Lazy Prompt Lord" : "Prompt Lười", mau: "#F97316", mauTrum: "#EA580C", troi: ["#FDBA74", "#FEF3C7"], doi: "#FCD34D", W: 108, hp: 3,
       ho: [[15, 2], [31, 3], [55, 2], [70, 3]], ben: [[10, 7, 3], [20, 6, 4], [27, 4, 3], [36, 7, 3], [44, 5, 4], [58, 6, 3], [64, 4, 3], [73, 7, 3]],
@@ -135,7 +137,7 @@
     a.xu.forEach(function (c) { for (var k = 0; k < c[2]; k++) if (!trongTram(c[0] + k)) xu.push({x: (c[0] + k) * O + O / 2, y: c[1] * O + O / 2, an: false}); });
     var cp = a.cp.filter(function (c) { return !trongTram(c); }).concat(a.tram.map(function (s) { return s - 1; }), [A + 1]).sort(function (p, q) { return p - q; });
     L = {i: i, a: a, W: W, t: t, A: A, G: G, co: (W - 4) * O, mo: false, quai: quai, xu: xu, hat: [], dan: [], bom: [], cpDs: cp, cp: cp[0],
-      tim: 3, tia: 0, diem: 0, nhatKy: [], combo: 0, dungNgay: 0, soCau: 0, thoiGian: 0, bao: null, set: null, khoi: {}, tram: tram, cauDang: null, henCau: 0, dung: null, sap: [],
+      tim: a.tim || 3, timMax: a.tim || 3, tia: 0, diem: 0, nhatKy: [], combo: 0, dungNgay: 0, soCau: 0, thoiGian: 0, bao: null, set: null, khoi: {}, tram: tram, cauDang: null, henCau: 0, dung: null, sap: [],
       hang: tron(boCua(a)),
       trum: {x: (G - 4) * O, y: 10 * O - 84, w: 96, h: 84, vx: -100, vy: 0, doc: 0, docMax: 1, hp: a.hp, max: a.hp, song: true, bat: false, nhay: 1.5, sang: 0, lui: 0, gian: 0, nem: 2.5, dat: false}};
     L.tramTrum = {x: A + 2, trum: true, xong: false, hien: false};
@@ -226,7 +228,7 @@
     if (o(c, y) === 7) { chon(c); return; }
     if (o(c, y) !== 3) return;
     datO(c, y, 4);
-    if (L.tim < 3) L.tim++; else L.tia += 2;
+    if (L.tim < L.timMax) L.tim++; else L.tia += 2;
     no((c + 0.5) * O, y * O, "#34D399", 10);
   }
   // Mark đứng đủ lâu trên một ô đáp án thì chốt đáp án đó.
@@ -410,7 +412,7 @@
       tr.vx = 0; tr.vy = Math.min(tr.vy + TRONG_LUC * dt, 1000); diDoc(tr, dt);
     } else if (tr.song && tr.bat) {
       tr.nhay -= dt; tr.nem -= dt;
-      var toc = 75;
+      var toc = L.a.tocTrum || 75;
       if (tr.dat && tr.nhay <= 0) { tr.vy = -760; tr.nhay = 2.4 + Math.random() * 1.8; }
       if (tr.lui > 0) tr.lui -= dt; else tr.vx = (M.x + M.w / 2 < tr.x + tr.w / 2 ? -1 : 1) * toc;
       var tv = tr.vx; if (diNgang(tr, dt)) tr.vx = -tv;
@@ -419,7 +421,7 @@
       tr.vy = Math.min(tr.vy + TRONG_LUC * dt, 1000); diDoc(tr, dt);
       // Trùm ném "câu bịa" về phía Mark.
       if (tr.nem <= 0) {
-        tr.nem = 3.2 + Math.random() * 1.2;
+        tr.nem = (L.a.nemTrum || 3.2) + Math.random() * 1.2;
         var bx = tr.x + tr.w / 2, by = tr.y + 10, tg = 1.1;
         L.bom.push({x: bx, y: by, vx: Math.max(-380, Math.min(380, (M.x + M.w / 2 - bx) / tg)), vy: -560});
       }
@@ -627,12 +629,14 @@
   }
   function veHud() {
     ctx.textBaseline = "middle"; ctx.textAlign = "left";
-    hinhTron(12, 12, 300, 44, 14); ctx.fillStyle = "rgba(15,23,42,.6)"; ctx.fill();
-    var tim = ""; for (var k = 0; k < 3; k++) tim += k < L.tim ? "♥" : "♡";
+    // Mỗi tim thêm (ải có hơn 3 tim) đẩy phần còn lại của thanh sang phải.
+    var them = (L.timMax - 3) * 28;
+    hinhTron(12, 12, 300 + them, 44, 14); ctx.fillStyle = "rgba(15,23,42,.6)"; ctx.fill();
+    var tim = ""; for (var k = 0; k < L.timMax; k++) tim += k < L.tim ? "♥" : "♡";
     ctx.font = "800 26px " + CHU; ctx.fillStyle = "#FB7185"; ctx.fillText(tim, 24, 35);
-    ctx.font = "800 21px " + CHU; ctx.fillStyle = "#FDE047"; ctx.fillText("⚡" + L.tia, 124, 35);
-    ctx.fillStyle = "#fff"; ctx.fillText(String(L.diem), 188, 35);
-    if (L.combo > 1) { ctx.font = "800 15px " + CHU; ctx.fillStyle = "#86EFAC"; ctx.fillText("x" + L.combo, 268, 35); }
+    ctx.font = "800 21px " + CHU; ctx.fillStyle = "#FDE047"; ctx.fillText("⚡" + L.tia, 124 + them, 35);
+    ctx.fillStyle = "#fff"; ctx.fillText(String(L.diem), 188 + them, 35);
+    if (L.combo > 1) { ctx.font = "800 15px " + CHU; ctx.fillStyle = "#86EFAC"; ctx.fillText("x" + L.combo, 268 + them, 35); }
     if (L.trum.song && L.trum.bat) {
       var w = Math.min(300, rongNhin - 360), x = rongNhin - w - 20;
       hinhTron(x - 8, 66, w + 16, 30, 12); ctx.fillStyle = "rgba(15,23,42,.6)"; ctx.fill();
@@ -763,7 +767,8 @@
   function thangAi() {
     trangThai = "xong";
     var a = L.a, cuoi = L.i === AI.length - 1;
-    var sao = 1 + (L.tim >= 2 ? 1 : 0) + (L.dungNgay === L.soCau ? 1 : 0);
+    // Sao thứ hai: mất nhiều nhất 1 tim (ải 3 tim: còn 2; ải 1 có 4 tim: còn 3).
+    var sao = 1 + (L.tim >= L.timMax - 1 ? 1 : 0) + (L.dungNgay === L.soCau ? 1 : 0);
     tienDo.sao[a.id] = Math.max(tienDo.sao[a.id] || 0, sao);
     if (window.mhaiDo) { window.mhaiDo("game-qua-man", {man: L.i + 1, sao: sao}); window.mhaiDo("hoc-xong", {loai: "game"}); }
     tienDo.mo = Math.max(tienDo.mo, Math.min(L.i + 2, AI.length));
