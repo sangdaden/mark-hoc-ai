@@ -45,6 +45,17 @@ def tao_tram_chong_lua_dao():
 <p class="tl-nhan">{t("Kiểm tra trong 30 giây", "Check in 30 seconds")}</p>
 <h2 id="tl-kt-h">{t("Vừa nhận cuộc gọi, tin nhắn hay quảng cáo lạ?", "Just got a strange call, message or ad?")}</h2>
 <p class="tl-dan">{t("Chọn điều bạn vừa gặp, trả lời 3 câu có hoặc không. Bạn sẽ biết mức nguy hiểm và việc cần làm ngay.", "Pick what just happened and answer 3 yes-or-no questions. You'll see how risky it is and what to do right now.")}</p>
+<div class="tl-lu" id="tl-lu" data-buoc="1">
+<img class="tl-lu-anh" src="{p}assets/nhan-vat/cho-lu.svg" alt="{t("Chó Lu, chú chó cầm kính lúp", "Lu the dog with a magnifying glass")}" width="100" height="120" loading="lazy" decoding="async">
+<div class="tl-lu-ben">
+<p class="tl-lu-noi" id="tl-lu-noi">{t("Gâu! Lu dẫn bạn 3 bước. Bạn vừa gặp gì? Chọn một ô bên dưới nhé.", "Woof! Lu will walk you through 3 steps. What just happened? Pick a box below.")}</p>
+<ol class="tl-lu-buoc">
+<li><span>1</span>{t("Chọn điều vừa gặp", "Pick what happened")}</li>
+<li><span>2</span>{t("Trả lời 3 câu", "Answer 3 questions")}</li>
+<li><span>3</span>{t("Làm ngay việc cần làm", "Do what to do now")}</li>
+</ol>
+</div>
+</div>
 <div class="tl-chon" role="group" aria-label="{t("Bạn vừa gặp gì?", "What happened?")}">{chon}</div>
 <div class="tl-hoi" id="tl-hoi" hidden aria-live="polite"></div>
 <div class="tl-kq" id="tl-kq" hidden aria-live="polite"></div>
@@ -150,7 +161,10 @@ def tao_tram_chong_lua_dao():
         "nhan": {"cau": t("Câu", "Question"), "co": t("Có", "Yes"), "khong": t("Không", "No"), "doi": t("Chọn tình huống khác", "Pick another situation"),
                  "lam_lai": t("Kiểm tra lại", "Check again"), "lam_ngay": t("Làm ngay", "Do this now"), "co_dau": t("dấu hiệu", "signs"),
                  "xem_chieu": t("Xem chiêu này trong danh bạ", "See this scam in the field guide"), "lo": t("Lỡ chuyển tiền rồi?", "Already sent money?"),
-                 "muc": t("Mức nguy hiểm", "Risk level")},
+                 "muc": t("Mức nguy hiểm", "Risk level"),
+                 "lu": [t("Gâu! Lu dẫn bạn 3 bước. Bạn vừa gặp gì? Chọn một ô bên dưới nhé.", "Woof! Lu will walk you through 3 steps. What just happened? Pick a box below."),
+                        t("Trả lời thật lòng, có hoặc không. Lu đếm dấu hiệu giúp bạn.", "Answer honestly, yes or no. Lu will count the warning signs."),
+                        t("Xong rồi! Làm ngay mấy việc dưới đây, đừng chần chừ.", "Done! Do the steps below right away.")]},
     }, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
     desc = t("Trạm chống lừa đảo AI miễn phí: kiểm tra cuộc gọi giả giọng, video call deepfake, tin nhắn, quảng cáo lạ trong 30 giây, 8 chiêu lừa hay gặp, trò chơi tập nhận ra và việc cần làm khi lỡ bị lừa.",
@@ -160,7 +174,8 @@ def tao_tram_chong_lua_dao():
             f'<p class="lead">{t("Giọng giả, mặt giả, tin nhắn giả. Kiểm tra điều bạn vừa gặp, xem kẻ gian hay dùng chiêu gì, tập nhận ra, rồi gửi cho bố mẹ.", "Fake voices, fake faces, fake messages. Check what just happened, learn the tricks scammers use, practise spotting them, then send this to your parents.")}</p>\n'
             f'<nav class="tl-nhay" aria-label="{t("Trong trang", "On this page")}"><a href="#kiem-tra-nhanh">{t("Kiểm tra nhanh", "Quick check")}</a><a href="#chieu-lua">{t("Chiêu lừa", "Scams")}</a>'
             f'<a href="#hoi-dap">{t("Hỏi đáp", "Q&amp;A")}</a><a href="#tap-nhan-ra">{t("Tập nhận ra", "Practise")}</a><a href="#cho-ca-nha">{t("Cho cả nhà", "Family")}</a><a href="#lo-bi-lua" class="tl-nhay-sos">{t("Lỡ bị lừa", "Scammed?")}</a></nav>\n'
-            f'</div><img class="head-art" src="{p}assets/bit-sai-roi.svg" alt="" width="180" height="170"></div>')
+            f'</div><figure class="tl-ba"><p class="tl-ba-noi">{t("Cuộc gọi này thật không?", "Is this call real?")}</p>'
+            f'<img src="{p}assets/nhan-vat/ba-nam.svg" alt="{t("Bà Năm cầm điện thoại, đang lo không biết cuộc gọi có thật không", "Grandma Nam holding her phone, unsure if the call is real")}" width="170" height="204"></figure></div>')
     main = f"""<main class="tl" id="tl">
 {kt}
 {chieu}
