@@ -12,10 +12,24 @@
   var thu = /[?&]do=thu(&|$)/.test(location.search);
   var bat = !!MA_WEB && location.hostname === TEN_MIEN && navigator.doNotTrack !== "1";
   var hang = [];
+  // 3 game mới (Sang chốt đo 20/10): mỗi game tự đặt tên sự kiện riêng, nên ở đây gửi thêm một cặp chung
+  // "tro-bat-dau" / "tro-xong" có nhãn tro = tên game, để bảng số liệu so được ba game với nhau.
+  var TRO_MOI = (duong.match(/\/(chan-lua|dem-lai-xe|duong-doan-chu)(\.html)?$/) || [])[1];
 
   function gui(ten, du_lieu) {
     var d = { goc: goc, ngon_ngu: ngon_ngu };
     for (var k in du_lieu || {}) d[k] = du_lieu[k];
+    if (TRO_MOI && ten.indexOf("tro-") !== 0) {
+      var buoc = /-bat-dau$/.test(ten) && ten !== "kiem-tra-bat-dau" ? "bat-dau" : /^(game-xong|game-qua-man|duong-doan-chu-xong)$/.test(ten) ? "xong" : "";
+      if (buoc) gui("tro-" + buoc, { tro: TRO_MOI, man: String(d.man || "") });
+    }
+    // Thẻ chiêu lừa ở Trạm chống lừa đảo: tram-lua-dao.js gửi "tram-lua-dao" (hanh_dong mo-the); tách riêng để đếm theo từng thẻ.
+    // tu = "link" khi thẻ mở từ link ?chieu= (bình luận đầu video), "bam" khi người xem tự bấm.
+    if (ten === "tram-lua-dao" && d.hanh_dong === "mo-the") {
+      var tu_link = !gui.da_link && (new URLSearchParams(location.search).get("chieu") === d.chieu || location.hash === "#chieu-" + d.chieu);
+      if (tu_link) gui.da_link = true;
+      gui("the-chieu-lua", { chieu: d.chieu, tu: tu_link ? "link" : "bam" });
+    }
     if (thu) {
       (window.__do = window.__do || []).push([ten, d]);
       console.log("[đo]", ten, d);
@@ -110,6 +124,8 @@
     if (/^mailto:/i.test(href)) return gui("bam-email", { cho: cho });
     if (/(^|\/)ung-ho\.html/.test(href)) return gui("bam-ung-ho", { cho: cho });
     if (/facebook\.com\/sharer/i.test(href)) return gui("chia-se", { cach: "facebook" });
+    // Tải sách PDF miễn phí (nút ở sach.html và trang chủ, VI + EN); trang = trang có nút
+    if (/(^|\/)assets\/sach\/[^\/?#]+\.pdf([?#]|$)/i.test(href)) return gui("tai-sach", { trang: duong.replace(/^\/en(\/|$)/, "/").replace(/\.html$/, "").replace(/^\/$/, "/index").slice(1) || "index", cho: cho });
     if (/^https?:/i.test(href)) {
       for (var i = 0; i < KENH.length; i++) {
         if (KENH[i][1].test(href)) return gui("bam-kenh", { kenh: KENH[i][0], cho: cho });
