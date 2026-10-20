@@ -74,3 +74,21 @@
   .hl-luoi { grid-template-columns: minmax(0, 1fr); gap: 8px; }
 }
 .hl-gui { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* Cảnh Bà Năm ở đầu 4 trang giọng giả, video giả: bong bóng lời + hình bà + biểu tượng tình huống */
+.hl-canh { position: relative; display: grid; justify-items: end; gap: 6px; width: 260px; margin: 0; }
+.hl-canh-loi { position: relative; max-width: 240px; padding: 10px 14px; border-radius: 16px 16px 4px 16px; background: #fff; color: #0F172A;
+  font: 600 14px/1.4 var(--f-body); box-shadow: 0 12px 24px -14px rgba(15, 23, 42, .55); }
+.hl-canh-loi::after { content: ""; position: absolute; right: 34px; bottom: -9px; border: 9px solid transparent; border-bottom: 0; border-top-color: #fff; }
+.hl-canh-hinh { position: relative; display: block; width: 150px; margin-right: 14px; }
+.hl-canh-hinh img { display: block; width: 150px; height: auto; filter: drop-shadow(0 14px 22px rgba(15, 23, 42, .3)); }
+.hl-canh-dt { position: absolute; left: -16px; bottom: 26px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px;
+  color: #fff; background: var(--mc); border: 3px solid #fff; box-shadow: 0 8px 16px -8px rgba(15, 23, 42, .6); }
+.hl-canh-dt .tl-ic { width: 22px; height: 22px; }
+@media (max-width: 720px) {
+  .hl-canh { width: 84px; margin-top: 8px; }
+  .hl-canh-loi { display: none; }
+  .hl-canh-hinh, .hl-canh-hinh img { width: 84px; margin-right: 0; }
+  .hl-canh-dt { width: 34px; height: 34px; border-radius: 10px; left: -8px; bottom: 14px; }
+  .hl-canh-dt .tl-ic { width: 17px; height: 17px; }
+}
