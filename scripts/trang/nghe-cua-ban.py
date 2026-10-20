@@ -38,11 +38,17 @@ def tao_nghe_cua_ban():
 
     nghe = []
     for x in D["nghe"]:
-        y = _nc_ngu({k: v for k, v in x.items() if k != "tu_khoa"}, L)
+        y = _nc_ngu({k: v for k, v in x.items() if k not in ("tu_khoa", "video_so", "lo_trinh_nghe")}, L)
         y["tu_khoa"] = x.get("tu_khoa", [])
-        buoc = LT["nganh"].get(x["lo_trinh"], {}).get("buoc", [])
-        # video của bước sát nghề nhất (bước 2 của lộ trình), đủ 3 cái thì thôi
-        so = [s for b in buoc[1:] + buoc[:1] for s in b.get("so", [])]
+        if x.get("lo_trinh"):
+            buoc = LT["nganh"].get(x["lo_trinh"], {}).get("buoc", [])
+            # video của bước sát nghề nhất (bước 2 của lộ trình), đủ 3 cái thì thôi
+            so = [s for b in buoc[1:] + buoc[:1] for s in b.get("so", [])]
+            y["lt_url"] = "lo-trinh-nganh.html?ai=" + x["lo_trinh"]
+        else:
+            # nghề chưa có lộ trình riêng (y tế): video ghi thẳng, lộ trình mở theo chữ gõ như ô "nghề khác"
+            so = x.get("video_so", [])
+            y["lt_url"] = "lo-trinh-nganh.html?nghe=" + quote(x["lo_trinh_nghe"])
         y["video"] = [v for v in (video(s) for s in so) if v][:3]
         y["trang_ten"] = tro.get(x["trang"], {}).get("ten", {}).get(L, "")
         tram = _tram_theo_trang(x["trang"])
@@ -51,7 +57,7 @@ def tao_nghe_cua_ban():
     # nghề người xem tự gõ mà chưa có mô phỏng: dẫn sang lộ trình theo ngành
     LT_EN = load("en/lo-trinh-nganh")["nganh"] if L == "en" else {}
     khac = [{"id": k, "ten": LT_EN.get(k, v)["ngan"], "tu_khoa": v.get("tu_khoa", []) + LT_EN.get(k, {}).get("tu_khoa", [])}
-            for k, v in LT["nganh"].items() if k not in {x["lo_trinh"] for x in D["nghe"]} and v.get("tu_khoa")]
+            for k, v in LT["nganh"].items() if k not in {x.get("lo_trinh") for x in D["nghe"]} and v.get("tu_khoa")]
 
     nhan = {
         "muc": {"nhap": t("AI làm nháp", "AI drafts it"), "phu": t("AI phụ một tay", "AI lends a hand"), "nguoi": t("Chỉ bạn làm", "Only you")},
@@ -66,13 +72,13 @@ def tao_nghe_cua_ban():
         "ban_ten": t("Bạn", "You"), "ai_ten": "AI",
         "bat_dau": t("Bắt đầu tự làm", "Start writing"), "xong": t("Xong", "Done"),
         "ai_dang": t("AI đang soạn…", "AI is writing…"),
-        "ket_v1": t("Bạn viết 1 câu trong {g} giây. AI soạn {n} câu trong {a} giây.", "You wrote 1 question in {g} s. AI wrote {n} in {a} s."),
+        "ket_v1": t("Bạn viết 1 dòng trong {g} giây. AI viết {n} dòng trong {a} giây.", "You wrote 1 line in {g} s. AI wrote {n} lines in {a} s."),
         "giay": t("giây", "s"),
         "thang": {"ban": t("Bạn thắng", "You win"), "ai": t("AI thắng", "AI wins"), "hoa": t("Hòa", "Draw")},
         "tiep": t("Vòng tiếp", "Next round"), "xem_ket": t("Xem kết quả", "See the result"),
         "dung_bat": t("Bắt đúng! AI không tự thấy lỗi này, bạn thì thấy.", "Caught it! AI didn't spot its own mistake, you did."),
         "sai_bat": t("Câu này đúng. Lỗi nằm ở câu {n}.", "That one's right. The mistake is in question {n}."),
-        "dap_an": t("Đáp án", "Answer"),
+        "dap_an": t("Đáp án", "Answer"), "goc": t("Để đối chiếu", "To check against"),
         "dung_chon": t("Chuẩn!", "Spot on!"), "sai_chon": t("Chưa phải.", "Not quite."),
         "ti_so": t("Bạn {a} : {b} AI", "You {a} : {b} AI"),
         "ket": {"thang": t("Bạn thắng. AI nhanh, nhưng người bắt lỗi và hiểu người nhận là bạn.", "You win. AI is fast, but you're the one who catches mistakes and knows your people."),

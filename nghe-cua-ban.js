@@ -242,6 +242,12 @@
     var B = S.nghe.dau.bat_loi;
     datVong(2);
     sanEl.appendChild(el("p", "nc-de", B.huong));
+    if (B.goc) {
+      var goc = el("div", "nc-goc");
+      goc.appendChild(el("b", "", N.goc));
+      goc.appendChild(el("p", "", B.goc));
+      sanEl.appendChild(goc);
+    }
     var ds = el("ol", "nc-bl");
     var sai = B.dong.findIndex(function (d) { return d.sai; });
     var nuts = B.dong.map(function (d, i) {
@@ -250,7 +256,7 @@
       b.appendChild(el("span", "nc-bl-so", String(i + 1)));
       var c = el("span", "nc-bl-cau");
       c.appendChild(el("span", "", d.cau));
-      c.appendChild(el("small", "", N.dap_an + ": " + d.dap));
+      if (d.dap) c.appendChild(el("small", "", N.dap_an + ": " + d.dap));
       b.appendChild(c);
       li.appendChild(b); ds.appendChild(li);
       b.addEventListener("click", function () { chon(i); });
@@ -322,7 +328,7 @@
     }
     if (dau && dau.tram && x.tram_ten[dau.tram]) the_(x.trang + ".html?tram=" + dau.tram, N.thu_tram + " “" + x.tram_ten[dau.tram] + "”", x.trang_ten, "tram");
     the_(x.trang + ".html", N.luyen + ": " + x.trang_ten, f(N.tram_ds, { n: x.so_tram }), "trang");
-    the_(P + "lo-trinh-nganh.html?ai=" + encodeURIComponent(x.lo_trinh), N.lo_trinh, x.ten, "lo-trinh");
+    the_(P + x.lt_url, N.lo_trinh, x.ten, "lo-trinh");
     khKet.appendChild(lien);
 
     if (x.video.length) {
