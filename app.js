@@ -498,13 +498,18 @@
   const xoe = document.querySelector(".hero-xoe");
   if (!xoe) return;
   // Lần đầu vào kênh, hộp "Bạn là ai?" (lo-trinh-nganh.js) che mất màn chào: đóng hộp thì cho màn chào chạy lại một lần
+  // Màn chào xong thì bỏ lớp .mo-man: nếu không, rê chuột xong Bit chạy lại hiệu ứng bay xuống (có độ trễ) nên biến mất một lúc
   const goc = document.documentElement;
+  let henChao = 0;
+  const choChaoXong = () => { clearTimeout(henChao); henChao = setTimeout(() => goc.classList.remove("mo-man"), 2000); };
   if (goc.classList.contains("mo-man")) {
+    choChaoXong();
     let xong = false;
     document.addEventListener("close", e => {
       if (xong || !e.target.matches(".chao-hop")) return;
       xong = true;
       goc.classList.remove("mo-man"); void goc.offsetWidth; goc.classList.add("mo-man");
+      choChaoXong();
     }, true);
   }
   let hen = 0;
