@@ -1913,6 +1913,9 @@ def tao_ghep_cau_lenh():
                                                  desc, band, main, p, og_type="website", q="",
                                                  cuoi=f'<script src="{p}ghep-cau-lenh.js?v=dev" defer></script>\n<script src="{p}bai-viet.js?v=dev" defer></script>\n')
 
+# Hình xem trước của trạm 8 (thẻ "Chơi thử" trong bài video 26): dùng lại khuôn .ct-ld / .ct-tin / .ct-chon có sẵn trong style.css
+HINH_CHOI["nghi-truoc"] = lambda: (f'<span class="ct-hinh ct-ld" aria-hidden="true"><span class="ct-tin">{t("1 kg sắt hay 1 kg bông nặng hơn?", "1 kg of iron or 1 kg of cotton?")}</span>'
+                                   f'<span class="ct-chon"><span class="ct-gia">⚡ {t("Nói ngay", "Answer now")}</span><span>🧠 {t("Nghĩ trước", "Think first")}</span></span></span>')
 # ---------- Phòng thí nghiệm bộ não AI (phong-thi-nghiem-bo-nao.html): bàn thí nghiệm, ngăn kéo trạm bên trái ----------
 # Cách chạy ở bo-nao.js. Trạm 1 dùng bộ tách mảnh thật (assets/vendor/gpt-tokenizer), trạm 6 dùng data/bo-nao/doan-chu*.json
 # (scripts/tao_doan_chu.py). Mỗi trạm mở riêng được bằng ?tram=<id> (data/tro-choi/bo-nao-*.json nhúng từng trạm vào bài của video).
@@ -1928,7 +1931,7 @@ def tao_bo_nao():
         ("tang", "5", t("Qua 12 tầng", "Through 12 layers"), "43", False),
         ("doan-chu", "6", t("Đoán chữ tiếp", "Next word"), "7", True),
         ("vong-quay", "7", t("Vòng quay nhiệt độ", "Temperature wheel"), "24", True),
-        ("nghi-truoc", "8", t("Nghĩ trước khi nói", "Think before answering"), "26", False),
+        ("nghi-truoc", "8", t("Nghĩ trước khi nói", "Think before answering"), "26", True),
     ]
     def li(x):
         id_, so, ten, ep, mo = x
@@ -2012,6 +2015,55 @@ def tao_bo_nao():
 <p>{t("Trong app chat thường không chỉnh được nhiệt độ. Mẹo từ video: việc sáng tạo thì bấm “tạo lại” vài lần rồi chọn ý hay; việc cần chính xác thì bảo AI làm từng bước và tự kiểm lại.", "Chat apps usually hide the temperature. The tip from the video: for creative tasks, regenerate a few times and pick the best; for exact tasks, ask the AI to work step by step and check itself.")}</p>
 </details>
 </section>'''
+    # Trạm 8 Nghĩ trước khi nói (video 26): câu hỏi và giấy nháp viết sẵn ở data/bo-nao/nghi-truoc.json, nhúng vào trang theo ngôn ngữ
+    N = load("bo-nao/nghi-truoc")
+    ng = "en" if LG == "en" else "vi"
+    nt_cau = [{"id": c["id"], "bt": c["bieu_tuong"], "loai": c["loai"][ng], "hoi": c["hoi"][ng], "don_gian": bool(c.get("don_gian")),
+               "ngay": {"tl": c["ngay"]["tra_loi"][ng], "dung": c["ngay"]["dung"], "giay": c["ngay"]["giay"], "manh": c["ngay"]["manh"]},
+               "nghi": {"buoc": [{"loai": b["loai"], "chu": b[ng]} for b in c["nghi"]["buoc"]], "tl": c["nghi"]["tra_loi"][ng],
+                        "giay": c["nghi"]["giay"], "manh": c["nghi"]["manh"]},
+               "bai_hoc": c["bai_hoc"][ng]} for c in N["cau"]]
+    nt_du = json.dumps({"cau": nt_cau, "nhan": {k: v[ng] for k, v in N["nhan_buoc"].items()}, "p": p},
+                       ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    o_cau = "".join(f'<button type="button" class="nt-o-cau" data-nt="{c["id"]}" aria-pressed="{"true" if k == 0 else "false"}">'
+                    f'<span class="nt-bt" aria-hidden="true">{c["bt"]}</span><span class="nt-loai">{esc(c["loai"])}</span></button>' for k, c in enumerate(nt_cau))
+    def o_do(che):
+        return (f'<div class="nt-do" id="nt-do-{che}">'
+                f'<div class="nt-dong"><span>⏱ {t("Thời gian", "Time")}</span><span class="nt-thanh"><i class="nt-giay"></i></span><b class="nt-giay-so">–</b></div>'
+                f'<div class="nt-dong"><span>🧩 {t("Mảnh", "Tokens")}</span><span class="nt-thanh"><i class="nt-manh"></i></span><b class="nt-manh-so">–</b></div></div>')
+    nt = f'''<section class="bn-tram" id="tram-nghi-truoc" hidden aria-labelledby="h-nghi-truoc">
+<link rel="stylesheet" href="{p}assets/bo-nao-nghi.css?v=dev">
+<p class="bn-nhan">{t("Trạm 8 · Video 26", "Station 8 · Video 26")}</p>
+<h2 id="h-nghi-truoc">{t("Nghĩ trước khi nói: trả lời nhanh hay nháp cho kỹ?", "Think before answering: quick reply or careful draft?")}</h2>
+<p class="bn-mo">{t("Mô hình suy luận được dạy thêm một việc: <b>viết nháp trước</b>. Chia bài thành từng bước, thử, tự kiểm lại, sai thì sửa, rồi mới trả lời. Chọn một câu hỏi, cho AI trả lời ngay rồi cho nó nghĩ trước, xem bên nào đúng và bên nào tốn hơn.", "Reasoning models are taught one more thing: <b>write a draft first</b>. Break the problem into steps, try, check, fix, and only then answer. Pick a question, let the AI answer right away, then let it think first, and see which one is right and which one costs more.")}</p>
+<p class="bn-lbl">{t("1. Chọn một câu hỏi", "1. Pick a question")}</p>
+<div class="nt-cau" id="nt-cau" role="group" aria-label="{t("Câu hỏi", "Questions")}">{o_cau}</div>
+<p class="nt-de" id="nt-de" aria-live="polite">{esc(nt_cau[0]["hoi"])}</p>
+<p class="bn-lbl">{t("2. Cho AI trả lời theo hai cách", "2. Let the AI answer two ways")}</p>
+<div class="nt-kq">
+<div class="nt-the nt-the-ngay" id="nt-o-ngay">
+<button type="button" class="btn nt-nut" id="nt-ngay">⚡ {t("Trả lời ngay", "Answer right away")}</button>
+<p class="nt-trong" id="nt-ngay-cho">{t("Đoán từng chữ, chữ nào ra là ra luôn.", "Guesses word by word; whatever comes out stays.")}</p>
+<p class="nt-tl" id="nt-ngay-tl" hidden></p>
+{o_do("ngay")}
+</div>
+<div class="nt-the nt-the-nghi" id="nt-o-nghi">
+<button type="button" class="btn nt-nut" id="nt-nghi">🧠 {t("Nghĩ trước", "Think first")}</button>
+<div class="nt-nhap"><p class="nt-nhap-h">✏️ {t("Giấy nháp", "Scratch paper")} <span id="nt-dang"></span></p><ol class="nt-buoc" id="nt-nhap"></ol>
+<p class="nt-trong" id="nt-nghi-cho">{t("Chia bước, thử, kiểm lại, sửa, rồi mới trả lời.", "Break it down, try, check, fix, then answer.")}</p></div>
+<p class="nt-tl" id="nt-nghi-tl" hidden></p>
+{o_do("nghi")}
+</div>
+</div>
+<div class="nt-bit"><img id="nt-bit-anh" src="{p}assets/bit-giai-thich.svg" alt="" width="56" height="56"><p id="nt-bit" aria-live="polite">{t("Bấm một trong hai nút. Thử cả hai để so.", "Press either button. Try both to compare.")}</p></div>
+<p class="nt-tong" id="nt-tong"></p>
+<details class="bn-nap"><summary>{t("Mở nắp: khi nào nên bật chế độ suy nghĩ?", "Under the hood: when should you turn thinking on?")}</summary>
+<p>{t("Phần nháp cũng là chữ AI viết ra, nên cũng tính tiền theo mảnh và cũng mất thời gian. Vì thế nghĩ trước chậm hơn và tốn hơn.", "The draft is text the AI writes too, so it is billed per token and takes time. That's why thinking first is slower and costs more.")}</p>
+<p>{t("Nên bật: toán, câu đố mẹo, đếm, lập kế hoạch, so sánh nhiều lựa chọn. Nên tắt: tra một dữ kiện, dịch một câu, viết lại cho gọn. Trong app chat, đó là nút kiểu “Suy nghĩ”, “Think”, hoặc model có chữ “reasoning”.", "Turn it on for maths, trick questions, counting, planning and comparing many options. Turn it off for looking up a fact, translating a sentence or tidying up text. In chat apps it's a button like “Think”, or a model labelled “reasoning”.")}</p>
+</details>
+<p class="bn-ghi">{t("Câu trả lời và giấy nháp ở đây được viết sẵn để minh họa, không gọi AI thật. Số giây và số mảnh là số ước lượng cho dễ so.", "The answers and drafts here are pre-written to illustrate the idea; no real AI is called. Seconds and token counts are rough estimates for comparison.")}</p>
+<script type="application/json" id="nt-du-lieu">{nt_du}</script>
+</section>'''
     tieu = t("Phòng thí nghiệm bộ não AI: tự tay thử token, đoán chữ, nhiệt độ", "AI brain lab: try tokens, next-word guessing and temperature yourself")
     desc = t("Phòng thí nghiệm miễn phí: gõ một câu xem AI cắt thành mảnh nào bằng bộ tách token thật, tự làm chatbot đoán chữ tiếp theo, quay vòng nhiệt độ để hiểu vì sao hỏi 2 lần ra 2 đáp án.",
              "Free hands-on lab: type a sentence and see the real tokenizer split it, build a next-word guesser yourself, and spin the temperature wheel to see why the same question gets two answers.")
@@ -2019,7 +2071,7 @@ def tao_bo_nao():
             f'<h1>{t("Phòng thí nghiệm bộ não AI", "AI brain lab")}</h1>\n'
             f'<p class="lead">{t("Tự tay làm những gì loạt video “Bên trong bộ não AI” giải thích. Chọn một trạm bên trái, mỗi trạm chừng một phút.", "Do by hand what the “Inside the AI brain” videos explain. Pick a station on the left; each takes about a minute.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-y-tuong.svg" alt="" width="180" height="170"></div>')
-    main = (f'<main class="bn" id="bn">\n{ngan}\n<div class="bn-ban">\n{cm}\n{dc}\n{vq}\n'
+    main = (f'<main class="bn" id="bn">\n{ngan}\n<div class="bn-ban">\n{cm}\n{dc}\n{vq}\n{nt}\n'
             f'{khoi_chia_se(BASE + GOC + "phong-thi-nghiem-bo-nao.html", tieu, p)}\n'
             f'<p class="gh-ghi">{t("Mọi thứ chạy trên máy bạn, không gọi AI thật và không gửi gì đi đâu. Các trạm còn lại sẽ mở dần cùng các video.", "Everything runs on your device: no real AI calls, nothing is sent anywhere. The remaining stations open over time alongside the videos.")}</p>\n'
             f'<noscript><p>{t("Phòng thí nghiệm cần JavaScript.", "The lab needs JavaScript.")}</p></noscript>\n</div>\n</main>')
