@@ -17,7 +17,7 @@
     vxMo: "Open lesson", vxKhong: n => "Video #" + n + " has no lesson here yet. Try the quick quiz below.",
     vxBai: n => "Lesson for video #" + n, vxDoc: "Read the 1-minute lesson ›", vxQuiz: "10-question quiz (2 min)", vxGame: "Play the AI game", vxDong: "Close",
     vxNho: "Hi, I'm Mark!", vxTikTok: "Just watched Mark on TikTok?", vxAnToan: "Worried about AI scams? Try one in 2 minutes", vxTrang: "Just look around the site ›",
-    at: { nhan: "Online safety for the whole family", tieuDe: "AI scams: learn to spot them before you meet one", loTrinh: "Anti-scam path ›",
+    at: { nhan: "Online safety for the whole family", tieuDe: "AI scams: learn to spot them before you meet one", tram: "Open the AI scam help desk ›",
       dan: "Fake voices, fake video calls, fake texts. Three 2-minute games and short videos to watch with your family.",
       tro: [["Scam or real?", "13 situations on a phone screen", "Game"], ["The fake-voice call", "Pick up and choose what to say", "Game"],
         ["Paste or don't paste?", "What never to paste into AI", "Game"], ["Family printables", "A family password card for the fridge", "Print"]] }
@@ -35,7 +35,7 @@
     vxMo: "Mở bài", vxKhong: n => "Video #" + n + " chưa có bài trên trang. Thử bài kiểm tra nhanh bên dưới nhé.",
     vxBai: n => "Bài của video #" + n, vxDoc: "Đọc bài 1 phút ›", vxQuiz: "Kiểm tra 10 câu (2 phút)", vxGame: "Chơi game học AI", vxDong: "Đóng",
     vxNho: "Chào bạn, mình là Mark!", vxTikTok: "Vừa xem Mark trên TikTok?", vxAnToan: "Đang lo lừa đảo bằng AI? Thử nhận ra trong 2 phút", vxTrang: "Mình chỉ muốn xem trang ›",
-    at: { nhan: "An toàn số cho cả nhà", tieuDe: "Lừa đảo bằng AI: tập nhận ra trước khi gặp thật", loTrinh: "Lộ trình chống lừa đảo ›",
+    at: { nhan: "An toàn số cho cả nhà", tieuDe: "Lừa đảo bằng AI: tập nhận ra trước khi gặp thật", tram: "Vào Trạm chống lừa đảo AI ›",
       dan: "Giọng giả, video call giả, tin nhắn giả. Ba trò chơi 2 phút và các video ngắn để cả nhà cùng xem.",
       tro: [["Lừa đảo hay thật?", "13 tình huống trên màn hình điện thoại", "Trò chơi"], ["Cuộc gọi giả giọng", "Nghe máy và chọn cách trả lời", "Trò chơi"],
         ["Dán hay không dán?", "Thứ gì không được dán vào AI", "Trò chơi"], ["Đồ in cho gia đình", "Thẻ mật khẩu gia đình dán tủ lạnh", "Đồ in"]] }
@@ -134,6 +134,7 @@
     return;
   }
   // Góc "An toàn số" (Sang chọn W1, 19/10): video lừa đảo kéo người xem nhiều nhất nên trang chủ đưa thẳng tới 3 trò chơi và các video chống lừa đảo.
+  // Nút chính dẫn vào Trạm chống lừa đảo AI (20/10); lộ trình chống lừa đảo nằm trong trạm.
   // Chữ trong S.at, ảnh bìa video lấy ảnh chia sẻ của bài (assets/anh/chia-se/<số>-<slug>.jpg).
   const AT_TRO = [["lua-dao-hay-that.html", "bit-sai-roi.svg", "lua-dao"], ["cuoc-goi-gia-giong.html", "bit-giai-thich.svg", "cuoc-goi"],
     ["dan-hay-khong.html", "bit-y-tuong.svg", "dan"], ["do-in-gia-dinh.html", "bit-vui.svg", "do-in"]];
@@ -156,7 +157,7 @@
   const at = document.getElementById("an-toan");
   if (at) {
     at.innerHTML = '<div class="at-dau"><div><p class="eyebrow">' + ic("shield-check") + S.at.nhan + '</p><h2 id="an-toan-h">' + S.at.tieuDe + '</h2><p class="at-dan">' + S.at.dan +
-      '</p></div><a class="btn btn-yt" href="lo-trinh-nganh.html?ai=an-toan" data-at="lo-trinh">' + S.at.loTrinh + '</a></div><div class="at-hang">' +
+      '</p></div><a class="btn btn-yt" href="tram-chong-lua-dao.html" data-at="tram">' + S.at.tram + '</a></div><div class="at-hang">' +
       AT_TRO.map((t, i) => theTro(t, i)).join("") + AT_VIDEO.map(theVideo).join("") + "</div>";
     at.hidden = false;
     at.addEventListener("click", e => atDo(e, "trang-chu"));

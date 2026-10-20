@@ -1,0 +1,130 @@
+{
+ "_ghi_chu": "Trạm 8 Phòng thí nghiệm bộ não AI (phong-thi-nghiem-bo-nao.html?tram=nghi-truoc), video 26 “AI biết nghĩ trước khi nói”. Mọi câu trả lời và bước nháp đều viết sẵn để minh họa, không gọi AI thật. Số giây và số mảnh (token) là số ước lượng cho dễ so, không đo từ model nào. Mỗi câu: 'ngay' = trả lời ngay (dung: đúng hay sai), 'nghi' = các bước nháp (loai: chia/thu/kiem/sua/chot, xem 'nhan_buoc') rồi đáp án. Câu 'don-gian': true là câu tra cứu đơn giản, nghĩ trước chỉ tốn thêm mà không hơn. tao_bo_nao() trong scripts/tao_bai_viet.py nhúng file này vào trang, bo-nao.js (khoiNghiTruoc) chạy.",
+ "nhan_buoc": {
+  "chia": {"vi": "Chia bước", "en": "Break it down"},
+  "thu": {"vi": "Thử", "en": "Try"},
+  "kiem": {"vi": "Kiểm lại", "en": "Check"},
+  "sua": {"vi": "Sửa", "en": "Fix"},
+  "chot": {"vi": "Chốt", "en": "Settle"}
+ },
+ "cau": [
+  {
+   "id": "but-tay",
+   "bieu_tuong": "🧮",
+   "loai": {"vi": "Toán đố", "en": "Word problem"},
+   "hoi": {
+    "vi": "Một cây bút và một cục tẩy giá 11.000 đồng. Bút đắt hơn tẩy 10.000 đồng. Cục tẩy giá bao nhiêu?",
+    "en": "A pen and an eraser cost $1.10 together. The pen costs $1.00 more than the eraser. How much is the eraser?"
+   },
+   "ngay": {
+    "tra_loi": {"vi": "Cục tẩy giá 1.000 đồng.", "en": "The eraser costs 10 cents."},
+    "dung": false, "giay": 1, "manh": 25
+   },
+   "nghi": {
+    "buoc": [
+     {"loai": "chia", "vi": "Gọi giá tẩy là T. Vậy bút giá T + 10.000.", "en": "Call the eraser E. Then the pen is E + $1.00."},
+     {"loai": "thu", "vi": "Thử T = 1.000: bút 11.000, cộng lại 12.000. Lố mất 1.000!", "en": "Try E = 10¢: pen $1.10, total $1.20. That's 10¢ too much!"},
+     {"loai": "sua", "vi": "T + (T + 10.000) = 11.000, nên 2T = 1.000, T = 500.", "en": "E + (E + $1.00) = $1.10, so 2E = 10¢, E = 5¢."},
+     {"loai": "kiem", "vi": "Bút 10.500 + tẩy 500 = 11.000. Bút hơn tẩy đúng 10.000. Khớp.", "en": "Pen $1.05 + eraser 5¢ = $1.10. The pen is exactly $1.00 more. It checks out."}
+    ],
+    "tra_loi": {"vi": "Cục tẩy giá 500 đồng.", "en": "The eraser costs 5 cents."},
+    "giay": 14, "manh": 420
+   },
+   "bai_hoc": {"vi": "Con số nhảy ra đầu tiên nghe rất hợp lý, nhưng phải thử lại mới thấy sai. Bài nhiều bước thì nháp trước thắng.", "en": "The first number that pops out sounds right, but only trying it shows it's wrong. On multi-step problems, drafting first wins."}
+  },
+  {
+   "id": "sat-bong",
+   "bieu_tuong": "⚖️",
+   "loai": {"vi": "Câu bẫy", "en": "Trick question"},
+   "hoi": {
+    "vi": "1 kg sắt và 1 kg bông, cái nào nặng hơn?",
+    "en": "Which is heavier: 1 kg of iron or 1 kg of cotton?"
+   },
+   "ngay": {
+    "tra_loi": {"vi": "Sắt nặng hơn, vì sắt là kim loại.", "en": "The iron, because iron is a metal."},
+    "dung": false, "giay": 1, "manh": 20
+   },
+   "nghi": {
+    "buoc": [
+     {"loai": "chia", "vi": "Đọc kỹ đề: cả hai đều ghi 1 kg.", "en": "Read carefully: both say 1 kg."},
+     {"loai": "kiem", "vi": "Kg là đơn vị đo khối lượng. Cùng 1 kg thì nặng như nhau.", "en": "A kilogram measures weight. 1 kg is 1 kg."},
+     {"loai": "sua", "vi": "Bông chỉ chiếm chỗ nhiều hơn, chứ không nặng hơn.", "en": "The cotton just takes up more space; it isn't heavier."}
+    ],
+    "tra_loi": {"vi": "Nặng bằng nhau, đều là 1 kg.", "en": "They weigh the same: 1 kg each."},
+    "giay": 6, "manh": 180
+   },
+   "bai_hoc": {"vi": "Câu bẫy đánh vào phản xạ “sắt thì nặng”. Dừng lại đọc kỹ đề là thoát bẫy.", "en": "Trick questions target the reflex “iron is heavy”. Pausing to read the question carefully gets you out."}
+  },
+  {
+   "id": "dem-chu",
+   "bieu_tuong": "🍓",
+   "loai": {"vi": "Đếm chữ cái", "en": "Counting letters"},
+   "hoi": {
+    "vi": "Từ tiếng Anh “strawberry” (dâu tây) có mấy chữ r?",
+    "en": "How many letter r's are in the word “strawberry”?"
+   },
+   "ngay": {
+    "tra_loi": {"vi": "Có 2 chữ r.", "en": "There are 2 r's."},
+    "dung": false, "giay": 1, "manh": 18
+   },
+   "nghi": {
+    "buoc": [
+     {"loai": "chia", "vi": "AI đọc theo mảnh (trạm 1), không thấy từng chữ cái. Phải tách ra trước.", "en": "AI reads tokens (station 1), not letters. Spell it out first."},
+     {"loai": "thu", "vi": "s · t · r · a · w · b · e · r · r · y", "en": "s · t · r · a · w · b · e · r · r · y"},
+     {"loai": "kiem", "vi": "Chữ r ở vị trí 3, 8 và 9. Đếm lại lần nữa: vẫn 3.", "en": "r is at positions 3, 8 and 9. Count again: still 3."}
+    ],
+    "tra_loi": {"vi": "Có 3 chữ r.", "en": "There are 3 r's."},
+    "giay": 8, "manh": 240
+   },
+   "bai_hoc": {"vi": "Nói ngay thì AI đoán theo “cảm giác” của mảnh chữ. Tách từng chữ cái ra nháp mới đếm đúng.", "en": "Answering right away, the AI guesses from how the tokens “feel”. Spelling it out on scratch paper gets the count right."}
+  },
+  {
+   "id": "don-con",
+   "bieu_tuong": "🗓️",
+   "loai": {"vi": "Lập kế hoạch", "en": "Planning"},
+   "hoi": {
+    "vi": "Đón con lúc 17:00. Đi đường mất 40 phút, và phải ghé chợ 25 phút trước khi đón. Mấy giờ phải rời nhà?",
+    "en": "Pick up your child at 5:00 pm. The drive takes 40 minutes, and you need 25 minutes at the market first. When must you leave home?"
+   },
+   "ngay": {
+    "tra_loi": {"vi": "Rời nhà lúc 16:20 là kịp.", "en": "Leave at 4:20 pm and you'll make it."},
+    "dung": false, "giay": 2, "manh": 30
+   },
+   "nghi": {
+    "buoc": [
+     {"loai": "chia", "vi": "Tính ngược từ giờ đón: 17:00.", "en": "Work backwards from pickup: 5:00 pm."},
+     {"loai": "thu", "vi": "Trừ 40 phút đi đường: 16:20.", "en": "Subtract the 40-minute drive: 4:20 pm."},
+     {"loai": "kiem", "vi": "Khoan, còn 25 phút ở chợ chưa tính!", "en": "Wait, the 25 minutes at the market aren't counted yet!"},
+     {"loai": "sua", "vi": "16:20 trừ 25 phút: 15:55.", "en": "4:20 pm minus 25 minutes: 3:55 pm."}
+    ],
+    "tra_loi": {"vi": "Rời nhà lúc 15:55.", "en": "Leave home at 3:55 pm."},
+    "giay": 12, "manh": 380
+   },
+   "bai_hoc": {"vi": "Kế hoạch có nhiều việc nối nhau, nói ngay rất dễ quên một việc. Nháp từng bước rồi tự kiểm là bắt được.", "en": "Plans chain several tasks, and a quick answer easily drops one. Drafting step by step and checking catches it."}
+  },
+  {
+   "id": "thu-do",
+   "bieu_tuong": "🗾",
+   "loai": {"vi": "Tra cứu đơn giản", "en": "Simple lookup"},
+   "don_gian": true,
+   "hoi": {
+    "vi": "Thủ đô của Nhật Bản là thành phố nào?",
+    "en": "What is the capital of Japan?"
+   },
+   "ngay": {
+    "tra_loi": {"vi": "Tokyo.", "en": "Tokyo."},
+    "dung": true, "giay": 1, "manh": 15
+   },
+   "nghi": {
+    "buoc": [
+     {"loai": "chia", "vi": "Đây là câu hỏi tra một dữ kiện, không cần tính.", "en": "This is a fact lookup; nothing to calculate."},
+     {"loai": "kiem", "vi": "Thủ đô Nhật Bản là Tokyo. Kiểm lại: đúng.", "en": "The capital of Japan is Tokyo. Double-check: correct."},
+     {"loai": "chot", "vi": "Không còn gì để nghĩ thêm.", "en": "Nothing more to think about."}
+    ],
+    "tra_loi": {"vi": "Tokyo.", "en": "Tokyo."},
+    "giay": 5, "manh": 160
+   },
+   "bai_hoc": {"vi": "Cùng một đáp án, nhưng chờ lâu hơn và tốn gấp chục lần mảnh. Câu đơn giản thì tắt chế độ suy nghĩ cho nhanh.", "en": "Same answer, but a longer wait and about ten times the tokens. For simple questions, switch thinking off and save time."}
+  }
+ ]
+}

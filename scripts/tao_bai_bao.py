@@ -17,6 +17,8 @@ Dùng: python3 scripts/tao_bai_bao.py [--hom-nay YYYY-MM-DD] [--ra THƯ_MỤC]
 - Workflow đăng trang chạy script này mỗi ngày lúc 00:05 giờ Việt Nam, nên bài tự mở đúng ngày, không ai phải bấm gì.
 - Ghi ra: bai-bao.html, en/bai-bao.html, bai-bao/<slug>.html, en/bai-bao/<slug>.html và các dòng bai-bao trong sitemap.xml.
   Đừng sửa tay các file đó, sửa nguồn rồi chạy lại.
+- "thu" (không bắt buộc): thẻ "Thử ngay" cuối bài trỏ sang công cụ đi kèm, vd. Máy tính đời thật ?may=tu-do-ai:
+  {"url": "...", "vi": {"ten", "mo"}, "en": {...}}. Hiện cả khi bài còn khóa (công cụ không chứa đáp án).
 - Đáp án so theo dạng chuẩn hoá (bỏ dấu, đ -> d, chữ thường, chỉ giữ a-z0-9): "20%", "20 %" đều thành "20".
   Ghi mọi cách đúng đã chuẩn hoá vào "dap_an". mo-khoa.js chuẩn hoá y hệt.
 """
@@ -60,6 +62,7 @@ CHU = {
         "ve_goc": "Tất cả bài báo AI", "title_sfx": "Bài báo AI",
         "chua_co": "Số đầu tiên đang làm video. Theo dõi kênh để xem trước nhé.",
         "nguon_vid": "Video số {n}",
+        "thu_eyebrow": "Công cụ đi kèm", "thu_nut": "Thử ngay",
     },
     "en": {
         "goc_ten": "AI papers", "goc_eyebrow": "AI papers · read for you",
@@ -78,6 +81,7 @@ CHU = {
         "ve_goc": "All AI papers", "title_sfx": "AI papers",
         "chua_co": "The first issue's video is in production. Follow the channel to watch it first.",
         "nguon_vid": "Video no. {n}",
+        "thu_eyebrow": "Companion tool", "thu_nut": "Try it now",
     },
 }
 
@@ -197,6 +201,17 @@ def khoi_video(muc, c, lg):
             f'<a class="btn btn-yt" href="{lien}" target="_blank" rel="noopener">{c["xem_yt"]}</a></section>')
 
 
+def khoi_thu(muc, c, lg):
+    """Thẻ "Thử ngay" trỏ sang công cụ đi kèm bài (mục "thu" trong bai-bao.json, url viết như trang nằm ở gốc). Không có thì rỗng."""
+    thu = muc.get("thu")
+    if not thu:
+        return ""
+    x = thu[lg]
+    return (f'\n<aside class="bb-thu" aria-labelledby="thu-h"><div><p class="bb-thu-eyebrow">{c["thu_eyebrow"]}</p>'
+            f'<h2 id="thu-h">{esc(x["ten"])}</h2><p>{esc(x["mo"])}</p></div>'
+            f'<a class="btn bb-thu-nut" href="{esc(thu["url"])}">{c["thu_nut"]} →</a></aside>')
+
+
 def band_bai(muc, b, c, lg):
     return f"""<div class="band-in page-head bb-head">
 <p class="eyebrow"><a href="bai-bao.html">{c['goc_ten']}</a> · {c['so']} {muc['so']}</p>
@@ -235,6 +250,7 @@ def trang_bai(muc, lg, trang_thai, ngay_mo):
 <script type="application/json" id="bb-du-lieu">{json.dumps(du_lieu)}</script>
 <script type="application/json" id="bb-chu">{json.dumps(chu_js, ensure_ascii=False)}</script>""")
         cuoi = '<script src="{tai}assets/bai-bao/mo-khoa.js?v=dev" defer></script>'
+    main += khoi_thu(muc, c, lg)
     main += f'\n<p class="bb-ve"><a href="bai-bao.html">← {c["ve_goc"]}</a></p>'
     return trang(lg, f"bai-bao/{muc['slug']}.html", title, desc, band, main, them_cuoi=cuoi, sau=True)
 

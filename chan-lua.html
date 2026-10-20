@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mark chặn lừa: game nhận ra tin nhắn lừa đảo bằng AI</title>
+<meta name="description" content="Game miễn phí: tin nhắn, cuộc gọi lừa đảo bay về điện thoại của bà. Chạm tin lừa để bắn hạ, để tin thật bay qua, rồi hạ trùm cuộc gọi giả giọng. Học nhận…">
+<link rel="canonical" href="https://markhocai.com/chan-lua.html">
+<link rel="alternate" hreflang="vi" href="https://markhocai.com/chan-lua.html">
+<link rel="alternate" hreflang="en" href="https://markhocai.com/en/chan-lua.html">
+<link rel="alternate" hreflang="x-default" href="https://markhocai.com/chan-lua.html">
+<meta property="og:site_name" content="Mark học AI">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mark chặn lừa: game nhận ra tin nhắn lừa đảo bằng AI">
+<meta property="og:description" content="Game miễn phí: tin nhắn, cuộc gọi lừa đảo bay về điện thoại của bà. Chạm tin lừa để bắn hạ, để tin thật bay qua, rồi hạ trùm cuộc gọi giả giọng. Học nhận…">
+<meta property="og:url" content="https://markhocai.com/chan-lua.html">
+<meta property="og:image" content="https://markhocai.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2563EB">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=dev">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=dev">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=dev">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=dev">
+<link rel="manifest" href="chan-lua.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mark chặn lừa">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css?v=dev">
+<script>try{var t=localStorage.getItem("mhai-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}if(self!==top&&/[?&]nhung=1/.test(location.search))document.documentElement.classList.add("nhung")</script>
+<script src="theo-doi.js?v=dev" defer></script>
+<script src="tien-do.js?v=dev" defer></script>
+
+</head>
+<body class="sub">
+<div class="band">
+<header class="top">
+  <a class="brand" href="./"><img src="assets/logo.png" alt="" width="40" height="40"><span>Mark học <b>AI</b></span></a>
+  <nav class="top-links" aria-label="Trang">
+    <a class="nav-start" href="./#bat-dau">Bắt đầu từ đây</a>
+    <a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a>
+    <a href="tu-dien.html">Từ điển AI</a>
+    <a href="kiem-tra.html">Kiểm tra</a>
+    <a href="phieu-luu.html">Game</a>
+    <a href="sach.html">Sách miễn phí</a>
+    <a href="bai-bao.html">Bài báo AI</a>
+    <a class="nav-yt" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener"><span class="nt nt-sm nt-youtube" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-youtube"/></svg></span>YouTube</a>
+  </nav>
+</header>
+<div class="band-in page-head">
+<div class="head-row"><div>
+<p class="eyebrow">Game miễn phí · chơi ngang trên điện thoại</p>
+<h1>Mark chặn lừa</h1>
+<p class="lead">Tin nhắn bay về điện thoại của bà. Chạm tin lừa để bắn hạ, để tin thật đi qua. Bắn nhầm tin của con cháu là mất tim.</p>
+</div><img class="head-art" src="assets/mark-chao.svg" alt="" width="180" height="170"></div>
+</div>
+</div>
+<main class="cl cl-game" id="cl">
+<div class="cl-dau"><p class="cl-tong" id="cl-tong" aria-live="polite"></p><button type="button" class="cl-xoa" id="cl-xoa">Chơi lại từ đầu</button></div>
+<div class="cl-khung" id="cl-khung">
+<canvas class="cl-canvas" id="cl-canvas" aria-label="Màn hình game"></canvas>
+<div class="cl-lop" id="cl-lop"></div>
+<div class="cl-nut-tren"><button type="button" class="cl-toan" id="cl-toan" aria-pressed="false"></button><button type="button" class="cl-menu" id="cl-menu" hidden>☰ Các màn</button></div>
+<button type="button" class="cl-cham" id="cl-cham" hidden></button>
+<div class="cl-bao" id="cl-bao" hidden aria-live="polite"><img id="cl-bao-bit" src="assets/bit-giai-thich.svg" alt="" width="48" height="48"><div><b id="cl-bao-dau"></b><p id="cl-bao-chu"></p></div></div>
+<div class="cl-man" id="cl-man"></div>
+</div>
+<p class="cl-huong"><b>Cách chơi:</b> chạm (hoặc bấm chuột) vào tin lừa để Mark bắn hạ. Tin thật thì để yên cho bay tới điện thoại của bà. Nút 🐢 Chậm lại làm mọi thứ chậm hẳn trong vài giây để bạn kịp đọc. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang.</p>
+<p class="cl-thong" id="cl-thong" role="status" hidden></p>
+<section class="cl-cuoi" id="cl-soat">
+<h2 class="ld-ket-h">3 câu soát trước khi làm theo một tin nhắn</h2>
+<div class="cl-soat"><div class="cl-soat-the"><span class="cl-soat-so">1</span><b>Đòi tiền hay đòi mã?</b><p>Chuyển khoản, mã OTP, mật khẩu: dừng lại ngay.</p></div><div class="cl-soat-the"><span class="cl-soat-so">2</span><b>Thúc làm gấp?</b><p>Càng hối càng phải chậm. Hỏi người nhà trước đã.</p></div><div class="cl-soat-the"><span class="cl-soat-so">3</span><b>Số lạ, link lạ?</b><p>Tự gọi lại số đã lưu, tự mở app chính thức.</p></div></div>
+<h2 class="ld-ket-h">Xem video của game này</h2>
+<div class="ld-ket-video"><a class="ld-vid" href="bai/14-deepfake.html" data-so-video="14"><span class="ld-vid-so">#14</span><b>Deepfake: mặt và giọng giả bằng AI</b></a><a class="ld-vid" href="bai/108-gia-giong-nguoi-than.html" data-so-video="108"><span class="ld-vid-so">#108</span><b>Giả giọng người thân</b></a><a class="ld-vid" href="bai/109-video-call-gia.html" data-so-video="109"><span class="ld-vid-so">#109</span><b>Video call giả</b></a><a class="ld-vid" href="bai/110-nguoi-noi-tieng-gia.html" data-so-video="110"><span class="ld-vid-so">#110</span><b>Người nổi tiếng giả</b></a><a class="ld-vid" href="bai/111-tin-nhan-lua-dao.html" data-so-video="111"><span class="ld-vid-so">#111</span><b>Tin nhắn lừa đảo</b></a><a class="ld-vid" href="bai/112-mat-khau-gia-dinh.html" data-so-video="112"><span class="ld-vid-so">#112</span><b>Mật khẩu gia đình</b></a></div>
+<div class="chia-se">
+<p class="chia-se-h">Thấy bài có ích? Gửi cho một người bạn</p>
+<div class="cta"><button type="button" class="btn" data-chia-se data-url="https://markhocai.com/chan-lua.html" data-tieu-de="Mark chặn lừa: bạn chặn được bao nhiêu tin lừa?" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-share"/></svg>Chia sẻ</button><a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkhocai.com%2Fchan-lua.html" target="_blank" rel="noopener"><span class="nt nt-sm nt-facebook" aria-hidden="true"><svg><use href="assets/nen-tang.svg#nt-facebook"/></svg></span>Facebook</a><button type="button" class="btn" data-chep-link="https://markhocai.com/chan-lua.html" hidden><svg class="ic" aria-hidden="true"><use href="assets/icons.svg#i-link"/></svg>Chép link</button></div>
+</div>
+</section>
+<p class="cl-ghi">Mọi tin nhắn, số điện thoại và đường link trong game là hư cấu, viết theo các kiểu lừa có thật trong video của kênh. Game chạy ngay trên trình duyệt, tiến độ lưu trên máy này, không gửi đi đâu. Chơi thêm: <a href="lua-dao-hay-that.html">Lừa đảo hay thật?</a></p>
+<noscript><p>Game cần JavaScript.</p></noscript>
+</main>
+<footer class="foot-band">
+  <div class="foot">
+    <a class="brand" href="./"><img src="assets/logo.png" alt="" width="36" height="36" loading="lazy"><span>Mark học <b>AI</b></span></a>
+    <p class="foot-line">Hiểu AI trong một phút, dùng được ngay sau đó.</p>
+    <nav class="foot-links" aria-label="Kênh ở chân trang">
+      <a class="vtk-nut" href="https://www.facebook.com/markovutrukhac/" target="_blank" rel="noopener" title="Mark ở vũ trụ khác trên Facebook"><span class="nt nt-vtk" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/vu-tru-khac/logo-bieu-tuong.svg" alt="" width="28" height="28"></span>Vũ Trụ Khác</a>
+      <a class="nt nt-youtube" href="https://www.youtube.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên YouTube" title="YouTube"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-youtube"/></svg></a>
+      <a class="nt nt-tiktok" href="https://www.tiktok.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên TikTok" title="TikTok"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-tiktok"/></svg></a>
+      <a class="nt nt-facebook" href="https://www.facebook.com/markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Facebook" title="Facebook"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-facebook"/></svg></a>
+      <a class="nt nt-instagram" href="https://www.instagram.com/markhocai/" target="_blank" rel="noopener" aria-label="Mark học AI trên Instagram" title="Instagram"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-instagram"/></svg></a>
+      <a class="nt nt-threads" href="https://www.threads.com/@markhocai" target="_blank" rel="noopener" aria-label="Mark học AI trên Threads" title="Threads"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-threads"/></svg></a>
+      <a class="nt nt-discord" href="https://discord.gg/jJjtxhgAsg" target="_blank" rel="noopener" aria-label="Vào cộng đồng Discord của Mark học AI" title="Discord"><svg aria-hidden="true"><use href="assets/nen-tang.svg#nt-discord"/></svg></a>
+    </nav>
+    <nav class="foot-hoc" aria-label="Học và thực hành"><b>Học</b><a href="lo-trinh-7-ngay.html">Lộ trình 7 ngày</a><a href="lo-trinh-4-tuan.html">Lộ trình 4 tuần</a><a href="lo-trinh-nganh.html">Lộ trình theo nghề</a><a href="kiem-tra.html">Kiểm tra</a><a href="chung-nhan.html">Chứng nhận</a><a href="ho-so.html">Hồ sơ học</a><a href="bai-bao.html">Bài báo AI</a><b>Thực hành</b><a href="thuc-hanh.html">Góc thực hành</a><a href="ai-hoc-sinh.html">Học sinh</a><a href="ai-van-phong.html">Công chức</a><a href="ai-y-te.html">Y tế</a><a href="bo-hoc-lieu-ai.html">Học liệu 12 tiết</a></nav>
+    <span class="foot-copy">© 2026 Mark học AI · <a href="tu-dien.html">Từ điển AI</a> · <a href="kiem-tra.html">Bạn hiểu AI tới đâu?</a> · <a href="sach.html">Sách miễn phí</a> · <a href="hop-tac.html">Hợp tác cùng kênh</a> · <a href="dich-vu.html">Làm video cho bạn</a> · <a href="bo-giao-vien.html">Bộ bài giảng</a> · <a href="workshop.html">Workshop</a> · <a href="ung-ho.html">Ủng hộ kênh</a> · <a href="quyen-rieng-tu.html">Quyền riêng tư</a> · <a href="dieu-khoan.html">Điều khoản</a> · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span>
+  </div>
+</footer>
+<script src="len-dau.js?v=dev" defer></script>
+<script src="cai-dat.js?v=dev" defer></script>
+<script src="cuon-hien.js?v=dev" defer></script>
+<script src="bit-tro-ly.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/tro-choi/chan-lua.css?v=dev">
+<script src="chia-se.js?v=dev" defer></script>
+<script src="chan-lua.js?v=dev" defer></script>
+<script src="bai-viet.js?v=dev" defer></script>
+<link rel="stylesheet" href="assets/huong-dan.css?v=dev">
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"chan-lua","buoc":[{"chon":".cl-khung","chu":"Tin nhắn sẽ bay từ trái sang **điện thoại của bà** ở bên phải. Đọc người gửi: !!số lạ!! hay ++số đã lưu++."},{"chon":".cl-khung","chu":"Thấy tin **lừa đảo** thì chạm vào, Mark sẽ bắn hạ. Tin thật thì để yên cho bay tới bà. !!Bắn nhầm tin thật là mất tim!!"},{"chon":"#cl-cham","chu":"Chưa kịp đọc thì bấm [[🐢 Chậm lại]]. ++Ngoài đời cũng vậy: chậm lại vài phút là cách chống lừa tốt nhất.++"},{"chon":"#cl-soat","chu":"Cuối màn có **trùm**: một cuộc gọi giả giọng. Chạm đúng mọi câu đáng ngờ để hạ nó, dùng 3 câu soát ở đây."}]}</script>
+<script src="huong-dan.js?v=dev" defer></script>
+</body>
+</html>
