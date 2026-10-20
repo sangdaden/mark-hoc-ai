@@ -273,7 +273,7 @@
 // Nút "Đăng ký" YouTube (vòng 4, Sang chọn 20/10/2026: 172 lượt bấm sang YouTube trong 6 ngày mà chỉ thêm 22 người đăng ký).
 // Link ?sub_confirmation=1 mở thẳng hộp hỏi đăng ký của YouTube; theo-doi.js đếm riêng thành sự kiện "dang-ky-youtube".
 // Link về trang kênh (youtube.com/@markhocai) trùng ý với nút Đăng ký (Sang 20/10), nên đổi luôn thành nút Đăng ký kênh:
-// nút tròn đầu trang, mục YouTube trong menu điện thoại, icon YouTube ở hàng mạng xã hội, nút "Xem trên YouTube" / "Theo dõi kênh YouTube".
+// nút tròn đầu trang, mục YouTube trong menu điện thoại, nút "Xem trên YouTube" / "Theo dõi kênh YouTube". Icon tròn ở hàng mạng xã hội giữ hình, chỉ đổi đích.
 // Link tới một video cụ thể (watch, shorts, tìm theo tên) giữ nguyên và có thêm nút Đăng ký nhỏ bên cạnh; thẻ trong lưới (.ld-vid) thì một nút dưới lưới.
 // Bỏ qua danh sách dài từng video (.row-link, lộ trình theo ngành) và ảnh bìa trình phát. Link do JS khác dựng sau được bắt bằng MutationObserver
 (function () {
@@ -308,10 +308,11 @@
     if (LA_KENH.test(h)) {
       // Link kênh: thay bằng nút Đăng ký kênh (bỏ nút đã gắn bên cạnh nếu link vừa bị đổi sang trang kênh, như bài chưa ra mắt ở bai-viet.js)
       if (a._dk) a._dk.remove();
-      if (a.matches(".ntk")) { a.href = SUB; a.dataset.dk = SUB; return; }
+      // Thẻ YouTube trang Hợp tác và icon tròn ở hàng mạng xã hội (chân trang, Bit, "Xem trên") giữ hình cũ cho đồng bộ (Sang 20/10), chỉ đổi đích sang link đăng ký
+      if (a.matches(".ntk, .nt")) { a.href = SUB; a.dataset.dk = SUB; return; }
       const moi = a.classList.contains("btn") ? nut("btn btn-dk", EN ? "Subscribe" : "Đăng ký kênh") :
         a.classList.contains("nut-yt") ? nut("nut-dk-dau", DK) : a.classList.contains("nav-yt") ? nut("nav-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube") :
-        a.classList.contains("nt") ? nut("nut-dk-nho", DK) : null;
+null;
       if (moi) a.replaceWith(moi);
       else { a.href = SUB; a.dataset.dk = SUB; }
       return;
