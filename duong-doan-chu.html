@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Đường đoán chữ: game chatbot đoán chữ tiếp theo</title>
-<meta name="description" content="Game miễn phí: nhảy qua các bục chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Bục càng rộng chữ càng hay gặp, kéo nhiệt độ lên thì chữ lạ to ra và…">
+<meta name="description" content="Game miễn phí: thả câu xuống hồ cá chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Chữ càng hay gặp thì đàn cá càng đông, tăng nhiệt độ thì cá chữ…">
 <link rel="canonical" href="https://markhocai.com/duong-doan-chu.html">
 <link rel="alternate" hreflang="vi" href="https://markhocai.com/duong-doan-chu.html">
 <link rel="alternate" hreflang="en" href="https://markhocai.com/en/duong-doan-chu.html">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Đường đoán chữ: game chatbot đoán chữ tiếp theo">
-<meta property="og:description" content="Game miễn phí: nhảy qua các bục chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Bục càng rộng chữ càng hay gặp, kéo nhiệt độ lên thì chữ lạ to ra và…">
+<meta property="og:description" content="Game miễn phí: thả câu xuống hồ cá chữ để viết câu đúng cách chatbot đoán chữ tiếp theo. Chữ càng hay gặp thì đàn cá càng đông, tăng nhiệt độ thì cá chữ…">
 <meta property="og:url" content="https://markhocai.com/duong-doan-chu.html">
 <meta property="og:image" content="https://markhocai.com/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -57,7 +57,7 @@
 <div class="head-row"><div>
 <p class="eyebrow">Game miễn phí · bản thử màn 1</p>
 <h1>Đường đoán chữ</h1>
-<p class="lead">Mark viết câu bằng cách nhảy lên bục chữ, y như chatbot đoán chữ tiếp theo. Bục rộng là chữ hay gặp. Đổi nhiệt độ để xem câu sáng tạo hơn hay bịa hơn.</p>
+<p class="lead">Mark câu từng chữ trong hồ để viết câu, y như chatbot đoán chữ tiếp theo. Chữ hay gặp thì cá đông. Khuấy nhiệt độ để xem câu sáng tạo hơn hay bịa hơn.</p>
 </div><img class="head-art" src="assets/mark-chao.svg" alt="" width="180" height="170"></div>
 </div>
 </div>
@@ -67,11 +67,11 @@
     <div class="pl-nut-tren"><button type="button" class="pl-toan" id="ddc-toan" aria-label="Chơi toàn màn hình" aria-pressed="false"></button></div>
     <div class="pl-man" id="ddc-man"></div>
   </div>
-  <div class="pl-dk ddc-dk" id="ddc-dk" role="group" aria-label="Nút điều khiển"><button type="button" data-k="trai" aria-label="Sang trái">◀</button><button type="button" data-k="phai" aria-label="Sang phải">▶</button><button type="button" data-k="nhiet" class="ddc-nhiet" id="ddc-nhiet" aria-label="Đổi nhiệt độ">🌡</button><button type="button" data-k="nhay" class="is-nhay">Nhảy</button></div>
-  <p class="pl-huong"><b>Cách chơi:</b> phím ← → hoặc A D để chạy, Space hoặc ↑ để nhảy, T để đổi nhiệt độ. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang, bạn cầm ngang máy và dùng các nút trên màn hình.</p>
-  <p class="pl-ghi">Tỉ lệ trên các bục là ví dụ minh họa cho dễ chơi. Tiến độ lưu trên trình duyệt này, không gửi đi đâu.</p>
+  <div class="pl-dk ddc-dk" id="ddc-dk" role="group" aria-label="Nút điều khiển"><button type="button" data-k="nhiet" class="ddc-nhiet" id="ddc-nhiet" aria-label="Đổi nhiệt độ">🌡</button></div>
+  <p class="pl-huong"><b>Cách chơi:</b> chạm hoặc bấm chuột xuống hồ để thả câu ở chỗ đó, Space để thả câu, T để đổi nhiệt độ. Trên điện thoại, game tự chuyển sang toàn màn hình nằm ngang, bạn cầm ngang máy rồi chạm thẳng xuống hồ.</p>
+  <p class="pl-ghi">Tỉ lệ số cá là ví dụ minh họa cho dễ chơi. Tiến độ lưu trên trình duyệt này, không gửi đi đâu.</p>
   <noscript><p>Game cần JavaScript. Bạn vẫn có thể <a href="phong-thi-nghiem-bo-nao.html?tram=doan-chu">đoán chữ ở Phòng bộ não</a>.</p></noscript>
-  <script type="application/json" id="ddc-du-lieu">{"man":[{"id":"troi","ten":"Trời hôm nay","dau":"Hôm nay trời rất","cuoi":".","buoc":[{"truoc":"","chu":[{"chu":"đẹp","p":0.58},{"chu":"nóng","p":0.27},{"chu":"lạnh","p":0.11},{"chu":"cá","p":0.01,"bia":true}]},{"truoc":",","chu":[{"chu":"nên","p":0.52},{"chu":"thế là","p":0.26},{"chu":"vậy mà","p":0.14},{"chu":"bàn phím","p":0.01,"bia":true}]},{"truoc":"Mark rủ Bit đi","chu":[{"chu":"dạo","p":0.49},{"chu":"biển","p":0.31},{"chu":"ăn kem","p":0.15},{"chu":"lên sao Hỏa bằng xe đạp","p":0.01,"bia":true}]},{"truoc":"cả","chu":[{"chu":"buổi chiều","p":0.5},{"chu":"ngày","p":0.3},{"chu":"tiếng đồng hồ","p":0.12},{"chu":"nghìn năm","p":0.01,"bia":true}]}]}],"nhan":{"nhiet":"Nhiệt độ","vucTen":"ẢO GIÁC","lac":"Chữ này lạ quá…","phoBien":"Chữ hay gặp","sangTao":"Sáng tạo","aoGiac":"Rơi xuống Ảo giác!","aoGiacBia":"Ảo giác! Chữ vô nghĩa thì câu sập","nhietThap":"Nhiệt độ thấp: bục hay gặp phình to, bục hiếm mờ đi","nhietVua":"Nhiệt độ 1: bục đúng theo tỉ lệ ban đầu","nhietCao":"Nhiệt độ cao: bục gần bằng nhau, rung, chữ lạ hiện ra","toanVao":"Chơi toàn màn hình","toanRa":"Thoát toàn màn hình","dong":"Đóng","meoIos":"Mẹo iPhone: bấm nút Chia sẻ rồi chọn “Thêm vào MH chính”. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.","y1":"Bục rộng = chữ hay gặp","y1c":"Nhảy lên bục để chọn chữ tiếp theo, như chatbot.","y2":"Nút 🌡 đổi nhiệt độ","y2c":"Cao thì chữ lạ to ra, nhưng bục rung.","y3":"Dưới vực là Ảo giác","y3c":"Chữ vô nghĩa đứng lên là vỡ.","batDau":"Bắt đầu","daChoi":"lần trước","qua":"Viết xong câu!","s1":"Đi hết câu","s2":"Không rơi xuống Ảo giác","cauBan":"Câu của bạn","cauMay":"Chatbot ở nhiệt độ thấp sẽ viết","bitDau":"Chatbot cũng đi đúng như vậy","bitChu":"Mỗi bước nó chọn một chữ theo tỉ lệ đã học. Nhiệt độ thấp thì luôn chọn chữ hay gặp nhất: an toàn nhưng câu nào cũng giống nhau. Nhiệt độ cao thì câu sáng tạo hơn, nhưng dễ chọn trúng chữ vô nghĩa: đó là lúc AI bịa.","thua":"Hết tim rồi","thuaBia":"Bit nhắn: bục chữ vô nghĩa nào cũng vỡ. Thử hạ nhiệt độ xuống, chữ lạ sẽ mờ đi.","thuaChu":"Bit nhắn: bục rộng dễ đứng hơn. Thử lại nhé!","lai":"Chơi lại","xemVideo":"Xem video Chatbot đoán chữ","phongNao":"Tự đoán chữ ở Phòng bộ não","manSo":"Màn {n}","s3":"Câu sáng tạo: ít nhất 2 chữ không phải chữ hay gặp nhất (bạn có {n})"},"p":"","video":"bai/07-chatbot-doan-chu.html"}</script>
+  <script type="application/json" id="ddc-du-lieu">{"man":[{"id":"troi","ten":"Trời hôm nay","dau":"Hôm nay trời rất","cuoi":".","buoc":[{"truoc":"","chu":[{"chu":"đẹp","p":0.58},{"chu":"nóng","p":0.27},{"chu":"lạnh","p":0.11},{"chu":"cá","p":0.01,"bia":true}]},{"truoc":",","chu":[{"chu":"nên","p":0.52},{"chu":"thế là","p":0.26},{"chu":"vậy mà","p":0.14},{"chu":"bàn phím","p":0.01,"bia":true}]},{"truoc":"Mark rủ Bit đi","chu":[{"chu":"dạo","p":0.49},{"chu":"biển","p":0.31},{"chu":"ăn kem","p":0.15},{"chu":"lên sao Hỏa bằng xe đạp","p":0.01,"bia":true}]},{"truoc":"cả","chu":[{"chu":"buổi chiều","p":0.5},{"chu":"ngày","p":0.3},{"chu":"tiếng đồng hồ","p":0.12},{"chu":"nghìn năm","p":0.01,"bia":true}]}]}],"nhan":{"goiY":"Chạm xuống hồ để thả câu","phoBien":"Chữ hay gặp","sangTao":"Sáng tạo","aoGiac":"Câu phải cá rác: ảo giác!","nhietThap":"Nhiệt độ thấp: đàn cá chữ hay gặp đông hơn, cá chữ hiếm lặn mất","nhietVua":"Nhiệt độ 1: số cá đúng theo tỉ lệ ban đầu","nhietCao":"Nhiệt độ cao: hồ khuấy lên, cá bơi loạn, cá rác nổi lên","toanVao":"Chơi toàn màn hình","toanRa":"Thoát toàn màn hình","dong":"Đóng","meoIos":"Mẹo iPhone: bấm nút Chia sẻ rồi chọn “Thêm vào MH chính”. Mở game từ biểu tượng đó sẽ không còn thanh Safari che.","y1":"Đàn cá đông = chữ hay gặp","y1c":"Câu một con cá để chọn chữ tiếp theo, như chatbot.","y2":"Nút 🌡 khuấy hồ","y2c":"Nóng thì cá chữ lạ đông hơn, nhưng bơi loạn.","y3":"Coi chừng cá rác","y3c":"Chữ vô nghĩa là ảo giác, mất một tim.","batDau":"Bắt đầu","daChoi":"lần trước","qua":"Viết xong câu!","s1":"Viết hết câu","s2":"Không câu phải cá rác","cauBan":"Câu của bạn","cauMay":"Chatbot ở nhiệt độ thấp sẽ viết","bitDau":"Chatbot cũng câu chữ đúng như vậy","bitChu":"Mỗi bước nó bốc một chữ theo tỉ lệ đã học, như thả câu vào hồ: chữ nào đông thì dễ trúng. Nhiệt độ thấp thì gần như luôn ra chữ hay gặp nhất: an toàn nhưng câu nào cũng giống nhau. Nhiệt độ cao thì câu sáng tạo hơn, nhưng dễ bốc trúng chữ vô nghĩa: đó là lúc AI bịa.","thua":"Hết tim rồi","thuaChu":"Bit nhắn: cá rác chỉ đông lên khi hồ nóng. Thử hạ nhiệt độ xuống rồi câu lại nhé!","lai":"Chơi lại","xemVideo":"Xem video Chatbot đoán chữ","phongNao":"Tự đoán chữ ở Phòng bộ não","manSo":"Màn {n}","s3":"Câu sáng tạo: ít nhất 2 chữ không phải chữ hay gặp nhất (bạn có {n})"},"p":"","video":"bai/07-chatbot-doan-chu.html"}</script>
 </main>
 <footer class="foot-band">
   <div class="foot">
@@ -97,7 +97,7 @@
 <link rel="stylesheet" href="assets/tro-choi/duong-doan-chu.css?v=dev">
 <script src="duong-doan-chu.js?v=dev" defer></script>
 <link rel="stylesheet" href="assets/huong-dan.css?v=dev">
-<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"duong-doan-chu","buoc":[{"chon":"#ddc-khung","chu":"Mark viết câu bằng cách **nhảy lên bục chữ**. Bục càng rộng thì chữ đó càng *hay đứng sau*, đúng như chatbot đoán chữ tiếp theo."},{"chon":"#ddc-nhiet","chu":"Nút [[🌡]] đổi **nhiệt độ**. Thấp: bục hay gặp phình to. Cao: chữ lạ to ra nhưng !!bục rung!!."},{"chon":".ddc-dk .is-nhay","chu":"Bấm [[Nhảy]] để qua vực. Dưới vực là !!Ảo giác!!: chữ vô nghĩa đứng lên là vỡ."},{"chon":"#ddc-man .btn","chu":"++3 sao++ khi đi hết câu, không rơi lần nào, và chọn ít nhất 2 chữ *không phải* chữ hay gặp nhất."}]}</script>
+<script type="application/json" id="huong-dan-du-lieu" data-p="">{"ten":"duong-doan-chu","buoc":[{"chon":"#ddc-khung","chu":"Mỗi đàn cá là **một chữ** có thể viết tiếp. Chữ càng *hay gặp* thì đàn càng đông, đúng như chatbot đoán chữ tiếp theo. **Chạm xuống hồ** để thả câu."},{"chon":"#ddc-nhiet","chu":"Nút [[🌡]] **khuấy hồ** (nhiệt độ). Thấp: cá chữ hay gặp đông hơn. Cao: cá chữ lạ đông lên nhưng !!bơi loạn!!."},{"chon":"#ddc-khung","chu":"Coi chừng !!cá rác!!: chữ vô nghĩa là ảo giác, câu phải là mất một tim. Hồ càng nóng, cá rác càng dễ nổi lên."},{"chon":"#ddc-man .btn","chu":"++3 sao++ khi viết hết câu, không câu phải cá rác, và chọn ít nhất 2 chữ *không phải* chữ hay gặp nhất."}]}</script>
 <script src="huong-dan.js?v=dev" defer></script>
 </body>
 </html>
