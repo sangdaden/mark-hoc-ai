@@ -66,7 +66,7 @@
 <div class="hb-kq" id="hb-kq" aria-live="polite"></div>
 </section>
 <section class="tdai-nay" aria-labelledby="tdai-nay-ten">
-<img loading="lazy" decoding="async" id="tdai-nay-anh" src="../assets/anh/series/san-pham-ai.webp" alt="" width="480" height="270">
+<div class="tdai-nay-anh" id="tdai-nay-anh"><img loading="lazy" decoding="async" src="../assets/anh/series/san-pham-ai.webp" alt="" width="480" height="270"></div>
 <div class="tdai-nay-chu"><p class="tdai-nhan">Word of the day<span id="tdai-nay-ngay"></span></p><h2 id="tdai-nay-ten">A/B test</h2><p class="tdai-vi" id="tdai-nay-vi"></p><p id="tdai-nay-nghia">Half the users see the old version, half see the new one; whichever gets better results wins.</p>
 <div class="cta"><a class="btn btn-yt" id="tdai-nay-xem" href="bai/59-do-san-pham-ai.html">Watch video #59</a><a class="btn" id="tdai-nay-doc" href="bai/59-do-san-pham-ai.html">Read the article</a></div>
 </div>
@@ -140,15 +140,15 @@
 <div class="tdai-ke-dau"><h2 id="h-bo-nao-ai">Inside the AI brain <span>12 terms</span></h2><button type="button" class="tdai-het" aria-expanded="false" aria-controls="ds-bo-nao-ai">See all</button></div>
 <ul class="tdai-hang" id="ds-bo-nao-ai">
 <li class="tdai-the" id="hallucination" data-xem="bai/08-ao-giac.html">
-<a href="bai/08-ao-giac.html"><img src="../assets/anh/series/nen-tang.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/08-ao-giac.html"><span class="tdai-nv tdai-nv-may-bia"><img src="../assets/nhan-vat/may-bia.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Fib Cloud</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Hallucination</b><span class="tdai-nghia">AI gives a wrong answer that sounds true, because when it doesn&#x27;t know, it still guesses whatever sounds most likely.</span><span class="tdai-so">Video #08 ›</span></span></a>
 </li>
 <li class="tdai-the" id="context-window" data-xem="https://www.youtube.com/shorts/B3Tr2nuKrBo">
-<a href="bai/09-ai-quen.html"><img src="../assets/anh/series/nen-tang.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/09-ai-quen.html"><span class="tdai-nv tdai-nv-chu-con"><img src="../assets/nhan-vat/chu-con.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Token Kids</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Context window</b><span class="tdai-nghia">AI&#x27;s &quot;desk&quot;: it sees whatever is on the desk, and when the desk is full, old sheets get pushed off and AI stops noticing them.</span><span class="tdai-so">Video #09 ›</span></span></a>
 </li>
 <li class="tdai-the" id="token" data-xem="https://www.youtube.com/shorts/exwQxLMU6IQ">
-<a href="bai/19-token.html"><img src="../assets/anh/series/bo-nao-ai.webp" alt="" width="480" height="270" loading="lazy" decoding="async">
+<a href="bai/19-token.html"><span class="tdai-nv tdai-nv-chu-con"><img src="../assets/nhan-vat/chu-con.svg" alt="" width="200" height="240" loading="lazy" decoding="async"><span class="tdai-nv-ten">Token Kids</span></span>
 <span class="tdai-chu"><b class="tdai-ten">Token</b><span class="tdai-nghia">The pieces AI cuts a sentence into before reading, each turned into a number; length and price are both counted in tokens.</span><span class="tdai-so">Video #19 ›</span></span></a>
 </li>
 <li class="tdai-the" id="embedding" data-xem="https://www.youtube.com/shorts/zPxe7VLy3uY">
@@ -590,7 +590,7 @@
     var ngay = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 864e5);
     var c = the[(ngay * 37) % the.length], $ = function (id) { return document.getElementById(id); };
     var vi = c.querySelector(".tdai-vi"), so = c.querySelector(".tdai-so").textContent.match(/#\d+/)[0];
-    $("tdai-nay-anh").src = c.querySelector("img").src;
+    $("tdai-nay-anh").innerHTML = c.querySelector("a").firstElementChild.outerHTML.replace(' loading="lazy"', "");
     $("tdai-nay-ten").textContent = c.querySelector(".tdai-ten").textContent;
     $("tdai-nay-vi").textContent = vi ? vi.textContent : "";
     $("tdai-nay-nghia").textContent = c.querySelector(".tdai-nghia").textContent;

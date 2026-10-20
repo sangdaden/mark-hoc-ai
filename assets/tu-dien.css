@@ -15,7 +15,7 @@
 .tdai-hoi .hb-kq { margin-top: 20px; }
 
 .tdai-nay { display: grid; grid-template-columns: minmax(0, 1fr); border-radius: 20px; overflow: hidden; background: var(--panel); border: 2px solid var(--yellow); }
-.tdai-nay > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.tdai-nay-anh > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 .tdai-nay-chu { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 6px; }
 .tdai-nhan { align-self: flex-start; margin: 0; padding: 4px 10px; border-radius: 999px; background: var(--yellow); color: #0F172A; font: 700 12px/1.4 var(--f-body); text-transform: uppercase; letter-spacing: .03em; }
 .tdai-nay h2 { font: 800 30px/1.15 var(--f-display); }
@@ -25,7 +25,7 @@
 .tdai-nay .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 @media (min-width: 760px) {
   .tdai-nay { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; }
-  .tdai-nay > img { height: 100%; }
+  .tdai-nay-anh, .tdai-nay-anh > img, .tdai-nay-anh > .tdai-nv { height: 100%; }
   .tdai-nay-chu { padding: 24px 28px; }
 }
 
@@ -47,6 +47,12 @@
 @media (prefers-reduced-motion: no-preference) { .tdai-the a:hover { transform: translateY(-2px); } }
 .tdai-the:target a { border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--yellow) 70%, transparent); }
 .tdai-the img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+/* Thẻ có nhân vật phụ (Mây Bịa, Chữ Con): hình nhân vật trên nền màu, tên ở góc */
+.tdai-nv { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+.tdai-nv img { width: auto; height: 100%; aspect-ratio: 5 / 6; object-fit: contain; padding-top: 6%; }
+.tdai-nv-may-bia { background: linear-gradient(160deg, #E0F2FE, #FEF9C3); }
+.tdai-nv-chu-con { background: linear-gradient(160deg, #FEF9C3, #D1FAE5); }
+.tdai-nv-ten { position: absolute; left: 10px; top: 10px; padding: 3px 10px; border-radius: 999px; background: #0F172A; color: #FFFFFF; font: 700 12px/1.5 var(--f-body); }
 .tdai-chu { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .tdai-ten { font: 800 18px/1.25 var(--f-display); }
 .tdai-the .tdai-vi { font-size: 13.5px; color: var(--muted); line-height: 1.35; }
