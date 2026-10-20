@@ -281,18 +281,21 @@
   const me = document.currentScript;
   let icGoc = "";
   try { icGoc = new URL(".", me ? me.src : location.href).href; } catch (e) {}
-  const SUB = "https://www.youtube.com/@markhocai?sub_confirmation=1";
+  // Mỗi link kênh mời đăng ký đúng kênh đó (trang Vũ Trụ Khác trỏ về @markovutrukhac); link video không rõ kênh thì theo kênh của trang
+  const sub = k => "https://www.youtube.com/@" + k + "?sub_confirmation=1";
+  const KENH_TRANG = /\/vu-tru-khac(\/|\.html|$)/.test(location.pathname) ? "markovutrukhac" : "markhocai";
+  const TEN = { markhocai: "Mark học AI", markovutrukhac: EN ? "Mark in Another Universe" : "Mark Ở Vũ Trụ Khác" };
   const LA_YT = /^https?:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i;
-  const LA_KENH = /^https?:\/\/(www\.|m\.)?youtube\.com\/@markhocai\/?(\?(?!.*sub_confirmation)[^#]*)?(#.*)?$/i;
+  const LA_KENH = /^https?:\/\/(www\.|m\.)?youtube\.com\/@([\w.-]+)\/?(\?(?!.*sub_confirmation)[^#]*)?(#.*)?$/i;
   const BO_QUA = ".yt-play, .row-link, .ltn-v a";
-  const nut = (lop, chu) => {
+  const nut = (lop, chu, kenh) => {
     const a = document.createElement("a");
     a.className = "nut-dk" + (lop ? " " + lop : "");
-    a.href = SUB;
+    a.href = a.dataset.dk = sub(kenh);
     a.target = "_blank";
     a.rel = "noopener";
-    a.dataset.dk = SUB;
-    a.setAttribute("aria-label", EN ? "Subscribe to Mark học AI on YouTube" : "Đăng ký kênh YouTube Mark học AI");
+    const ten = TEN[kenh] || kenh;
+    a.setAttribute("aria-label", EN ? "Subscribe to " + ten + " on YouTube" : "Đăng ký kênh YouTube " + ten);
     a.innerHTML = '<svg class="ic" aria-hidden="true"><use href="' + icGoc + 'assets/nen-tang.svg#nt-youtube"/></svg><span>' + chu + "</span>";
     return a;
   };
@@ -301,20 +304,19 @@
     const h = a.href || "";
     if (a.dataset.dk === h || a.matches(BO_QUA) || !LA_YT.test(h)) return;
     // Nút Đăng ký mà JS khác ghi đè href thì trả lại link đăng ký
-    if (a.classList.contains("nut-dk")) { a.href = SUB; a.dataset.dk = SUB; return; }
+    if (a.classList.contains("nut-dk")) { a.href = a.dataset.dk; return; }
     a.dataset.dk = h;
     if (/sub_confirmation/.test(h)) return;
-    const sau = a.nextElementSibling;
-    if (LA_KENH.test(h)) {
+    const sau = a.nextElementSibling, kenh = LA_KENH.exec(h);
+    if (kenh) {
+      const k = kenh[2];
       // Link kênh: thay bằng nút Đăng ký kênh (bỏ nút đã gắn bên cạnh nếu link vừa bị đổi sang trang kênh, như bài chưa ra mắt ở bai-viet.js)
       if (a._dk) a._dk.remove();
       // Thẻ YouTube trang Hợp tác và icon tròn ở hàng mạng xã hội (chân trang, Bit, "Xem trên") giữ hình cũ cho đồng bộ (Sang 20/10), chỉ đổi đích sang link đăng ký
-      if (a.matches(".ntk, .nt")) { a.href = SUB; a.dataset.dk = SUB; return; }
-      const moi = a.classList.contains("btn") ? nut("btn btn-dk", EN ? "Subscribe" : "Đăng ký kênh") :
-        a.classList.contains("nut-yt") ? nut("nut-dk-dau", DK) : a.classList.contains("nav-yt") ? nut("nav-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube") :
-null;
+      const moi = a.matches(".ntk, .nt") ? null : a.classList.contains("btn") ? nut("btn btn-dk", EN ? "Subscribe" : "Đăng ký kênh", k) :
+        a.classList.contains("nut-yt") ? nut("nut-dk-dau", DK, k) : a.classList.contains("nav-yt") ? nut("nav-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube", k) : null;
       if (moi) a.replaceWith(moi);
-      else { a.href = SUB; a.dataset.dk = SUB; }
+      else a.href = a.dataset.dk = sub(k);
       return;
     }
     const luoi = a.matches(".ld-vid") && a.closest(".ld-ket-video");
@@ -322,14 +324,14 @@ null;
       if (!(luoi.nextElementSibling && luoi.nextElementSibling.matches(".nut-dk-hang"))) {
         const p = document.createElement("p");
         p.className = "nut-dk-hang";
-        p.append(nut("btn btn-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube"));
+        p.append(nut("btn btn-dk", EN ? "Subscribe on YouTube" : "Đăng ký kênh YouTube", KENH_TRANG));
         luoi.after(p);
       }
     } else if (a.classList.contains("nt")) {
       const hang = a.parentElement;
-      if (!hang.querySelector(":scope > .nut-dk")) hang.append(nut("nut-dk-nho", DK));
+      if (!hang.querySelector(":scope > .nut-dk")) hang.append(nut("nut-dk-nho", DK, KENH_TRANG));
     } else if (!(sau && sau.matches(".nut-dk"))) {
-      a._dk = nut(a.classList.contains("btn") ? "btn btn-dk" : "nut-dk-nho", a.classList.contains("btn") ? (EN ? "Subscribe" : "Đăng ký kênh") : DK);
+      a._dk = nut(a.classList.contains("btn") ? "btn btn-dk" : "nut-dk-nho", a.classList.contains("btn") ? (EN ? "Subscribe" : "Đăng ký kênh") : DK, KENH_TRANG);
       a.after(a._dk);
     }
   };
