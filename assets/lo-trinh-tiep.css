@@ -59,6 +59,10 @@
   .ltt .lt-nhac-lich { width: 38px; height: 40px; }
   .ltt .lt-nhac-nut { justify-content: center; padding-inline: 14px; white-space: nowrap; }
   .ltt .lt-nhac-bao { grid-column: 1 / -1; font-size: 13px; }
+  /* Chấm ngày và nhãn giãn hết cột trái, không chừa khoảng trống giữa hai cột */
+  .ltt-cham li { max-width: none; }
+  .ltt-cham span { height: 30px; font-size: 13px; }
+  .ltt-gom span { flex: 1 1 0; text-align: center; padding-block: 9px; white-space: nowrap; }
 }
 @media (max-width: 760px) {
   .ltt { padding: 16px 14px 14px; box-shadow: 3px 3px 0 #0F172A; }
