@@ -46,12 +46,19 @@
 .ltt-gom span { padding: 7px 12px; border-radius: 999px; background: color-mix(in srgb, var(--blue) 10%, var(--panel)); border: 1.5px solid color-mix(in srgb, var(--blue) 35%, var(--edge)); font: 600 14px/1.2 var(--f-body); }
 .ltt-nut { margin-top: 14px; }
 .ltt .lt-nhac { margin-top: 12px; }
-@media (min-width: 761px) {
-  .ltt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); grid-template-rows: auto auto 1fr; column-gap: 28px; align-items: start; }
-  .ltt-dau, .ltt-cham, .ltt-gom { grid-column: 1; }
-  .ltt-nut { grid-column: 2; grid-row: 1; margin-top: 0; align-self: center; }
+@media (min-width: 1000px) {
+  /* Hai cột cân nhau: trái là ngày + chấm + nhãn, phải là nút học tiếp + ô nhắc gọn một hàng */
+  .ltt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); column-gap: 28px; row-gap: 12px; align-items: center; }
+  .ltt-dau { grid-column: 1; grid-row: 1; }
+  .ltt-cham, .ltt-gom { grid-column: 1; margin-top: 0; }
+  .ltt-nut { grid-column: 2; grid-row: 1; margin-top: 0; }
   .ltt-nut .btn { width: 100%; justify-content: center; }
-  .ltt .lt-nhac { grid-column: 2; grid-row: 2 / span 2; }
+  .ltt .lt-nhac { grid-column: 2; grid-row: 2 / span 2; align-self: stretch; margin-top: 0; flex-wrap: nowrap; padding: 10px 14px; gap: 6px 12px; display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr); align-content: center; }
+  .ltt .lt-nhac[hidden] { display: none; }
+  .ltt .lt-nhac-lich { width: 38px; height: 40px; }
+  .ltt .lt-nhac-nut { justify-content: center; padding-inline: 14px; white-space: nowrap; }
+  .ltt .lt-nhac-bao { grid-column: 1 / -1; font-size: 13px; }
 }
 @media (max-width: 760px) {
   .ltt { padding: 16px 14px 14px; box-shadow: 3px 3px 0 #0F172A; }
