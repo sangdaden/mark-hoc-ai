@@ -209,14 +209,18 @@
     dau.append(vtk);
   }
   const html = cot(EN ? "Learn" : "Học", [["lo-trinh-7-ngay.html", EN ? "7-day path" : "Lộ trình 7 ngày"], ["lo-trinh-4-tuan.html", EN ? "4-week path" : "Lộ trình 4 tuần"],
-      ["lo-trinh-nganh.html", EN ? "Path for your job" : "Lộ trình theo nghề"], ["kiem-tra.html", EN ? "Quizzes" : "Kiểm tra"], ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"], ["ho-so.html", EN ? "My profile" : "Hồ sơ học"]]) +
-    cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["tram-chong-lua-dao.html", EN ? "Scam help desk" : "Chống lừa đảo AI"], ["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"],
-      ["ai-y-te.html", EN ? "Healthcare" : "Y tế"], ["ai-giao-vien.html", EN ? "Teachers" : "Giáo viên"], ["ai-gia-dinh.html", EN ? "Families" : "Gia đình"],
-      ["ai-ban-hang.html", EN ? "Sellers" : "Bán hàng"], ["nghe-cua-ban.html", EN ? "Your job with AI" : "Nghề của bạn với AI"], ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"]]) +
+      ["lo-trinh-nganh.html", EN ? "Path for your job" : "Lộ trình theo nghề"], ["kiem-tra.html", EN ? "Quizzes" : "Kiểm tra"], ["chung-nhan.html", EN ? "Certificates" : "Chứng nhận"]]) +
+    cot(EN ? "Practice" : "Thực hành", [["thuc-hanh.html", EN ? "Practice corner" : "Góc thực hành"], ["tram-chong-lua-dao.html", EN ? "Scam help desk" : "Chống lừa đảo AI"],
+      ["bo-hoc-lieu-ai.html", EN ? "12-lesson kit" : "Học liệu 12 tiết"], ["ho-so.html", EN ? "My profile" : "Hồ sơ học"]]) +
     cot(EN ? "Read & play" : "Đọc & chơi", [["tu-dien.html", EN ? "AI glossary" : "Từ điển AI"], ["bai-bao.html", EN ? "AI papers" : "Bài báo AI"], ["sach.html", EN ? "Free ebook" : "Sách miễn phí"],
       ["game.html", "Game"], ["ban-tin.html", EN ? "Weekly digest" : "Bản tin tuần"]]) +
     cot(EN ? "About" : "Về kênh", [["hop-tac.html", EN ? "Work with us" : "Hợp tác cùng kênh"], ["dich-vu.html", EN ? "Video services" : "Làm video cho bạn"], ["bo-giao-vien.html", EN ? "Lesson kits" : "Bộ bài giảng"],
       ["workshop.html", "Workshop"], ["ung-ho.html", EN ? "Support us" : "Ủng hộ kênh"]]) +
+    // Các trang theo nghề nằm thành một dải nút dưới 4 cột (Sang chọn mẫu C, 20/10/2026), để cột không dài ra khi thêm nghề
+    '<nav class="foot-nghe" aria-label="' + (EN ? "AI for each job" : "AI cho từng nghề") + '"><span class="foot-nghe-h">' + (EN ? "AI for each job" : "AI cho từng nghề") + "</span>" +
+    [["ai-hoc-sinh.html", EN ? "Students" : "Học sinh"], ["ai-van-phong.html", EN ? "Civil servants" : "Công chức"], ["ai-y-te.html", EN ? "Healthcare" : "Y tế"],
+      ["ai-giao-vien.html", EN ? "Teachers" : "Giáo viên"], ["ai-gia-dinh.html", EN ? "Families" : "Gia đình"], ["ai-ban-hang.html", EN ? "Sellers" : "Bán hàng"]].map(x => lk(x[0], x[1])).join("") +
+    lk("nghe-cua-ban.html", (EN ? "Your job" : "Nghề của bạn") + " →").replace("<a ", '<a class="foot-nghe-cuoi" ') + "</nav>" +
     '<div class="foot-cuoi"><span>© 2026 Mark học AI</span><span>' + lk("quyen-rieng-tu.html", EN ? "Privacy" : "Quyền riêng tư") + " · " + lk("dieu-khoan.html", EN ? "Terms" : "Điều khoản") +
     ' · <a href="mailto:markhocai@gmail.com">markhocai@gmail.com</a></span></div>';
   foot.textContent = "";
