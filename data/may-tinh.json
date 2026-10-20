@@ -1,5 +1,5 @@
 {
- "_ghi_chu": "Máy tính đời thật (may-tinh-doi-that.html, en/, may-tinh.js). Mỗi máy là một thẻ, mở thẳng bằng ?may=<id>. Hằng số khoa học/giá lấy từ nguồn công bố (mục nguon của từng máy, có link); số mặc định trong ô nhập là số ví dụ của video (ghi rõ trên trang). Video có trang bài thì được thẻ Tương tác trỏ thẳng vào đúng máy (scripts/tao_bai_viet.py, TRO_CHOI_WEB).",
+ "_ghi_chu": "Máy tính đời thật (may-tinh-doi-that.html, en/, may-tinh.js). Mỗi máy là một thẻ, mở thẳng bằng ?may=<id>. Hằng số khoa học/giá lấy từ nguồn công bố (mục nguon của từng máy, có link); máy tu-do-ai (Tự đo AI, video 407, Bài báo AI #1) lưu tiến độ người dùng trong localStorage; số mặc định trong ô nhập là số ví dụ của video (ghi rõ trên trang). Video có trang bài thì được thẻ Tương tác trỏ thẳng vào đúng máy (scripts/tao_bai_viet.py, TRO_CHOI_WEB).",
  "may": [
   {
    "id": "dien-nuoc", "video": [120],
@@ -113,6 +113,35 @@
      "url": "https://smallbiztrends.com/break-even-point-formula/"}
    ],
    "prompt": {"vi": "Đây là các dòng chi cho một sản phẩm (giá mua thật): .... Cứ 12 cái thì hỏng 1. Viết công thức bảng tính cho giá vốn mỗi cái, tiền lời mỗi cái và số cái hòa vốn với vốn ban đầu ... đồng. Đừng tự tính nhẩm.", "en": "Here are the cost lines for one item (real purchase prices): .... One in 12 gets spoiled. Write spreadsheet formulas for unit cost, profit per unit, and break-even units with a starting capital of .... Don't do the maths in your head."}
+  },
+  {
+   "id": "tu-do-ai", "video": [407],
+   "ten": {"vi": "Tự đo: AI có giúp bạn nhanh hơn không?", "en": "Measure it yourself: does AI really speed you up?"},
+   "ngan": {"vi": "Tự đo AI", "en": "Measure AI"},
+   "mo": {"vi": "Làm lại thí nghiệm METR trên việc của chính bạn: đoán trước, tung đồng xu chia việc, bấm giờ thật, rồi so đồng hồ với cảm giác.", "en": "Rerun the METR experiment on your own work: guess first, flip a coin to split the tasks, time them for real, then compare the clock with your feeling."},
+   "vi_du": {"vi": "Làm trong một tuần cũng được: máy lưu tiến độ ngay trên trình duyệt này. Muốn xem kết quả trông thế nào thì bấm Thử nhanh 1 phút.", "en": "Take a whole week if you like: progress is saved in this browser. To see what a result looks like, press Quick 1-minute demo."},
+   "doc": {"url": "bai-bao/01-metr-2025.html", "ten": {"vi": "Bài báo AI #1", "en": "AI paper #1"}},
+   "mac_dinh": {"doan": null, "loai": "email", "viec": []},
+   "so_viec": 10, "toi_da": 10, "it_nhat": 3,
+   "cam": [-40, -20, 0, 20, 40, 60],
+   "loai": {
+    "email": {"vi": "Viết email", "en": "Write an email"},
+    "bao-cao": {"vi": "Làm báo cáo", "en": "Write a report"},
+    "slide": {"vi": "Sửa slide", "en": "Fix slides"},
+    "tom-tat": {"vi": "Tóm tắt tài liệu", "en": "Summarise a document"}
+   },
+   "metr": {"doan": 24, "tuong": 20, "do": -19, "nguoi": 16, "viec": 246},
+   "demo": {"doan": 30, "loai": "email",
+            "viec": [["ai", 18, 30], ["tu", 17, null], ["ai", 22, 20], ["tu", 15, null], ["ai", 14, 40], ["tu", 20, null], ["tu", 16, null], ["ai", 25, 20], ["tu", 19, null], ["ai", 16, 30]]},
+   "nguon": [
+    {"ten": {"vi": "METR: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (10/7/2025)", "en": "METR: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (Jul 10, 2025)"},
+     "so": {"vi": "16 lập trình viên, 246 việc chia ngẫu nhiên. Đoán trước nhanh hơn 24%, làm xong tưởng nhanh hơn 20%, đồng hồ đo chậm hơn 19%", "en": "16 developers, 246 randomly assigned tasks. Forecast 24% faster, felt 20% faster afterwards, measured 19% slower"},
+     "url": "https://arxiv.org/abs/2507.09089"},
+    {"ten": {"vi": "METR: We are Changing our Developer Productivity Experiment Design (24/2/2026)", "en": "METR: We are Changing our Developer Productivity Experiment Design (Feb 24, 2026)"},
+     "so": {"vi": "Đợt hai, 57 người: ước tính nghiêng về nhanh hơn nhưng khoảng tin cậy rộng, chưa kết luận được", "en": "Second round, 57 people: estimates lean faster but the confidence interval is wide, so no firm conclusion"},
+     "url": "https://metr.org/blog/2026-02-24-uplift-update/"}
+   ],
+   "prompt": {"vi": "Đây là bảng thời gian tôi tự đo (tên việc, có dùng AI hay không, số phút): [dán vào đây]. Viết công thức bảng tính để tính trung vị số phút của mỗi nhóm và phần trăm chênh lệch. Đừng tự tính nhẩm.", "en": "Here is the timing table I recorded (task, AI or not, minutes): [paste here]. Write spreadsheet formulas for the median minutes of each group and the percentage difference. Don't do the maths in your head."}
   }
  ],
  "nhan_dong": {
