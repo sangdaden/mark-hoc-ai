@@ -1,4 +1,4 @@
-# ---------- trò chơi G1 "Mark chặn lừa" (chan-lua.html): video 14, 108-112, A1 ----------
+# ---------- trò chơi G1 "Mark chặn lừa" (chan-lua.html): video 14, 108-112, 223, 269, A1; 4 màn ----------
 # Tin nhắn, cuộc gọi bay về điện thoại của bà: chạm tin lừa để Mark bắn hạ, để tin thật bay qua. Cuối màn là trùm, một ca
 # trong data/lua-dao.json: chạm đúng các câu có dấu hiệu lừa để hạ. Bài học nằm trong luật chơi, không dừng lại hỏi.
 # Dữ liệu data/chan-lua.json, cách chơi chan-lua.js, CSS assets/tro-choi/chan-lua.css. Khung chơi ngang toàn màn hình
@@ -7,9 +7,19 @@
 VIDEO_CHAN_LUA = [
     ("14", "bai/14-deepfake.html", ("Deepfake: mặt và giọng giả bằng AI", "Deepfakes: AI-faked faces and voices")),
     ("108", "bai/108-gia-giong-nguoi-than.html", ("Giả giọng người thân", "Cloned voices of loved ones")),
+    ("109", "bai/109-video-call-gia.html", ("Video call giả", "Fake video calls")),
+    ("110", "bai/110-nguoi-noi-tieng-gia.html", ("Người nổi tiếng giả", "Fake celebrities")),
     ("111", "bai/111-tin-nhan-lua-dao.html", ("Tin nhắn lừa đảo", "Scam text messages")),
     ("112", "bai/112-mat-khau-gia-dinh.html", ("Mật khẩu gia đình", "A family password")),
 ]
+
+# Hình xem trước trên thẻ "Chơi thử" trong bài: tin lừa đỏ, tin thật xanh, bay về điện thoại.
+HINH_CHOI["chan-lua"] = lambda: (
+    '<span class="ct-hinh" aria-hidden="true" style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:linear-gradient(#1E3A8A,#38BDF8);border-radius:14px;padding:10px">'
+    '<span style="display:grid;gap:6px">'
+    f'<span style="padding:5px 9px;border-radius:10px;background:#FEE2E2;border:2px solid #DC2626;color:#7F1D1D;font:600 12px/1.3 var(--f-body)">{t("Đọc giúp cháu mã OTP…", "Read me your code…")}</span>'
+    f'<span style="padding:5px 9px;border-radius:10px;background:#DCFCE7;border:2px solid #16A34A;color:#14532D;font:600 12px/1.3 var(--f-body)">{t("Mẹ ơi tối con về ăn cơm", "Mom, home for dinner")}</span>'
+    '</span><span style="width:34px;height:60px;border-radius:8px;background:#0F172A;border:4px solid #0F172A;box-shadow:inset 0 0 0 30px #E0F2FE"></span></span>')
 
 
 @trang_rieng("chan-lua.html", "0.7")
