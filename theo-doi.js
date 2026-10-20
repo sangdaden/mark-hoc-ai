@@ -124,6 +124,8 @@
     if (/^mailto:/i.test(href)) return gui("bam-email", { cho: cho });
     if (/(^|\/)ung-ho\.html/.test(href)) return gui("bam-ung-ho", { cho: cho });
     if (/facebook\.com\/sharer/i.test(href)) return gui("chia-se", { cach: "facebook" });
+    // Nút "Đăng ký" cạnh link YouTube (cai-dat.js): đếm riêng, không gộp vào bam-kenh
+    if (/youtube\.com\/[^?#]*\?(.*&)?sub_confirmation=1/i.test(href)) return gui("dang-ky-youtube", { cho: cho });
     // Tải sách PDF miễn phí (nút ở sach.html và trang chủ, VI + EN); trang = trang có nút
     if (/(^|\/)assets\/sach\/[^\/?#]+\.pdf([?#]|$)/i.test(href)) return gui("tai-sach", { trang: duong.replace(/^\/en(\/|$)/, "/").replace(/\.html$/, "").replace(/^\/$/, "/index").slice(1) || "index", cho: cho });
     if (/^https?:/i.test(href)) {
