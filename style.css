@@ -3325,3 +3325,12 @@ html { scroll-padding-top: 72px; }
 html .dict-tools, html .course-bar, html .kt-dinh { top: var(--dau-ghim, 0px); }
 html .ld-ben, html .gh-ben, html .bn-ngan, html .bl-ben, html .dk-ben, html .mt-luoi-tu-do-ai .mt-ket, html .bd-the, html .bd-trai, html .di-to-wrap { top: calc(var(--dau-ghim, 0px) + 16px); }
 html .doc-ben { top: calc(var(--dau-ghim, 0px) + 20px); }
+/* Chân trang mẫu C (20/10/2026): dải nút "AI cho từng nghề" dưới 4 cột */
+.foot-nghe { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .22); }
+.foot-nghe-h { margin-right: 6px; font: 700 12px/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #FDE047; }
+.foot-nghe a { padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .1); color: #fff; text-decoration: none; font-size: 14.5px; }
+.foot-nghe a:hover, .foot-nghe a[aria-current="page"] { background: rgba(255, 255, 255, .22); border-color: #FDE047; }
+.foot-nghe a.foot-nghe-cuoi { background: #fff; border-color: #fff; color: #1E3A8A; font-weight: 600; }
+.foot-nghe a.foot-nghe-cuoi:hover { background: #FDE047; border-color: #FDE047; color: #0F172A; }
+.foot-nghe a:focus-visible { outline: 3px solid #FDE047; outline-offset: 2px; }
+@media (max-width: 760px) { .foot-nghe { padding-block: 16px 4px; } .foot-nghe-h { flex-basis: 100%; } }
