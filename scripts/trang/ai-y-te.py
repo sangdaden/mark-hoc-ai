@@ -242,7 +242,7 @@ def tao_ai_y_te():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{dong_dau}</p>\n'
             f'<h1>{t("AI cho người làm y tế", "AI for healthcare staff")}</h1>\n'
             f'<p class="lead">{t("AI soạn nháp, người làm y tế quyết định. Thông tin người bệnh không rời máy bạn.", "AI drafts, healthcare staff decide. Patient details never leave your device.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/bit-giai-thich.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art head-nv" src="{p}assets/nhan-vat/co-hanh-y-te.svg" alt="{t('Cô Hạnh mặc áo blouse, cầm bảng kẹp hồ sơ', 'Ms. Hanh in a white coat, holding a clipboard')}" width="180" height="216"></div>')
     main = (f'<main class="bn yt" id="yt">\n<link rel="stylesheet" href="{p}assets/ai-y-te.css?v=dev">\n'
             + (f'<link rel="stylesheet" href="{p}assets/thuc-hanh.css?v=dev">\n' if nc else "")
             + f'{ngan}\n<div class="bn-ban">\n{che}\n{lenh}\n{soat}\n{de_hieu}\n{quy_tac}\n{ban_do}\n{danh_gia}\n'
