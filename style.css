@@ -3312,3 +3312,19 @@ a.nut-dk.nut-dk-nho { padding: 5px 10px; font-size: 13px; }
 @media (max-width: 760px) { .top-tools a.nut-dk.nut-dk-dau { display: none; } }
 .band .top-links.da-gom > a.nav-dk:not(.nav-yt):not(.nav-start):not(.nav-vtk) { display: none; }
 @media (max-width: 1100px) { .band .top-links.da-gom > a.nav-dk:not(.nav-yt):not(.nav-start):not(.nav-vtk) { display: inline-flex; align-self: flex-start; gap: 6px; padding: 8px 14px; margin: 0 0 4px; } }
+
+/* ===== Đầu trang ghim (Sang 20/10/2026): cai-dat.js thêm .ghim khi lướt qua đầu trang ===== */
+html { scroll-padding-top: 72px; }
+.band > .top.ghim { position: fixed; top: 0; left: 16px; right: 16px; z-index: 40; margin-inline: auto; padding-block: 8px; background: inherit; }
+.band > .top.ghim::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: inherit; box-shadow: 0 10px 24px -14px rgba(15, 23, 42, .55); }
+.band > .top.ghim .brand img { width: 34px; height: 34px; }
+.band > .top.ghim .nav-dai { display: none; }
+.band > .top.ghim.mo-menu { padding-bottom: 14px; }
+.band > .top.ghim.mo-menu .top-links { max-height: calc(100vh - 90px); max-height: calc(100dvh - 90px); overflow-y: auto; overscroll-behavior: contain; }
+@media (min-width: 1101px) {
+  .band > .top.ghim .top-links.da-gom > a:not(.nav-start):not(.nav-yt):not(.nav-vtk), .band > .top.ghim .top-links.da-gom .nav-drop > summary { gap: 2px; }
+}
+/* Thanh sticky khác trong trang lùi xuống dưới đầu trang đang ghim */
+html .dict-tools, html .course-bar, html .kt-dinh { top: var(--dau-ghim, 0px); }
+html .ld-ben, html .gh-ben, html .bn-ngan, html .bl-ben, html .dk-ben, html .mt-luoi-tu-do-ai .mt-ket, html .bd-the, html .bd-trai, html .di-to-wrap { top: calc(var(--dau-ghim, 0px) + 16px); }
+html .doc-ben { top: calc(var(--dau-ghim, 0px) + 20px); }
