@@ -202,6 +202,10 @@ def tao_phong_du_lieu():
         '<figure class="pdl-hinh"><svg id="xn-nui" class="pdl-svg" viewBox="0 0 400 260" role="img" aria-label=""></svg>'
         f'<figcaption class="pdl-chu">{t("Độ cao là sai số. Chấm xanh là bạn, mũi tên vàng là hướng xuống dốc dò được dưới chân.", "Height is the loss. The blue dot is you; the yellow arrow is the downhill direction your feet can feel.")}</figcaption></figure></div>\n'
         '<div class="pdl-o4" id="xn-o" aria-live="polite"></div>\n'
+        # Nhai, quái vật ăn dữ liệu: thanh "đã học" đầy lên khi sai số giảm
+        f'<div class="nv pdl-nhai"><img src="{p}assets/nhan-vat/nhai.svg" alt="" width="64" height="77"><div class="nv-loi">'
+        f'<p><b>{t("Nhai:", "Munch:")}</b> {t("Mỗi bước xuống dốc là mình học thêm một chút từ dữ liệu của tiệm. Sai số càng thấp, thanh của mình càng đầy!", "Every step downhill, I learn a bit more from the shop’s data. The lower the loss, the fuller my bar!")}</p>'
+        f'<div class="pdl-nhai-hang"><span>{t("Đã học", "Learned")}</span><span class="pdl-nhai-thanh"><i id="xn-nhai"></i></span><b id="xn-nhai-so">0%</b></div></div></div>\n'
         '<div class="pdl-xn-dk"><div>'
         f'<h3>{t("1. Tự vặn núm bằng tay", "1. Turn the knob by hand")}</h3>'
         f'<label class="bn-lbl" for="xn-w">{t("Núm w: mỗi khách mua bao nhiêu ly. Nhìn con số sai số (video 39)", "Knob w: cups per customer. Watch the loss number (video 39)")}</label>'

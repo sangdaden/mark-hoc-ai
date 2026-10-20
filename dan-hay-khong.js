@@ -46,8 +46,9 @@
     // Cửa sổ chatbot giả lập, thứ định dán nằm sẵn trong ô nhập
     var cs = el("div", "dk-chat");
     var dau = el("div", "dk-chat-dau");
-    var av = el("span", "dk-chat-av", "AI");
-    av.setAttribute("aria-hidden", "true");
+    // Chatbot là Nhai, quái vật ăn dữ liệu: dán gì vào là vào bụng Nhai
+    var av = el("img", "dk-chat-nhai");
+    av.src = D.p + "assets/nhan-vat/nhai.svg"; av.alt = ""; av.width = 40; av.height = 48;
     dau.appendChild(av);
     var ten = el("div");
     ten.appendChild(el("b", null, N.tro_ly));
@@ -122,6 +123,15 @@
     chu.appendChild(el("p", "ld-ph-chu", c.giai));
     ph.appendChild(chu);
     ben.appendChild(ph);
+    // Định dán thẳng một đoạn có dữ liệu nhạy cảm: Chó Lu sủa
+    if (chon === "dan" && c.dap_an !== "dan") {
+      var lu = el("div", "nv dk-lu");
+      var anhLu = el("img");
+      anhLu.src = D.p + "assets/nhan-vat/cho-lu.svg"; anhLu.alt = ""; anhLu.width = 64; anhLu.height = 77;
+      lu.appendChild(anhLu);
+      lu.appendChild(el("p", "nv-loi", N.lu));
+      ben.appendChild(lu);
+    }
 
     var nut = el("div", "cta ld-sau");
     var tiep = el("button", "btn btn-yt", S.i + 1 < THE.length ? N.tiep + " ›" : N.xem_ket);

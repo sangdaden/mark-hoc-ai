@@ -53,3 +53,15 @@
 .ddc-so-man.is-dang { border-color: var(--blue); box-shadow: 0 0 0 2px var(--blue) inset; }
 .ddc-so-man:disabled { opacity: .55; cursor: not-allowed; }
 .ddc-het { margin: 0; font-size: 14px; color: var(--muted); }
+/* Chữ Con trong thẻ đầu màn (duong-doan-chu.js manDau) */
+.ddc-cc { margin: 0 0 12px; gap: 10px; }
+.ddc-cc .nv-loi { margin: 0; font-size: 14px; padding: 8px 12px; }
+@media (max-width: 700px) { .ddc-cc > img { width: 34px; } .ddc-cc .nv-loi { font-size: 12.5px; padding: 6px 10px; } }
+.pl.is-toan .ddc-cc > img { width: 34px; }
+.pl.is-toan .ddc-cc .nv-loi { font-size: 12.5px; padding: 6px 10px; }
+@media (max-width: 700px) { .pl:not(.is-toan) .ddc-cc { display: none; } }
+/* Điện thoại nằm ngang (toàn màn hình): thẻ đầu màn thấp, thu gọn tiêu đề và lời Chữ Con cho vừa */
+@media (max-height: 500px) {
+  .ddc-dau h2 { font-size: 19px; margin-bottom: 8px; }
+  .ddc-cc { margin-bottom: 8px; } .ddc-cc > img { width: 30px; } .ddc-cc .nv-loi { font-size: 12.5px; padding: 5px 10px; }
+}

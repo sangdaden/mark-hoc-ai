@@ -1865,6 +1865,8 @@ def tao_lua_dao():
         "hang": [[round(luot * .9), t("Thám tử chống lừa", "Scam detective")], [round(luot * .7), t("Khá tỉnh táo", "Pretty sharp")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
         "dau_hieu": t("dấu hiệu", "signs"), "on_lai": t("Ôn lại các video bạn trả lời sai", "Rewatch the videos for the cases you missed"), "het_sai": t("Bạn không sai ca nào. Gửi trò này cho bố mẹ thử xem!", "You got every case right. Send this to your parents to try!"),
         "choi_lai": t("Chơi lại", "Play again"),
+        "cao": t("Lật mặt rồi! Kẻ đứng sau ca này là Cáo Giả. Gặp lại mấy dấu hiệu trên là bạn nhận ra nó ngay.",
+                 "Unmasked! Faker Fox was behind this one. Spot those signs again and you'll know it's him."),
     }
     du_lieu = json.dumps({"ca": ca, "nhan": nhan, "p": p, "luot": luot}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     so_ca, so_lua = len(ca), sum(c["dap_an"] == "lua" for c in ca)
@@ -1995,6 +1997,7 @@ def tao_bo_nao():
 <p class="bn-nhan">{t("Trạm 1 · Video 19, 146, 60", "Station 1 · Videos 19, 146, 60")}</p>
 <h2 id="h-cat-manh">{t("Gõ gì cũng được, xem AI cắt thành mảnh nào", "Type anything, see which tokens the AI cuts it into")}</h2>
 <p class="bn-mo">{t("AI không đọc từng chữ cái mà đọc từng <b>mảnh</b> (token). Mỗi màu dưới đây là một mảnh. Đây là bộ tách mảnh thật, cùng loại các chatbot đang dùng.", "AI doesn't read letter by letter. It reads <b>tokens</b>. Each colour below is one token. This is a real tokenizer, the same kind chatbots use.")}</p>
+<div class="nv bn-cc"><img src="{p}assets/nhan-vat/chu-con.svg" alt="" width="64" height="77"><p class="nv-loi"><b>{t("Chữ Con:", "The Token Kids:")}</b> {t("Tụi mình chính là các mảnh đó! Câu nào vào AI cũng bị cắt thành một hàng Chữ Con, rồi AI mới đọc.", "We are those tokens! Every sentence gets cut into a line of Token Kids before the AI reads it.")}</p></div>
 <label class="bn-lbl" for="cm-chu">{t("Câu của bạn", "Your sentence")}</label>
 <textarea id="cm-chu" class="bn-o" rows="2" maxlength="600">{mau[0][0]}</textarea>
 <div class="bn-mau" role="group" aria-label="{t("Câu mẫu", "Sample sentences")}">{nut_mau}</div>
@@ -2169,6 +2172,8 @@ def tao_bat_loi():
         "da_tim": t("Bắt được", "Caught"), "cach_kiem": t("Cách kiểm", "How to check"), "tiep": t("Ca tiếp theo", "Next case"), "xem_ket": t("Xem kết quả", "See your result"),
         "xem_video": t("Xem video", "Watch video"), "sap_ra": t("sắp ra mắt", "coming soon"),
         "ai": t("AI trả lời · bản minh họa do kênh viết", "AI answer · example written by the channel"), "ban": t("Bạn", "You"),
+        "may_ten": t("Mây Bịa", "Fib Cloud"), "may_noi": t("Câu trả lời này chuẩn 100%, khỏi kiểm tra! (Bit nói nhỏ: Mây Bịa hay bịa lắm, bạn bắt lỗi giúp Bit nhé.)",
+                                                          "This answer is 100% right, no need to check! (Bit whispers: Fib Cloud makes things up a lot. Help me catch the mistakes.)"),
         "truc_tu": t("Trục dọc bắt đầu từ", "Vertical axis starts at"), "keo_truc": t("Kéo trục về 0", "Drag the axis to 0"),
         "tai_tro": t("Được tài trợ", "Sponsored"),
         "tron": t("Trộn 8 ca", "Mixed, 8 cases"), "tron_moi": t("Hai ca mỗi bộ, đổi mỗi lần chơi", "Two cases from each set, new every time"),
@@ -2317,7 +2322,7 @@ def tao_dan_hay_khong():
            for c in D["the"]]
     n = len(the)
     nhan = {
-        "the": t("Thẻ", "Card"), "diem": t("Điểm", "Score"), "tro_ly": t("Trợ lý AI", "AI assistant"), "tk_ca_nhan": t("Tài khoản cá nhân", "Personal account"),
+        "the": t("Thẻ", "Card"), "diem": t("Điểm", "Score"), "tro_ly": t("Nhai, trợ lý AI", "Munch, the AI assistant"), "tk_ca_nhan": t("Tài khoản cá nhân", "Personal account"),
         "ban_dinh": t("Bạn định nhờ:", "You want to:"), "dang_dan": t("Đang dán vào ô chat", "About to paste"),
         "hoi": t("Dán đoạn này vào chatbot được không?", "Can you paste this into the chatbot?"),
         "dan": t("Dán thoải mái", "Paste it"), "che": t("Che bớt rồi dán", "Mask, then paste"), "khong": t("Đừng dán", "Don't paste"),
@@ -2325,6 +2330,7 @@ def tao_dan_hay_khong():
         "dung": t("Chuẩn rồi!", "Spot on!"), "sai": t("Chưa đúng!", "Not quite!"),
         "tiep": t("Thẻ tiếp theo", "Next card"), "xem_ket": t("Xem kết quả", "See your result"),
         "hang": [[n, t("Người giữ kín bậc thầy", "Privacy pro")], [round(n * .75), t("Khá cẩn thận", "Pretty careful")], [0, t("Nên ôn lại một chút", "Worth a quick refresher")]],
+        "lu": t("Gâu gâu! Khoan dán đã. Trong đoạn này có thứ không được cho Nhai ăn, che đi hoặc giữ lại nhé.", "Woof! Hold on. There’s something in here Munch must not eat. Mask it or keep it to yourself."),
         "sai_nhieu": t("Bạn còn nhầm ở nhóm:", "You slipped on:"), "het_sai": t("Bạn không nhầm thẻ nào. Gửi trò này cho đồng nghiệp thử xem!", "No slip-ups. Send this to a colleague!"),
     }
     du_lieu = json.dumps({"the": the, "nhan": nhan, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
@@ -2547,9 +2553,10 @@ def tao_cuoc_goi():
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Trò chơi · 4 phút · chơi trên điện thoại", "Game · 4 minutes · works on your phone")}</p>\n'
             f'<h1>{t("Cuộc gọi giả giọng", "The fake-voice call")}</h1>\n'
             f'<p class="lead">{t(f"{so_cuoc} cuộc gọi đổ chuông. Bạn chọn nghe hay không, nói gì, có chuyển tiền không. Cuối cùng tự đặt mật khẩu gia đình và in một thẻ nhỏ cho cả nhà.", f"{so_cuoc} calls ring in. You choose whether to answer, what to say and whether to send money. Then make your own family safe word and print a small card for everyone.")}</p>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-thac-mac.svg" alt="" width="180" height="170"></div>')
+            f'</div><img class="head-art" src="{p}assets/nhan-vat/ba-nam.svg" alt="{t("Bà Năm, bà ngoại của Mark, cầm điện thoại", "Grandma Nam, Mark’s grandmother, holding her phone")}" width="160" height="192"></div>')
     main = f"""<main class="cg" id="cg">
 <div class="cg-dau"><p class="cg-tien" id="cg-tien" aria-live="polite"></p><a class="cg-bo-qua" id="cg-bo-qua" href="#cg-mk">{t("Đặt mật khẩu gia đình ngay", "Make a family safe word now")} ↓</a><p class="cg-diem" id="cg-diem"></p></div>
+<div class="nv cg-ba"><img src="{p}assets/nhan-vat/ba-nam.svg" alt="" width="64" height="77"><p class="nv-loi"><b>{t("Bà Năm:", "Grandma Nam:")}</b> {t("Điện thoại bà cứ reo hoài mà bà không biết ai thật ai giả. Cháu nghe giúp bà, chọn giùm bà nên nói gì nhé!", "My phone keeps ringing and I can’t tell who’s real. Answer for me, dear, and pick what I should say!")}</p></div>
 <div class="cg-san" id="cg-san"></div>
 <section class="cg-ket" id="cg-ket" hidden aria-live="polite">
 <div class="ld-ket-the"><img src="{p}assets/bit-vui.svg" alt="" width="96" height="96"><div><p class="ld-ket-so" id="cg-ket-so"></p><p class="ld-ket-hang" id="cg-ket-hang"></p><p class="ld-ket-phu" id="cg-ket-phu"></p></div></div>

@@ -1066,6 +1066,10 @@
       var s = TINH.saiSo(S.w), g = TINH.doDoc(S.w);
       o4(o, [[L.w + " · " + L.wDv, so(S.w, 2), "is-xanh-duong"], [L.sai, so(s, s < 10 ? 2 : 1), s < XN.dich ? "is-xanh" : s > 50 ? "is-do" : "is-cam"],
         [L.buoc, so(S.n), "is-tim"], [L.doc, so(g, 1), ""]]);
+      // Thanh "đã học" của Nhai: 0% ở đỉnh núi, 100% khi sai số về gần đáy
+      var hoc = Math.round(100 * Math.max(0, Math.min(1, 1 - s / TINH.saiSo(XN.dinh))));
+      var thanh = $("xn-nhai");
+      if (thanh) { thanh.style.width = hoc + "%"; $("xn-nhai-so").textContent = hoc + "%"; }
     }
     function the_() {
       var s = TINH.saiSo(S.w);

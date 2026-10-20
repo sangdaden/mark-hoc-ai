@@ -71,6 +71,16 @@
     de.appendChild(el("span", "bl-bo-nhan", b.ten));
     de.appendChild(el("h2", "bl-de-h", N.tim + " " + C.khoa.length + " " + c.de));
     trai.appendChild(de);
+    // Bộ "AI trả lời sai": câu trả lời là của Mây Bịa, đám mây hay bịa, người chơi cùng Bit bắt lỗi
+    if (c.bo === "ai-sai") {
+      var may = el("div", "nv bl-may");
+      may.appendChild(anhNv("may-bia"));
+      var loi = el("p", "nv-loi");
+      loi.appendChild(el("b", null, N.may_ten + ": "));
+      loi.appendChild(document.createTextNode(N.may_noi));
+      may.appendChild(loi);
+      trai.appendChild(may);
+    }
     c.khung.forEach(function (k) { trai.appendChild(veKhung(k)); });
     o.appendChild(trai);
     var ben = el("div", "bl-ben");
@@ -85,7 +95,7 @@
     var f = el("figure", "bl-k bl-k-" + k.loai + (k.kieu ? " bl-kieu-" + k.kieu : ""));
     if (k.ten || k.phu) {
       var cap = el("figcaption", "bl-k-dau");
-      var av = el("span", "bl-av", (k.ten || "?").trim().charAt(0).toUpperCase());
+      var av = S.c.ca.bo === "ai-sai" ? anhNv("may-bia", "bl-av-nv") : el("span", "bl-av", (k.ten || "?").trim().charAt(0).toUpperCase());
       av.setAttribute("aria-hidden", "true");
       if (k.loai === "chat") cap.appendChild(av);
       var ten = el("div", "bl-k-ten");
@@ -99,6 +109,12 @@
     else if (k.loai === "hinh") f.appendChild(veHinh(k));
     else f.appendChild(veBieuDo(k));
     return f;
+  }
+
+  function anhNv(id, cls) {
+    var i = el("img", cls || null);
+    i.src = ASSET + "nhan-vat/" + id + ".svg"; i.alt = ""; i.width = 64; i.height = 77;
+    return i;
   }
 
   function doan(chu, loi) {

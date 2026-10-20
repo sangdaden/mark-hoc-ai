@@ -362,6 +362,12 @@
     var m = D.man[i], w = el("div", "ddc-dau");
     w.appendChild(el("p", "ddc-nho", N.manSo(i + 1) + " · " + m.ten));
     w.appendChild(el("h2", null, m.dau + " …"));
+    // Chữ Con: đàn token xếp hàng thành câu, mỗi con cá câu lên là một Chữ Con nối vào câu
+    var cc = el("div", "nv ddc-cc"), ccA = el("img");
+    ccA.src = D.p + "assets/nhan-vat/chu-con.svg"; ccA.alt = ""; ccA.width = 44; ccA.height = 53;
+    cc.appendChild(ccA);
+    var ccL = el("p", "nv-loi"); ccL.appendChild(el("b", null, N.ccTen + ": ")); ccL.appendChild(document.createTextNode(N.ccNoi)); cc.appendChild(ccL);
+    w.appendChild(cc);
     if (i === 0) {
       var ba = el("div", "ddc-ba");
       ba.appendChild(oNho("🐟", N.y1, N.y1c)); ba.appendChild(oNho("🌡", N.y2, N.y2c)); ba.appendChild(oNho("🦴", N.y3, N.y3c));

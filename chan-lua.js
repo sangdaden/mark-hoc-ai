@@ -123,6 +123,14 @@
     var cach = L.m.cach[0] + (L.m.cach[1] - L.m.cach[0]) * tien;
     L.hen = cach;
   }
+  // Chặn đúng tin lừa: Cáo Giả, kẻ gửi tin, bị lật mặt ở chỗ tin vỡ rồi biến mất (trùm thì to hơn, ở lâu hơn)
+  function latMat(x, y, to) {
+    var w = to ? 120 : 70, cao = el("img", "cl-cao" + (to ? " is-to" : ""));
+    cao.src = GOC + "assets/nhan-vat/cao-gia.svg"; cao.alt = ""; cao.width = w; cao.height = Math.round(w * 1.2);
+    cao.style.left = Math.round(x - w / 2) + "px"; cao.style.top = Math.round(y - w * 0.6) + "px";
+    lop.appendChild(cao);
+    setTimeout(function () { if (cao.parentNode) cao.parentNode.removeChild(cao); }, to ? 2400 : 1100);
+  }
   function datViTri(n, x, y) { n.style.transform = "translate(" + x.toFixed(1) + "px," + y + "px)"; }
 
   function banTin(b) {
@@ -137,6 +145,7 @@
       var dh = D.dau_hieu[b.q.dau];
       no(b.x + TIN_W / 2, b.y + TIN_H / 2, "#F87171", 14);
       nhan(b.x + TIN_W / 2, b.y + 10, chu(dh), "#FECACA");
+      latMat(b.x + TIN_W / 2, b.y, false);
       ghi(b, "ban-dung");
       if (!L.daNoi[b.q.dau]) { L.daNoi[b.q.dau] = 1; noi(T.chanDuoc(chu(dh)), chu(dh.giai), "vui", 3.5); }
     } else {
@@ -218,6 +227,7 @@
     var r = khungToaDo(tr.nut.getBoundingClientRect());
     for (var k = 0; k < 4; k++) no(r.x + (Math.random() - 0.5) * 200, r.y + (Math.random() - 0.5) * 80, k % 2 ? "#FDE68A" : "#F87171", 14);
     tr.nut.classList.add("is-no");
+    latMat(r.x, r.y - 40, true);
     L.bao = {chu: T.trumHa, t: 2.5};
     noi(T.trumHa, chu(tr.c.giai), "vui", 6);
     L.ketThuc = true;
