@@ -7,7 +7,7 @@ _GTH_NHOM = [
     ("an-toan", "🛡️", ("An toàn và lừa đảo", "Safety and scams"),
      ["lua-dao-hay-that", "cuoc-goi-gia-giong", "dan-hay-khong", "bit-bat-loi", "do-in-gia-dinh"]),
     ("dung-ai", "✍️", ("Dùng AI mỗi ngày", "Everyday AI"),
-     ["tho-ghep-cau-lenh", "nhap-vai", "may-tinh-doi-that", "ban-do-ai-an"]),
+     ["nghe-cua-ban", "tho-ghep-cau-lenh", "nhap-vai", "may-tinh-doi-that", "ban-do-ai-an"]),
     ("ben-trong", "🧠", ("Bên trong bộ não AI", "Inside the AI brain"),
      ["bo-nao-cat-manh", "bo-nao-doan-chu", "bo-nao-vong-quay", "bo-loc-thien-vi", "dong-thoi-gian-ai", "ai-choi-caro", "ai-choi-thuyen"]),
     ("du-lieu", "📊", ("Dữ liệu, robot và cảm biến", "Data, robots and sensors"),

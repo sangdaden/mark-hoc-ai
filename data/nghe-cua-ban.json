@@ -1,0 +1,1495 @@
+{
+ "_ghi_chu": "Mô phỏng Nghề của bạn với AI (nghe-cua-ban.html, nghe-cua-ban.js, scripts/trang/nghe-cua-ban.py). Mỗi nghề: 6 việc trong ngày, mỗi việc 'muc' là nhap (AI làm nháp), phu (AI phụ một tay) hoặc nguoi (chỉ người làm), 'tram' là trạm cùng chủ đề ở trang thực hành 'trang' (mở bằng ?tram=<id>). 'dau' là việc đem ra đấu 3 vòng: toc_do (tự viết một phần, AI viết cả bản), bat_loi (bản AI có đúng một dòng sai), chon (chọn bản sẽ dùng, đúng một bản 'dung'). Bản AI do kênh viết để minh họa, không gọi AI thật. 'lo_trinh' là id trong data/lo-trinh-nganh.json (nghề chưa có lộ trình riêng thì ghi 'lo_trinh_nghe' là chữ để mở lộ trình và 'video_so'), 'goc' trong bat_loi là văn bản để đối chiếu, 'dap' (không bắt buộc) là đáp án AI ghi kèm mỗi dòng, 'tu_khoa' để ghép nghề người xem tự gõ.",
+ "nghe": [
+  {
+   "id": "giao-vien",
+   "bt": "🍎",
+   "ten": {
+    "vi": "Giáo viên",
+    "en": "Teacher"
+   },
+   "mau": [
+    "#2563EB",
+    "#0EA5E9"
+   ],
+   "trang": "ai-giao-vien",
+   "lo_trinh": "giao-vien",
+   "tu_khoa": [
+    "giáo viên",
+    "cô giáo",
+    "thầy giáo",
+    "giảng viên",
+    "gia sư",
+    "dạy học",
+    "teacher",
+    "tutor",
+    "lecturer"
+   ],
+   "ngay": {
+    "vi": "Một ngày của giáo viên",
+    "en": "A teacher's day"
+   },
+   "viec": [
+    {
+     "id": "giao-an",
+     "gio": "6:45",
+     "muc": "nhap",
+     "tram": "giao-an",
+     "ten": {
+      "vi": "Soạn giáo án",
+      "en": "Plan a lesson"
+     },
+     "ai": {
+      "vi": "Dựng dàn ý tiết học, hoạt động nhóm và câu hỏi gợi mở trong một phút.",
+      "en": "Drafts the lesson outline, group activities and warm-up questions in a minute."
+     },
+     "ban": {
+      "vi": "Chỉnh theo sách giáo khoa và trình độ lớp mình, kiểm lại từng kiến thức.",
+      "en": "Fit it to your textbook and your class, and check every fact."
+     }
+    },
+    {
+     "id": "dung-lop",
+     "gio": "7:30",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Đứng lớp giảng bài",
+      "en": "Teach the class"
+     },
+     "ai": {
+      "vi": "Chỉ gợi thêm ví dụ trước giờ lên lớp.",
+      "en": "Can only suggest extra examples before class."
+     },
+     "ban": {
+      "vi": "Đọc nét mặt học trò, giữ nhịp lớp, khen đúng lúc. Phần này không máy nào làm thay.",
+      "en": "Read the room, keep the pace, praise at the right moment. No machine does this for you."
+     }
+    },
+    {
+     "id": "ra-de",
+     "gio": "10:00",
+     "muc": "nhap",
+     "tram": "de-3-muc",
+     "ten": {
+      "vi": "Ra đề kiểm tra 15 phút",
+      "en": "Write a 15-minute quiz"
+     },
+     "ai": {
+      "vi": "Soạn cả đề và đáp án trong vài giây.",
+      "en": "Writes the whole quiz and answer key in seconds."
+     },
+     "ban": {
+      "vi": "Dò từng đáp án, vì AI vẫn có thể ghi sai, rồi chỉnh cho vừa sức lớp.",
+      "en": "Check every answer, because AI can still get one wrong, then pitch it to your class."
+     }
+    },
+    {
+     "id": "cham-bai",
+     "gio": "14:00",
+     "muc": "phu",
+     "tram": "nhan-xet",
+     "ten": {
+      "vi": "Chấm bài tự luận",
+      "en": "Mark written work"
+     },
+     "ai": {
+      "vi": "Gợi ý lời nhận xét theo tiêu chí bạn đưa.",
+      "en": "Suggests feedback against the criteria you give it."
+     },
+     "ban": {
+      "vi": "Cho điểm là việc của bạn: AI chấm lệch và không biết em nào đã cố gắng hơn tuần trước.",
+      "en": "The grade is yours: AI marks unevenly and doesn't know who tried harder than last week."
+     }
+    },
+    {
+     "id": "phu-huynh",
+     "gio": "16:30",
+     "muc": "phu",
+     "tram": "phu-huynh",
+     "ten": {
+      "vi": "Nhắn tin phụ huynh",
+      "en": "Message parents"
+     },
+     "ai": {
+      "vi": "Viết nháp lời lẽ nhẹ nhàng, rõ ý.",
+      "en": "Drafts a polite, clear message."
+     },
+     "ban": {
+      "vi": "Kiểm đúng thông tin, và không dán tên hay điểm của học sinh khác vào chatbot.",
+      "en": "Check the facts, and never paste other pupils' names or grades into a chatbot."
+     }
+    },
+    {
+     "id": "tam-su",
+     "gio": "20:00",
+     "muc": "nguoi",
+     "tram": "che-hs",
+     "ten": {
+      "vi": "Nghe học trò tâm sự",
+      "en": "Listen to a pupil in trouble"
+     },
+     "ai": {
+      "vi": "Không nên dùng: chuyện riêng của học trò không đưa vào chatbot.",
+      "en": "Don't use it: a pupil's private story does not go into a chatbot."
+     },
+     "ban": {
+      "vi": "Lắng nghe, giữ bí mật, và báo nhà trường khi em gặp nguy.",
+      "en": "Listen, keep it private, and tell the school if the child is at risk."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "ra-de",
+    "ten": {
+     "vi": "Ra đề 15 phút: phân số, Toán lớp 4",
+     "en": "15-minute quiz: fractions, Year 4 maths"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết câu 1 của đề: một câu trắc nghiệm hỏi phân số nào bằng 1/2.",
+      "en": "Write question 1 yourself: a multiple-choice question asking which fraction equals 1/2."
+     },
+     "goi_y": {
+      "vi": "Câu 1. Phân số nào bằng 1/2?  A. ...  B. ...  C. ...",
+      "en": "Q1. Which fraction equals 1/2?  A. ...  B. ...  C. ..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI soạn xong 5 câu kèm đáp án. Có đúng một đáp án sai. Chạm vào câu đó.",
+      "en": "AI wrote 5 questions with answers. Exactly one answer is wrong. Tap that question."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Phân số nào bằng 1/2?  A. 2/4  B. 2/3  C. 3/4",
+        "en": "Which fraction equals 1/2?  A. 2/4  B. 2/3  C. 3/4"
+       },
+       "dap": "A. 2/4"
+      },
+      {
+       "cau": {
+        "vi": "Rút gọn 6/8 ta được?",
+        "en": "Simplify 6/8."
+       },
+       "dap": "3/4"
+      },
+      {
+       "cau": {
+        "vi": "Điền dấu: 2/5 ... 3/5",
+        "en": "Fill in the sign: 2/5 ... 3/5"
+       },
+       "dap": "2/5 > 3/5",
+       "sai": true,
+       "giai": {
+        "vi": "Cùng mẫu số thì tử lớn hơn sẽ lớn hơn: 2/5 < 3/5. AI viết câu trơn tru nhưng vẫn có thể ghi ngược dấu.",
+        "en": "Same denominator, so the bigger numerator wins: 2/5 < 3/5. AI writes fluently but can still flip a sign."
+       }
+      },
+      {
+       "cau": {
+        "vi": "1/3 + 1/3 = ?",
+        "en": "1/3 + 1/3 = ?"
+       },
+       "dap": "2/3"
+      },
+      {
+       "cau": {
+        "vi": "Quy đồng mẫu số 1/2 và 1/3.",
+        "en": "Give 1/2 and 1/3 a common denominator."
+       },
+       "dap": {
+        "vi": "3/6 và 2/6",
+        "en": "3/6 and 2/6"
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Lớp 4A của bạn còn nhiều em chưa vững phân số. Bạn sẽ phát bản nào?",
+      "en": "Many children in your class are still shaky on fractions. Which version do you hand out?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Giữ nguyên 5 câu AI soạn, phát luôn cho kịp giờ.",
+        "en": "Keep AI's 5 questions as they are and hand them out now."
+       },
+       "giai": {
+        "vi": "Câu 3 vẫn sai đáp án, lớp chưa vững sẽ học nhầm.",
+        "en": "Question 3 still has the wrong answer, and a shaky class will learn the mistake."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Sửa câu 3, vẽ thêm hình chiếc bánh chia phần cho 2 câu đầu, để câu 5 làm bài thêm cho em khá.",
+        "en": "Fix question 3, add a cut-up cake picture to the first 2 questions, and make question 5 a bonus for stronger pupils."
+       },
+       "dung": true,
+       "giai": {
+        "vi": "AI làm nháp, còn bạn biết lớp mình cần gì. Đây là cách dùng AI của giáo viên giỏi.",
+        "en": "AI drafts, you know what your class needs. That's how good teachers use AI."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Bỏ bản AI, tự viết lại từ đầu tối nay.",
+        "en": "Throw out AI's version and rewrite it all tonight."
+       },
+       "giai": {
+        "vi": "Phí công: bản AI đã đúng 4/5 câu, chỉ cần sửa một chỗ.",
+        "en": "Wasted effort: AI already got 4 of 5 right, only one fix was needed."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "van-phong",
+   "bt": "💼",
+   "ten": {
+    "vi": "Văn phòng",
+    "en": "Office worker"
+   },
+   "mau": [
+    "#0F766E",
+    "#06D6A0"
+   ],
+   "trang": "ai-van-phong",
+   "lo_trinh": "van-phong",
+   "tu_khoa": [
+    "văn phòng",
+    "nhân viên văn phòng",
+    "công chức",
+    "viên chức",
+    "cán bộ",
+    "hành chính",
+    "thư ký",
+    "trợ lý",
+    "kế toán",
+    "nhân sự",
+    "office",
+    "admin",
+    "civil servant",
+    "accountant",
+    "secretary",
+    "hr"
+   ],
+   "ngay": {
+    "vi": "Một ngày ở văn phòng",
+    "en": "A day at the office"
+   },
+   "viec": [
+    {
+     "id": "email",
+     "gio": "7:45",
+     "muc": "phu",
+     "tram": "giong",
+     "ten": {
+      "vi": "Đọc và trả lời email",
+      "en": "Read and answer email"
+     },
+     "ai": {
+      "vi": "Tóm tắt hộp thư, viết nháp thư trả lời.",
+      "en": "Summarises the inbox and drafts replies."
+     },
+     "ban": {
+      "vi": "Chọn thư nào làm trước, sửa giọng rồi mới bấm gửi.",
+      "en": "Decide what comes first, fix the tone, then press send."
+     }
+    },
+    {
+     "id": "tom-tat",
+     "gio": "9:00",
+     "muc": "nhap",
+     "tram": "tom-tat",
+     "ten": {
+      "vi": "Tóm tắt thông báo cho cả phòng",
+      "en": "Summarise a notice for the team"
+     },
+     "ai": {
+      "vi": "Rút văn bản ba trang thành vài dòng trong vài giây.",
+      "en": "Boils a three-page notice down to a few lines in seconds."
+     },
+     "ban": {
+      "vi": "Dò từng ngày, từng con số với văn bản gốc.",
+      "en": "Check every date and number against the original."
+     }
+    },
+    {
+     "id": "cong-van",
+     "gio": "10:30",
+     "muc": "nhap",
+     "tram": "sua-cong-van",
+     "ten": {
+      "vi": "Soạn công văn",
+      "en": "Draft an official letter"
+     },
+     "ai": {
+      "vi": "Viết nháp đúng thể thức, câu chữ trang trọng.",
+      "en": "Drafts it in the right format and formal wording."
+     },
+     "ban": {
+      "vi": "Sửa căn cứ, số hiệu, tên người nhận; ký là việc của người có thẩm quyền.",
+      "en": "Fix the legal basis, reference numbers and names; signing belongs to whoever has authority."
+     }
+    },
+    {
+     "id": "hop",
+     "gio": "13:30",
+     "muc": "nguoi",
+     "tram": "dong-nghiep",
+     "ten": {
+      "vi": "Họp với sếp và đồng nghiệp",
+      "en": "Meet your boss and colleagues"
+     },
+     "ai": {
+      "vi": "Chỉ ghi biên bản khi cả phòng đồng ý.",
+      "en": "Only takes minutes if everyone agrees."
+     },
+     "ban": {
+      "vi": "Thương lượng, nhận việc, nói không đúng lúc. Phần này là con người.",
+      "en": "Negotiate, take on work, say no at the right time. That's human work."
+     }
+    },
+    {
+     "id": "so-lieu",
+     "gio": "15:00",
+     "muc": "phu",
+     "tram": "so-lieu",
+     "ten": {
+      "vi": "Làm báo cáo số liệu",
+      "en": "Build a numbers report"
+     },
+     "ai": {
+      "vi": "Gợi ý công thức bảng tính, chỉ chỗ số lệch.",
+      "en": "Suggests spreadsheet formulas and flags odd numbers."
+     },
+     "ban": {
+      "vi": "Dò lại từng số với sổ gốc: AI có thể cộng sai mà vẫn rất tự tin.",
+      "en": "Check each number against the source: AI can add wrong and still sound sure."
+     }
+    },
+    {
+     "id": "ho-so",
+     "gio": "16:30",
+     "muc": "nguoi",
+     "tram": "lo-thong-tin",
+     "ten": {
+      "vi": "Xử lý hồ sơ có số căn cước",
+      "en": "Handle files with ID numbers"
+     },
+     "ai": {
+      "vi": "Không nên dùng chatbot công cộng cho hồ sơ này.",
+      "en": "Don't use a public chatbot for these files."
+     },
+     "ban": {
+      "vi": "Giữ thông tin của người dân trong máy cơ quan. Muốn hỏi AI thì che hết trước.",
+      "en": "Keep people's details on office systems. Hide everything before asking AI."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "tom-tat",
+    "ten": {
+     "vi": "Tóm tắt thông báo nghỉ Tết Dương lịch",
+     "en": "Summarise the New Year holiday notice"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết dòng 1 của bản tóm tắt: cả phòng nghỉ từ ngày nào đến ngày nào.",
+      "en": "Write line 1 of the summary yourself: from which day to which day is the office closed."
+     },
+     "goi_y": {
+      "vi": "Nghỉ từ thứ ... ngày ... đến hết ...",
+      "en": "Closed from ... to ..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI tóm thông báo thành 5 dòng. Có đúng một dòng sai so với văn bản gốc. Chạm vào dòng đó.",
+      "en": "AI summed the notice up in 5 lines. Exactly one line doesn't match the original. Tap it."
+     },
+     "goc": {
+      "vi": "Văn bản gốc: Cơ quan nghỉ Tết Dương lịch từ thứ Sáu 1/1 đến hết Chủ nhật 3/1/2027. Phòng Hành chính trực. Các phòng nộp báo cáo năm trước 16 giờ ngày 30/12. Kế toán khóa sổ ngày 31/12.",
+      "en": "Original: the office is closed for New Year from Friday 1 January to Sunday 3 January 2027. Admin is on duty. Teams send their year-end report by 4 pm on 30 December. Accounts close the books on 31 December."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Nghỉ từ thứ Sáu 1/1 đến hết Chủ nhật 3/1/2027.",
+        "en": "Closed from Friday 1 January to Sunday 3 January 2027."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Phòng Hành chính trực trong những ngày nghỉ.",
+        "en": "Admin is on duty over the holiday."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Nộp báo cáo năm trước 16 giờ ngày 31/12.",
+        "en": "Send the year-end report by 4 pm on 31 December."
+       },
+       "sai": true,
+       "giai": {
+        "vi": "Văn bản gốc ghi 30/12. AI trộn ngày nộp báo cáo với ngày khóa sổ 31/12, ai tin bản tóm tắt sẽ nộp trễ một ngày.",
+        "en": "The original says 30 December. AI mixed it up with the 31 December book closing, so anyone trusting the summary is a day late."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Kế toán khóa sổ ngày 31/12.",
+        "en": "Accounts close the books on 31 December."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Đi làm lại thứ Hai 4/1/2027.",
+        "en": "Back to work on Monday 4 January 2027."
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Bạn gửi bản tóm tắt vào nhóm chat của phòng. Gửi kiểu nào?",
+      "en": "You're posting the summary in the team chat. Which way?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Dán nguyên bản AI, không kèm văn bản gốc.",
+        "en": "Paste AI's version as is, without the original."
+       },
+       "giai": {
+        "vi": "Hạn nộp báo cáo vẫn sai, cả phòng sẽ làm theo ngày sai.",
+        "en": "The report deadline is still wrong, and the whole team will follow it."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Sửa hạn thành 30/12, gửi 5 dòng và đính kèm văn bản gốc cho ai cần đọc kỹ.",
+        "en": "Fix the deadline to 30 December, post the 5 lines and attach the original for anyone who needs it."
+       },
+       "giai": {
+        "vi": "Ngắn, đúng, và ai cũng kiểm lại được. AI làm nháp, bạn chịu trách nhiệm.",
+        "en": "Short, correct, and anyone can check it. AI drafts, you own it."
+       },
+       "dung": true
+      },
+      {
+       "chu": {
+        "vi": "Dán cả văn bản ba trang vào nhóm cho đủ ý.",
+        "en": "Paste the whole three-page notice into the chat."
+       },
+       "giai": {
+        "vi": "Không ai đọc hết, ý chính bị chìm. Tóm tắt là để đỡ việc cho cả phòng.",
+        "en": "Nobody reads it all and the key points get lost. A summary saves everyone time."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "ban-hang",
+   "bt": "🛍️",
+   "ten": {
+    "vi": "Bán hàng",
+    "en": "Shop owner"
+   },
+   "mau": [
+    "#B45309",
+    "#F59E0B"
+   ],
+   "trang": "ai-ban-hang",
+   "lo_trinh": "ban-hang",
+   "tu_khoa": [
+    "bán hàng",
+    "bán online",
+    "chủ shop",
+    "chủ tiệm",
+    "kinh doanh",
+    "tiệm",
+    "shop",
+    "bán lẻ",
+    "tạp hóa",
+    "tiệm bánh",
+    "seller",
+    "shop owner",
+    "small business",
+    "retail"
+   ],
+   "ngay": {
+    "vi": "Một ngày của chủ tiệm",
+    "en": "A shop owner's day"
+   },
+   "viec": [
+    {
+     "id": "caption",
+     "gio": "7:00",
+     "muc": "nhap",
+     "tram": "caption",
+     "ten": {
+      "vi": "Viết bài đăng món mới",
+      "en": "Write a post for a new product"
+     },
+     "ai": {
+      "vi": "Viết caption, gợi ý hashtag trong vài giây.",
+      "en": "Writes the caption and hashtags in seconds."
+     },
+     "ban": {
+      "vi": "Bỏ những lời hứa tiệm không làm được, giữ giọng quen của tiệm.",
+      "en": "Cut promises the shop can't keep and keep the shop's own voice."
+     }
+    },
+    {
+     "id": "tin-nhan",
+     "gio": "9:30",
+     "muc": "phu",
+     "tram": "cham-bot",
+     "ten": {
+      "vi": "Trả lời khách hỏi giá",
+      "en": "Answer price questions"
+     },
+     "ai": {
+      "vi": "Chatbot trả lời câu hỏi lặp lại: giá, giờ mở cửa, phí giao.",
+      "en": "A chatbot answers the repeat questions: price, hours, delivery fee."
+     },
+     "ban": {
+      "vi": "Chốt đơn, trả lời câu khó, xem lại kịch bản chatbot mỗi tuần.",
+      "en": "Close orders, take the hard questions, review the bot's script every week."
+     }
+    },
+    {
+     "id": "khach-gian",
+     "gio": "11:00",
+     "muc": "phu",
+     "tram": "khach-gian",
+     "ten": {
+      "vi": "Xử lý khách đang giận",
+      "en": "Handle an upset customer"
+     },
+     "ai": {
+      "vi": "Gợi ý lời xin lỗi bình tĩnh, rõ ràng.",
+      "en": "Suggests a calm, clear apology."
+     },
+     "ban": {
+      "vi": "Quyết đền bù thế nào và gọi lại khách bằng giọng của mình.",
+      "en": "Decide how to make it right and call back in your own voice."
+     }
+    },
+    {
+     "id": "anh",
+     "gio": "14:00",
+     "muc": "phu",
+     "tram": "anh-ai",
+     "ten": {
+      "vi": "Chụp và chỉnh ảnh sản phẩm",
+      "en": "Shoot and edit product photos"
+     },
+     "ai": {
+      "vi": "Xóa phông, chỉnh sáng, làm ảnh gọn đẹp.",
+      "en": "Removes backgrounds, fixes light, tidies the shot."
+     },
+     "ban": {
+      "vi": "Ảnh phải đúng hàng thật. Ảnh AI đẹp hơn hàng là mất khách.",
+      "en": "The photo must match the real thing. A prettier-than-real photo loses customers."
+     }
+    },
+    {
+     "id": "nhap-hang",
+     "gio": "16:00",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Nhập hàng, chọn mối",
+      "en": "Buy stock and pick suppliers"
+     },
+     "ai": {
+      "vi": "Chỉ so giúp bảng giá các mối.",
+      "en": "Can only compare suppliers' price lists."
+     },
+     "ban": {
+      "vi": "Nếm, sờ hàng, giữ tình với mối quen. Máy không làm được phần này.",
+      "en": "Taste and touch the goods and keep good ties with suppliers. A machine can't."
+     }
+    },
+    {
+     "id": "quang-cao",
+     "gio": "20:00",
+     "muc": "nhap",
+     "tram": "quang-cao",
+     "ten": {
+      "vi": "Viết quảng cáo khuyến mãi",
+      "en": "Write a promo ad"
+     },
+     "ai": {
+      "vi": "Viết nhiều bản quảng cáo để chọn.",
+      "en": "Writes several ad versions to choose from."
+     },
+     "ban": {
+      "vi": "Giữ lời quảng cáo đúng sự thật, đúng luật.",
+      "en": "Keep the ad honest and legal."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "caption",
+    "ten": {
+     "vi": "Bài đăng bánh bông lan trứng muối mới",
+     "en": "Post for a new salted-egg sponge cake"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết dòng 1 của bài đăng: giới thiệu món bánh mới.",
+      "en": "Write line 1 of the post yourself: introduce the new cake."
+     },
+     "goi_y": {
+      "vi": "Bánh bông lan trứng muối mới ra lò...",
+      "en": "Fresh salted-egg sponge cake..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI viết bài đăng 5 dòng. Có đúng một dòng nói sai về món bánh. Chạm vào dòng đó.",
+      "en": "AI wrote a 5-line post. Exactly one line says something untrue about the cake. Tap it."
+     },
+     "goc": {
+      "vi": "Ghi chú của tiệm: bánh nướng sáng nay, 65.000đ một hộp 4 cái, có đường và bơ, để tủ lạnh 3 ngày, giao trong 3 km.",
+      "en": "Shop notes: baked this morning, 65,000 VND for a box of 4, made with sugar and butter, keeps 3 days in the fridge, delivery within 3 km."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Bánh bông lan trứng muối mới ra lò sáng nay!",
+        "en": "Salted-egg sponge cake, fresh out of the oven this morning!"
+       }
+      },
+      {
+       "cau": {
+        "vi": "Cốt bánh mềm, trứng muối bùi, phô mai béo.",
+        "en": "Soft sponge, rich salted egg, creamy cheese."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Giá 65.000đ một hộp 4 cái.",
+        "en": "65,000 VND for a box of 4."
+       }
+      },
+      {
+       "cau": {
+        "vi": "100% không đường, người ăn kiêng ăn thoải mái!",
+        "en": "100% sugar-free, perfect for dieters!"
+       },
+       "sai": true,
+       "giai": {
+        "vi": "Bánh có đường và bơ. AI thêm câu nghe hấp dẫn nhưng sai, khách ăn kiêng mua về là tiệm mất uy tín.",
+        "en": "The cake has sugar and butter. AI added a tempting line that isn't true, and a dieting customer would lose trust in the shop."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Giao tận nơi trong 3 km.",
+        "en": "Delivery within 3 km."
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Khách quen của tiệm là các mẹ đi làm, hay đặt qua Zalo. Bạn đăng bản nào?",
+      "en": "Your regulars are working mums who order by Zalo. Which version do you post?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Bản AI nguyên văn, thêm 15 hashtag tiếng Anh.",
+        "en": "AI's version as is, plus 15 English hashtags."
+       },
+       "giai": {
+        "vi": "Dòng không đường vẫn sai, hashtag tiếng Anh không giúp khách quen tìm tiệm.",
+        "en": "The sugar-free line is still wrong, and English hashtags don't help your regulars."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Bỏ dòng không đường, thêm “Nhắn Zalo trước 10 giờ, giao chiều nay”, giữ giọng thân như tiệm vẫn nói.",
+        "en": "Drop the sugar-free line, add “Message on Zalo before 10, delivered this afternoon”, keep the shop's friendly voice."
+       },
+       "giai": {
+        "vi": "Đúng sự thật, đúng khách, đúng cách khách đặt hàng.",
+        "en": "True, aimed at your customers, and matching how they order."
+       },
+       "dung": true
+      },
+      {
+       "chu": {
+        "vi": "“SIÊU PHẨM SỐ 1 VIỆT NAM, HẾT LÀ TIẾC!!!”",
+        "en": "“VIETNAM'S NO. 1 CAKE, GONE IN MINUTES!!!”"
+       },
+       "giai": {
+        "vi": "Hứa quá đà, khách không tin và có thể vi phạm luật quảng cáo.",
+        "en": "Overpromising: customers won't believe it and it may break advertising rules."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "y-te",
+   "bt": "🏥",
+   "ten": {
+    "vi": "Y tế",
+    "en": "Healthcare"
+   },
+   "mau": [
+    "#BE185D",
+    "#F472B6"
+   ],
+   "trang": "ai-y-te",
+   "lo_trinh_nghe": "y tế",
+   "video_so": [
+    134,
+    177,
+    223
+   ],
+   "tu_khoa": [
+    "bác sĩ",
+    "y tá",
+    "điều dưỡng",
+    "y tế",
+    "bệnh viện",
+    "phòng khám",
+    "hộ sinh",
+    "dược sĩ",
+    "nhà thuốc",
+    "doctor",
+    "nurse",
+    "healthcare",
+    "hospital",
+    "pharmacist"
+   ],
+   "ngay": {
+    "vi": "Một ngày ở khoa",
+    "en": "A day on the ward"
+   },
+   "viec": [
+    {
+     "id": "ban-giao",
+     "gio": "7:00",
+     "muc": "phu",
+     "tram": "lenh",
+     "ten": {
+      "vi": "Giao ban, bàn giao ca",
+      "en": "Shift handover"
+     },
+     "ai": {
+      "vi": "Xếp ý theo khung SBAR cho gọn.",
+      "en": "Puts your notes into the SBAR structure."
+     },
+     "ban": {
+      "vi": "Lấy số liệu từ hồ sơ thật và bàn giao trực tiếp với đồng nghiệp.",
+      "en": "Take the numbers from the real chart and hand over face to face."
+     }
+    },
+    {
+     "id": "kham",
+     "gio": "8:30",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Khám, hỏi bệnh",
+      "en": "See patients"
+     },
+     "ai": {
+      "vi": "Không chạm, không nhìn được người bệnh.",
+      "en": "Can't touch or see the patient."
+     },
+     "ban": {
+      "vi": "Hỏi, khám, nhìn nét mặt người bệnh. Đây là việc của người làm nghề.",
+      "en": "Ask, examine, read the patient's face. That's the clinician's job."
+     }
+    },
+    {
+     "id": "to-huong-dan",
+     "gio": "10:00",
+     "muc": "nhap",
+     "tram": "de-hieu",
+     "ten": {
+      "vi": "Viết tờ hướng dẫn cho người bệnh",
+      "en": "Write a patient leaflet"
+     },
+     "ai": {
+      "vi": "Viết nháp lời dễ hiểu, đủ ý trong vài giây.",
+      "en": "Drafts plain-language instructions in seconds."
+     },
+     "ban": {
+      "vi": "Đối chiếu với y lệnh, bỏ mọi lời khuyên bác sĩ không chỉ định.",
+      "en": "Check it against the doctor's orders and remove any advice that wasn't prescribed."
+     }
+    },
+    {
+     "id": "thuoc",
+     "gio": "13:30",
+     "muc": "phu",
+     "tram": "lieu",
+     "ten": {
+      "vi": "Tra thuốc, tính liều",
+      "en": "Look up drugs and doses"
+     },
+     "ai": {
+      "vi": "Gợi ý nguồn tra cứu, giải thích cách tính.",
+      "en": "Points to sources and explains the calculation."
+     },
+     "ban": {
+      "vi": "Tự tính, tra dược thư. Không dùng con số liều AI đưa ra.",
+      "en": "Do the maths yourself and check the formulary. Never use a dose AI gives you."
+     }
+    },
+    {
+     "id": "ho-so",
+     "gio": "15:00",
+     "muc": "phu",
+     "tram": "che",
+     "ten": {
+      "vi": "Tóm tắt bệnh án",
+      "en": "Summarise a case"
+     },
+     "ai": {
+      "vi": "Rút bệnh án dài thành vài dòng.",
+      "en": "Shortens a long case note to a few lines."
+     },
+     "ban": {
+      "vi": "Che tên, số hồ sơ trước khi dán; dò lại với bệnh án gốc.",
+      "en": "Hide names and record numbers before pasting; check against the full note."
+     }
+    },
+    {
+     "id": "bao-tin",
+     "gio": "17:00",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Báo tin xấu cho gia đình",
+      "en": "Break bad news to a family"
+     },
+     "ai": {
+      "vi": "Không nên dùng.",
+      "en": "Don't use it."
+     },
+     "ban": {
+      "vi": "Ngồi xuống, nói chậm, để gia đình hỏi. Không máy nào làm thay.",
+      "en": "Sit down, speak slowly, let the family ask. No machine can do this."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "to-huong-dan",
+    "ten": {
+     "vi": "Tờ hướng dẫn chăm sóc vết mổ tại nhà",
+     "en": "Leaflet: caring for a surgical wound at home"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết dòng 1 của tờ hướng dẫn: giữ vết mổ thế nào trong 2 ngày đầu.",
+      "en": "Write line 1 of the leaflet yourself: how to look after the wound in the first 2 days."
+     },
+     "goi_y": {
+      "vi": "Trong 48 giờ đầu, giữ vết mổ ...",
+      "en": "For the first 48 hours, keep the wound ..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI viết tờ hướng dẫn 5 dòng. Có đúng một dòng không có trong y lệnh. Chạm vào dòng đó.",
+      "en": "AI wrote a 5-line leaflet. Exactly one line isn't in the doctor's orders. Tap it."
+     },
+     "goc": {
+      "vi": "Y lệnh (ví dụ minh họa): giữ vết mổ khô 48 giờ; thay băng ngày 3 tại phòng khám; sốt trên 38°C, sưng đỏ hoặc chảy dịch thì vào viện; tái khám ngày 7 để cắt chỉ.",
+      "en": "Doctor's orders (illustration): keep the wound dry for 48 hours; dressing change on day 3 at the clinic; fever above 38°C, redness or discharge means come back; follow-up on day 7 to remove stitches."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Giữ vết mổ khô, sạch trong 48 giờ đầu.",
+        "en": "Keep the wound clean and dry for the first 48 hours."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Thay băng ngày thứ 3 tại phòng khám.",
+        "en": "Dressing change on day 3 at the clinic."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Bôi thêm kem kháng sinh mua ngoài mỗi ngày cho mau lành.",
+        "en": "Apply an over-the-counter antibiotic cream every day to heal faster."
+       },
+       "sai": true,
+       "giai": {
+        "vi": "Y lệnh không có kem kháng sinh. AI thêm lời khuyên nghe hợp lý nhưng không phải chỉ định của bác sĩ.",
+        "en": "The orders say nothing about antibiotic cream. AI added advice that sounds sensible but wasn't prescribed."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Sốt trên 38°C, sưng đỏ hoặc chảy dịch: quay lại viện ngay.",
+        "en": "Fever above 38°C, redness or discharge: come back straight away."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Tái khám ngày thứ 7 để cắt chỉ.",
+        "en": "Follow-up on day 7 to remove stitches."
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Người bệnh là bà cụ 75 tuổi, mắt kém, ít đọc chữ. Bạn đưa bản nào?",
+      "en": "The patient is a 75-year-old woman with poor eyesight who rarely reads. Which version do you give her?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Bản AI nguyên văn, chữ nhỏ, đủ 5 dòng.",
+        "en": "AI's version as is, small print, all 5 lines."
+       },
+       "giai": {
+        "vi": "Dòng kem kháng sinh vẫn còn, và bà khó đọc chữ nhỏ.",
+        "en": "The cream line is still there, and she can't read small print."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Bỏ dòng kem, chữ to, mỗi dòng một hình nhỏ, rồi đọc lại cho con cháu cùng nghe.",
+        "en": "Remove the cream line, use big print with a small picture per line, and go through it with her family."
+       },
+       "giai": {
+        "vi": "Đúng y lệnh và vừa với người đọc. AI làm nháp, bạn làm cho tờ giấy dùng được.",
+        "en": "Matches the orders and fits the reader. AI drafts, you make it usable."
+       },
+       "dung": true
+      },
+      {
+       "chu": {
+        "vi": "Bản dài 2 trang, đủ thuật ngữ y khoa cho chắc.",
+        "en": "A 2-page version full of medical terms, to be thorough."
+       },
+       "giai": {
+        "vi": "Bà không đọc được, nên dặn dò không tới tay người cần.",
+        "en": "She can't read it, so the instructions never reach her."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "hoc-sinh",
+   "bt": "🎒",
+   "ten": {
+    "vi": "Học sinh",
+    "en": "Student"
+   },
+   "mau": [
+    "#7C3AED",
+    "#3B82F6"
+   ],
+   "trang": "ai-hoc-sinh",
+   "lo_trinh": "hoc-sinh",
+   "tu_khoa": [
+    "học sinh",
+    "sinh viên",
+    "đi học",
+    "ôn thi",
+    "cấp 3",
+    "đại học",
+    "student",
+    "pupil",
+    "university",
+    "exam"
+   ],
+   "ngay": {
+    "vi": "Một ngày của học sinh",
+    "en": "A student's day"
+   },
+   "viec": [
+    {
+     "id": "tu-vung",
+     "gio": "6:30",
+     "muc": "phu",
+     "tram": "gia-su",
+     "ten": {
+      "vi": "Ôn từ vựng tiếng Anh",
+      "en": "Revise English vocabulary"
+     },
+     "ai": {
+      "vi": "Đố bạn, đặt câu ví dụ, sửa phát âm.",
+      "en": "Quizzes you, makes example sentences, checks pronunciation."
+     },
+     "ban": {
+      "vi": "Tự nhớ. AI đố chứ không học thay bạn.",
+      "en": "Do the remembering. AI quizzes you, it can't learn for you."
+     }
+    },
+    {
+     "id": "tren-lop",
+     "gio": "7:00",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Học trên lớp",
+      "en": "Learn in class"
+     },
+     "ai": {
+      "vi": "Không có mặt trong lớp.",
+      "en": "Isn't in the room."
+     },
+     "ban": {
+      "vi": "Nghe giảng, hỏi thầy cô, làm nhóm với bạn.",
+      "en": "Listen, ask your teacher, work with classmates."
+     }
+    },
+    {
+     "id": "bai-toan",
+     "gio": "14:00",
+     "muc": "phu",
+     "tram": "buoc-sai",
+     "ten": {
+      "vi": "Làm bài tập Toán",
+      "en": "Do maths homework"
+     },
+     "ai": {
+      "vi": "Gợi ý từng bước khi bạn bí.",
+      "en": "Gives step-by-step hints when you're stuck."
+     },
+     "ban": {
+      "vi": "Tự giải. Nhờ AI làm hộ thì đến giờ kiểm tra là trắng tay.",
+      "en": "Solve it yourself. Let AI do it and you'll have nothing in the test."
+     }
+    },
+    {
+     "id": "tu-lieu",
+     "gio": "16:00",
+     "muc": "phu",
+     "tram": "that-bia",
+     "ten": {
+      "vi": "Tìm tư liệu cho bài thuyết trình",
+      "en": "Research a presentation"
+     },
+     "ai": {
+      "vi": "Gợi hướng tìm, giải thích khái niệm.",
+      "en": "Suggests where to look and explains ideas."
+     },
+     "ban": {
+      "vi": "Mở nguồn thật để kiểm: AI có thể bịa cả tên sách.",
+      "en": "Open real sources to check: AI can invent whole book titles."
+     }
+    },
+    {
+     "id": "de-cuong",
+     "gio": "19:30",
+     "muc": "nhap",
+     "tram": "ghep",
+     "ten": {
+      "vi": "Làm đề cương ôn Sử",
+      "en": "Make a history revision sheet"
+     },
+     "ai": {
+      "vi": "Dàn đề cương gọn trong vài giây.",
+      "en": "Lays out a neat revision sheet in seconds."
+     },
+     "ban": {
+      "vi": "Dò từng mốc với sách giáo khoa, rồi tự ôn.",
+      "en": "Check every date against the textbook, then revise."
+     }
+    },
+    {
+     "id": "bai-van",
+     "gio": "21:00",
+     "muc": "nguoi",
+     "tram": "lam-ho",
+     "ten": {
+      "vi": "Viết bài văn nộp cô",
+      "en": "Write an essay for class"
+     },
+     "ai": {
+      "vi": "Chỉ góp ý dàn ý nếu bạn hỏi.",
+      "en": "Only comments on your outline if you ask."
+     },
+     "ban": {
+      "vi": "Bài văn phải là chữ của bạn. Đó là thứ cô chấm.",
+      "en": "The essay must be in your words. That's what gets marked."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "de-cuong",
+    "ten": {
+     "vi": "Đề cương ôn: Chiến thắng Điện Biên Phủ",
+     "en": "Revision sheet: the Battle of Điện Biên Phủ"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết dòng 1 của đề cương: trận Điện Biên Phủ diễn ra khi nào?",
+      "en": "Write line 1 of the sheet yourself: when did the Battle of Điện Biên Phủ take place?"
+     },
+     "goi_y": {
+      "vi": "Thời gian: từ ... đến ...",
+      "en": "Dates: from ... to ..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI làm đề cương 5 dòng. Có đúng một dòng sai so với sách. Chạm vào dòng đó.",
+      "en": "AI made a 5-line sheet. Exactly one line doesn't match the textbook. Tap it."
+     },
+     "goc": {
+      "vi": "Sách giáo khoa: chiến dịch Điện Biên Phủ từ 13/3 đến 7/5/1954, ba đợt tấn công, do Đại tướng Võ Nguyên Giáp chỉ huy. Sau đó Hiệp định Giơnevơ được ký ngày 21/7/1954.",
+      "en": "Textbook: the Điện Biên Phủ campaign ran from 13 March to 7 May 1954 in three waves, commanded by General Võ Nguyên Giáp. The Geneva Accords were then signed on 21 July 1954."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Thời gian: 13/3 đến 7/5/1954.",
+        "en": "Dates: 13 March to 7 May 1954."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Chỉ huy: Đại tướng Võ Nguyên Giáp.",
+        "en": "Commander: General Võ Nguyên Giáp."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Ba đợt tấn công vào tập đoàn cứ điểm.",
+        "en": "Three waves of attack on the fortified base."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Kết quả: Hiệp định Paris được ký năm 1954.",
+        "en": "Result: the Paris Accords were signed in 1954."
+       },
+       "sai": true,
+       "giai": {
+        "vi": "Năm 1954 là Hiệp định Giơnevơ. Hiệp định Paris ký năm 1973. AI hay trộn hai sự kiện giống nhau.",
+        "en": "1954 was the Geneva Accords. The Paris Accords came in 1973. AI often blends similar events."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Ý nghĩa: kết thúc cuộc kháng chiến chống Pháp.",
+        "en": "Meaning: it ended the war against French rule."
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Mai kiểm tra 15 phút. Bạn ôn bằng cách nào?",
+      "en": "There's a 15-minute test tomorrow. How do you revise?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Chép nguyên đề cương AI, đọc lướt một lần.",
+        "en": "Copy AI's sheet and skim it once."
+       },
+       "giai": {
+        "vi": "Còn dòng sai Hiệp định, đọc lướt thì cũng khó nhớ.",
+        "en": "The wrong treaty is still there, and skimming won't make it stick."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Sửa dòng 4, che từng dòng rồi nhờ AI đố mình, sai câu nào thì mở sách xem lại.",
+        "en": "Fix line 4, cover each line and ask AI to quiz you; check the book for anything you miss."
+       },
+       "giai": {
+        "vi": "Bạn tự nhớ, AI chỉ là người đố. Đây là cách học cùng AI.",
+        "en": "You do the remembering, AI just asks the questions. That's learning with AI."
+       },
+       "dung": true
+      },
+      {
+       "chu": {
+        "vi": "Nhờ AI làm luôn bài kiểm tra mẫu rồi chép đáp án.",
+        "en": "Have AI do a practice test and copy the answers."
+       },
+       "giai": {
+        "vi": "Chép đáp án thì đầu óc không nhớ gì, mai vào phòng thi vẫn trắng tay.",
+        "en": "Copying answers leaves nothing in your head for tomorrow."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "gia-dinh",
+   "bt": "🏡",
+   "ten": {
+    "vi": "Cha mẹ",
+    "en": "Parent"
+   },
+   "mau": [
+    "#16A34A",
+    "#06D6A0"
+   ],
+   "trang": "ai-gia-dinh",
+   "lo_trinh": "gia-dinh",
+   "tu_khoa": [
+    "cha mẹ",
+    "bố mẹ",
+    "phụ huynh",
+    "nội trợ",
+    "gia đình",
+    "làm mẹ",
+    "mẹ bỉm",
+    "ông bà",
+    "parent",
+    "family",
+    "mum",
+    "mom",
+    "dad",
+    "homemaker"
+   ],
+   "ngay": {
+    "vi": "Một ngày của bố mẹ",
+    "en": "A parent's day"
+   },
+   "viec": [
+    {
+     "id": "thuc-don",
+     "gio": "6:00",
+     "muc": "nhap",
+     "tram": "thuc-don",
+     "ten": {
+      "vi": "Lên thực đơn cả tuần",
+      "en": "Plan the week's meals"
+     },
+     "ai": {
+      "vi": "Xếp thực đơn 7 ngày và danh sách đi chợ trong vài giây.",
+      "en": "Plans 7 days of meals and a shopping list in seconds."
+     },
+     "ban": {
+      "vi": "Dò món nào con dị ứng, nhà thích món gì, ví còn bao nhiêu.",
+      "en": "Check for allergies, what the family likes and what the budget allows."
+     }
+    },
+    {
+     "id": "dua-con",
+     "gio": "7:00",
+     "muc": "nguoi",
+     "ten": {
+      "vi": "Đưa con đi học",
+      "en": "Take the kids to school"
+     },
+     "ai": {
+      "vi": "Không giúp được.",
+      "en": "Can't help."
+     },
+     "ban": {
+      "vi": "Mấy phút trò chuyện trên đường là của riêng hai bố con, mẹ con.",
+      "en": "The chat on the way is yours alone."
+     }
+    },
+    {
+     "id": "cuoc-goi",
+     "gio": "12:00",
+     "muc": "nguoi",
+     "tram": "goi-gia",
+     "ten": {
+      "vi": "Nghe cuộc gọi lạ xin tiền gấp",
+      "en": "Take a strange call asking for money"
+     },
+     "ai": {
+      "vi": "Kẻ gian dùng AI để giả giọng người thân.",
+      "en": "Scammers use AI to fake a loved one's voice."
+     },
+     "ban": {
+      "vi": "Gác máy, gọi lại số quen, hỏi mật khẩu gia đình. Không chuyển tiền.",
+      "en": "Hang up, call back on the usual number, ask the family password. Don't send money."
+     }
+    },
+    {
+     "id": "con-sot",
+     "gio": "15:00",
+     "muc": "phu",
+     "tram": "suc-khoe",
+     "ten": {
+      "vi": "Hỏi AI khi con bị sốt",
+      "en": "Ask AI when your child has a fever"
+     },
+     "ai": {
+      "vi": "Giải thích chung về sốt, gợi ý câu hỏi cho bác sĩ.",
+      "en": "Explains fever in general and suggests questions for the doctor."
+     },
+     "ban": {
+      "vi": "Gọi bác sĩ, đưa con đi khám khi có dấu hiệu nặng. AI không khám được con.",
+      "en": "Call the doctor and go in if there are warning signs. AI can't examine your child."
+     }
+    },
+    {
+     "id": "kem-con",
+     "gio": "19:30",
+     "muc": "phu",
+     "tram": "bai-tap",
+     "ten": {
+      "vi": "Kèm con làm bài",
+      "en": "Help with homework"
+     },
+     "ai": {
+      "vi": "Giải thích bài theo cách dễ hiểu.",
+      "en": "Explains the lesson in a simpler way."
+     },
+     "ban": {
+      "vi": "Ngồi cạnh con, để con tự làm. Đừng để AI làm hộ con.",
+      "en": "Sit with your child and let them do it. Don't let AI do it for them."
+     }
+    },
+    {
+     "id": "luat-nha",
+     "gio": "21:00",
+     "muc": "nguoi",
+     "tram": "luat-nha",
+     "ten": {
+      "vi": "Đặt luật dùng AI trong nhà",
+      "en": "Set the family's AI rules"
+     },
+     "ai": {
+      "vi": "Chỉ gợi ý vài mẫu luật.",
+      "en": "Can only suggest sample rules."
+     },
+     "ban": {
+      "vi": "Cả nhà ngồi lại thống nhất. Luật do nhà mình đặt mới được giữ.",
+      "en": "Agree on them together. Rules the family makes are the ones that last."
+     }
+    }
+   ],
+   "dau": {
+    "viec": "thuc-don",
+    "ten": {
+     "vi": "Thực đơn tuần cho nhà 4 người",
+     "en": "A week's menu for a family of four"
+    },
+    "toc_do": {
+     "de": {
+      "vi": "Tự viết dòng 1 của thực đơn: bữa tối thứ Hai.",
+      "en": "Write line 1 of the menu yourself: Monday's dinner."
+     },
+     "goi_y": {
+      "vi": "Thứ Hai: ...",
+      "en": "Monday: ..."
+     },
+     "ai_so_cau": 5,
+     "ai_giay": 3
+    },
+    "bat_loi": {
+     "huong": {
+      "vi": "AI lên thực đơn 5 dòng. Có đúng một dòng không hợp với nhà bạn. Chạm vào dòng đó.",
+      "en": "AI made a 5-line menu. Exactly one line doesn't work for your family. Tap it."
+     },
+     "goc": {
+      "vi": "Bạn dặn AI: nhà 4 người, con út dị ứng tôm, đi chợ 1,5 triệu một tuần, bữa nào cũng có rau.",
+      "en": "What you told AI: family of four, the youngest is allergic to shrimp, 1.5 million VND a week for food, vegetables at every meal."
+     },
+     "dong": [
+      {
+       "cau": {
+        "vi": "Thứ Hai: cá kho, canh bí, rau muống luộc.",
+        "en": "Monday: braised fish, squash soup, boiled morning glory."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Thứ Ba: thịt rang, canh cải, đậu que xào.",
+        "en": "Tuesday: caramelised pork, mustard green soup, stir-fried green beans."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Thứ Tư: canh chua tôm, trứng chiên, rau cải luộc.",
+        "en": "Wednesday: sour shrimp soup, fried egg, boiled greens."
+       },
+       "sai": true,
+       "giai": {
+        "vi": "Con út dị ứng tôm. AI đọc lời dặn rồi vẫn quên, nên bữa ăn của con vẫn phải do bạn soát.",
+        "en": "The youngest is allergic to shrimp. AI read the note and still forgot, so you're the one who checks your child's food."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Thứ Năm: gà luộc, canh mướp, rau lang xào tỏi.",
+        "en": "Thursday: boiled chicken, gourd soup, garlic sweet potato leaves."
+       }
+      },
+      {
+       "cau": {
+        "vi": "Danh sách đi chợ cả tuần khoảng 1,4 triệu.",
+        "en": "Shopping list for the week: about 1.4 million VND."
+       }
+      }
+     ]
+    },
+    "chon": {
+     "hoi": {
+      "vi": "Con lớn đang ôn thi, dạo này ăn ít. Bạn dùng thực đơn thế nào?",
+      "en": "Your eldest is revising for exams and eating little. What do you do with the menu?"
+     },
+     "ban": [
+      {
+       "chu": {
+        "vi": "Giữ nguyên bản AI, cả tuần nấu y vậy.",
+        "en": "Keep AI's menu and cook it exactly."
+       },
+       "giai": {
+        "vi": "Thứ Tư vẫn có tôm, và con lớn chưa chắc chịu ăn.",
+        "en": "Wednesday still has shrimp, and your eldest may not eat it."
+       }
+      },
+      {
+       "chu": {
+        "vi": "Đổi canh chua tôm sang canh chua cá, hỏi con lớn thích món gì rồi nhờ AI xếp lại cho vừa 1,5 triệu.",
+        "en": "Swap the shrimp soup for fish, ask your eldest what they'd like, then have AI rearrange it within 1.5 million."
+       },
+       "giai": {
+        "vi": "AI xếp nhanh, còn bạn biết cả nhà cần gì. Thực đơn hợp với nhà mình.",
+        "en": "AI arranges fast, you know what the family needs. The menu now fits your home."
+       },
+       "dung": true
+      },
+      {
+       "chu": {
+        "vi": "Mỗi bữa nhờ AI chọn món, không cần xem lại.",
+        "en": "Let AI pick every meal without checking."
+       },
+       "giai": {
+        "vi": "Lỗi dị ứng có thể lặp lại mà không ai thấy.",
+        "en": "The allergy mistake could happen again and nobody would notice."
+       }
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
