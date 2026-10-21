@@ -55,3 +55,8 @@ summary.hl-dau { cursor: pointer; }
   .hl-the li { border-color: #999; }
   .hl-bang td, .hl-bang th { border-color: #999; }
 }
+
+/* Bìa: Mark là nhân vật chính, Cô Hạnh (nhân vật phụ) đứng nhỏ bên cạnh */
+.hl-bia { display: flex; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.hl-co-hanh { width: 90px; height: auto; filter: drop-shadow(0 10px 18px rgba(15, 23, 42, .22)); }
+@media (max-width: 760px) { .hl-co-hanh { display: none; } }
