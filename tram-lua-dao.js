@@ -43,6 +43,12 @@
   }
 
   // ----- Kiểm tra nhanh -----
+  var lu = document.getElementById("tl-lu"), luNoi = document.getElementById("tl-lu-noi");
+  function buocLu(n) {
+    if (!lu) return;
+    lu.dataset.buoc = n;
+    if (N.lu && luNoi) luNoi.textContent = N.lu[n - 1];
+  }
   function danhDau(id) {
     chonNut.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.th === id ? "true" : "false"); });
   }
@@ -69,6 +75,7 @@
     hoi.appendChild(hang);
     hoi.appendChild(nut("tl-doi", N.doi, doiTinhHuong));
     hoi.hidden = false;
+    buocLu(2);
     var dauTien = hang.querySelector("button");
     if (dauTien && S.cau > 0) dauTien.focus({ preventScroll: true });
   }
@@ -82,6 +89,7 @@
     S.th = null;
     hoi.hidden = true; kq.hidden = true;
     danhDau("");
+    buocLu(1);
     var b = goc.querySelector(".tl-th");
     if (b) b.focus();
   }
@@ -117,6 +125,7 @@
     di.appendChild(nut("btn tl-kq-lai", N.lam_lai, function () { batDau(x.id); }));
     kq.appendChild(di);
     kq.hidden = false;
+    buocLu(3);
     var h = kq.querySelector("h3");
     h.tabIndex = -1;
     h.focus({ preventScroll: true });
