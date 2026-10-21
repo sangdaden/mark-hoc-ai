@@ -124,11 +124,18 @@ def _tao_hoi_dap(x):
 <p class="gh-ghi">{t("Nguồn", "Sources")}: {nguon}. {t("Trang này giúp nhận ra dấu hiệu, không thay cho ngân hàng hay công an: khi nghi ngờ, hỏi thẳng họ.", "This page helps you spot warning signs; it doesn't replace your bank or the police. When in doubt, ask them directly.")}</p>
 </main>"""
 
+    # Đầu trang: cảnh Bà Năm (nhân vật phụ, assets/nhan-vat/) cầm điện thoại cho 4 trang giọng giả, video giả; còn lại là ô biểu tượng
+    if x.get("ba_nam"):
+        dau_anh = (f'<figure class="hl-canh tl-m-{x["mau"]}"><span class="hl-canh-loi">{esc(chu(x["ba_nam"]))}</span>'
+                   f'<span class="hl-canh-hinh"><img src="{p}assets/nhan-vat/ba-nam.svg" alt="{t("Bà Năm, bà ngoại của Mark", "Grandma Nam, Mark's grandmother")}" width="150" height="180" decoding="async">'
+                   f'<span class="hl-canh-dt" aria-hidden="true">{tl_icon(x["icon"])}</span></span></figure>')
+    else:
+        dau_anh = f'<span class="hl-dau tl-m-{x["mau"]}" aria-hidden="true">{tl_icon(x["icon"], "hl-dau-ic")}</span>'
     band = (f'<div class="head-row"><div>\n'
             f'<nav class="hl-duong-dan" aria-label="{t("Đường dẫn", "Breadcrumb")}"><a href="tram-chong-lua-dao.html">{t("Trạm chống lừa đảo AI", "AI scam help desk")}</a><span aria-hidden="true">›</span><a href="tram-chong-lua-dao.html#hoi-dap">{t("Hỏi đáp", "Q&amp;A")}</a></nav>\n'
             f'<h1>{esc(hoi)}</h1>\n'
             f'<p class="lead">{t("Trả lời trong một phút, kèm dấu hiệu nhận ra và việc cần làm ngay.", "Answered in a minute, with the warning signs and what to do right now.")}</p>\n'
-            f'</div><span class="hl-dau tl-m-{x["mau"]}" aria-hidden="true">{tl_icon(x["icon"], "hl-dau-ic")}</span></div>')
+            f'</div>{dau_anh}</div>')
 
     # Dữ liệu cho Google: FAQPage (câu chính + 3 câu hỏi thêm) và đường dẫn
     jsonld = (
