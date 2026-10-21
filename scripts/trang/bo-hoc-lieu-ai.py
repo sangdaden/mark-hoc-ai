@@ -75,7 +75,8 @@ def tao_bo_hoc_lieu_ai():
             f'<h1>{t("Bộ học liệu AI 12 tiết", "The 12-lesson AI kit")}</h1>\n'
             f'<p class="lead">{t("Cho giáo viên dạy 12 tiết AI cốt lõi mỗi năm học. Dạy được khi không có mạng, học sinh không cần tài khoản AI.", "For teachers running the 12 core AI lessons each school year. Works offline; students need no AI account.")}</p>\n'
             f'<div class="cta">{nut_mail}<a class="btn" href="ai-giao-vien.html">{t("Trạm thực hành cho giáo viên", "Practice stations for teachers")} ›</a></div>\n'
-            f'</div><img class="head-art" src="{p}assets/mark-a-ra-the.svg" alt="" width="180" height="170"></div>')
+            f'</div><div class="hl-bia"><img class="head-art" src="{p}assets/mark-a-ra-the.svg" alt="" width="180" height="170">'
+            f'<img class="hl-co-hanh" src="{p}assets/nhan-vat/co-hanh-giao-vien.svg" alt="{t("Cô Hạnh, cô giáo", "Ms Hạnh, a teacher")}" width="90" height="108"></div></div>')
     mach_html = "".join(f'<li>{chip(k)} {esc(v)}</li>' for k, v in mach.items())
     main = (f'<main class="hl" id="hl">\n<link rel="stylesheet" href="{p}assets/bo-hoc-lieu-ai.css?v=dev">\n'
             f'<section class="hl-can-cu"><p>{esc(D["can_cu"])}</p><ul class="hl-mach-ds">{mach_html}</ul></section>\n'
