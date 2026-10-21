@@ -42,7 +42,10 @@ def tao_game():
             f'<h1>{t("Thế giới game Mark", "Mark’s game world")}</h1>\n'
             f'<p class="lead">{t("Mỗi game là một bài học về AI giấu trong màn chơi: qua màn, giữ tim, gom sao. Chơi trên điện thoại thì xoay ngang máy cho đã tay.", "Every game hides an AI lesson inside the level: clear the stage, keep your hearts, collect stars. On a phone, turn it sideways for the full experience.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/game/game.webp" alt="{t("Mark và Bit đeo kính đen", "Mark and Bit in sunglasses")}" width="200" height="189"></div>')
-    main = (f'<main class="gm">\n<link rel="stylesheet" href="{p}assets/game/game.css?v=dev">\n{the_noi}\n'
+    # Bé Na (em họ lớp 4 của Mark) làm người dẫn của trang
+    na = (f'<div class="nv gm-na"><img src="{p}assets/nhan-vat/be-na.svg" alt="" width="64" height="77">'
+          f'<p class="nv-loi"><b>{t("Bé Na:", "Na:")}</b> {t("Chào bạn! Na lớp 4, em họ của Mark. Game nào ở đây Na cũng chơi rồi, mỗi game giấu một bí mật về AI. Chơi cùng Na nhé!", "Hi! I’m Na, Mark’s cousin, in 4th grade. I’ve played every game here, and each one hides a secret about AI. Come play with me!")}</p></div>')
+    main = (f'<main class="gm">\n<link rel="stylesheet" href="{p}assets/game/game.css?v=dev">\n{na}\n{the_noi}\n'
             f'<section class="gm-ke-khoi" aria-labelledby="gm-them"><h2 id="gm-them">{t("Chơi thêm", "More games")}</h2>'
             f'<ul class="gm-ke">{"".join(the(g) for g in con)}</ul></section>\n'
             f'<a class="gm-sang" href="thuc-hanh.html"><b>{t("Muốn thử nhanh 1-5 phút?", "Got 1-5 minutes?")}</b>'

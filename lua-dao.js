@@ -187,6 +187,15 @@
     chu.appendChild(el("p", "ld-ph-chu", c.giai));
     ph.appendChild(chu);
     ben.appendChild(ph);
+    // Ca lừa đảo: Cáo Giả, kẻ đứng sau, bị lật mặt (chỉ nói dấu hiệu, không nói cách lừa)
+    if (c.dap_an === "lua") {
+      var cao = el("div", "nv ld-cao");
+      var anhCao = el("img");
+      anhCao.src = BIT + "nhan-vat/cao-gia.svg"; anhCao.alt = ""; anhCao.width = 64; anhCao.height = 77;
+      cao.appendChild(anhCao);
+      cao.appendChild(el("p", "nv-loi", N.cao));
+      ben.appendChild(cao);
+    }
 
     var nut = el("div", "cta ld-sau");
     var xem = el("a", "btn", N.xem_video + " #" + c.video.so);
