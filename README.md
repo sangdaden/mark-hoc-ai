@@ -35,6 +35,8 @@ Trang tĩnh (HTML, CSS, JS thuần), đăng bằng GitHub Pages qua `.github/wor
 ## Kiểm tra trước khi merge
 Mỗi PR chạy `.github/workflows/kiem-tra.yml` (`python3 scripts/kiem_tra_trang.py`): trang tiếng Việt và tiếng Anh phải đi thành cặp (`X.html` ↔ `en/X.html`, cả `bai/` và `vu-tru-khac/`), mọi trang (trừ trang chuyển hướng) nạp `theo-doi.js`, link và ảnh nội bộ trỏ tới file có thật, `data/**/*.json` đọc được, mọi địa chỉ trong `sitemap.xml` có file. PR vừa sửa góc Vũ Trụ Khác vừa sửa phần khác thì có cảnh báo (không chặn). Chạy tay trước khi mở PR: `python3 scripts/kiem_tra_trang.py`.
 
+Sang duyệt PR bằng cách gắn nhãn `duyet`: `.github/workflows/tu-merge.yml` chờ check "Kiểm tra trang web" (và mọi check khác) xanh rồi tự merge; check đỏ thì chờ sửa xong. Gỡ nhãn trước khi check xong là thôi merge. Có secret `TU_MERGE_TOKEN` (fine-grained token, quyền Contents: Read and write) thì merge bằng token đó; không có thì merge bằng `GITHUB_TOKEN` rồi tự gọi lại `pages.yml` để đăng trang.
+
 ## Gắn tên miền riêng
 Trang chạy ở https://markhocai.com (file `CNAME`). Tên miền mua ở Namecheap, DNS trỏ về GitHub Pages: 4 bản ghi A cho `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) và CNAME `www` → `sangdaden.github.io`. Trong Settings → Pages của repo, ô Custom domain là `markhocai.com` và đã bật Enforce HTTPS. Đổi tên miền thì sửa cả `BASE` trong `scripts/tao_bai_viet.py`.
 
