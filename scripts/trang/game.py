@@ -36,8 +36,8 @@ def tao_game():
                 f'<small>{esc(g["nhan"])}</small><span class="gm-nut">{t("Chơi", "Play")} ›</span></span></a></li>')
 
     n = len(ds)
-    desc = t(f"{n} game miễn phí của Mark học AI: chặn tin lừa đảo, câu chữ như chatbot, lái xe tự hành qua mưa sương, phiêu lưu qua cổng câu hỏi. Chơi ngay trên điện thoại, không cần tài khoản.",
-             f"{n} free Mark học AI games: block scam messages, fish for words like a chatbot, drive a self-driving car through rain and fog, adventure through question gates. Play on your phone, no account needed.")
+    desc = t(f"{n} game miễn phí của Mark học AI: chặn tin lừa đảo, câu chữ như chatbot, lái xe tự hành qua mưa sương, phiêu lưu qua cổng câu hỏi, làm mèo giao bánh mì trong khu phố 3D. Chơi ngay trên điện thoại, không cần tài khoản.",
+             f"{n} free Mark học AI games: block scam messages, fish for words like a chatbot, drive a self-driving car through rain and fog, adventure through question gates, deliver bánh mì as a cat in a 3D neighborhood. Play on your phone, no account needed.")
     band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t(f"{n} game · miễn phí · chơi ngay trên web", f"{n} games · free · play in your browser")}</p>\n'
             f'<h1>{t("Thế giới game Mark", "Mark’s game world")}</h1>\n'
             f'<p class="lead">{t("Mỗi game là một bài học về AI giấu trong màn chơi: qua màn, giữ tim, gom sao. Chơi trên điện thoại thì xoay ngang máy cho đã tay.", "Every game hides an AI lesson inside the level: clear the stage, keep your hearts, collect stars. On a phone, turn it sideways for the full experience.")}</p>\n'
