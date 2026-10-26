@@ -99,7 +99,7 @@
     const nhom = (h.nhom_moi || []).slice().sort((a, b) => (hopNhom(b) ? 1 : 0) - (hopNhom(a) ? 1 : 0));
     const tinhNang = (h.web || []).length + (v.web || []).length;
     const o = (so, chu, icon, cls) => '<li class="bt-o ' + cls + '">' + ic(icon) + "<b>" + so + "</b><span>" + chu + "</span></li>";
-    const tom = '<ul class="bt-tom">' + o(h.tong_moi, S.oVideo, "play", "o-ai") + o(v.tong_moi, S.oBai, "book-open", "o-vtk") + (tinhNang ? o(tinhNang, S.oTinhNang, "sparkles", "o-web") : "") + "</ul>";
+    const tom = '<ul class="bt-tom">' + (h.tong_moi ? o(h.tong_moi, S.oVideo, "play", "o-ai") : "") + (v.tong_moi ? o(v.tong_moi, S.oBai, "book-open", "o-vtk") : "") + (tinhNang ? o(tinhNang, S.oTinhNang, "sparkles", "o-web") : "") + "</ul>";
     const theSeries = n => '<li><a class="bt-ser" href="' + esc(n.link) + '"><span class="bt-ser-bia">' +
       (n.bia ? '<img src="' + goc + esc(n.bia) + '" alt="" width="480" height="270" loading="lazy" decoding="async">' :
         '<span class="bt-ser-chu">' + esc(ten(n)) + '</span><img class="bt-ser-bit" src="' + goc + 'assets/bit-giai-thich.svg" alt="" width="64" height="64">') +

@@ -1722,7 +1722,7 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .bt-hop .chao-dau h2 { font-size: 23px; }
   .bt-hop .bt-khoi { padding: 12px 14px 4px; }
   .bt-hop .bt-cuon { margin: 0 -14px; padding-left: 14px; padding-right: 14px; }
-  .bt-hop .bt-tom { grid-template-columns: repeat(3, 1fr); }
+  .bt-hop .bt-tom { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 1fr; }
   .bt-hop .bt-tom { margin: 12px 0 10px; gap: 6px; }
   .bt-hop .bt-o { padding: 8px 6px; }
   .bt-hop .bt-o .ic { display: none; }
@@ -1739,7 +1739,7 @@ html:has(.bt-hop[open]) { overflow: hidden; }
   .bt-tinh { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px 12px; padding: 0 16px 6px; }
   .bt-tinh li { flex: none; width: 230px; scroll-snap-align: start; }
   .bt-ser-ten { font-size: 14px; }
-  .bt-tom { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .bt-tom { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
   .bt-o { grid-template-columns: 1fr; padding: 12px; text-align: center; justify-items: center; }
   .bt-o .ic { grid-row: auto; margin-bottom: 6px; }
   .bt-o b { font-size: 24px; }
