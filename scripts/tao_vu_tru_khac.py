@@ -23,6 +23,9 @@ Dùng: python3 scripts/tao_vu_tru_khac.py /mnt/project-files/books
   và các khối chủ đề giữa <!-- vtk:dau --> và <!-- vtk:cuoi -->; thẻ mỗi bài là bìa thu nhỏ vẽ từ tên, tác giả, "bia" (màu, hoạ tiết), hình tự vẽ assets/vu-tru-khac/bia/<slug>.svg nếu có và một tư thế Mark ("mark": doc-sach, thac-mac, a-ra-the, cam-sach,
   vui-mung, ngac-nhien, like, chao, buon-ngu), bên dưới chỉ có số bài, tên, tác giả · năm · điểm. Mỗi khối chỉ hiện một hàng (ít nhất 4 thẻ), còn lại sau nút "Xem thêm". Chủ đề chưa có bài thì
   chưa hiện. Thêm chủ đề mới = thêm một dòng chủ đề rồi thêm bài có "loai" đó; đường dẫn bài vẫn là vu-tru-khac/<slug>.html.
+- Sách của tháng (Vũ Trụ Mark C1, Sang chọn 26/10): data/vu-tru-khac-sach-thang.json, mỗi tháng một mục (thang "YYYY-MM", slug bài, loi = một câu
+  giới thiệu, lien_quan = slug bài cùng đọc kèm, tiếng Anh trong "en"). Mục có tháng mới nhất hiện thành một dải ở đầu trang chủ góc, trên hàng chip.
+  Chỉ sửa trang chủ góc (không cần thư mục bài gốc): python3 scripts/tao_vu_tru_khac.py --chi-trang-chu
 - Tạo lại sitemap.xml (scripts/tao_sitemap.py; file này không lưu trong git, pages.yml tạo khi đăng web).
 """
 import html
@@ -327,6 +330,37 @@ def the_bai(b, cd, en=False):
             f'<b>{esc(ten)}</b><span class="vtk-tg">{tg}</span></a>')
 
 
+def sach_thang(sach, chu_de, en=False):
+    """Dải "Sách của tháng" ở đầu trang chủ góc: mục có tháng mới nhất trong data/vu-tru-khac-sach-thang.json. Không có thì trả chuỗi rỗng."""
+    tep = R / "data" / "vu-tru-khac-sach-thang.json"
+    ds = json.loads(tep.read_text(encoding="utf-8")) if tep.exists() else []
+    if not ds:
+        return ""
+    m = max(ds, key=lambda x: x["thang"])
+    theo_slug = {b["slug"]: b for b in sach}
+    b = theo_slug[m["slug"]]
+    cd = next(c for c in chu_de if c["ma"] == b.get("loai", "sach"))
+    cd = dict(cd, **cd.get("en", {})) if en else cd
+    nam, thang = m["thang"].split("-")
+    nhan = f"Book of the month · {['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][int(thang)]} {nam}" if en \
+        else f"Sách của tháng · Tháng {int(thang)}/{nam}"
+    loi = (m.get("en", {}) if en else m).get("loi", m.get("loi", ""))
+    ten = (b.get("en", {}) if en else b).get("ten", b["ten"])
+    kem = []
+    for sl in m.get("lien_quan", []):
+        x = theo_slug.get(sl)
+        if x:
+            kem.append(f'<a href="vu-tru-khac/{esc(sl)}.html">{esc((x.get("en", {}) if en else x).get("ten", x["ten"]))}</a>')
+    dong_kem = (f'<p class="vtk-thang-kem">{"Read alongside" if en else "Đọc kèm"}: ' + ", ".join(kem) + "</p>") if kem else ""
+    return (f'  <section class="vtk-thang" aria-labelledby="vtk-thang-h">\n'
+            f'    <div class="vtk-thang-bia">{the_bai(b, cd, en)}</div>\n'
+            f'    <div class="vtk-thang-chu"><p class="vtk-thang-nhan">{esc(nhan)}</p>\n'
+            f'      <h2 class="vtk-h" id="vtk-thang-h">{esc(ten)}</h2>\n'
+            f'      <p>{esc(loi)}</p>{dong_kem}\n'
+            f'      <a class="vtk-thang-nut" href="vu-tru-khac/{esc(b["slug"])}.html">{"Read the breakdown" if en else "Đọc bài"} ›</a></div>\n'
+            f'  </section>')
+
+
 def trang_chu(sach, chu_de, en=False):
     """Hàng chip lọc + mỗi chủ đề một khối thẻ, bài có trò chơi trước rồi mới nhất trước. Lọc bằng script nhỏ trong trang (không có JS thì chip là link tới khối)."""
     cds = [dict(c, **c.get("en", {})) if en else c for c in chu_de]
@@ -338,7 +372,8 @@ def trang_chu(sach, chu_de, en=False):
     chip = [f'<a href="#tat-ca" data-loc="" aria-current="true">{"All" if en else "Tất cả"} <small>{tong}</small></a>']
     chip += [f'<a href="#{esc(c["ma"])}" data-loc="{esc(c["ma"])}">{esc(c["ten"])} <small>{len(ds)}</small></a>' for c, ds in co]
     chip.append(f'<span class="vtk-sap">{"+ New topics coming" if en else "+ Chủ đề mới · sắp mở"}</span>')
-    ra = [f'  <nav class="vtk-loc" id="tat-ca" aria-label="{"Topics" if en else "Chủ đề"}">' + "".join(chip) + "</nav>"]
+    ra = [x for x in [sach_thang(sach, chu_de, en)] if x]
+    ra += [f'  <nav class="vtk-loc" id="tat-ca" aria-label="{"Topics" if en else "Chủ đề"}">' + "".join(chip) + "</nav>"]
     for c, ds in co:
         ra.append(f'  <section class="vtk-khoi" id="{esc(c["ma"])}" data-loai="{esc(c["ma"])}">\n'
                   f'    <div class="vtk-khoi-dau"><h2 class="vtk-h">{esc(c["ten"])}</h2><span>{len(ds)} {esc(c["dem"])}</span></div>\n'
@@ -363,12 +398,30 @@ def kiem_duong_dan(tep):
     return loi
 
 
+def ghi_trang_chu(sach, chu_de, en):
+    hub = (R / "en" if en else R) / "vu-tru-khac.html"
+    s = hub.read_text(encoding="utf-8")
+    khoi, tong = trang_chu(sach, chu_de, en)
+    s, n = re.subn(r"(<!-- vtk:dau -->).*?(<!-- vtk:cuoi -->)", lambda m: m.group(1) + "\n" + khoi + "\n" + m.group(2), s, flags=re.S)
+    if not n:
+        sys.exit(f"{hub}: thiếu <!-- vtk:dau --> / <!-- vtk:cuoi -->")
+    hub.write_text(s, encoding="utf-8")
+    print(f"  {hub.relative_to(R)}: {tong} bài")
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    thu_muc = Path(sys.argv[1])
     sach = json.loads((R / "data" / "vu-tru-khac.json").read_text(encoding="utf-8"))
     chu_de = json.loads((R / "data" / "vu-tru-khac-chu-de.json").read_text(encoding="utf-8"))
+    if sys.argv[1] == "--chi-trang-chu":
+        for en in (False, True):
+            ghi_trang_chu(sach, chu_de, en)
+        loi = kiem_duong_dan([R / "vu-tru-khac.html", R / "en" / "vu-tru-khac.html"])
+        if loi:
+            sys.exit("Đường dẫn hỏng (file không tồn tại):\n  " + "\n  ".join(loi))
+        return
+    thu_muc = Path(sys.argv[1])
     for b in sach:
         if b.get("loai", "sach") not in {c["ma"] for c in chu_de}:
             print(f"  {b['slug']}: \"loai\" = {b['loai']!r} chưa có trong data/vu-tru-khac-chu-de.json nên chưa hiện ở trang chủ góc")
@@ -394,14 +447,7 @@ def main():
             sau = next((x for x in cung if x["so"] > b["so"]), cung[0]) if len(cung) > 1 else None
             ra.write_text(trang_sach(b, nguon.read_text(encoding="utf-8"), en, cd, sau), encoding="utf-8")
             print(f"  {ra.relative_to(R)}")
-        hub = goc_ra / "vu-tru-khac.html"
-        s = hub.read_text(encoding="utf-8")
-        khoi, tong = trang_chu(sach, chu_de, en)
-        s, n = re.subn(r"(<!-- vtk:dau -->).*?(<!-- vtk:cuoi -->)", lambda m: m.group(1) + "\n" + khoi + "\n" + m.group(2), s, flags=re.S)
-        if not n:
-            sys.exit(f"{hub}: thiếu <!-- vtk:dau --> / <!-- vtk:cuoi -->")
-        hub.write_text(s, encoding="utf-8")
-        print(f"  {hub.relative_to(R)}: {tong} bài")
+        ghi_trang_chu(sach, chu_de, en)
     cap_nhat_sitemap()
     tep = [R / "vu-tru-khac.html", R / "en" / "vu-tru-khac.html"] + sorted((R / "vu-tru-khac").glob("*.html")) + sorted((R / "en" / "vu-tru-khac").glob("*.html"))
     loi = kiem_duong_dan(tep)

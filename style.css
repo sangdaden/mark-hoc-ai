@@ -1445,6 +1445,21 @@ body.vtk-trang .band .eyebrow { color: #FBBF24; }
 .vtk-loc a[aria-current] { background: #0F172A; border-color: #0F172A; color: #FFF7ED; }
 .vtk-loc small { font: 500 12px var(--f-mono, monospace); opacity: .75; }
 .vtk-sap { background: none; border-style: dashed; color: var(--muted); font-weight: 500; }
+/* Sách của tháng (Vũ Trụ Mark C1): dải ở đầu trang chủ góc, bìa thu nhỏ bên trái, lời giới thiệu bên phải (scripts/tao_vu_tru_khac.py) */
+.vtk-thang { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center; margin: 0 0 28px; padding: 22px 24px;
+  border: 2px solid #EA580C; border-radius: 18px; background: var(--panel); box-shadow: 0 10px 0 -4px color-mix(in srgb, #EA580C 35%, transparent); }
+.vtk-thang-bia .vtk-the .vtk-so, .vtk-thang-bia .vtk-the b, .vtk-thang-bia .vtk-the .vtk-tg { display: none; }
+.vtk-thang-bia .vtk-bia { margin: 0; }
+.vtk-thang-chu p { margin: 0 0 10px; color: var(--muted); }
+.vtk-thang-chu .vtk-h { margin: 0 0 8px; }
+.vtk-thang-nhan { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #EA580C; color: #FFF7ED !important; font: 600 13px var(--f-body); }
+.vtk-thang-kem a { color: #C2410C; font-weight: 600; }
+.vtk-thang-nut { display: inline-flex; padding: 10px 20px; border-radius: 999px; background: #0F172A; color: #FFF7ED; font-weight: 600; text-decoration: none; }
+.vtk-thang-nut:hover { background: #C2410C; }
+@media (max-width: 560px) { .vtk-thang { grid-template-columns: 1fr; gap: 16px; padding: 18px 16px; } .vtk-thang-bia { width: 130px; margin: 6px auto 0; } .vtk-thang-chu .vtk-h { font-size: 20px; } }
+:root[data-theme="dark"] .vtk-thang-kem a { color: #FB923C; }
+:root[data-theme="dark"] .vtk-thang-nut { background: #EA580C; color: #0F172A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .vtk-thang-kem a { color: #FB923C; } :root:not([data-theme="light"]) .vtk-thang-nut { background: #EA580C; color: #0F172A; } }
 .vtk-khoi + .vtk-khoi { margin-top: 32px; }
 .vtk-khoi { scroll-margin-top: 70px; }
 .vtk-khoi-dau { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
