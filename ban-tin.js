@@ -20,7 +20,8 @@
     trong: "Nothing new here this week.", soTruoc: "Earlier digests", ghiUmami: (a, b) => "Most read: rankings from site visits " + a + " – " + b + ".",
     oVideo: "new videos", oBai: "new universe articles", oTinhNang: "new on the site", tapMoi: n => n + (n === 1 ? " new part" : " new parts"),
     moiKenhNgan: "New on the channel", demVideo: n => n + " videos, grouped by series", vtkMoiNgan: "New articles", demBai: n => n + " articles", xemGoc: "See the whole corner ›",
-    thang: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], baiBao: "AI paper", rong: "No digest yet."
+    thang: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], baiBao: "AI paper", rong: "No digest yet.",
+    pho: "This week in the neighborhood", phoMoi: "Game and clips", sachThang: m => "Book of the month · " + m, choiGame: "Play Bánh Mì Delivery Cat ›"
   } : {
     eyebrow: (a, b) => "Bản tin tuần · " + a + " – " + b, tieuDe: "Tuần này có gì mới?", choBan: (t, n) => "Có " + n + " video mới hợp với lộ trình " + t + " của bạn, mình đưa lên đầu.",
     hocAi: "Mark học AI", vtk: "Mark Ở Vũ Trụ Khác",
@@ -30,7 +31,8 @@
     trong: "Tuần này chưa có gì mới ở đây.", soTruoc: "Các số trước", ghiUmami: (a, b) => "Đọc nhiều: xếp theo lượt ghé web từ " + a + " đến " + b + ".",
     baiBao: "Bài báo AI", rong: "Chưa có số nào.",
     oVideo: "video mới", oBai: "bài Vũ Trụ Khác mới", oTinhNang: "điểm mới trên web", tapMoi: n => n + " tập mới",
-    moiKenhNgan: "Mới lên kênh", demVideo: n => n + " video, gom theo series", vtkMoiNgan: "Bài mới", demBai: n => n + " bài", xemGoc: "Xem cả góc đọc ›"
+    moiKenhNgan: "Mới lên kênh", demVideo: n => n + " video, gom theo series", vtkMoiNgan: "Bài mới", demBai: n => n + " bài", xemGoc: "Xem cả góc đọc ›",
+    pho: "Ở khu phố tuần này", phoMoi: "Game và clip", sachThang: m => "Sách của tháng " + m, choiGame: "Chơi Mèo Giao Bánh Mì ›"
   };
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const load = name => fetch(goc + "data/" + name + ".json", { cache: "no-cache" }).then(r => r.json());
@@ -127,8 +129,25 @@
       (v.doc_nhieu.length && gon ? tieu(S.vtkDoc) + top(v.doc_nhieu) : "") +
       (v.doc_nhieu.length && !gon ? tieu(S.vtkDoc) + '<ul class="bt-cuon bt-cuon-top">' + v.doc_nhieu.map((m, i) => '<li><span class="bt-top-hang">' + (i + 1) + "</span>" + bia(m) + "</li>").join("") + "</ul>" : "") +
       ((v.web || []).length && !gon ? tieu(S.web) + tinh(v.web) : "") + "</section>" +
+      vePho(s.khu_pho, gon) +
       (!gon && s.umami && s.umami.tu ? '<p class="bt-ghi">' + S.ghiUmami(ngay(s.umami.tu), ngay(s.umami.den)) + "</p>" : "");
   }
+
+  // Ở khu phố tuần này (Vũ Trụ Mark D3, 30/10): tin game Mèo Giao Bánh Mì, clip mới, sách cả khu phố đang đọc trong tháng
+  function vePho(p, gon) {
+    if (!p || (!(p.moi || []).length && !p.sach)) return "";
+    const icon = { game: "gamepad", clip: "clapperboard" };
+    const tin = (p.moi || []).length ? tieuPho(S.phoMoi) + '<ul class="bt-tinh bt-tinh-pho">' + p.moi.map(w => "<li>" + (w.link ? '<a href="' + esc(w.link) + '">' : "<span>") +
+      ic(icon[w.loai] || "sparkles") + "<span>" + esc(ten(w)) + "</span>" + (w.link ? "</a>" : "</span>") + "</li>").join("") + "</ul>" : "";
+    const b = p.sach;
+    const sach = b ? tieuPho(S.sachThang(EN ? S.thang[+b.thang.slice(5, 7) - 1] : b.thang.slice(5, 7) + "/" + b.thang.slice(0, 4))) +
+      '<div class="bt-sach"><a class="bt-bia" href="' + esc(b.link) + '" style="--b1:' + esc((b.mau || [])[0] || "#0B1F3A") + ";--b2:" + esc((b.mau || [])[1] || "#1F3A75") + '">' +
+      '<span class="bt-bia-hinh">' + (b.bia ? '<img src="' + goc + esc(b.bia) + '" alt="" width="120" height="120" loading="lazy" decoding="async">' : "") + "</span>" +
+      '<span class="bt-bia-ten">' + esc(ten(b)) + "</span></a>" + (gon ? "" : "<p>" + esc(EN ? b.loi_en : b.loi) + "</p>") + "</div>" : "";
+    return '<section class="bt-khoi bt-khoi-pho"><h2><img src="' + goc + 'assets/game/meo-giao-banh-mi.webp" alt="" width="32" height="32">' + S.pho + "</h2>" + tin + sach +
+      (gon ? "" : '<p class="bt-doc-web"><a href="https://meo.markhocai.com/?utm_source=markhocai&amp;utm_medium=web&amp;utm_content=ban-tin">' + S.choiGame + "</a></p>") + "</section>";
+  }
+  const tieuPho = t => '<h3 class="bt-tieu">' + t + "</h3>";
 
   async function trangBanTin(el) {
     let B;

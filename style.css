@@ -1668,6 +1668,12 @@ html:has(.bt-hop[open]) { overflow: hidden; }
 .bt-o.o-web .ic { background: var(--mint-dam, #059669); }
 .bt-khoi { margin: 0 0 22px; padding: 20px 22px 8px; border-radius: 22px; background: var(--panel); border: 1.5px solid var(--edge); border-top: 6px solid var(--blue); }
 .bt-khoi-vtk { border-top-color: #F5C542; }
+.bt-khoi-pho { border-top-color: #D98E2B; }
+.bt-khoi-pho h2 img { object-fit: cover; }
+.bt-sach { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 12px; }
+.bt-sach .bt-bia { flex: none; width: 150px; min-height: 200px; }
+.bt-sach p { margin: 0; max-width: 60ch; font-size: 15px; line-height: 1.55; }
+@media (max-width: 560px) { .bt-sach .bt-bia { width: 110px; min-height: 150px; } .bt-sach p { font-size: 14px; } }
 .bt-khoi h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 4px; font: 800 22px/1.2 var(--f-display); }
 .bt-khoi h2 img { border-radius: 9px; }
 .bt-tieu { margin: 18px 0 10px; font: 700 16px/1.3 var(--f-body); }

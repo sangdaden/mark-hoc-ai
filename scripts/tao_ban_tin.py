@@ -7,6 +7,8 @@ và trang ban-tin.html / en/ban-tin.html liệt kê mọi số. Mỗi số có h
     video xem nhiều trên kênh (data/noi-bat.json "pho_bien", script gom_video.py ghi từ sổ cái mỗi thứ Hai),
     trang đọc nhiều trên web (Umami, chỉ lấy thứ hạng, không đưa con số lên web) và tính năng web mới (data/ban-tin-web.json).
   - Mark Ở Vũ Trụ Khác: bài mới trong tuần (data/vu-tru-khac.json "ngay") và bài đọc nhiều (Umami).
+  - Ở khu phố tuần này (Vũ Trụ Mark D3, 30/10): game Mèo Giao Bánh Mì và clip mới trong tuần (data/ban-tin-khu-pho.json),
+    cộng sách của tháng đang đọc (data/vu-tru-khac-sach-thang.json).
 
 Dùng:
   python3 scripts/tao_ban_tin.py                    # số kết thúc hôm nay (giờ VN), 7 ngày
@@ -202,10 +204,22 @@ def main():
         return muc_vtk(theo_slug[m.group(1)]) if m and m.group(1) in theo_slug else None
     vtk_doc_nhieu = xep_umami(trang.get("vu-tru-khac"), khop_vtk)
 
+    # ---- Ở khu phố tuần này (game, clip, sách của tháng) ----
+    pho = [{"ten": w["vi"], "ten_en": w["en"], "link": w.get("link", ""), "loai": w.get("loai", "game")}
+           for w in (doc(D / "ban-tin-khu-pho.json", []) or []) if trong(w.get("ngay"), tu, den)]
+    sach = None
+    thang = [t for t in (doc(D / "vu-tru-khac-sach-thang.json", []) or []) if t["thang"] <= den.isoformat()[:7]]
+    if thang:
+        t = max(thang, key=lambda t: t["thang"])
+        x = theo_slug.get(t["slug"])
+        if x:
+            sach = dict(muc_vtk(x), thang=t["thang"], loi=t["loi"], loi_en=(t.get("en") or {}).get("loi") or t["loi"])
+
     so_moi = {
         "id": den.isoformat(), "tu": tu.isoformat(), "den": den.isoformat(),
         "hoc_ai": {"moi": moi[:MOI_TOI_DA], "tong_moi": tong_moi, "nhom_moi": nhom_moi, "xem_nhieu": xem_nhieu, "doc_nhieu": doc_nhieu, "web": web("hoc-ai")},
         "vtk": {"moi": [muc_vtk(x) for x in vtk_moi_goc[:MOI_TOI_DA]], "tong_moi": len(vtk_moi_goc), "nhom": nhom, "doc_nhieu": vtk_doc_nhieu, "web": web("vtk")},
+        "khu_pho": {"moi": pho, "sach": sach},
         "umami": ((um or {}).get("ky") or {}) and {"tu": um["ky"]["tu"], "den": um["ky"]["den"]},
     }
 
@@ -219,7 +233,7 @@ def main():
     out.write_text(json.dumps(du_lieu, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     h, v = so_moi["hoc_ai"], so_moi["vtk"]
     print(f"Bản tin {tu} → {den}: Mark học AI {h['tong_moi']} mới, {len(h['xem_nhieu'])} xem nhiều, {len(h['doc_nhieu'])} đọc nhiều, "
-          f"{len(h['web'])} tính năng web; Vũ Trụ Khác {v['tong_moi']} bài mới, {len(v['doc_nhieu'])} đọc nhiều, {len(v['web'])} tính năng -> {out.relative_to(R)}")
+          f"{len(h['web'])} tính năng web; Vũ Trụ Khác {v['tong_moi']} bài mới, {len(v['doc_nhieu'])} đọc nhiều, {len(v['web'])} tính năng; khu phố {len(so_moi['khu_pho']['moi'])} tin -> {out.relative_to(R)}")
     if not um:
         print("  (không có file Umami, bỏ phần đọc nhiều)")
 
