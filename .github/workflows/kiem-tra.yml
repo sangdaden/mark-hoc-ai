@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+# Luật G6: đẩy commit mới thì hủy lần kiểm tra cũ của cùng PR
+concurrency:
+  group: kiem-tra-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   kiem-tra:
     runs-on: ubuntu-latest
