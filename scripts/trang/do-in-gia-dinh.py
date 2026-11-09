@@ -1,4 +1,4 @@
-# ---------- Đồ in cho gia đình (do-in-gia-dinh.html): 4 tờ in theo video 141, 143, 422, 430 ----------
+# ---------- Đồ in cho gia đình (do-in-gia-dinh.html): 5 tờ in theo video 141, 143, 422, 430, 704 ----------
 # Mỗi tờ: chơi hoặc chọn bên trái, tờ in xem trước bên phải, bấm In (hoặc lưu PDF). Nội dung ở data/do-in-gia-dinh.json,
 # cách chơi ở do-in.js, CSS ở assets/tro-choi/do-in.css. Mở thẳng một tờ bằng ?to=<id>. Chạy chung không gian tên với tao_bai_viet.py.
 
@@ -106,11 +106,28 @@ def tao_do_in():
         "bs_cot": [t("Ngày", "Date"), t("Dạng bài", "Topic"), t("Bước sai đầu tiên, vì sao", "First wrong step, and why"), t("Cách nhớ", "How to remember"), t("Làm lại", "Redo")],
         "bs_luat": t("Làm lại đúng 2 lần liên tiếp thì coi là đã chắc. Hỏi AI ba lần vẫn chưa hiểu thì mang câu đó hỏi thầy cô.",
                      "Right twice in a row counts as learned. Still stuck after asking AI three times? Take it to your teacher."),
+        # giờ vàng sau khi lỡ bị lừa (704): số tổng đài ngân hàng do nhà mình chép từ thẻ hay ứng dụng, trang không điền sẵn số nào
+        "gv_nha": t("Tên nhà", "Household"), "gv_nha_goi_y": t("vd. nhà bà Năm", "e.g. Grandma's house"),
+        "gv_nh": t("Tổng đài ngân hàng của nhà mình", "Your family's bank hotlines"),
+        "gv_nh_ten": t("Ngân hàng", "Bank"), "gv_nh_ten_goi_y": t("tên ngân hàng", "bank name"),
+        "gv_nh_so": t("Số tổng đài", "Hotline number"), "gv_nh_so_goi_y": t("số in mặt sau thẻ", "number on the back of the card"),
+        "gv_nh_ghi": t("Chép đúng số in mặt sau thẻ hoặc trong ứng dụng chính thức của ngân hàng. Đừng lấy số từ tin nhắn, cuộc gọi lạ hay kết quả tìm kiếm.",
+                       "Copy the number printed on the back of the card or shown in the bank's official app. Never take a number from a text, an unexpected call or a search result."),
+        "gv_ca": t("Công an phường/xã gần nhà", "Local police station"), "gv_ca_goi_y": t("để trống thì in dòng kẻ", "leave blank to print a line"),
+        "gv_so_can": t("Số cần gọi", "Numbers to call"),
+        "gv_113": t("Công an: 113", "Police (in Vietnam): 113"),
+        "gv_viec": t("Đang gặp chuyện thật? Đánh dấu từng việc khi làm xong", "Happening right now? Tick each step as you do it"),
+        "gv_viec_ghi": t("Dấu tích chỉ hiện trên màn hình. Tờ in luôn để ô trống để đánh dấu bằng bút.", "Ticks only show on screen. The printout always has empty boxes to tick with a pen."),
+        "gv_da_lam": t("việc đã làm", "steps done"),
+        "gv_to_h": t("GIỜ VÀNG SAU KHI LỠ BỊ LỪA", "THE GOLDEN HOUR AFTER A SCAM"),
+        "gv_canh_bao_h": t("Cẩn thận đợt lừa thứ hai", "Watch out for a second scam"),
+        "gv_kiem_h": t("3 bước kiểm tra trước khi chuyển tiền", "3 checks before you send money"),
+        "gv_mat_khau": t("Mật khẩu gia đình: đã thống nhất, không ghi ra giấy", "Family password: agreed together, never written down"),
     }
     du_lieu = json.dumps({"to": to, "nhan": nhan, "lg": L, "p": p}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    desc = t("4 tờ in miễn phí theo video Mark học AI: phiếu cùng con bắt lỗi AI, luật dùng AI trong nhà, sổ tay chữ to cho ông bà, sổ lỗi Toán. Chơi thử rồi in ra dán tủ lạnh.",
-             "4 free printables from Mark học AI videos: an AI error hunt for kids, family AI rules, a large-print phone guide for grandparents and a math mistake log. Try it, then print it for the fridge.")
-    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Đồ in · 4 tờ · in hoặc lưu PDF", "Printables · 4 sheets · print or save as PDF")}</p>\n'
+    desc = t("5 tờ in miễn phí theo video Mark học AI: phiếu cùng con bắt lỗi AI, luật dùng AI trong nhà, sổ tay chữ to cho ông bà, sổ lỗi Toán, giờ vàng sau khi lỡ bị lừa. Chơi thử rồi in ra dán tủ lạnh.",
+             "5 free printables from Mark học AI videos: an AI error hunt for kids, family AI rules, a large-print phone guide for grandparents, a math mistake log and the golden hour after a scam. Try it, then print it for the fridge.")
+    band = (f'<div class="head-row"><div>\n<p class="eyebrow">{t("Đồ in · 5 tờ · in hoặc lưu PDF", "Printables · 5 sheets · print or save as PDF")}</p>\n'
             f'<h1>{t("Đồ in cho gia đình", "Family printables")}</h1>\n'
             f'<p class="lead">{t("Chơi thử vài giây, chọn những gì hợp với nhà mình, rồi in ra một tờ dán tủ lạnh hay cạnh chỗ sạc điện thoại.", "Play for a moment, pick what fits your family, then print a sheet for the fridge or next to the phone charger.")}</p>\n'
             f'</div><img class="head-art" src="{p}assets/bit-vui.svg" alt="" width="180" height="170"></div>')

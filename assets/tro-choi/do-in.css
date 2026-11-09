@@ -1,10 +1,10 @@
-/* ===== Đồ in cho gia đình (do-in-gia-dinh.html, do-in.js): 4 tờ in theo video 141, 143, 422, 430 =====
+/* ===== Đồ in cho gia đình (do-in-gia-dinh.html, do-in.js): 5 tờ in theo video 141, 143, 422, 430, 704 =====
    Trên màn hình: chơi/chọn bên trái, tờ A4 xem trước bên phải (thu nhỏ bằng zoom cho vừa khung).
    Khi in: chỉ còn tờ A4 (html.di-dang-in), cỡ thật theo mm/pt. Tờ in luôn là giấy trắng, kể cả giao diện tối. */
 .di { padding-block: 8px 40px; }
 
-/* Thẻ chọn tờ: 4 thẻ có biểu tượng, điện thoại thì cuộn ngang */
-.di-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+/* Thẻ chọn tờ: 5 thẻ có biểu tượng, điện thoại thì cuộn ngang */
+.di-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
 .di-tab { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 14px; text-align: left; cursor: pointer;
   border-radius: 16px; border: 1.5px solid var(--edge); background: var(--panel); color: var(--ink); transition: border-color .15s, transform .15s; }
 .di-tab:hover { border-color: var(--blue); transform: translateY(-2px); }
@@ -234,6 +234,38 @@ html.nhung .di-to-wrap { top: 8px; }
 .a4-bs .a4-bang th:nth-child(5) { width: 18mm; }
 .a4-toan { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; }
 .a4-lam-lai { text-align: center; font-size: 13pt; color: #64748B; letter-spacing: 1mm; }
+
+/* 704: giờ vàng sau khi lỡ bị lừa, tông nắng vàng, chữ to để dán tủ lạnh hay cạnh máy bàn */
+.di-tab[data-tab="gio-vang"][aria-selected="true"] .ic { color: #DC2626; background: #fff; }
+.di-gv-ds .di-viec { grid-template-rows: auto; }
+.di-gv-ds .di-viec-dau { grid-row: auto; }
+.a4-gv { --c1: #D97706; --c2: #FEF3C7; --c3: #78350F; gap: 3.5mm; font-size: 13pt; line-height: 1.32; }
+.a4-gv .a4-dai { padding: 10mm 12mm 7mm; }
+.a4-gv .a4-khien { background: #fff; color: #DC2626; }
+.a4-gv .a4-h { font-size: 22pt; }
+.a4-gv .a4-phu { margin-top: 1.5mm; font-size: 13pt; color: var(--c3); }
+.a4-gv .a4-phu b { font-weight: 800; }
+.a4-gv-mo { margin: 0; }
+.a4-gv-goi { padding: 3.5mm 5mm; border-radius: 4mm; border: .6mm solid var(--c1); }
+.a4-gv-goi-h, .a4-gv-kiem-h { margin: 0 0 1.5mm; font: 800 12pt/1.2 "Be Vietnam Pro", sans-serif; text-transform: uppercase; letter-spacing: .03em; color: var(--c3); }
+.a4-gv-so { display: flex; flex-direction: column; gap: 1.5mm; }
+.a4-gv-so p { margin: 0; font-size: 14pt; }
+.a4-gv-dt { font: 800 16pt/1.2 "Be Vietnam Pro", sans-serif; letter-spacing: .03em; }
+.a4-gv-113 { align-self: flex-start; margin-top: 1mm !important; padding: 1.5mm 4mm; border-radius: 2mm; background: var(--c2); font: 800 16pt/1.2 "Be Vietnam Pro", sans-serif !important; }
+.a4-gv-viec { display: flex; flex-direction: column; gap: 2.5mm; margin: 0; padding: 0; list-style: none; counter-reset: gv; }
+.a4-gv-viec li { counter-increment: gv; display: grid; grid-template-columns: 11mm 1fr 8mm; align-items: center; gap: 3.5mm; }
+.a4-gv-viec li::before { content: counter(gv); width: 11mm; height: 11mm; border-radius: 50%; background: var(--c1); color: #fff;
+  display: grid; place-items: center; font: 800 17pt/1 "Be Vietnam Pro", sans-serif; }
+.a4-gv-viec b { font-weight: 800; }
+.a4-gv-o { width: 8mm; height: 8mm; border: .5mm solid #64748B; border-radius: 1.5mm; }
+.a4-gv-canh { padding: 3mm 5mm; border: 1.2mm solid #DC2626; border-radius: 3mm; }
+.a4-gv-canh b { font: 800 14pt/1.25 "Be Vietnam Pro", sans-serif; color: #B91C1C; }
+.a4-gv-canh p { margin: .8mm 0 0; }
+.a4-gv-kiem { padding: 3mm 5mm; border-radius: 3mm; background: #FEF9C3; }
+.a4-gv-kiem ol { margin: 0; padding-left: 1.4em; display: flex; flex-wrap: wrap; column-gap: 9mm; }
+.a4-gv-kiem li { font-weight: 700; }
+.a4-gv-mk { display: flex; align-items: center; gap: 2mm; margin: 1.5mm 0 0; font-size: 12pt; color: #475569; }
+.a4-gv-mk .ic { width: 5mm; height: 5mm; flex: none; }
 
 @media (max-width: 960px) {
   .di-luoi { grid-template-columns: minmax(0, 1fr); }
