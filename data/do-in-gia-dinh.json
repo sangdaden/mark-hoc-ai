@@ -1,5 +1,5 @@
 {
- "_ghi_chu": "Đồ in cho gia đình (do-in-gia-dinh.html): 4 tờ in theo video 141, 143, 422, 430. Mỗi tờ một phần trong 'to'; trang tạo ở scripts/trang/do-in-gia-dinh.py, cách chơi ở do-in.js. Mở thẳng một tờ: ?to=<id>. Mọi tình huống và nhân vật là hư cấu.",
+ "_ghi_chu": "Đồ in cho gia đình (do-in-gia-dinh.html): 5 tờ in theo video 141, 143, 422, 430, 704. Mỗi tờ một phần trong 'to'; trang tạo ở scripts/trang/do-in-gia-dinh.py, cách chơi ở do-in.js. Mở thẳng một tờ: ?to=<id>. Mọi tình huống và nhân vật là hư cấu.",
  "to": [
   {
    "id": "bat-loi",
@@ -161,6 +161,28 @@
      "sua_en": ["3√2 + 2√2 = (3 + 2)√2 = 5√2", "Check: √18 + √8 ≈ 4.243 + 2.828 = 7.071", "5√2 ≈ 7.071 ✓"],
      "nho": {"vi": "Cộng căn đồng dạng: giữ √2, chỉ cộng số đứng trước.", "en": "Like radicals: keep √2, add only the numbers in front."}
     }
+   ]
+  },
+  {
+   "id": "gio-vang",
+   "video": [704],
+   "ten": {"vi": "Giờ vàng sau khi lỡ bị lừa", "en": "The golden hour after a scam"},
+   "ngan": {"vi": "Giờ vàng", "en": "Golden hour"},
+   "mo": {"vi": "Điền số tổng đài ngân hàng của nhà mình và số công an gần nhà, rồi in dán tủ lạnh hay cạnh máy điện thoại bàn của ông bà. Lỡ chuyển tiền cho kẻ gian thì làm ngay 5 việc trên tờ.", "en": "Fill in your family's bank hotlines and the local police number, then print it for the fridge or next to your grandparents' landline. If money ever goes to a scammer, do the 5 things on the sheet right away."},
+   "icon": "chong-lua-dao",
+   "mo_dau": {"vi": "Nếu lỡ chuyển tiền cho kẻ gian, mỗi phút đều quý, vì kẻ gian thường chia nhỏ tiền và chuyển tiếp rất nhanh. Báo càng sớm, càng có cơ hội phong tỏa trước khi tiền đi xa. Năm việc cần làm ngay trong giờ đầu:", "en": "If you've sent money to a scammer, every minute counts, because scammers usually split the money up and pass it on very fast. The sooner you report it, the better the chance it can be frozen before it goes far. Five things to do in the first hour:"},
+   "viec": [
+    {"id": "ngan-hang", "dau": {"vi": "Gọi tổng đài ngân hàng", "en": "Call your bank's hotline"}, "vi": "Gọi tổng đài ngân hàng theo số in trên thẻ hoặc trong ứng dụng chính thức: báo giao dịch lừa đảo, đề nghị khóa tài khoản và tra soát khoản chuyển.", "en": "Call your bank's hotline using the number printed on your card or in the official app: report a scam transaction, and ask them to lock the account and trace the transfer."},
+    {"id": "cong-an", "dau": {"vi": "Trình báo công an", "en": "Report it to the police"}, "vi": "Trình báo công an nơi gần nhất.", "en": "Report it to the police at the nearest station."},
+    {"id": "bang-chung", "dau": {"vi": "Giữ lại mọi bằng chứng", "en": "Keep all the evidence"}, "vi": "Giữ lại mọi bằng chứng: ảnh chụp tin nhắn, số tài khoản nhận, thời gian, đường dẫn, số điện thoại của kẻ gian. Đừng xóa gì cả.", "en": "Keep all the evidence: screenshots of the messages, the receiving account number, times, links, the scammer's phone number. Don't delete anything."},
+    {"id": "mat-khau", "dau": {"vi": "Đổi mật khẩu", "en": "Change your passwords"}, "vi": "Đổi mật khẩu, đăng xuất khỏi các thiết bị lạ, gỡ ứng dụng lạ vừa cài.", "en": "Change your passwords, sign out of unfamiliar devices, and remove any unfamiliar app you just installed."},
+    {"id": "nguoi-quen", "dau": {"vi": "Báo cho người quen", "en": "Warn the people you know"}, "vi": "Báo cho người quen, vì kẻ gian có thể dùng tài khoản của bạn để lừa tiếp.", "en": "Warn the people you know, because the scammer may use your account to trick them next."}
+   ],
+   "canh_bao": {"vi": "Cẩn thận đợt lừa thứ hai: người tự xưng luật sư hay hacker hứa lấy lại tiền nhưng đòi phí trước thường cũng là kẻ lừa đảo.", "en": "Watch out for a second scam: someone calling themselves a lawyer or hacker who promises to get your money back but wants a fee first is usually a scammer too."},
+   "kiem_tra": [
+    {"vi": "Cúp máy.", "en": "Hang up."},
+    {"vi": "Gọi lại số đã lưu của người thân.", "en": "Call your relative back on the number you saved."},
+    {"vi": "Hỏi mật khẩu gia đình.", "en": "Ask for the family password."}
    ]
   }
  ]

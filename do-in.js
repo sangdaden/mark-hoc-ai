@@ -1,4 +1,4 @@
-/* "Đồ in cho gia đình" (do-in-gia-dinh.html, en/): 4 tờ in theo video 141, 143, 422, 430.
+/* "Đồ in cho gia đình" (do-in-gia-dinh.html, en/): 5 tờ in theo video 141, 143, 422, 430, 704.
    Bên trái chơi hoặc chọn, bên phải là tờ in khổ A4 xem trước, cập nhật ngay; nút "In tờ này" chỉ in tờ đó (hoặc lưu PDF).
    Dữ liệu: thẻ <script id="di-du-lieu"> do scripts/trang/do-in-gia-dinh.py tạo từ data/do-in-gia-dinh.json. Mở thẳng một tờ: ?to=<id>.
    Chữ người xem gõ (tên nhà, số điện thoại...) chỉ nằm trên máy, không gửi đi đâu; chỉ đếm vài sự kiện (theo-doi.js). Chạy thử: window.__di. */
@@ -13,7 +13,7 @@
   D.to.forEach(function (x) { TO[x.id] = x; });
   var NHUNG = document.documentElement.classList.contains("nhung");
   // Trạng thái từng tờ giữ nguyên khi đổi thẻ
-  var S = { tab: null, bl: null, ln: null, st: null, bs: null };
+  var S = { tab: null, bl: null, ln: null, st: null, bs: null, gv: null };
   window.__di = S;
 
   function el(tag, cls, chu) {
@@ -611,7 +611,125 @@
     };
   }
 
-  var LAM = { "bat-loi": bl, "luat-nha": ln, "so-tay": st_, "bai-sai": bs };
+  // ---------- 704 · Giờ vàng sau khi lỡ bị lừa ----------
+  // Số tổng đài ngân hàng do nhà mình chép từ thẻ hoặc ứng dụng chính thức; trang không điền sẵn số ngân hàng nào.
+  // Mật khẩu gia đình không có ô gõ: tờ in chỉ nhắc là đã thống nhất, không ghi ra giấy.
+  function gv(x, trai, ve) {
+    var st = S.gv || (S.gv = { nha: "", nh: [{ ten: "", so: "" }, { ten: "", so: "" }, { ten: "", so: "" }], ca: "", xong: [] });
+    trai.appendChild(o(N.gv_nha, st.nha, N.gv_nha_goi_y, function (v) { st.nha = v; ve(); }));
+
+    var nh = nhom(N.gv_nh);
+    st.nh.forEach(function (n, i) {
+      var luoi = el("div", "di-o-luoi");
+      luoi.appendChild(o(N.gv_nh_ten + " " + (i + 1), n.ten, N.gv_nh_ten_goi_y, function (v) { n.ten = v; ve(); }));
+      luoi.appendChild(o(N.gv_nh_so, n.so, N.gv_nh_so_goi_y, function (v) { n.so = v; ve(); }, "tel"));
+      nh.appendChild(luoi);
+    });
+    nh.appendChild(el("p", "di-ghi", N.gv_nh_ghi));
+    trai.appendChild(nh);
+    trai.appendChild(o(N.gv_ca, st.ca, N.gv_ca_goi_y, function (v) { st.ca = v; ve(); }, "tel"));
+
+    // Dấu tích trên màn hình để làm theo khi đang gặp chuyện; không đổi tờ in
+    var lam = nhom(N.gv_viec);
+    var tien = el("div");
+    lam.appendChild(tien);
+    var ds = el("div", "di-viec-ds di-gv-ds");
+    function capNhat() {
+      tien.innerHTML = "";
+      tien.appendChild(chamTien(st.xong.length, x.viec.length));
+    }
+    x.viec.forEach(function (v, i) {
+      var b = el("button", "di-viec");
+      b.type = "button";
+      b.setAttribute("aria-pressed", st.xong.indexOf(v.id) >= 0 ? "true" : "false");
+      b.appendChild(el("span", "di-viec-dau"));
+      b.appendChild(el("b", null, (i + 1) + ". " + v.dau));
+      b.addEventListener("click", function () {
+        var j = st.xong.indexOf(v.id);
+        if (j >= 0) st.xong.splice(j, 1); else st.xong.push(v.id);
+        b.setAttribute("aria-pressed", j >= 0 ? "false" : "true");
+        capNhat();
+        if (st.xong.length === x.viec.length) do_("do-in-xong", { to: "gio-vang" });
+      });
+      ds.appendChild(b);
+    });
+    capNhat();
+    lam.appendChild(ds);
+    lam.appendChild(el("p", "di-ghi", N.gv_viec_ghi));
+    trai.appendChild(lam);
+
+    return function (a4) {
+      a4.className = "a4 a4-gv";
+      var dau = el("header", "a4-dau a4-dai");
+      dau.appendChild(icon("chong-lua-dao", "a4-khien"));
+      var tieu = el("div", "a4-gv-tieu");
+      tieu.appendChild(el("h2", "a4-h", N.gv_to_h));
+      var nha = el("p", "a4-phu");
+      nha.appendChild(document.createTextNode(N.gv_nha + ": "));
+      nha.appendChild(el("b", null, trong(st.nha)));
+      tieu.appendChild(nha);
+      dau.appendChild(tieu);
+      a4.appendChild(dau);
+
+      a4.appendChild(el("p", "a4-gv-mo", x.mo_dau));
+
+      var goi = el("div", "a4-gv-goi");
+      goi.appendChild(el("p", "a4-gv-goi-h", N.gv_so_can));
+      var bang = el("div", "a4-gv-so");
+      var co = st.nh.filter(function (n) { return n.ten.trim() || n.so.trim(); });
+      (co.length ? co : st.nh.slice(0, 2)).forEach(function (n) {
+        var d = el("p");
+        d.appendChild(el("span", null, N.gv_nh_ten + ": "));
+        d.appendChild(el("b", null, trong(n.ten)));
+        d.appendChild(el("span", null, " · " + N.gv_nh_so + ": "));
+        d.appendChild(el("b", "a4-gv-dt", trong(n.so)));
+        bang.appendChild(d);
+      });
+      var ca = el("p");
+      ca.appendChild(el("span", null, N.gv_ca + ": "));
+      ca.appendChild(el("b", "a4-gv-dt", trong(st.ca)));
+      bang.appendChild(ca);
+      bang.appendChild(el("p", "a4-gv-113", N.gv_113));
+      goi.appendChild(bang);
+      a4.appendChild(goi);
+
+      var ol = el("ol", "a4-gv-viec");
+      x.viec.forEach(function (v) {
+        var li = el("li");
+        var chu = el("span");
+        // phần đầu câu in đậm để dò nhanh; phần còn lại giữ nguyên câu đã duyệt
+        if (v.chu.indexOf(v.dau) === 0) {
+          chu.appendChild(el("b", null, v.dau));
+          chu.appendChild(document.createTextNode(v.chu.slice(v.dau.length)));
+        } else chu.textContent = v.chu;
+        li.appendChild(chu);
+        li.appendChild(el("span", "a4-gv-o"));
+        ol.appendChild(li);
+      });
+      a4.appendChild(ol);
+
+      var cb = el("div", "a4-gv-canh");
+      cb.appendChild(el("b", null, N.gv_canh_bao_h));
+      // tiêu đề hộp đã là vế trước dấu hai chấm, nên chỉ in vế sau (viết hoa chữ đầu)
+      var sau = x.canh_bao.replace(/^[^:]*:\s*/, "");
+      cb.appendChild(el("p", null, sau.charAt(0).toUpperCase() + sau.slice(1)));
+      a4.appendChild(cb);
+
+      var kt = el("div", "a4-gv-kiem");
+      kt.appendChild(el("p", "a4-gv-kiem-h", N.gv_kiem_h));
+      var ol2 = el("ol");
+      x.kiem_tra.forEach(function (k) { ol2.appendChild(el("li", null, k)); });
+      kt.appendChild(ol2);
+      var mk = el("p", "a4-gv-mk");
+      mk.appendChild(icon("lock"));
+      mk.appendChild(document.createTextNode(N.gv_mat_khau));
+      kt.appendChild(mk);
+      a4.appendChild(kt);
+      a4.appendChild(chanTo(x));
+    };
+  }
+
+  var LAM = { "bat-loi": bl, "luat-nha": ln, "so-tay": st_, "bai-sai": bs, "gio-vang": gv };
 
   // ---------- khung một tờ: tiêu đề, cột chơi bên trái, tờ in bên phải ----------
   var veTo = null, giay = null, a4 = null;
