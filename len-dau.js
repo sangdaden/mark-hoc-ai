@@ -27,7 +27,7 @@
   x.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   a.after(x);
   // Ẩn khi trang ngắn hoặc đã gần cuối trang (còn chưa tới nửa màn hình)
-  const capNhatX = () => { x.hidden = window.scrollY + innerHeight * 1.5 >= document.documentElement.scrollHeight; };
+  const capNhatX = () => { if (!document.documentElement) return; x.hidden = window.scrollY + innerHeight * 1.5 >= document.documentElement.scrollHeight; };
   window.addEventListener("scroll", capNhatX, { passive: true });
   window.addEventListener("resize", capNhatX);
   new ResizeObserver(capNhatX).observe(document.body);

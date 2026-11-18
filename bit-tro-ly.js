@@ -120,6 +120,8 @@
 
   function noiCau(cau) {
     if (!bang.hidden || (nho.get("im") && !ngu)) return;
+    // NH2 (18/11): không nói khi đang có hộp thoại mở (ví dụ hộp "Bạn là ai?"), đỡ chồng hai lớp lên nhau
+    if (document.querySelector("dialog[open]")) return;
     noiChu.textContent = cau;
     noi.hidden = false;
     hop.classList.remove("bit-lui");
@@ -169,11 +171,17 @@
   // Điện thoại: lần 1 đợi tới khi đã kéo qua phần đầu trang để bóng thoại không che các nút ở hero
   const dt = matchMedia("(max-width: 760px)");
   const quaDau = () => !dt.matches || scrollY > innerHeight * 0.6;
-  const noiLan = () => { if (soLanNoi < loi.length) noiCau(loi[soLanNoi++]); };
+  // NH2 (18/11): điện thoại chật, Bit chỉ tự nói một lần trong cả phiên (mọi trang), máy tính giữ 2 lần mỗi trang
+  const noiLan = () => {
+    if (soLanNoi >= loi.length) return;
+    if (dt.matches) { if (nho.get("da-noi")) return; nho.set("da-noi", "1"); }
+    noiCau(loi[soLanNoi++]);
+  };
   let du6s = false;
   setTimeout(() => { du6s = true; if (quaDau()) noiLan(); }, 6000);
   const khiCuon = () => {
     if (soLanNoi === 0) { if (du6s && quaDau()) noiLan(); return; }
+    if (!document.documentElement) return; // HT2: trang đang đóng (trình duyệt trong app) thì bỏ qua
     const h = document.documentElement.scrollHeight - innerHeight;
     if (soLanNoi === 1 && h > 0 && scrollY / h > 0.5) { noiLan(); removeEventListener("scroll", khiCuon); }
   };

@@ -192,6 +192,10 @@
   window.addEventListener("error", function (e) {
     // "ResizeObserver loop..." là cảnh báo vô hại của trình duyệt, không phải lỗi trang
     if (/ResizeObserver loop/.test(String(e.message || ""))) return;
+    // HT2 (18/11): lỗi do trình duyệt trong app Zalo, Facebook, Android tự chèn script, không phải lỗi trang; "Script error." là lỗi
+    // script khác nguồn không có chi tiết. Bỏ để loi-js chỉ còn lỗi của chính trang.
+    if (/zaloJSV2|_META\.IABInnerFrame|Java object is gone|isReCreate|^Script error\.?$/.test(String(e.message || ""))) return;
+    if (/navigation_performance_logger/.test(String(e.filename || ""))) return;
     if (so_loi++ >= 3) return;
     var file = String(e.filename || "").split("/").pop().split("?")[0];
     // ghi kèm trang và file ngay trong nhãn "loi" (bảng số liệu tuần chỉ chia theo nhãn này)
