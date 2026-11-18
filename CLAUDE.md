@@ -17,3 +17,13 @@ Tài khoản sangdaden từng bị GitHub khóa hai lần (28/10 và 30/10), nhi
 - **G5. Lịch hẹn đụng GitHub phải giãn ra.** Khi bị khóa thì tạm dừng hết. Sau khi mở lại, bật từng cái, mỗi ngày một cái, không để hai lịch đẩy code trong cùng một giờ.
 - **G6. Actions chỉ để build, test, deploy.** Không render clip mạng xã hội trong Actions. Dùng `concurrency` với `cancel-in-progress: true`, giữ artifact 1–3 ngày. (Lịch chạy hằng ngày của `pages.yml` là deploy để bài báo tự mở đúng ngày, được phép.)
 - **G7. Repo chỉ chứa code và asset cần cho trang web.** `*.mp4`, `*.mov` và thư mục render xem trước nằm trong `.gitignore`. File trên 10 MB phải hỏi Sang trước. Bốn video nhỏ (~1 MB) của trang Dịch vụ trong `assets/dich-vu/` là nội dung của chính trang nên được giữ; thêm video mới cho trang thì hỏi Sang và thêm bằng `git add -f`.
+
+## Soát giao diện trước khi mở PR (SK1, Sang chọn 18/11/2026)
+
+PR đổi giao diện (CSS, bố cục, chữ trên nút, hộp nổi) phải qua bước soát này và ghi kết quả ngắn vào mô tả PR:
+
+- Chụp trước/sau ở cỡ điện thoại (iPhone 13) và 1280 px. Điện thoại là chuẩn: phần lớn người xem tới từ Facebook trên điện thoại.
+- Chạy axe-core (WCAG 2 A/AA) trên các trang bị sửa: không thêm lỗi mới. Kiểm không có cuộn ngang ở 390, 770, 1024, 1280 px.
+- Chạy skill `design:design-critique` với ảnh trước/sau; chữ mới trên nút và thông báo chạy `design:ux-copy`.
+- Trang mới hoặc đổi bố cục lớn (trang chủ, menu): phác trước trên Figma hoặc trang Design để Sang duyệt hình, rồi mới sửa code (SK5).
+- Script đo mẫu (Playwright + axe) ở `/mnt/project-files/brainstorm/web-ui-ux/` (`do.js`, `axe.js`).
