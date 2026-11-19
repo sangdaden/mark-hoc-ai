@@ -153,7 +153,7 @@
       ghim = g;
       top.classList.toggle("ghim", g);
       if (!g) { cho.hidden = true; }
-      document.documentElement.style.setProperty("--dau-ghim", g ? top.offsetHeight + "px" : "0px");
+      if (document.documentElement) document.documentElement.style.setProperty("--dau-ghim", g ? top.offsetHeight + "px" : "0px"); // HT2: trang đang đóng thì bỏ qua
     };
     const xet = () => { hen = 0; dat(ghim ? cho.getBoundingClientRect().top < 0 : top.getBoundingClientRect().top < 0); };
     addEventListener("scroll", () => { if (!hen) hen = requestAnimationFrame(xet); }, { passive: true });

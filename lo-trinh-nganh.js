@@ -149,18 +149,21 @@
       oChon(D, chon && chon.ai) +
       '<button type="button" class="chao-kham-pha" data-kham-pha>' + S.khamPha + '</button></div>';
     document.body.appendChild(hop);
-    const dong = () => { nho.set(KHOA_CHAO, "1"); if (hop.open) hop.close(); };
-    ganChon(hop, D, c => { nho.set(KHOA_CHAO, "1"); nho.set(KHOA_NGANH, JSON.stringify(c)); location.href = linkChon(c); });
+    // DO1 (18/11): đếm hộp chào mở, đóng không chọn (và đóng bằng cách nào), chọn ô, để so trước/sau khi đưa ô chọn ra trang chủ (NH1)
+    const do1 = (ten, d) => { if (window.mhaiDo) window.mhaiDo(ten, d); };
+    let daChon = false;
+    const dong = cach => { nho.set(KHOA_CHAO, "1"); if (hop.open) { if (!daChon) do1("chao-dong", { cach: cach }); hop.close(); } };
+    ganChon(hop, D, c => { daChon = true; do1("chao-chon", { nganh: c.ai && D.nganh[c.ai] ? c.ai : "tu-go" }); nho.set(KHOA_CHAO, "1"); nho.set(KHOA_NGANH, JSON.stringify(c)); location.href = linkChon(c); });
     hop.addEventListener("click", e => {
-      if (e.target === hop || e.target.closest(".hop-dong")) dong();
+      if (e.target === hop || e.target.closest(".hop-dong")) dong(e.target === hop ? "ngoai" : "x");
       if (e.target.closest("[data-kham-pha]")) {
-        dong();
+        dong("kham-pha");
         const s = document.getElementById("bat-dau");
         if (s) s.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
       }
     });
-    hop.addEventListener("cancel", () => nho.set(KHOA_CHAO, "1"));
-    document.querySelectorAll("[data-mo-chao]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); hop.showModal(); }));
+    hop.addEventListener("cancel", () => { nho.set(KHOA_CHAO, "1"); if (!daChon) do1("chao-dong", { cach: "esc" }); });
+    document.querySelectorAll("[data-mo-chao]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); hop.showModal(); do1("chao-mo", { cach: "bam" }); }));
 
     // Đã chọn trước đó: dải nhắc trong "Bắt đầu từ đây"
     const dai = document.getElementById("cua-ban");
@@ -174,7 +177,7 @@
     }
     // Chỉ tự mở ở lần ghé đầu tiên, và không chen ngang khi vào bằng link tới một series (#id) hay đang thử ngày (?hom-nay=)
     // Người tới từ mạng xã hội đã có popup "Vừa xem video?" (app.js, window.mhaiVxMo) thì không mở thêm hộp chào
-    if (!nho.get(KHOA_CHAO) && !chon && !location.hash && !location.search) setTimeout(() => { if (!window.mhaiVxMo && !document.querySelector("dialog[open]")) hop.showModal(); }, 700);
+    if (!nho.get(KHOA_CHAO) && !chon && !location.hash && !location.search) setTimeout(() => { if (!window.mhaiVxMo && !document.querySelector("dialog[open]")) { hop.showModal(); do1("chao-mo", { cach: "tu-mo" }); } }, 700);
   }
 
   // ===== Trang lộ trình =====

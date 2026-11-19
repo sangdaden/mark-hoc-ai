@@ -10,7 +10,7 @@ HINH_CHOI["duong-doan-chu"] = lambda: (
     f'<span style="justify-self:center;padding:2px 8px;border-radius:8px;background:#fff;color:#0F172A;font:700 12px/1.3 var(--f-display)">{t("Hôm nay trời rất …", "Today the weather is very …")}</span>'
     '<span style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center">'
     + "".join(f'<span style="padding:2px 9px;border-radius:999px;background:{m};color:{c};font:700 11.5px/1.4 var(--f-body)">{w}</span>'
-              for w, m, c in [(t("đẹp", "nice"), "#2563EB", "#fff"), (t("đẹp", "nice"), "#2563EB", "#fff"), (t("nóng", "hot"), "#0EA5E9", "#fff"),
+              for w, m, c in [(t("đẹp", "nice"), "#2563EB", "#fff"), (t("đẹp", "nice"), "#2563EB", "#fff"), (t("nóng", "hot"), "#0369A1", "#fff"),
                               (t("lạnh", "cold"), "#64748B", "#fff"), (t("cá?", "banana?"), "#4C1D95", "#FCA5A5")])
     + '</span></span>')
 
