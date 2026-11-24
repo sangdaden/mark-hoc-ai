@@ -30,7 +30,8 @@
 .lt-nhac-bao:empty { display: none; }
 
 /* Thẻ "Học tiếp ngày N" ở trang chủ (#hoc-tiep, chỉ hiện với người đã mở lộ trình mà chưa xong) */
-.ltt { margin: 0 0 28px; padding: 18px 20px 16px; border-radius: 22px; background: var(--panel); border: 2px solid #0F172A; box-shadow: 5px 5px 0 #0F172A; }
+/* Cách dải xanh đầu trang bằng khoảng của khối An toàn số (style.css), trước đây dính sát dải (Sang 24/11) */
+.ltt { margin: 48px 0 28px; padding: 18px 20px 16px; border-radius: 22px; background: var(--panel); border: 2px solid #0F172A; box-shadow: 5px 5px 0 #0F172A; }
 .ltt[hidden] { display: none; }
 .ltt-dau { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: center; }
 .ltt-so { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: var(--grad); color: #fff; font: 600 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; }
@@ -65,7 +66,7 @@
   .ltt-gom span { flex: 1 1 0; text-align: center; padding-block: 9px; white-space: nowrap; }
 }
 @media (max-width: 760px) {
-  .ltt { padding: 16px 14px 14px; box-shadow: 3px 3px 0 #0F172A; }
+  .ltt { margin-top: 36px; padding: 16px 14px 14px; box-shadow: 3px 3px 0 #0F172A; }
   .ltt-so { width: 54px; height: 54px; }
   .ltt-nut .btn { width: 100%; justify-content: center; }
   .lt-nhac { padding: 12px; }
