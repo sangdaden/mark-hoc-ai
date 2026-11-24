@@ -311,6 +311,8 @@ def main():
     ds, mo = [], []
     for muc in sorted(ds_nguon, key=lambda m: m["so"]):
         nv = muc.get("ngay_video") or lich.get(str(muc["video"]))
+        if nv == "sap":  # video chưa có lịch đăng
+            nv = None
         ngay_video = dt.date.fromisoformat(nv) if nv else None
         ngay_mo = (dt.date.fromisoformat(muc["ngay_mo"]) if muc.get("ngay_mo")
                    else ngay_video + dt.timedelta(days=7) if ngay_video else None)

@@ -308,7 +308,7 @@ def ic(p, n):
 
 # Ngày video lên kênh (data/lich-ra-mat.json, cập nhật khi lên lịch video mới): ghi trên đầu bài.
 # Chưa tới ngày thì bai-viet.js đổi chữ "Lên kênh" thành "Ra mắt".
-LICH = load("lich-ra-mat")
+LICH = {k: v for k, v in load("lich-ra-mat").items() if re.match(r"\d{4}-\d{2}-\d{2}$", v)}  # "sap" = chưa có lịch đăng: bài không ghi ngày
 # Ngày đăng cho Google (ld+json datePublished, article:published_time) chỉ ghi khi video đã ra; bài lên web trước video
 # thì bỏ ngày (trước 18/10/2026 Google thấy 261 bài "đăng năm 2027"). Chữ "Ra mắt" trên trang vẫn do bai-viet.js lo theo data-ngay.
 import datetime as _dt

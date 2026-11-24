@@ -64,7 +64,9 @@
   const homNayQ = new URLSearchParams(location.search).get("hom-nay");
   const homNay = /^\d{4}-\d{2}-\d{2}$/.test(homNayQ || "") ? homNayQ
     : new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Ho_Chi_Minh" }).format(new Date());
+  // "sap" trong lich-ra-mat.json: video chưa có lịch đăng (Sang chọn 24/11/2026), hiện "Sắp ra mắt" không ghi ngày
   const chuaRa = so => !!lich[so] && lich[so] > homNay;
+  const nhanRa = so => /^\d{4}-/.test(lich[so]) ? S.raMat + ngayThang(lich[so]) : S.sapRa;
   // Nhãn gây chú ý: Xem nhiều (pho_bien), Nổi bật (noi_bat), Mới (ra mắt trong 7 ngày gần nhất)
   const truoc7 = new Date(Date.parse(homNay) - 6 * 864e5).toISOString().slice(0, 10);
   const hot = new Set(noiBat.pho_bien || []), chon = new Set(noiBat.noi_bat || []);
@@ -146,7 +148,7 @@
     const hit = bySo[so];
     if (!hit) return "";
     // Bài viết có sẵn trước ngày video ra mắt, nên thẻ vẫn hiện, kèm nhãn ngày ra mắt
-    const v = hit.v, sap = chuaRa(so) ? '<span class="at-sap">' + S.raMat + ngayThang(lich[so]) + "</span>" : "";
+    const v = hit.v, sap = chuaRa(so) ? '<span class="at-sap">' + nhanRa(so) + "</span>" : "";
     return '<a class="at-the at-video" href="' + baiLink(v) + '" data-at="video-' + so + '"><span class="at-anh"><img src="' + goc + "assets/anh/chia-se/" + pad(so) + "-" + v.slug +
       '.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="at-chu"><span class="at-nhan">' + ic("play") + "#" + so + "</span><b>" + esc(v.title) + "</b>" + sap + "</span></a>";
   };
@@ -323,7 +325,7 @@
   const demPhan = g => (g.le ? S.le(g.items.length) : S.phan(g.items.length)) + " · " + range(g);
   const rowHtml = (g, v) => {
     const link = chuaRa(v.so)
-      ? '<span class="row-soon">' + S.raMat + ngayThang(lich[v.so]) + "</span>"
+      ? '<span class="row-soon">' + nhanRa(v.so) + "</span>"
       : !lich[v.so] && g.sap_ra_mat
       ? '<span class="row-soon">' + S.sapRa + '</span>'
       : '<a class="row-link" target="_blank" rel="noopener" href="' + ytLink(v) + '" aria-label="' + S.xemYt(pad(v.so)) + '">' + ic("play") + "YouTube</a>";

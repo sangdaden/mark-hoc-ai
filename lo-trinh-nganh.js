@@ -201,7 +201,7 @@
         const v = bySo[so];
         ten = v.chu_de.replace(/^.*?\((?:Phần|Part) \d+\/\d+\):\s*/, "");
         link = "bai/" + pad(so) + "-" + v.slug + ".html";
-        if (lich[so] && lich[so] > homNay) ghi = S.raMat(lich[so]);
+        if (lich[so] && lich[so] > homNay) ghi = /^\d{4}-/.test(lich[so]) ? S.raMat(lich[so]) : S.sapRa;
       } else if (LAM_THEO[so]) {
         ten = LAM_THEO_TEN[so]; link = LAM_THEO[so]; ghi = S.lamTheo;
       } else if (nhanhV[so]) {
