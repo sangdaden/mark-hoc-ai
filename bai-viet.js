@@ -23,11 +23,14 @@
         note.className = "soon-note";
         a.after(note);
       }
-      note.textContent = EN ? "Video out " + THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : "Video ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7);
+      note.textContent = !/^\d{4}-/.test(d) ? (EN ? "Video coming soon" : "Video sắp ra mắt") : EN ? "Video out " + THANG[+d.slice(5, 7) - 1] + " " + (+d.slice(8, 10)) : "Video ra mắt " + d.slice(8, 10) + "/" + d.slice(5, 7);
     });
     // Ngày trên đầu bài: chưa tới ngày thì ghi "Ra mắt" thay cho "Lên kênh"
+    // Video chưa có lịch đăng ("sap" trong lich-ra-mat.json, Sang chọn 24/11/2026): bỏ ngày cũ, ghi "Sắp ra mắt"
+    var soBai = (location.pathname.match(/\/bai\/0*(\d+)-[^/]*$/) || [])[1], sap = !!soBai && lich[soBai] === "sap";
     document.querySelectorAll("time.ngay-dang").forEach(function (el) {
-      if (el.getAttribute("datetime") > homNay) el.textContent = el.textContent.replace(EN ? "Published" : "Lên kênh", EN ? "Coming" : "Ra mắt");
+      if (sap) el.textContent = EN ? "Coming soon" : "Sắp ra mắt";
+      else if (el.getAttribute("datetime") > homNay) el.textContent = el.textContent.replace(EN ? "Published" : "Lên kênh", EN ? "Coming" : "Ra mắt");
     });
   }).catch(function () {});
 
